@@ -4,7 +4,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_access-code_example-access-code-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_access-code_example-access-code-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_access-code_example-access-code-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_access-code_example-access-code-error_0_document_0_desktop.png",
         "label": "/components/access-code/example-access-code-error",
@@ -12,14 +12,21 @@ report({
         "url": "http://localhost:3010/components/access-code/example-access-code-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_access-code_example-access-code-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_access-code_example-access-code-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_access-code_example-access-code-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_access-code_example-access-code-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_access-code_example-access-code-error_0_document_1_tablet.png",
         "label": "/components/access-code/example-access-code-error",
@@ -27,14 +34,21 @@ report({
         "url": "http://localhost:3010/components/access-code/example-access-code-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_access-code_example-access-code-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_access-code_example-access-code-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_access-code_example-access-code-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_access-code_example-access-code-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_access-code_example-access-code-error_0_document_2_mobile.png",
         "label": "/components/access-code/example-access-code-error",
@@ -42,14 +56,21 @@ report({
         "url": "http://localhost:3010/components/access-code/example-access-code-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_access-code_example-access-code-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_access-code_example-access-code_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_access-code_example-access-code_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_access-code_example-access-code_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_access-code_example-access-code_0_document_0_desktop.png",
         "label": "/components/access-code/example-access-code",
@@ -57,14 +78,21 @@ report({
         "url": "http://localhost:3010/components/access-code/example-access-code",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_access-code_example-access-code_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_access-code_example-access-code_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_access-code_example-access-code_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_access-code_example-access-code_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_access-code_example-access-code_0_document_1_tablet.png",
         "label": "/components/access-code/example-access-code",
@@ -72,14 +100,21 @@ report({
         "url": "http://localhost:3010/components/access-code/example-access-code",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_access-code_example-access-code_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_access-code_example-access-code_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_access-code_example-access-code_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_access-code_example-access-code_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_access-code_example-access-code_0_document_2_mobile.png",
         "label": "/components/access-code/example-access-code",
@@ -87,14 +122,21 @@ report({
         "url": "http://localhost:3010/components/access-code/example-access-code",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_access-code_example-access-code_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_accordion_example-accordion-open_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_accordion_example-accordion-open_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_accordion_example-accordion-open_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_accordion_example-accordion-open_0_document_0_desktop.png",
         "label": "/components/accordion/example-accordion-open",
@@ -102,14 +144,21 @@ report({
         "url": "http://localhost:3010/components/accordion/example-accordion-open",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_accordion_example-accordion-open_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_accordion_example-accordion-open_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_accordion_example-accordion-open_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_accordion_example-accordion-open_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_accordion_example-accordion-open_0_document_1_tablet.png",
         "label": "/components/accordion/example-accordion-open",
@@ -117,14 +166,21 @@ report({
         "url": "http://localhost:3010/components/accordion/example-accordion-open",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_accordion_example-accordion-open_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_accordion_example-accordion-open_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_accordion_example-accordion-open_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_accordion_example-accordion-open_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_accordion_example-accordion-open_0_document_2_mobile.png",
         "label": "/components/accordion/example-accordion-open",
@@ -132,14 +188,21 @@ report({
         "url": "http://localhost:3010/components/accordion/example-accordion-open",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_accordion_example-accordion-open_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_accordion_example-accordion_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_accordion_example-accordion_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_accordion_example-accordion_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_accordion_example-accordion_0_document_0_desktop.png",
         "label": "/components/accordion/example-accordion",
@@ -147,14 +210,21 @@ report({
         "url": "http://localhost:3010/components/accordion/example-accordion",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_accordion_example-accordion_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_accordion_example-accordion_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_accordion_example-accordion_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_accordion_example-accordion_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_accordion_example-accordion_0_document_1_tablet.png",
         "label": "/components/accordion/example-accordion",
@@ -162,14 +232,21 @@ report({
         "url": "http://localhost:3010/components/accordion/example-accordion",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_accordion_example-accordion_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_accordion_example-accordion_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_accordion_example-accordion_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_accordion_example-accordion_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_accordion_example-accordion_0_document_2_mobile.png",
         "label": "/components/accordion/example-accordion",
@@ -177,14 +254,21 @@ report({
         "url": "http://localhost:3010/components/accordion/example-accordion",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_accordion_example-accordion_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input-editable_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_address-input_example-address-input-editable_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_address-input_example-address-input-editable_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input-editable_0_document_0_desktop.png",
         "label": "/components/address-input/example-address-input-editable",
@@ -192,14 +276,21 @@ report({
         "url": "http://localhost:3010/components/address-input/example-address-input-editable",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_address-input_example-address-input-editable_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input-editable_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_address-input_example-address-input-editable_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_address-input_example-address-input-editable_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input-editable_0_document_1_tablet.png",
         "label": "/components/address-input/example-address-input-editable",
@@ -207,14 +298,21 @@ report({
         "url": "http://localhost:3010/components/address-input/example-address-input-editable",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_address-input_example-address-input-editable_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input-editable_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_address-input_example-address-input-editable_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_address-input_example-address-input-editable_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input-editable_0_document_2_mobile.png",
         "label": "/components/address-input/example-address-input-editable",
@@ -222,14 +320,21 @@ report({
         "url": "http://localhost:3010/components/address-input/example-address-input-editable",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_address-input_example-address-input-editable_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input-manual_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_address-input_example-address-input-manual_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_address-input_example-address-input-manual_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input-manual_0_document_0_desktop.png",
         "label": "/components/address-input/example-address-input-manual",
@@ -237,14 +342,21 @@ report({
         "url": "http://localhost:3010/components/address-input/example-address-input-manual",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_address-input_example-address-input-manual_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input-manual_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_address-input_example-address-input-manual_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_address-input_example-address-input-manual_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input-manual_0_document_1_tablet.png",
         "label": "/components/address-input/example-address-input-manual",
@@ -252,14 +364,21 @@ report({
         "url": "http://localhost:3010/components/address-input/example-address-input-manual",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_address-input_example-address-input-manual_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input-manual_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_address-input_example-address-input-manual_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_address-input_example-address-input-manual_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input-manual_0_document_2_mobile.png",
         "label": "/components/address-input/example-address-input-manual",
@@ -267,14 +386,21 @@ report({
         "url": "http://localhost:3010/components/address-input/example-address-input-manual",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_address-input_example-address-input-manual_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_address-input_example-address-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_address-input_example-address-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input_0_document_0_desktop.png",
         "label": "/components/address-input/example-address-input",
@@ -282,14 +408,21 @@ report({
         "url": "http://localhost:3010/components/address-input/example-address-input",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_address-input_example-address-input_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_address-input_example-address-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_address-input_example-address-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input_0_document_1_tablet.png",
         "label": "/components/address-input/example-address-input",
@@ -297,14 +430,21 @@ report({
         "url": "http://localhost:3010/components/address-input/example-address-input",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_address-input_example-address-input_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_address-input_example-address-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_address-input_example-address-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input_0_document_2_mobile.png",
         "label": "/components/address-input/example-address-input",
@@ -312,14 +452,21 @@ report({
         "url": "http://localhost:3010/components/address-input/example-address-input",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_address-input_example-address-input_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_0_desktop.png",
         "label": "/components/autosuggest/example-autosuggest-country-multiple",
@@ -327,14 +474,21 @@ report({
         "url": "http://localhost:3010/components/autosuggest/example-autosuggest-country-multiple",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_1_tablet.png",
         "label": "/components/autosuggest/example-autosuggest-country-multiple",
@@ -342,14 +496,21 @@ report({
         "url": "http://localhost:3010/components/autosuggest/example-autosuggest-country-multiple",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_2_mobile.png",
         "label": "/components/autosuggest/example-autosuggest-country-multiple",
@@ -357,14 +518,21 @@ report({
         "url": "http://localhost:3010/components/autosuggest/example-autosuggest-country-multiple",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_0_desktop.png",
         "label": "/components/autosuggest/example-autosuggest-country",
@@ -372,14 +540,21 @@ report({
         "url": "http://localhost:3010/components/autosuggest/example-autosuggest-country",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_1_tablet.png",
         "label": "/components/autosuggest/example-autosuggest-country",
@@ -387,14 +562,21 @@ report({
         "url": "http://localhost:3010/components/autosuggest/example-autosuggest-country",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_2_mobile.png",
         "label": "/components/autosuggest/example-autosuggest-country",
@@ -402,14 +584,21 @@ report({
         "url": "http://localhost:3010/components/autosuggest/example-autosuggest-country",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_back-link_example-back-link_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_back-link_example-back-link_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_back-link_example-back-link_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_back-link_example-back-link_0_document_0_desktop.png",
         "label": "/components/back-link/example-back-link",
@@ -417,14 +606,21 @@ report({
         "url": "http://localhost:3010/components/back-link/example-back-link",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_back-link_example-back-link_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_back-link_example-back-link_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_back-link_example-back-link_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_back-link_example-back-link_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_back-link_example-back-link_0_document_1_tablet.png",
         "label": "/components/back-link/example-back-link",
@@ -432,14 +628,21 @@ report({
         "url": "http://localhost:3010/components/back-link/example-back-link",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_back-link_example-back-link_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_back-link_example-back-link_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_back-link_example-back-link_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_back-link_example-back-link_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_back-link_example-back-link_0_document_2_mobile.png",
         "label": "/components/back-link/example-back-link",
@@ -447,14 +650,21 @@ report({
         "url": "http://localhost:3010/components/back-link/example-back-link",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_back-link_example-back-link_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_0_desktop.png",
         "label": "/components/breadcrumbs/example-breadcrumbs-single",
@@ -462,14 +672,21 @@ report({
         "url": "http://localhost:3010/components/breadcrumbs/example-breadcrumbs-single",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_1_tablet.png",
         "label": "/components/breadcrumbs/example-breadcrumbs-single",
@@ -477,14 +694,21 @@ report({
         "url": "http://localhost:3010/components/breadcrumbs/example-breadcrumbs-single",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_2_mobile.png",
         "label": "/components/breadcrumbs/example-breadcrumbs-single",
@@ -492,14 +716,21 @@ report({
         "url": "http://localhost:3010/components/breadcrumbs/example-breadcrumbs-single",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_0_desktop.png",
         "label": "/components/breadcrumbs/example-breadcrumbs",
@@ -507,14 +738,21 @@ report({
         "url": "http://localhost:3010/components/breadcrumbs/example-breadcrumbs",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_1_tablet.png",
         "label": "/components/breadcrumbs/example-breadcrumbs",
@@ -522,14 +760,21 @@ report({
         "url": "http://localhost:3010/components/breadcrumbs/example-breadcrumbs",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_2_mobile.png",
         "label": "/components/breadcrumbs/example-breadcrumbs",
@@ -537,14 +782,21 @@ report({
         "url": "http://localhost:3010/components/breadcrumbs/example-breadcrumbs",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-custom_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-custom_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-custom_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-custom_0_document_0_desktop.png",
         "label": "/components/button/example-button-custom",
@@ -552,14 +804,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-custom",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-custom_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-custom_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-custom_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-custom_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-custom_0_document_1_tablet.png",
         "label": "/components/button/example-button-custom",
@@ -567,14 +826,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-custom",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-custom_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-custom_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-custom_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-custom_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-custom_0_document_2_mobile.png",
         "label": "/components/button/example-button-custom",
@@ -582,14 +848,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-custom",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-custom_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-disabled_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-disabled_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-disabled_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-disabled_0_document_0_desktop.png",
         "label": "/components/button/example-button-disabled",
@@ -597,14 +870,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-disabled",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-disabled_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-disabled_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-disabled_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-disabled_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-disabled_0_document_1_tablet.png",
         "label": "/components/button/example-button-disabled",
@@ -612,14 +892,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-disabled",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-disabled_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-disabled_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-disabled_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-disabled_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-disabled_0_document_2_mobile.png",
         "label": "/components/button/example-button-disabled",
@@ -627,14 +914,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-disabled",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-disabled_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-download_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-download_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-download_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-download_0_document_0_desktop.png",
         "label": "/components/button/example-button-download",
@@ -642,14 +936,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-download",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-download_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-download_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-download_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-download_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-download_0_document_1_tablet.png",
         "label": "/components/button/example-button-download",
@@ -657,14 +958,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-download",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-download_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-download_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-download_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-download_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-download_0_document_2_mobile.png",
         "label": "/components/button/example-button-download",
@@ -672,14 +980,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-download",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-download_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-ghost_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-ghost_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-ghost_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-ghost_0_document_0_desktop.png",
         "label": "/components/button/example-button-ghost",
@@ -687,14 +1002,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-ghost",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-ghost_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-ghost_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-ghost_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-ghost_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-ghost_0_document_1_tablet.png",
         "label": "/components/button/example-button-ghost",
@@ -702,14 +1024,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-ghost",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-ghost_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-ghost_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-ghost_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-ghost_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-ghost_0_document_2_mobile.png",
         "label": "/components/button/example-button-ghost",
@@ -717,14 +1046,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-ghost",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-ghost_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-group_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-group_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-group_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-group_0_document_0_desktop.png",
         "label": "/components/button/example-button-group",
@@ -732,14 +1068,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-group",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-group_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-group_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-group_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-group_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-group_0_document_1_tablet.png",
         "label": "/components/button/example-button-group",
@@ -747,14 +1090,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-group",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-group_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-group_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-group_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-group_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-group_0_document_2_mobile.png",
         "label": "/components/button/example-button-group",
@@ -762,14 +1112,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-group",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-group_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-link_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-link_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-link_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-link_0_document_0_desktop.png",
         "label": "/components/button/example-button-link",
@@ -777,14 +1134,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-link",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-link_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-link_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-link_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-link_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-link_0_document_1_tablet.png",
         "label": "/components/button/example-button-link",
@@ -792,14 +1156,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-link",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-link_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-link_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-link_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-link_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-link_0_document_2_mobile.png",
         "label": "/components/button/example-button-link",
@@ -807,14 +1178,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-link",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-link_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-loader_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-loader_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-loader_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-loader_0_document_0_desktop.png",
         "label": "/components/button/example-button-loader",
@@ -822,14 +1200,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-loader",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-loader_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-loader_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-loader_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-loader_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-loader_0_document_1_tablet.png",
         "label": "/components/button/example-button-loader",
@@ -837,14 +1222,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-loader",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-loader_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-loader_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-loader_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-loader_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-loader_0_document_2_mobile.png",
         "label": "/components/button/example-button-loader",
@@ -852,14 +1244,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-loader",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-loader_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-new-window_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-new-window_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-new-window_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-new-window_0_document_0_desktop.png",
         "label": "/components/button/example-button-new-window",
@@ -867,14 +1266,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-new-window",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-new-window_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-new-window_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-new-window_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-new-window_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-new-window_0_document_1_tablet.png",
         "label": "/components/button/example-button-new-window",
@@ -882,14 +1288,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-new-window",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-new-window_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-new-window_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-new-window_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-new-window_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-new-window_0_document_2_mobile.png",
         "label": "/components/button/example-button-new-window",
@@ -897,14 +1310,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-new-window",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-new-window_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-print_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-print_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-print_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-print_0_document_0_desktop.png",
         "label": "/components/button/example-button-print",
@@ -912,14 +1332,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-print",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-print_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-print_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-print_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-print_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-print_0_document_1_tablet.png",
         "label": "/components/button/example-button-print",
@@ -927,14 +1354,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-print",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-print_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-print_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-print_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-print_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-print_0_document_2_mobile.png",
         "label": "/components/button/example-button-print",
@@ -942,14 +1376,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-print",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-print_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-secondary-small_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-secondary-small_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-secondary-small_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-secondary-small_0_document_0_desktop.png",
         "label": "/components/button/example-button-secondary-small",
@@ -957,14 +1398,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-secondary-small",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-secondary-small_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-secondary-small_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-secondary-small_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-secondary-small_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-secondary-small_0_document_1_tablet.png",
         "label": "/components/button/example-button-secondary-small",
@@ -972,14 +1420,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-secondary-small",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-secondary-small_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-secondary-small_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-secondary-small_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-secondary-small_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-secondary-small_0_document_2_mobile.png",
         "label": "/components/button/example-button-secondary-small",
@@ -987,14 +1442,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-secondary-small",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-secondary-small_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-secondary_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-secondary_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-secondary_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-secondary_0_document_0_desktop.png",
         "label": "/components/button/example-button-secondary",
@@ -1002,14 +1464,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-secondary",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-secondary_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-secondary_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-secondary_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-secondary_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-secondary_0_document_1_tablet.png",
         "label": "/components/button/example-button-secondary",
@@ -1017,14 +1486,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-secondary",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-secondary_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-secondary_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-secondary_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-secondary_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-secondary_0_document_2_mobile.png",
         "label": "/components/button/example-button-secondary",
@@ -1032,14 +1508,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-secondary",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-secondary_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-small_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-small_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-small_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-small_0_document_0_desktop.png",
         "label": "/components/button/example-button-small",
@@ -1047,14 +1530,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-small",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-small_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-small_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-small_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-small_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-small_0_document_1_tablet.png",
         "label": "/components/button/example-button-small",
@@ -1062,14 +1552,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-small",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-small_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-small_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-small_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-small_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-small_0_document_2_mobile.png",
         "label": "/components/button/example-button-small",
@@ -1077,14 +1574,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-small",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-small_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-timer_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-timer_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-timer_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-timer_0_document_0_desktop.png",
         "label": "/components/button/example-button-timer",
@@ -1092,14 +1596,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-timer",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-timer_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-timer_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-timer_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-timer_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-timer_0_document_1_tablet.png",
         "label": "/components/button/example-button-timer",
@@ -1107,14 +1618,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-timer",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-timer_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-timer_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button-timer_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button-timer_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-timer_0_document_2_mobile.png",
         "label": "/components/button/example-button-timer",
@@ -1122,14 +1640,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button-timer",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button-timer_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button_0_document_0_desktop.png",
         "label": "/components/button/example-button",
@@ -1137,14 +1662,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button_0_document_1_tablet.png",
         "label": "/components/button/example-button",
@@ -1152,14 +1684,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_button_example-button_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_button_example-button_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button_0_document_2_mobile.png",
         "label": "/components/button/example-button",
@@ -1167,14 +1706,21 @@ report({
         "url": "http://localhost:3010/components/button/example-button",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_button_example-button_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_0_desktop.png",
         "label": "/components/call-to-action/example-call-to-action-default",
@@ -1182,14 +1728,21 @@ report({
         "url": "http://localhost:3010/components/call-to-action/example-call-to-action-default",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_1_tablet.png",
         "label": "/components/call-to-action/example-call-to-action-default",
@@ -1197,14 +1750,21 @@ report({
         "url": "http://localhost:3010/components/call-to-action/example-call-to-action-default",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_2_mobile.png",
         "label": "/components/call-to-action/example-call-to-action-default",
@@ -1212,14 +1772,21 @@ report({
         "url": "http://localhost:3010/components/call-to-action/example-call-to-action-default",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set-with-images_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_card_example-card-set-with-images_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_card_example-card-set-with-images_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set-with-images_0_document_0_desktop.png",
         "label": "/components/card/example-card-set-with-images",
@@ -1227,14 +1794,21 @@ report({
         "url": "http://localhost:3010/components/card/example-card-set-with-images",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_card_example-card-set-with-images_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set-with-images_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_card_example-card-set-with-images_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_card_example-card-set-with-images_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set-with-images_0_document_1_tablet.png",
         "label": "/components/card/example-card-set-with-images",
@@ -1242,14 +1816,21 @@ report({
         "url": "http://localhost:3010/components/card/example-card-set-with-images",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_card_example-card-set-with-images_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set-with-images_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_card_example-card-set-with-images_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_card_example-card-set-with-images_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set-with-images_0_document_2_mobile.png",
         "label": "/components/card/example-card-set-with-images",
@@ -1257,14 +1838,21 @@ report({
         "url": "http://localhost:3010/components/card/example-card-set-with-images",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_card_example-card-set-with-images_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set-with-lists_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_card_example-card-set-with-lists_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_card_example-card-set-with-lists_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set-with-lists_0_document_0_desktop.png",
         "label": "/components/card/example-card-set-with-lists",
@@ -1272,14 +1860,21 @@ report({
         "url": "http://localhost:3010/components/card/example-card-set-with-lists",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_card_example-card-set-with-lists_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set-with-lists_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_card_example-card-set-with-lists_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_card_example-card-set-with-lists_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set-with-lists_0_document_1_tablet.png",
         "label": "/components/card/example-card-set-with-lists",
@@ -1287,14 +1882,21 @@ report({
         "url": "http://localhost:3010/components/card/example-card-set-with-lists",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_card_example-card-set-with-lists_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set-with-lists_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_card_example-card-set-with-lists_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_card_example-card-set-with-lists_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set-with-lists_0_document_2_mobile.png",
         "label": "/components/card/example-card-set-with-lists",
@@ -1302,14 +1904,21 @@ report({
         "url": "http://localhost:3010/components/card/example-card-set-with-lists",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_card_example-card-set-with-lists_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_card_example-card-set_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_card_example-card-set_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set_0_document_0_desktop.png",
         "label": "/components/card/example-card-set",
@@ -1317,14 +1926,21 @@ report({
         "url": "http://localhost:3010/components/card/example-card-set",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_card_example-card-set_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_card_example-card-set_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_card_example-card-set_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set_0_document_1_tablet.png",
         "label": "/components/card/example-card-set",
@@ -1332,14 +1948,21 @@ report({
         "url": "http://localhost:3010/components/card/example-card-set",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_card_example-card-set_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_card_example-card-set_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_card_example-card-set_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set_0_document_2_mobile.png",
         "label": "/components/card/example-card-set",
@@ -1347,14 +1970,21 @@ report({
         "url": "http://localhost:3010/components/card/example-card-set",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_card_example-card-set_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_card_example-card_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_card_example-card_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card_0_document_0_desktop.png",
         "label": "/components/card/example-card",
@@ -1362,14 +1992,21 @@ report({
         "url": "http://localhost:3010/components/card/example-card",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_card_example-card_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_card_example-card_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_card_example-card_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card_0_document_1_tablet.png",
         "label": "/components/card/example-card",
@@ -1377,14 +2014,21 @@ report({
         "url": "http://localhost:3010/components/card/example-card",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_card_example-card_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_card_example-card_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_card_example-card_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card_0_document_2_mobile.png",
         "label": "/components/card/example-card",
@@ -1392,14 +2036,21 @@ report({
         "url": "http://localhost:3010/components/card/example-card",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_card_example-card_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-disabled",
@@ -1407,14 +2058,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-disabled",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-disabled",
@@ -1422,14 +2080,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-disabled",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-disabled",
@@ -1437,14 +2102,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-disabled",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-error",
@@ -1452,14 +2124,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-error",
@@ -1467,14 +2146,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-error",
@@ -1482,14 +2168,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-descriptions",
@@ -1497,14 +2190,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-descriptions",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-descriptions",
@@ -1512,14 +2212,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-descriptions",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-descriptions",
@@ -1527,14 +2234,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-descriptions",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-hidden-label",
@@ -1542,14 +2256,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-hidden-label",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-hidden-label",
@@ -1557,14 +2278,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-hidden-label",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-hidden-label",
@@ -1572,14 +2300,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-hidden-label",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-checkboxes",
@@ -1587,14 +2322,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-revealed-checkboxes",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-checkboxes",
@@ -1602,14 +2344,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-revealed-checkboxes",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-checkboxes",
@@ -1617,14 +2366,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-revealed-checkboxes",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-radios",
@@ -1632,14 +2388,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-revealed-radios",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-radios",
@@ -1647,14 +2410,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-revealed-radios",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-radios",
@@ -1662,14 +2432,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-revealed-radios",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-select",
@@ -1677,14 +2454,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-revealed-select",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-select",
@@ -1692,14 +2476,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-revealed-select",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-select",
@@ -1707,14 +2498,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-revealed-select",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-text-input",
@@ -1722,14 +2520,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-revealed-text-input",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-text-input",
@@ -1737,14 +2542,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-revealed-text-input",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-text-input",
@@ -1752,14 +2564,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-revealed-text-input",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-select-all-button",
@@ -1767,14 +2586,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-select-all-button",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-select-all-button",
@@ -1782,14 +2608,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-select-all-button",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-select-all-button",
@@ -1797,14 +2630,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-select-all-button",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-visible-text-input",
@@ -1812,14 +2652,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-visible-text-input",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-visible-text-input",
@@ -1827,14 +2674,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-visible-text-input",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-visible-text-input",
@@ -1842,14 +2696,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-with-visible-text-input",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-without-border",
@@ -1857,14 +2718,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-without-border",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-without-border",
@@ -1872,14 +2740,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-without-border",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-without-border",
@@ -1887,14 +2762,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes-without-border",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes",
@@ -1902,14 +2784,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes",
@@ -1917,14 +2806,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_checkboxes_example-checkboxes_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_checkboxes_example-checkboxes_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes",
@@ -1932,14 +2828,21 @@ report({
         "url": "http://localhost:3010/components/checkboxes/example-checkboxes",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_content-pagination_example-content-pagination_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_content-pagination_example-content-pagination_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_content-pagination_example-content-pagination_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_content-pagination_example-content-pagination_0_document_0_desktop.png",
         "label": "/components/content-pagination/example-content-pagination",
@@ -1947,14 +2850,21 @@ report({
         "url": "http://localhost:3010/components/content-pagination/example-content-pagination",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_content-pagination_example-content-pagination_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_content-pagination_example-content-pagination_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_content-pagination_example-content-pagination_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_content-pagination_example-content-pagination_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_content-pagination_example-content-pagination_0_document_1_tablet.png",
         "label": "/components/content-pagination/example-content-pagination",
@@ -1962,14 +2872,21 @@ report({
         "url": "http://localhost:3010/components/content-pagination/example-content-pagination",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_content-pagination_example-content-pagination_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_content-pagination_example-content-pagination_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_content-pagination_example-content-pagination_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_content-pagination_example-content-pagination_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_content-pagination_example-content-pagination_0_document_2_mobile.png",
         "label": "/components/content-pagination/example-content-pagination",
@@ -1977,14 +2894,21 @@ report({
         "url": "http://localhost:3010/components/content-pagination/example-content-pagination",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_content-pagination_example-content-pagination_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_0_desktop.png",
         "label": "/components/cookies-banner/example-cookies-banner-cymraeg",
@@ -1992,14 +2916,21 @@ report({
         "url": "http://localhost:3010/components/cookies-banner/example-cookies-banner-cymraeg",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_1_tablet.png",
         "label": "/components/cookies-banner/example-cookies-banner-cymraeg",
@@ -2007,14 +2938,21 @@ report({
         "url": "http://localhost:3010/components/cookies-banner/example-cookies-banner-cymraeg",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_2_mobile.png",
         "label": "/components/cookies-banner/example-cookies-banner-cymraeg",
@@ -2022,14 +2960,21 @@ report({
         "url": "http://localhost:3010/components/cookies-banner/example-cookies-banner-cymraeg",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_0_desktop.png",
         "label": "/components/cookies-banner/example-cookies-banner",
@@ -2037,14 +2982,21 @@ report({
         "url": "http://localhost:3010/components/cookies-banner/example-cookies-banner",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_1_tablet.png",
         "label": "/components/cookies-banner/example-cookies-banner",
@@ -2052,14 +3004,21 @@ report({
         "url": "http://localhost:3010/components/cookies-banner/example-cookies-banner",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_2_mobile.png",
         "label": "/components/cookies-banner/example-cookies-banner",
@@ -2067,14 +3026,21 @@ report({
         "url": "http://localhost:3010/components/cookies-banner/example-cookies-banner",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_date-input_example-date-input-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_date-input_example-date-input-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_date-input_example-date-input-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_date-input_example-date-input-error_0_document_0_desktop.png",
         "label": "/components/date-input/example-date-input-error",
@@ -2082,14 +3048,21 @@ report({
         "url": "http://localhost:3010/components/date-input/example-date-input-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_date-input_example-date-input-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_date-input_example-date-input-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_date-input_example-date-input-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_date-input_example-date-input-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_date-input_example-date-input-error_0_document_1_tablet.png",
         "label": "/components/date-input/example-date-input-error",
@@ -2097,14 +3070,21 @@ report({
         "url": "http://localhost:3010/components/date-input/example-date-input-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_date-input_example-date-input-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_date-input_example-date-input-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_date-input_example-date-input-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_date-input_example-date-input-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_date-input_example-date-input-error_0_document_2_mobile.png",
         "label": "/components/date-input/example-date-input-error",
@@ -2112,14 +3092,21 @@ report({
         "url": "http://localhost:3010/components/date-input/example-date-input-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_date-input_example-date-input-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_date-input_example-date-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_date-input_example-date-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_date-input_example-date-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_date-input_example-date-input_0_document_0_desktop.png",
         "label": "/components/date-input/example-date-input",
@@ -2127,14 +3114,21 @@ report({
         "url": "http://localhost:3010/components/date-input/example-date-input",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_date-input_example-date-input_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_date-input_example-date-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_date-input_example-date-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_date-input_example-date-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_date-input_example-date-input_0_document_1_tablet.png",
         "label": "/components/date-input/example-date-input",
@@ -2142,14 +3136,21 @@ report({
         "url": "http://localhost:3010/components/date-input/example-date-input",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_date-input_example-date-input_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_date-input_example-date-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_date-input_example-date-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_date-input_example-date-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_date-input_example-date-input_0_document_2_mobile.png",
         "label": "/components/date-input/example-date-input",
@@ -2157,14 +3158,21 @@ report({
         "url": "http://localhost:3010/components/date-input/example-date-input",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_date-input_example-date-input_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details-with-saved-state_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_details_example-details-with-saved-state_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_details_example-details-with-saved-state_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details-with-saved-state_0_document_0_desktop.png",
         "label": "/components/details/example-details-with-saved-state",
@@ -2172,14 +3180,21 @@ report({
         "url": "http://localhost:3010/components/details/example-details-with-saved-state",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_details_example-details-with-saved-state_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details-with-saved-state_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_details_example-details-with-saved-state_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_details_example-details-with-saved-state_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details-with-saved-state_0_document_1_tablet.png",
         "label": "/components/details/example-details-with-saved-state",
@@ -2187,14 +3202,21 @@ report({
         "url": "http://localhost:3010/components/details/example-details-with-saved-state",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_details_example-details-with-saved-state_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details-with-saved-state_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_details_example-details-with-saved-state_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_details_example-details-with-saved-state_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details-with-saved-state_0_document_2_mobile.png",
         "label": "/components/details/example-details-with-saved-state",
@@ -2202,14 +3224,21 @@ report({
         "url": "http://localhost:3010/components/details/example-details-with-saved-state",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_details_example-details-with-saved-state_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details-with-warning_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_details_example-details-with-warning_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_details_example-details-with-warning_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details-with-warning_0_document_0_desktop.png",
         "label": "/components/details/example-details-with-warning",
@@ -2217,14 +3246,21 @@ report({
         "url": "http://localhost:3010/components/details/example-details-with-warning",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_details_example-details-with-warning_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details-with-warning_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_details_example-details-with-warning_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_details_example-details-with-warning_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details-with-warning_0_document_1_tablet.png",
         "label": "/components/details/example-details-with-warning",
@@ -2232,14 +3268,21 @@ report({
         "url": "http://localhost:3010/components/details/example-details-with-warning",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_details_example-details-with-warning_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details-with-warning_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_details_example-details-with-warning_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_details_example-details-with-warning_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details-with-warning_0_document_2_mobile.png",
         "label": "/components/details/example-details-with-warning",
@@ -2247,14 +3290,21 @@ report({
         "url": "http://localhost:3010/components/details/example-details-with-warning",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_details_example-details-with-warning_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_details_example-details_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_details_example-details_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details_0_document_0_desktop.png",
         "label": "/components/details/example-details",
@@ -2262,14 +3312,21 @@ report({
         "url": "http://localhost:3010/components/details/example-details",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_details_example-details_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_details_example-details_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_details_example-details_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details_0_document_1_tablet.png",
         "label": "/components/details/example-details",
@@ -2277,14 +3334,21 @@ report({
         "url": "http://localhost:3010/components/details/example-details",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_details_example-details_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_details_example-details_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_details_example-details_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details_0_document_2_mobile.png",
         "label": "/components/details/example-details",
@@ -2292,14 +3356,21 @@ report({
         "url": "http://localhost:3010/components/details/example-details",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_details_example-details_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-article-featured_0_document_0_desktop.png",
         "label": "/components/document-list/example-document-list-article-featured",
@@ -2307,14 +3378,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-article-featured",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-article-featured_0_document_1_tablet.png",
         "label": "/components/document-list/example-document-list-article-featured",
@@ -2322,14 +3400,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-article-featured",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-article-featured_0_document_2_mobile.png",
         "label": "/components/document-list/example-document-list-article-featured",
@@ -2337,14 +3422,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-article-featured",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-articles_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-articles_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-articles_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-articles_0_document_0_desktop.png",
         "label": "/components/document-list/example-document-list-articles",
@@ -2352,14 +3444,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-articles",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-articles_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-articles_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-articles_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-articles_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-articles_0_document_1_tablet.png",
         "label": "/components/document-list/example-document-list-articles",
@@ -2367,14 +3466,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-articles",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-articles_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-articles_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-articles_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-articles_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-articles_0_document_2_mobile.png",
         "label": "/components/document-list/example-document-list-articles",
@@ -2382,14 +3488,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-articles",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-articles_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-downloads_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-downloads_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-downloads_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-downloads_0_document_0_desktop.png",
         "label": "/components/document-list/example-document-list-downloads",
@@ -2397,14 +3510,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-downloads",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-downloads_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-downloads_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-downloads_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-downloads_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-downloads_0_document_1_tablet.png",
         "label": "/components/document-list/example-document-list-downloads",
@@ -2412,14 +3532,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-downloads",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-downloads_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-downloads_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-downloads_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-downloads_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-downloads_0_document_2_mobile.png",
         "label": "/components/document-list/example-document-list-downloads",
@@ -2427,14 +3554,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-downloads",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-downloads_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_0_desktop.png",
         "label": "/components/document-list/example-document-list-search-result-featured",
@@ -2442,14 +3576,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-search-result-featured",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_1_tablet.png",
         "label": "/components/document-list/example-document-list-search-result-featured",
@@ -2457,14 +3598,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-search-result-featured",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_2_mobile.png",
         "label": "/components/document-list/example-document-list-search-result-featured",
@@ -2472,14 +3620,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-search-result-featured",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-results_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-search-results_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-search-results_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-search-results_0_document_0_desktop.png",
         "label": "/components/document-list/example-document-list-search-results",
@@ -2487,14 +3642,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-search-results",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-results_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-results_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-search-results_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-search-results_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-search-results_0_document_1_tablet.png",
         "label": "/components/document-list/example-document-list-search-results",
@@ -2502,14 +3664,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-search-results",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-results_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-results_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_document-list_example-document-list-search-results_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_document-list_example-document-list-search-results_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-search-results_0_document_2_mobile.png",
         "label": "/components/document-list/example-document-list-search-results",
@@ -2517,14 +3686,21 @@ report({
         "url": "http://localhost:3010/components/document-list/example-document-list-search-results",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-results_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_duration_example-duration-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_duration_example-duration-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration-error_0_document_0_desktop.png",
         "label": "/components/duration/example-duration-error",
@@ -2532,14 +3708,21 @@ report({
         "url": "http://localhost:3010/components/duration/example-duration-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_duration_example-duration-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_duration_example-duration-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_duration_example-duration-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration-error_0_document_1_tablet.png",
         "label": "/components/duration/example-duration-error",
@@ -2547,14 +3730,21 @@ report({
         "url": "http://localhost:3010/components/duration/example-duration-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_duration_example-duration-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_duration_example-duration-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_duration_example-duration-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration-error_0_document_2_mobile.png",
         "label": "/components/duration/example-duration-error",
@@ -2562,14 +3752,21 @@ report({
         "url": "http://localhost:3010/components/duration/example-duration-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_duration_example-duration-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_duration_example-duration_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_duration_example-duration_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration_0_document_0_desktop.png",
         "label": "/components/duration/example-duration",
@@ -2577,14 +3774,21 @@ report({
         "url": "http://localhost:3010/components/duration/example-duration",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_duration_example-duration_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_duration_example-duration_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_duration_example-duration_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration_0_document_1_tablet.png",
         "label": "/components/duration/example-duration",
@@ -2592,14 +3796,21 @@ report({
         "url": "http://localhost:3010/components/duration/example-duration",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_duration_example-duration_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_duration_example-duration_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_duration_example-duration_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration_0_document_2_mobile.png",
         "label": "/components/duration/example-duration",
@@ -2607,14 +3818,21 @@ report({
         "url": "http://localhost:3010/components/duration/example-duration",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_duration_example-duration_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_external-link_example-external-link_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_external-link_example-external-link_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_external-link_example-external-link_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_external-link_example-external-link_0_document_0_desktop.png",
         "label": "/components/external-link/example-external-link",
@@ -2622,14 +3840,21 @@ report({
         "url": "http://localhost:3010/components/external-link/example-external-link",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_external-link_example-external-link_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_external-link_example-external-link_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_external-link_example-external-link_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_external-link_example-external-link_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_external-link_example-external-link_0_document_1_tablet.png",
         "label": "/components/external-link/example-external-link",
@@ -2637,14 +3862,21 @@ report({
         "url": "http://localhost:3010/components/external-link/example-external-link",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_external-link_example-external-link_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_external-link_example-external-link_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_external-link_example-external-link_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_external-link_example-external-link_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_external-link_example-external-link_0_document_2_mobile.png",
         "label": "/components/external-link/example-external-link",
@@ -2652,14 +3884,21 @@ report({
         "url": "http://localhost:3010/components/external-link/example-external-link",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_external-link_example-external-link_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_0_desktop.png",
         "label": "/components/feedback/example-feedback-call-to-action",
@@ -2667,14 +3906,21 @@ report({
         "url": "http://localhost:3010/components/feedback/example-feedback-call-to-action",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_1_tablet.png",
         "label": "/components/feedback/example-feedback-call-to-action",
@@ -2682,14 +3928,21 @@ report({
         "url": "http://localhost:3010/components/feedback/example-feedback-call-to-action",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_2_mobile.png",
         "label": "/components/feedback/example-feedback-call-to-action",
@@ -2697,14 +3950,21 @@ report({
         "url": "http://localhost:3010/components/feedback/example-feedback-call-to-action",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-cymraeg_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-cymraeg_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-cymraeg_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-cymraeg_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-cymraeg",
@@ -2712,14 +3972,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-cymraeg",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-cymraeg_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-cymraeg_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-cymraeg_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-cymraeg_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-cymraeg_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-cymraeg",
@@ -2727,14 +3994,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-cymraeg",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-cymraeg_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-cymraeg_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-cymraeg_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-cymraeg_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-cymraeg_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-cymraeg",
@@ -2742,14 +4016,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-cymraeg",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-cymraeg_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-default_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-default_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-default_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-default_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-default",
@@ -2757,14 +4038,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-default",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-default_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-default_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-default_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-default_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-default_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-default",
@@ -2772,14 +4060,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-default",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-default_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-default_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-default_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-default_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-default_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-default",
@@ -2787,14 +4082,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-default",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-default_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-transactional_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-transactional_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-transactional_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-transactional_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-transactional",
@@ -2802,14 +4104,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-transactional",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-transactional_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-transactional_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-transactional_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-transactional_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-transactional_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-transactional",
@@ -2817,14 +4126,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-transactional",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-transactional_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-transactional_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-transactional_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-transactional_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-transactional_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-transactional",
@@ -2832,14 +4148,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-transactional",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-transactional_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-warning_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-warning_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-warning_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-warning_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-warning",
@@ -2847,14 +4170,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-warning",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-warning_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-warning_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-warning_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-warning_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-warning_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-warning",
@@ -2862,14 +4192,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-warning",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-warning_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-warning_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-warning_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-warning_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-warning_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-warning",
@@ -2877,14 +4214,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-warning",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-warning_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-with-alternative-organisation",
@@ -2892,14 +4236,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-with-alternative-organisation",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-with-alternative-organisation",
@@ -2907,14 +4258,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-with-alternative-organisation",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-with-alternative-organisation",
@@ -2922,14 +4280,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-with-alternative-organisation",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-with-coat-of-arms",
@@ -2937,14 +4302,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-with-coat-of-arms",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-with-coat-of-arms",
@@ -2952,14 +4324,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-with-coat-of-arms",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-with-coat-of-arms",
@@ -2967,14 +4346,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-with-coat-of-arms",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-copyright_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-with-copyright_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-with-copyright_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-copyright_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-with-copyright",
@@ -2982,14 +4368,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-with-copyright",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-with-copyright_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-copyright_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-with-copyright_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-with-copyright_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-copyright_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-with-copyright",
@@ -2997,14 +4390,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-with-copyright",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-with-copyright_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-copyright_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer-with-copyright_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer-with-copyright_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-copyright_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-with-copyright",
@@ -3012,14 +4412,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer-with-copyright",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer-with-copyright_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer_0_document_0_desktop.png",
         "label": "/components/footer/example-footer",
@@ -3027,14 +4434,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer_0_document_1_tablet.png",
         "label": "/components/footer/example-footer",
@@ -3042,14 +4456,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_footer_example-footer_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_footer_example-footer_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer_0_document_2_mobile.png",
         "label": "/components/footer/example-footer",
@@ -3057,14 +4478,21 @@ report({
         "url": "http://localhost:3010/components/footer/example-footer",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_footer_example-footer_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-default_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-default_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-default_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-default_0_document_0_desktop.png",
         "label": "/components/header/example-header-default",
@@ -3072,14 +4500,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-default",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-default_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-default_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-default_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-default_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-default_0_document_1_tablet.png",
         "label": "/components/header/example-header-default",
@@ -3087,14 +4522,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-default",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-default_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-default_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-default_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-default_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-default_0_document_2_mobile.png",
         "label": "/components/header/example-header-default",
@@ -3102,14 +4544,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-default",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-default_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_0_desktop.png",
         "label": "/components/header/example-header-external-for-survey-with-description",
@@ -3117,14 +4566,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-for-survey-with-description",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_1_tablet.png",
         "label": "/components/header/example-header-external-for-survey-with-description",
@@ -3132,14 +4588,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-for-survey-with-description",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_2_mobile.png",
         "label": "/components/header/example-header-external-for-survey-with-description",
@@ -3147,14 +4610,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-for-survey-with-description",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-for-surveys_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-for-surveys_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-for-surveys_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-for-surveys_0_document_0_desktop.png",
         "label": "/components/header/example-header-external-for-surveys",
@@ -3162,14 +4632,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-for-surveys",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-for-surveys_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-for-surveys_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-for-surveys_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-for-surveys_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-for-surveys_0_document_1_tablet.png",
         "label": "/components/header/example-header-external-for-surveys",
@@ -3177,14 +4654,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-for-surveys",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-for-surveys_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-for-surveys_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-for-surveys_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-for-surveys_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-for-surveys_0_document_2_mobile.png",
         "label": "/components/header/example-header-external-for-surveys",
@@ -3192,14 +4676,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-for-surveys",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-for-surveys_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-welsh_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-welsh_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-welsh_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-welsh_0_document_0_desktop.png",
         "label": "/components/header/example-header-external-welsh",
@@ -3207,14 +4698,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-welsh",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-welsh_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-welsh_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-welsh_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-welsh_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-welsh_0_document_1_tablet.png",
         "label": "/components/header/example-header-external-welsh",
@@ -3222,14 +4720,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-welsh",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-welsh_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-welsh_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-welsh_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-welsh_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-welsh_0_document_2_mobile.png",
         "label": "/components/header/example-header-external-welsh",
@@ -3237,14 +4742,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-welsh",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-welsh_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-navigation_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-with-navigation_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-with-navigation_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-navigation_0_document_0_desktop.png",
         "label": "/components/header/example-header-external-with-navigation",
@@ -3252,14 +4764,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-with-navigation",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-with-navigation_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-navigation_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-with-navigation_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-with-navigation_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-navigation_0_document_1_tablet.png",
         "label": "/components/header/example-header-external-with-navigation",
@@ -3267,14 +4786,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-with-navigation",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-with-navigation_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-navigation_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-with-navigation_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-with-navigation_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-navigation_0_document_2_mobile.png",
         "label": "/components/header/example-header-external-with-navigation",
@@ -3282,14 +4808,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-with-navigation",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-with-navigation_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-service-links_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-with-service-links_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-with-service-links_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-service-links_0_document_0_desktop.png",
         "label": "/components/header/example-header-external-with-service-links",
@@ -3297,14 +4830,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-with-service-links",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-with-service-links_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-service-links_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-with-service-links_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-with-service-links_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-service-links_0_document_1_tablet.png",
         "label": "/components/header/example-header-external-with-service-links",
@@ -3312,14 +4852,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-with-service-links",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-with-service-links_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-service-links_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-with-service-links_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-with-service-links_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-service-links_0_document_2_mobile.png",
         "label": "/components/header/example-header-external-with-service-links",
@@ -3327,14 +4874,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-with-service-links",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-with-service-links_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_0_desktop.png",
         "label": "/components/header/example-header-external-with-sub-navigation",
@@ -3342,14 +4896,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-with-sub-navigation",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_1_tablet.png",
         "label": "/components/header/example-header-external-with-sub-navigation",
@@ -3357,14 +4918,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-with-sub-navigation",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_2_mobile.png",
         "label": "/components/header/example-header-external-with-sub-navigation",
@@ -3372,14 +4940,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-external-with-sub-navigation",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-internal_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-internal_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-internal_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-internal_0_document_0_desktop.png",
         "label": "/components/header/example-header-internal",
@@ -3387,14 +4962,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-internal",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-internal_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-internal_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-internal_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-internal_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-internal_0_document_1_tablet.png",
         "label": "/components/header/example-header-internal",
@@ -3402,14 +4984,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-internal",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-internal_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-internal_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-internal_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-internal_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-internal_0_document_2_mobile.png",
         "label": "/components/header/example-header-internal",
@@ -3417,14 +5006,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-internal",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-internal_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_0_desktop.png",
         "label": "/components/header/example-header-neutral-for-multicoloured-logo",
@@ -3432,14 +5028,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-neutral-for-multicoloured-logo",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_1_tablet.png",
         "label": "/components/header/example-header-neutral-for-multicoloured-logo",
@@ -3447,14 +5050,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-neutral-for-multicoloured-logo",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_2_mobile.png",
         "label": "/components/header/example-header-neutral-for-multicoloured-logo",
@@ -3462,14 +5072,21 @@ report({
         "url": "http://localhost:3010/components/header/example-header-neutral-for-multicoloured-logo",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_hero_example-hero-dark_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_hero_example-hero-dark_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_hero_example-hero-dark_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_hero_example-hero-dark_0_document_0_desktop.png",
         "label": "/components/hero/example-hero-dark",
@@ -3477,14 +5094,21 @@ report({
         "url": "http://localhost:3010/components/hero/example-hero-dark",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_hero_example-hero-dark_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_hero_example-hero-dark_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_hero_example-hero-dark_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_hero_example-hero-dark_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_hero_example-hero-dark_0_document_1_tablet.png",
         "label": "/components/hero/example-hero-dark",
@@ -3492,14 +5116,21 @@ report({
         "url": "http://localhost:3010/components/hero/example-hero-dark",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_hero_example-hero-dark_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_hero_example-hero-dark_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_hero_example-hero-dark_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_hero_example-hero-dark_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_hero_example-hero-dark_0_document_2_mobile.png",
         "label": "/components/hero/example-hero-dark",
@@ -3507,14 +5138,21 @@ report({
         "url": "http://localhost:3010/components/hero/example-hero-dark",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_hero_example-hero-dark_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_hero_example-hero-default_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_hero_example-hero-default_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_hero_example-hero-default_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_hero_example-hero-default_0_document_0_desktop.png",
         "label": "/components/hero/example-hero-default",
@@ -3522,14 +5160,21 @@ report({
         "url": "http://localhost:3010/components/hero/example-hero-default",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_hero_example-hero-default_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_hero_example-hero-default_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_hero_example-hero-default_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_hero_example-hero-default_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_hero_example-hero-default_0_document_1_tablet.png",
         "label": "/components/hero/example-hero-default",
@@ -3537,14 +5182,21 @@ report({
         "url": "http://localhost:3010/components/hero/example-hero-default",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_hero_example-hero-default_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_hero_example-hero-default_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_hero_example-hero-default_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_hero_example-hero-default_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_hero_example-hero-default_0_document_2_mobile.png",
         "label": "/components/hero/example-hero-default",
@@ -3552,14 +5204,21 @@ report({
         "url": "http://localhost:3010/components/hero/example-hero-default",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_hero_example-hero-default_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_images_example-images-for-regular-screens_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_images_example-images-for-regular-screens_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_images_example-images-for-regular-screens_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_images_example-images-for-regular-screens_0_document_0_desktop.png",
         "label": "/components/images/example-images-for-regular-screens",
@@ -3567,14 +5226,21 @@ report({
         "url": "http://localhost:3010/components/images/example-images-for-regular-screens",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_images_example-images-for-regular-screens_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_images_example-images-for-regular-screens_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_images_example-images-for-regular-screens_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_images_example-images-for-regular-screens_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_images_example-images-for-regular-screens_0_document_1_tablet.png",
         "label": "/components/images/example-images-for-regular-screens",
@@ -3582,14 +5248,21 @@ report({
         "url": "http://localhost:3010/components/images/example-images-for-regular-screens",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_images_example-images-for-regular-screens_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_images_example-images-for-regular-screens_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_images_example-images-for-regular-screens_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_images_example-images-for-regular-screens_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_images_example-images-for-regular-screens_0_document_2_mobile.png",
         "label": "/components/images/example-images-for-regular-screens",
@@ -3597,14 +5270,21 @@ report({
         "url": "http://localhost:3010/components/images/example-images-for-regular-screens",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_images_example-images-for-regular-screens_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_images_example-images-for-retina-screens_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_images_example-images-for-retina-screens_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_images_example-images-for-retina-screens_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_images_example-images-for-retina-screens_0_document_0_desktop.png",
         "label": "/components/images/example-images-for-retina-screens",
@@ -3612,14 +5292,21 @@ report({
         "url": "http://localhost:3010/components/images/example-images-for-retina-screens",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_images_example-images-for-retina-screens_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_images_example-images-for-retina-screens_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_images_example-images-for-retina-screens_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_images_example-images-for-retina-screens_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_images_example-images-for-retina-screens_0_document_1_tablet.png",
         "label": "/components/images/example-images-for-retina-screens",
@@ -3627,14 +5314,21 @@ report({
         "url": "http://localhost:3010/components/images/example-images-for-retina-screens",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_images_example-images-for-retina-screens_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_images_example-images-for-retina-screens_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_images_example-images-for-retina-screens_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_images_example-images-for-retina-screens_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_images_example-images-for-retina-screens_0_document_2_mobile.png",
         "label": "/components/images/example-images-for-retina-screens",
@@ -3642,14 +5336,21 @@ report({
         "url": "http://localhost:3010/components/images/example-images-for-retina-screens",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_images_example-images-for-retina-screens_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-email_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-email_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-email_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-email_0_document_0_desktop.png",
         "label": "/components/input/example-input-email",
@@ -3657,14 +5358,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-email",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-email_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-email_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-email_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-email_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-email_0_document_1_tablet.png",
         "label": "/components/input/example-input-email",
@@ -3672,14 +5380,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-email",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-email_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-email_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-email_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-email_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-email_0_document_2_mobile.png",
         "label": "/components/input/example-input-email",
@@ -3687,14 +5402,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-email",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-email_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number-prefixed_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-number-prefixed_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-number-prefixed_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number-prefixed_0_document_0_desktop.png",
         "label": "/components/input/example-input-number-prefixed",
@@ -3702,14 +5424,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-number-prefixed",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-number-prefixed_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number-prefixed_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-number-prefixed_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-number-prefixed_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number-prefixed_0_document_1_tablet.png",
         "label": "/components/input/example-input-number-prefixed",
@@ -3717,14 +5446,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-number-prefixed",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-number-prefixed_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number-prefixed_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-number-prefixed_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-number-prefixed_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number-prefixed_0_document_2_mobile.png",
         "label": "/components/input/example-input-number-prefixed",
@@ -3732,14 +5468,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-number-prefixed",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-number-prefixed_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number-suffixed_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-number-suffixed_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-number-suffixed_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number-suffixed_0_document_0_desktop.png",
         "label": "/components/input/example-input-number-suffixed",
@@ -3747,14 +5490,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-number-suffixed",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-number-suffixed_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number-suffixed_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-number-suffixed_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-number-suffixed_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number-suffixed_0_document_1_tablet.png",
         "label": "/components/input/example-input-number-suffixed",
@@ -3762,14 +5512,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-number-suffixed",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-number-suffixed_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number-suffixed_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-number-suffixed_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-number-suffixed_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number-suffixed_0_document_2_mobile.png",
         "label": "/components/input/example-input-number-suffixed",
@@ -3777,14 +5534,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-number-suffixed",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-number-suffixed_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-number_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-number_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number_0_document_0_desktop.png",
         "label": "/components/input/example-input-number",
@@ -3792,14 +5556,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-number",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-number_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-number_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-number_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number_0_document_1_tablet.png",
         "label": "/components/input/example-input-number",
@@ -3807,14 +5578,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-number",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-number_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-number_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-number_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number_0_document_2_mobile.png",
         "label": "/components/input/example-input-number",
@@ -3822,14 +5600,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-number",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-number_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-numeric-values_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-numeric-values_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-numeric-values_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-numeric-values_0_document_0_desktop.png",
         "label": "/components/input/example-input-numeric-values",
@@ -3837,14 +5622,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-numeric-values",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-numeric-values_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-numeric-values_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-numeric-values_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-numeric-values_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-numeric-values_0_document_1_tablet.png",
         "label": "/components/input/example-input-numeric-values",
@@ -3852,14 +5644,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-numeric-values",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-numeric-values_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-numeric-values_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-numeric-values_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-numeric-values_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-numeric-values_0_document_2_mobile.png",
         "label": "/components/input/example-input-numeric-values",
@@ -3867,14 +5666,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-numeric-values",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-numeric-values_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-telephone_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-telephone_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-telephone_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-telephone_0_document_0_desktop.png",
         "label": "/components/input/example-input-telephone",
@@ -3882,14 +5688,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-telephone",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-telephone_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-telephone_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-telephone_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-telephone_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-telephone_0_document_1_tablet.png",
         "label": "/components/input/example-input-telephone",
@@ -3897,14 +5710,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-telephone",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-telephone_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-telephone_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-telephone_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-telephone_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-telephone_0_document_2_mobile.png",
         "label": "/components/input/example-input-telephone",
@@ -3912,14 +5732,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-telephone",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-telephone_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-width-constrained_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-text-width-constrained_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-text-width-constrained_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-width-constrained_0_document_0_desktop.png",
         "label": "/components/input/example-input-text-width-constrained",
@@ -3927,14 +5754,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-text-width-constrained",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-text-width-constrained_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-width-constrained_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-text-width-constrained_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-text-width-constrained_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-width-constrained_0_document_1_tablet.png",
         "label": "/components/input/example-input-text-width-constrained",
@@ -3942,14 +5776,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-text-width-constrained",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-text-width-constrained_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-width-constrained_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-text-width-constrained_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-text-width-constrained_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-width-constrained_0_document_2_mobile.png",
         "label": "/components/input/example-input-text-width-constrained",
@@ -3957,14 +5798,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-text-width-constrained",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-text-width-constrained_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_0_desktop.png",
         "label": "/components/input/example-input-text-with-character-limit-checker",
@@ -3972,14 +5820,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-text-with-character-limit-checker",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_1_tablet.png",
         "label": "/components/input/example-input-text-with-character-limit-checker",
@@ -3987,14 +5842,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-text-with-character-limit-checker",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_2_mobile.png",
         "label": "/components/input/example-input-text-with-character-limit-checker",
@@ -4002,14 +5864,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-text-with-character-limit-checker",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-with-description_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-text-with-description_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-text-with-description_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-with-description_0_document_0_desktop.png",
         "label": "/components/input/example-input-text-with-description",
@@ -4017,14 +5886,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-text-with-description",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-text-with-description_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-with-description_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-text-with-description_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-text-with-description_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-with-description_0_document_1_tablet.png",
         "label": "/components/input/example-input-text-with-description",
@@ -4032,14 +5908,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-text-with-description",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-text-with-description_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-with-description_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-text-with-description_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-text-with-description_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-with-description_0_document_2_mobile.png",
         "label": "/components/input/example-input-text-with-description",
@@ -4047,14 +5930,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-text-with-description",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-text-with-description_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-text_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-text_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text_0_document_0_desktop.png",
         "label": "/components/input/example-input-text",
@@ -4062,14 +5952,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-text",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-text_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-text_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-text_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text_0_document_1_tablet.png",
         "label": "/components/input/example-input-text",
@@ -4077,14 +5974,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-text",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-text_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_input_example-input-text_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_input_example-input-text_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text_0_document_2_mobile.png",
         "label": "/components/input/example-input-text",
@@ -4092,14 +5996,21 @@ report({
         "url": "http://localhost:3010/components/input/example-input-text",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_input_example-input-text_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_label_example-label-with-description_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_label_example-label-with-description_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_label_example-label-with-description_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_label_example-label-with-description_0_document_0_desktop.png",
         "label": "/components/label/example-label-with-description",
@@ -4107,14 +6018,21 @@ report({
         "url": "http://localhost:3010/components/label/example-label-with-description",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_label_example-label-with-description_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_label_example-label-with-description_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_label_example-label-with-description_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_label_example-label-with-description_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_label_example-label-with-description_0_document_1_tablet.png",
         "label": "/components/label/example-label-with-description",
@@ -4122,14 +6040,21 @@ report({
         "url": "http://localhost:3010/components/label/example-label-with-description",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_label_example-label-with-description_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_label_example-label-with-description_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_label_example-label-with-description_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_label_example-label-with-description_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_label_example-label-with-description_0_document_2_mobile.png",
         "label": "/components/label/example-label-with-description",
@@ -4137,14 +6062,21 @@ report({
         "url": "http://localhost:3010/components/label/example-label-with-description",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_label_example-label-with-description_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_label_example-label_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_label_example-label_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_label_example-label_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_label_example-label_0_document_0_desktop.png",
         "label": "/components/label/example-label",
@@ -4152,14 +6084,21 @@ report({
         "url": "http://localhost:3010/components/label/example-label",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_label_example-label_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_label_example-label_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_label_example-label_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_label_example-label_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_label_example-label_0_document_1_tablet.png",
         "label": "/components/label/example-label",
@@ -4167,14 +6106,21 @@ report({
         "url": "http://localhost:3010/components/label/example-label",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_label_example-label_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_label_example-label_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_label_example-label_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_label_example-label_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_label_example-label_0_document_2_mobile.png",
         "label": "/components/label/example-label",
@@ -4182,14 +6128,21 @@ report({
         "url": "http://localhost:3010/components/label/example-label",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_label_example-label_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_metadata_example-metadata_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_metadata_example-metadata_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_metadata_example-metadata_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_metadata_example-metadata_0_document_0_desktop.png",
         "label": "/components/metadata/example-metadata",
@@ -4197,14 +6150,21 @@ report({
         "url": "http://localhost:3010/components/metadata/example-metadata",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_metadata_example-metadata_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_metadata_example-metadata_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_metadata_example-metadata_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_metadata_example-metadata_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_metadata_example-metadata_0_document_1_tablet.png",
         "label": "/components/metadata/example-metadata",
@@ -4212,14 +6172,21 @@ report({
         "url": "http://localhost:3010/components/metadata/example-metadata",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_metadata_example-metadata_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_metadata_example-metadata_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_metadata_example-metadata_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_metadata_example-metadata_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_metadata_example-metadata_0_document_2_mobile.png",
         "label": "/components/metadata/example-metadata",
@@ -4227,14 +6194,21 @@ report({
         "url": "http://localhost:3010/components/metadata/example-metadata",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_metadata_example-metadata_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-checkboxes",
@@ -4242,14 +6216,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-checkboxes",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-checkboxes",
@@ -4257,14 +6238,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-checkboxes",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-checkboxes",
@@ -4272,14 +6260,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-checkboxes",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-date-with-error",
@@ -4287,14 +6282,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-date-with-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-date-with-error",
@@ -4302,14 +6304,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-date-with-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-date-with-error",
@@ -4317,14 +6326,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-date-with-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-date",
@@ -4332,14 +6348,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-date",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-date",
@@ -4347,14 +6370,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-date",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-date",
@@ -4362,14 +6392,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-date",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-duration",
@@ -4377,14 +6414,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-duration",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-duration",
@@ -4392,14 +6436,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-duration",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-duration",
@@ -4407,14 +6458,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-duration",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-email",
@@ -4422,14 +6480,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-email",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-email",
@@ -4437,14 +6502,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-email",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-email",
@@ -4452,14 +6524,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-email",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-multiple-options",
@@ -4467,14 +6546,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-multiple-options",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-multiple-options",
@@ -4482,14 +6568,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-multiple-options",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-multiple-options",
@@ -4497,14 +6590,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-multiple-options",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-number",
@@ -4512,14 +6612,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-number",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-number",
@@ -4527,14 +6634,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-number",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-number",
@@ -4542,14 +6656,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-number",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-textarea",
@@ -4557,14 +6678,24 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-textarea",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 0.3998360339506173,
+          "misMatchPercentage": "0.40",
+          "analysisTime": 569
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_0_desktop.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-textarea",
@@ -4572,14 +6703,24 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-textarea",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 1.054255167643229,
+          "misMatchPercentage": "1.05",
+          "analysisTime": 198
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_1_tablet.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-textarea",
@@ -4587,14 +6728,21 @@ report({
         "url": "http://localhost:3010/components/mutually-exclusive/example-mutually-exclusive-textarea",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-first_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_pagination_example-pagination-first_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_pagination_example-pagination-first_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-first_0_document_0_desktop.png",
         "label": "/components/pagination/example-pagination-first",
@@ -4602,14 +6750,21 @@ report({
         "url": "http://localhost:3010/components/pagination/example-pagination-first",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_pagination_example-pagination-first_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-first_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_pagination_example-pagination-first_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_pagination_example-pagination-first_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-first_0_document_1_tablet.png",
         "label": "/components/pagination/example-pagination-first",
@@ -4617,14 +6772,21 @@ report({
         "url": "http://localhost:3010/components/pagination/example-pagination-first",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_pagination_example-pagination-first_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-first_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_pagination_example-pagination-first_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_pagination_example-pagination-first_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-first_0_document_2_mobile.png",
         "label": "/components/pagination/example-pagination-first",
@@ -4632,14 +6794,21 @@ report({
         "url": "http://localhost:3010/components/pagination/example-pagination-first",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_pagination_example-pagination-first_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-last_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_pagination_example-pagination-last_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_pagination_example-pagination-last_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-last_0_document_0_desktop.png",
         "label": "/components/pagination/example-pagination-last",
@@ -4647,14 +6816,21 @@ report({
         "url": "http://localhost:3010/components/pagination/example-pagination-last",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_pagination_example-pagination-last_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-last_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_pagination_example-pagination-last_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_pagination_example-pagination-last_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-last_0_document_1_tablet.png",
         "label": "/components/pagination/example-pagination-last",
@@ -4662,14 +6838,21 @@ report({
         "url": "http://localhost:3010/components/pagination/example-pagination-last",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_pagination_example-pagination-last_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-last_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_pagination_example-pagination-last_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_pagination_example-pagination-last_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-last_0_document_2_mobile.png",
         "label": "/components/pagination/example-pagination-last",
@@ -4677,14 +6860,21 @@ report({
         "url": "http://localhost:3010/components/pagination/example-pagination-last",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_pagination_example-pagination-last_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_0_desktop.png",
         "label": "/components/pagination/example-pagination-with-no-range-indicator",
@@ -4692,14 +6882,21 @@ report({
         "url": "http://localhost:3010/components/pagination/example-pagination-with-no-range-indicator",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_1_tablet.png",
         "label": "/components/pagination/example-pagination-with-no-range-indicator",
@@ -4707,14 +6904,21 @@ report({
         "url": "http://localhost:3010/components/pagination/example-pagination-with-no-range-indicator",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_2_mobile.png",
         "label": "/components/pagination/example-pagination-with-no-range-indicator",
@@ -4722,14 +6926,21 @@ report({
         "url": "http://localhost:3010/components/pagination/example-pagination-with-no-range-indicator",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_pagination_example-pagination_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_pagination_example-pagination_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination_0_document_0_desktop.png",
         "label": "/components/pagination/example-pagination",
@@ -4737,14 +6948,21 @@ report({
         "url": "http://localhost:3010/components/pagination/example-pagination",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_pagination_example-pagination_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_pagination_example-pagination_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_pagination_example-pagination_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination_0_document_1_tablet.png",
         "label": "/components/pagination/example-pagination",
@@ -4752,14 +6970,21 @@ report({
         "url": "http://localhost:3010/components/pagination/example-pagination",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_pagination_example-pagination_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_pagination_example-pagination_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_pagination_example-pagination_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination_0_document_2_mobile.png",
         "label": "/components/pagination/example-pagination",
@@ -4767,14 +6992,21 @@ report({
         "url": "http://localhost:3010/components/pagination/example-pagination",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_pagination_example-pagination_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-bare_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-bare_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-bare_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-bare_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-bare",
@@ -4782,14 +7014,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-bare",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-bare_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-bare_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-bare_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-bare_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-bare_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-bare",
@@ -4797,14 +7036,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-bare",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-bare_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-bare_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-bare_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-bare_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-bare_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-bare",
@@ -4812,14 +7058,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-bare",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-bare_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-announcement_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-announcement_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-announcement_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-announcement_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-announcement",
@@ -4827,14 +7080,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-announcement",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-announcement_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-announcement_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-announcement_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-announcement_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-announcement_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-announcement",
@@ -4842,14 +7102,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-announcement",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-announcement_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-announcement_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-announcement_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-announcement_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-announcement_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-announcement",
@@ -4857,14 +7124,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-announcement",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-announcement_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-details_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-error-details_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-error-details_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-error-details_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-error-details",
@@ -4872,14 +7146,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-error-details",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-details_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-details_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-error-details_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-error-details_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-error-details_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-error-details",
@@ -4887,14 +7168,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-error-details",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-details_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-details_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-error-details_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-error-details_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-error-details_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-error-details",
@@ -4902,14 +7190,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-error-details",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-details_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-error-summary_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-error-summary",
@@ -4917,14 +7212,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-error-summary",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-error-summary_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-error-summary",
@@ -4932,14 +7234,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-error-summary",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-error-summary_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-error-summary",
@@ -4947,14 +7256,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-error-summary",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-information_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-information_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-information_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-information_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-information",
@@ -4962,14 +7278,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-information",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-information_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-information_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-information_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-information_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-information_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-information",
@@ -4977,14 +7300,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-information",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-information_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-information_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-information_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-information_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-information_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-information",
@@ -4992,14 +7322,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-information",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-information_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-spacious-information",
@@ -5007,14 +7344,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-spacious-information",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-spacious-information",
@@ -5022,14 +7366,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-spacious-information",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-spacious-information",
@@ -5037,14 +7388,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-spacious-information",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-success-message_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-success-message_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-success-message_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-success-message_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-success-message",
@@ -5052,14 +7410,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-success-message",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-success-message_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-success-message_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-success-message_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-success-message_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-success-message_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-success-message",
@@ -5067,14 +7432,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-success-message",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-success-message_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-success-message_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-success-message_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-success-message_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-success-message_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-success-message",
@@ -5082,14 +7454,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-success-message",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-success-message_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-warning_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-warning_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-warning_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-warning_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-warning",
@@ -5097,14 +7476,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-warning",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-warning_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-warning_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-warning_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-warning_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-warning_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-warning",
@@ -5112,14 +7498,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-warning",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-warning_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-warning_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_panel_example-panel-with-warning_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_panel_example-panel-with-warning_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-warning_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-warning",
@@ -5127,14 +7520,21 @@ report({
         "url": "http://localhost:3010/components/panel/example-panel-with-warning",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_panel_example-panel-with-warning_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_password_example-password_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_password_example-password_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_password_example-password_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_password_example-password_0_document_0_desktop.png",
         "label": "/components/password/example-password",
@@ -5142,14 +7542,21 @@ report({
         "url": "http://localhost:3010/components/password/example-password",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_password_example-password_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_password_example-password_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_password_example-password_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_password_example-password_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_password_example-password_0_document_1_tablet.png",
         "label": "/components/password/example-password",
@@ -5157,14 +7564,21 @@ report({
         "url": "http://localhost:3010/components/password/example-password",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_password_example-password_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_password_example-password_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_password_example-password_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_password_example-password_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_password_example-password_0_document_2_mobile.png",
         "label": "/components/password/example-password",
@@ -5172,14 +7586,21 @@ report({
         "url": "http://localhost:3010/components/password/example-password",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_password_example-password_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_0_desktop.png",
         "label": "/components/phase-banner/example-phase-banner-alpha",
@@ -5187,14 +7608,21 @@ report({
         "url": "http://localhost:3010/components/phase-banner/example-phase-banner-alpha",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_1_tablet.png",
         "label": "/components/phase-banner/example-phase-banner-alpha",
@@ -5202,14 +7630,21 @@ report({
         "url": "http://localhost:3010/components/phase-banner/example-phase-banner-alpha",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_2_mobile.png",
         "label": "/components/phase-banner/example-phase-banner-alpha",
@@ -5217,14 +7652,21 @@ report({
         "url": "http://localhost:3010/components/phase-banner/example-phase-banner-alpha",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_0_desktop.png",
         "label": "/components/phase-banner/example-phase-banner-beta",
@@ -5232,14 +7674,21 @@ report({
         "url": "http://localhost:3010/components/phase-banner/example-phase-banner-beta",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_1_tablet.png",
         "label": "/components/phase-banner/example-phase-banner-beta",
@@ -5247,14 +7696,21 @@ report({
         "url": "http://localhost:3010/components/phase-banner/example-phase-banner-beta",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_2_mobile.png",
         "label": "/components/phase-banner/example-phase-banner-beta",
@@ -5262,14 +7718,21 @@ report({
         "url": "http://localhost:3010/components/phase-banner/example-phase-banner-beta",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-ccs_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_question_example-question-ccs_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_question_example-question-ccs_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-ccs_0_document_0_desktop.png",
         "label": "/components/question/example-question-ccs",
@@ -5277,14 +7740,21 @@ report({
         "url": "http://localhost:3010/components/question/example-question-ccs",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_question_example-question-ccs_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-ccs_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_question_example-question-ccs_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_question_example-question-ccs_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-ccs_0_document_1_tablet.png",
         "label": "/components/question/example-question-ccs",
@@ -5292,14 +7762,21 @@ report({
         "url": "http://localhost:3010/components/question/example-question-ccs",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_question_example-question-ccs_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-ccs_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_question_example-question-ccs_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_question_example-question-ccs_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-ccs_0_document_2_mobile.png",
         "label": "/components/question/example-question-ccs",
@@ -5307,14 +7784,21 @@ report({
         "url": "http://localhost:3010/components/question/example-question-ccs",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_question_example-question-ccs_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-fieldset_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_question_example-question-fieldset_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_question_example-question-fieldset_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-fieldset_0_document_0_desktop.png",
         "label": "/components/question/example-question-fieldset",
@@ -5322,14 +7806,21 @@ report({
         "url": "http://localhost:3010/components/question/example-question-fieldset",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_question_example-question-fieldset_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-fieldset_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_question_example-question-fieldset_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_question_example-question-fieldset_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-fieldset_0_document_1_tablet.png",
         "label": "/components/question/example-question-fieldset",
@@ -5337,14 +7828,21 @@ report({
         "url": "http://localhost:3010/components/question/example-question-fieldset",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_question_example-question-fieldset_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-fieldset_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_question_example-question-fieldset_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_question_example-question-fieldset_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-fieldset_0_document_2_mobile.png",
         "label": "/components/question/example-question-fieldset",
@@ -5352,14 +7850,21 @@ report({
         "url": "http://localhost:3010/components/question/example-question-fieldset",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_question_example-question-fieldset_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-interviewer-note_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_question_example-question-interviewer-note_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_question_example-question-interviewer-note_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-interviewer-note_0_document_0_desktop.png",
         "label": "/components/question/example-question-interviewer-note",
@@ -5367,14 +7872,21 @@ report({
         "url": "http://localhost:3010/components/question/example-question-interviewer-note",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_question_example-question-interviewer-note_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-interviewer-note_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_question_example-question-interviewer-note_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_question_example-question-interviewer-note_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-interviewer-note_0_document_1_tablet.png",
         "label": "/components/question/example-question-interviewer-note",
@@ -5382,14 +7894,21 @@ report({
         "url": "http://localhost:3010/components/question/example-question-interviewer-note",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_question_example-question-interviewer-note_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-interviewer-note_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_question_example-question-interviewer-note_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_question_example-question-interviewer-note_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-interviewer-note_0_document_2_mobile.png",
         "label": "/components/question/example-question-interviewer-note",
@@ -5397,14 +7916,21 @@ report({
         "url": "http://localhost:3010/components/question/example-question-interviewer-note",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_question_example-question-interviewer-note_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-no-fieldset_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_question_example-question-no-fieldset_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_question_example-question-no-fieldset_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-no-fieldset_0_document_0_desktop.png",
         "label": "/components/question/example-question-no-fieldset",
@@ -5412,14 +7938,21 @@ report({
         "url": "http://localhost:3010/components/question/example-question-no-fieldset",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_question_example-question-no-fieldset_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-no-fieldset_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_question_example-question-no-fieldset_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_question_example-question-no-fieldset_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-no-fieldset_0_document_1_tablet.png",
         "label": "/components/question/example-question-no-fieldset",
@@ -5427,14 +7960,21 @@ report({
         "url": "http://localhost:3010/components/question/example-question-no-fieldset",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_question_example-question-no-fieldset_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-no-fieldset_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_question_example-question-no-fieldset_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_question_example-question-no-fieldset_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-no-fieldset_0_document_2_mobile.png",
         "label": "/components/question/example-question-no-fieldset",
@@ -5442,14 +7982,21 @@ report({
         "url": "http://localhost:3010/components/question/example-question-no-fieldset",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_question_example-question-no-fieldset_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-clear-button_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-clear-button",
@@ -5457,14 +8004,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-clear-button",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-clear-button_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-clear-button",
@@ -5472,14 +8026,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-clear-button",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-clear-button_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-clear-button",
@@ -5487,14 +8048,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-clear-button",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-descriptions_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-descriptions",
@@ -5502,14 +8070,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-descriptions",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-descriptions_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-descriptions",
@@ -5517,14 +8092,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-descriptions",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-descriptions_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-descriptions",
@@ -5532,14 +8114,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-descriptions",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-error_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-error",
@@ -5547,14 +8136,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-error_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-error",
@@ -5562,14 +8158,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-error_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-error",
@@ -5577,14 +8180,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-revealed-checkboxes",
@@ -5592,14 +8202,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-revealed-checkboxes",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-revealed-checkboxes",
@@ -5607,14 +8224,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-revealed-checkboxes",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-revealed-checkboxes",
@@ -5622,14 +8246,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-revealed-checkboxes",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-revealed-radios",
@@ -5637,14 +8268,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-revealed-radios",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-revealed-radios",
@@ -5652,14 +8290,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-revealed-radios",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-revealed-radios",
@@ -5667,14 +8312,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-revealed-radios",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-revealed-select",
@@ -5682,14 +8334,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-revealed-select",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-revealed-select",
@@ -5697,14 +8356,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-revealed-select",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-revealed-select",
@@ -5712,14 +8378,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-revealed-select",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-revealed-text-input",
@@ -5727,14 +8400,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-revealed-text-input",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-revealed-text-input",
@@ -5742,14 +8422,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-revealed-text-input",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-revealed-text-input",
@@ -5757,14 +8444,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-revealed-text-input",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-separator_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-separator_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-separator_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-separator_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-separator",
@@ -5772,14 +8466,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-separator",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-separator_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-separator_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-separator_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-separator_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-separator_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-separator",
@@ -5787,14 +8488,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-separator",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-separator_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-separator_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-separator_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-separator_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-separator_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-separator",
@@ -5802,14 +8510,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-separator",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-separator_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-visible-text-input",
@@ -5817,14 +8532,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-visible-text-input",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-visible-text-input",
@@ -5832,14 +8554,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-visible-text-input",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-visible-text-input",
@@ -5847,14 +8576,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-with-visible-text-input",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-without-border_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-without-border_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-without-border_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-without-border_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-without-border",
@@ -5862,14 +8598,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-without-border",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-without-border_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-without-border_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-without-border_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-without-border_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-without-border_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-without-border",
@@ -5877,14 +8620,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-without-border",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-without-border_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-without-border_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_radios_example-radios-without-border_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_radios_example-radios-without-border_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-without-border_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-without-border",
@@ -5892,14 +8642,21 @@ report({
         "url": "http://localhost:3010/components/radios/example-radios-without-border",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_radios_example-radios-without-border_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-general_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_related-content_example-related-content-general_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_related-content_example-related-content-general_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-general_0_document_0_desktop.png",
         "label": "/components/related-content/example-related-content-general",
@@ -5907,14 +8664,21 @@ report({
         "url": "http://localhost:3010/components/related-content/example-related-content-general",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_related-content_example-related-content-general_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-general_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_related-content_example-related-content-general_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_related-content_example-related-content-general_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-general_0_document_1_tablet.png",
         "label": "/components/related-content/example-related-content-general",
@@ -5922,14 +8686,21 @@ report({
         "url": "http://localhost:3010/components/related-content/example-related-content-general",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_related-content_example-related-content-general_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-general_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_related-content_example-related-content-general_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_related-content_example-related-content-general_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-general_0_document_2_mobile.png",
         "label": "/components/related-content/example-related-content-general",
@@ -5937,14 +8708,21 @@ report({
         "url": "http://localhost:3010/components/related-content/example-related-content-general",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_related-content_example-related-content-general_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_0_desktop.png",
         "label": "/components/related-content/example-related-content-multiple-rows-of-links",
@@ -5952,14 +8730,21 @@ report({
         "url": "http://localhost:3010/components/related-content/example-related-content-multiple-rows-of-links",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_1_tablet.png",
         "label": "/components/related-content/example-related-content-multiple-rows-of-links",
@@ -5967,14 +8752,21 @@ report({
         "url": "http://localhost:3010/components/related-content/example-related-content-multiple-rows-of-links",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_2_mobile.png",
         "label": "/components/related-content/example-related-content-multiple-rows-of-links",
@@ -5982,14 +8774,21 @@ report({
         "url": "http://localhost:3010/components/related-content/example-related-content-multiple-rows-of-links",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-social-media_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_related-content_example-related-content-social-media_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_related-content_example-related-content-social-media_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-social-media_0_document_0_desktop.png",
         "label": "/components/related-content/example-related-content-social-media",
@@ -5997,14 +8796,21 @@ report({
         "url": "http://localhost:3010/components/related-content/example-related-content-social-media",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_related-content_example-related-content-social-media_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-social-media_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_related-content_example-related-content-social-media_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_related-content_example-related-content-social-media_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-social-media_0_document_1_tablet.png",
         "label": "/components/related-content/example-related-content-social-media",
@@ -6012,14 +8818,21 @@ report({
         "url": "http://localhost:3010/components/related-content/example-related-content-social-media",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_related-content_example-related-content-social-media_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-social-media_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_related-content_example-related-content-social-media_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_related-content_example-related-content-social-media_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-social-media_0_document_2_mobile.png",
         "label": "/components/related-content/example-related-content-social-media",
@@ -6027,14 +8840,21 @@ report({
         "url": "http://localhost:3010/components/related-content/example-related-content-social-media",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_related-content_example-related-content-social-media_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_relationships_example-relationships-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_relationships_example-relationships-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships-error_0_document_0_desktop.png",
         "label": "/components/relationships/example-relationships-error",
@@ -6042,14 +8862,21 @@ report({
         "url": "http://localhost:3010/components/relationships/example-relationships-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_relationships_example-relationships-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_relationships_example-relationships-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_relationships_example-relationships-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships-error_0_document_1_tablet.png",
         "label": "/components/relationships/example-relationships-error",
@@ -6057,14 +8884,21 @@ report({
         "url": "http://localhost:3010/components/relationships/example-relationships-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_relationships_example-relationships-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_relationships_example-relationships-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_relationships_example-relationships-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships-error_0_document_2_mobile.png",
         "label": "/components/relationships/example-relationships-error",
@@ -6072,14 +8906,21 @@ report({
         "url": "http://localhost:3010/components/relationships/example-relationships-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_relationships_example-relationships-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships-you_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_relationships_example-relationships-you_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_relationships_example-relationships-you_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships-you_0_document_0_desktop.png",
         "label": "/components/relationships/example-relationships-you",
@@ -6087,14 +8928,21 @@ report({
         "url": "http://localhost:3010/components/relationships/example-relationships-you",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_relationships_example-relationships-you_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships-you_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_relationships_example-relationships-you_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_relationships_example-relationships-you_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships-you_0_document_1_tablet.png",
         "label": "/components/relationships/example-relationships-you",
@@ -6102,14 +8950,21 @@ report({
         "url": "http://localhost:3010/components/relationships/example-relationships-you",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_relationships_example-relationships-you_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships-you_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_relationships_example-relationships-you_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_relationships_example-relationships-you_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships-you_0_document_2_mobile.png",
         "label": "/components/relationships/example-relationships-you",
@@ -6117,14 +8972,21 @@ report({
         "url": "http://localhost:3010/components/relationships/example-relationships-you",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_relationships_example-relationships-you_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_relationships_example-relationships_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_relationships_example-relationships_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships_0_document_0_desktop.png",
         "label": "/components/relationships/example-relationships",
@@ -6132,14 +8994,21 @@ report({
         "url": "http://localhost:3010/components/relationships/example-relationships",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_relationships_example-relationships_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_relationships_example-relationships_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_relationships_example-relationships_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships_0_document_1_tablet.png",
         "label": "/components/relationships/example-relationships",
@@ -6147,14 +9016,21 @@ report({
         "url": "http://localhost:3010/components/relationships/example-relationships",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_relationships_example-relationships_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_relationships_example-relationships_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_relationships_example-relationships_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships_0_document_2_mobile.png",
         "label": "/components/relationships/example-relationships",
@@ -6162,14 +9038,21 @@ report({
         "url": "http://localhost:3010/components/relationships/example-relationships",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_relationships_example-relationships_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search-with-character-check_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_search_example-search-with-character-check_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_search_example-search-with-character-check_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search-with-character-check_0_document_0_desktop.png",
         "label": "/components/search/example-search-with-character-check",
@@ -6177,14 +9060,21 @@ report({
         "url": "http://localhost:3010/components/search/example-search-with-character-check",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_search_example-search-with-character-check_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search-with-character-check_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_search_example-search-with-character-check_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_search_example-search-with-character-check_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search-with-character-check_0_document_1_tablet.png",
         "label": "/components/search/example-search-with-character-check",
@@ -6192,14 +9082,21 @@ report({
         "url": "http://localhost:3010/components/search/example-search-with-character-check",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_search_example-search-with-character-check_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search-with-character-check_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_search_example-search-with-character-check_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_search_example-search-with-character-check_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search-with-character-check_0_document_2_mobile.png",
         "label": "/components/search/example-search-with-character-check",
@@ -6207,14 +9104,21 @@ report({
         "url": "http://localhost:3010/components/search/example-search-with-character-check",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_search_example-search-with-character-check_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search-with-placeholder_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_search_example-search-with-placeholder_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_search_example-search-with-placeholder_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search-with-placeholder_0_document_0_desktop.png",
         "label": "/components/search/example-search-with-placeholder",
@@ -6222,14 +9126,21 @@ report({
         "url": "http://localhost:3010/components/search/example-search-with-placeholder",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_search_example-search-with-placeholder_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search-with-placeholder_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_search_example-search-with-placeholder_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_search_example-search-with-placeholder_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search-with-placeholder_0_document_1_tablet.png",
         "label": "/components/search/example-search-with-placeholder",
@@ -6237,14 +9148,21 @@ report({
         "url": "http://localhost:3010/components/search/example-search-with-placeholder",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_search_example-search-with-placeholder_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search-with-placeholder_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_search_example-search-with-placeholder_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_search_example-search-with-placeholder_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search-with-placeholder_0_document_2_mobile.png",
         "label": "/components/search/example-search-with-placeholder",
@@ -6252,14 +9170,21 @@ report({
         "url": "http://localhost:3010/components/search/example-search-with-placeholder",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_search_example-search-with-placeholder_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_search_example-search_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_search_example-search_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search_0_document_0_desktop.png",
         "label": "/components/search/example-search",
@@ -6267,14 +9192,21 @@ report({
         "url": "http://localhost:3010/components/search/example-search",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_search_example-search_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_search_example-search_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_search_example-search_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search_0_document_1_tablet.png",
         "label": "/components/search/example-search",
@@ -6282,14 +9214,21 @@ report({
         "url": "http://localhost:3010/components/search/example-search",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_search_example-search_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_search_example-search_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_search_example-search_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search_0_document_2_mobile.png",
         "label": "/components/search/example-search",
@@ -6297,14 +9236,21 @@ report({
         "url": "http://localhost:3010/components/search/example-search",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_search_example-search_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_0_desktop.png",
         "label": "/components/section-navigation/example-section-navigation-vertical",
@@ -6312,14 +9258,21 @@ report({
         "url": "http://localhost:3010/components/section-navigation/example-section-navigation-vertical",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_1_tablet.png",
         "label": "/components/section-navigation/example-section-navigation-vertical",
@@ -6327,14 +9280,21 @@ report({
         "url": "http://localhost:3010/components/section-navigation/example-section-navigation-vertical",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_2_mobile.png",
         "label": "/components/section-navigation/example-section-navigation-vertical",
@@ -6342,14 +9302,21 @@ report({
         "url": "http://localhost:3010/components/section-navigation/example-section-navigation-vertical",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_section-navigation_example-section-navigation_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_section-navigation_example-section-navigation_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_section-navigation_example-section-navigation_0_document_0_desktop.png",
         "label": "/components/section-navigation/example-section-navigation",
@@ -6357,14 +9324,21 @@ report({
         "url": "http://localhost:3010/components/section-navigation/example-section-navigation",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_section-navigation_example-section-navigation_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_section-navigation_example-section-navigation_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_section-navigation_example-section-navigation_0_document_1_tablet.png",
         "label": "/components/section-navigation/example-section-navigation",
@@ -6372,14 +9346,21 @@ report({
         "url": "http://localhost:3010/components/section-navigation/example-section-navigation",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_section-navigation_example-section-navigation_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_section-navigation_example-section-navigation_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_section-navigation_example-section-navigation_0_document_2_mobile.png",
         "label": "/components/section-navigation/example-section-navigation",
@@ -6387,14 +9368,21 @@ report({
         "url": "http://localhost:3010/components/section-navigation/example-section-navigation",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-wide_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_select_example-select-wide_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_select_example-select-wide_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-wide_0_document_0_desktop.png",
         "label": "/components/select/example-select-wide",
@@ -6402,14 +9390,21 @@ report({
         "url": "http://localhost:3010/components/select/example-select-wide",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_select_example-select-wide_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-wide_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_select_example-select-wide_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_select_example-select-wide_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-wide_0_document_1_tablet.png",
         "label": "/components/select/example-select-wide",
@@ -6417,14 +9412,21 @@ report({
         "url": "http://localhost:3010/components/select/example-select-wide",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_select_example-select-wide_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-wide_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_select_example-select-wide_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_select_example-select-wide_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-wide_0_document_2_mobile.png",
         "label": "/components/select/example-select-wide",
@@ -6432,14 +9434,21 @@ report({
         "url": "http://localhost:3010/components/select/example-select-wide",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_select_example-select-wide_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-with-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_select_example-select-with-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_select_example-select-with-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-with-error_0_document_0_desktop.png",
         "label": "/components/select/example-select-with-error",
@@ -6447,14 +9456,21 @@ report({
         "url": "http://localhost:3010/components/select/example-select-with-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_select_example-select-with-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-with-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_select_example-select-with-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_select_example-select-with-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-with-error_0_document_1_tablet.png",
         "label": "/components/select/example-select-with-error",
@@ -6462,14 +9478,21 @@ report({
         "url": "http://localhost:3010/components/select/example-select-with-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_select_example-select-with-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-with-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_select_example-select-with-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_select_example-select-with-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-with-error_0_document_2_mobile.png",
         "label": "/components/select/example-select-with-error",
@@ -6477,14 +9500,21 @@ report({
         "url": "http://localhost:3010/components/select/example-select-with-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_select_example-select-with-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-with-inline-label_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_select_example-select-with-inline-label_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_select_example-select-with-inline-label_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-with-inline-label_0_document_0_desktop.png",
         "label": "/components/select/example-select-with-inline-label",
@@ -6492,14 +9522,21 @@ report({
         "url": "http://localhost:3010/components/select/example-select-with-inline-label",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_select_example-select-with-inline-label_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-with-inline-label_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_select_example-select-with-inline-label_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_select_example-select-with-inline-label_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-with-inline-label_0_document_1_tablet.png",
         "label": "/components/select/example-select-with-inline-label",
@@ -6507,14 +9544,21 @@ report({
         "url": "http://localhost:3010/components/select/example-select-with-inline-label",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_select_example-select-with-inline-label_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-with-inline-label_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_select_example-select-with-inline-label_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_select_example-select-with-inline-label_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-with-inline-label_0_document_2_mobile.png",
         "label": "/components/select/example-select-with-inline-label",
@@ -6522,14 +9566,21 @@ report({
         "url": "http://localhost:3010/components/select/example-select-with-inline-label",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_select_example-select-with-inline-label_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_select_example-select_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_select_example-select_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select_0_document_0_desktop.png",
         "label": "/components/select/example-select",
@@ -6537,14 +9588,21 @@ report({
         "url": "http://localhost:3010/components/select/example-select",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_select_example-select_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_select_example-select_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_select_example-select_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select_0_document_1_tablet.png",
         "label": "/components/select/example-select",
@@ -6552,14 +9610,21 @@ report({
         "url": "http://localhost:3010/components/select/example-select",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_select_example-select_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_select_example-select_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_select_example-select_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select_0_document_2_mobile.png",
         "label": "/components/select/example-select",
@@ -6567,14 +9632,21 @@ report({
         "url": "http://localhost:3010/components/select/example-select",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_select_example-select_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_share-page_example-share-page_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_share-page_example-share-page_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_share-page_example-share-page_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_share-page_example-share-page_0_document_0_desktop.png",
         "label": "/components/share-page/example-share-page",
@@ -6582,14 +9654,21 @@ report({
         "url": "http://localhost:3010/components/share-page/example-share-page",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_share-page_example-share-page_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_share-page_example-share-page_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_share-page_example-share-page_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_share-page_example-share-page_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_share-page_example-share-page_0_document_1_tablet.png",
         "label": "/components/share-page/example-share-page",
@@ -6597,14 +9676,21 @@ report({
         "url": "http://localhost:3010/components/share-page/example-share-page",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_share-page_example-share-page_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_share-page_example-share-page_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_share-page_example-share-page_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_share-page_example-share-page_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_share-page_example-share-page_0_document_2_mobile.png",
         "label": "/components/share-page/example-share-page",
@@ -6612,14 +9698,21 @@ report({
         "url": "http://localhost:3010/components/share-page/example-share-page",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_share-page_example-share-page_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_0_desktop.png",
         "label": "/components/skip-to-content/example-skip-to-content",
@@ -6627,14 +9720,21 @@ report({
         "url": "http://localhost:3010/components/skip-to-content/example-skip-to-content",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_1_tablet.png",
         "label": "/components/skip-to-content/example-skip-to-content",
@@ -6642,14 +9742,21 @@ report({
         "url": "http://localhost:3010/components/skip-to-content/example-skip-to-content",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_2_mobile.png",
         "label": "/components/skip-to-content/example-skip-to-content",
@@ -6657,14 +9764,21 @@ report({
         "url": "http://localhost:3010/components/skip-to-content/example-skip-to-content",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-dead_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-dead_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-dead_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-dead_0_document_0_desktop.png",
         "label": "/components/status/example-status-dead",
@@ -6672,14 +9786,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-dead",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-dead_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-dead_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-dead_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-dead_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-dead_0_document_1_tablet.png",
         "label": "/components/status/example-status-dead",
@@ -6687,14 +9808,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-dead",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-dead_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-dead_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-dead_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-dead_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-dead_0_document_2_mobile.png",
         "label": "/components/status/example-status-dead",
@@ -6702,14 +9830,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-dead",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-dead_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-error_0_document_0_desktop.png",
         "label": "/components/status/example-status-error",
@@ -6717,14 +9852,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-error_0_document_1_tablet.png",
         "label": "/components/status/example-status-error",
@@ -6732,14 +9874,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-error_0_document_2_mobile.png",
         "label": "/components/status/example-status-error",
@@ -6747,14 +9896,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-neutral-information_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-neutral-information_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-neutral-information_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-neutral-information_0_document_0_desktop.png",
         "label": "/components/status/example-status-neutral-information",
@@ -6762,14 +9918,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-neutral-information",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-neutral-information_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-neutral-information_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-neutral-information_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-neutral-information_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-neutral-information_0_document_1_tablet.png",
         "label": "/components/status/example-status-neutral-information",
@@ -6777,14 +9940,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-neutral-information",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-neutral-information_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-neutral-information_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-neutral-information_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-neutral-information_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-neutral-information_0_document_2_mobile.png",
         "label": "/components/status/example-status-neutral-information",
@@ -6792,14 +9962,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-neutral-information",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-neutral-information_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-pending_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-pending_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-pending_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-pending_0_document_0_desktop.png",
         "label": "/components/status/example-status-pending",
@@ -6807,14 +9984,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-pending",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-pending_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-pending_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-pending_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-pending_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-pending_0_document_1_tablet.png",
         "label": "/components/status/example-status-pending",
@@ -6822,14 +10006,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-pending",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-pending_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-pending_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-pending_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-pending_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-pending_0_document_2_mobile.png",
         "label": "/components/status/example-status-pending",
@@ -6837,14 +10028,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-pending",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-pending_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-small_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-small_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-small_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-small_0_document_0_desktop.png",
         "label": "/components/status/example-status-small",
@@ -6852,14 +10050,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-small",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-small_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-small_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-small_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-small_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-small_0_document_1_tablet.png",
         "label": "/components/status/example-status-small",
@@ -6867,14 +10072,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-small",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-small_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-small_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-small_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-small_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-small_0_document_2_mobile.png",
         "label": "/components/status/example-status-small",
@@ -6882,14 +10094,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-small",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-small_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-success_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-success_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-success_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-success_0_document_0_desktop.png",
         "label": "/components/status/example-status-success",
@@ -6897,14 +10116,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-success",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-success_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-success_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-success_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-success_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-success_0_document_1_tablet.png",
         "label": "/components/status/example-status-success",
@@ -6912,14 +10138,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-success",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-success_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-success_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_status_example-status-success_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_status_example-status-success_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-success_0_document_2_mobile.png",
         "label": "/components/status/example-status-success",
@@ -6927,14 +10160,21 @@ report({
         "url": "http://localhost:3010/components/status/example-status-success",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_status_example-status-success_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-total_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-grouped-total_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-grouped-total_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped-total_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-grouped-total",
@@ -6942,14 +10182,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-grouped-total",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-total_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-total_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-grouped-total_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-grouped-total_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped-total_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-grouped-total",
@@ -6957,14 +10204,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-grouped-total",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-total_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-total_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-grouped-total_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-grouped-total_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped-total_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-grouped-total",
@@ -6972,14 +10226,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-grouped-total",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-total_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-grouped-with-errors",
@@ -6987,14 +10248,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-grouped-with-errors",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-grouped-with-errors",
@@ -7002,14 +10270,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-grouped-with-errors",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-grouped-with-errors",
@@ -7017,14 +10292,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-grouped-with-errors",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-grouped_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-grouped_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-grouped",
@@ -7032,14 +10314,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-grouped",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-grouped_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-grouped_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-grouped",
@@ -7047,14 +10336,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-grouped",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-grouped_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-grouped_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-grouped",
@@ -7062,14 +10358,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-grouped",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-household-no-rows_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-household-no-rows",
@@ -7077,14 +10380,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-household-no-rows",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-household-no-rows_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-household-no-rows",
@@ -7092,14 +10402,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-household-no-rows",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-household-no-rows_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-household-no-rows",
@@ -7107,14 +10424,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-household-no-rows",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-household_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-household_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-household_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-household_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-household",
@@ -7122,14 +10446,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-household",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-household_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-household_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-household_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-household_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-household_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-household",
@@ -7137,14 +10468,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-household",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-household_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-household_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-household_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-household_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-household_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-household",
@@ -7152,14 +10490,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-household",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-household_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-hub_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-hub_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-hub_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-hub_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-hub",
@@ -7167,14 +10512,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-hub",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-hub_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-hub_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-hub_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-hub_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-hub_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-hub",
@@ -7182,14 +10534,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-hub",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-hub_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-hub_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-hub_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-hub_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-hub_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-hub",
@@ -7197,14 +10556,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-hub",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-hub_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-multiple_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-multiple_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-multiple_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-multiple_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-multiple",
@@ -7212,14 +10578,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-multiple",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-multiple_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-multiple_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-multiple_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-multiple_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-multiple_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-multiple",
@@ -7227,14 +10600,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-multiple",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-multiple_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-multiple_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-multiple_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-multiple_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-multiple_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-multiple",
@@ -7242,14 +10622,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-multiple",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-multiple_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-no-action_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-no-action_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-no-action_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-no-action_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-no-action",
@@ -7257,14 +10644,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-no-action",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-no-action_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-no-action_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-no-action_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-no-action_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-no-action_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-no-action",
@@ -7272,14 +10666,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-no-action",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-no-action_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-no-action_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary-no-action_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary-no-action_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-no-action_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-no-action",
@@ -7287,14 +10688,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary-no-action",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary-no-action_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary_0_document_0_desktop.png",
         "label": "/components/summary/example-summary",
@@ -7302,14 +10710,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary_0_document_1_tablet.png",
         "label": "/components/summary/example-summary",
@@ -7317,14 +10732,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_summary_example-summary_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_summary_example-summary_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary_0_document_2_mobile.png",
         "label": "/components/summary/example-summary",
@@ -7332,14 +10754,21 @@ report({
         "url": "http://localhost:3010/components/summary/example-summary",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_summary_example-summary_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-basic_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-basic_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-basic_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-basic_0_document_0_desktop.png",
         "label": "/components/table/example-table-basic",
@@ -7347,14 +10776,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-basic",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-basic_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-basic_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-basic_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-basic_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-basic_0_document_1_tablet.png",
         "label": "/components/table/example-table-basic",
@@ -7362,14 +10798,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-basic",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-basic_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-basic_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-basic_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-basic_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-basic_0_document_2_mobile.png",
         "label": "/components/table/example-table-basic",
@@ -7377,14 +10820,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-basic",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-basic_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-compact_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-compact_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-compact_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-compact_0_document_0_desktop.png",
         "label": "/components/table/example-table-compact",
@@ -7392,14 +10842,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-compact",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-compact_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-compact_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-compact_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-compact_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-compact_0_document_1_tablet.png",
         "label": "/components/table/example-table-compact",
@@ -7407,14 +10864,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-compact",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-compact_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-compact_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-compact_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-compact_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-compact_0_document_2_mobile.png",
         "label": "/components/table/example-table-compact",
@@ -7422,14 +10886,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-compact",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-compact_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-footer_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-footer_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-footer_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-footer_0_document_0_desktop.png",
         "label": "/components/table/example-table-footer",
@@ -7437,14 +10908,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-footer",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-footer_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-footer_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-footer_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-footer_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-footer_0_document_1_tablet.png",
         "label": "/components/table/example-table-footer",
@@ -7452,14 +10930,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-footer",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-footer_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-footer_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-footer_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-footer_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-footer_0_document_2_mobile.png",
         "label": "/components/table/example-table-footer",
@@ -7467,14 +10952,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-footer",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-footer_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-numeric_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-numeric_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-numeric_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-numeric_0_document_0_desktop.png",
         "label": "/components/table/example-table-numeric",
@@ -7482,14 +10974,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-numeric",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-numeric_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-numeric_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-numeric_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-numeric_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-numeric_0_document_1_tablet.png",
         "label": "/components/table/example-table-numeric",
@@ -7497,14 +10996,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-numeric",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-numeric_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-numeric_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-numeric_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-numeric_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-numeric_0_document_2_mobile.png",
         "label": "/components/table/example-table-numeric",
@@ -7512,14 +11018,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-numeric",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-numeric_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-responsive_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-responsive_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-responsive_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-responsive_0_document_0_desktop.png",
         "label": "/components/table/example-table-responsive",
@@ -7527,14 +11040,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-responsive",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-responsive_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-responsive_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-responsive_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-responsive_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-responsive_0_document_1_tablet.png",
         "label": "/components/table/example-table-responsive",
@@ -7542,14 +11062,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-responsive",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-responsive_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-responsive_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-responsive_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-responsive_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-responsive_0_document_2_mobile.png",
         "label": "/components/table/example-table-responsive",
@@ -7557,14 +11084,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-responsive",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-responsive_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-scrollable_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-scrollable_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-scrollable_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-scrollable_0_document_0_desktop.png",
         "label": "/components/table/example-table-scrollable",
@@ -7572,14 +11106,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-scrollable",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-scrollable_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-scrollable_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-scrollable_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-scrollable_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-scrollable_0_document_1_tablet.png",
         "label": "/components/table/example-table-scrollable",
@@ -7587,14 +11128,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-scrollable",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-scrollable_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-scrollable_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-scrollable_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-scrollable_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-scrollable_0_document_2_mobile.png",
         "label": "/components/table/example-table-scrollable",
@@ -7602,14 +11150,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-scrollable",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-scrollable_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-sortable_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-sortable_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-sortable_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-sortable_0_document_0_desktop.png",
         "label": "/components/table/example-table-sortable",
@@ -7617,14 +11172,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-sortable",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-sortable_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-sortable_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-sortable_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-sortable_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-sortable_0_document_1_tablet.png",
         "label": "/components/table/example-table-sortable",
@@ -7632,14 +11194,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-sortable",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-sortable_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-sortable_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table_example-table-sortable_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table_example-table-sortable_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-sortable_0_document_2_mobile.png",
         "label": "/components/table/example-table-sortable",
@@ -7647,14 +11216,21 @@ report({
         "url": "http://localhost:3010/components/table/example-table-sortable",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table_example-table-sortable_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_0_desktop.png",
         "label": "/components/table-of-contents/example-table-of-contents-grouped",
@@ -7662,14 +11238,21 @@ report({
         "url": "http://localhost:3010/components/table-of-contents/example-table-of-contents-grouped",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_1_tablet.png",
         "label": "/components/table-of-contents/example-table-of-contents-grouped",
@@ -7677,14 +11260,21 @@ report({
         "url": "http://localhost:3010/components/table-of-contents/example-table-of-contents-grouped",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_2_mobile.png",
         "label": "/components/table-of-contents/example-table-of-contents-grouped",
@@ -7692,14 +11282,21 @@ report({
         "url": "http://localhost:3010/components/table-of-contents/example-table-of-contents-grouped",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_0_desktop.png",
         "label": "/components/table-of-contents/example-table-of-contents-single",
@@ -7707,14 +11304,21 @@ report({
         "url": "http://localhost:3010/components/table-of-contents/example-table-of-contents-single",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_1_tablet.png",
         "label": "/components/table-of-contents/example-table-of-contents-single",
@@ -7722,14 +11326,21 @@ report({
         "url": "http://localhost:3010/components/table-of-contents/example-table-of-contents-single",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_2_mobile.png",
         "label": "/components/table-of-contents/example-table-of-contents-single",
@@ -7737,14 +11348,21 @@ report({
         "url": "http://localhost:3010/components/table-of-contents/example-table-of-contents-single",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_0_desktop.png",
         "label": "/components/table-of-contents/example-table-of-contents-sticky",
@@ -7752,14 +11370,21 @@ report({
         "url": "http://localhost:3010/components/table-of-contents/example-table-of-contents-sticky",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_1_tablet.png",
         "label": "/components/table-of-contents/example-table-of-contents-sticky",
@@ -7767,14 +11392,21 @@ report({
         "url": "http://localhost:3010/components/table-of-contents/example-table-of-contents-sticky",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_2_mobile.png",
         "label": "/components/table-of-contents/example-table-of-contents-sticky",
@@ -7782,14 +11414,21 @@ report({
         "url": "http://localhost:3010/components/table-of-contents/example-table-of-contents-sticky",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_tabs_example-tabs-details_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_tabs_example-tabs-details_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_tabs_example-tabs-details_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_tabs_example-tabs-details_0_document_0_desktop.png",
         "label": "/components/tabs/example-tabs-details",
@@ -7797,14 +11436,21 @@ report({
         "url": "http://localhost:3010/components/tabs/example-tabs-details",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_tabs_example-tabs-details_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_tabs_example-tabs-details_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_tabs_example-tabs-details_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_tabs_example-tabs-details_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_tabs_example-tabs-details_0_document_1_tablet.png",
         "label": "/components/tabs/example-tabs-details",
@@ -7812,14 +11458,21 @@ report({
         "url": "http://localhost:3010/components/tabs/example-tabs-details",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_tabs_example-tabs-details_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_tabs_example-tabs-details_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_tabs_example-tabs-details_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_tabs_example-tabs-details_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_tabs_example-tabs-details_0_document_2_mobile.png",
         "label": "/components/tabs/example-tabs-details",
@@ -7827,14 +11480,23 @@ report({
         "url": "http://localhost:3010/components/tabs/example-tabs-details",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_tabs_example-tabs-details_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 0.0008218277449046679,
+          "misMatchPercentage": "0.00",
+          "analysisTime": 441
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_tabs_example-tabs_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_tabs_example-tabs_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_tabs_example-tabs_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_tabs_example-tabs_0_document_0_desktop.png",
         "label": "/components/tabs/example-tabs",
@@ -7842,14 +11504,21 @@ report({
         "url": "http://localhost:3010/components/tabs/example-tabs",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_tabs_example-tabs_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_tabs_example-tabs_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_tabs_example-tabs_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_tabs_example-tabs_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_tabs_example-tabs_0_document_1_tablet.png",
         "label": "/components/tabs/example-tabs",
@@ -7857,14 +11526,21 @@ report({
         "url": "http://localhost:3010/components/tabs/example-tabs",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_tabs_example-tabs_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_tabs_example-tabs_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_tabs_example-tabs_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_tabs_example-tabs_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_tabs_example-tabs_0_document_2_mobile.png",
         "label": "/components/tabs/example-tabs",
@@ -7872,14 +11548,21 @@ report({
         "url": "http://localhost:3010/components/tabs/example-tabs",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_tabs_example-tabs_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_textarea_example-textarea-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_textarea_example-textarea-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea-error_0_document_0_desktop.png",
         "label": "/components/textarea/example-textarea-error",
@@ -7887,14 +11570,21 @@ report({
         "url": "http://localhost:3010/components/textarea/example-textarea-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_textarea_example-textarea-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_textarea_example-textarea-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_textarea_example-textarea-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea-error_0_document_1_tablet.png",
         "label": "/components/textarea/example-textarea-error",
@@ -7902,14 +11592,24 @@ report({
         "url": "http://localhost:3010/components/textarea/example-textarea-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_textarea_example-textarea-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 3.292719523111979,
+          "misMatchPercentage": "3.29",
+          "analysisTime": 316
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__components_textarea_example-textarea-error_0_document_1_tablet.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_textarea_example-textarea-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_textarea_example-textarea-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea-error_0_document_2_mobile.png",
         "label": "/components/textarea/example-textarea-error",
@@ -7917,14 +11617,21 @@ report({
         "url": "http://localhost:3010/components/textarea/example-textarea-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_textarea_example-textarea-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_0_desktop.png",
         "label": "/components/textarea/example-textarea-with-character-limit",
@@ -7932,14 +11639,21 @@ report({
         "url": "http://localhost:3010/components/textarea/example-textarea-with-character-limit",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_1_tablet.png",
         "label": "/components/textarea/example-textarea-with-character-limit",
@@ -7947,14 +11661,24 @@ report({
         "url": "http://localhost:3010/components/textarea/example-textarea-with-character-limit",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 0.4657745361328125,
+          "misMatchPercentage": "0.47",
+          "analysisTime": 422
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_1_tablet.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_2_mobile.png",
         "label": "/components/textarea/example-textarea-with-character-limit",
@@ -7962,14 +11686,21 @@ report({
         "url": "http://localhost:3010/components/textarea/example-textarea-with-character-limit",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_textarea_example-textarea_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_textarea_example-textarea_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea_0_document_0_desktop.png",
         "label": "/components/textarea/example-textarea",
@@ -7977,14 +11708,21 @@ report({
         "url": "http://localhost:3010/components/textarea/example-textarea",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_textarea_example-textarea_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_textarea_example-textarea_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_textarea_example-textarea_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea_0_document_1_tablet.png",
         "label": "/components/textarea/example-textarea",
@@ -7992,14 +11730,24 @@ report({
         "url": "http://localhost:3010/components/textarea/example-textarea",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_textarea_example-textarea_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 0.18463134765625,
+          "misMatchPercentage": "0.18",
+          "analysisTime": 365
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__components_textarea_example-textarea_0_document_1_tablet.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_textarea_example-textarea_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_textarea_example-textarea_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea_0_document_2_mobile.png",
         "label": "/components/textarea/example-textarea",
@@ -8007,14 +11755,21 @@ report({
         "url": "http://localhost:3010/components/textarea/example-textarea",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_textarea_example-textarea_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeline_example-timeline_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_timeline_example-timeline_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_timeline_example-timeline_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeline_example-timeline_0_document_0_desktop.png",
         "label": "/components/timeline/example-timeline",
@@ -8022,14 +11777,21 @@ report({
         "url": "http://localhost:3010/components/timeline/example-timeline",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_timeline_example-timeline_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeline_example-timeline_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_timeline_example-timeline_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_timeline_example-timeline_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeline_example-timeline_0_document_1_tablet.png",
         "label": "/components/timeline/example-timeline",
@@ -8037,14 +11799,21 @@ report({
         "url": "http://localhost:3010/components/timeline/example-timeline",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_timeline_example-timeline_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeline_example-timeline_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_timeline_example-timeline_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_timeline_example-timeline_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeline_example-timeline_0_document_2_mobile.png",
         "label": "/components/timeline/example-timeline",
@@ -8052,14 +11821,21 @@ report({
         "url": "http://localhost:3010/components/timeline/example-timeline",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_timeline_example-timeline_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_0_desktop.png",
         "label": "/components/timeout-modal/example-timeout-modal",
@@ -8067,14 +11843,21 @@ report({
         "url": "http://localhost:3010/components/timeout-modal/example-timeout-modal",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_1_tablet.png",
         "label": "/components/timeout-modal/example-timeout-modal",
@@ -8082,14 +11865,21 @@ report({
         "url": "http://localhost:3010/components/timeout-modal/example-timeout-modal",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_2_mobile.png",
         "label": "/components/timeout-modal/example-timeout-modal",
@@ -8097,14 +11887,21 @@ report({
         "url": "http://localhost:3010/components/timeout-modal/example-timeout-modal",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_0_desktop.png",
         "label": "/components/timeout-panel/example-panel-with-timeout-warning",
@@ -8112,14 +11909,23 @@ report({
         "url": "http://localhost:3010/components/timeout-panel/example-panel-with-timeout-warning",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 0.037085262345679014,
+          "misMatchPercentage": "0.04",
+          "analysisTime": 546
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_1_tablet.png",
         "label": "/components/timeout-panel/example-panel-with-timeout-warning",
@@ -8127,14 +11933,23 @@ report({
         "url": "http://localhost:3010/components/timeout-panel/example-panel-with-timeout-warning",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 0.10236104329427083,
+          "misMatchPercentage": "0.10",
+          "analysisTime": 266
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_2_mobile.png",
         "label": "/components/timeout-panel/example-panel-with-timeout-warning",
@@ -8142,14 +11957,24 @@ report({
         "url": "http://localhost:3010/components/timeout-panel/example-panel-with-timeout-warning",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 0.4537731134432783,
+          "misMatchPercentage": "0.45",
+          "analysisTime": 116
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_2_mobile.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_upload_example-upload-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_upload_example-upload-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_upload_example-upload-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_upload_example-upload-error_0_document_0_desktop.png",
         "label": "/components/upload/example-upload-error",
@@ -8157,14 +11982,21 @@ report({
         "url": "http://localhost:3010/components/upload/example-upload-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_upload_example-upload-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_upload_example-upload-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_upload_example-upload-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_upload_example-upload-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_upload_example-upload-error_0_document_1_tablet.png",
         "label": "/components/upload/example-upload-error",
@@ -8172,14 +12004,21 @@ report({
         "url": "http://localhost:3010/components/upload/example-upload-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_upload_example-upload-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_upload_example-upload-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_upload_example-upload-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_upload_example-upload-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_upload_example-upload-error_0_document_2_mobile.png",
         "label": "/components/upload/example-upload-error",
@@ -8187,14 +12026,21 @@ report({
         "url": "http://localhost:3010/components/upload/example-upload-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_upload_example-upload-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_upload_example-upload_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_upload_example-upload_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_upload_example-upload_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_upload_example-upload_0_document_0_desktop.png",
         "label": "/components/upload/example-upload",
@@ -8202,14 +12048,21 @@ report({
         "url": "http://localhost:3010/components/upload/example-upload",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_upload_example-upload_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_upload_example-upload_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_upload_example-upload_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_upload_example-upload_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_upload_example-upload_0_document_1_tablet.png",
         "label": "/components/upload/example-upload",
@@ -8217,14 +12070,21 @@ report({
         "url": "http://localhost:3010/components/upload/example-upload",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_upload_example-upload_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_upload_example-upload_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_upload_example-upload_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_upload_example-upload_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_upload_example-upload_0_document_2_mobile.png",
         "label": "/components/upload/example-upload",
@@ -8232,14 +12092,21 @@ report({
         "url": "http://localhost:3010/components/upload/example-upload",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_upload_example-upload_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_video_example-video_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_video_example-video_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_video_example-video_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_video_example-video_0_document_0_desktop.png",
         "label": "/components/video/example-video",
@@ -8247,14 +12114,21 @@ report({
         "url": "http://localhost:3010/components/video/example-video",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_video_example-video_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_video_example-video_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_video_example-video_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_video_example-video_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_video_example-video_0_document_1_tablet.png",
         "label": "/components/video/example-video",
@@ -8262,14 +12136,21 @@ report({
         "url": "http://localhost:3010/components/video/example-video",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_video_example-video_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_video_example-video_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__components_video_example-video_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__components_video_example-video_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_video_example-video_0_document_2_mobile.png",
         "label": "/components/video/example-video",
@@ -8277,14 +12158,21 @@ report({
         "url": "http://localhost:3010/components/video/example-video",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__components_video_example-video_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_0_desktop.png",
         "label": "/patterns/addresses/example-address-input-manual-error",
@@ -8292,14 +12180,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-manual-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_1_tablet.png",
         "label": "/patterns/addresses/example-address-input-manual-error",
@@ -8307,14 +12202,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-manual-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_2_mobile.png",
         "label": "/patterns/addresses/example-address-input-manual-error",
@@ -8322,14 +12224,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-manual-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-manual_0_document_0_desktop.png",
         "label": "/patterns/addresses/example-address-input-manual",
@@ -8337,14 +12246,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-manual",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-manual_0_document_1_tablet.png",
         "label": "/patterns/addresses/example-address-input-manual",
@@ -8352,14 +12268,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-manual",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-manual_0_document_2_mobile.png",
         "label": "/patterns/addresses/example-address-input-manual",
@@ -8367,14 +12290,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-manual",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_0_desktop.png",
         "label": "/patterns/addresses/example-address-input-non-editable-confirm-address",
@@ -8382,14 +12312,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-non-editable-confirm-address",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_1_tablet.png",
         "label": "/patterns/addresses/example-address-input-non-editable-confirm-address",
@@ -8397,14 +12334,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-non-editable-confirm-address",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_2_mobile.png",
         "label": "/patterns/addresses/example-address-input-non-editable-confirm-address",
@@ -8412,14 +12356,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-non-editable-confirm-address",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_0_desktop.png",
         "label": "/patterns/addresses/example-address-input-non-editable-register-address",
@@ -8427,14 +12378,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-non-editable-register-address",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_1_tablet.png",
         "label": "/patterns/addresses/example-address-input-non-editable-register-address",
@@ -8442,14 +12400,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-non-editable-register-address",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_2_mobile.png",
         "label": "/patterns/addresses/example-address-input-non-editable-register-address",
@@ -8457,14 +12422,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-non-editable-register-address",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_0_desktop.png",
         "label": "/patterns/addresses/example-address-input-non-editable",
@@ -8472,14 +12444,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-non-editable",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_1_tablet.png",
         "label": "/patterns/addresses/example-address-input-non-editable",
@@ -8487,14 +12466,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-non-editable",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_2_mobile.png",
         "label": "/patterns/addresses/example-address-input-non-editable",
@@ -8502,14 +12488,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input-non-editable",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input_0_document_0_desktop.png",
         "label": "/patterns/addresses/example-address-input",
@@ -8517,14 +12510,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input_0_document_1_tablet.png",
         "label": "/patterns/addresses/example-address-input",
@@ -8532,14 +12532,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_addresses_example-address-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_addresses_example-address-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input_0_document_2_mobile.png",
         "label": "/patterns/addresses/example-address-input",
@@ -8547,14 +12554,21 @@ report({
         "url": "http://localhost:3010/patterns/addresses/example-address-input",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_0_desktop.png",
         "label": "/patterns/change-language/example-change-language-cymraeg",
@@ -8562,14 +12576,21 @@ report({
         "url": "http://localhost:3010/patterns/change-language/example-change-language-cymraeg",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_1_tablet.png",
         "label": "/patterns/change-language/example-change-language-cymraeg",
@@ -8577,14 +12598,21 @@ report({
         "url": "http://localhost:3010/patterns/change-language/example-change-language-cymraeg",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_2_mobile.png",
         "label": "/patterns/change-language/example-change-language-cymraeg",
@@ -8592,14 +12620,21 @@ report({
         "url": "http://localhost:3010/patterns/change-language/example-change-language-cymraeg",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_0_desktop.png",
         "label": "/patterns/change-language/example-change-language-english-ireland",
@@ -8607,14 +12642,21 @@ report({
         "url": "http://localhost:3010/patterns/change-language/example-change-language-english-ireland",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_1_tablet.png",
         "label": "/patterns/change-language/example-change-language-english-ireland",
@@ -8622,14 +12664,21 @@ report({
         "url": "http://localhost:3010/patterns/change-language/example-change-language-english-ireland",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_2_mobile.png",
         "label": "/patterns/change-language/example-change-language-english-ireland",
@@ -8637,14 +12686,21 @@ report({
         "url": "http://localhost:3010/patterns/change-language/example-change-language-english-ireland",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-english-ireland_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_0_desktop.png",
         "label": "/patterns/cookies-settings/example-cookie-settings-page",
@@ -8652,14 +12708,21 @@ report({
         "url": "http://localhost:3010/patterns/cookies-settings/example-cookie-settings-page",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_1_tablet.png",
         "label": "/patterns/cookies-settings/example-cookie-settings-page",
@@ -8667,14 +12730,21 @@ report({
         "url": "http://localhost:3010/patterns/cookies-settings/example-cookie-settings-page",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_2_mobile.png",
         "label": "/patterns/cookies-settings/example-cookie-settings-page",
@@ -8682,14 +12752,21 @@ report({
         "url": "http://localhost:3010/patterns/cookies-settings/example-cookie-settings-page",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-details_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_correct-errors_example-error-details_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_correct-errors_example-error-details_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-error-details_0_document_0_desktop.png",
         "label": "/patterns/correct-errors/example-error-details",
@@ -8697,14 +12774,21 @@ report({
         "url": "http://localhost:3010/patterns/correct-errors/example-error-details",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-details_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-details_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_correct-errors_example-error-details_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_correct-errors_example-error-details_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-error-details_0_document_1_tablet.png",
         "label": "/patterns/correct-errors/example-error-details",
@@ -8712,14 +12796,21 @@ report({
         "url": "http://localhost:3010/patterns/correct-errors/example-error-details",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-details_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-details_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_correct-errors_example-error-details_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_correct-errors_example-error-details_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-error-details_0_document_2_mobile.png",
         "label": "/patterns/correct-errors/example-error-details",
@@ -8727,14 +12818,21 @@ report({
         "url": "http://localhost:3010/patterns/correct-errors/example-error-details",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-details_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-error-summary_0_document_0_desktop.png",
         "label": "/patterns/correct-errors/example-error-summary",
@@ -8742,14 +12840,21 @@ report({
         "url": "http://localhost:3010/patterns/correct-errors/example-error-summary",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-error-summary_0_document_1_tablet.png",
         "label": "/patterns/correct-errors/example-error-summary",
@@ -8757,14 +12862,21 @@ report({
         "url": "http://localhost:3010/patterns/correct-errors/example-error-summary",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-error-summary_0_document_2_mobile.png",
         "label": "/patterns/correct-errors/example-error-summary",
@@ -8772,14 +12884,21 @@ report({
         "url": "http://localhost:3010/patterns/correct-errors/example-error-summary",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_0_desktop.png",
         "label": "/patterns/correct-errors/example-errors-proto-errors",
@@ -8787,14 +12906,21 @@ report({
         "url": "http://localhost:3010/patterns/correct-errors/example-errors-proto-errors",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_1_tablet.png",
         "label": "/patterns/correct-errors/example-errors-proto-errors",
@@ -8802,14 +12928,21 @@ report({
         "url": "http://localhost:3010/patterns/correct-errors/example-errors-proto-errors",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_2_mobile.png",
         "label": "/patterns/correct-errors/example-errors-proto-errors",
@@ -8817,14 +12950,21 @@ report({
         "url": "http://localhost:3010/patterns/correct-errors/example-errors-proto-errors",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_0_desktop.png",
         "label": "/patterns/correct-errors/example-errors-proto",
@@ -8832,14 +12972,21 @@ report({
         "url": "http://localhost:3010/patterns/correct-errors/example-errors-proto",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_1_tablet.png",
         "label": "/patterns/correct-errors/example-errors-proto",
@@ -8847,14 +12994,21 @@ report({
         "url": "http://localhost:3010/patterns/correct-errors/example-errors-proto",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_2_mobile.png",
         "label": "/patterns/correct-errors/example-errors-proto",
@@ -8862,14 +13016,21 @@ report({
         "url": "http://localhost:3010/patterns/correct-errors/example-errors-proto",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_download-resources_example-download-resources_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_download-resources_example-download-resources_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_download-resources_example-download-resources_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_download-resources_example-download-resources_0_document_0_desktop.png",
         "label": "/patterns/download-resources/example-download-resources",
@@ -8877,14 +13038,21 @@ report({
         "url": "http://localhost:3010/patterns/download-resources/example-download-resources",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_download-resources_example-download-resources_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_download-resources_example-download-resources_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_download-resources_example-download-resources_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_download-resources_example-download-resources_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_download-resources_example-download-resources_0_document_1_tablet.png",
         "label": "/patterns/download-resources/example-download-resources",
@@ -8892,14 +13060,21 @@ report({
         "url": "http://localhost:3010/patterns/download-resources/example-download-resources",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_download-resources_example-download-resources_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_download-resources_example-download-resources_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_download-resources_example-download-resources_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_download-resources_example-download-resources_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_download-resources_example-download-resources_0_document_2_mobile.png",
         "label": "/patterns/download-resources/example-download-resources",
@@ -8907,14 +13082,21 @@ report({
         "url": "http://localhost:3010/patterns/download-resources/example-download-resources",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_download-resources_example-download-resources_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-access-denied-error",
@@ -8922,14 +13104,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-access-denied-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-access-denied-error",
@@ -8937,14 +13126,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-access-denied-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-access-denied-error",
@@ -8952,14 +13148,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-access-denied-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-browser-incompatible-error",
@@ -8967,14 +13170,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-browser-incompatible-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-browser-incompatible-error",
@@ -8982,14 +13192,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-browser-incompatible-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-browser-incompatible-error",
@@ -8997,14 +13214,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-browser-incompatible-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-maintenance-notice",
@@ -9012,14 +13236,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-maintenance-notice",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-maintenance-notice",
@@ -9027,14 +13258,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-maintenance-notice",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-maintenance-notice",
@@ -9042,14 +13280,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-maintenance-notice",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-page-not-found-error-with-code",
@@ -9057,14 +13302,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-page-not-found-error-with-code",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-page-not-found-error-with-code",
@@ -9072,14 +13324,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-page-not-found-error-with-code",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-page-not-found-error-with-code",
@@ -9087,14 +13346,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-page-not-found-error-with-code",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-page-not-found-error",
@@ -9102,14 +13368,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-page-not-found-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-page-not-found-error",
@@ -9117,14 +13390,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-page-not-found-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-page-not-found-error",
@@ -9132,14 +13412,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-page-not-found-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-server-error_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-server-error",
@@ -9147,14 +13434,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-server-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-server-error_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-server-error",
@@ -9162,14 +13456,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-server-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-server-error_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-server-error",
@@ -9177,14 +13478,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-server-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-timed-out-error-not-signed-in",
@@ -9192,14 +13500,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-timed-out-error-not-signed-in",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-timed-out-error-not-signed-in",
@@ -9207,14 +13522,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-timed-out-error-not-signed-in",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-timed-out-error-not-signed-in",
@@ -9222,14 +13544,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-timed-out-error-not-signed-in",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-timed-out-error",
@@ -9237,14 +13566,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-timed-out-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-timed-out-error",
@@ -9252,14 +13588,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-timed-out-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-timed-out-error",
@@ -9267,14 +13610,21 @@ report({
         "url": "http://localhost:3010/patterns/error-status-pages/example-timed-out-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_extend-session_example-timeout_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_extend-session_example-timeout_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_extend-session_example-timeout_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_extend-session_example-timeout_0_document_0_desktop.png",
         "label": "/patterns/extend-session/example-timeout",
@@ -9282,14 +13632,21 @@ report({
         "url": "http://localhost:3010/patterns/extend-session/example-timeout",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_extend-session_example-timeout_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_extend-session_example-timeout_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_extend-session_example-timeout_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_extend-session_example-timeout_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_extend-session_example-timeout_0_document_1_tablet.png",
         "label": "/patterns/extend-session/example-timeout",
@@ -9297,14 +13654,21 @@ report({
         "url": "http://localhost:3010/patterns/extend-session/example-timeout",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_extend-session_example-timeout_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_extend-session_example-timeout_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_extend-session_example-timeout_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_extend-session_example-timeout_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_extend-session_example-timeout_0_document_2_mobile.png",
         "label": "/patterns/extend-session/example-timeout",
@@ -9312,14 +13676,21 @@ report({
         "url": "http://localhost:3010/patterns/extend-session/example-timeout",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_extend-session_example-timeout_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_0_desktop.png",
         "label": "/patterns/feedback/example-feedback-form-errors",
@@ -9327,14 +13698,24 @@ report({
         "url": "http://localhost:3010/patterns/feedback/example-feedback-form-errors",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": false,
+          "dimensionDifference": {
+            "width": 0,
+            "height": -24
+          },
+          "rawMisMatchPercentage": 0,
+          "misMatchPercentage": "0.00",
+          "analysisTime": 524
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_0_desktop.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_1_tablet.png",
         "label": "/patterns/feedback/example-feedback-form-errors",
@@ -9342,14 +13723,21 @@ report({
         "url": "http://localhost:3010/patterns/feedback/example-feedback-form-errors",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_2_mobile.png",
         "label": "/patterns/feedback/example-feedback-form-errors",
@@ -9357,14 +13745,24 @@ report({
         "url": "http://localhost:3010/patterns/feedback/example-feedback-form-errors",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": false,
+          "dimensionDifference": {
+            "width": 0,
+            "height": -24
+          },
+          "rawMisMatchPercentage": 4.310716925351072,
+          "misMatchPercentage": "4.31",
+          "analysisTime": 184
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_2_mobile.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_feedback_example-feedback-form_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_feedback_example-feedback-form_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-form_0_document_0_desktop.png",
         "label": "/patterns/feedback/example-feedback-form",
@@ -9372,14 +13770,24 @@ report({
         "url": "http://localhost:3010/patterns/feedback/example-feedback-form",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": false,
+          "dimensionDifference": {
+            "width": 0,
+            "height": -24
+          },
+          "rawMisMatchPercentage": 0,
+          "misMatchPercentage": "0.00",
+          "analysisTime": 338
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__patterns_feedback_example-feedback-form_0_document_0_desktop.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_feedback_example-feedback-form_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_feedback_example-feedback-form_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-form_0_document_1_tablet.png",
         "label": "/patterns/feedback/example-feedback-form",
@@ -9387,14 +13795,21 @@ report({
         "url": "http://localhost:3010/patterns/feedback/example-feedback-form",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_feedback_example-feedback-form_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_feedback_example-feedback-form_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-form_0_document_2_mobile.png",
         "label": "/patterns/feedback/example-feedback-form",
@@ -9402,14 +13817,21 @@ report({
         "url": "http://localhost:3010/patterns/feedback/example-feedback-form",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-success_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_feedback_example-feedback-success_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_feedback_example-feedback-success_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-success_0_document_0_desktop.png",
         "label": "/patterns/feedback/example-feedback-success",
@@ -9417,14 +13839,21 @@ report({
         "url": "http://localhost:3010/patterns/feedback/example-feedback-success",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-success_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-success_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_feedback_example-feedback-success_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_feedback_example-feedback-success_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-success_0_document_1_tablet.png",
         "label": "/patterns/feedback/example-feedback-success",
@@ -9432,14 +13861,21 @@ report({
         "url": "http://localhost:3010/patterns/feedback/example-feedback-success",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-success_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-success_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_feedback_example-feedback-success_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_feedback_example-feedback-success_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-success_0_document_2_mobile.png",
         "label": "/patterns/feedback/example-feedback-success",
@@ -9447,14 +13883,21 @@ report({
         "url": "http://localhost:3010/patterns/feedback/example-feedback-success",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-success_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide-overview_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_guide_example-guide-overview_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_guide_example-guide-overview_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide-overview_0_document_0_desktop.png",
         "label": "/patterns/guide/example-guide-overview",
@@ -9462,14 +13905,21 @@ report({
         "url": "http://localhost:3010/patterns/guide/example-guide-overview",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_guide_example-guide-overview_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide-overview_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_guide_example-guide-overview_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_guide_example-guide-overview_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide-overview_0_document_1_tablet.png",
         "label": "/patterns/guide/example-guide-overview",
@@ -9477,14 +13927,21 @@ report({
         "url": "http://localhost:3010/patterns/guide/example-guide-overview",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_guide_example-guide-overview_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide-overview_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_guide_example-guide-overview_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_guide_example-guide-overview_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide-overview_0_document_2_mobile.png",
         "label": "/patterns/guide/example-guide-overview",
@@ -9492,14 +13949,21 @@ report({
         "url": "http://localhost:3010/patterns/guide/example-guide-overview",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_guide_example-guide-overview_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide-rtl_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_guide_example-guide-rtl_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_guide_example-guide-rtl_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide-rtl_0_document_0_desktop.png",
         "label": "/patterns/guide/example-guide-rtl",
@@ -9507,14 +13971,21 @@ report({
         "url": "http://localhost:3010/patterns/guide/example-guide-rtl",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_guide_example-guide-rtl_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide-rtl_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_guide_example-guide-rtl_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_guide_example-guide-rtl_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide-rtl_0_document_1_tablet.png",
         "label": "/patterns/guide/example-guide-rtl",
@@ -9522,14 +13993,21 @@ report({
         "url": "http://localhost:3010/patterns/guide/example-guide-rtl",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_guide_example-guide-rtl_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide-rtl_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_guide_example-guide-rtl_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_guide_example-guide-rtl_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide-rtl_0_document_2_mobile.png",
         "label": "/patterns/guide/example-guide-rtl",
@@ -9537,14 +14015,21 @@ report({
         "url": "http://localhost:3010/patterns/guide/example-guide-rtl",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_guide_example-guide-rtl_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_guide_example-guide_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_guide_example-guide_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide_0_document_0_desktop.png",
         "label": "/patterns/guide/example-guide",
@@ -9552,14 +14037,21 @@ report({
         "url": "http://localhost:3010/patterns/guide/example-guide",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_guide_example-guide_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_guide_example-guide_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_guide_example-guide_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide_0_document_1_tablet.png",
         "label": "/patterns/guide/example-guide",
@@ -9567,14 +14059,21 @@ report({
         "url": "http://localhost:3010/patterns/guide/example-guide",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_guide_example-guide_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_guide_example-guide_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_guide_example-guide_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide_0_document_2_mobile.png",
         "label": "/patterns/guide/example-guide",
@@ -9582,14 +14081,21 @@ report({
         "url": "http://localhost:3010/patterns/guide/example-guide",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_guide_example-guide_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_0_desktop.png",
         "label": "/patterns/hub-and-spoke/example-hub-complete",
@@ -9597,14 +14103,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-hub-complete",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_1_tablet.png",
         "label": "/patterns/hub-and-spoke/example-hub-complete",
@@ -9612,14 +14125,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-hub-complete",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_2_mobile.png",
         "label": "/patterns/hub-and-spoke/example-hub-complete",
@@ -9627,14 +14147,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-hub-complete",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_0_desktop.png",
         "label": "/patterns/hub-and-spoke/example-hub",
@@ -9642,14 +14169,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-hub",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_1_tablet.png",
         "label": "/patterns/hub-and-spoke/example-hub",
@@ -9657,14 +14191,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-hub",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_2_mobile.png",
         "label": "/patterns/hub-and-spoke/example-hub",
@@ -9672,14 +14213,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-hub",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_0_desktop.png",
         "label": "/patterns/hub-and-spoke/example-spoke-continue",
@@ -9687,14 +14235,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-spoke-continue",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_1_tablet.png",
         "label": "/patterns/hub-and-spoke/example-spoke-continue",
@@ -9702,14 +14257,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-spoke-continue",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_2_mobile.png",
         "label": "/patterns/hub-and-spoke/example-spoke-continue",
@@ -9717,14 +14279,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-spoke-continue",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_0_desktop.png",
         "label": "/patterns/hub-and-spoke/example-spoke-start",
@@ -9732,14 +14301,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-spoke-start",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_1_tablet.png",
         "label": "/patterns/hub-and-spoke/example-spoke-start",
@@ -9747,14 +14323,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-spoke-start",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_2_mobile.png",
         "label": "/patterns/hub-and-spoke/example-spoke-start",
@@ -9762,14 +14345,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-spoke-start",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_0_desktop.png",
         "label": "/patterns/hub-and-spoke/example-spoke-summary",
@@ -9777,14 +14367,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-spoke-summary",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_1_tablet.png",
         "label": "/patterns/hub-and-spoke/example-spoke-summary",
@@ -9792,14 +14389,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-spoke-summary",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_2_mobile.png",
         "label": "/patterns/hub-and-spoke/example-spoke-summary",
@@ -9807,14 +14411,21 @@ report({
         "url": "http://localhost:3010/patterns/hub-and-spoke/example-spoke-summary",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_0_desktop.png",
         "label": "/patterns/input-email-with-error/example-input-email-with-error",
@@ -9822,14 +14433,21 @@ report({
         "url": "http://localhost:3010/patterns/input-email-with-error/example-input-email-with-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_1_tablet.png",
         "label": "/patterns/input-email-with-error/example-input-email-with-error",
@@ -9837,14 +14455,21 @@ report({
         "url": "http://localhost:3010/patterns/input-email-with-error/example-input-email-with-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_2_mobile.png",
         "label": "/patterns/input-email-with-error/example-input-email-with-error",
@@ -9852,14 +14477,21 @@ report({
         "url": "http://localhost:3010/patterns/input-email-with-error/example-input-email-with-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-article_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_news_example-article_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_news_example-article_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-article_0_document_0_desktop.png",
         "label": "/patterns/news/example-article",
@@ -9867,14 +14499,21 @@ report({
         "url": "http://localhost:3010/patterns/news/example-article",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_news_example-article_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-article_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_news_example-article_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_news_example-article_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-article_0_document_1_tablet.png",
         "label": "/patterns/news/example-article",
@@ -9882,14 +14521,21 @@ report({
         "url": "http://localhost:3010/patterns/news/example-article",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_news_example-article_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-article_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_news_example-article_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_news_example-article_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-article_0_document_2_mobile.png",
         "label": "/patterns/news/example-article",
@@ -9897,14 +14543,21 @@ report({
         "url": "http://localhost:3010/patterns/news/example-article",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_news_example-article_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-category_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_news_example-category_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_news_example-category_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-category_0_document_0_desktop.png",
         "label": "/patterns/news/example-category",
@@ -9912,14 +14565,21 @@ report({
         "url": "http://localhost:3010/patterns/news/example-category",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_news_example-category_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-category_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_news_example-category_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_news_example-category_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-category_0_document_1_tablet.png",
         "label": "/patterns/news/example-category",
@@ -9927,14 +14587,21 @@ report({
         "url": "http://localhost:3010/patterns/news/example-category",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_news_example-category_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-category_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_news_example-category_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_news_example-category_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-category_0_document_2_mobile.png",
         "label": "/patterns/news/example-category",
@@ -9942,14 +14609,21 @@ report({
         "url": "http://localhost:3010/patterns/news/example-category",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_news_example-category_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-landing_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_news_example-landing_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_news_example-landing_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-landing_0_document_0_desktop.png",
         "label": "/patterns/news/example-landing",
@@ -9957,14 +14631,21 @@ report({
         "url": "http://localhost:3010/patterns/news/example-landing",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_news_example-landing_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-landing_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_news_example-landing_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_news_example-landing_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-landing_0_document_1_tablet.png",
         "label": "/patterns/news/example-landing",
@@ -9972,14 +14653,21 @@ report({
         "url": "http://localhost:3010/patterns/news/example-landing",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_news_example-landing_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-landing_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_news_example-landing_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_news_example-landing_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-landing_0_document_2_mobile.png",
         "label": "/patterns/news/example-landing",
@@ -9987,14 +14675,21 @@ report({
         "url": "http://localhost:3010/patterns/news/example-landing",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_news_example-landing_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-tag_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_news_example-tag_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_news_example-tag_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-tag_0_document_0_desktop.png",
         "label": "/patterns/news/example-tag",
@@ -10002,14 +14697,21 @@ report({
         "url": "http://localhost:3010/patterns/news/example-tag",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_news_example-tag_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-tag_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_news_example-tag_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_news_example-tag_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-tag_0_document_1_tablet.png",
         "label": "/patterns/news/example-tag",
@@ -10017,14 +14719,21 @@ report({
         "url": "http://localhost:3010/patterns/news/example-tag",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_news_example-tag_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-tag_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_news_example-tag_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_news_example-tag_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-tag_0_document_2_mobile.png",
         "label": "/patterns/news/example-tag",
@@ -10032,14 +14741,21 @@ report({
         "url": "http://localhost:3010/patterns/news/example-tag",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_news_example-tag_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_0_desktop.png",
         "label": "/patterns/numeric-values/example-input-number-suffixed-with-error",
@@ -10047,14 +14763,21 @@ report({
         "url": "http://localhost:3010/patterns/numeric-values/example-input-number-suffixed-with-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_1_tablet.png",
         "label": "/patterns/numeric-values/example-input-number-suffixed-with-error",
@@ -10062,14 +14785,21 @@ report({
         "url": "http://localhost:3010/patterns/numeric-values/example-input-number-suffixed-with-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_2_mobile.png",
         "label": "/patterns/numeric-values/example-input-number-suffixed-with-error",
@@ -10077,14 +14807,21 @@ report({
         "url": "http://localhost:3010/patterns/numeric-values/example-input-number-suffixed-with-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_0_desktop.png",
         "label": "/patterns/phone-numbers/example-phone-number-error",
@@ -10092,14 +14829,21 @@ report({
         "url": "http://localhost:3010/patterns/phone-numbers/example-phone-number-error",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_1_tablet.png",
         "label": "/patterns/phone-numbers/example-phone-number-error",
@@ -10107,14 +14851,21 @@ report({
         "url": "http://localhost:3010/patterns/phone-numbers/example-phone-number-error",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_2_mobile.png",
         "label": "/patterns/phone-numbers/example-phone-number-error",
@@ -10122,14 +14873,21 @@ report({
         "url": "http://localhost:3010/patterns/phone-numbers/example-phone-number-error",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_question_example-question-anatomy_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_question_example-question-anatomy_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_question_example-question-anatomy_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_question_example-question-anatomy_0_document_0_desktop.png",
         "label": "/patterns/question/example-question-anatomy",
@@ -10137,14 +14895,23 @@ report({
         "url": "http://localhost:3010/patterns/question/example-question-anatomy",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_question_example-question-anatomy_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 0.00012440286624203822,
+          "misMatchPercentage": "0.00",
+          "analysisTime": 895
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_question_example-question-anatomy_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_question_example-question-anatomy_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_question_example-question-anatomy_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_question_example-question-anatomy_0_document_1_tablet.png",
         "label": "/patterns/question/example-question-anatomy",
@@ -10152,14 +14919,23 @@ report({
         "url": "http://localhost:3010/patterns/question/example-question-anatomy",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_question_example-question-anatomy_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 0.00035771520146520144,
+          "misMatchPercentage": "0.00",
+          "analysisTime": 539
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_question_example-question-anatomy_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_question_example-question-anatomy_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_question_example-question-anatomy_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_question_example-question-anatomy_0_document_2_mobile.png",
         "label": "/patterns/question/example-question-anatomy",
@@ -10167,14 +14943,23 @@ report({
         "url": "http://localhost:3010/patterns/question/example-question-anatomy",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_question_example-question-anatomy_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 0.00042083955386798896,
+          "misMatchPercentage": "0.00",
+          "analysisTime": 426
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_0_desktop.png",
         "label": "/patterns/save-and-sign-out/example-save-and-sign-out-button",
@@ -10182,14 +14967,21 @@ report({
         "url": "http://localhost:3010/patterns/save-and-sign-out/example-save-and-sign-out-button",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_1_tablet.png",
         "label": "/patterns/save-and-sign-out/example-save-and-sign-out-button",
@@ -10197,14 +14989,21 @@ report({
         "url": "http://localhost:3010/patterns/save-and-sign-out/example-save-and-sign-out-button",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_2_mobile.png",
         "label": "/patterns/save-and-sign-out/example-save-and-sign-out-button",
@@ -10212,14 +15011,21 @@ report({
         "url": "http://localhost:3010/patterns/save-and-sign-out/example-save-and-sign-out-button",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_0_desktop.png",
         "label": "/patterns/save-and-sign-out/example-signed-out",
@@ -10227,14 +15033,21 @@ report({
         "url": "http://localhost:3010/patterns/save-and-sign-out/example-signed-out",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_1_tablet.png",
         "label": "/patterns/save-and-sign-out/example-signed-out",
@@ -10242,14 +15055,21 @@ report({
         "url": "http://localhost:3010/patterns/save-and-sign-out/example-signed-out",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_2_mobile.png",
         "label": "/patterns/save-and-sign-out/example-signed-out",
@@ -10257,14 +15077,21 @@ report({
         "url": "http://localhost:3010/patterns/save-and-sign-out/example-signed-out",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-errors_0_document_0_desktop.png",
         "label": "/patterns/send-a-web-form/example-errors",
@@ -10272,14 +15099,24 @@ report({
         "url": "http://localhost:3010/patterns/send-a-web-form/example-errors",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": false,
+          "dimensionDifference": {
+            "width": 0,
+            "height": -24
+          },
+          "rawMisMatchPercentage": 0,
+          "misMatchPercentage": "0.00",
+          "analysisTime": 647
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__patterns_send-a-web-form_example-errors_0_document_0_desktop.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-errors_0_document_1_tablet.png",
         "label": "/patterns/send-a-web-form/example-errors",
@@ -10287,14 +15124,24 @@ report({
         "url": "http://localhost:3010/patterns/send-a-web-form/example-errors",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": false,
+          "dimensionDifference": {
+            "width": 0,
+            "height": -24
+          },
+          "rawMisMatchPercentage": 0,
+          "misMatchPercentage": "0.00",
+          "analysisTime": 355
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__patterns_send-a-web-form_example-errors_0_document_1_tablet.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-errors_0_document_2_mobile.png",
         "label": "/patterns/send-a-web-form/example-errors",
@@ -10302,14 +15149,21 @@ report({
         "url": "http://localhost:3010/patterns/send-a-web-form/example-errors",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-form_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-a-web-form_example-form_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-a-web-form_example-form_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-form_0_document_0_desktop.png",
         "label": "/patterns/send-a-web-form/example-form",
@@ -10317,14 +15171,21 @@ report({
         "url": "http://localhost:3010/patterns/send-a-web-form/example-form",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-form_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-form_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-a-web-form_example-form_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-a-web-form_example-form_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-form_0_document_1_tablet.png",
         "label": "/patterns/send-a-web-form/example-form",
@@ -10332,14 +15193,24 @@ report({
         "url": "http://localhost:3010/patterns/send-a-web-form/example-form",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-form_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": false,
+          "dimensionDifference": {
+            "width": 0,
+            "height": -24
+          },
+          "rawMisMatchPercentage": 0,
+          "misMatchPercentage": "0.00",
+          "analysisTime": 305
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__patterns_send-a-web-form_example-form_0_document_1_tablet.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-form_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-a-web-form_example-form_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-a-web-form_example-form_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-form_0_document_2_mobile.png",
         "label": "/patterns/send-a-web-form/example-form",
@@ -10347,14 +15218,21 @@ report({
         "url": "http://localhost:3010/patterns/send-a-web-form/example-form",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-form_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-success_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-a-web-form_example-success_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-a-web-form_example-success_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-success_0_document_0_desktop.png",
         "label": "/patterns/send-a-web-form/example-success",
@@ -10362,14 +15240,21 @@ report({
         "url": "http://localhost:3010/patterns/send-a-web-form/example-success",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-success_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-success_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-a-web-form_example-success_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-a-web-form_example-success_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-success_0_document_1_tablet.png",
         "label": "/patterns/send-a-web-form/example-success",
@@ -10377,14 +15262,21 @@ report({
         "url": "http://localhost:3010/patterns/send-a-web-form/example-success",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-success_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-success_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-a-web-form_example-success_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-a-web-form_example-success_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-success_0_document_2_mobile.png",
         "label": "/patterns/send-a-web-form/example-success",
@@ -10392,14 +15284,21 @@ report({
         "url": "http://localhost:3010/patterns/send-a-web-form/example-success",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-success_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_0_desktop.png",
         "label": "/patterns/send-and-reply-to-messages/example-conversation",
@@ -10407,14 +15306,24 @@ report({
         "url": "http://localhost:3010/patterns/send-and-reply-to-messages/example-conversation",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": false,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 24
+          },
+          "rawMisMatchPercentage": 0,
+          "misMatchPercentage": "0.00",
+          "analysisTime": 567
+        },
+        "diffImage": "../bitmaps_test/20230321-144940/failed_diff_ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_0_desktop.png"
       },
       "status": "fail"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_1_tablet.png",
         "label": "/patterns/send-and-reply-to-messages/example-conversation",
@@ -10422,14 +15331,21 @@ report({
         "url": "http://localhost:3010/patterns/send-and-reply-to-messages/example-conversation",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_2_mobile.png",
         "label": "/patterns/send-and-reply-to-messages/example-conversation",
@@ -10437,14 +15353,21 @@ report({
         "url": "http://localhost:3010/patterns/send-and-reply-to-messages/example-conversation",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_0_desktop.png",
         "label": "/patterns/send-and-reply-to-messages/example-message-list",
@@ -10452,14 +15375,21 @@ report({
         "url": "http://localhost:3010/patterns/send-and-reply-to-messages/example-message-list",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_1_tablet.png",
         "label": "/patterns/send-and-reply-to-messages/example-message-list",
@@ -10467,14 +15397,21 @@ report({
         "url": "http://localhost:3010/patterns/send-and-reply-to-messages/example-message-list",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_2_mobile.png",
         "label": "/patterns/send-and-reply-to-messages/example-message-list",
@@ -10482,14 +15419,21 @@ report({
         "url": "http://localhost:3010/patterns/send-and-reply-to-messages/example-message-list",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_address-output_example-address-output_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_address-output_example-address-output_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_address-output_example-address-output_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_address-output_example-address-output_0_document_0_desktop.png",
         "label": "/foundations/address-output/example-address-output",
@@ -10497,14 +15441,21 @@ report({
         "url": "http://localhost:3010/foundations/address-output/example-address-output",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_address-output_example-address-output_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_address-output_example-address-output_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_address-output_example-address-output_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_address-output_example-address-output_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_address-output_example-address-output_0_document_1_tablet.png",
         "label": "/foundations/address-output/example-address-output",
@@ -10512,14 +15463,21 @@ report({
         "url": "http://localhost:3010/foundations/address-output/example-address-output",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_address-output_example-address-output_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_address-output_example-address-output_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_address-output_example-address-output_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_address-output_example-address-output_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_address-output_example-address-output_0_document_2_mobile.png",
         "label": "/foundations/address-output/example-address-output",
@@ -10527,14 +15485,21 @@ report({
         "url": "http://localhost:3010/foundations/address-output/example-address-output",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_address-output_example-address-output_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_0_desktop.png",
         "label": "/foundations/headings/example-breakpoint-headings",
@@ -10542,14 +15507,21 @@ report({
         "url": "http://localhost:3010/foundations/headings/example-breakpoint-headings",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_1_tablet.png",
         "label": "/foundations/headings/example-breakpoint-headings",
@@ -10557,14 +15529,21 @@ report({
         "url": "http://localhost:3010/foundations/headings/example-breakpoint-headings",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_2_mobile.png",
         "label": "/foundations/headings/example-breakpoint-headings",
@@ -10572,14 +15551,21 @@ report({
         "url": "http://localhost:3010/foundations/headings/example-breakpoint-headings",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_0_desktop.png",
         "label": "/foundations/headings/example-default-heading-sizes",
@@ -10587,14 +15573,21 @@ report({
         "url": "http://localhost:3010/foundations/headings/example-default-heading-sizes",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_1_tablet.png",
         "label": "/foundations/headings/example-default-heading-sizes",
@@ -10602,14 +15595,21 @@ report({
         "url": "http://localhost:3010/foundations/headings/example-default-heading-sizes",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_2_mobile.png",
         "label": "/foundations/headings/example-default-heading-sizes",
@@ -10617,14 +15617,21 @@ report({
         "url": "http://localhost:3010/foundations/headings/example-default-heading-sizes",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_highlighting_example-highlighting_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_highlighting_example-highlighting_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_highlighting_example-highlighting_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_highlighting_example-highlighting_0_document_0_desktop.png",
         "label": "/foundations/highlighting/example-highlighting",
@@ -10632,14 +15639,21 @@ report({
         "url": "http://localhost:3010/foundations/highlighting/example-highlighting",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_highlighting_example-highlighting_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_highlighting_example-highlighting_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_highlighting_example-highlighting_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_highlighting_example-highlighting_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_highlighting_example-highlighting_0_document_1_tablet.png",
         "label": "/foundations/highlighting/example-highlighting",
@@ -10647,14 +15661,21 @@ report({
         "url": "http://localhost:3010/foundations/highlighting/example-highlighting",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_highlighting_example-highlighting_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_highlighting_example-highlighting_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_highlighting_example-highlighting_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_highlighting_example-highlighting_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_highlighting_example-highlighting_0_document_2_mobile.png",
         "label": "/foundations/highlighting/example-highlighting",
@@ -10662,14 +15683,21 @@ report({
         "url": "http://localhost:3010/foundations/highlighting/example-highlighting",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_highlighting_example-highlighting_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_links_example-link_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_links_example-link_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_links_example-link_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_links_example-link_0_document_0_desktop.png",
         "label": "/foundations/links/example-link",
@@ -10677,14 +15705,21 @@ report({
         "url": "http://localhost:3010/foundations/links/example-link",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_links_example-link_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_links_example-link_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_links_example-link_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_links_example-link_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_links_example-link_0_document_1_tablet.png",
         "label": "/foundations/links/example-link",
@@ -10692,14 +15727,21 @@ report({
         "url": "http://localhost:3010/foundations/links/example-link",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_links_example-link_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_links_example-link_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_links_example-link_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_links_example-link_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_links_example-link_0_document_2_mobile.png",
         "label": "/foundations/links/example-link",
@@ -10707,14 +15749,21 @@ report({
         "url": "http://localhost:3010/foundations/links/example-link",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_links_example-link_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-bare-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-bare-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-bare-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-bare-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-bare-list",
@@ -10722,14 +15771,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-bare-list",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-bare-list_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-bare-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-bare-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-bare-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-bare-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-bare-list",
@@ -10737,14 +15793,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-bare-list",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-bare-list_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-bare-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-bare-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-bare-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-bare-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-bare-list",
@@ -10752,14 +15815,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-bare-list",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-bare-list_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-bulleted-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-bulleted-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-bulleted-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-bulleted-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-bulleted-list",
@@ -10767,14 +15837,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-bulleted-list",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-bulleted-list_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-bulleted-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-bulleted-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-bulleted-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-bulleted-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-bulleted-list",
@@ -10782,14 +15859,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-bulleted-list",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-bulleted-list_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-bulleted-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-bulleted-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-bulleted-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-bulleted-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-bulleted-list",
@@ -10797,14 +15881,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-bulleted-list",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-bulleted-list_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-dashed-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-dashed-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-dashed-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-dashed-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-dashed-list",
@@ -10812,14 +15903,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-dashed-list",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-dashed-list_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-dashed-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-dashed-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-dashed-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-dashed-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-dashed-list",
@@ -10827,14 +15925,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-dashed-list",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-dashed-list_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-dashed-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-dashed-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-dashed-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-dashed-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-dashed-list",
@@ -10842,14 +15947,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-dashed-list",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-dashed-list_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_0_desktop.png",
         "label": "/foundations/lists/example-inline-list-with-social-icon-prefix",
@@ -10857,14 +15969,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-inline-list-with-social-icon-prefix",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_1_tablet.png",
         "label": "/foundations/lists/example-inline-list-with-social-icon-prefix",
@@ -10872,14 +15991,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-inline-list-with-social-icon-prefix",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_2_mobile.png",
         "label": "/foundations/lists/example-inline-list-with-social-icon-prefix",
@@ -10887,14 +16013,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-inline-list-with-social-icon-prefix",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-inline-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-inline-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-inline-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-inline-list",
@@ -10902,14 +16035,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-inline-list",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-inline-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-inline-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-inline-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-inline-list",
@@ -10917,14 +16057,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-inline-list",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-inline-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-inline-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-inline-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-inline-list",
@@ -10932,14 +16079,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-inline-list",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_0_desktop.png",
         "label": "/foundations/lists/example-list-with-icon-prefix",
@@ -10947,14 +16101,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-list-with-icon-prefix",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_1_tablet.png",
         "label": "/foundations/lists/example-list-with-icon-prefix",
@@ -10962,14 +16123,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-list-with-icon-prefix",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_2_mobile.png",
         "label": "/foundations/lists/example-list-with-icon-prefix",
@@ -10977,14 +16145,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-list-with-icon-prefix",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_0_desktop.png",
         "label": "/foundations/lists/example-list-with-icon-suffix",
@@ -10992,14 +16167,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-list-with-icon-suffix",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_1_tablet.png",
         "label": "/foundations/lists/example-list-with-icon-suffix",
@@ -11007,14 +16189,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-list-with-icon-suffix",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_2_mobile.png",
         "label": "/foundations/lists/example-list-with-icon-suffix",
@@ -11022,14 +16211,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-list-with-icon-suffix",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-numbered-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-numbered-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-numbered-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-numbered-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-numbered-list",
@@ -11037,14 +16233,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-numbered-list",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-numbered-list_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-numbered-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-numbered-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-numbered-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-numbered-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-numbered-list",
@@ -11052,14 +16255,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-numbered-list",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-numbered-list_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-numbered-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-numbered-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-numbered-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-numbered-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-numbered-list",
@@ -11067,14 +16277,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-numbered-list",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-numbered-list_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-prefixed-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-prefixed-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-prefixed-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-prefixed-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-prefixed-list",
@@ -11082,14 +16299,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-prefixed-list",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-prefixed-list_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-prefixed-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-prefixed-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-prefixed-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-prefixed-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-prefixed-list",
@@ -11097,14 +16321,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-prefixed-list",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-prefixed-list_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-prefixed-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-prefixed-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-prefixed-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-prefixed-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-prefixed-list",
@@ -11112,14 +16343,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-prefixed-list",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-prefixed-list_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-suffixed-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-suffixed-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-suffixed-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-suffixed-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-suffixed-list",
@@ -11127,14 +16365,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-suffixed-list",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-suffixed-list_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-suffixed-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-suffixed-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-suffixed-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-suffixed-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-suffixed-list",
@@ -11142,14 +16387,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-suffixed-list",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-suffixed-list_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-suffixed-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_lists_example-suffixed-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_lists_example-suffixed-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-suffixed-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-suffixed-list",
@@ -11157,14 +16409,21 @@ report({
         "url": "http://localhost:3010/foundations/lists/example-suffixed-list",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_lists_example-suffixed-list_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_0_desktop.png",
         "label": "/foundations/page-template/example-base-page-template-block-areas",
@@ -11172,14 +16431,21 @@ report({
         "url": "http://localhost:3010/foundations/page-template/example-base-page-template-block-areas",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_1_tablet.png",
         "label": "/foundations/page-template/example-base-page-template-block-areas",
@@ -11187,14 +16453,21 @@ report({
         "url": "http://localhost:3010/foundations/page-template/example-base-page-template-block-areas",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_2_mobile.png",
         "label": "/foundations/page-template/example-base-page-template-block-areas",
@@ -11202,14 +16475,21 @@ report({
         "url": "http://localhost:3010/foundations/page-template/example-base-page-template-block-areas",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-basic_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_page-template_example-basic_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_page-template_example-basic_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-basic_0_document_0_desktop.png",
         "label": "/foundations/page-template/example-basic",
@@ -11217,14 +16497,21 @@ report({
         "url": "http://localhost:3010/foundations/page-template/example-basic",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_page-template_example-basic_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-basic_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_page-template_example-basic_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_page-template_example-basic_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-basic_0_document_1_tablet.png",
         "label": "/foundations/page-template/example-basic",
@@ -11232,14 +16519,21 @@ report({
         "url": "http://localhost:3010/foundations/page-template/example-basic",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_page-template_example-basic_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-basic_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_page-template_example-basic_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_page-template_example-basic_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-basic_0_document_2_mobile.png",
         "label": "/foundations/page-template/example-basic",
@@ -11247,14 +16541,21 @@ report({
         "url": "http://localhost:3010/foundations/page-template/example-basic",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_page-template_example-basic_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-custom_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_page-template_example-custom_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_page-template_example-custom_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-custom_0_document_0_desktop.png",
         "label": "/foundations/page-template/example-custom",
@@ -11262,14 +16563,21 @@ report({
         "url": "http://localhost:3010/foundations/page-template/example-custom",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_page-template_example-custom_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-custom_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_page-template_example-custom_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_page-template_example-custom_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-custom_0_document_1_tablet.png",
         "label": "/foundations/page-template/example-custom",
@@ -11277,14 +16585,21 @@ report({
         "url": "http://localhost:3010/foundations/page-template/example-custom",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_page-template_example-custom_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-custom_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_page-template_example-custom_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_page-template_example-custom_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-custom_0_document_2_mobile.png",
         "label": "/foundations/page-template/example-custom",
@@ -11292,14 +16607,21 @@ report({
         "url": "http://localhost:3010/foundations/page-template/example-custom",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_page-template_example-custom_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_0_desktop.png",
         "label": "/foundations/paragraphs/example-paragraphs",
@@ -11307,14 +16629,21 @@ report({
         "url": "http://localhost:3010/foundations/paragraphs/example-paragraphs",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_1_tablet.png",
         "label": "/foundations/paragraphs/example-paragraphs",
@@ -11322,14 +16651,21 @@ report({
         "url": "http://localhost:3010/foundations/paragraphs/example-paragraphs",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_2_mobile.png",
         "label": "/foundations/paragraphs/example-paragraphs",
@@ -11337,14 +16673,21 @@ report({
         "url": "http://localhost:3010/foundations/paragraphs/example-paragraphs",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_quote_example-quote_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_quote_example-quote_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_quote_example-quote_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_quote_example-quote_0_document_0_desktop.png",
         "label": "/foundations/quote/example-quote",
@@ -11352,14 +16695,21 @@ report({
         "url": "http://localhost:3010/foundations/quote/example-quote",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_quote_example-quote_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_quote_example-quote_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_quote_example-quote_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_quote_example-quote_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_quote_example-quote_0_document_1_tablet.png",
         "label": "/foundations/quote/example-quote",
@@ -11367,14 +16717,21 @@ report({
         "url": "http://localhost:3010/foundations/quote/example-quote",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_quote_example-quote_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_quote_example-quote_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_quote_example-quote_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_quote_example-quote_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_quote_example-quote_0_document_2_mobile.png",
         "label": "/foundations/quote/example-quote",
@@ -11382,14 +16739,21 @@ report({
         "url": "http://localhost:3010/foundations/quote/example-quote",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_quote_example-quote_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_text-indent_example-text-indent_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_text-indent_example-text-indent_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_text-indent_example-text-indent_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_text-indent_example-text-indent_0_document_0_desktop.png",
         "label": "/foundations/text-indent/example-text-indent",
@@ -11397,14 +16761,21 @@ report({
         "url": "http://localhost:3010/foundations/text-indent/example-text-indent",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_text-indent_example-text-indent_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_text-indent_example-text-indent_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_text-indent_example-text-indent_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_text-indent_example-text-indent_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_text-indent_example-text-indent_0_document_1_tablet.png",
         "label": "/foundations/text-indent/example-text-indent",
@@ -11412,14 +16783,21 @@ report({
         "url": "http://localhost:3010/foundations/text-indent/example-text-indent",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_text-indent_example-text-indent_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_text-indent_example-text-indent_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_text-indent_example-text-indent_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_text-indent_example-text-indent_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_text-indent_example-text-indent_0_document_2_mobile.png",
         "label": "/foundations/text-indent/example-text-indent",
@@ -11427,14 +16805,21 @@ report({
         "url": "http://localhost:3010/foundations/text-indent/example-text-indent",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_text-indent_example-text-indent_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_type-scale_example-type-scale_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_type-scale_example-type-scale_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_type-scale_example-type-scale_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_type-scale_example-type-scale_0_document_0_desktop.png",
         "label": "/foundations/type-scale/example-type-scale",
@@ -11442,14 +16827,21 @@ report({
         "url": "http://localhost:3010/foundations/type-scale/example-type-scale",
         "expect": 0,
         "viewportLabel": "desktop",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_type-scale_example-type-scale_0_document_0_desktop.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_type-scale_example-type-scale_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_type-scale_example-type-scale_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_type-scale_example-type-scale_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_type-scale_example-type-scale_0_document_1_tablet.png",
         "label": "/foundations/type-scale/example-type-scale",
@@ -11457,14 +16849,21 @@ report({
         "url": "http://localhost:3010/foundations/type-scale/example-type-scale",
         "expect": 0,
         "viewportLabel": "tablet",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_type-scale_example-type-scale_0_document_1_tablet.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_type-scale_example-type-scale_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230321-133943/ds-vr-test__foundations_type-scale_example-type-scale_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230321-144940/ds-vr-test__foundations_type-scale_example-type-scale_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_type-scale_example-type-scale_0_document_2_mobile.png",
         "label": "/foundations/type-scale/example-type-scale",
@@ -11472,9 +16871,16 @@ report({
         "url": "http://localhost:3010/foundations/type-scale/example-type-scale",
         "expect": 0,
         "viewportLabel": "mobile",
-        "error": "Reference file not found /home/runner/work/design-system/design-system/backstop_data/bitmaps_reference/ds-vr-test__foundations_type-scale_example-type-scale_0_document_2_mobile.png"
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     }
   ],
   "id": "ds-vr-test"
