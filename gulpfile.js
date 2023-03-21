@@ -16,6 +16,7 @@ const babelEsmConfig = require('./babel.conf.esm');
 const babelNomoduleConfig = require('./babel.conf.nomodule');
 const postCssPlugins = require('./postcss.config').default;
 const generateURLs = require('./src/tests/helpers/url-generator.js').default;
+const generateStaticPages = require('./lib/generate-static-pages').default;
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;
@@ -84,6 +85,10 @@ gulp.task('copy-static-files', () => {
 
 gulp.task('copy-js-files', () => {
   return gulp.src('./src/js/*.js').pipe(gulp.dest('./build/js'));
+});
+
+gulp.task('generate-pages', async function() {
+  await generateStaticPages();
 });
 
 gulp.task('generate-urls', async () => {
