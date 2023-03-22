@@ -69,43 +69,7 @@
         class="ons-question ons-u-mb-l{% if params.classes %} {{ params.classes }}{% endif %}"
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
     >
-        {% if params.legendIsQuestionTitle %}
-            {% from "components/fieldset/_macro.njk" import onsFieldset %}
-
-            {# Resolves caller issue in Jinja: https://github.com/pallets/jinja/issues/371 #}
-            {% set content = caller() if caller %}
-            <div class="ons-question__answer ons-u-mb-m">
-                {% call onsFieldset({
-                    "legendIsQuestionTitle": params.legendIsQuestionTitle,
-                    "legend": titleHtml,
-                    "description": descHtml if params.description else '',
-                    "legendClasses": params.legendClasses,
-                    "legendTitleClasses": params.legendTitleClasses
-                }) %}
-                    {% if params.instruction %}
-                        {{- instHtml | safe -}}
-                    {% endif %}
-
-                    {% if params.definition %}
-                        {{- questionDefinition | safe -}}
-                    {% endif %}
-
-                    {% if params.guidance %}
-                        {{- questionGuidance | safe -}}
-                    {% endif %}
-                    {{ content }}
-                {% endcall %}
-            </div>
-
-        {% else %}
-            <h1 id="question-title" class="ons-question__title">
-                {{- titleHtml | safe -}}
-            </h1>
-
-            {% if params.description %}
-                {{- descHtml | safe -}}
-            {% endif %}
-
+        {% set additionalContent %}
             {% if params.warning %}
                 {% from "components/panel/_macro.njk" import onsPanel %}
                 {% call onsPanel({
@@ -127,6 +91,36 @@
             {% if params.guidance %}
                 {{- questionGuidance | safe -}}
             {% endif %}
+        {% endset %}
+
+        {% if params.legendIsQuestionTitle %}
+            {% from "components/fieldset/_macro.njk" import onsFieldset %}
+
+            {# Resolves caller issue in Jinja: https://github.com/pallets/jinja/issues/371 #}
+            {% set content = caller() if caller %}
+            <div class="ons-question__answer ons-u-mb-m">
+                {% call onsFieldset({
+                    "legendIsQuestionTitle": params.legendIsQuestionTitle,
+                    "legend": titleHtml,
+                    "description": descHtml if params.description else '',
+                    "legendClasses": params.legendClasses,
+                    "legendTitleClasses": params.legendTitleClasses
+                }) %}
+                    {{ additionalContent }}
+                    {{ content }}
+                {% endcall %}
+            </div>
+
+        {% else %}
+            <h1 id="question-title" class="ons-question__title">
+                {{- titleHtml | safe -}}
+            </h1>
+
+            {% if params.description %}
+                {{- descHtml | safe -}}
+            {% endif %}
+
+            {{ additionalContent }}
 
             <div class="ons-question__answer ons-u-mb-m">
                 {{ caller() if caller }}
