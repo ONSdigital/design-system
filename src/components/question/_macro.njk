@@ -106,7 +106,7 @@
                     "legendClasses": params.legendClasses,
                     "legendTitleClasses": params.legendTitleClasses
                 }) %}
-                    {{ additionalContent | safe }}
+                    {{- additionalContent | safe -}}
                     {{ content }}
                 {% endcall %}
             </div>
@@ -120,7 +120,7 @@
                 {{- descHtml | safe -}}
             {% endif %}
 
-            {{ additionalContent | safe }}
+            {{- additionalContent | safe -}}
 
             <div class="ons-question__answer ons-u-mb-m">
                 {{ caller() if caller }}
