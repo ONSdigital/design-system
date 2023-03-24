@@ -5,8 +5,12 @@ build/
 coverage/
 .vscode/
 .idea/
-backstop_data/bitmaps_test/*
 package-lock.json
+
+# Generated from visual regression tests
+backstop_data/bitmaps_test/
+backstop_data/html_report/
+
 # npm package folders
 /components/
 /page-templates/
@@ -19,6 +23,3 @@ package-lock.json
 /scss/
 
 secrets.yml
-
-# Local Netlify folder
-.netlify

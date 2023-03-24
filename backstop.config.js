@@ -26,8 +26,5 @@ module.exports = {
     ci_report: 'backstop_data/ci_report',
   },
   engine: 'puppeteer',
-  asyncCaptureLimit: 5,
-  asyncCompareLimit: 50,
-  debug: true,
-  report: ['CI', 'browser'],
+  report: ['browser'],
 };

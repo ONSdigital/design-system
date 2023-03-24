@@ -43,7 +43,7 @@ yarn start
 
 Once the server has started, navigate to <http://localhost:3030>
 
-## Testing
+## Testing - macros and scripts
 
 This project uses [jest](https://jestjs.io/docs/cli) and supports its command line options.
 
@@ -98,6 +98,24 @@ It is sometimes useful to adjust the following settings when writing tests or di
 - `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `await page.waitForTimeout(100000)` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
 
 - `testTimeout` in 'jest.config.js' - set to a high value such as `1000000` to prevent tests from timing out when doing the above.
+
+## Testing - Visual regression tests
+
+This project uses [Backstop JS](https://github.com/garris/BackstopJS) for visual regression testing. The tests run in Chrome headless using pupeteer and run in three viewports; 1920 (desktop), 768 (tablet) and 375 (mobile). Reference images are stored in Git LFS and any approved changes will automatically be stored in Git LFS when pushed to the repository.
+
+The visual tests will run automatically on pull requests and the result will be available in the action logs. If the tests fail, the process for viewing the failures and approving changes will need to be handled locally using the following workflow and commands.
+
+The first time you run the tests locally you will need to install Git LFS on your machine. Follow the install instructions for [Git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage).
+
+Checkout the branch locally and run:
+
+`git lfs checkout` - This will pull the current reference images from the repository for you to test against.
+
+`yarn test-visual` - This will run the same tests locally as were run in Github Actions. After they have completed the report will open in your default browser.
+
+`yarn test-visual:approve` - This will approve the failures/diff caught by the tests and update the reference images locally on your machine.
+
+You can then commit and push your changes. The test images that would have been created when you ran `yest test-visual` are gitignored and the new references images will be pushed to Git LFS.
 
 ## Build
 

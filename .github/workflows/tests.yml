@@ -21,21 +21,4 @@ jobs:
         run: yarn test
       - name: Run visual regression tests
         run: yarn test-visual
-      - name: Copy reference images
-        if: always()
-        run: |
-          git lfs pull --include="backstop_data/bitmaps_reference/**/*"
-          mkdir -p backstop_data/bitmaps_reference backstop_data/bitmaps_test
-          cp -r backstop_data/bitmaps_reference backstop_data/bitmaps_test backstop_data/html_report
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.2.0
-        if: always()
-        with:
-          access-token: ${{ secrets.GITHUB_TOKEN }}
-          branch: none
-          folder: backstop_data
-          clean: true
-          cname: ${{ env.CNAME }}
-          commit-message: Deployed from ${{ github.sha }}
-          enable-jekyll: false
-          root-dir: backstop_data/html_report
+
