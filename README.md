@@ -81,6 +81,16 @@ To run all axe tests:
 yarn test --testNamePattern="axe"
 ```
 
+### Snapshot test for base page template
+
+There is a snapshot test of the base page template that runs alongside the component tests. The snapshot will need to be updated if the base page template is changed.
+
+To update the snapshot:
+
+```bash
+yarn test --testNamePattern="base page template" -u
+```
+
 ### Run tests locally in watch mode
 
 This will watch for changed files based on git uncommitted files.
