@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="BackstopJS" tests="765" failures="13" errors="13" skipped="0">
+  <testsuite name="BackstopJS" tests="765" failures="9" errors="9" skipped="0">
     <testcase classname="document" name=" ›› /components/access-code/example-access-code-error"/>
     <testcase classname="document" name=" ›› /components/access-code/example-access-code-error"/>
     <testcase classname="document" name=" ›› /components/access-code/example-access-code-error"/>
@@ -304,10 +304,7 @@
     <testcase classname="document" name=" ›› /components/mutually-exclusive/example-mutually-exclusive-number"/>
     <testcase classname="document" name=" ›› /components/mutually-exclusive/example-mutually-exclusive-number"/>
     <testcase classname="document" name=" ›› /components/mutually-exclusive/example-mutually-exclusive-number"/>
-    <testcase classname="document" name=" ›› /components/mutually-exclusive/example-mutually-exclusive-textarea">
-      <failure message="Design deviation ›› /components/mutually-exclusive/example-mutually-exclusive-textarea (document) component"/>
-      <error message="Design deviation ›› /components/mutually-exclusive/example-mutually-exclusive-textarea (document) component"/>
-    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/example-mutually-exclusive-textarea"/>
     <testcase classname="document" name=" ›› /components/mutually-exclusive/example-mutually-exclusive-textarea">
       <failure message="Design deviation ›› /components/mutually-exclusive/example-mutually-exclusive-textarea (document) component"/>
       <error message="Design deviation ›› /components/mutually-exclusive/example-mutually-exclusive-textarea (document) component"/>
@@ -533,17 +530,14 @@
     <testcase classname="document" name=" ›› /components/tabs/example-tabs"/>
     <testcase classname="document" name=" ›› /components/tabs/example-tabs"/>
     <testcase classname="document" name=" ›› /components/textarea/example-textarea-error"/>
-    <testcase classname="document" name=" ›› /components/textarea/example-textarea-error">
-      <failure message="Design deviation ›› /components/textarea/example-textarea-error (document) component"/>
-      <error message="Design deviation ›› /components/textarea/example-textarea-error (document) component"/>
-    </testcase>
     <testcase classname="document" name=" ›› /components/textarea/example-textarea-error"/>
+    <testcase classname="document" name=" ›› /components/textarea/example-textarea-error"/>
+    <testcase classname="document" name=" ›› /components/textarea/example-textarea-with-character-limit"/>
     <testcase classname="document" name=" ›› /components/textarea/example-textarea-with-character-limit"/>
     <testcase classname="document" name=" ›› /components/textarea/example-textarea-with-character-limit">
       <failure message="Design deviation ›› /components/textarea/example-textarea-with-character-limit (document) component"/>
       <error message="Design deviation ›› /components/textarea/example-textarea-with-character-limit (document) component"/>
     </testcase>
-    <testcase classname="document" name=" ›› /components/textarea/example-textarea-with-character-limit"/>
     <testcase classname="document" name=" ›› /components/textarea/example-textarea"/>
     <testcase classname="document" name=" ›› /components/textarea/example-textarea">
       <failure message="Design deviation ›› /components/textarea/example-textarea (document) component"/>
@@ -722,18 +716,12 @@
     </testcase>
     <testcase classname="document" name=" ›› /patterns/send-a-web-form/example-errors"/>
     <testcase classname="document" name=" ›› /patterns/send-a-web-form/example-form"/>
-    <testcase classname="document" name=" ›› /patterns/send-a-web-form/example-form">
-      <failure message="Design deviation ›› /patterns/send-a-web-form/example-form (document) component"/>
-      <error message="Design deviation ›› /patterns/send-a-web-form/example-form (document) component"/>
-    </testcase>
+    <testcase classname="document" name=" ›› /patterns/send-a-web-form/example-form"/>
     <testcase classname="document" name=" ›› /patterns/send-a-web-form/example-form"/>
     <testcase classname="document" name=" ›› /patterns/send-a-web-form/example-success"/>
     <testcase classname="document" name=" ›› /patterns/send-a-web-form/example-success"/>
     <testcase classname="document" name=" ›› /patterns/send-a-web-form/example-success"/>
-    <testcase classname="document" name=" ›› /patterns/send-and-reply-to-messages/example-conversation">
-      <failure message="Design deviation ›› /patterns/send-and-reply-to-messages/example-conversation (document) component"/>
-      <error message="Design deviation ›› /patterns/send-and-reply-to-messages/example-conversation (document) component"/>
-    </testcase>
+    <testcase classname="document" name=" ›› /patterns/send-and-reply-to-messages/example-conversation"/>
     <testcase classname="document" name=" ›› /patterns/send-and-reply-to-messages/example-conversation"/>
     <testcase classname="document" name=" ›› /patterns/send-and-reply-to-messages/example-conversation"/>
     <testcase classname="document" name=" ›› /patterns/send-and-reply-to-messages/example-message-list"/>
