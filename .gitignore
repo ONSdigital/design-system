@@ -23,3 +23,6 @@ backstop_data/html_report/
 /scss/
 
 secrets.yml
+
+# Local Netlify folder
+.netlify
