@@ -11,8 +11,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           lfs: true
-      - name: Checkout LFS objects
-        run: git lfs checkout
+          url: https://github.com/ONSdigital/design-system.git
       - name: Install Node
         uses: actions/setup-node@v2
         with:
