@@ -5,7 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      ACTIONS_STEP_DEBUG: true
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -22,4 +21,18 @@ jobs:
         run: yarn test
       - name: Run visual regression tests
         run: yarn test-visual
-
+      - name: Create Slack notification
+        if: always()
+        uses: edge/simple-slack-notify@master
+        with:
+          channel: '#pat-lib-notifications'
+          status: ${{ job.status }}
+          success_text: 'The build completed successfully'
+          failure_text: 'The build failed'
+          cancelled_text: 'The build was cancelled'
+          fields: |
+            [{ "title": "Action", "value": "${env.GITHUB_WORKFLOW} - build (${env.GITHUB_RUN_NUMBER})", "short": true },
+            { "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
+            { "title": "By", "value": "${{ github.actor }}", "short": true },
+            { "title": "Branch", "value": "${{ github.head_ref }}", "short": true },
+            { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
