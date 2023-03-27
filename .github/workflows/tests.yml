@@ -1,10 +1,12 @@
 name: Run macro, script and visual tests
 on: [push]
+
 jobs:
   run-tests-and-deploy:
     runs-on: ubuntu-latest
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      RUNNING_IN_CI: true
     steps:
       - name: Checkout
         uses: actions/checkout@v2

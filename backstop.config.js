@@ -29,4 +29,5 @@ module.exports = {
   engineOptions: {
     args: ['--no-sandbox'],
   },
+  report: process.env.RUNNING_IN_CI === 'true' ? [] : ['browser'],
 };
