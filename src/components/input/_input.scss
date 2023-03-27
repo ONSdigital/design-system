@@ -95,6 +95,8 @@
 }
 
 .ons-input--textarea {
+  box-sizing: border-box;
+  display: block;
   line-height: normal;
   resize: vertical;
   width: 100%;
