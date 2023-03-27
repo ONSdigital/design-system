@@ -27,7 +27,7 @@ export default async () => {
       const files = await globUtil(`${directory.path}/${folder}/**/example-*.njk`);
       for (const file of files) {
         const urlPath = file.replace(/^\.\/src\/(.*\/example-.*?)\.njk$/, '/$1');
-        urls.push({ url: `${testURL}${urlPath}`, label: urlPath });
+        urls.push({ url: `${testURL}${urlPath}`, label: urlPath, delay: 1000 });
       }
     }
   }
