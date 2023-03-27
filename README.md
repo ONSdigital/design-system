@@ -125,7 +125,7 @@ Checkout the branch locally and run:
 
 `yarn test-visual:approve` - This will approve the failures/diff caught by the tests and update the reference images locally on your machine.
 
-`git lfs push --all origin` - This will push the new reference images to Git LFS.
+`git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.
 
 You can then commit and push your changes. The test images that would have been created when you ran `yest test-visual` are gitignored and the new references images will be pushed to Git LFS.
 
