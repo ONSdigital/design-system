@@ -104,6 +104,9 @@ function createBackstopTask(task) {
     await backstop(task, {
       config: backstopConfig,
     });
+    setTimeout(() => {
+      process.exit();
+    }, 0);
   };
 }
 
