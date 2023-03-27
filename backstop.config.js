@@ -29,5 +29,4 @@ module.exports = {
   engineOptions: {
     args: ['--no-sandbox'],
   },
-  report: ['browser'],
 };
