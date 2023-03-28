@@ -1,24 +1,28 @@
 name: Run macro, script and visual tests
 on: [push]
-env:
-  RUNNING_ON_CI: true
-  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
 jobs:
-  run-tests:
-    name: Tests
+  run-tests-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      RUNNING_IN_CI: true
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+          url: https://github.com/ONSdigital/design-system.git
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "16"
       - name: Install dependencies
         run: yarn install
       - name: Run macro and script tests
         run: yarn test
+      - name: Run visual regression tests
+        run: yarn test-visual
       - name: Create Slack notification
         if: always()
         uses: edge/simple-slack-notify@master
