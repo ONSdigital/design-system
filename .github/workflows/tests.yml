@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   run-tests-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       RUNNING_IN_CI: true
