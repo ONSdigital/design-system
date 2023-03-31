@@ -54,8 +54,12 @@ jobs:
       - name: Install Docker
         run: |
           brew install --cask docker
-          open --background -a /Applications/Docker.app || echo "Docker.app not found, trying to start Docker manually"
-          while ! docker system info; do sleep 1; done
+          sleep 10 # Give Docker some time to start
+          until docker system info; do
+            sleep 1
+          done
+      - name: Verify Docker installation
+        run: docker --version
       - name: Run visual regression tests
         run: yarn test-visual
       - name: Create Slack notification
