@@ -30,4 +30,6 @@ module.exports = {
     args: ['--disable-gpu', '--no-sandbox', '--disable-setuid-sandbox'],
   },
   report: process.env.RUNNING_IN_CI === 'true' ? [] : ['browser'],
+  dockerCommandTemplate:
+    'docker run --rm -i --user $(id -u):$(id -g) --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
 };
