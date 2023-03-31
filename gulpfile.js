@@ -102,6 +102,7 @@ function createBackstopTask(task) {
     const backstopConfig = require('./backstop.config.js');
     backstopConfig.scenarios = urls;
     await backstop(task, {
+      docker: true,
       config: backstopConfig,
     });
     setTimeout(() => {

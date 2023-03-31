@@ -5,8 +5,7 @@ const glob = require('glob');
 const globUtil = util.promisify(glob);
 const readdir = util.promisify(fs.readdir);
 
-const port = process.env.TEST_PORT_NUMBER || 3010;
-const testURL = `http://localhost:${port}`;
+const testURL = `https://host.docker.internal`;
 
 export default async () => {
   let urls = [];
