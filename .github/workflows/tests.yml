@@ -37,7 +37,7 @@ jobs:
             { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
 
   run-visual-regression-tests:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout
@@ -51,6 +51,10 @@ jobs:
           node-version: "16"
       - name: Install dependencies
         run: yarn install
+      - name: Install Docker
+        run: |
+          brew install docker
+          colima start
       - name: Run visual regression tests
         run: yarn test-visual
       - name: Create Slack notification
