@@ -11,6 +11,14 @@ const EXAMPLE_QUESTION_BASIC = {
   description: 'Question description',
 };
 
+const EXAMPLE_QUESTION_WARNING = {
+  ...EXAMPLE_QUESTION_BASIC,
+  warning: {
+    id: 'warning-id',
+    body: 'Warning content',
+  },
+};
+
 const EXAMPLE_QUESTION_DEFINITION = {
   ...EXAMPLE_QUESTION_BASIC,
   definition: {
@@ -70,6 +78,7 @@ const EXAMPLE_QUESTION_DESCRIPTION_FIRST = {
 describe('macro: question', () => {
   describe.each([
     ['with basic parameters', EXAMPLE_QUESTION_BASIC],
+    ['with warning', EXAMPLE_QUESTION_WARNING],
     ['with definition', EXAMPLE_QUESTION_DEFINITION],
     ['with guidance', EXAMPLE_QUESTION_GUIDANCE],
     ['with justification', EXAMPLE_QUESTION_JUSTIFICATION],
@@ -80,6 +89,7 @@ describe('macro: question', () => {
     [
       'with all options combined',
       {
+        ...EXAMPLE_QUESTION_WARNING,
         ...EXAMPLE_QUESTION_DEFINITION,
         ...EXAMPLE_QUESTION_GUIDANCE,
         ...EXAMPLE_QUESTION_JUSTIFICATION,
@@ -159,6 +169,24 @@ describe('macro: question', () => {
         .text()
         .trim();
       expect(content).toEqual(expect.stringContaining('Example content...'));
+    });
+  });
+
+  describe('mode: with warning', () => {
+    it('outputs the expected panel', () => {
+      const faker = templateFaker();
+      const panelSpy = faker.spy('panel');
+
+      faker.renderComponent('question', EXAMPLE_QUESTION_WARNING);
+
+      expect(panelSpy.occurrences[0]).toHaveProperty('id', 'warning-id');
+      expect(panelSpy.occurrences[0]).toHaveProperty('type', 'warn');
+    });
+
+    it('outputs the expected panel content', () => {
+      const $ = cheerio.load(renderComponent('question', EXAMPLE_QUESTION_WARNING));
+
+      expect($('.ons-panel__body > p').text()).toBe('Warning content');
     });
   });
 
