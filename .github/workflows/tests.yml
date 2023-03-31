@@ -54,7 +54,7 @@ jobs:
       - name: Install Docker
         run: |
           brew install --cask docker
-          open --background -a Docker
+          open --background -a /Applications/Docker.app || echo "Docker.app not found, trying to start Docker manually"
           while ! docker system info; do sleep 1; done
       - name: Run visual regression tests
         run: yarn test-visual
