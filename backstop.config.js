@@ -27,7 +27,7 @@ module.exports = {
   },
   engine: 'puppeteer',
   engineOptions: {
-    args: ['--no-sandbox'],
+    args: ['--disable-gpu', '--no-sandbox', '--disable-setuid-sandbox'],
   },
   report: process.env.RUNNING_IN_CI === 'true' ? [] : ['browser'],
 };
