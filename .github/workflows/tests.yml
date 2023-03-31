@@ -51,6 +51,11 @@ jobs:
           node-version: "16"
       - name: Install dependencies
         run: yarn install
+      - name: Install Docker
+        run: |
+          brew install --cask docker
+          open --background -a Docker
+          while ! docker system info; do sleep 1; done
       - name: Run visual regression tests
         run: yarn test-visual
       - name: Create Slack notification
