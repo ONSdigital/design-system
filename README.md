@@ -111,15 +111,17 @@ It is sometimes useful to adjust the following settings when writing tests or di
 
 ## Testing - Visual regression tests
 
-This project uses [Backstop JS](https://github.com/garris/BackstopJS) for visual regression testing. The tests run in Chrome headless using pupeteer and run in three viewports; 1920 (desktop), 768 (tablet) and 375 (mobile). Reference images are stored in Git LFS and any approved changes will automatically be stored in Git LFS when pushed to the repository.
+This project uses [Backstop JS](https://github.com/garris/BackstopJS) for visual regression testing. The tests run in Chrome headless using pupeteer inside docker and run in three viewports; 1920 (desktop), 768 (tablet) and 375 (mobile). Reference images are stored in Git LFS and any approved changes will automatically be stored in Git LFS when pushed to the repository.
 
-The visual tests will run automatically on pull requests and the result will be available in the action logs. If the tests fail, the process for viewing the failures and approving changes will need to be handled locally using the following workflow and commands.
+The visual tests will run automatically on pull requests and the result will be available in the Github Action logs. If the tests fail, the process for viewing the failures and approving changes will need to be handled locally using the following workflow and commands.
 
 The first time you run the tests locally you will need to install Git LFS on your machine. Follow the install instructions for [Git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage).
 
+You will need to have Docker installed and started locally. We are using Docker as there are font rendering issues that caused failures across different os versions when we run the tests in CI. There is further information on this in the [Backstop JS docs](https://github.com/garris/BackstopJS#using-docker-for-testing-across-different-environments).
+
 Checkout the branch locally and run:
 
-`git lfs pull` - This will pull the current reference images from the repository for you to test against.
+`git lfs checkout` - This will pull the current reference images from the repository for you to test against.
 
 `yarn test-visual` - This will run the same tests locally as were run in Github Actions. After they have completed the report will open in your default browser.
 
