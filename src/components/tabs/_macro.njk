@@ -20,9 +20,10 @@
         </ul>
 
         {% for tab in params.tabs %}
-            <section id="{{ tab.id if tab.id else 'tabId' ~ loop.index }}" class="ons-tabs__panel">
-                {{ tab.content | safe }}
-            </section>
+            <h2 class="ons-u-mt-s ons-hide-medium">{{ tab.title }}</h2>
+                <section id="{{ tab.id if tab.id else 'tabId' ~ loop.index }}" class="ons-tabs__panel">
+                    {{ tab.content | safe }}
+                </section>
         {% endfor %}
     </section>
 {% endmacro %}
