@@ -1,25 +1,33 @@
 {% macro onsSectionNavigation(params) %}
-  <nav class="ons-section-nav{% if params.variants == 'vertical' %} ons-section-nav--vertical{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}"{% if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ params.ariaLabel | default("Section menu") }}">
-      <ul class="ons-section-nav__list">
-        {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
-          {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title|lower) %}
-            {% set isCurrent = true %}
-          {% else %}
-            {% set isCurrent = false %}
-          {% endif %}
-          <li class="ons-section-nav__item{% if item.classes %} ' ' + {{ item.classes }}{% endif %}{% if isCurrent == true %} ons-section-nav__item--active{% endif %}">
-            <a class="ons-section-nav__link" href="{{ item.url }}"{% if isCurrent == true %} aria-current="location"{% endif %}>{{ item.title }}</a>
-              {% if item.anchors %}
-                  <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs">
-                      {% for anchor in item.anchors %}
-                          <li class="ons-section-nav__item ons-list__item">
-                              <a href="{{ anchor.url }}" class="ons-section-nav__link ons-list__link">{{ anchor.title }}</a>
-                          </li>
-                      {% endfor %}
-                  </ul>
-              {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
+  <nav class="ons-section-nav{% if params.variants == 'vertical' %} ons-section-nav--vertical{% endif %} {% if params.classes %} {{ params.classes }} {% endif %}"{% if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ params.ariaLabel | default("Section menu") }}">
+    {% if params.lists %}
+      {% for list in params.lists %}
+        <div class="ons-section-nav--sub">
+          {% if list.title %}
+            <h3 class="ons-section-nav__header">{{ list.title }}</h3>{% endif %}
+              <ul class="ons-section-nav__list">
+                {% for item in (list.itemsList if list.itemsList is iterable else list.itemsList.items()) %}
+                  {% if (list.currentPath and item.url == list.currentPath) or (list.tabQuery and list.tabQuery == item.title|lower) %}
+                    {% set isCurrent = true %}
+                  {% else %}
+                    {% set isCurrent = false %}
+                  {% endif %}
+                  <li class="ons-section-nav__item{% if item.classes %} ' ' + {{ item.classes }}{% endif %}{% if isCurrent == true %} ons-section-nav__item--active{% endif %}">
+                    <a class="ons-section-nav__link" href="{{ item.url }}"{% if isCurrent == true %} aria-current="location"{% endif %}>{{ item.title }}</a>
+                      {% if item.anchors %}
+                          <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs">
+                              {% for anchor in item.anchors %}
+                                  <li class="ons-section-nav__item ons-list__item">
+                                      <a href="{{ anchor.url }}" class="ons-section-nav__link ons-list__link">{{ anchor.title }}</a>
+                                  </li>
+                              {% endfor %}
+                          </ul>
+                      {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+        </div>
+      {% endfor %}    
+    {% endif %}  
   </nav>
 {% endmacro %}
