@@ -6,7 +6,7 @@
 | variants    | string        | false                           | To adjust the orientation of the component using available variant “vertical”                           |
 | currentPath | string        | true (unless `tabQuery` set)    | Path to the current active page                                                                         |
 | tabQuery    | string        | true (unless `currentPath` set) | Query parameter in the URL for the current active page                                                  |
-| title       | string        | false                           | The title/header to display in the section navigation element                                           |
+| title       | string        | false                           | The title/header to display in the section navigation element (only for entries without sections)       |
 | sections    | `Array<Item>` | false                           | An array of [sections](#sections) for the component                                                     |
 
 ## Sections
