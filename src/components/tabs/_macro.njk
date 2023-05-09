@@ -21,7 +21,7 @@
 
         {% for tab in params.tabs %}
             <section id="{{ tab.id if tab.id else 'tabId' ~ loop.index }}" class="ons-tabs__panel">
-                    {{ tab.content | safe }}
+                {{ tab.content | safe }}
             </section>
         {% endfor %}
     </section>
