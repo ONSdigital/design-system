@@ -6,13 +6,14 @@
 | variants    | string        | false                           | To adjust the orientation of the component using available variant “vertical”                           |
 | currentPath | string        | true (unless `tabQuery` set)    | Path to the current active page                                                                         |
 | tabQuery    | string        | true (unless `currentPath` set) | Query parameter in the URL for the current active page                                                  |
+| title       | string        | false                           | The title/header to display in the section navigation element                                           |
 | sections    | `Array<Item>` | false                           | An array of [sections](#sections) for the component                                                     |
 
 ## Sections
 
 | Name      | Type          | Required | Description                                                                           |
 | --------- | ------------- | -------- | ------------------------------------------------------------------------------------- |
-| title     | string        | false    | The title/header to display in the section navigation element                         |
+| title     | string        | false    | The title/header to display in each section in the navigation element                 |
 | itemsList | `Array<Item>` | true     | An array of [list items](#itemList) to display in the section navigation list element |
 
 ## ItemList

@@ -29,8 +29,8 @@
         </div>
       {% endfor %} 
       {% else %} 
-        {% if list.title %}
-          <h3 class="ons-section-nav__header">{{ list.title }}</h3>{% endif %}
+        {% if params.title %}
+          <h3 class="ons-section-nav__header">{{ params.title }}</h3>{% endif %}
             <ul class="ons-section-nav__list">
               {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
                 {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title|lower) %}
