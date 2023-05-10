@@ -2,9 +2,9 @@
   <nav class="ons-section-nav{% if params.variants == 'vertical' %} ons-section-nav--vertical{% endif %} {% if params.classes %} {{ params.classes }} {% endif %}"{% if params.id %} id="{{ params.id }}"{% endif %} aria-label="{{ params.ariaLabel | default("Section menu") }}">
     {% if params.sections %}
       {% for section in params.sections %}
-        <div class="ons-section-nav--sub">
+        <div class="ons-section-nav__sub">
           {% if section.title %}
-            <h3 class="ons-section-nav__header">{{ section.title }}</h3>{% endif %}
+            <h3 class="ons-u-fs-r--b ons-u-mb-s">{{ section.title }}</h3>{% endif %}
               <ul class="ons-section-nav__list">
                 {% for item in (section.itemsList if section.itemsList is iterable else section.itemsList.items()) %}
                   {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title|lower) %}
@@ -30,7 +30,8 @@
       {% endfor %} 
       {% else %} 
         {% if params.title %}
-          <h3 class="ons-section-nav__header">{{ params.title }}</h3>{% endif %}
+          <h3 class="ons-u-fs-r--b ons-u-mb-s">{{ params.title }}</h3>
+        {% endif %}
             <ul class="ons-section-nav__list">
               {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
                 {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title|lower) %}
