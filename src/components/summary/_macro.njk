@@ -12,7 +12,7 @@
     <div class="{{ className }}">
         {% for summary in params.summaries %}
             {% if summary.summaryTitle %}
-                <h2 class="ons-summary__title ons-u-mb-m">{{ summary.summaryTitle }}</h2>
+                <h2 class="ons-summary__title ons-u-mb-m{{ " ons-u-mt-m" if loop.index > 1 else "" }}">{{ summary.summaryTitle }}</h2>
                 {% set titleSize = "3" %}
             {% endif %}
             {% for group in summary.groups %}
