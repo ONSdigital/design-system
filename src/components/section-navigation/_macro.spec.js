@@ -54,6 +54,44 @@ const EXAMPLE_SECTION_NAVIGATION_VERTICAL = {
   ],
 };
 
+const EXAMPLE_SECTION_NAVIGATION_VERTICAL_WITH_SECTIONS = {
+  variants: 'vertical',
+  currentPath: '#section-2',
+  sections: [
+    {
+      title: 'Section Title',
+      itemsList: [
+        {
+          title: 'Section 1',
+          url: '#section-1',
+        },
+        {
+          title: 'Section 2',
+          url: '#section-2',
+          anchors: [
+            {
+              title: 'Sub section 1',
+              url: '#sub-section-1',
+            },
+            {
+              title: 'Sub section 2',
+              url: '#sub-section-2',
+            },
+            {
+              title: 'Sub section 3',
+              url: '#sub-section-3',
+            },
+          ],
+        },
+        {
+          title: 'Section 3',
+          url: '#0',
+        },
+      ],
+    },
+  ],
+};
+
 describe('macro: section-navigation', () => {
   describe('variant: horizontal', () => {
     it('passes jest-axe checks', async () => {
@@ -206,6 +244,32 @@ describe('macro: section-navigation', () => {
 
         const itemLinks = mapAll($('.ons-section-nav__sub-items .ons-section-nav__item .ons-section-nav__link'), node => node.attr('href'));
         expect(itemLinks).toEqual(['#sub-section-1', '#sub-section-2', '#sub-section-3']);
+      });
+    });
+
+    describe('Section Items', () => {
+      it('passes jest-axe checks', async () => {
+        const $ = cheerio.load(renderComponent('section-navigation', EXAMPLE_SECTION_NAVIGATION_VERTICAL_WITH_SECTIONS));
+
+        const results = await axe($.html());
+        expect(results).toHaveNoViolations();
+      });
+
+      it('renders itemsLists, anchors and heading for each section', () => {
+        const $ = cheerio.load(renderComponent('section-navigation', EXAMPLE_SECTION_NAVIGATION_VERTICAL_WITH_SECTIONS));
+
+        const anchors = mapAll($('.ons-section-nav__sub-items .ons-section-nav__item .ons-section-nav__link'), node => node.text().trim());
+        expect(anchors).toEqual(['Sub section 1', 'Sub section 2', 'Sub section 3']);
+
+        const itemLists = mapAll($('.ons-section-nav__item .ons-section-nav__link'), node => node.text().trim());
+        expect(itemLists).toEqual(['Section 1', 'Section 2', 'Sub section 1', 'Sub section 2', 'Sub section 3', 'Section 3']);
+
+        const headings = mapAll($('h3'), node =>
+          $(node)
+            .text()
+            .trim(),
+        );
+        expect(headings).toEqual(['Section Title']);
       });
     });
   });
