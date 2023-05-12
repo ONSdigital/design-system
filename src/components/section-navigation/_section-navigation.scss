@@ -9,6 +9,11 @@
     padding: 0;
   }
 
+  &__sub {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
   &__link {
     text-decoration: none;
     &:hover {

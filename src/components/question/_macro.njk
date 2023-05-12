@@ -22,7 +22,9 @@
             {% call onsDetails({
                 "id": params.definition.id,
                 "classes": 'ons-u-mb-m',
-                "title": params.definition.title
+                "title": params.definition.title,
+                "headingAttributes": params.definition.headingAttributes,
+                "contentAttributes": params.definition.contentAttributes
             }) %}
                 {% if params.definition.content %}
                     {{ params.definition.content | safe }}
@@ -35,7 +37,9 @@
         {% set questionGuidance %}
             {% from "components/panel/_macro.njk" import onsPanel %}
             {% call onsPanel({
-                "classes": "ons-question-guidance ons-u-mb-m"
+                "id": params.guidance.id,
+                "classes": "ons-question-guidance ons-u-mb-m",
+                "attributes": params.guidance.attributes
             }) %}
                 {% if params.guidance.content %}
                     {{ params.guidance.content | safe }}
@@ -65,30 +69,15 @@
         class="ons-question ons-u-mb-l{% if params.classes %} {{ params.classes }}{% endif %}"
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
     >
-        {% if params.legendIsQuestionTitle %}
-            {% from "components/fieldset/_macro.njk" import onsFieldset %}
-
-            {# Resolves caller issue in Jinja: https://github.com/pallets/jinja/issues/371 #}
-            {% set content = caller() if caller %}
-            <div class="ons-question__answer ons-u-mb-m">
-                {% call onsFieldset({
-                    "legendIsQuestionTitle": params.legendIsQuestionTitle,
-                    "legend": titleHtml,
-                    "description": descHtml if params.description else '',
-                    "legendClasses": params.legendClasses,
-                    "legendTitleClasses": params.legendTitleClasses
+        {% set additionalContent %}
+            {% if params.warning %}
+                {% from "components/panel/_macro.njk" import onsPanel %}
+                {% call onsPanel({
+                    "id": params.warning.id,
+                    "type": "warn"
                 }) %}
-                    {{ content }}
+                    <p>{{ params.warning.body }}</p>
                 {% endcall %}
-            </div>
-
-        {% else %}
-            <h1 id="question-title" class="ons-question__title">
-                {{- titleHtml | safe -}}
-            </h1>
-
-            {% if params.description %}
-                {{- descHtml | safe -}}
             {% endif %}
 
             {% if params.instruction %}
@@ -102,6 +91,36 @@
             {% if params.guidance %}
                 {{- questionGuidance | safe -}}
             {% endif %}
+        {% endset %}
+
+        {% if params.legendIsQuestionTitle %}
+            {% from "components/fieldset/_macro.njk" import onsFieldset %}
+
+            {# Resolves caller issue in Jinja: https://github.com/pallets/jinja/issues/371 #}
+            {% set content = caller() if caller %}
+            <div class="ons-question__answer ons-u-mb-m">
+                {% call onsFieldset({
+                    "legendIsQuestionTitle": params.legendIsQuestionTitle,
+                    "legend": titleHtml,
+                    "description": descHtml if params.description else '',
+                    "legendClasses": params.legendClasses,
+                    "legendTitleClasses": params.legendTitleClasses
+                }) %}
+                    {{- additionalContent | safe -}}
+                    {{ content }}
+                {% endcall %}
+            </div>
+
+        {% else %}
+            <h1 id="question-title" class="ons-question__title">
+                {{- titleHtml | safe -}}
+            </h1>
+
+            {% if params.description %}
+                {{- descHtml | safe -}}
+            {% endif %}
+
+            {{- additionalContent | safe -}}
 
             <div class="ons-question__answer ons-u-mb-m">
                 {{ caller() if caller }}
@@ -113,7 +132,9 @@
             {% call onsDetails({
                 "id": params.justification.id,
                 "classes": 'ons-u-mb-m',
-                "title": params.justification.title | default('Why we ask this question')
+                "title": params.justification.title | default('Why we ask this question'),
+                "headingAttributes": params.justification.headingAttributes,
+                "contentAttributes": params.justification.contentAttributes
             }) %}
                 {{ params.justification.content | safe }}
             {% endcall %}
