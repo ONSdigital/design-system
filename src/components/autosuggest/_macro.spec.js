@@ -182,13 +182,13 @@ describe('macro: autosuggest', () => {
       expect($('.ons-autosuggest-input__results').length).toBe(0);
     });
 
-    it('renders header with the provided title identifier', () => {
+    it('renders div with the provided title identifier', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
       expect($('.ons-autosuggest-input__results-title').attr('id')).toBe('country-of-birth-suggestions');
     });
 
-    it('renders header with the provided title text', () => {
+    it('renders div with the provided title text', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
       expect(
