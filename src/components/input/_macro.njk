@@ -27,7 +27,7 @@
             type="{{ type }}"
             id="{{ params.id }}"
             class="ons-input ons-input--text ons-input-type__input{% if params.error %} ons-input--error{% endif %}{% if params.searchButton %} ons-search__input{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}{% if params.width %} ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
-            {% if params.prefix and params.prefix.id %}aria-describedby="{{ params.prefix.id }}"{% elif params.suffix and params.suffix.id %}aria-describedby="{{ params.suffix.id }}"{% endif %}
+            {% if params.prefix and params.prefix.id %}aria-labelledby="{{ params.prefix.id }}"{% elif params.suffix and params.suffix.id %}aria-labelledby="{{ params.suffix.id }}"{% endif %}
             {% if params.name %}name="{{ params.name }}"{% endif %}
             {% if params.value %}value="{{ params.value }}"{% endif %}
             {% if params.accept %}accept="{{ params.accept }}"{% endif %}
@@ -42,7 +42,7 @@
             {% if params.charCheckLimit %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheckLimit.limit }}" aria-describedby="{{ params.id }}-check-remaining"{% endif %}
             {% if params.charCheckLimit and params.charCheckLimit.charcheckCountdown %}data-char-check-countdown="true"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-            {% if params.label and params.label.description %}{% if not params.prefix and not params.suffix %}{% if params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}{% endif %}
+            {% if params.label and params.label.description %}{% if params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
         />
         {% if params.listeners %}
             <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
