@@ -37,7 +37,7 @@
 
         {% set autosuggestResults %}
             <div class="ons-autosuggest-input__results ons-js-autosuggest-results">
-                <div id="{{ params.resultsTitleId }}" class="ons-autosuggest-input__results-title ons-u-fs-s">{{ params.resultsTitle }}</div>
+                <h3 id="{{ params.resultsTitleId }}" class="ons-autosuggest-input__results-title ons-u-fs-s">{{ params.resultsTitle }}</h3>
                 <ul class="ons-autosuggest-input__listbox ons-js-autosuggest-listbox" title="{{ params.resultsTitle }}" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
             </div>
             <div class="ons-autosuggest-input__instructions ons-u-vh ons-js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
