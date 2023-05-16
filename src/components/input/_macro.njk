@@ -42,7 +42,7 @@
             {% if params.charCheckLimit %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheckLimit.limit }}" aria-describedby="{{ params.id }}-check-remaining"{% endif %}
             {% if params.charCheckLimit and params.charCheckLimit.charcheckCountdown %}data-char-check-countdown="true"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-            {% if params.label and params.label.description %}{% if params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
+            {% if params.label and params.label.description %}{% if not params.prefix and not params.suffix %}{% if params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}{% endif %}
         />
         {% if params.listeners %}
             <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
