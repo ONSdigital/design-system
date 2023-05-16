@@ -121,11 +121,15 @@ You will need to have Docker installed and started locally. We are using Docker 
 
 Checkout the branch locally and run:
 
+`git lfs fetch` - This downloads the files into your `.git/lfs` if you have never run vr test locally.
+
 `git lfs checkout` - This will pull the current reference images from the repository for you to test against.
 
 `yarn test-visual` - This will run the same tests locally as were run in Github Actions. After they have completed the report will open in your default browser.
 
-`yarn test-visual:approve` - This will approve the failures/diff caught by the tests and update the reference images locally on your machine.
+`yarn test-visual:approve` - This will approve the failures/diff caught by the tests.
+
+`yarn test-visual:reference` - This will update the reference images locally on your machine.
 
 `git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.
 

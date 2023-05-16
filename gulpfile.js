@@ -97,7 +97,7 @@ gulp.task('generate-urls', async () => {
 });
 
 function createBackstopTask(task) {
-  return async () => {
+  return (backstopTestTask = async () => {
     const urls = await generateURLs();
     const backstopConfig = require('./backstop.config.js');
     backstopConfig.scenarios = urls;
@@ -108,7 +108,7 @@ function createBackstopTask(task) {
     setTimeout(() => {
       process.exit();
     }, 0);
-  };
+  });
 }
 
 gulp.task('watch-and-build', async () => {
