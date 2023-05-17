@@ -391,7 +391,7 @@ describe('macro: input', () => {
         }),
       );
 
-      expect($('.ons-input').attr('aria-labelledby')).toBe('example-prefix-id');
+      expect($('.ons-input').attr('aria-labelledby')).toBe('example-id example-prefix-id');
     });
 
     it('renders prefix element from `prefix.text`', () => {
@@ -440,7 +440,7 @@ describe('macro: input', () => {
         }),
       );
 
-      expect($('.ons-input').attr('aria-labelledby')).toBe('example-suffix-id');
+      expect($('.ons-input').attr('aria-labelledby')).toBe('example-id example-suffix-id');
     });
 
     it('renders suffix element from `suffix.text`', () => {

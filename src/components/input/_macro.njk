@@ -27,7 +27,8 @@
             type="{{ type }}"
             id="{{ params.id }}"
             class="ons-input ons-input--text ons-input-type__input{% if params.error %} ons-input--error{% endif %}{% if params.searchButton %} ons-search__input{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}{% if params.width %} ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
-            {% if params.prefix and params.prefix.id %}aria-labelledby="{{ params.prefix.id }}"{% elif params.suffix and params.suffix.id %}aria-labelledby="{{ params.suffix.id }}"{% endif %}
+            {% if params.prefix and params.prefix.id and not params.prefix.title %}aria-labelledby="{{ params.prefix.id }}"{% elif params.suffix and params.suffix.id and not params.suffix.title %}aria-labelledby="{{ params.suffix.id }}"{% endif %}
+            {% if params.prefix and params.prefix.id %}aria-labelledby="{{params.id}} {{ params.prefix.id }}"{% elif params.suffix and params.suffix.id %}aria-labelledby="{{params.id}} {{ params.suffix.id }}"{% endif %}
             {% if params.name %}name="{{ params.name }}"{% endif %}
             {% if params.value %}value="{{ params.value }}"{% endif %}
             {% if params.accept %}accept="{{ params.accept }}"{% endif %}
@@ -89,10 +90,11 @@
                         <{{ tag }}
                             id="{{ abbr.id }}"
                             class="ons-input-type__type ons-js-input-abbr"
-                            {% if params.prefix %} aria-label="{{ params.prefix.title }}" {% endif %}
-                            {% if params.suffix %} aria-label="{{ params.suffix.title }}" {% endif %}
+                            {% if params.prefix or params.suffix %}
+                            aria-label="{{ abbr.title }}"
+                            role="figure"
+                            {% endif %}
                             {% if abbr.title %}title="{{ abbr.title }}"{% endif %}
-                            aria-hidden="true"
                             >{{ abbr.text }}</{{ tag }}>
                     </span>
                 </span>
