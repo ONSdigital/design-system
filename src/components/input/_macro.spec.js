@@ -380,7 +380,7 @@ describe('macro: input', () => {
       expect(results).toHaveNoViolations();
     });
 
-    it('adds `aria-labelledby` attribute when `prefix` is provided', () => {
+    it('adds `aria-labelledby` attribute when `prefix` is provided with `prefix.title`', () => {
       const $ = cheerio.load(
         renderComponent('input', {
           ...EXAMPLE_INPUT_MINIMAL,
@@ -392,6 +392,19 @@ describe('macro: input', () => {
       );
 
       expect($('.ons-input').attr('aria-labelledby')).toBe('example-id example-prefix-id');
+    });
+
+    it('adds `aria-labelledby` attribute when `prefix` is provided without `prefix.title`', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_MINIMAL,
+          prefix: {
+            id: 'example-prefix-id',
+          },
+        }),
+      );
+
+      expect($('.ons-input').attr('aria-labelledby')).toBe('example-prefix-id');
     });
 
     it('renders prefix element from `prefix.text`', () => {
@@ -443,6 +456,19 @@ describe('macro: input', () => {
       expect($('.ons-input').attr('aria-labelledby')).toBe('example-id example-suffix-id');
     });
 
+    it('adds `aria-labelledby` attribute when `suffix` is provided without `suffix.title`', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_MINIMAL,
+          suffix: {
+            id: 'example-suffix-id',
+          },
+        }),
+      );
+
+      expect($('.ons-input').attr('aria-labelledby')).toBe('example-suffix-id');
+    });
+
     it('renders suffix element from `suffix.text`', () => {
       const $ = cheerio.load(
         renderComponent('input', {
@@ -491,6 +517,21 @@ describe('macro: input', () => {
       );
 
       expect($('.ons-input + abbr').length).toBe(1);
+    });
+
+    it('renders an `abbr` tag with aria-hidden attribute set to `true`', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_MINIMAL,
+          suffix: {
+            text: 'Example suffix text',
+            title: 'Example suffix title',
+            id: 'example-suffix-id',
+          },
+        }),
+      );
+
+      expect($('abbr').attr('aria-hidden')).toBe('true');
     });
 
     it('renders a `span` tag when `title` not set', () => {
