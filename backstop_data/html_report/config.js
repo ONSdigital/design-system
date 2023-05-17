@@ -4,7 +4,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_access-code_example-access-code-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_access-code_example-access-code-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_access-code_example-access-code-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_access-code_example-access-code-error_0_document_0_desktop.png",
         "label": "/components/access-code/example-access-code-error",
@@ -26,7 +26,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_access-code_example-access-code-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_access-code_example-access-code-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_access-code_example-access-code-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_access-code_example-access-code-error_0_document_1_tablet.png",
         "label": "/components/access-code/example-access-code-error",
@@ -48,7 +48,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_access-code_example-access-code-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_access-code_example-access-code-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_access-code_example-access-code-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_access-code_example-access-code-error_0_document_2_mobile.png",
         "label": "/components/access-code/example-access-code-error",
@@ -70,7 +70,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_access-code_example-access-code_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_access-code_example-access-code_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_access-code_example-access-code_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_access-code_example-access-code_0_document_0_desktop.png",
         "label": "/components/access-code/example-access-code",
@@ -92,7 +92,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_access-code_example-access-code_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_access-code_example-access-code_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_access-code_example-access-code_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_access-code_example-access-code_0_document_1_tablet.png",
         "label": "/components/access-code/example-access-code",
@@ -114,7 +114,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_access-code_example-access-code_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_access-code_example-access-code_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_access-code_example-access-code_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_access-code_example-access-code_0_document_2_mobile.png",
         "label": "/components/access-code/example-access-code",
@@ -136,7 +136,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_accordion_example-accordion-open_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_accordion_example-accordion-open_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_accordion_example-accordion-open_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_accordion_example-accordion-open_0_document_0_desktop.png",
         "label": "/components/accordion/example-accordion-open",
@@ -158,7 +158,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_accordion_example-accordion-open_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_accordion_example-accordion-open_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_accordion_example-accordion-open_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_accordion_example-accordion-open_0_document_1_tablet.png",
         "label": "/components/accordion/example-accordion-open",
@@ -180,7 +180,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_accordion_example-accordion-open_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_accordion_example-accordion-open_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_accordion_example-accordion-open_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_accordion_example-accordion-open_0_document_2_mobile.png",
         "label": "/components/accordion/example-accordion-open",
@@ -202,7 +202,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_accordion_example-accordion_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_accordion_example-accordion_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_accordion_example-accordion_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_accordion_example-accordion_0_document_0_desktop.png",
         "label": "/components/accordion/example-accordion",
@@ -224,7 +224,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_accordion_example-accordion_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_accordion_example-accordion_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_accordion_example-accordion_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_accordion_example-accordion_0_document_1_tablet.png",
         "label": "/components/accordion/example-accordion",
@@ -246,7 +246,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_accordion_example-accordion_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_accordion_example-accordion_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_accordion_example-accordion_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_accordion_example-accordion_0_document_2_mobile.png",
         "label": "/components/accordion/example-accordion",
@@ -268,7 +268,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input-editable_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_address-input_example-address-input-editable_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_address-input_example-address-input-editable_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input-editable_0_document_0_desktop.png",
         "label": "/components/address-input/example-address-input-editable",
@@ -290,7 +290,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input-editable_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_address-input_example-address-input-editable_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_address-input_example-address-input-editable_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input-editable_0_document_1_tablet.png",
         "label": "/components/address-input/example-address-input-editable",
@@ -312,7 +312,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input-editable_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_address-input_example-address-input-editable_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_address-input_example-address-input-editable_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input-editable_0_document_2_mobile.png",
         "label": "/components/address-input/example-address-input-editable",
@@ -334,7 +334,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input-manual_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_address-input_example-address-input-manual_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_address-input_example-address-input-manual_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input-manual_0_document_0_desktop.png",
         "label": "/components/address-input/example-address-input-manual",
@@ -356,7 +356,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input-manual_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_address-input_example-address-input-manual_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_address-input_example-address-input-manual_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input-manual_0_document_1_tablet.png",
         "label": "/components/address-input/example-address-input-manual",
@@ -378,7 +378,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input-manual_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_address-input_example-address-input-manual_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_address-input_example-address-input-manual_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input-manual_0_document_2_mobile.png",
         "label": "/components/address-input/example-address-input-manual",
@@ -400,7 +400,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_address-input_example-address-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_address-input_example-address-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input_0_document_0_desktop.png",
         "label": "/components/address-input/example-address-input",
@@ -422,7 +422,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_address-input_example-address-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_address-input_example-address-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input_0_document_1_tablet.png",
         "label": "/components/address-input/example-address-input",
@@ -444,7 +444,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_address-input_example-address-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_address-input_example-address-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_address-input_example-address-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_address-input_example-address-input_0_document_2_mobile.png",
         "label": "/components/address-input/example-address-input",
@@ -466,7 +466,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_0_desktop.png",
         "label": "/components/autosuggest/example-autosuggest-country-multiple",
@@ -488,7 +488,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_1_tablet.png",
         "label": "/components/autosuggest/example-autosuggest-country-multiple",
@@ -510,7 +510,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_autosuggest_example-autosuggest-country-multiple_0_document_2_mobile.png",
         "label": "/components/autosuggest/example-autosuggest-country-multiple",
@@ -532,7 +532,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_0_desktop.png",
         "label": "/components/autosuggest/example-autosuggest-country",
@@ -554,7 +554,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_1_tablet.png",
         "label": "/components/autosuggest/example-autosuggest-country",
@@ -576,7 +576,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_autosuggest_example-autosuggest-country_0_document_2_mobile.png",
         "label": "/components/autosuggest/example-autosuggest-country",
@@ -598,7 +598,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_back-link_example-back-link_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_back-link_example-back-link_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_back-link_example-back-link_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_back-link_example-back-link_0_document_0_desktop.png",
         "label": "/components/back-link/example-back-link",
@@ -620,7 +620,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_back-link_example-back-link_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_back-link_example-back-link_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_back-link_example-back-link_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_back-link_example-back-link_0_document_1_tablet.png",
         "label": "/components/back-link/example-back-link",
@@ -642,7 +642,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_back-link_example-back-link_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_back-link_example-back-link_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_back-link_example-back-link_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_back-link_example-back-link_0_document_2_mobile.png",
         "label": "/components/back-link/example-back-link",
@@ -664,7 +664,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_0_desktop.png",
         "label": "/components/breadcrumbs/example-breadcrumbs-single",
@@ -686,7 +686,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_1_tablet.png",
         "label": "/components/breadcrumbs/example-breadcrumbs-single",
@@ -708,7 +708,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_breadcrumbs_example-breadcrumbs-single_0_document_2_mobile.png",
         "label": "/components/breadcrumbs/example-breadcrumbs-single",
@@ -730,7 +730,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_0_desktop.png",
         "label": "/components/breadcrumbs/example-breadcrumbs",
@@ -752,7 +752,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_1_tablet.png",
         "label": "/components/breadcrumbs/example-breadcrumbs",
@@ -774,7 +774,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_breadcrumbs_example-breadcrumbs_0_document_2_mobile.png",
         "label": "/components/breadcrumbs/example-breadcrumbs",
@@ -796,7 +796,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-custom_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-custom_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-custom_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-custom_0_document_0_desktop.png",
         "label": "/components/button/example-button-custom",
@@ -818,7 +818,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-custom_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-custom_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-custom_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-custom_0_document_1_tablet.png",
         "label": "/components/button/example-button-custom",
@@ -840,7 +840,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-custom_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-custom_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-custom_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-custom_0_document_2_mobile.png",
         "label": "/components/button/example-button-custom",
@@ -862,7 +862,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-disabled_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-disabled_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-disabled_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-disabled_0_document_0_desktop.png",
         "label": "/components/button/example-button-disabled",
@@ -884,7 +884,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-disabled_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-disabled_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-disabled_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-disabled_0_document_1_tablet.png",
         "label": "/components/button/example-button-disabled",
@@ -906,7 +906,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-disabled_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-disabled_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-disabled_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-disabled_0_document_2_mobile.png",
         "label": "/components/button/example-button-disabled",
@@ -928,7 +928,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-download_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-download_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-download_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-download_0_document_0_desktop.png",
         "label": "/components/button/example-button-download",
@@ -950,7 +950,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-download_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-download_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-download_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-download_0_document_1_tablet.png",
         "label": "/components/button/example-button-download",
@@ -972,7 +972,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-download_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-download_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-download_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-download_0_document_2_mobile.png",
         "label": "/components/button/example-button-download",
@@ -994,7 +994,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-ghost_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-ghost_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-ghost_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-ghost_0_document_0_desktop.png",
         "label": "/components/button/example-button-ghost",
@@ -1016,7 +1016,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-ghost_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-ghost_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-ghost_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-ghost_0_document_1_tablet.png",
         "label": "/components/button/example-button-ghost",
@@ -1038,7 +1038,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-ghost_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-ghost_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-ghost_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-ghost_0_document_2_mobile.png",
         "label": "/components/button/example-button-ghost",
@@ -1060,7 +1060,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-group_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-group_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-group_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-group_0_document_0_desktop.png",
         "label": "/components/button/example-button-group",
@@ -1082,7 +1082,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-group_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-group_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-group_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-group_0_document_1_tablet.png",
         "label": "/components/button/example-button-group",
@@ -1104,7 +1104,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-group_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-group_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-group_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-group_0_document_2_mobile.png",
         "label": "/components/button/example-button-group",
@@ -1126,7 +1126,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-link_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-link_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-link_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-link_0_document_0_desktop.png",
         "label": "/components/button/example-button-link",
@@ -1148,7 +1148,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-link_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-link_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-link_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-link_0_document_1_tablet.png",
         "label": "/components/button/example-button-link",
@@ -1170,7 +1170,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-link_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-link_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-link_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-link_0_document_2_mobile.png",
         "label": "/components/button/example-button-link",
@@ -1192,7 +1192,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-loader_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-loader_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-loader_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-loader_0_document_0_desktop.png",
         "label": "/components/button/example-button-loader",
@@ -1214,7 +1214,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-loader_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-loader_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-loader_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-loader_0_document_1_tablet.png",
         "label": "/components/button/example-button-loader",
@@ -1236,7 +1236,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-loader_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-loader_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-loader_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-loader_0_document_2_mobile.png",
         "label": "/components/button/example-button-loader",
@@ -1258,7 +1258,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-new-window_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-new-window_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-new-window_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-new-window_0_document_0_desktop.png",
         "label": "/components/button/example-button-new-window",
@@ -1280,7 +1280,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-new-window_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-new-window_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-new-window_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-new-window_0_document_1_tablet.png",
         "label": "/components/button/example-button-new-window",
@@ -1302,7 +1302,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-new-window_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-new-window_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-new-window_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-new-window_0_document_2_mobile.png",
         "label": "/components/button/example-button-new-window",
@@ -1324,7 +1324,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-print_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-print_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-print_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-print_0_document_0_desktop.png",
         "label": "/components/button/example-button-print",
@@ -1346,7 +1346,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-print_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-print_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-print_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-print_0_document_1_tablet.png",
         "label": "/components/button/example-button-print",
@@ -1368,7 +1368,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-print_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-print_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-print_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-print_0_document_2_mobile.png",
         "label": "/components/button/example-button-print",
@@ -1390,7 +1390,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-secondary-small_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-secondary-small_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-secondary-small_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-secondary-small_0_document_0_desktop.png",
         "label": "/components/button/example-button-secondary-small",
@@ -1412,7 +1412,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-secondary-small_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-secondary-small_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-secondary-small_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-secondary-small_0_document_1_tablet.png",
         "label": "/components/button/example-button-secondary-small",
@@ -1434,7 +1434,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-secondary-small_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-secondary-small_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-secondary-small_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-secondary-small_0_document_2_mobile.png",
         "label": "/components/button/example-button-secondary-small",
@@ -1456,7 +1456,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-secondary_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-secondary_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-secondary_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-secondary_0_document_0_desktop.png",
         "label": "/components/button/example-button-secondary",
@@ -1478,7 +1478,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-secondary_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-secondary_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-secondary_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-secondary_0_document_1_tablet.png",
         "label": "/components/button/example-button-secondary",
@@ -1500,7 +1500,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-secondary_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-secondary_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-secondary_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-secondary_0_document_2_mobile.png",
         "label": "/components/button/example-button-secondary",
@@ -1522,7 +1522,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-small_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-small_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-small_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-small_0_document_0_desktop.png",
         "label": "/components/button/example-button-small",
@@ -1544,7 +1544,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-small_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-small_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-small_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-small_0_document_1_tablet.png",
         "label": "/components/button/example-button-small",
@@ -1566,7 +1566,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-small_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-small_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-small_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-small_0_document_2_mobile.png",
         "label": "/components/button/example-button-small",
@@ -1588,7 +1588,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-timer_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-timer_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-timer_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-timer_0_document_0_desktop.png",
         "label": "/components/button/example-button-timer",
@@ -1610,7 +1610,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-timer_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-timer_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-timer_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-timer_0_document_1_tablet.png",
         "label": "/components/button/example-button-timer",
@@ -1632,7 +1632,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button-timer_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button-timer_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button-timer_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button-timer_0_document_2_mobile.png",
         "label": "/components/button/example-button-timer",
@@ -1654,7 +1654,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button_0_document_0_desktop.png",
         "label": "/components/button/example-button",
@@ -1676,7 +1676,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button_0_document_1_tablet.png",
         "label": "/components/button/example-button",
@@ -1698,7 +1698,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_button_example-button_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_button_example-button_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_button_example-button_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_button_example-button_0_document_2_mobile.png",
         "label": "/components/button/example-button",
@@ -1720,7 +1720,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_0_desktop.png",
         "label": "/components/call-to-action/example-call-to-action-default",
@@ -1742,7 +1742,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_1_tablet.png",
         "label": "/components/call-to-action/example-call-to-action-default",
@@ -1764,7 +1764,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_call-to-action_example-call-to-action-default_0_document_2_mobile.png",
         "label": "/components/call-to-action/example-call-to-action-default",
@@ -1786,7 +1786,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set-with-images_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_card_example-card-set-with-images_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_card_example-card-set-with-images_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set-with-images_0_document_0_desktop.png",
         "label": "/components/card/example-card-set-with-images",
@@ -1808,7 +1808,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set-with-images_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_card_example-card-set-with-images_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_card_example-card-set-with-images_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set-with-images_0_document_1_tablet.png",
         "label": "/components/card/example-card-set-with-images",
@@ -1830,7 +1830,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set-with-images_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_card_example-card-set-with-images_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_card_example-card-set-with-images_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set-with-images_0_document_2_mobile.png",
         "label": "/components/card/example-card-set-with-images",
@@ -1852,7 +1852,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set-with-lists_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_card_example-card-set-with-lists_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_card_example-card-set-with-lists_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set-with-lists_0_document_0_desktop.png",
         "label": "/components/card/example-card-set-with-lists",
@@ -1874,7 +1874,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set-with-lists_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_card_example-card-set-with-lists_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_card_example-card-set-with-lists_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set-with-lists_0_document_1_tablet.png",
         "label": "/components/card/example-card-set-with-lists",
@@ -1896,7 +1896,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set-with-lists_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_card_example-card-set-with-lists_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_card_example-card-set-with-lists_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set-with-lists_0_document_2_mobile.png",
         "label": "/components/card/example-card-set-with-lists",
@@ -1918,7 +1918,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_card_example-card-set_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_card_example-card-set_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set_0_document_0_desktop.png",
         "label": "/components/card/example-card-set",
@@ -1940,7 +1940,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_card_example-card-set_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_card_example-card-set_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set_0_document_1_tablet.png",
         "label": "/components/card/example-card-set",
@@ -1962,7 +1962,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card-set_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_card_example-card-set_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_card_example-card-set_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card-set_0_document_2_mobile.png",
         "label": "/components/card/example-card-set",
@@ -1984,7 +1984,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_card_example-card_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_card_example-card_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card_0_document_0_desktop.png",
         "label": "/components/card/example-card",
@@ -2006,7 +2006,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_card_example-card_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_card_example-card_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card_0_document_1_tablet.png",
         "label": "/components/card/example-card",
@@ -2028,7 +2028,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_card_example-card_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_card_example-card_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_card_example-card_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_card_example-card_0_document_2_mobile.png",
         "label": "/components/card/example-card",
@@ -2050,7 +2050,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-disabled",
@@ -2072,7 +2072,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-disabled",
@@ -2094,7 +2094,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-disabled_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-disabled",
@@ -2116,7 +2116,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-error",
@@ -2138,7 +2138,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-error",
@@ -2160,7 +2160,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-error_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-error",
@@ -2182,7 +2182,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-descriptions",
@@ -2204,7 +2204,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-descriptions",
@@ -2226,7 +2226,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-descriptions_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-descriptions",
@@ -2248,7 +2248,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-hidden-label",
@@ -2270,7 +2270,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-hidden-label",
@@ -2292,7 +2292,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-hidden-label_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-hidden-label",
@@ -2314,7 +2314,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-checkboxes",
@@ -2336,7 +2336,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-checkboxes",
@@ -2358,7 +2358,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-checkboxes_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-checkboxes",
@@ -2380,7 +2380,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-radios",
@@ -2402,7 +2402,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-radios",
@@ -2424,7 +2424,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-radios_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-radios",
@@ -2446,7 +2446,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-select",
@@ -2468,7 +2468,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-select",
@@ -2490,7 +2490,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-select_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-select",
@@ -2512,7 +2512,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-text-input",
@@ -2534,7 +2534,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-text-input",
@@ -2556,7 +2556,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-revealed-text-input_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-revealed-text-input",
@@ -2578,7 +2578,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-select-all-button",
@@ -2600,7 +2600,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-select-all-button",
@@ -2622,7 +2622,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-select-all-button_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-select-all-button",
@@ -2644,7 +2644,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-with-visible-text-input",
@@ -2666,7 +2666,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-with-visible-text-input",
@@ -2688,7 +2688,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-with-visible-text-input_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-with-visible-text-input",
@@ -2710,7 +2710,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes-without-border",
@@ -2732,7 +2732,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes-without-border",
@@ -2754,7 +2754,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes-without-border_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes-without-border",
@@ -2776,7 +2776,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes_0_document_0_desktop.png",
         "label": "/components/checkboxes/example-checkboxes",
@@ -2798,7 +2798,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes_0_document_1_tablet.png",
         "label": "/components/checkboxes/example-checkboxes",
@@ -2820,7 +2820,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_checkboxes_example-checkboxes_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_checkboxes_example-checkboxes_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_checkboxes_example-checkboxes_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_checkboxes_example-checkboxes_0_document_2_mobile.png",
         "label": "/components/checkboxes/example-checkboxes",
@@ -2842,7 +2842,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_content-pagination_example-content-pagination_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_content-pagination_example-content-pagination_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_content-pagination_example-content-pagination_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_content-pagination_example-content-pagination_0_document_0_desktop.png",
         "label": "/components/content-pagination/example-content-pagination",
@@ -2864,7 +2864,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_content-pagination_example-content-pagination_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_content-pagination_example-content-pagination_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_content-pagination_example-content-pagination_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_content-pagination_example-content-pagination_0_document_1_tablet.png",
         "label": "/components/content-pagination/example-content-pagination",
@@ -2886,7 +2886,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_content-pagination_example-content-pagination_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_content-pagination_example-content-pagination_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_content-pagination_example-content-pagination_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_content-pagination_example-content-pagination_0_document_2_mobile.png",
         "label": "/components/content-pagination/example-content-pagination",
@@ -2908,7 +2908,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_0_desktop.png",
         "label": "/components/cookies-banner/example-cookies-banner-cymraeg",
@@ -2930,7 +2930,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_1_tablet.png",
         "label": "/components/cookies-banner/example-cookies-banner-cymraeg",
@@ -2952,7 +2952,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_cookies-banner_example-cookies-banner-cymraeg_0_document_2_mobile.png",
         "label": "/components/cookies-banner/example-cookies-banner-cymraeg",
@@ -2974,7 +2974,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_0_desktop.png",
         "label": "/components/cookies-banner/example-cookies-banner",
@@ -2996,7 +2996,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_1_tablet.png",
         "label": "/components/cookies-banner/example-cookies-banner",
@@ -3018,7 +3018,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_cookies-banner_example-cookies-banner_0_document_2_mobile.png",
         "label": "/components/cookies-banner/example-cookies-banner",
@@ -3040,7 +3040,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_date-input_example-date-input-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_date-input_example-date-input-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_date-input_example-date-input-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_date-input_example-date-input-error_0_document_0_desktop.png",
         "label": "/components/date-input/example-date-input-error",
@@ -3062,7 +3062,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_date-input_example-date-input-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_date-input_example-date-input-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_date-input_example-date-input-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_date-input_example-date-input-error_0_document_1_tablet.png",
         "label": "/components/date-input/example-date-input-error",
@@ -3084,7 +3084,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_date-input_example-date-input-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_date-input_example-date-input-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_date-input_example-date-input-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_date-input_example-date-input-error_0_document_2_mobile.png",
         "label": "/components/date-input/example-date-input-error",
@@ -3106,7 +3106,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_date-input_example-date-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_date-input_example-date-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_date-input_example-date-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_date-input_example-date-input_0_document_0_desktop.png",
         "label": "/components/date-input/example-date-input",
@@ -3128,7 +3128,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_date-input_example-date-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_date-input_example-date-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_date-input_example-date-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_date-input_example-date-input_0_document_1_tablet.png",
         "label": "/components/date-input/example-date-input",
@@ -3150,7 +3150,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_date-input_example-date-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_date-input_example-date-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_date-input_example-date-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_date-input_example-date-input_0_document_2_mobile.png",
         "label": "/components/date-input/example-date-input",
@@ -3172,7 +3172,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details-with-saved-state_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_details_example-details-with-saved-state_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_details_example-details-with-saved-state_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details-with-saved-state_0_document_0_desktop.png",
         "label": "/components/details/example-details-with-saved-state",
@@ -3194,7 +3194,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details-with-saved-state_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_details_example-details-with-saved-state_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_details_example-details-with-saved-state_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details-with-saved-state_0_document_1_tablet.png",
         "label": "/components/details/example-details-with-saved-state",
@@ -3216,7 +3216,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details-with-saved-state_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_details_example-details-with-saved-state_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_details_example-details-with-saved-state_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details-with-saved-state_0_document_2_mobile.png",
         "label": "/components/details/example-details-with-saved-state",
@@ -3238,7 +3238,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details-with-warning_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_details_example-details-with-warning_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_details_example-details-with-warning_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details-with-warning_0_document_0_desktop.png",
         "label": "/components/details/example-details-with-warning",
@@ -3260,7 +3260,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details-with-warning_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_details_example-details-with-warning_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_details_example-details-with-warning_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details-with-warning_0_document_1_tablet.png",
         "label": "/components/details/example-details-with-warning",
@@ -3282,7 +3282,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details-with-warning_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_details_example-details-with-warning_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_details_example-details-with-warning_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details-with-warning_0_document_2_mobile.png",
         "label": "/components/details/example-details-with-warning",
@@ -3304,7 +3304,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_details_example-details_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_details_example-details_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details_0_document_0_desktop.png",
         "label": "/components/details/example-details",
@@ -3326,7 +3326,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_details_example-details_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_details_example-details_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details_0_document_1_tablet.png",
         "label": "/components/details/example-details",
@@ -3348,7 +3348,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_details_example-details_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_details_example-details_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_details_example-details_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_details_example-details_0_document_2_mobile.png",
         "label": "/components/details/example-details",
@@ -3370,7 +3370,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-article-featured_0_document_0_desktop.png",
         "label": "/components/document-list/example-document-list-article-featured",
@@ -3392,7 +3392,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-article-featured_0_document_1_tablet.png",
         "label": "/components/document-list/example-document-list-article-featured",
@@ -3414,7 +3414,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-article-featured_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-article-featured_0_document_2_mobile.png",
         "label": "/components/document-list/example-document-list-article-featured",
@@ -3436,7 +3436,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-articles_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-articles_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-articles_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-articles_0_document_0_desktop.png",
         "label": "/components/document-list/example-document-list-articles",
@@ -3458,7 +3458,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-articles_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-articles_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-articles_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-articles_0_document_1_tablet.png",
         "label": "/components/document-list/example-document-list-articles",
@@ -3480,7 +3480,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-articles_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-articles_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-articles_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-articles_0_document_2_mobile.png",
         "label": "/components/document-list/example-document-list-articles",
@@ -3502,7 +3502,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-downloads_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-downloads_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-downloads_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-downloads_0_document_0_desktop.png",
         "label": "/components/document-list/example-document-list-downloads",
@@ -3524,7 +3524,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-downloads_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-downloads_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-downloads_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-downloads_0_document_1_tablet.png",
         "label": "/components/document-list/example-document-list-downloads",
@@ -3546,7 +3546,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-downloads_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-downloads_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-downloads_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-downloads_0_document_2_mobile.png",
         "label": "/components/document-list/example-document-list-downloads",
@@ -3568,7 +3568,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_0_desktop.png",
         "label": "/components/document-list/example-document-list-search-result-featured",
@@ -3590,7 +3590,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_1_tablet.png",
         "label": "/components/document-list/example-document-list-search-result-featured",
@@ -3612,7 +3612,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-search-result-featured_0_document_2_mobile.png",
         "label": "/components/document-list/example-document-list-search-result-featured",
@@ -3634,7 +3634,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-results_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-search-results_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-search-results_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-search-results_0_document_0_desktop.png",
         "label": "/components/document-list/example-document-list-search-results",
@@ -3656,7 +3656,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-results_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-search-results_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-search-results_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-search-results_0_document_1_tablet.png",
         "label": "/components/document-list/example-document-list-search-results",
@@ -3678,7 +3678,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_document-list_example-document-list-search-results_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_document-list_example-document-list-search-results_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_document-list_example-document-list-search-results_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_document-list_example-document-list-search-results_0_document_2_mobile.png",
         "label": "/components/document-list/example-document-list-search-results",
@@ -3700,7 +3700,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration-error-for-single-field_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_duration_example-duration-error-for-single-field_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_duration_example-duration-error-for-single-field_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration-error-for-single-field_0_document_0_desktop.png",
         "label": "/components/duration/example-duration-error-for-single-field",
@@ -3722,7 +3722,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration-error-for-single-field_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_duration_example-duration-error-for-single-field_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_duration_example-duration-error-for-single-field_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration-error-for-single-field_0_document_1_tablet.png",
         "label": "/components/duration/example-duration-error-for-single-field",
@@ -3744,7 +3744,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration-error-for-single-field_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_duration_example-duration-error-for-single-field_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_duration_example-duration-error-for-single-field_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration-error-for-single-field_0_document_2_mobile.png",
         "label": "/components/duration/example-duration-error-for-single-field",
@@ -3766,7 +3766,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_duration_example-duration-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_duration_example-duration-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration-error_0_document_0_desktop.png",
         "label": "/components/duration/example-duration-error",
@@ -3788,7 +3788,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_duration_example-duration-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_duration_example-duration-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration-error_0_document_1_tablet.png",
         "label": "/components/duration/example-duration-error",
@@ -3810,7 +3810,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_duration_example-duration-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_duration_example-duration-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration-error_0_document_2_mobile.png",
         "label": "/components/duration/example-duration-error",
@@ -3832,7 +3832,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_duration_example-duration_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_duration_example-duration_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration_0_document_0_desktop.png",
         "label": "/components/duration/example-duration",
@@ -3854,7 +3854,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_duration_example-duration_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_duration_example-duration_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration_0_document_1_tablet.png",
         "label": "/components/duration/example-duration",
@@ -3876,7 +3876,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_duration_example-duration_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_duration_example-duration_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_duration_example-duration_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_duration_example-duration_0_document_2_mobile.png",
         "label": "/components/duration/example-duration",
@@ -3898,7 +3898,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_external-link_example-external-link_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_external-link_example-external-link_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_external-link_example-external-link_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_external-link_example-external-link_0_document_0_desktop.png",
         "label": "/components/external-link/example-external-link",
@@ -3920,7 +3920,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_external-link_example-external-link_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_external-link_example-external-link_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_external-link_example-external-link_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_external-link_example-external-link_0_document_1_tablet.png",
         "label": "/components/external-link/example-external-link",
@@ -3942,7 +3942,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_external-link_example-external-link_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_external-link_example-external-link_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_external-link_example-external-link_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_external-link_example-external-link_0_document_2_mobile.png",
         "label": "/components/external-link/example-external-link",
@@ -3964,7 +3964,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_0_desktop.png",
         "label": "/components/feedback/example-feedback-call-to-action",
@@ -3986,7 +3986,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_1_tablet.png",
         "label": "/components/feedback/example-feedback-call-to-action",
@@ -4008,7 +4008,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_feedback_example-feedback-call-to-action_0_document_2_mobile.png",
         "label": "/components/feedback/example-feedback-call-to-action",
@@ -4030,7 +4030,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-cymraeg_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-cymraeg_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-cymraeg_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-cymraeg_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-cymraeg",
@@ -4052,7 +4052,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-cymraeg_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-cymraeg_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-cymraeg_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-cymraeg_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-cymraeg",
@@ -4074,7 +4074,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-cymraeg_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-cymraeg_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-cymraeg_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-cymraeg_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-cymraeg",
@@ -4096,7 +4096,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-default_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-default_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-default_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-default_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-default",
@@ -4118,7 +4118,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-default_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-default_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-default_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-default_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-default",
@@ -4140,7 +4140,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-default_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-default_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-default_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-default_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-default",
@@ -4162,7 +4162,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-transactional_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-transactional_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-transactional_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-transactional_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-transactional",
@@ -4184,7 +4184,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-transactional_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-transactional_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-transactional_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-transactional_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-transactional",
@@ -4206,7 +4206,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-transactional_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-transactional_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-transactional_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-transactional_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-transactional",
@@ -4228,7 +4228,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-warning_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-warning_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-warning_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-warning_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-warning",
@@ -4250,7 +4250,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-warning_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-warning_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-warning_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-warning_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-warning",
@@ -4272,7 +4272,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-warning_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-warning_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-warning_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-warning_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-warning",
@@ -4294,7 +4294,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-with-alternative-organisation",
@@ -4316,7 +4316,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-with-alternative-organisation",
@@ -4338,7 +4338,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-alternative-organisation_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-with-alternative-organisation",
@@ -4360,7 +4360,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-with-coat-of-arms",
@@ -4382,7 +4382,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-with-coat-of-arms",
@@ -4404,7 +4404,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-coat-of-arms_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-with-coat-of-arms",
@@ -4426,7 +4426,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-copyright_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-with-copyright_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-with-copyright_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-copyright_0_document_0_desktop.png",
         "label": "/components/footer/example-footer-with-copyright",
@@ -4448,7 +4448,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-copyright_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-with-copyright_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-with-copyright_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-copyright_0_document_1_tablet.png",
         "label": "/components/footer/example-footer-with-copyright",
@@ -4470,7 +4470,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer-with-copyright_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer-with-copyright_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer-with-copyright_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer-with-copyright_0_document_2_mobile.png",
         "label": "/components/footer/example-footer-with-copyright",
@@ -4492,7 +4492,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer_0_document_0_desktop.png",
         "label": "/components/footer/example-footer",
@@ -4514,7 +4514,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer_0_document_1_tablet.png",
         "label": "/components/footer/example-footer",
@@ -4536,7 +4536,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_footer_example-footer_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_footer_example-footer_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_footer_example-footer_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_footer_example-footer_0_document_2_mobile.png",
         "label": "/components/footer/example-footer",
@@ -4558,7 +4558,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-default_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-default_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-default_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-default_0_document_0_desktop.png",
         "label": "/components/header/example-header-default",
@@ -4580,7 +4580,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-default_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-default_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-default_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-default_0_document_1_tablet.png",
         "label": "/components/header/example-header-default",
@@ -4602,7 +4602,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-default_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-default_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-default_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-default_0_document_2_mobile.png",
         "label": "/components/header/example-header-default",
@@ -4624,7 +4624,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_0_desktop.png",
         "label": "/components/header/example-header-external-for-survey-with-description",
@@ -4646,7 +4646,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_1_tablet.png",
         "label": "/components/header/example-header-external-for-survey-with-description",
@@ -4668,7 +4668,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-for-survey-with-description_0_document_2_mobile.png",
         "label": "/components/header/example-header-external-for-survey-with-description",
@@ -4690,7 +4690,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-for-surveys_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-for-surveys_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-for-surveys_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-for-surveys_0_document_0_desktop.png",
         "label": "/components/header/example-header-external-for-surveys",
@@ -4712,7 +4712,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-for-surveys_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-for-surveys_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-for-surveys_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-for-surveys_0_document_1_tablet.png",
         "label": "/components/header/example-header-external-for-surveys",
@@ -4734,7 +4734,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-for-surveys_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-for-surveys_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-for-surveys_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-for-surveys_0_document_2_mobile.png",
         "label": "/components/header/example-header-external-for-surveys",
@@ -4756,7 +4756,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-welsh_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-welsh_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-welsh_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-welsh_0_document_0_desktop.png",
         "label": "/components/header/example-header-external-welsh",
@@ -4778,7 +4778,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-welsh_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-welsh_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-welsh_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-welsh_0_document_1_tablet.png",
         "label": "/components/header/example-header-external-welsh",
@@ -4800,7 +4800,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-welsh_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-welsh_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-welsh_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-welsh_0_document_2_mobile.png",
         "label": "/components/header/example-header-external-welsh",
@@ -4822,7 +4822,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-navigation_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-with-navigation_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-with-navigation_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-navigation_0_document_0_desktop.png",
         "label": "/components/header/example-header-external-with-navigation",
@@ -4844,7 +4844,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-navigation_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-with-navigation_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-with-navigation_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-navigation_0_document_1_tablet.png",
         "label": "/components/header/example-header-external-with-navigation",
@@ -4866,7 +4866,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-navigation_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-with-navigation_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-with-navigation_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-navigation_0_document_2_mobile.png",
         "label": "/components/header/example-header-external-with-navigation",
@@ -4888,7 +4888,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-service-links_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-with-service-links_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-with-service-links_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-service-links_0_document_0_desktop.png",
         "label": "/components/header/example-header-external-with-service-links",
@@ -4910,7 +4910,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-service-links_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-with-service-links_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-with-service-links_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-service-links_0_document_1_tablet.png",
         "label": "/components/header/example-header-external-with-service-links",
@@ -4932,7 +4932,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-service-links_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-with-service-links_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-with-service-links_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-service-links_0_document_2_mobile.png",
         "label": "/components/header/example-header-external-with-service-links",
@@ -4954,7 +4954,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_0_desktop.png",
         "label": "/components/header/example-header-external-with-sub-navigation",
@@ -4976,7 +4976,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_1_tablet.png",
         "label": "/components/header/example-header-external-with-sub-navigation",
@@ -4998,7 +4998,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-external-with-sub-navigation_0_document_2_mobile.png",
         "label": "/components/header/example-header-external-with-sub-navigation",
@@ -5020,7 +5020,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-internal_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-internal_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-internal_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-internal_0_document_0_desktop.png",
         "label": "/components/header/example-header-internal",
@@ -5042,7 +5042,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-internal_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-internal_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-internal_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-internal_0_document_1_tablet.png",
         "label": "/components/header/example-header-internal",
@@ -5064,7 +5064,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-internal_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-internal_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-internal_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-internal_0_document_2_mobile.png",
         "label": "/components/header/example-header-internal",
@@ -5086,7 +5086,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_0_desktop.png",
         "label": "/components/header/example-header-neutral-for-multicoloured-logo",
@@ -5108,7 +5108,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_1_tablet.png",
         "label": "/components/header/example-header-neutral-for-multicoloured-logo",
@@ -5130,7 +5130,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_header_example-header-neutral-for-multicoloured-logo_0_document_2_mobile.png",
         "label": "/components/header/example-header-neutral-for-multicoloured-logo",
@@ -5152,7 +5152,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_hero_example-hero-dark_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_hero_example-hero-dark_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_hero_example-hero-dark_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_hero_example-hero-dark_0_document_0_desktop.png",
         "label": "/components/hero/example-hero-dark",
@@ -5174,7 +5174,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_hero_example-hero-dark_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_hero_example-hero-dark_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_hero_example-hero-dark_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_hero_example-hero-dark_0_document_1_tablet.png",
         "label": "/components/hero/example-hero-dark",
@@ -5196,7 +5196,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_hero_example-hero-dark_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_hero_example-hero-dark_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_hero_example-hero-dark_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_hero_example-hero-dark_0_document_2_mobile.png",
         "label": "/components/hero/example-hero-dark",
@@ -5218,7 +5218,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_hero_example-hero-default_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_hero_example-hero-default_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_hero_example-hero-default_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_hero_example-hero-default_0_document_0_desktop.png",
         "label": "/components/hero/example-hero-default",
@@ -5240,7 +5240,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_hero_example-hero-default_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_hero_example-hero-default_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_hero_example-hero-default_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_hero_example-hero-default_0_document_1_tablet.png",
         "label": "/components/hero/example-hero-default",
@@ -5262,7 +5262,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_hero_example-hero-default_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_hero_example-hero-default_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_hero_example-hero-default_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_hero_example-hero-default_0_document_2_mobile.png",
         "label": "/components/hero/example-hero-default",
@@ -5284,7 +5284,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_images_example-images-for-regular-screens_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_images_example-images-for-regular-screens_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_images_example-images-for-regular-screens_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_images_example-images-for-regular-screens_0_document_0_desktop.png",
         "label": "/components/images/example-images-for-regular-screens",
@@ -5306,7 +5306,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_images_example-images-for-regular-screens_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_images_example-images-for-regular-screens_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_images_example-images-for-regular-screens_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_images_example-images-for-regular-screens_0_document_1_tablet.png",
         "label": "/components/images/example-images-for-regular-screens",
@@ -5328,7 +5328,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_images_example-images-for-regular-screens_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_images_example-images-for-regular-screens_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_images_example-images-for-regular-screens_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_images_example-images-for-regular-screens_0_document_2_mobile.png",
         "label": "/components/images/example-images-for-regular-screens",
@@ -5350,7 +5350,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_images_example-images-for-retina-screens_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_images_example-images-for-retina-screens_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_images_example-images-for-retina-screens_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_images_example-images-for-retina-screens_0_document_0_desktop.png",
         "label": "/components/images/example-images-for-retina-screens",
@@ -5372,7 +5372,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_images_example-images-for-retina-screens_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_images_example-images-for-retina-screens_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_images_example-images-for-retina-screens_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_images_example-images-for-retina-screens_0_document_1_tablet.png",
         "label": "/components/images/example-images-for-retina-screens",
@@ -5394,7 +5394,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_images_example-images-for-retina-screens_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_images_example-images-for-retina-screens_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_images_example-images-for-retina-screens_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_images_example-images-for-retina-screens_0_document_2_mobile.png",
         "label": "/components/images/example-images-for-retina-screens",
@@ -5416,7 +5416,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-email_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-email_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-email_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-email_0_document_0_desktop.png",
         "label": "/components/input/example-input-email",
@@ -5438,7 +5438,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-email_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-email_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-email_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-email_0_document_1_tablet.png",
         "label": "/components/input/example-input-email",
@@ -5460,7 +5460,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-email_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-email_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-email_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-email_0_document_2_mobile.png",
         "label": "/components/input/example-input-email",
@@ -5482,7 +5482,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number-prefixed_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-number-prefixed_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-number-prefixed_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number-prefixed_0_document_0_desktop.png",
         "label": "/components/input/example-input-number-prefixed",
@@ -5504,7 +5504,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number-prefixed_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-number-prefixed_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-number-prefixed_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number-prefixed_0_document_1_tablet.png",
         "label": "/components/input/example-input-number-prefixed",
@@ -5526,7 +5526,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number-prefixed_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-number-prefixed_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-number-prefixed_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number-prefixed_0_document_2_mobile.png",
         "label": "/components/input/example-input-number-prefixed",
@@ -5548,7 +5548,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number-suffixed_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-number-suffixed_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-number-suffixed_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number-suffixed_0_document_0_desktop.png",
         "label": "/components/input/example-input-number-suffixed",
@@ -5570,7 +5570,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number-suffixed_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-number-suffixed_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-number-suffixed_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number-suffixed_0_document_1_tablet.png",
         "label": "/components/input/example-input-number-suffixed",
@@ -5592,7 +5592,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number-suffixed_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-number-suffixed_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-number-suffixed_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number-suffixed_0_document_2_mobile.png",
         "label": "/components/input/example-input-number-suffixed",
@@ -5614,7 +5614,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-number_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-number_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number_0_document_0_desktop.png",
         "label": "/components/input/example-input-number",
@@ -5636,7 +5636,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-number_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-number_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number_0_document_1_tablet.png",
         "label": "/components/input/example-input-number",
@@ -5658,7 +5658,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-number_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-number_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-number_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-number_0_document_2_mobile.png",
         "label": "/components/input/example-input-number",
@@ -5680,7 +5680,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-numeric-values_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-numeric-values_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-numeric-values_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-numeric-values_0_document_0_desktop.png",
         "label": "/components/input/example-input-numeric-values",
@@ -5702,7 +5702,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-numeric-values_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-numeric-values_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-numeric-values_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-numeric-values_0_document_1_tablet.png",
         "label": "/components/input/example-input-numeric-values",
@@ -5724,7 +5724,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-numeric-values_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-numeric-values_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-numeric-values_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-numeric-values_0_document_2_mobile.png",
         "label": "/components/input/example-input-numeric-values",
@@ -5746,7 +5746,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-telephone_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-telephone_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-telephone_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-telephone_0_document_0_desktop.png",
         "label": "/components/input/example-input-telephone",
@@ -5768,7 +5768,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-telephone_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-telephone_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-telephone_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-telephone_0_document_1_tablet.png",
         "label": "/components/input/example-input-telephone",
@@ -5790,7 +5790,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-telephone_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-telephone_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-telephone_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-telephone_0_document_2_mobile.png",
         "label": "/components/input/example-input-telephone",
@@ -5812,7 +5812,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-width-constrained_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-text-width-constrained_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-text-width-constrained_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-width-constrained_0_document_0_desktop.png",
         "label": "/components/input/example-input-text-width-constrained",
@@ -5834,7 +5834,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-width-constrained_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-text-width-constrained_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-text-width-constrained_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-width-constrained_0_document_1_tablet.png",
         "label": "/components/input/example-input-text-width-constrained",
@@ -5856,7 +5856,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-width-constrained_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-text-width-constrained_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-text-width-constrained_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-width-constrained_0_document_2_mobile.png",
         "label": "/components/input/example-input-text-width-constrained",
@@ -5878,7 +5878,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_0_desktop.png",
         "label": "/components/input/example-input-text-with-character-limit-checker",
@@ -5900,7 +5900,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_1_tablet.png",
         "label": "/components/input/example-input-text-with-character-limit-checker",
@@ -5922,7 +5922,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-with-character-limit-checker_0_document_2_mobile.png",
         "label": "/components/input/example-input-text-with-character-limit-checker",
@@ -5944,7 +5944,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-with-description_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-text-with-description_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-text-with-description_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-with-description_0_document_0_desktop.png",
         "label": "/components/input/example-input-text-with-description",
@@ -5966,7 +5966,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-with-description_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-text-with-description_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-text-with-description_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-with-description_0_document_1_tablet.png",
         "label": "/components/input/example-input-text-with-description",
@@ -5988,7 +5988,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text-with-description_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-text-with-description_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-text-with-description_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text-with-description_0_document_2_mobile.png",
         "label": "/components/input/example-input-text-with-description",
@@ -6010,7 +6010,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-text_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-text_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text_0_document_0_desktop.png",
         "label": "/components/input/example-input-text",
@@ -6032,7 +6032,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-text_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-text_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text_0_document_1_tablet.png",
         "label": "/components/input/example-input-text",
@@ -6054,7 +6054,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_input_example-input-text_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_input_example-input-text_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_input_example-input-text_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_input_example-input-text_0_document_2_mobile.png",
         "label": "/components/input/example-input-text",
@@ -6076,7 +6076,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_label_example-label-with-description_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_label_example-label-with-description_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_label_example-label-with-description_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_label_example-label-with-description_0_document_0_desktop.png",
         "label": "/components/label/example-label-with-description",
@@ -6098,7 +6098,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_label_example-label-with-description_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_label_example-label-with-description_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_label_example-label-with-description_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_label_example-label-with-description_0_document_1_tablet.png",
         "label": "/components/label/example-label-with-description",
@@ -6120,7 +6120,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_label_example-label-with-description_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_label_example-label-with-description_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_label_example-label-with-description_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_label_example-label-with-description_0_document_2_mobile.png",
         "label": "/components/label/example-label-with-description",
@@ -6142,7 +6142,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_label_example-label_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_label_example-label_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_label_example-label_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_label_example-label_0_document_0_desktop.png",
         "label": "/components/label/example-label",
@@ -6164,7 +6164,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_label_example-label_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_label_example-label_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_label_example-label_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_label_example-label_0_document_1_tablet.png",
         "label": "/components/label/example-label",
@@ -6186,7 +6186,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_label_example-label_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_label_example-label_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_label_example-label_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_label_example-label_0_document_2_mobile.png",
         "label": "/components/label/example-label",
@@ -6208,7 +6208,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_metadata_example-metadata_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_metadata_example-metadata_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_metadata_example-metadata_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_metadata_example-metadata_0_document_0_desktop.png",
         "label": "/components/metadata/example-metadata",
@@ -6230,7 +6230,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_metadata_example-metadata_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_metadata_example-metadata_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_metadata_example-metadata_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_metadata_example-metadata_0_document_1_tablet.png",
         "label": "/components/metadata/example-metadata",
@@ -6252,7 +6252,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_metadata_example-metadata_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_metadata_example-metadata_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_metadata_example-metadata_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_metadata_example-metadata_0_document_2_mobile.png",
         "label": "/components/metadata/example-metadata",
@@ -6274,7 +6274,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-checkboxes",
@@ -6296,7 +6296,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-checkboxes",
@@ -6318,7 +6318,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-checkboxes_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-checkboxes",
@@ -6340,7 +6340,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-date-with-error",
@@ -6362,7 +6362,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-date-with-error",
@@ -6384,7 +6384,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date-with-error_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-date-with-error",
@@ -6406,7 +6406,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-date",
@@ -6428,7 +6428,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-date",
@@ -6450,7 +6450,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-date_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-date",
@@ -6472,7 +6472,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-duration",
@@ -6494,7 +6494,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-duration",
@@ -6516,7 +6516,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-duration_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-duration",
@@ -6538,7 +6538,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-email",
@@ -6560,7 +6560,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-email",
@@ -6582,7 +6582,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-email_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-email",
@@ -6604,7 +6604,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-multiple-options",
@@ -6626,7 +6626,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-multiple-options",
@@ -6648,7 +6648,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-multiple-options_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-multiple-options",
@@ -6670,7 +6670,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-number",
@@ -6692,7 +6692,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-number",
@@ -6714,7 +6714,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-number_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-number",
@@ -6736,7 +6736,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_0_desktop.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-textarea",
@@ -6758,7 +6758,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_1_tablet.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-textarea",
@@ -6780,7 +6780,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_mutually-exclusive_example-mutually-exclusive-textarea_0_document_2_mobile.png",
         "label": "/components/mutually-exclusive/example-mutually-exclusive-textarea",
@@ -6802,7 +6802,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-first_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_pagination_example-pagination-first_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_pagination_example-pagination-first_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-first_0_document_0_desktop.png",
         "label": "/components/pagination/example-pagination-first",
@@ -6824,7 +6824,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-first_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_pagination_example-pagination-first_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_pagination_example-pagination-first_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-first_0_document_1_tablet.png",
         "label": "/components/pagination/example-pagination-first",
@@ -6846,7 +6846,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-first_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_pagination_example-pagination-first_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_pagination_example-pagination-first_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-first_0_document_2_mobile.png",
         "label": "/components/pagination/example-pagination-first",
@@ -6868,7 +6868,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-last_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_pagination_example-pagination-last_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_pagination_example-pagination-last_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-last_0_document_0_desktop.png",
         "label": "/components/pagination/example-pagination-last",
@@ -6890,7 +6890,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-last_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_pagination_example-pagination-last_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_pagination_example-pagination-last_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-last_0_document_1_tablet.png",
         "label": "/components/pagination/example-pagination-last",
@@ -6912,7 +6912,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-last_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_pagination_example-pagination-last_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_pagination_example-pagination-last_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-last_0_document_2_mobile.png",
         "label": "/components/pagination/example-pagination-last",
@@ -6934,7 +6934,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_0_desktop.png",
         "label": "/components/pagination/example-pagination-with-no-range-indicator",
@@ -6956,7 +6956,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_1_tablet.png",
         "label": "/components/pagination/example-pagination-with-no-range-indicator",
@@ -6978,7 +6978,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination-with-no-range-indicator_0_document_2_mobile.png",
         "label": "/components/pagination/example-pagination-with-no-range-indicator",
@@ -7000,7 +7000,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_pagination_example-pagination_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_pagination_example-pagination_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination_0_document_0_desktop.png",
         "label": "/components/pagination/example-pagination",
@@ -7022,7 +7022,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_pagination_example-pagination_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_pagination_example-pagination_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination_0_document_1_tablet.png",
         "label": "/components/pagination/example-pagination",
@@ -7044,7 +7044,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_pagination_example-pagination_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_pagination_example-pagination_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_pagination_example-pagination_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_pagination_example-pagination_0_document_2_mobile.png",
         "label": "/components/pagination/example-pagination",
@@ -7066,7 +7066,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-bare_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-bare_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-bare_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-bare_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-bare",
@@ -7088,7 +7088,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-bare_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-bare_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-bare_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-bare_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-bare",
@@ -7110,7 +7110,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-bare_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-bare_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-bare_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-bare_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-bare",
@@ -7132,7 +7132,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-announcement_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-announcement_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-announcement_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-announcement_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-announcement",
@@ -7154,7 +7154,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-announcement_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-announcement_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-announcement_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-announcement_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-announcement",
@@ -7176,7 +7176,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-announcement_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-announcement_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-announcement_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-announcement_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-announcement",
@@ -7198,7 +7198,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-details_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-error-details_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-error-details_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-error-details_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-error-details",
@@ -7220,7 +7220,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-details_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-error-details_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-error-details_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-error-details_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-error-details",
@@ -7242,7 +7242,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-details_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-error-details_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-error-details_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-error-details_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-error-details",
@@ -7264,7 +7264,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-error-summary_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-error-summary",
@@ -7286,7 +7286,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-error-summary_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-error-summary",
@@ -7308,7 +7308,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-error-summary_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-error-summary_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-error-summary",
@@ -7330,7 +7330,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-information_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-information_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-information_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-information_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-information",
@@ -7352,7 +7352,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-information_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-information_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-information_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-information_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-information",
@@ -7374,7 +7374,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-information_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-information_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-information_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-information_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-information",
@@ -7396,7 +7396,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-spacious-information",
@@ -7418,7 +7418,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-spacious-information",
@@ -7440,7 +7440,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-spacious-information_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-spacious-information",
@@ -7462,7 +7462,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-success-message_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-success-message_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-success-message_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-success-message_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-success-message",
@@ -7484,7 +7484,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-success-message_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-success-message_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-success-message_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-success-message_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-success-message",
@@ -7506,7 +7506,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-success-message_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-success-message_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-success-message_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-success-message_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-success-message",
@@ -7528,7 +7528,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-warning_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-warning_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-warning_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-warning_0_document_0_desktop.png",
         "label": "/components/panel/example-panel-with-warning",
@@ -7550,7 +7550,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-warning_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-warning_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-warning_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-warning_0_document_1_tablet.png",
         "label": "/components/panel/example-panel-with-warning",
@@ -7572,7 +7572,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_panel_example-panel-with-warning_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_panel_example-panel-with-warning_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_panel_example-panel-with-warning_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_panel_example-panel-with-warning_0_document_2_mobile.png",
         "label": "/components/panel/example-panel-with-warning",
@@ -7594,7 +7594,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_password_example-password_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_password_example-password_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_password_example-password_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_password_example-password_0_document_0_desktop.png",
         "label": "/components/password/example-password",
@@ -7616,7 +7616,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_password_example-password_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_password_example-password_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_password_example-password_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_password_example-password_0_document_1_tablet.png",
         "label": "/components/password/example-password",
@@ -7638,7 +7638,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_password_example-password_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_password_example-password_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_password_example-password_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_password_example-password_0_document_2_mobile.png",
         "label": "/components/password/example-password",
@@ -7660,7 +7660,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_0_desktop.png",
         "label": "/components/phase-banner/example-phase-banner-alpha",
@@ -7682,7 +7682,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_1_tablet.png",
         "label": "/components/phase-banner/example-phase-banner-alpha",
@@ -7704,7 +7704,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_phase-banner_example-phase-banner-alpha_0_document_2_mobile.png",
         "label": "/components/phase-banner/example-phase-banner-alpha",
@@ -7726,7 +7726,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_0_desktop.png",
         "label": "/components/phase-banner/example-phase-banner-beta",
@@ -7748,7 +7748,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_1_tablet.png",
         "label": "/components/phase-banner/example-phase-banner-beta",
@@ -7770,7 +7770,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_phase-banner_example-phase-banner-beta_0_document_2_mobile.png",
         "label": "/components/phase-banner/example-phase-banner-beta",
@@ -7792,7 +7792,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-ccs_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_question_example-question-ccs_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_question_example-question-ccs_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-ccs_0_document_0_desktop.png",
         "label": "/components/question/example-question-ccs",
@@ -7814,7 +7814,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-ccs_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_question_example-question-ccs_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_question_example-question-ccs_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-ccs_0_document_1_tablet.png",
         "label": "/components/question/example-question-ccs",
@@ -7836,7 +7836,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-ccs_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_question_example-question-ccs_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_question_example-question-ccs_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-ccs_0_document_2_mobile.png",
         "label": "/components/question/example-question-ccs",
@@ -7858,7 +7858,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-fieldset_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_question_example-question-fieldset_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_question_example-question-fieldset_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-fieldset_0_document_0_desktop.png",
         "label": "/components/question/example-question-fieldset",
@@ -7880,7 +7880,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-fieldset_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_question_example-question-fieldset_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_question_example-question-fieldset_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-fieldset_0_document_1_tablet.png",
         "label": "/components/question/example-question-fieldset",
@@ -7902,7 +7902,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-fieldset_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_question_example-question-fieldset_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_question_example-question-fieldset_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-fieldset_0_document_2_mobile.png",
         "label": "/components/question/example-question-fieldset",
@@ -7924,7 +7924,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-interviewer-note_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_question_example-question-interviewer-note_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_question_example-question-interviewer-note_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-interviewer-note_0_document_0_desktop.png",
         "label": "/components/question/example-question-interviewer-note",
@@ -7946,7 +7946,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-interviewer-note_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_question_example-question-interviewer-note_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_question_example-question-interviewer-note_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-interviewer-note_0_document_1_tablet.png",
         "label": "/components/question/example-question-interviewer-note",
@@ -7968,7 +7968,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-interviewer-note_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_question_example-question-interviewer-note_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_question_example-question-interviewer-note_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-interviewer-note_0_document_2_mobile.png",
         "label": "/components/question/example-question-interviewer-note",
@@ -7990,7 +7990,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-no-fieldset_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_question_example-question-no-fieldset_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_question_example-question-no-fieldset_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-no-fieldset_0_document_0_desktop.png",
         "label": "/components/question/example-question-no-fieldset",
@@ -8012,7 +8012,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-no-fieldset_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_question_example-question-no-fieldset_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_question_example-question-no-fieldset_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-no-fieldset_0_document_1_tablet.png",
         "label": "/components/question/example-question-no-fieldset",
@@ -8034,7 +8034,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_question_example-question-no-fieldset_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_question_example-question-no-fieldset_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_question_example-question-no-fieldset_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_question_example-question-no-fieldset_0_document_2_mobile.png",
         "label": "/components/question/example-question-no-fieldset",
@@ -8056,7 +8056,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-clear-button_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-clear-button",
@@ -8078,7 +8078,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-clear-button_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-clear-button",
@@ -8100,7 +8100,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-clear-button_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-clear-button_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-clear-button",
@@ -8122,7 +8122,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-descriptions_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-descriptions",
@@ -8144,7 +8144,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-descriptions_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-descriptions",
@@ -8166,7 +8166,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-descriptions_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-descriptions_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-descriptions",
@@ -8188,7 +8188,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-error_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-error",
@@ -8210,7 +8210,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-error_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-error",
@@ -8232,7 +8232,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-error_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-error",
@@ -8254,7 +8254,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-revealed-checkboxes",
@@ -8276,7 +8276,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-revealed-checkboxes",
@@ -8298,7 +8298,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-checkboxes_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-revealed-checkboxes",
@@ -8320,7 +8320,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-revealed-radios",
@@ -8342,7 +8342,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-revealed-radios",
@@ -8364,7 +8364,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-radios_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-revealed-radios",
@@ -8386,7 +8386,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-revealed-select",
@@ -8408,7 +8408,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-revealed-select",
@@ -8430,7 +8430,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-select_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-revealed-select",
@@ -8452,7 +8452,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-revealed-text-input",
@@ -8474,7 +8474,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-revealed-text-input",
@@ -8496,7 +8496,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-revealed-text-input_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-revealed-text-input",
@@ -8518,7 +8518,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-separator_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-separator_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-separator_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-separator_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-separator",
@@ -8540,7 +8540,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-separator_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-separator_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-separator_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-separator_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-separator",
@@ -8562,7 +8562,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-separator_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-separator_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-separator_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-separator_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-separator",
@@ -8584,7 +8584,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-with-visible-text-input",
@@ -8606,7 +8606,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-with-visible-text-input",
@@ -8628,7 +8628,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-with-visible-text-input_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-with-visible-text-input",
@@ -8650,7 +8650,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-without-border_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-without-border_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-without-border_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-without-border_0_document_0_desktop.png",
         "label": "/components/radios/example-radios-without-border",
@@ -8672,7 +8672,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-without-border_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-without-border_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-without-border_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-without-border_0_document_1_tablet.png",
         "label": "/components/radios/example-radios-without-border",
@@ -8694,7 +8694,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios-without-border_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios-without-border_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios-without-border_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios-without-border_0_document_2_mobile.png",
         "label": "/components/radios/example-radios-without-border",
@@ -8716,7 +8716,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios_0_document_0_desktop.png",
         "label": "/components/radios/example-radios",
@@ -8738,7 +8738,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios_0_document_1_tablet.png",
         "label": "/components/radios/example-radios",
@@ -8760,7 +8760,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_radios_example-radios_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_radios_example-radios_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_radios_example-radios_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_radios_example-radios_0_document_2_mobile.png",
         "label": "/components/radios/example-radios",
@@ -8782,7 +8782,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-general_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_related-content_example-related-content-general_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_related-content_example-related-content-general_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-general_0_document_0_desktop.png",
         "label": "/components/related-content/example-related-content-general",
@@ -8804,7 +8804,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-general_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_related-content_example-related-content-general_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_related-content_example-related-content-general_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-general_0_document_1_tablet.png",
         "label": "/components/related-content/example-related-content-general",
@@ -8826,7 +8826,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-general_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_related-content_example-related-content-general_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_related-content_example-related-content-general_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-general_0_document_2_mobile.png",
         "label": "/components/related-content/example-related-content-general",
@@ -8848,7 +8848,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_0_desktop.png",
         "label": "/components/related-content/example-related-content-multiple-rows-of-links",
@@ -8870,7 +8870,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_1_tablet.png",
         "label": "/components/related-content/example-related-content-multiple-rows-of-links",
@@ -8892,7 +8892,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-multiple-rows-of-links_0_document_2_mobile.png",
         "label": "/components/related-content/example-related-content-multiple-rows-of-links",
@@ -8914,7 +8914,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-social-media_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_related-content_example-related-content-social-media_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_related-content_example-related-content-social-media_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-social-media_0_document_0_desktop.png",
         "label": "/components/related-content/example-related-content-social-media",
@@ -8936,7 +8936,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-social-media_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_related-content_example-related-content-social-media_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_related-content_example-related-content-social-media_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-social-media_0_document_1_tablet.png",
         "label": "/components/related-content/example-related-content-social-media",
@@ -8958,7 +8958,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_related-content_example-related-content-social-media_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_related-content_example-related-content-social-media_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_related-content_example-related-content-social-media_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_related-content_example-related-content-social-media_0_document_2_mobile.png",
         "label": "/components/related-content/example-related-content-social-media",
@@ -8980,7 +8980,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_relationships_example-relationships-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_relationships_example-relationships-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships-error_0_document_0_desktop.png",
         "label": "/components/relationships/example-relationships-error",
@@ -9002,7 +9002,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_relationships_example-relationships-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_relationships_example-relationships-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships-error_0_document_1_tablet.png",
         "label": "/components/relationships/example-relationships-error",
@@ -9024,7 +9024,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_relationships_example-relationships-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_relationships_example-relationships-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships-error_0_document_2_mobile.png",
         "label": "/components/relationships/example-relationships-error",
@@ -9046,7 +9046,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships-you_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_relationships_example-relationships-you_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_relationships_example-relationships-you_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships-you_0_document_0_desktop.png",
         "label": "/components/relationships/example-relationships-you",
@@ -9068,7 +9068,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships-you_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_relationships_example-relationships-you_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_relationships_example-relationships-you_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships-you_0_document_1_tablet.png",
         "label": "/components/relationships/example-relationships-you",
@@ -9090,7 +9090,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships-you_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_relationships_example-relationships-you_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_relationships_example-relationships-you_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships-you_0_document_2_mobile.png",
         "label": "/components/relationships/example-relationships-you",
@@ -9112,7 +9112,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_relationships_example-relationships_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_relationships_example-relationships_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships_0_document_0_desktop.png",
         "label": "/components/relationships/example-relationships",
@@ -9134,7 +9134,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_relationships_example-relationships_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_relationships_example-relationships_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships_0_document_1_tablet.png",
         "label": "/components/relationships/example-relationships",
@@ -9156,7 +9156,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_relationships_example-relationships_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_relationships_example-relationships_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_relationships_example-relationships_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_relationships_example-relationships_0_document_2_mobile.png",
         "label": "/components/relationships/example-relationships",
@@ -9178,7 +9178,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search-with-character-check_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_search_example-search-with-character-check_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_search_example-search-with-character-check_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search-with-character-check_0_document_0_desktop.png",
         "label": "/components/search/example-search-with-character-check",
@@ -9200,7 +9200,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search-with-character-check_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_search_example-search-with-character-check_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_search_example-search-with-character-check_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search-with-character-check_0_document_1_tablet.png",
         "label": "/components/search/example-search-with-character-check",
@@ -9222,7 +9222,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search-with-character-check_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_search_example-search-with-character-check_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_search_example-search-with-character-check_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search-with-character-check_0_document_2_mobile.png",
         "label": "/components/search/example-search-with-character-check",
@@ -9244,7 +9244,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search-with-placeholder_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_search_example-search-with-placeholder_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_search_example-search-with-placeholder_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search-with-placeholder_0_document_0_desktop.png",
         "label": "/components/search/example-search-with-placeholder",
@@ -9266,7 +9266,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search-with-placeholder_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_search_example-search-with-placeholder_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_search_example-search-with-placeholder_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search-with-placeholder_0_document_1_tablet.png",
         "label": "/components/search/example-search-with-placeholder",
@@ -9288,7 +9288,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search-with-placeholder_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_search_example-search-with-placeholder_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_search_example-search-with-placeholder_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search-with-placeholder_0_document_2_mobile.png",
         "label": "/components/search/example-search-with-placeholder",
@@ -9310,7 +9310,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_search_example-search_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_search_example-search_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search_0_document_0_desktop.png",
         "label": "/components/search/example-search",
@@ -9332,7 +9332,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_search_example-search_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_search_example-search_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search_0_document_1_tablet.png",
         "label": "/components/search/example-search",
@@ -9354,7 +9354,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_search_example-search_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_search_example-search_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_search_example-search_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_search_example-search_0_document_2_mobile.png",
         "label": "/components/search/example-search",
@@ -9376,7 +9376,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_0_desktop.png",
         "label": "/components/section-navigation/example-section-navigation-vertical",
@@ -9398,7 +9398,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_1_tablet.png",
         "label": "/components/section-navigation/example-section-navigation-vertical",
@@ -9420,7 +9420,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_section-navigation_example-section-navigation-vertical_0_document_2_mobile.png",
         "label": "/components/section-navigation/example-section-navigation-vertical",
@@ -9442,7 +9442,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_section-navigation_example-section-navigation_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_section-navigation_example-section-navigation_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_section-navigation_example-section-navigation_0_document_0_desktop.png",
         "label": "/components/section-navigation/example-section-navigation",
@@ -9464,7 +9464,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_section-navigation_example-section-navigation_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_section-navigation_example-section-navigation_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_section-navigation_example-section-navigation_0_document_1_tablet.png",
         "label": "/components/section-navigation/example-section-navigation",
@@ -9486,7 +9486,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_section-navigation_example-section-navigation_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_section-navigation_example-section-navigation_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_section-navigation_example-section-navigation_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_section-navigation_example-section-navigation_0_document_2_mobile.png",
         "label": "/components/section-navigation/example-section-navigation",
@@ -9508,7 +9508,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-wide_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_select_example-select-wide_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_select_example-select-wide_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-wide_0_document_0_desktop.png",
         "label": "/components/select/example-select-wide",
@@ -9530,7 +9530,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-wide_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_select_example-select-wide_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_select_example-select-wide_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-wide_0_document_1_tablet.png",
         "label": "/components/select/example-select-wide",
@@ -9552,7 +9552,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-wide_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_select_example-select-wide_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_select_example-select-wide_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-wide_0_document_2_mobile.png",
         "label": "/components/select/example-select-wide",
@@ -9574,7 +9574,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-with-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_select_example-select-with-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_select_example-select-with-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-with-error_0_document_0_desktop.png",
         "label": "/components/select/example-select-with-error",
@@ -9596,7 +9596,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-with-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_select_example-select-with-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_select_example-select-with-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-with-error_0_document_1_tablet.png",
         "label": "/components/select/example-select-with-error",
@@ -9618,7 +9618,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-with-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_select_example-select-with-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_select_example-select-with-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-with-error_0_document_2_mobile.png",
         "label": "/components/select/example-select-with-error",
@@ -9640,7 +9640,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-with-inline-label_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_select_example-select-with-inline-label_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_select_example-select-with-inline-label_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-with-inline-label_0_document_0_desktop.png",
         "label": "/components/select/example-select-with-inline-label",
@@ -9662,7 +9662,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-with-inline-label_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_select_example-select-with-inline-label_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_select_example-select-with-inline-label_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-with-inline-label_0_document_1_tablet.png",
         "label": "/components/select/example-select-with-inline-label",
@@ -9684,7 +9684,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select-with-inline-label_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_select_example-select-with-inline-label_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_select_example-select-with-inline-label_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select-with-inline-label_0_document_2_mobile.png",
         "label": "/components/select/example-select-with-inline-label",
@@ -9706,7 +9706,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_select_example-select_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_select_example-select_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select_0_document_0_desktop.png",
         "label": "/components/select/example-select",
@@ -9728,7 +9728,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_select_example-select_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_select_example-select_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select_0_document_1_tablet.png",
         "label": "/components/select/example-select",
@@ -9750,7 +9750,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_select_example-select_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_select_example-select_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_select_example-select_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_select_example-select_0_document_2_mobile.png",
         "label": "/components/select/example-select",
@@ -9772,7 +9772,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_share-page_example-share-page_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_share-page_example-share-page_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_share-page_example-share-page_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_share-page_example-share-page_0_document_0_desktop.png",
         "label": "/components/share-page/example-share-page",
@@ -9794,7 +9794,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_share-page_example-share-page_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_share-page_example-share-page_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_share-page_example-share-page_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_share-page_example-share-page_0_document_1_tablet.png",
         "label": "/components/share-page/example-share-page",
@@ -9816,7 +9816,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_share-page_example-share-page_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_share-page_example-share-page_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_share-page_example-share-page_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_share-page_example-share-page_0_document_2_mobile.png",
         "label": "/components/share-page/example-share-page",
@@ -9838,7 +9838,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_0_desktop.png",
         "label": "/components/skip-to-content/example-skip-to-content",
@@ -9860,7 +9860,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_1_tablet.png",
         "label": "/components/skip-to-content/example-skip-to-content",
@@ -9882,7 +9882,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_skip-to-content_example-skip-to-content_0_document_2_mobile.png",
         "label": "/components/skip-to-content/example-skip-to-content",
@@ -9904,7 +9904,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-dead_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-dead_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-dead_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-dead_0_document_0_desktop.png",
         "label": "/components/status/example-status-dead",
@@ -9926,7 +9926,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-dead_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-dead_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-dead_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-dead_0_document_1_tablet.png",
         "label": "/components/status/example-status-dead",
@@ -9948,7 +9948,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-dead_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-dead_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-dead_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-dead_0_document_2_mobile.png",
         "label": "/components/status/example-status-dead",
@@ -9970,7 +9970,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-error_0_document_0_desktop.png",
         "label": "/components/status/example-status-error",
@@ -9992,7 +9992,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-error_0_document_1_tablet.png",
         "label": "/components/status/example-status-error",
@@ -10014,7 +10014,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-error_0_document_2_mobile.png",
         "label": "/components/status/example-status-error",
@@ -10036,7 +10036,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-neutral-information_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-neutral-information_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-neutral-information_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-neutral-information_0_document_0_desktop.png",
         "label": "/components/status/example-status-neutral-information",
@@ -10058,7 +10058,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-neutral-information_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-neutral-information_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-neutral-information_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-neutral-information_0_document_1_tablet.png",
         "label": "/components/status/example-status-neutral-information",
@@ -10080,7 +10080,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-neutral-information_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-neutral-information_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-neutral-information_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-neutral-information_0_document_2_mobile.png",
         "label": "/components/status/example-status-neutral-information",
@@ -10102,7 +10102,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-pending_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-pending_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-pending_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-pending_0_document_0_desktop.png",
         "label": "/components/status/example-status-pending",
@@ -10124,7 +10124,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-pending_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-pending_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-pending_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-pending_0_document_1_tablet.png",
         "label": "/components/status/example-status-pending",
@@ -10146,7 +10146,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-pending_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-pending_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-pending_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-pending_0_document_2_mobile.png",
         "label": "/components/status/example-status-pending",
@@ -10168,7 +10168,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-small_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-small_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-small_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-small_0_document_0_desktop.png",
         "label": "/components/status/example-status-small",
@@ -10190,7 +10190,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-small_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-small_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-small_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-small_0_document_1_tablet.png",
         "label": "/components/status/example-status-small",
@@ -10212,7 +10212,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-small_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-small_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-small_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-small_0_document_2_mobile.png",
         "label": "/components/status/example-status-small",
@@ -10234,7 +10234,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-success_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-success_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-success_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-success_0_document_0_desktop.png",
         "label": "/components/status/example-status-success",
@@ -10256,7 +10256,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-success_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-success_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-success_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-success_0_document_1_tablet.png",
         "label": "/components/status/example-status-success",
@@ -10278,7 +10278,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_status_example-status-success_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_status_example-status-success_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_status_example-status-success_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_status_example-status-success_0_document_2_mobile.png",
         "label": "/components/status/example-status-success",
@@ -10300,7 +10300,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-total_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-grouped-total_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-grouped-total_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped-total_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-grouped-total",
@@ -10322,7 +10322,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-total_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-grouped-total_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-grouped-total_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped-total_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-grouped-total",
@@ -10344,7 +10344,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-total_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-grouped-total_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-grouped-total_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped-total_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-grouped-total",
@@ -10366,7 +10366,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-grouped-with-errors",
@@ -10388,7 +10388,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-grouped-with-errors",
@@ -10410,7 +10410,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped-with-errors_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-grouped-with-errors",
@@ -10432,7 +10432,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-grouped_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-grouped_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-grouped",
@@ -10454,7 +10454,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-grouped_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-grouped_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-grouped",
@@ -10476,7 +10476,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-grouped_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-grouped_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-grouped_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-grouped_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-grouped",
@@ -10498,7 +10498,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-household-no-rows_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-household-no-rows",
@@ -10520,7 +10520,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-household-no-rows_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-household-no-rows",
@@ -10542,7 +10542,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-household-no-rows_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-household-no-rows_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-household-no-rows",
@@ -10564,7 +10564,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-household_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-household_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-household_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-household_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-household",
@@ -10586,7 +10586,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-household_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-household_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-household_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-household_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-household",
@@ -10608,7 +10608,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-household_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-household_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-household_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-household_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-household",
@@ -10630,7 +10630,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-hub_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-hub_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-hub_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-hub_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-hub",
@@ -10652,7 +10652,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-hub_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-hub_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-hub_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-hub_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-hub",
@@ -10674,7 +10674,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-hub_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-hub_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-hub_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-hub_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-hub",
@@ -10696,7 +10696,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-multiple_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-multiple_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-multiple_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-multiple_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-multiple",
@@ -10718,7 +10718,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-multiple_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-multiple_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-multiple_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-multiple_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-multiple",
@@ -10740,7 +10740,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-multiple_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-multiple_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-multiple_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-multiple_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-multiple",
@@ -10762,7 +10762,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-no-action_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-no-action_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-no-action_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-no-action_0_document_0_desktop.png",
         "label": "/components/summary/example-summary-no-action",
@@ -10784,7 +10784,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-no-action_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-no-action_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-no-action_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-no-action_0_document_1_tablet.png",
         "label": "/components/summary/example-summary-no-action",
@@ -10806,7 +10806,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary-no-action_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary-no-action_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary-no-action_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary-no-action_0_document_2_mobile.png",
         "label": "/components/summary/example-summary-no-action",
@@ -10828,7 +10828,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary_0_document_0_desktop.png",
         "label": "/components/summary/example-summary",
@@ -10850,7 +10850,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary_0_document_1_tablet.png",
         "label": "/components/summary/example-summary",
@@ -10872,7 +10872,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_summary_example-summary_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_summary_example-summary_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_summary_example-summary_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_summary_example-summary_0_document_2_mobile.png",
         "label": "/components/summary/example-summary",
@@ -10894,7 +10894,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-basic_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-basic_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-basic_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-basic_0_document_0_desktop.png",
         "label": "/components/table/example-table-basic",
@@ -10916,7 +10916,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-basic_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-basic_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-basic_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-basic_0_document_1_tablet.png",
         "label": "/components/table/example-table-basic",
@@ -10938,7 +10938,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-basic_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-basic_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-basic_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-basic_0_document_2_mobile.png",
         "label": "/components/table/example-table-basic",
@@ -10960,7 +10960,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-compact_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-compact_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-compact_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-compact_0_document_0_desktop.png",
         "label": "/components/table/example-table-compact",
@@ -10982,7 +10982,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-compact_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-compact_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-compact_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-compact_0_document_1_tablet.png",
         "label": "/components/table/example-table-compact",
@@ -11004,7 +11004,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-compact_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-compact_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-compact_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-compact_0_document_2_mobile.png",
         "label": "/components/table/example-table-compact",
@@ -11026,7 +11026,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-footer_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-footer_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-footer_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-footer_0_document_0_desktop.png",
         "label": "/components/table/example-table-footer",
@@ -11048,7 +11048,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-footer_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-footer_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-footer_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-footer_0_document_1_tablet.png",
         "label": "/components/table/example-table-footer",
@@ -11070,7 +11070,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-footer_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-footer_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-footer_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-footer_0_document_2_mobile.png",
         "label": "/components/table/example-table-footer",
@@ -11092,7 +11092,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-numeric_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-numeric_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-numeric_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-numeric_0_document_0_desktop.png",
         "label": "/components/table/example-table-numeric",
@@ -11114,7 +11114,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-numeric_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-numeric_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-numeric_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-numeric_0_document_1_tablet.png",
         "label": "/components/table/example-table-numeric",
@@ -11136,7 +11136,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-numeric_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-numeric_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-numeric_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-numeric_0_document_2_mobile.png",
         "label": "/components/table/example-table-numeric",
@@ -11158,7 +11158,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-responsive_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-responsive_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-responsive_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-responsive_0_document_0_desktop.png",
         "label": "/components/table/example-table-responsive",
@@ -11180,7 +11180,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-responsive_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-responsive_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-responsive_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-responsive_0_document_1_tablet.png",
         "label": "/components/table/example-table-responsive",
@@ -11202,7 +11202,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-responsive_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-responsive_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-responsive_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-responsive_0_document_2_mobile.png",
         "label": "/components/table/example-table-responsive",
@@ -11224,7 +11224,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-scrollable_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-scrollable_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-scrollable_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-scrollable_0_document_0_desktop.png",
         "label": "/components/table/example-table-scrollable",
@@ -11246,7 +11246,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-scrollable_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-scrollable_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-scrollable_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-scrollable_0_document_1_tablet.png",
         "label": "/components/table/example-table-scrollable",
@@ -11268,7 +11268,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-scrollable_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-scrollable_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-scrollable_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-scrollable_0_document_2_mobile.png",
         "label": "/components/table/example-table-scrollable",
@@ -11290,7 +11290,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-sortable_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-sortable_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-sortable_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-sortable_0_document_0_desktop.png",
         "label": "/components/table/example-table-sortable",
@@ -11312,7 +11312,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-sortable_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-sortable_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-sortable_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-sortable_0_document_1_tablet.png",
         "label": "/components/table/example-table-sortable",
@@ -11334,7 +11334,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table_example-table-sortable_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table_example-table-sortable_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table_example-table-sortable_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table_example-table-sortable_0_document_2_mobile.png",
         "label": "/components/table/example-table-sortable",
@@ -11356,7 +11356,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_0_desktop.png",
         "label": "/components/table-of-contents/example-table-of-contents-grouped",
@@ -11378,7 +11378,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_1_tablet.png",
         "label": "/components/table-of-contents/example-table-of-contents-grouped",
@@ -11400,7 +11400,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-grouped_0_document_2_mobile.png",
         "label": "/components/table-of-contents/example-table-of-contents-grouped",
@@ -11422,7 +11422,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_0_desktop.png",
         "label": "/components/table-of-contents/example-table-of-contents-single",
@@ -11444,7 +11444,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_1_tablet.png",
         "label": "/components/table-of-contents/example-table-of-contents-single",
@@ -11466,7 +11466,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-single_0_document_2_mobile.png",
         "label": "/components/table-of-contents/example-table-of-contents-single",
@@ -11488,7 +11488,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_0_desktop.png",
         "label": "/components/table-of-contents/example-table-of-contents-sticky",
@@ -11510,7 +11510,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_1_tablet.png",
         "label": "/components/table-of-contents/example-table-of-contents-sticky",
@@ -11532,7 +11532,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_table-of-contents_example-table-of-contents-sticky_0_document_2_mobile.png",
         "label": "/components/table-of-contents/example-table-of-contents-sticky",
@@ -11554,7 +11554,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_tabs_example-tabs-details_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_tabs_example-tabs-details_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_tabs_example-tabs-details_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_tabs_example-tabs-details_0_document_0_desktop.png",
         "label": "/components/tabs/example-tabs-details",
@@ -11576,7 +11576,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_tabs_example-tabs-details_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_tabs_example-tabs-details_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_tabs_example-tabs-details_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_tabs_example-tabs-details_0_document_1_tablet.png",
         "label": "/components/tabs/example-tabs-details",
@@ -11598,7 +11598,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_tabs_example-tabs-details_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_tabs_example-tabs-details_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_tabs_example-tabs-details_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_tabs_example-tabs-details_0_document_2_mobile.png",
         "label": "/components/tabs/example-tabs-details",
@@ -11620,7 +11620,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_tabs_example-tabs_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_tabs_example-tabs_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_tabs_example-tabs_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_tabs_example-tabs_0_document_0_desktop.png",
         "label": "/components/tabs/example-tabs",
@@ -11642,7 +11642,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_tabs_example-tabs_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_tabs_example-tabs_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_tabs_example-tabs_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_tabs_example-tabs_0_document_1_tablet.png",
         "label": "/components/tabs/example-tabs",
@@ -11664,7 +11664,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_tabs_example-tabs_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_tabs_example-tabs_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_tabs_example-tabs_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_tabs_example-tabs_0_document_2_mobile.png",
         "label": "/components/tabs/example-tabs",
@@ -11686,7 +11686,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_textarea_example-textarea-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_textarea_example-textarea-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea-error_0_document_0_desktop.png",
         "label": "/components/textarea/example-textarea-error",
@@ -11708,7 +11708,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_textarea_example-textarea-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_textarea_example-textarea-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea-error_0_document_1_tablet.png",
         "label": "/components/textarea/example-textarea-error",
@@ -11730,7 +11730,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_textarea_example-textarea-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_textarea_example-textarea-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea-error_0_document_2_mobile.png",
         "label": "/components/textarea/example-textarea-error",
@@ -11752,7 +11752,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_0_desktop.png",
         "label": "/components/textarea/example-textarea-with-character-limit",
@@ -11774,7 +11774,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_1_tablet.png",
         "label": "/components/textarea/example-textarea-with-character-limit",
@@ -11796,7 +11796,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea-with-character-limit_0_document_2_mobile.png",
         "label": "/components/textarea/example-textarea-with-character-limit",
@@ -11818,7 +11818,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_textarea_example-textarea_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_textarea_example-textarea_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea_0_document_0_desktop.png",
         "label": "/components/textarea/example-textarea",
@@ -11840,7 +11840,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_textarea_example-textarea_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_textarea_example-textarea_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea_0_document_1_tablet.png",
         "label": "/components/textarea/example-textarea",
@@ -11862,7 +11862,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_textarea_example-textarea_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_textarea_example-textarea_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_textarea_example-textarea_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_textarea_example-textarea_0_document_2_mobile.png",
         "label": "/components/textarea/example-textarea",
@@ -11884,7 +11884,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeline_example-timeline_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_timeline_example-timeline_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_timeline_example-timeline_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeline_example-timeline_0_document_0_desktop.png",
         "label": "/components/timeline/example-timeline",
@@ -11906,7 +11906,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeline_example-timeline_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_timeline_example-timeline_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_timeline_example-timeline_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeline_example-timeline_0_document_1_tablet.png",
         "label": "/components/timeline/example-timeline",
@@ -11928,7 +11928,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeline_example-timeline_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_timeline_example-timeline_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_timeline_example-timeline_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeline_example-timeline_0_document_2_mobile.png",
         "label": "/components/timeline/example-timeline",
@@ -11950,7 +11950,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_0_desktop.png",
         "label": "/components/timeout-modal/example-timeout-modal",
@@ -11964,18 +11964,15 @@ report({
             "width": 0,
             "height": 0
           },
-          "rawMisMatchPercentage": 93.2574749228395,
-          "misMatchPercentage": "93.26",
-          "analysisTime": 319
-        },
-        "diffImage": "../bitmaps_test/20230516-133209/failed_diff_ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_0_desktop.png"
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_1_tablet.png",
         "label": "/components/timeout-modal/example-timeout-modal",
@@ -11989,18 +11986,15 @@ report({
             "width": 0,
             "height": 0
           },
-          "rawMisMatchPercentage": 82.22185770670572,
-          "misMatchPercentage": "82.22",
-          "analysisTime": 158
-        },
-        "diffImage": "../bitmaps_test/20230516-133209/failed_diff_ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_1_tablet.png"
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_2_mobile.png",
         "label": "/components/timeout-modal/example-timeout-modal",
@@ -12014,18 +12008,15 @@ report({
             "width": 0,
             "height": 0
           },
-          "rawMisMatchPercentage": 51.28595702148926,
-          "misMatchPercentage": "51.29",
-          "analysisTime": 120
-        },
-        "diffImage": "../bitmaps_test/20230516-133209/failed_diff_ds-vr-test__components_timeout-modal_example-timeout-modal_0_document_2_mobile.png"
+          "misMatchPercentage": "0.00"
+        }
       },
-      "status": "fail"
+      "status": "pass"
     },
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_0_desktop.png",
         "label": "/components/timeout-panel/example-panel-with-timeout-warning",
@@ -12047,7 +12038,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_1_tablet.png",
         "label": "/components/timeout-panel/example-panel-with-timeout-warning",
@@ -12063,7 +12054,7 @@ report({
           },
           "rawMisMatchPercentage": 0.009918212890625,
           "misMatchPercentage": "0.01",
-          "analysisTime": 77
+          "analysisTime": 63
         }
       },
       "status": "pass"
@@ -12071,7 +12062,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_timeout-panel_example-panel-with-timeout-warning_0_document_2_mobile.png",
         "label": "/components/timeout-panel/example-panel-with-timeout-warning",
@@ -12093,7 +12084,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_upload_example-upload-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_upload_example-upload-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_upload_example-upload-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_upload_example-upload-error_0_document_0_desktop.png",
         "label": "/components/upload/example-upload-error",
@@ -12115,7 +12106,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_upload_example-upload-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_upload_example-upload-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_upload_example-upload-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_upload_example-upload-error_0_document_1_tablet.png",
         "label": "/components/upload/example-upload-error",
@@ -12137,7 +12128,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_upload_example-upload-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_upload_example-upload-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_upload_example-upload-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_upload_example-upload-error_0_document_2_mobile.png",
         "label": "/components/upload/example-upload-error",
@@ -12159,7 +12150,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_upload_example-upload_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_upload_example-upload_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_upload_example-upload_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_upload_example-upload_0_document_0_desktop.png",
         "label": "/components/upload/example-upload",
@@ -12181,7 +12172,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_upload_example-upload_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_upload_example-upload_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_upload_example-upload_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_upload_example-upload_0_document_1_tablet.png",
         "label": "/components/upload/example-upload",
@@ -12203,7 +12194,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_upload_example-upload_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_upload_example-upload_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_upload_example-upload_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_upload_example-upload_0_document_2_mobile.png",
         "label": "/components/upload/example-upload",
@@ -12225,7 +12216,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_video_example-video_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_video_example-video_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_video_example-video_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_video_example-video_0_document_0_desktop.png",
         "label": "/components/video/example-video",
@@ -12247,7 +12238,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_video_example-video_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_video_example-video_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_video_example-video_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_video_example-video_0_document_1_tablet.png",
         "label": "/components/video/example-video",
@@ -12269,7 +12260,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__components_video_example-video_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__components_video_example-video_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__components_video_example-video_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__components_video_example-video_0_document_2_mobile.png",
         "label": "/components/video/example-video",
@@ -12291,7 +12282,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_0_desktop.png",
         "label": "/patterns/addresses/example-address-input-manual-error",
@@ -12313,7 +12304,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_1_tablet.png",
         "label": "/patterns/addresses/example-address-input-manual-error",
@@ -12335,7 +12326,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-manual-error_0_document_2_mobile.png",
         "label": "/patterns/addresses/example-address-input-manual-error",
@@ -12357,7 +12348,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-manual_0_document_0_desktop.png",
         "label": "/patterns/addresses/example-address-input-manual",
@@ -12379,7 +12370,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-manual_0_document_1_tablet.png",
         "label": "/patterns/addresses/example-address-input-manual",
@@ -12401,7 +12392,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-manual_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-manual_0_document_2_mobile.png",
         "label": "/patterns/addresses/example-address-input-manual",
@@ -12423,7 +12414,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_0_desktop.png",
         "label": "/patterns/addresses/example-address-input-non-editable-confirm-address",
@@ -12445,7 +12436,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_1_tablet.png",
         "label": "/patterns/addresses/example-address-input-non-editable-confirm-address",
@@ -12467,7 +12458,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable-confirm-address_0_document_2_mobile.png",
         "label": "/patterns/addresses/example-address-input-non-editable-confirm-address",
@@ -12489,7 +12480,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_0_desktop.png",
         "label": "/patterns/addresses/example-address-input-non-editable-register-address",
@@ -12511,7 +12502,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_1_tablet.png",
         "label": "/patterns/addresses/example-address-input-non-editable-register-address",
@@ -12533,7 +12524,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable-register-address_0_document_2_mobile.png",
         "label": "/patterns/addresses/example-address-input-non-editable-register-address",
@@ -12555,7 +12546,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_0_desktop.png",
         "label": "/patterns/addresses/example-address-input-non-editable",
@@ -12577,7 +12568,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_1_tablet.png",
         "label": "/patterns/addresses/example-address-input-non-editable",
@@ -12599,7 +12590,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input-non-editable_0_document_2_mobile.png",
         "label": "/patterns/addresses/example-address-input-non-editable",
@@ -12621,7 +12612,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input_0_document_0_desktop.png",
         "label": "/patterns/addresses/example-address-input",
@@ -12643,7 +12634,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input_0_document_1_tablet.png",
         "label": "/patterns/addresses/example-address-input",
@@ -12665,7 +12656,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_addresses_example-address-input_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_addresses_example-address-input_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_addresses_example-address-input_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_addresses_example-address-input_0_document_2_mobile.png",
         "label": "/patterns/addresses/example-address-input",
@@ -12687,7 +12678,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_0_desktop.png",
         "label": "/patterns/change-language/example-change-language-cymraeg",
@@ -12709,7 +12700,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_1_tablet.png",
         "label": "/patterns/change-language/example-change-language-cymraeg",
@@ -12731,7 +12722,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_change-language_example-change-language-cymraeg_0_document_2_mobile.png",
         "label": "/patterns/change-language/example-change-language-cymraeg",
@@ -12753,7 +12744,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-english_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_change-language_example-change-language-english_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_change-language_example-change-language-english_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_change-language_example-change-language-english_0_document_0_desktop.png",
         "label": "/patterns/change-language/example-change-language-english",
@@ -12775,7 +12766,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-english_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_change-language_example-change-language-english_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_change-language_example-change-language-english_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_change-language_example-change-language-english_0_document_1_tablet.png",
         "label": "/patterns/change-language/example-change-language-english",
@@ -12797,7 +12788,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_change-language_example-change-language-english_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_change-language_example-change-language-english_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_change-language_example-change-language-english_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_change-language_example-change-language-english_0_document_2_mobile.png",
         "label": "/patterns/change-language/example-change-language-english",
@@ -12819,7 +12810,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_0_desktop.png",
         "label": "/patterns/cookies-settings/example-cookie-settings-page",
@@ -12841,7 +12832,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_1_tablet.png",
         "label": "/patterns/cookies-settings/example-cookie-settings-page",
@@ -12863,7 +12854,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_cookies-settings_example-cookie-settings-page_0_document_2_mobile.png",
         "label": "/patterns/cookies-settings/example-cookie-settings-page",
@@ -12885,7 +12876,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-details_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_correct-errors_example-error-details_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_correct-errors_example-error-details_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-error-details_0_document_0_desktop.png",
         "label": "/patterns/correct-errors/example-error-details",
@@ -12907,7 +12898,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-details_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_correct-errors_example-error-details_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_correct-errors_example-error-details_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-error-details_0_document_1_tablet.png",
         "label": "/patterns/correct-errors/example-error-details",
@@ -12929,7 +12920,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-details_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_correct-errors_example-error-details_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_correct-errors_example-error-details_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-error-details_0_document_2_mobile.png",
         "label": "/patterns/correct-errors/example-error-details",
@@ -12951,7 +12942,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-error-summary_0_document_0_desktop.png",
         "label": "/patterns/correct-errors/example-error-summary",
@@ -12973,7 +12964,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-error-summary_0_document_1_tablet.png",
         "label": "/patterns/correct-errors/example-error-summary",
@@ -12995,7 +12986,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_correct-errors_example-error-summary_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-error-summary_0_document_2_mobile.png",
         "label": "/patterns/correct-errors/example-error-summary",
@@ -13017,7 +13008,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_0_desktop.png",
         "label": "/patterns/correct-errors/example-errors-proto-errors",
@@ -13039,7 +13030,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_1_tablet.png",
         "label": "/patterns/correct-errors/example-errors-proto-errors",
@@ -13061,7 +13052,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-errors-proto-errors_0_document_2_mobile.png",
         "label": "/patterns/correct-errors/example-errors-proto-errors",
@@ -13083,7 +13074,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_0_desktop.png",
         "label": "/patterns/correct-errors/example-errors-proto",
@@ -13105,7 +13096,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_1_tablet.png",
         "label": "/patterns/correct-errors/example-errors-proto",
@@ -13127,7 +13118,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_correct-errors_example-errors-proto_0_document_2_mobile.png",
         "label": "/patterns/correct-errors/example-errors-proto",
@@ -13149,7 +13140,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_download-resources_example-download-resources_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_download-resources_example-download-resources_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_download-resources_example-download-resources_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_download-resources_example-download-resources_0_document_0_desktop.png",
         "label": "/patterns/download-resources/example-download-resources",
@@ -13171,7 +13162,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_download-resources_example-download-resources_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_download-resources_example-download-resources_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_download-resources_example-download-resources_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_download-resources_example-download-resources_0_document_1_tablet.png",
         "label": "/patterns/download-resources/example-download-resources",
@@ -13193,7 +13184,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_download-resources_example-download-resources_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_download-resources_example-download-resources_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_download-resources_example-download-resources_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_download-resources_example-download-resources_0_document_2_mobile.png",
         "label": "/patterns/download-resources/example-download-resources",
@@ -13215,7 +13206,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-access-denied-error",
@@ -13237,7 +13228,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-access-denied-error",
@@ -13259,7 +13250,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-access-denied-error_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-access-denied-error",
@@ -13281,7 +13272,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-browser-incompatible-error",
@@ -13303,7 +13294,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-browser-incompatible-error",
@@ -13325,7 +13316,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-browser-incompatible-error_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-browser-incompatible-error",
@@ -13347,7 +13338,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-maintenance-notice",
@@ -13369,7 +13360,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-maintenance-notice",
@@ -13391,7 +13382,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-maintenance-notice_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-maintenance-notice",
@@ -13413,7 +13404,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-page-not-found-error-with-code",
@@ -13435,7 +13426,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-page-not-found-error-with-code",
@@ -13457,7 +13448,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-page-not-found-error-with-code_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-page-not-found-error-with-code",
@@ -13479,7 +13470,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-page-not-found-error",
@@ -13501,7 +13492,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-page-not-found-error",
@@ -13523,7 +13514,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-page-not-found-error_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-page-not-found-error",
@@ -13545,7 +13536,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-server-error_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-server-error",
@@ -13567,7 +13558,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-server-error_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-server-error",
@@ -13589,7 +13580,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-server-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-server-error_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-server-error",
@@ -13611,7 +13602,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-timed-out-error-not-signed-in",
@@ -13633,7 +13624,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-timed-out-error-not-signed-in",
@@ -13655,7 +13646,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-timed-out-error-not-signed-in_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-timed-out-error-not-signed-in",
@@ -13677,7 +13668,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_0_desktop.png",
         "label": "/patterns/error-status-pages/example-timed-out-error",
@@ -13699,7 +13690,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_1_tablet.png",
         "label": "/patterns/error-status-pages/example-timed-out-error",
@@ -13721,7 +13712,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_error-status-pages_example-timed-out-error_0_document_2_mobile.png",
         "label": "/patterns/error-status-pages/example-timed-out-error",
@@ -13743,7 +13734,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_extend-session_example-timeout_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_extend-session_example-timeout_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_extend-session_example-timeout_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_extend-session_example-timeout_0_document_0_desktop.png",
         "label": "/patterns/extend-session/example-timeout",
@@ -13765,7 +13756,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_extend-session_example-timeout_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_extend-session_example-timeout_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_extend-session_example-timeout_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_extend-session_example-timeout_0_document_1_tablet.png",
         "label": "/patterns/extend-session/example-timeout",
@@ -13787,7 +13778,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_extend-session_example-timeout_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_extend-session_example-timeout_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_extend-session_example-timeout_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_extend-session_example-timeout_0_document_2_mobile.png",
         "label": "/patterns/extend-session/example-timeout",
@@ -13809,7 +13800,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_0_desktop.png",
         "label": "/patterns/feedback/example-feedback-form-errors",
@@ -13831,7 +13822,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_1_tablet.png",
         "label": "/patterns/feedback/example-feedback-form-errors",
@@ -13853,7 +13844,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-form-errors_0_document_2_mobile.png",
         "label": "/patterns/feedback/example-feedback-form-errors",
@@ -13875,7 +13866,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_feedback_example-feedback-form_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_feedback_example-feedback-form_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-form_0_document_0_desktop.png",
         "label": "/patterns/feedback/example-feedback-form",
@@ -13897,7 +13888,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_feedback_example-feedback-form_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_feedback_example-feedback-form_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-form_0_document_1_tablet.png",
         "label": "/patterns/feedback/example-feedback-form",
@@ -13919,7 +13910,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-form_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_feedback_example-feedback-form_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_feedback_example-feedback-form_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-form_0_document_2_mobile.png",
         "label": "/patterns/feedback/example-feedback-form",
@@ -13941,7 +13932,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-success_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_feedback_example-feedback-success_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_feedback_example-feedback-success_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-success_0_document_0_desktop.png",
         "label": "/patterns/feedback/example-feedback-success",
@@ -13963,7 +13954,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-success_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_feedback_example-feedback-success_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_feedback_example-feedback-success_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-success_0_document_1_tablet.png",
         "label": "/patterns/feedback/example-feedback-success",
@@ -13985,7 +13976,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_feedback_example-feedback-success_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_feedback_example-feedback-success_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_feedback_example-feedback-success_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_feedback_example-feedback-success_0_document_2_mobile.png",
         "label": "/patterns/feedback/example-feedback-success",
@@ -14007,7 +13998,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide-overview_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_guide_example-guide-overview_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_guide_example-guide-overview_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide-overview_0_document_0_desktop.png",
         "label": "/patterns/guide/example-guide-overview",
@@ -14029,7 +14020,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide-overview_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_guide_example-guide-overview_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_guide_example-guide-overview_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide-overview_0_document_1_tablet.png",
         "label": "/patterns/guide/example-guide-overview",
@@ -14051,7 +14042,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide-overview_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_guide_example-guide-overview_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_guide_example-guide-overview_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide-overview_0_document_2_mobile.png",
         "label": "/patterns/guide/example-guide-overview",
@@ -14073,7 +14064,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide-rtl_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_guide_example-guide-rtl_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_guide_example-guide-rtl_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide-rtl_0_document_0_desktop.png",
         "label": "/patterns/guide/example-guide-rtl",
@@ -14095,7 +14086,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide-rtl_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_guide_example-guide-rtl_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_guide_example-guide-rtl_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide-rtl_0_document_1_tablet.png",
         "label": "/patterns/guide/example-guide-rtl",
@@ -14117,7 +14108,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide-rtl_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_guide_example-guide-rtl_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_guide_example-guide-rtl_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide-rtl_0_document_2_mobile.png",
         "label": "/patterns/guide/example-guide-rtl",
@@ -14139,7 +14130,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_guide_example-guide_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_guide_example-guide_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide_0_document_0_desktop.png",
         "label": "/patterns/guide/example-guide",
@@ -14161,7 +14152,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_guide_example-guide_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_guide_example-guide_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide_0_document_1_tablet.png",
         "label": "/patterns/guide/example-guide",
@@ -14183,7 +14174,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_guide_example-guide_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_guide_example-guide_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_guide_example-guide_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_guide_example-guide_0_document_2_mobile.png",
         "label": "/patterns/guide/example-guide",
@@ -14205,7 +14196,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_0_desktop.png",
         "label": "/patterns/hub-and-spoke/example-hub-complete",
@@ -14227,7 +14218,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_1_tablet.png",
         "label": "/patterns/hub-and-spoke/example-hub-complete",
@@ -14249,7 +14240,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-hub-complete_0_document_2_mobile.png",
         "label": "/patterns/hub-and-spoke/example-hub-complete",
@@ -14271,7 +14262,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_0_desktop.png",
         "label": "/patterns/hub-and-spoke/example-hub",
@@ -14293,7 +14284,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_1_tablet.png",
         "label": "/patterns/hub-and-spoke/example-hub",
@@ -14315,7 +14306,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-hub_0_document_2_mobile.png",
         "label": "/patterns/hub-and-spoke/example-hub",
@@ -14337,7 +14328,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_0_desktop.png",
         "label": "/patterns/hub-and-spoke/example-spoke-continue",
@@ -14359,7 +14350,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_1_tablet.png",
         "label": "/patterns/hub-and-spoke/example-spoke-continue",
@@ -14381,7 +14372,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-continue_0_document_2_mobile.png",
         "label": "/patterns/hub-and-spoke/example-spoke-continue",
@@ -14403,7 +14394,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_0_desktop.png",
         "label": "/patterns/hub-and-spoke/example-spoke-start",
@@ -14425,7 +14416,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_1_tablet.png",
         "label": "/patterns/hub-and-spoke/example-spoke-start",
@@ -14447,7 +14438,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-start_0_document_2_mobile.png",
         "label": "/patterns/hub-and-spoke/example-spoke-start",
@@ -14469,7 +14460,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_0_desktop.png",
         "label": "/patterns/hub-and-spoke/example-spoke-summary",
@@ -14491,7 +14482,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_1_tablet.png",
         "label": "/patterns/hub-and-spoke/example-spoke-summary",
@@ -14513,7 +14504,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_hub-and-spoke_example-spoke-summary_0_document_2_mobile.png",
         "label": "/patterns/hub-and-spoke/example-spoke-summary",
@@ -14535,7 +14526,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_0_desktop.png",
         "label": "/patterns/input-email-with-error/example-input-email-with-error",
@@ -14557,7 +14548,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_1_tablet.png",
         "label": "/patterns/input-email-with-error/example-input-email-with-error",
@@ -14579,7 +14570,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_input-email-with-error_example-input-email-with-error_0_document_2_mobile.png",
         "label": "/patterns/input-email-with-error/example-input-email-with-error",
@@ -14601,7 +14592,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-article_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_news_example-article_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_news_example-article_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-article_0_document_0_desktop.png",
         "label": "/patterns/news/example-article",
@@ -14623,7 +14614,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-article_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_news_example-article_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_news_example-article_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-article_0_document_1_tablet.png",
         "label": "/patterns/news/example-article",
@@ -14645,7 +14636,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-article_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_news_example-article_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_news_example-article_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-article_0_document_2_mobile.png",
         "label": "/patterns/news/example-article",
@@ -14667,7 +14658,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-category_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_news_example-category_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_news_example-category_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-category_0_document_0_desktop.png",
         "label": "/patterns/news/example-category",
@@ -14689,7 +14680,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-category_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_news_example-category_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_news_example-category_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-category_0_document_1_tablet.png",
         "label": "/patterns/news/example-category",
@@ -14711,7 +14702,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-category_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_news_example-category_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_news_example-category_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-category_0_document_2_mobile.png",
         "label": "/patterns/news/example-category",
@@ -14733,7 +14724,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-landing_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_news_example-landing_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_news_example-landing_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-landing_0_document_0_desktop.png",
         "label": "/patterns/news/example-landing",
@@ -14755,7 +14746,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-landing_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_news_example-landing_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_news_example-landing_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-landing_0_document_1_tablet.png",
         "label": "/patterns/news/example-landing",
@@ -14777,7 +14768,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-landing_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_news_example-landing_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_news_example-landing_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-landing_0_document_2_mobile.png",
         "label": "/patterns/news/example-landing",
@@ -14799,7 +14790,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-tag_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_news_example-tag_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_news_example-tag_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-tag_0_document_0_desktop.png",
         "label": "/patterns/news/example-tag",
@@ -14821,7 +14812,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-tag_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_news_example-tag_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_news_example-tag_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-tag_0_document_1_tablet.png",
         "label": "/patterns/news/example-tag",
@@ -14843,7 +14834,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_news_example-tag_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_news_example-tag_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_news_example-tag_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_news_example-tag_0_document_2_mobile.png",
         "label": "/patterns/news/example-tag",
@@ -14865,7 +14856,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_0_desktop.png",
         "label": "/patterns/numeric-values/example-input-number-suffixed-with-error",
@@ -14887,7 +14878,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_1_tablet.png",
         "label": "/patterns/numeric-values/example-input-number-suffixed-with-error",
@@ -14909,7 +14900,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_numeric-values_example-input-number-suffixed-with-error_0_document_2_mobile.png",
         "label": "/patterns/numeric-values/example-input-number-suffixed-with-error",
@@ -14931,7 +14922,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_0_desktop.png",
         "label": "/patterns/phone-numbers/example-phone-number-error",
@@ -14953,7 +14944,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_1_tablet.png",
         "label": "/patterns/phone-numbers/example-phone-number-error",
@@ -14975,7 +14966,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_phone-numbers_example-phone-number-error_0_document_2_mobile.png",
         "label": "/patterns/phone-numbers/example-phone-number-error",
@@ -14997,7 +14988,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_question_example-question-anatomy_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_question_example-question-anatomy_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_question_example-question-anatomy_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_question_example-question-anatomy_0_document_0_desktop.png",
         "label": "/patterns/question/example-question-anatomy",
@@ -15019,7 +15010,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_question_example-question-anatomy_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_question_example-question-anatomy_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_question_example-question-anatomy_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_question_example-question-anatomy_0_document_1_tablet.png",
         "label": "/patterns/question/example-question-anatomy",
@@ -15041,7 +15032,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_question_example-question-anatomy_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_question_example-question-anatomy_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_question_example-question-anatomy_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_question_example-question-anatomy_0_document_2_mobile.png",
         "label": "/patterns/question/example-question-anatomy",
@@ -15063,7 +15054,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_0_desktop.png",
         "label": "/patterns/save-and-sign-out/example-save-and-sign-out-button",
@@ -15085,7 +15076,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_1_tablet.png",
         "label": "/patterns/save-and-sign-out/example-save-and-sign-out-button",
@@ -15107,7 +15098,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_save-and-sign-out_example-save-and-sign-out-button_0_document_2_mobile.png",
         "label": "/patterns/save-and-sign-out/example-save-and-sign-out-button",
@@ -15129,7 +15120,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_0_desktop.png",
         "label": "/patterns/save-and-sign-out/example-signed-out",
@@ -15151,7 +15142,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_1_tablet.png",
         "label": "/patterns/save-and-sign-out/example-signed-out",
@@ -15173,7 +15164,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_save-and-sign-out_example-signed-out_0_document_2_mobile.png",
         "label": "/patterns/save-and-sign-out/example-signed-out",
@@ -15195,7 +15186,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-errors_0_document_0_desktop.png",
         "label": "/patterns/send-a-web-form/example-errors",
@@ -15217,7 +15208,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-errors_0_document_1_tablet.png",
         "label": "/patterns/send-a-web-form/example-errors",
@@ -15239,7 +15230,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-a-web-form_example-errors_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-errors_0_document_2_mobile.png",
         "label": "/patterns/send-a-web-form/example-errors",
@@ -15261,7 +15252,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-form_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-a-web-form_example-form_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-a-web-form_example-form_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-form_0_document_0_desktop.png",
         "label": "/patterns/send-a-web-form/example-form",
@@ -15283,7 +15274,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-form_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-a-web-form_example-form_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-a-web-form_example-form_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-form_0_document_1_tablet.png",
         "label": "/patterns/send-a-web-form/example-form",
@@ -15305,7 +15296,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-form_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-a-web-form_example-form_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-a-web-form_example-form_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-form_0_document_2_mobile.png",
         "label": "/patterns/send-a-web-form/example-form",
@@ -15327,7 +15318,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-success_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-a-web-form_example-success_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-a-web-form_example-success_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-success_0_document_0_desktop.png",
         "label": "/patterns/send-a-web-form/example-success",
@@ -15349,7 +15340,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-success_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-a-web-form_example-success_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-a-web-form_example-success_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-success_0_document_1_tablet.png",
         "label": "/patterns/send-a-web-form/example-success",
@@ -15371,7 +15362,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-a-web-form_example-success_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-a-web-form_example-success_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-a-web-form_example-success_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-a-web-form_example-success_0_document_2_mobile.png",
         "label": "/patterns/send-a-web-form/example-success",
@@ -15393,7 +15384,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_0_desktop.png",
         "label": "/patterns/send-and-reply-to-messages/example-conversation",
@@ -15415,7 +15406,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_1_tablet.png",
         "label": "/patterns/send-and-reply-to-messages/example-conversation",
@@ -15437,7 +15428,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-and-reply-to-messages_example-conversation_0_document_2_mobile.png",
         "label": "/patterns/send-and-reply-to-messages/example-conversation",
@@ -15459,7 +15450,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_0_desktop.png",
         "label": "/patterns/send-and-reply-to-messages/example-message-list",
@@ -15481,7 +15472,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_1_tablet.png",
         "label": "/patterns/send-and-reply-to-messages/example-message-list",
@@ -15503,7 +15494,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__patterns_send-and-reply-to-messages_example-message-list_0_document_2_mobile.png",
         "label": "/patterns/send-and-reply-to-messages/example-message-list",
@@ -15525,7 +15516,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_address-output_example-address-output_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_address-output_example-address-output_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_address-output_example-address-output_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_address-output_example-address-output_0_document_0_desktop.png",
         "label": "/foundations/address-output/example-address-output",
@@ -15547,7 +15538,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_address-output_example-address-output_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_address-output_example-address-output_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_address-output_example-address-output_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_address-output_example-address-output_0_document_1_tablet.png",
         "label": "/foundations/address-output/example-address-output",
@@ -15569,7 +15560,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_address-output_example-address-output_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_address-output_example-address-output_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_address-output_example-address-output_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_address-output_example-address-output_0_document_2_mobile.png",
         "label": "/foundations/address-output/example-address-output",
@@ -15591,7 +15582,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_0_desktop.png",
         "label": "/foundations/headings/example-breakpoint-headings",
@@ -15613,7 +15604,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_1_tablet.png",
         "label": "/foundations/headings/example-breakpoint-headings",
@@ -15635,7 +15626,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_headings_example-breakpoint-headings_0_document_2_mobile.png",
         "label": "/foundations/headings/example-breakpoint-headings",
@@ -15657,7 +15648,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_0_desktop.png",
         "label": "/foundations/headings/example-default-heading-sizes",
@@ -15679,7 +15670,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_1_tablet.png",
         "label": "/foundations/headings/example-default-heading-sizes",
@@ -15701,7 +15692,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_headings_example-default-heading-sizes_0_document_2_mobile.png",
         "label": "/foundations/headings/example-default-heading-sizes",
@@ -15723,7 +15714,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_highlighting_example-highlighting_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_highlighting_example-highlighting_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_highlighting_example-highlighting_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_highlighting_example-highlighting_0_document_0_desktop.png",
         "label": "/foundations/highlighting/example-highlighting",
@@ -15745,7 +15736,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_highlighting_example-highlighting_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_highlighting_example-highlighting_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_highlighting_example-highlighting_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_highlighting_example-highlighting_0_document_1_tablet.png",
         "label": "/foundations/highlighting/example-highlighting",
@@ -15767,7 +15758,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_highlighting_example-highlighting_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_highlighting_example-highlighting_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_highlighting_example-highlighting_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_highlighting_example-highlighting_0_document_2_mobile.png",
         "label": "/foundations/highlighting/example-highlighting",
@@ -15789,7 +15780,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_links_example-link_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_links_example-link_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_links_example-link_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_links_example-link_0_document_0_desktop.png",
         "label": "/foundations/links/example-link",
@@ -15811,7 +15802,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_links_example-link_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_links_example-link_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_links_example-link_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_links_example-link_0_document_1_tablet.png",
         "label": "/foundations/links/example-link",
@@ -15833,7 +15824,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_links_example-link_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_links_example-link_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_links_example-link_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_links_example-link_0_document_2_mobile.png",
         "label": "/foundations/links/example-link",
@@ -15855,7 +15846,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-bare-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-bare-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-bare-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-bare-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-bare-list",
@@ -15877,7 +15868,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-bare-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-bare-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-bare-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-bare-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-bare-list",
@@ -15899,7 +15890,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-bare-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-bare-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-bare-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-bare-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-bare-list",
@@ -15921,7 +15912,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-bulleted-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-bulleted-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-bulleted-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-bulleted-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-bulleted-list",
@@ -15943,7 +15934,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-bulleted-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-bulleted-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-bulleted-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-bulleted-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-bulleted-list",
@@ -15965,7 +15956,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-bulleted-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-bulleted-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-bulleted-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-bulleted-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-bulleted-list",
@@ -15987,7 +15978,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-dashed-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-dashed-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-dashed-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-dashed-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-dashed-list",
@@ -16009,7 +16000,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-dashed-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-dashed-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-dashed-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-dashed-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-dashed-list",
@@ -16031,7 +16022,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-dashed-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-dashed-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-dashed-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-dashed-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-dashed-list",
@@ -16053,7 +16044,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_0_desktop.png",
         "label": "/foundations/lists/example-inline-list-with-social-icon-prefix",
@@ -16075,7 +16066,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_1_tablet.png",
         "label": "/foundations/lists/example-inline-list-with-social-icon-prefix",
@@ -16097,7 +16088,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-inline-list-with-social-icon-prefix_0_document_2_mobile.png",
         "label": "/foundations/lists/example-inline-list-with-social-icon-prefix",
@@ -16119,7 +16110,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-inline-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-inline-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-inline-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-inline-list",
@@ -16141,7 +16132,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-inline-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-inline-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-inline-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-inline-list",
@@ -16163,7 +16154,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-inline-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-inline-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-inline-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-inline-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-inline-list",
@@ -16185,7 +16176,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_0_desktop.png",
         "label": "/foundations/lists/example-list-with-icon-prefix",
@@ -16207,7 +16198,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_1_tablet.png",
         "label": "/foundations/lists/example-list-with-icon-prefix",
@@ -16229,7 +16220,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-list-with-icon-prefix_0_document_2_mobile.png",
         "label": "/foundations/lists/example-list-with-icon-prefix",
@@ -16251,7 +16242,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_0_desktop.png",
         "label": "/foundations/lists/example-list-with-icon-suffix",
@@ -16273,7 +16264,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_1_tablet.png",
         "label": "/foundations/lists/example-list-with-icon-suffix",
@@ -16295,7 +16286,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-list-with-icon-suffix_0_document_2_mobile.png",
         "label": "/foundations/lists/example-list-with-icon-suffix",
@@ -16317,7 +16308,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-numbered-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-numbered-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-numbered-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-numbered-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-numbered-list",
@@ -16339,7 +16330,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-numbered-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-numbered-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-numbered-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-numbered-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-numbered-list",
@@ -16361,7 +16352,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-numbered-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-numbered-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-numbered-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-numbered-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-numbered-list",
@@ -16383,7 +16374,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-prefixed-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-prefixed-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-prefixed-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-prefixed-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-prefixed-list",
@@ -16405,7 +16396,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-prefixed-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-prefixed-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-prefixed-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-prefixed-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-prefixed-list",
@@ -16427,7 +16418,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-prefixed-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-prefixed-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-prefixed-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-prefixed-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-prefixed-list",
@@ -16449,7 +16440,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-suffixed-list_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-suffixed-list_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-suffixed-list_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-suffixed-list_0_document_0_desktop.png",
         "label": "/foundations/lists/example-suffixed-list",
@@ -16471,7 +16462,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-suffixed-list_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-suffixed-list_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-suffixed-list_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-suffixed-list_0_document_1_tablet.png",
         "label": "/foundations/lists/example-suffixed-list",
@@ -16493,7 +16484,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_lists_example-suffixed-list_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_lists_example-suffixed-list_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_lists_example-suffixed-list_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_lists_example-suffixed-list_0_document_2_mobile.png",
         "label": "/foundations/lists/example-suffixed-list",
@@ -16515,7 +16506,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_0_desktop.png",
         "label": "/foundations/page-template/example-base-page-template-block-areas",
@@ -16537,7 +16528,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_1_tablet.png",
         "label": "/foundations/page-template/example-base-page-template-block-areas",
@@ -16559,7 +16550,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-base-page-template-block-areas_0_document_2_mobile.png",
         "label": "/foundations/page-template/example-base-page-template-block-areas",
@@ -16581,7 +16572,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-basic_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_page-template_example-basic_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_page-template_example-basic_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-basic_0_document_0_desktop.png",
         "label": "/foundations/page-template/example-basic",
@@ -16603,7 +16594,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-basic_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_page-template_example-basic_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_page-template_example-basic_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-basic_0_document_1_tablet.png",
         "label": "/foundations/page-template/example-basic",
@@ -16625,7 +16616,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-basic_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_page-template_example-basic_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_page-template_example-basic_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-basic_0_document_2_mobile.png",
         "label": "/foundations/page-template/example-basic",
@@ -16647,7 +16638,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-custom_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_page-template_example-custom_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_page-template_example-custom_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-custom_0_document_0_desktop.png",
         "label": "/foundations/page-template/example-custom",
@@ -16669,7 +16660,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-custom_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_page-template_example-custom_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_page-template_example-custom_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-custom_0_document_1_tablet.png",
         "label": "/foundations/page-template/example-custom",
@@ -16691,7 +16682,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_page-template_example-custom_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_page-template_example-custom_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_page-template_example-custom_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_page-template_example-custom_0_document_2_mobile.png",
         "label": "/foundations/page-template/example-custom",
@@ -16713,7 +16704,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_0_desktop.png",
         "label": "/foundations/paragraphs/example-paragraphs",
@@ -16735,7 +16726,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_1_tablet.png",
         "label": "/foundations/paragraphs/example-paragraphs",
@@ -16757,7 +16748,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_paragraphs_example-paragraphs_0_document_2_mobile.png",
         "label": "/foundations/paragraphs/example-paragraphs",
@@ -16779,7 +16770,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_quote_example-quote_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_quote_example-quote_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_quote_example-quote_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_quote_example-quote_0_document_0_desktop.png",
         "label": "/foundations/quote/example-quote",
@@ -16801,7 +16792,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_quote_example-quote_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_quote_example-quote_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_quote_example-quote_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_quote_example-quote_0_document_1_tablet.png",
         "label": "/foundations/quote/example-quote",
@@ -16823,7 +16814,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_quote_example-quote_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_quote_example-quote_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_quote_example-quote_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_quote_example-quote_0_document_2_mobile.png",
         "label": "/foundations/quote/example-quote",
@@ -16845,7 +16836,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_text-indent_example-text-indent_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_text-indent_example-text-indent_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_text-indent_example-text-indent_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_text-indent_example-text-indent_0_document_0_desktop.png",
         "label": "/foundations/text-indent/example-text-indent",
@@ -16867,7 +16858,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_text-indent_example-text-indent_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_text-indent_example-text-indent_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_text-indent_example-text-indent_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_text-indent_example-text-indent_0_document_1_tablet.png",
         "label": "/foundations/text-indent/example-text-indent",
@@ -16889,7 +16880,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_text-indent_example-text-indent_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_text-indent_example-text-indent_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_text-indent_example-text-indent_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_text-indent_example-text-indent_0_document_2_mobile.png",
         "label": "/foundations/text-indent/example-text-indent",
@@ -16911,7 +16902,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_type-scale_example-type-scale_0_document_0_desktop.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_type-scale_example-type-scale_0_document_0_desktop.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_type-scale_example-type-scale_0_document_0_desktop.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_type-scale_example-type-scale_0_document_0_desktop.png",
         "label": "/foundations/type-scale/example-type-scale",
@@ -16933,7 +16924,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_type-scale_example-type-scale_0_document_1_tablet.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_type-scale_example-type-scale_0_document_1_tablet.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_type-scale_example-type-scale_0_document_1_tablet.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_type-scale_example-type-scale_0_document_1_tablet.png",
         "label": "/foundations/type-scale/example-type-scale",
@@ -16955,7 +16946,7 @@ report({
     {
       "pair": {
         "reference": "../bitmaps_reference/ds-vr-test__foundations_type-scale_example-type-scale_0_document_2_mobile.png",
-        "test": "../bitmaps_test/20230516-133209/ds-vr-test__foundations_type-scale_example-type-scale_0_document_2_mobile.png",
+        "test": "../bitmaps_test/20230517-135604/ds-vr-test__foundations_type-scale_example-type-scale_0_document_2_mobile.png",
         "selector": "document",
         "fileName": "ds-vr-test__foundations_type-scale_example-type-scale_0_document_2_mobile.png",
         "label": "/foundations/type-scale/example-type-scale",
