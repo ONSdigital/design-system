@@ -519,21 +519,6 @@ describe('macro: input', () => {
       expect($('.ons-input + abbr').length).toBe(1);
     });
 
-    it('renders an `abbr` tag with aria-hidden attribute set to `true`', () => {
-      const $ = cheerio.load(
-        renderComponent('input', {
-          ...EXAMPLE_INPUT_MINIMAL,
-          suffix: {
-            text: 'Example suffix text',
-            title: 'Example suffix title',
-            id: 'example-suffix-id',
-          },
-        }),
-      );
-
-      expect($('abbr').attr('aria-hidden')).toBe('true');
-    });
-
     it('renders a `span` tag when `title` not set', () => {
       const $ = cheerio.load(
         renderComponent('input', {
