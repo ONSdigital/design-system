@@ -1,0 +1,60 @@
+{% from "components/document-list/_macro.njk" import onsDocumentList %}
+
+{{ onsDocumentList({
+    "documents": [
+        {
+            "thumbnail": {
+                "smallSrc": '/img/small/census-monuments-lights.jpg',
+                "largeSrc": '/img/large/census-monuments-lights.jpg'
+            },
+            "url": '#0',
+            "title": 'Landmarks are lighting up purple to mark Census Day',
+            "metadata": {
+                "type": {
+                    "text": 'Press releases',
+                    "url": '#0'
+                },
+                "date": {
+                    "iso": '2022-01-01',
+                    "short": '1 January 2022'
+                }
+            },
+            "description": 'Hundreds of buildings & landmarks across England and Wales are lighting up purple this weekend to celebrate the census and its importance to communities.'
+        },
+        {
+            "thumbnail": {
+                "smallSrc": '/img/small/ons-award-winners.jpg',
+                "largeSrc": '/img/large/ons-award-winners.jpg'
+            },
+            "url": '#0',
+            "title": 'Office for National Statistics win top Royal Statistical Society award',
+            "metadata": {
+                "type": {
+                    "text": 'Press releases',
+                    "url": '#0'
+                },
+                "date": {
+                    "iso": '2021-07-15',
+                    "short": '15 July 2021'
+                }
+            },
+            "description": 'The Office for National Statistics’ (ONS) analysis showing that people from certain ethnicities had a higher risk of dying from COVID-19 has been recognised by the Royal Statistical Society (RSS) with the renowned Campion Award.'
+        },
+        {
+            "thumbnail": true,
+            "url": '#0',
+            "title": 'Five Office for National Statistics names in New Year’s Honours',
+            "metadata": {
+                "type": {
+                    "text": 'Press releases',
+                    "url": '#0'
+                },
+                "date": {
+                    "iso": '2022-01-01',
+                    "short": '1 January 2022'
+                }
+            },
+            "description": 'After another year in which data and statistics have dominated public debate, five Office for National Statistics (ONS) employees have been recognised for their contributions to statistics, public health and the census in the New Year’s Honours list.'
+        }
+    ]
+}) }}

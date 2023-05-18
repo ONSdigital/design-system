@@ -43,66 +43,7 @@ yarn start
 
 Once the server has started, navigate to <http://localhost:3030>
 
-## Mixed Markdown/Nunjucks syntax in .njk pages
-
-The design system documentation is authored with files that contain a mix of Markdown and Nunjucks syntax. These files begin with frontmatter and then contain Markdown syntax; for example:
-
-```markdown
----
-title: Foo
----
-
-## Some section
-
-A simple paragraph of _markdown_.
-```
-
-Simple Nunjucks placeholders/variables can be added into these files without any special syntax; for example:
-
-```markdown
-A paragraph of _markdown_ with some template value {{ foo.bar }}.
-
-{{
-    patternlibExample({"path": "components/foo/examples/foo/index.njk"})
-}}
-```
-
-For the most part no special syntax is needed when mixing Nunjucks templating into the markdown syntax. If syntax contains nested character sequence `}}` then it must be wrapped within `+++` fences. The `{% ... %}` syntax must also be wrapped within `+++` fences. This applies for things like imports, calling macros, defining blocks, etc:
-
-```markdown
-+++
-{% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
-+++
-```
-
-As a rule of thumb; code highlight blocks should always be wrapped with `+++` fences:
-
-```markdown
-+++
-{% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
-{{ onsCodeHighlight({
-"code": '[
-  {
-    "en": "England"
-  },
-  {
-    "en": "Wales"
-  },
-  {
-    "en": "Scotland"
-  },
-  {
-    "en": "Northern Ireland"
-  },
-]'
-}) }}
-+++
-```
-
-Mixed markdown files are easier to maintain when each section that is fenced with `+++` is a standalone unit. For example, each code example should have it's own `+++` fence even if they immediately follow one another. This is because content can be edited around these fenced units.
-
-## Testing
+## Testing - macros and scripts
 
 This project uses [jest](https://jestjs.io/docs/cli) and supports its command line options.
 
@@ -140,6 +81,16 @@ To run all axe tests:
 yarn test --testNamePattern="axe"
 ```
 
+### Snapshot test for base page template
+
+There is a snapshot test of the base page template that runs alongside the component tests. The snapshot will need to be updated if the base page template is changed.
+
+To update the snapshot:
+
+```bash
+yarn test --testNamePattern="base page template" -u
+```
+
 ### Run tests locally in watch mode
 
 This will watch for changed files based on git uncommitted files.
@@ -158,9 +109,31 @@ It is sometimes useful to adjust the following settings when writing tests or di
 
 - `testTimeout` in 'jest.config.js' - set to a high value such as `1000000` to prevent tests from timing out when doing the above.
 
-## Run visual regression tests
+## Testing - Visual regression tests
 
-To run visual regression (VR) tests on pull requests using our VR testing tool [percy.io](https://percy.io) you must include `[test-visual]` in your commit message e.g. `git commit -m "Update button border width [test-visual]"`. This prevents unnecessary builds and saves the limited quota we have available.
+This project uses [Backstop JS](https://github.com/garris/BackstopJS) for visual regression testing. The tests run in Chrome headless using pupeteer inside docker and run in three viewports; 1920 (desktop), 768 (tablet) and 375 (mobile). Reference images are stored in Git LFS and any approved changes will automatically be stored in Git LFS when pushed to the repository.
+
+The visual tests will run automatically on pull requests and the result will be available in the Github Action logs. If the tests fail, the process for viewing the failures and approving changes will need to be handled locally using the following workflow and commands.
+
+The first time you run the tests locally you will need to install Git LFS on your machine. Follow the install instructions for [Git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage).
+
+You will need to have Docker installed and started locally. We are using Docker as there are font rendering issues that caused failures across different os versions when we run the tests in CI. There is further information on this in the [Backstop JS docs](https://github.com/garris/BackstopJS#using-docker-for-testing-across-different-environments).
+
+Checkout the branch locally and run:
+
+`git lfs fetch` - This downloads the files into your `.git/lfs` if you have never run vr test locally.
+
+`git lfs checkout` - This will pull the current reference images from the repository for you to test against.
+
+`yarn test-visual` - This will run the same tests locally as were run in Github Actions. After they have completed the report will open in your default browser.
+
+`yarn test-visual:approve` - This will approve the failures/diff caught by the tests.
+
+`yarn test-visual:reference` - This will update the reference images locally on your machine.
+
+`git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.
+
+You can then commit and push your changes. The test images that would have been created when you ran `yest test-visual` are gitignored and the new references images will be pushed to Git LFS.
 
 ## Build
 

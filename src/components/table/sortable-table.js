@@ -3,12 +3,13 @@ export const classTableBody = 'ons-table__body';
 export let status;
 
 export default class TableSort {
-  constructor(table) {
+  constructor(table, index) {
     this.table = table;
     this.options = {};
     this.options.statusMessage = table.getAttribute('data-aria-sort');
     this.options.ascendingText = table.getAttribute('data-aria-asc');
     this.options.descendingText = table.getAttribute('data-aria-desc');
+    this.index = index;
     this.init();
   }
 
@@ -27,24 +28,26 @@ export default class TableSort {
 
   createHeadingButtons(heading, i) {
     const text = heading.textContent.trim();
-    heading.childNodes[1].remove();
-    heading.childNodes[2].classList.remove('ons-u-d-no');
+    heading.querySelector('.ons-table__header-text').remove();
+    heading.querySelector('.ons-svg-icon').classList.remove('ons-u-d-no');
     const button = document.createElement('button');
     button.setAttribute('aria-label', this.table.getAttribute('data-aria-sort') + ' ' + text);
     button.setAttribute('type', 'button');
     button.setAttribute('data-index', i);
     button.setAttribute('class', 'ons-table__sort-button');
     button.textContent = text;
-    button.addEventListener('click', this.sortButtonClicked.bind(this));
-    let sortSprite = document.getElementById('sort-sprite-' + text.toLowerCase());
+    const sortSpriteIdText = text.replace(/\s+/g, '-').toLowerCase();
+    const sortSprite = document.getElementById('sort-sprite-' + sortSpriteIdText);
+    sortSprite.id = 'sort-sprite-' + sortSpriteIdText + '-' + this.index;
     const sortSpriteParent = sortSprite.parentNode;
     sortSpriteParent.replaceChild(button, sortSprite);
     button.appendChild(sortSprite);
+    button.addEventListener('click', this.sortButtonClicked.bind(this));
   }
 
   sortButtonClicked(event) {
-    const columnNumber = event.target.getAttribute('data-index');
-    const sortDirection = event.target.parentElement.getAttribute('aria-sort');
+    const columnNumber = event.target.closest('[data-index]').getAttribute('data-index');
+    const sortDirection = event.target.closest('[aria-sort]').getAttribute('aria-sort');
     let newSortDirection;
 
     if (sortDirection === 'none' || sortDirection === 'ascending') {
@@ -63,7 +66,7 @@ export default class TableSort {
     });
 
     this.removeButtonStates();
-    this.updateButtonState(event.target, newSortDirection);
+    this.updateButtonState(event.target.closest('[aria-sort]'), newSortDirection);
   }
 
   getTableRowsArray(tbody) {
@@ -109,6 +112,10 @@ export default class TableSort {
   }
 
   getCellValue(cell) {
+    if (!cell) {
+      return undefined;
+    }
+
     let cellValue = cell.getAttribute('data-sort-value') || cell.textContent;
     cellValue = parseFloat(cellValue) || cellValue;
 
@@ -130,7 +137,7 @@ export default class TableSort {
   }
 
   updateButtonState(button, direction) {
-    button.parentElement.setAttribute('aria-sort', direction);
+    button.setAttribute('aria-sort', direction);
     let message = this.options.statusMessage;
     message = message + ' ' + button.textContent.replace(/^\s+|\s+$/g, '');
     message = message + ' (' + direction + ')';

@@ -59,8 +59,8 @@
 @import '../components/timeline/timeline';
 @import '../components/upload/upload';
 @import '../components/video/video';
-@import '../foundations/style/typography/highlighting/highlight';
 @import 'utilities/index';
+@import 'utilities/highlight';
 
 // Right to left
 @import 'overrides/rtl';

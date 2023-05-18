@@ -1,0 +1,47 @@
+---
+title: "Example: Question with an interviewer instruction"
+layout: ~
+---
+{% extends "layout/_template.njk" %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/input/_macro.njk" import onsInput %}
+
+{% set pageConfig = {
+    "header": {
+        "title": "Interviewer led question example"
+    },
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Previous'
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": "How many visitors do you have staying overnight at 3 Severn Road on Sunday 21 March 2021?",
+        "description": "<p>A visitor is anyone aged <strong>16 years or over</strong> who usually lives at another address. Enter “0” if there are no visitors staying overnight.</p>",
+        "instruction": "<p>Tell respondent to turn to <strong>Showcard 2</strong> or show them the following Electronic Showcard</p>",
+        "definition": {
+            "title": "Electronic Showcard",
+            "content": "<p>Visitor information is collected to ensure that everyone is counted, in order to produce accurate estimates of the population, to facilitate effective planning and funding decisions</p>"
+        },
+        "submitButton": true
+    }) %}
+
+        {{ onsInput({
+            "id": "number-of-visitors",
+            "name": "number-of-visitors",
+            "type": "number",
+            "width": "2",
+            "label": {
+                "text": "Number of visitors"
+            }
+        }) }}
+
+    {% endcall %}
+{% endblock %}

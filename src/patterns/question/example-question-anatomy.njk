@@ -1,0 +1,196 @@
+---
+noTabs: true
+---
+{% from "components/details/_macro.njk" import onsDetails %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+<style>
+    .ons-pl-question-anatomy {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: -1.5rem;
+        max-width: 57.445rem;
+    }
+
+    .ons-pl-question-anatomy .ons-pl-question-anatomy__row:not(:last-child) {
+        border-bottom: 1px dashed var(--ons-color-grey-35);
+    }
+
+    .ons-pl-question-anatomy .ons-pl-question-anatomy__component {
+        padding: 1rem 1.5rem;
+        vertical-align: top;
+    }
+
+    .ons-pl-question-anatomy .ons-pl-question-anatomy__description {
+        background-color: var(--ons-color-info-tint);
+        padding: 1rem;
+        text-align: left;
+    }
+
+    .ons-pl-question-anatomy code {
+        background: var(--ons-color-grey-5);
+        color: var(--ons-color-ruby-red);
+        font-weight: 400;
+        padding: 0.05rem 0.25rem;
+    }
+</style>
+
+<table class="ons-pl-question-anatomy">
+    <tbody class="ons-pl-question-anatomy__row">
+        <tr>
+            <td class="ons-pl-question-anatomy__component">
+                <h1 class="ons-u-fs-l">On 1 May 2021, what was the number of employees for Bolt and Ratchet?</h1>
+            </td>
+            <th class="ons-pl-question-anatomy__description" scope="col">
+                <h2 class="ons-u-fs-r ons-u-mb-no">Question heading</h2>
+                <p><code>title</code></p>
+            </th>
+        </tr>
+    </tbody>
+    <tbody class="ons-pl-question-anatomy__row">
+        <tr>
+            <td class="ons-pl-question-anatomy__component">
+                <p>This is all employees aged 16 years or over that your organisation employs</p>
+            </td>
+            <th class="ons-pl-question-anatomy__description" scope="col">
+                <h2 class="ons-u-fs-r ons-u-mb-no">Question description <span class="ons-u-fs-s">(optional)</span></h2>
+                <p><code>description</code></p>
+                <p class="ons-u-fs-s ons-u-mb-no">Only to be used to provide added context to the question</p>
+            </th>
+        </tr>
+    </tbody>
+    <tbody class="ons-pl-question-anatomy__row">
+        <tr>
+            <td class="ons-pl-question-anatomy__component">
+                {% call onsPanel({
+                    "type": "warn"
+                }) %}
+                    <p>This is a warning notice</p>
+                {% endcall %}
+            </td>
+            <th class="ons-pl-question-anatomy__description" scope="col">
+                <h2 class="ons-u-fs-r ons-u-mb-no">Question warning <span class="ons-u-fs-s">(optional)</span></h2>
+                <p><code>warning</code></p>
+                <p class="ons-u-fs-s ons-u-mb-no">Only to be used to warn users of a negative consequence to answering the question incorrectly</p>
+            </th>
+        </tr>
+    </tbody>
+    <tbody class="ons-pl-question-anatomy__row">
+        <tr>
+            <td class="ons-pl-question-anatomy__component">
+                {% call onsDetails({
+                    "id": "question-definition",
+                    "title": "What we mean by “employee”",
+                    "button": {
+                        "close": "Hide this"
+                    }
+                }) %}
+                    <p>An employee is a person that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job</p>
+                {% endcall %}
+            </td>
+            <th class="ons-pl-question-anatomy__description" scope="col">
+                <h2 class="ons-u-fs-r ons-u-mb-no">Question definition <span class="ons-u-fs-s">(optional)</span></h2>
+                <p><code>definition</code></p>
+                <p class="ons-u-fs-s ons-u-mb-no">Only to be used to define word(s) or acronym(s) within the question</p>
+            </th>
+        </tr>
+    </tbody>
+    <tbody class="ons-pl-question-anatomy__row">
+        <tr>
+            <td class="ons-pl-question-anatomy__component">
+                {% call onsPanel() %}
+                    <strong>Include:</strong>
+                    <ul>
+                        <li>all employees in Great Britain (England, Scotland and Wales), both full and part-time, who received pay in the relevant period</li>
+                    </ul>
+                    <strong>Exclude:</strong>
+                    <ul>
+                        <li>trainees on government schemes</li>
+                        <li>employees working abroad unless paid directly from this business’s GB payroll</li>
+                    </ul>
+                {% endcall %}
+            </td>
+            <th class="ons-pl-question-anatomy__description" scope="col">
+                <h2 class="ons-u-fs-r ons-u-mb-no">Question guidance <span class="ons-u-fs-s">(optional)</span></h2>
+                <p><code>guidance</code></p>
+                <p class="ons-u-fs-s">Only to be used to state what should be included or excluded from the answer</p>
+            </th>
+        </tr>
+    </tbody>
+    <tbody class="ons-pl-question-anatomy__row">
+        <tr>
+            <td class="ons-pl-question-anatomy__component">
+                {{ onsRadios({
+                    "id": "number-of-employees",
+                    "name": "number-of-employees",
+                    "legend": "On 1 May 2021, what was the number of employees for Bolt and Ratchet?",
+                    "legendClasses": "ons-u-vh",
+                    "radios": [
+                        {
+                            "id": "answer-1-9",
+                            "label": {
+                                "text": "1 – 9 employees"
+                            },
+                            "value": "1-9"
+                        },
+                        {
+                            "id": "answer-10-49",
+                            "label": {
+                                "text": "10 – 49 employees"
+                            },
+                            "value": "10-49"
+                        },
+                        {
+                            "id": "answer-50-100",
+                            "label": {
+                                "text": "50 – 100+ employees",
+                                "description": "Include multi-corporations"
+                            },
+                            "value": "50-100"
+                        }
+                    ]
+                }) }}
+            </td>
+            <th class="ons-pl-question-anatomy__description" scope="col">
+                <h2 class="ons-u-fs-r">Answer(s)</h2>
+            </th>
+        </tr>
+    </tbody>
+    <tbody class="ons-pl-question-anatomy__row">
+        <tr>
+            <td class="ons-pl-question-anatomy__component">
+                {% call onsDetails({
+                    "id": "question-justification",
+                    "title": "Why we ask this question",
+                    "button": {
+                        "close": "Hide this"
+                    }
+                }) %}
+                    <p>We ask this question in order to understand the size of organisations in the UK.</p>
+                {% endcall %}
+            </td>
+            <th class="ons-pl-question-anatomy__description" scope="col">
+                <h2 class="ons-u-fs-r ons-u-mb-no">Question justification <span class="ons-u-fs-s">(optional)</span></h2>
+                <p><code>justification</code></p>
+                <p class="ons-u-fs-s">Only to be used to explain why a question is being asked if there is evidence that users want to know this</p>
+            </th>
+        </tr>
+    </tbody>
+    <tbody class="ons-pl-question-anatomy__row">
+        <tr>
+            <td class="ons-pl-question-anatomy__component">
+                {{
+                    onsButton({
+                        "text": 'Save and continue'
+                    })
+                }}
+            </td>
+            <th class="ons-pl-question-anatomy__description" scope="col">
+                <h2 class="ons-u-fs-r ons-u-mb-no">Submit button <span class="ons-u-fs-s">(optional)</span></h2>
+                <p class="ons-u-mb-no"><code>submitButton</code></p>
+            </th>
+        </tr>
+    </tbody>
+</table>

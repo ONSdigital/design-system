@@ -1,0 +1,51 @@
+---
+title: "Example: Change language from English to Welsh"
+layout: none
+---
+
++++
+{% extends "layout/_template.njk" %}
+
+{% set pageConfig = {
+    "header": {
+        "title": "Service name",
+        "language": {
+            "languages": [
+                {
+                    "url": "#0",
+                    "ISOCode": "en",
+                    "text": "English",
+                    "current": true
+                },
+                {
+                    "url": "/patterns/change-language/examples/cymraeg",
+                    "ISOCode": "cy",
+                    "text": "Cymraeg",
+                    "current": false
+                }
+            ]
+        }
+    },
+    "footer": {
+        "rows": [
+            {
+                "itemsList": [
+                    {
+                        "text": "Contact us",
+                        "url": "#0"
+                    },
+                    {
+                        "text": "Cookies and privacy",
+                        "url": "#0"
+                    }
+                ]
+            }
+        ],
+        "OGLLink": true
+    }
+} %}
+
+{% block main %}
+{% endblock %}
+
++++

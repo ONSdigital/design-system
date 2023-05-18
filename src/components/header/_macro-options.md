@@ -7,7 +7,7 @@
 | variants        | array or string                                   | false                            | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral" and “description” |
 | mastheadLogoUrl | string                                            | false                            | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                                            |
 | mastheadLogo    | object`<MastheadLogo>`                            | false                            | Settings for a [custom organisation logo](#mastheadlogo) in the masthead. Defaults to the ONS logo.                                   |
-| language        | `Language` [_(ref)_](/patterns/change-language)   | false                            | Settings for the language selector component                                                                                          |
+| language        | object`<Language>`                                | false                            | Settings for the [language selector](#language)                                                                                       |
 | serviceLinks    | object`<ServiceLinks>`                            | false                            | Settings for the [service links](#servicelinks) in the masthead                                                                       |
 | title           | string                                            | true (unless `titleLogo` is set) | The title for the service                                                                                                             |
 | description     | string                                            | false                            | Tagline or description for the service                                                                                                |
@@ -44,6 +44,23 @@
 | itemsList            | array`<Item>`          | true     | Settings for an array of [list items](#item) for each navigation link                                                                 |
 | toggleServicesButton | object`<ToggleButton>` | true     | Settings for the [mobile service links toggle button](#togglebutton)                                                                  |
 
+## Language
+
+| Name      | Type               | Required | Description                                                  |
+| --------- | ------------------ | -------- | ------------------------------------------------------------ |
+| languages | array`<languages>` | true     | Settings for an array of [language toggle links](#languages) |
+
+## Languages
+
+| Name       | Type    | Required | Description                                                                                         |
+| ---------- | ------- | -------- | --------------------------------------------------------------------------------------------------- |
+| url        | string  | true     | URL to change the application language                                                              |
+| ISOCode    | string  | true     | The ISO language code for the language                                                              |
+| text       | string  | true     | The name of the language to display                                                                 |
+| textAbbr   | string  | false    | Abbreviated version of the language text can be provided. This will be displayed on small viewports |
+| current    | boolean | true     | The current selected language                                                                       |
+| attributes | object  | false    | HTML attributes (for example, data attributes) to add to the details element                        |
+
 ## Navigation
 
 | Name         | Type                      | Required | Description                                                                                                                    |
@@ -52,7 +69,7 @@
 | ariaLabel    | string                    | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Main menu”.                                              |
 | itemsList    | array`<Item>`             | true     | Settings for an array of [list items](#item) for each navigation link                                                          |
 | currentPath  | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
-| toggleButton | array`<ToggleButton>`     | true     | Settings for the navigation [menu toggle button](#togglebutton) displayed on small viewports                                   |  |
+| toggleButton | array`<ToggleButton>`     | true     | Settings for the navigation [menu toggle button](#togglebutton) displayed on small viewports                                   |
 
 ## ToggleButton
 

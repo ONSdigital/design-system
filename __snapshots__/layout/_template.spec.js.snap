@@ -49,13 +49,9 @@ exports[`base page template matches the body block override snapshot 1`] = `
         
         Content
 
-        
-            
-        
-
         <script>
             (function() {
-                var s = '/scripts/main.js,/scripts/patternlib.js'.split(','),
+                var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
 
                 if (!('noModule' in c)) {
@@ -286,13 +282,9 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             
         
 
-        
-            
-        
-
         <script>
             (function() {
-                var s = '/scripts/main.js,/scripts/patternlib.js'.split(','),
+                var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
 
                 if (!('noModule' in c)) {
@@ -529,13 +521,9 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             
         
 
-        
-            
-        
-
         <script>
             (function() {
-                var s = '/scripts/main.js,/scripts/patternlib.js'.split(','),
+                var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
 
                 if (!('noModule' in c)) {
@@ -1720,13 +1708,9 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             Some bodyEnd content
         
 
-        
-            
-        
-
         <script>
             (function() {
-                var s = '/some-path/scripts/main.js,/some-path/scripts/patternlib.js'.split(','),
+                var s = [ '/some-path/scripts/main.js' ],
                 c = document.createElement('script');
 
                 if (!('noModule' in c)) {
@@ -1963,13 +1947,9 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             
         
 
-        
-            
-        
-
         <script>
             (function() {
-                var s = '/scripts/main.js,/scripts/patternlib.js'.split(','),
+                var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
 
                 if (!('noModule' in c)) {
@@ -2192,13 +2172,9 @@ exports[`base page template matches the social block override snapshot 1`] = `
             
         
 
-        
-            
-        
-
         <script>
             (function() {
-                var s = '/scripts/main.js,/scripts/patternlib.js'.split(','),
+                var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
 
                 if (!('noModule' in c)) {

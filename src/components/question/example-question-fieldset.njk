@@ -1,0 +1,96 @@
+---
+title: "Example: Question as a fieldset"
+layout: ~
+---
+{% extends "layout/_template.njk" %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+
+{% set pageConfig = {
+    "header": {
+        "title": "Question example"
+    },
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Previous'
+            }
+        ]
+    }
+} %}
+
+{% set questionTitle = "On 1 May 2016, what was the number of employees for Bolt and Ratchet?" %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": questionTitle,
+        "description": "<p>This is all employees aged 16 years or over that your organisation employs</p>",
+        "definition": {
+            "title": "What we mean by “employee”",
+            "content": "<p>An employee is a person that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job</p>"
+        },
+        "guidance": {
+            "lists": [
+                {
+                    "listHeading": "Include:",
+                    "itemsList": [
+                        {
+                            "text": "all employees in Great Britain (England, Scotland and Wales), both full and part-time, who received pay in the relevant period"
+                        }
+                    ]
+                },
+                {
+                    "listHeading": "Exclude:",
+                    "itemsList": [
+                        {
+                            "text": "trainees on government schemes"
+                        },
+                        {
+                            "text": "employees working abroad unless paid directly from this business’s GB payroll"
+                        }
+                    ]
+                }
+            ]
+        },
+        "justification": {
+            "title": "Why we ask this question",
+            "content": "<p>We ask this question in order to understand the size of organisations in the UK</p>"
+        },
+        "submitButton": true
+    }) %}
+
+        {{ onsRadios({
+            "id": "number-of-employees",
+            "name": "number-of-employees",
+            "legend": questionTitle,
+            "legendClasses": "ons-u-vh",
+            "radios": [
+                {
+                    "id": "number-of-employees-1-9",
+                    "label": {
+                        "text": "1 – 9 employees"
+                    },
+                    "value": "1-9"
+                },
+                {
+                    "id": "number-of-employees-10-49",
+                    "label": {
+                        "text": "10 – 49 employees"
+                    },
+                    "value": "10-49"
+                },
+                {
+                    "id": "number-of-employees-50-100",
+                    "label": {
+                        "text": "50 – 100+ employees",
+                        "description": "Include multi-corporations"
+                    },
+                    "value": "50-100"
+                }
+            ]
+        }) }}
+
+    {% endcall %}
+{% endblock %}

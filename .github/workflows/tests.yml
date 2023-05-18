@@ -1,26 +1,61 @@
 name: Run macro, script and visual tests
 on: [push]
+
 env:
-  RUNNING_ON_CI: true
-  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  RUNNING_IN_CI: true
+
 jobs:
   run-tests:
-    name: Tests
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
       - name: Install dependencies
         run: yarn install
       - name: Run macro and script tests
         run: yarn test
+      - name: Create Slack notification
+        if: always()
+        uses: edge/simple-slack-notify@master
+        with:
+          channel: '#pat-lib-notifications'
+          status: ${{ job.status }}
+          success_text: 'Macro and script tests completed successfully'
+          failure_text: 'Macro and script tests failed'
+          cancelled_text: 'Macro and script tests was cancelled'
+          fields: |
+            [{ "title": "Action", "value": "${env.GITHUB_WORKFLOW} - build (${env.GITHUB_RUN_NUMBER})", "short": true },
+            { "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
+            { "title": "By", "value": "${{ github.actor }}", "short": true },
+            { "title": "Branch", "value": "${{ github.head_ref }}", "short": true },
+            { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
+
+  run-visual-regression-tests:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+          url: https://github.com/ONSdigital/design-system.git
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: Install dependencies
+        run: yarn install
+      - name: Install Docker
+        run: |
+          brew install docker
+          colima start
       - name: Run visual regression tests
-        if: "contains(github.event.head_commit.message, 'test-visual')"
         run: yarn test-visual
       - name: Create Slack notification
         if: always()
@@ -28,12 +63,13 @@ jobs:
         with:
           channel: '#pat-lib-notifications'
           status: ${{ job.status }}
-          success_text: 'The build completed successfully'
-          failure_text: 'The build failed'
-          cancelled_text: 'The build was cancelled'
+          success_text: 'Visual regression tests completed successfully'
+          failure_text: 'Visual regression tests failed'
+          cancelled_text: 'Visual regression tests was cancelled'
           fields: |
             [{ "title": "Action", "value": "${env.GITHUB_WORKFLOW} - build (${env.GITHUB_RUN_NUMBER})", "short": true },
             { "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
             { "title": "By", "value": "${{ github.actor }}", "short": true },
             { "title": "Branch", "value": "${{ github.head_ref }}", "short": true },
             { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
+            
