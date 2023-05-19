@@ -380,13 +380,26 @@ describe('macro: input', () => {
       expect(results).toHaveNoViolations();
     });
 
-    it('adds `aria-labelledby` attribute when `prefix` is provided', () => {
+    it('adds `aria-labelledby` attribute when `prefix` is provided with `prefix.title`', () => {
       const $ = cheerio.load(
         renderComponent('input', {
           ...EXAMPLE_INPUT_MINIMAL,
           prefix: {
             id: 'example-prefix-id',
             title: 'Example prefix title',
+          },
+        }),
+      );
+
+      expect($('.ons-input').attr('aria-labelledby')).toBe('example-id example-prefix-id');
+    });
+
+    it('adds `aria-labelledby` attribute when `prefix` is provided without `prefix.title`', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_MINIMAL,
+          prefix: {
+            id: 'example-prefix-id',
           },
         }),
       );
@@ -436,6 +449,19 @@ describe('macro: input', () => {
           suffix: {
             id: 'example-suffix-id',
             title: 'Example suffix title',
+          },
+        }),
+      );
+
+      expect($('.ons-input').attr('aria-labelledby')).toBe('example-id example-suffix-id');
+    });
+
+    it('adds `aria-labelledby` attribute when `suffix` is provided without `suffix.title`', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_MINIMAL,
+          suffix: {
+            id: 'example-suffix-id',
           },
         }),
       );
