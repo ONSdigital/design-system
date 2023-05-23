@@ -35,7 +35,7 @@ describe('macro: search', () => {
       type: 'button',
       html: 'Search for address',
       variants: 'small',
-      classes: 'ons-search__btn ons-u-mt-xs@xxs@s extra-search-button-class',
+      classes: 'ons-search__btn extra-search-button-class',
       attributes: EXAMPLE_SEARCH.searchButton.attributes,
       iconType: 'search',
       iconPosition: 'before',
@@ -61,7 +61,7 @@ describe('macro: search', () => {
       type: 'button',
       html: '<span class="ons-u-vh">Search for address</span>',
       variants: 'small',
-      classes: 'ons-search__btn ons-u-mt-xs@xxs@s',
+      classes: 'ons-search__btn',
       iconPosition: 'only',
       iconType: 'search',
     });
