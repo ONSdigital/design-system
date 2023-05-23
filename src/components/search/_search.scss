@@ -6,7 +6,7 @@
     flex-flow: row nowrap !important;
   }
   .ons-search__btn {
-    margin-top: -3px;
+    margin-top: -3px !important;
   }
   .ons-search__btn {
     @include mq(s) {
