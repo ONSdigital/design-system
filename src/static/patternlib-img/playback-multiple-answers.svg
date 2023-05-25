@@ -24,7 +24,7 @@
         <g id="multiple-question-playback" transform="translate(78.000000, 117.000000)">
             <g id="Multiple-playback" transform="translate(672.000000, 0.000000)">
                 <text id="Are-these-are-all-of" font-family="Lato-Bold, Lato" font-size="28" font-weight="bold" line-spacing="40" fill="#000000">
-                    <tspan x="36" y="51">Are these are all of the pay patterns used to </tspan>
+                    <tspan x="36" y="51">Are these all of the pay patterns used to </tspan>
                     <tspan x="36" y="91">pay employees?</tspan>
                 </text>
                 <g id="RadioButton" transform="translate(36.000000, 253.000000)">
@@ -33,7 +33,7 @@
                         <rect stroke="#999999" stroke-width="1" x="-0.5" y="-0.5" width="317" height="49" rx="2"></rect>
                     </g>
                     <text id="Label" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" letter-spacing="0.0299999993" fill="#000000">
-                        <tspan x="56" y="33">Yes, my age is correct</tspan>
+                        <tspan x="56" y="33">Yes, These are correct</tspan>
                     </text>
                     <g id="Oval-1-+-Oval-1-+-Oval-1-Copy-2" stroke-width="1" fill-rule="evenodd" transform="translate(15.000000, 12.000000)">
                         <circle id="Oval-1" fill="#9B9B9B" cx="12" cy="12" r="12"></circle>
