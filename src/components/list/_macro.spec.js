@@ -560,7 +560,7 @@ describe('macro: list', () => {
   describe('icons', () => {
     it.each([['before'], ['after']])('renders default icon on list items when icon is positioned %s', iconPosition => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('list', {
         ...EXAMPLE_LIST_TEXT_ITEMS,
@@ -575,7 +575,7 @@ describe('macro: list', () => {
 
     it.each([['before'], ['after']])('renders a custom icon on specific list items when icon is positioned %s', iconPosition => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('list', {
         itemsList: [{ text: 'First item' }, { text: 'Second item', iconType: 'print' }, { text: 'Third item' }],

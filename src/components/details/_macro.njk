@@ -14,7 +14,7 @@
                 {% set titleTag = params.titleTag | default("h2") %}
                 <{{ titleTag }} class="ons-details__title">{{ params.title }}</{{ titleTag }}>
                 <span class="ons-details__icon">
-                    {% from "components/icons/_macro.njk" import onsIcon %}
+                    {% from "components/icon/_macro.njk" import onsIcon %}
                     {{
                         onsIcon({
                             "iconType": "chevron"

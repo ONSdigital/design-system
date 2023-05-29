@@ -70,7 +70,7 @@ describe('macro: quote', () => {
 
   it('has `quote` icon', () => {
     const faker = templateFaker();
-    const iconsSpy = faker.spy('icons');
+    const iconsSpy = faker.spy('icon');
 
     faker.renderComponent('quote', {
       text: 'Example quote text.',

@@ -409,7 +409,7 @@ describe('macro: summary', () => {
 
       it('has a custom icon `iconType`', () => {
         const faker = templateFaker();
-        const iconsSpy = faker.spy('icons');
+        const iconsSpy = faker.spy('icon');
 
         faker.renderComponent('summary', EXAMPLE_SUMMARY_BASIC);
 

@@ -313,7 +313,7 @@ describe('macro: panel', () => {
 
     it('has `arrow-forward` icon', () => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('panel', {
         ...EXAMPLE_PANEL_BASIC,
@@ -385,7 +385,7 @@ describe('macro: panel', () => {
 
     it('has a custom icon `iconType`', () => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('panel', {
         ...EXAMPLE_PANEL_BASIC,

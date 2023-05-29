@@ -214,7 +214,7 @@ describe('macro: header', () => {
 
     it('has the default masthead logo icon', () => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('header', EXAMPLE_HEADER_BASIC);
 
@@ -223,7 +223,7 @@ describe('macro: header', () => {
 
     it('has the default masthead mobile logo icon', () => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('header', EXAMPLE_HEADER_BASIC);
 
@@ -232,7 +232,7 @@ describe('macro: header', () => {
 
     it('has the default masthead logo icon alt text', () => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('header', EXAMPLE_HEADER_BASIC);
 
@@ -241,7 +241,7 @@ describe('macro: header', () => {
 
     it('has the default masthead mobile logo icon alt text', () => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('header', EXAMPLE_HEADER_BASIC);
 
@@ -549,7 +549,7 @@ describe('macro: header', () => {
 
     it('has the correct list item icon', () => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('header', {
         ...EXAMPLE_HEADER_BASIC,

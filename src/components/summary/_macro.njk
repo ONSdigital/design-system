@@ -42,7 +42,7 @@
                                                 {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
                                                 {% if rowItem.iconType %}
-                                                    {% from "components/icons/_macro.njk" import onsIcon %}
+                                                    {% from "components/icon/_macro.njk" import onsIcon %}
                                                     <span class="ons-summary__item-title-icon{% if rowItem.iconType == 'check' %} ons-summary__item-title-icon--check{% endif %}">
                                                         {{
                                                             onsIcon({

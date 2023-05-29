@@ -87,7 +87,7 @@ describe('macro: card', () => {
 
     it('renders the provided `itemsList` using the `list` component', () => {
       const faker = templateFaker();
-      const listsSpy = faker.spy('lists');
+      const listsSpy = faker.spy('list');
 
       faker.renderComponent('card', {
         ...EXAMPLE_CARD_WITHOUT_IMAGE,

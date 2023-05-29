@@ -114,7 +114,7 @@ describe('macro: table-of-contents', () => {
 
     it('outputs `lists` component', () => {
       const faker = templateFaker();
-      const listsSpy = faker.spy('lists');
+      const listsSpy = faker.spy('list');
 
       faker.renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_SINGLE);
 
@@ -157,7 +157,7 @@ describe('macro: table-of-contents', () => {
 
     it('outputs `lists` component for each list', () => {
       const faker = templateFaker();
-      const listsSpy = faker.spy('lists');
+      const listsSpy = faker.spy('list');
 
       faker.renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE);
 

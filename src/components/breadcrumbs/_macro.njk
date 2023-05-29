@@ -1,4 +1,4 @@
-{% from "components/icons/_macro.njk" import onsIcon %}
+{% from "components/icon/_macro.njk" import onsIcon %}
 
 {% macro onsBreadcrumbs(params) %}
     <nav class="ons-breadcrumb{{ ' ' + params.classes if params.classes else '' }}" aria-label="{{ params.ariaLabel | default("Breadcrumbs") }}" {% if params.id %} id="{{ params.id }}"{% endif %}>

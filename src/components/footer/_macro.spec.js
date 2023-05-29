@@ -137,7 +137,7 @@ describe('macro: footer', () => {
 
     it('renders OGL icon', () => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('footer', params);
 
@@ -284,7 +284,7 @@ describe('macro: footer', () => {
 
     it('renders expected lists using list component', () => {
       const faker = templateFaker();
-      const listsSpy = faker.spy('lists');
+      const listsSpy = faker.spy('list');
 
       faker.renderComponent('footer', params);
 
@@ -312,7 +312,7 @@ describe('macro: footer', () => {
 
     it('renders expected lists using list component', () => {
       const faker = templateFaker();
-      const listsSpy = faker.spy('lists');
+      const listsSpy = faker.spy('list');
 
       faker.renderComponent('footer', params);
 
@@ -340,7 +340,7 @@ describe('macro: footer', () => {
 
     it('renders expected lists using list component', () => {
       const faker = templateFaker();
-      const listsSpy = faker.spy('lists');
+      const listsSpy = faker.spy('list');
 
       faker.renderComponent('footer', params);
 
@@ -379,7 +379,7 @@ describe('macro: footer', () => {
         };
         it('renders the expected icon', () => {
           const faker = templateFaker();
-          const iconsSpy = faker.spy('icons');
+          const iconsSpy = faker.spy('icon');
 
           faker.renderComponent('footer', params);
 
@@ -403,7 +403,7 @@ describe('macro: footer', () => {
         };
         it('renders the expected icon', () => {
           const faker = templateFaker();
-          const iconsSpy = faker.spy('icons');
+          const iconsSpy = faker.spy('icon');
 
           faker.renderComponent('footer', params);
 
@@ -544,7 +544,7 @@ describe('macro: footer', () => {
 
     it('renders crest icon when `crest` parameter is provided', () => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('footer', params);
 
