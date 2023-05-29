@@ -22,11 +22,11 @@ const EXAMPLE_ITEM_NAVIGATION_TITLE = {
   navigationTitle: 'Nav friendly title',
 };
 
-describe('macro: lists', () => {
+describe('macro: list', () => {
   describe('list element', () => {
     it('has `id` attribute when provided', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           ...EXAMPLE_LIST_TEXT_ITEMS,
           id: 'example-id',
         }),
@@ -37,7 +37,7 @@ describe('macro: lists', () => {
 
     it('has additionally provided style classes', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           ...EXAMPLE_LIST_TEXT_ITEMS,
           classes: 'extra-class another-extra-class',
         }),
@@ -49,7 +49,7 @@ describe('macro: lists', () => {
 
     it('has provided variant style class when one variant is provided', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           ...EXAMPLE_LIST_TEXT_ITEMS,
           variants: 'dashed',
         }),
@@ -60,7 +60,7 @@ describe('macro: lists', () => {
 
     it('has provided variant style classes when multiple variants are provided', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           ...EXAMPLE_LIST_TEXT_ITEMS,
           variants: ['dashed', 'inline'],
         }),
@@ -72,7 +72,7 @@ describe('macro: lists', () => {
 
     it('assumes the "bare" variant with a prefix modifier class when the first list item has a prefix', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           itemsList: [{ text: 'Item text', prefix: 'Abc' }],
         }),
       );
@@ -83,7 +83,7 @@ describe('macro: lists', () => {
 
     it('assumes the "bare" variant with a suffix modifier class when the first list item has a suffix', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           itemsList: [{ text: 'Item text', suffix: 'Abc' }],
         }),
       );
@@ -94,7 +94,7 @@ describe('macro: lists', () => {
 
     it('assumes the "bare" variant with a icons modifier class when the first list item has an icon', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           ...EXAMPLE_LIST_TEXT_ITEMS,
           iconPosition: 'before',
           iconType: 'check',
@@ -106,14 +106,14 @@ describe('macro: lists', () => {
     });
 
     it('renders a <ul> element by default', () => {
-      const $ = cheerio.load(renderComponent('lists', EXAMPLE_LIST_TEXT_ITEMS));
+      const $ = cheerio.load(renderComponent('list', EXAMPLE_LIST_TEXT_ITEMS));
 
       expect($('.ons-list')[0].tagName).toBe('ul');
     });
 
     it('renders a custom element when a custom `element` is provided', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           ...EXAMPLE_LIST_TEXT_ITEMS,
           element: 'div',
         }),
@@ -124,7 +124,7 @@ describe('macro: lists', () => {
 
     it('renders a <ol> element when specified', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           ...EXAMPLE_LIST_TEXT_ITEMS,
           element: 'ol',
         }),
@@ -135,7 +135,7 @@ describe('macro: lists', () => {
 
     it('has the expected quantity of <li> elements when a <ol> element is specified', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           ...EXAMPLE_LIST_TEXT_ITEMS,
           element: 'ol',
         }),
@@ -146,7 +146,7 @@ describe('macro: lists', () => {
 
     describe('when <ol> is specified but there is only one list item', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           element: 'ol',
           itemsList: [{ text: 'Only item' }],
         }),
@@ -167,7 +167,7 @@ describe('macro: lists', () => {
 
     it('has additionally provided `attributes`', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           ...EXAMPLE_LIST_TEXT_ITEMS,
           attributes: {
             a: 123,
@@ -189,7 +189,7 @@ describe('macro: lists', () => {
     describe('content without link', () => {
       it('passes jest-axe checks', async () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [item],
           }),
         );
@@ -200,7 +200,7 @@ describe('macro: lists', () => {
 
       it('renders the expected list item text', () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [item],
           }),
         );
@@ -210,7 +210,7 @@ describe('macro: lists', () => {
 
       it('does not render a hyperlink element', () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [item],
           }),
         );
@@ -222,7 +222,7 @@ describe('macro: lists', () => {
     describe('content with an internal link', () => {
       it('passes jest-axe checks', async () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [
               {
                 ...item,
@@ -238,7 +238,7 @@ describe('macro: lists', () => {
 
       it('renders a hyperlink element', () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [
               {
                 ...item,
@@ -254,7 +254,7 @@ describe('macro: lists', () => {
 
       it('does not render a hyperlink element for current item', () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [
               {
                 ...item,
@@ -270,7 +270,7 @@ describe('macro: lists', () => {
 
       it('supports the `inPageLink` variant', () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [
               {
                 ...item,
@@ -286,7 +286,7 @@ describe('macro: lists', () => {
 
       it('has additionally provided style classes', () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [
               {
                 ...item,
@@ -303,7 +303,7 @@ describe('macro: lists', () => {
 
       it('has the provided `target` attribute', () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [
               {
                 ...item,
@@ -319,7 +319,7 @@ describe('macro: lists', () => {
 
       it('renders visually hidden screen reader message when target is "_blank"', () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [
               {
                 ...item,
@@ -336,7 +336,7 @@ describe('macro: lists', () => {
 
       it('renders a default visually hidden screen reader message when target is "_blank"', () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [
               {
                 ...item,
@@ -352,7 +352,7 @@ describe('macro: lists', () => {
 
       it('has additionally provided `attributes`', () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [
               {
                 ...item,
@@ -372,7 +372,7 @@ describe('macro: lists', () => {
 
       it('renders visually hidden prefix', () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [
               {
                 ...item,
@@ -390,7 +390,7 @@ describe('macro: lists', () => {
     describe('content with an external link', () => {
       it('passes jest-axe checks', async () => {
         const $ = cheerio.load(
-          renderComponent('lists', {
+          renderComponent('list', {
             itemsList: [
               {
                 ...item,
@@ -409,7 +409,7 @@ describe('macro: lists', () => {
         const faker = templateFaker();
         const externalLinkSpy = faker.spy('external-link');
 
-        faker.renderComponent('lists', {
+        faker.renderComponent('list', {
           itemsList: [
             {
               ...item,
@@ -429,7 +429,7 @@ describe('macro: lists', () => {
         const faker = templateFaker();
         const externalLinkSpy = faker.spy('external-link');
 
-        faker.renderComponent('lists', {
+        faker.renderComponent('list', {
           itemsList: [
             {
               ...item,
@@ -448,7 +448,7 @@ describe('macro: lists', () => {
   describe('prefix', () => {
     it('renders item `prefix` content', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           itemsList: [
             {
               prefix: '[PREFIX]',
@@ -467,7 +467,7 @@ describe('macro: lists', () => {
 
     it('marks `prefix` content as visually hidden when list element is not <ol>', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           itemsList: [
             {
               prefix: '[PREFIX]',
@@ -482,7 +482,7 @@ describe('macro: lists', () => {
 
     it('does not mark `prefix` content as visually hidden when list element is <ol>', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           element: 'ol',
           itemsList: [
             {
@@ -504,7 +504,7 @@ describe('macro: lists', () => {
   describe('suffix', () => {
     it('renders item `suffix` content', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           itemsList: [
             {
               suffix: '[SUFFIX]',
@@ -523,7 +523,7 @@ describe('macro: lists', () => {
 
     it('marks `suffix` content as visually hidden when list element is not <ol>', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           itemsList: [
             {
               suffix: '[SUFFIX]',
@@ -538,7 +538,7 @@ describe('macro: lists', () => {
 
     it('does not mark `suffix` content as visually hidden when list element is <ol>', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           element: 'ol',
           itemsList: [
             {
@@ -562,7 +562,7 @@ describe('macro: lists', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
 
-      faker.renderComponent('lists', {
+      faker.renderComponent('list', {
         ...EXAMPLE_LIST_TEXT_ITEMS,
         iconPosition,
         iconType: 'check',
@@ -577,7 +577,7 @@ describe('macro: lists', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
 
-      faker.renderComponent('lists', {
+      faker.renderComponent('list', {
         itemsList: [{ text: 'First item' }, { text: 'Second item', iconType: 'print' }, { text: 'Third item' }],
         iconPosition,
         iconType: 'check',
@@ -591,7 +591,7 @@ describe('macro: lists', () => {
 
     it('renders the icon before the item text', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           itemsList: [{ text: '<span id="first">First item</span>' }, { text: '<span id="second">Second item</span>' }],
           iconPosition: 'before',
           iconType: 'check',
@@ -604,7 +604,7 @@ describe('macro: lists', () => {
 
     it('renders the icon after the item text', () => {
       const $ = cheerio.load(
-        renderComponent('lists', {
+        renderComponent('list', {
           itemsList: [{ text: '<span id="first">First item</span>' }, { text: '<span id="second">Second item</span>' }],
           iconPosition: 'after',
           iconType: 'check',
