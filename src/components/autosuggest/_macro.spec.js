@@ -216,7 +216,7 @@ describe('macro: autosuggest', () => {
       expect($('.ons-autosuggest-input__instructions').attr('id')).toBe('country-of-birth-instructions');
     });
 
-    it('adds aria-atomic value to status container', () => {
+    it('adds aria-atomic=true value to status container', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
       expect($('.ons-autosuggest-input__status').attr('aria-atomic')).toBe('true');
