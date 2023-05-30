@@ -39,8 +39,9 @@
                                     {% for rowItem in row.rowItems %}
                                         <dl class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}"{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>
                                             <dt class="ons-summary__item-title"
-                                                {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
+                                            {% if row.rowTitleAttributes %}{{- default(row.rowTitleAttributes) | safe -}}{% endif %}
+                                                {# {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %} #}
                                                 {% if rowItem.iconType %}
                                                     {% from "components/icons/_macro.njk" import onsIcon %}
                                                     <span class="ons-summary__item-title-icon{% if rowItem.iconType == 'check' %} ons-summary__item-title-icon--check{% endif %}">
