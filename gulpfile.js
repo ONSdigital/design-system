@@ -8,12 +8,14 @@ const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpTerser = require('gulp-terser');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
+const backstop = require('backstopjs');
 
 require('@babel/register');
 
 const babelEsmConfig = require('./babel.conf.esm');
 const babelNomoduleConfig = require('./babel.conf.nomodule');
 const postCssPlugins = require('./postcss.config').default;
+const generateURLs = require('./src/tests/helpers/url-generator.js').default;
 const generateStaticPages = require('./lib/generate-static-pages').default;
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -89,6 +91,26 @@ gulp.task('generate-pages', async function() {
   await generateStaticPages();
 });
 
+gulp.task('generate-urls', async () => {
+  const urls = await generateURLs();
+  return urls;
+});
+
+function createBackstopTask(task) {
+  return (backstopTestTask = async () => {
+    const urls = await generateURLs();
+    const backstopConfig = require('./backstop.config.js');
+    backstopConfig.scenarios = urls;
+    await backstop(task, {
+      docker: true,
+      config: backstopConfig,
+    });
+    setTimeout(() => {
+      process.exit();
+    }, 0);
+  });
+}
+
 gulp.task('watch-and-build', async () => {
   browserSync.init({
     proxy: 'localhost:3010',
@@ -110,3 +132,6 @@ gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
 gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'generate-pages'));
 gulp.task('generate', gulp.series('generate-pages'));
 gulp.task('build-package', gulp.series('copy-static-files', 'copy-js-files', 'build-assets'));
+gulp.task('run-backstop-tests', gulp.series('start-dev-server', createBackstopTask('test')));
+gulp.task('run-backstop-reference', gulp.series('start-dev-server', createBackstopTask('reference')));
+gulp.task('run-backstop-approve', createBackstopTask('approve'));
