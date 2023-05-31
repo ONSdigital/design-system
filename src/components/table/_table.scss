@@ -112,7 +112,7 @@
     }
     &__content {
       overflow: visible;
-      overflow-x: scroll;
+      overflow-x: auto;
       width: 100%;
       &:focus {
         box-shadow: 0 0 0 3px var(--ons-color-page-light), 0 0 0 5px var(--ons-color-text-link-focus), 0 0 0 8px var(--ons-color-focus);
