@@ -75,17 +75,20 @@
 }
 
 .ons-input-type__tooltiptext {
-  // width: 120px;
-  background-color: black;
-  border-radius: 6px;
-  color: #fff;
-  left: 50%;
-  padding: 5px 0;
+  background-color: #858587;
+  border: $input-border-width solid var(--ons-color-input-border);
+  border-radius: $input-radius;
+  color: white;
+  // width: 7rem;
+  font-size: 0.6rem;
+  font-weight: bold;
+  // left: 35%;
+  padding: 1px 5px;
 
   /* Position the tooltip */
   position: absolute;
   text-align: center;
-  top: 100%;
+  top: 105%;
   visibility: hidden;
   z-index: 1;
   // margin-left: -60px;
