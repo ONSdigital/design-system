@@ -69,6 +69,32 @@
 // Number input widths
 @include input-width('ons-input-number--w-{x}', 0.54rem);
 
+// Tooltip for prefix/suffix
+.ons-input-type__inner {
+  position: relative;
+}
+
+.ons-input-type__tooltiptext {
+  // width: 120px;
+  background-color: black;
+  border-radius: 6px;
+  color: #fff;
+  left: 50%;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  text-align: center;
+  top: 100%;
+  visibility: hidden;
+  z-index: 1;
+  // margin-left: -60px;
+}
+
+.ons-input-type__inner:focus-within .ons-input-type__tooltiptext {
+  visibility: visible;
+}
+
 .ons-input--postcode {
   max-width: input-width-calc($chars: 5, $num-chars: 2, $spaces: 1);
   width: 100%;

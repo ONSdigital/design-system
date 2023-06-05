@@ -89,13 +89,14 @@
 
                         <{{ tag }}
                             id="{{ abbr.id }}"
-                            class="ons-input-type__type ons-js-input-abbr"
+                            class="ons-input-type__type ons-js-input-abbr ons-input-type{{ prefixClass}}_tooltip"
                             {% if params.prefix or params.suffix %}
                             aria-label="{{ abbr.title }}"
                             role="figure"
                             {% endif %}
                             {% if abbr.title %}title="{{ abbr.title }}"{% endif %}
                             >{{ abbr.text }}</{{ tag }}>
+                            <div class="ons-input-type__tooltiptext" role="tooltip" aria-hidden="true">{{ abbr.title }}</div>
                     </span>
                 </span>
             {% endif %}
