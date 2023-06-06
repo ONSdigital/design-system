@@ -96,7 +96,7 @@
                             {% endif %}
                             {% if abbr.title %}title="{{ abbr.title }}"{% endif %}
                             >{{ abbr.text }}</{{ tag }}>
-                            <div class="ons-input-type__tooltiptext" role="tooltip" aria-hidden="true">{{ abbr.title }}</div>
+                            {% if abbr.title %}<p class="ons-input-type__tooltiptext" title="{{abbr.title}}" role="tooltip" aria-hidden="true">{{ abbr.title }}</p>{% endif %}
                     </span>
                 </span>
             {% endif %}
