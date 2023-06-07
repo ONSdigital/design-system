@@ -23,26 +23,26 @@
 
 ## SummaryRow
 
-| Name               | Type                    | Required | Description                                                           |
-| ------------------ | ----------------------- | -------- | --------------------------------------------------------------------- |
-| id                 | string                  | false    | The HTML `id` of the row                                              |
-| rowItems           | Array`<SummaryRowItem>` | true     | An array of [items for the row](#summaryrowitem)                      |
-| rowTitle           | string                  | false    | The title for the row                                                 |
-| rowTitleAttributes | object                  | false    | HTML attributes (for example, data attributes) to add to the rowTitle |
-| error              | boolean                 | false    | Set to “true” display an [error](/components/error) on a row          |
-| errorMessage       | string                  | false    | The error message for the row                                         |
-| total              | boolean                 | false    | Set to “true” to display row as a calculated total of previous rows   |
+| Name         | Type                    | Required | Description                                                         |
+| ------------ | ----------------------- | -------- | ------------------------------------------------------------------- |
+| id           | string                  | false    | The HTML `id` of the row                                            |
+| rowItems     | Array`<SummaryRowItem>` | true     | An array of [items for the row](#summaryrowitem)                    |
+| rowTitle     | string                  | false    | The title for the row                                               |
+| error        | boolean                 | false    | Set to “true” display an [error](/components/error) on a row        |
+| errorMessage | string                  | false    | The error message for the row                                       |
+| total        | boolean                 | false    | Set to “true” to display row as a calculated total of previous rows |
 
 ## SummaryRowItem
 
-| Name       | Type                   | Required | Description                                                                                 |
-| ---------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------- |
-| id         | string                 | false    | The HTML `id` of the row item                                                               |
-| iconType   | string                 | false    | Adds an icon before the row title, by setting the [icon type](/foundations/icons#icon-type) |
-| rowTitle   | string                 | false    | The title for the row item                                                                  |
-| valueList  | Array`<SummaryValue>`  | false    | An array of [value(s)](#summaryvalue) for the row item                                      |
-| actions    | Array`<SummaryAction>` | false    | Settings for the row [action links](#summaryaction)                                         |
-| attributes | object                 | false    | HTML attributes (for example, data attributes) to add to the row item                       |
+| Name               | Type                   | Required | Description                                                                                 |
+| ------------------ | ---------------------- | -------- | ------------------------------------------------------------------------------------------- |
+| id                 | string                 | false    | The HTML `id` of the row item                                                               |
+| iconType           | string                 | false    | Adds an icon before the row title, by setting the [icon type](/foundations/icons#icon-type) |
+| rowTitle           | string                 | false    | The title for the row item                                                                  |
+| rowTitleAttributes | object                 | false    | HTML attributes (for example, data attributes) to add to the rowTitle                       |
+| valueList          | Array`<SummaryValue>`  | false    | An array of [value(s)](#summaryvalue) for the row item                                      |
+| actions            | Array`<SummaryAction>` | false    | Settings for the row [action links](#summaryaction)                                         |
+| attributes         | object                 | false    | HTML attributes (for example, data attributes) to add to the row item                       |
 
 ## SummaryValue
 
