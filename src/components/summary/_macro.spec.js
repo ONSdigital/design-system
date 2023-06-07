@@ -11,12 +11,12 @@ const EXAMPLE_SUMMARY_ROWS = {
       // Contains - row with icon, attributes and rowTitleAttributes, other value, no action
       id: 'row-id-1',
       rowTitle: 'row title 1',
-      rowTitleAttributes: {
-        a: 123,
-        b: 456,
-      },
       rowItems: [
         {
+          rowTitleAttributes: {
+            a: 123,
+            b: 456,
+          },
           attributes: {
             a: 'aaa',
             b: 'bbb',
