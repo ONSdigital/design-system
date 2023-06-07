@@ -12,6 +12,7 @@ const EXAMPLE_TABS = {
       id: 'first-tab',
       title: 'Tab 1',
       content: 'Example content...',
+      hiddenSpan: 'for Example',
     },
     {
       id: 'second-tab',
@@ -91,14 +92,10 @@ describe('macro: tabs', () => {
     expect($('.ons-tabs__panel:last').attr('id')).toBe('tabId2');
   });
 
-  it('has expected label text in tab links', () => {
+  it('has expected label text in tab links and visually hidden span in tab 1', () => {
     const $ = cheerio.load(renderComponent('tabs', EXAMPLE_TABS));
 
-    expect(
-      $('.ons-tab:first')
-        .text()
-        .trim(),
-    ).toBe('Tab 1');
+    expect($('.ons-tab:first').html()).toBe('Tab 1<span class="ons-u-d-no">for Example</span>');
     expect(
       $('.ons-tab:last')
         .text()
