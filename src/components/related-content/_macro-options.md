@@ -1,10 +1,8 @@
-| Name      | Type         | Required                       | Description                                                                                                                       |
-| --------- | ------------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| title     | string       | true (false if `Row` provided) | The text for the `h2` heading for related content                                                                                 |
-| body      | string       | true (false if `Row` provided) | The contents of the related content. This can contain HTML                                                                        |
-| ariaLabel | string       | false                          | Descriptive landmark ARIA label to give a screen reader user greater understanding of its purpose. Defaults to ”Related content”. |
-| classes   | string       | false                          | Custom classes to add to the related content `aside` element                                                                      |
-| rows      | `Array<Row>` | false                          | Settings for an array of [row objects](#row)                                                                                      |
+| Name      | Type         | Required | Description                                                                                                                       |
+| --------- | ------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| rows      | `Array<Row>` | true     | Settings for an array of [row objects](#row)                                                                                      |
+| ariaLabel | string       | false    | Descriptive landmark ARIA label to give a screen reader user greater understanding of its purpose. Defaults to ”Related content”. |
+| classes   | string       | false    | Custom classes to add to the related content `aside` element                                                                      |
 
 ## Row
 
