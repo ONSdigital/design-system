@@ -8,8 +8,9 @@
 
 ## Tab
 
-| Name    | Type   | Required | Description                                     |
-| ------- | ------ | -------- | ----------------------------------------------- |
-| id      | string | false    | Sets the HTML `id` of the tab                   |
-| title   | string | true     | The title for the tab                           |
-| content | string | true     | The contents of the tab. This can contain HTML. |
+| Name       | Type   | Required | Description                                                                                                                                    |
+| ---------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| id         | string | false    | Sets the HTML `id` of the tab                                                                                                                  |
+| title      | string | true     | The title for the tab                                                                                                                          |
+| hiddenSpan | string | false    | Sets a visually hidden span after the title to distinguish the tab from others if multiple tabs with same title are displayed in the same page |
+| content    | string | true     | The contents of the tab. This can contain HTML.                                                                                                |
