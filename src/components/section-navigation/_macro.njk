@@ -6,7 +6,7 @@
           {% if section.title %}
             <h3 class="ons-u-fs-r--b ons-u-mb-s">{{ section.title }}</h3>{% endif %}
               <ul class="ons-section-nav__list">
-                {% for item in (section.itemsList if section.itemsList is iterable else section.itemsList.items()) %}
+                {% for item in section.itemsList %}
                   {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title|lower) %}
                     {% set isCurrent = true %}
                   {% else %}
@@ -33,7 +33,7 @@
           <h3 class="ons-u-fs-r--b ons-u-mb-s">{{ params.title }}</h3>
         {% endif %}
             <ul class="ons-section-nav__list">
-              {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
+              {% for item in params.itemsList %}
                 {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title|lower) %}
                   {% set isCurrent = true %}
                 {% else %}
