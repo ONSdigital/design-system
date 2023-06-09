@@ -113,3 +113,20 @@
     top: 0;
   }
 }
+
+.ons-input__tooltip {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  .ons-input__tooltip__text {
+    background-color: var(--ons-color-button-secondary);
+    border-radius: 0 $input-radius $input-radius 0;
+    bottom: -100%;
+    left: 0;
+    left: 0;
+    padding: 5px;
+    position: absolute;
+    text-align: center;
+    z-index: 999;
+  }
+}
