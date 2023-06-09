@@ -22,7 +22,7 @@
                 })
             }}
         {% endif %}
-        {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
+        {% for item in params.itemsList %}
             {{
                 onsDetails({
                     "isAccordion": true,
