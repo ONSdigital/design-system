@@ -17,7 +17,7 @@
                 </li>
             {% endif %}
             {% if currentPageIndex > 2 %}
-                <li class="ons-pagination__item{% if firstPage.url == params.pages[currentPageIndex-1].url %} ons-pagination__item--current{% endif %}">
+                <li class="ons-pagination__item{% if firstPage == params.pages[currentPageIndex-1] %} ons-pagination__item--current{% endif %}">
                     <a href="{{ firstPage.url }}" class="ons-pagination__link" aria-label="Go to the first page (Page 1)">1</a>
                 </li>
             {% endif %}
@@ -33,9 +33,9 @@
                     {% set showPage = true %}
                 {% endif %}
                 {% if showPage == true %}
-                    <li class="ons-pagination__item{% if page.url == params.pages[currentPageIndex-1].url %} ons-pagination__item--current{% endif %}">
+                    <li class="ons-pagination__item{% if page == params.pages[currentPageIndex-1] %} ons-pagination__item--current{% endif %}">
                         <a href="{{ page.url }}" class="ons-pagination__link"
-                            {%- if page.url == params.pages[currentPageIndex-1].url -%}
+                            {%- if page == params.pages[currentPageIndex-1] -%}
                                 aria-current="true" aria-label="Current page ({{ position }})"
                             {%- else -%}
                                 aria-label="Go to page {{ loop.index }}"
@@ -54,7 +54,7 @@
                 <li class="ons-pagination__item ons-pagination__item--gap">&hellip;</li>
             {% endif %}
             {% if currentPageIndex < totalPages - 1 %}
-                <li class="ons-pagination__item{% if lastPage.url == params.pages[currentPageIndex-1].url == true %} ons-pagination__item--current{% endif %}">
+                <li class="ons-pagination__item{% if lastPage == params.pages[currentPageIndex-1] == true %} ons-pagination__item--current{% endif %}">
                     <a href="{{ lastPage.url }}" class="ons-pagination__link" aria-label="Go to the last page (Page {{ totalPages }})">{{ totalPages }}</a>
                 </li>
             {% endif %}
