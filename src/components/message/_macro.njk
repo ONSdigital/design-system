@@ -1,7 +1,7 @@
 {%- macro onsMessage(params) -%}
   <div class="ons-message ons-message--{{ params.type }}">
     <div class="ons-message__head">
-      <dl class="ons-message__metadata" {% if params.id %} id="{{ params.id }}"{% endif %} {% if params.name %} name="{{ params.name }}"{% endif %}>
+      <dl class="ons-message__metadata" {% if params.id %} id="{{ params.id }}"{% endif %}>
         <div class="ons-message__sender">
           <dt class="ons-message__term ons-u-fw-b">{{ params.fromLabel }}:</dt>
           <dd class="ons-message__value ons-u-fw-b" {% if params.fromId %} id="{{ params.fromId }}"{% endif %} {% if params.fromName %} name="{{ params.fromName }}"{% endif %}>{{ params.fromValue }}</dd>
@@ -15,7 +15,7 @@
           <a class="ons-message__unread-link" {% if params.unreadLinkId %}id="{{ params.unreadLinkId }}"{% endif %} href="{{ params.unreadLink }}">{{ params.unreadLinkText }}</a>
       {% endif %}
     </div>
-    <div class="ons-message__body" {% if params.messageID %} id="{{ params.messageID }}"{% endif %} {% if params.messageName %} name="{{ params.messageName }}"{% endif %}>
+    <div class="ons-message__body" {% if params.messageID %} id="{{ params.messageID }}"{% endif %}>
       {{ caller() }}
     </div>
   </div>
