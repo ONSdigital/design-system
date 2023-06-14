@@ -23,7 +23,7 @@
                     {% if group.rows %}
                         <div class="ons-summary__items">
 
-                            {% for row in (group.rows if group.rows is iterable else group.rows.items()) %}
+                            {% for row in group.rows %}
                                 {% set itemClass = "" %}
                                 {% if row.error %} {% set itemClass = " ons-summary__item--error" %}{% endif %}
                                 {% if row.total %} {% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
@@ -75,7 +75,7 @@
                                                         {% endif %}
                                                     {% else %}
                                                         <ul class="ons-u-mb-no">
-                                                            {% for value in (rowItem.valueList if rowItem.valueList is iterable else rowItem.valueList.items()) %}
+                                                            {% for value in rowItem.valueList %}
                                                                 <li>
                                                                     <span class="ons-summary__text">{{ value.text | safe }}</span>
                                                                     {% if value.other or value.other == 0 %}
@@ -91,7 +91,7 @@
                                             {% endif %}
                                             {% if rowItem.actions %}
                                                 <dd class="ons-summary__actions">
-                                                    {% for action in (rowItem.actions if rowItem.actions is iterable else rowItem.actions.items()) %}
+                                                    {% for action in rowItem.actions %}
                                                         {% if loop.index > 1 %}<span class="ons-summary__spacer"></span>{% endif %}
                                                         <a
                                                             href="{{ action.url }}"

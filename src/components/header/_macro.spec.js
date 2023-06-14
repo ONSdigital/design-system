@@ -736,7 +736,6 @@ describe('macro: header', () => {
           ...EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG,
         }),
       );
-      console.log($.html());
 
       const subNavContainer = $('.ons-navigation--sub .ons-container');
       expect($(subNavContainer).hasClass('ons-container--full-width')).toBe(true);
