@@ -1,17 +1,18 @@
-{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/search/_macro.njk" import onsSearch %}
 
 {{
-    onsInput({
-        "id": 'search-field',
-        "label": {
-            'text': 'Filter results',
-            "classes": 'ons-u-pb-xxs ons-u-mb-no'
+    onsSearch({
+        "inputParams": {
+            "id": 'search-field',
+            "label": {
+                'text': 'Filter results',
+                "classes": 'ons-u-pb-xxs ons-u-mb-no'
         },
-        "searchButton": {
-            "text": 'Filter'
+            "searchButton": {
+                "text": 'Filter'
         },
-        "width": "10",
-        "charCheckLimit": {
+            "width": "10",
+            "charCheckLimit": {
             "charcheckCountdown": true,
             "limit": 10,
             "charCountSingular": "{x} more character needed",
@@ -19,5 +20,7 @@
             "charCountOverLimitSingular": "{x} character too many",
             "charCountOverLimitPlural": "{x} characters too many"
         }
+        }
+        
     })
 }}

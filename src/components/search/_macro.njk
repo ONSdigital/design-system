@@ -1,30 +1,34 @@
 {% macro onsSearch(params) %}
     {% from "components/button/_macro.njk" import onsButton %}
+    {% from "components/input/_macro.njk" import onsInput %}
 
-    {% set content = caller() %}
-
-    <div class="ons-search-component">
-        {{ content | safe }}
-            
         {%- set buttonLabel -%}
-            {%- if params.searchButton.visuallyHideButtonText == true -%}
+            {%- if params.inputParams.searchButton.visuallyHideButtonText == true -%}
                 <span class="ons-u-vh">{{ params.searchButton.text }}</span>
             {%- else -%}
-                {{ params.searchButton.text }}
+                {{ params.inputParams.searchButton.text }}
             {%- endif -%}
         {%- endset -%}
 
+        {% set searchButton %}
         {{
             onsButton({
-                "type": params.searchButton.type,
+                "type": params.inputParams.searchButton.type,
+                "text": params.inputParams.searchButton.text,
                 "html": buttonLabel,
-                "id": params.searchButton.id,
+                "id": params.inputParams.searchButton.id,
+                "visuallyHideButtonText": params.inputParams.searchButton.visuallyHideButtonText,
                 "variants": 'small',
-                "classes": 'ons-search__btn' + (" " + params.searchButton.classes if params.searchButton.classes else ""),
-                "attributes": params.searchButton.attributes,
-                "iconType": params.searchButton.iconType,
-                "iconPosition": 'only' if params.searchButton.visuallyHideButtonText == true else 'before'
+                "classes": 'ons-search__btn' + (" " + params.inputParams.searchButton.classes if params.inputParams.searchButton.classes else ""),
+                "attributes": params.inputParams.searchButton.attributes,
+                "iconType": params.inputParams.searchButton.iconType,
+                "iconPosition": 'only' if params.inputParams.searchButton.visuallyHideButtonText == true else 'before'
             })
         }}
-    </div>
+        {% endset %}
+
+        {% call onsInput(params.inputParams) %}
+        {{ searchButton | safe }}
+        {% endcall %}
+        
 {% endmacro %}
