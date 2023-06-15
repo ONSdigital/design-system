@@ -31,12 +31,14 @@ export default class Tabs {
     this.jsTabAsListClass = 'ons-tab--row';
 
     this.noInitialActiveTab = this.component.getAttribute('data-no-initial-active-tab');
-
+    console.log('running constructor...');
     if (matchMediaUtil.hasMatchMedia()) {
-      this.setupViewportChecks();
+      this.checkViewport();
     } else {
       this.makeTabs();
     }
+    // let intervalId = setInterval(this.checkTabAndViewportWidth, 1000);
+    // clearInterval(intervalId);
   }
 
   // Set up checks for responsive functionality
@@ -44,13 +46,23 @@ export default class Tabs {
   // Tabs will display as a TOC list and show full content for <740px viewports
   // Aria tags are added only for >740px viewports
   setupViewportChecks() {
-    this.viewport = matchMediaUtil('(min-width: 740px)');
-    this.viewport.addListener(this.checkViewport.bind(this));
+    console.log('running viewport checks...');
+    // this.viewport = matchMediaUtil('(min-width: 740px)');
+    this.viewport = this.checkTabandViewportWidth();
+    console.log('this.viewport:', this.viewport);
+    window.addEventListener('resize', this.checkViewport.bind(this), true);
     this.checkViewport();
   }
 
+  checkTabAndViewportWidth() {
+    const tabsUlHeight = document.querySelector(`.${classTabList}`).offsetHeight;
+    console.log(tabsUlHeight);
+    console.log('tabsUlHeight > 80:', tabsUlHeight > 80);
+    return tabsUlHeight > 80;
+  }
+
   checkViewport() {
-    if (this.viewport.matches) {
+    if (this.checkTabAndViewportWidth()) {
       this.makeTabs();
     } else {
       this.makeList();
