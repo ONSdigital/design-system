@@ -88,8 +88,8 @@ describe('macro: tabs', () => {
   it('has default tab id attribute values when identifiers are not provided', () => {
     const $ = cheerio.load(renderComponent('tabs', EXAMPLE_TABS_WITHOUT_TAB_IDS));
 
-    expect($('.ons-tabs__panel:first').attr('id')).toBe('tabId1');
-    expect($('.ons-tabs__panel:last').attr('id')).toBe('tabId2');
+    expect($('.ons-tabs__panel:first').attr('id')).toBe('tab-1');
+    expect($('.ons-tabs__panel:last').attr('id')).toBe('tab-2');
   });
 
   it('has expected label text in tab links and visually hidden span in tab 1', () => {
