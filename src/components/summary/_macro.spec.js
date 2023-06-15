@@ -49,7 +49,6 @@ const EXAMPLE_SUMMARY_ROWS = {
           actions: [
             {
               text: 'Action 1',
-              ariaLabel: 'action aria label 1',
               attributes: {
                 a: 'abc',
                 b: 'def',
@@ -58,7 +57,6 @@ const EXAMPLE_SUMMARY_ROWS = {
             },
             {
               text: 'Action 2',
-              ariaLabel: 'action aria label 2',
               url: '#2',
             },
           ],
@@ -149,12 +147,10 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
-              ariaLabel: 'Change list item',
               url: '#0',
             },
             {
               text: 'Remove',
-              ariaLabel: 'Remove list item',
               url: '#0',
             },
           ],
@@ -169,7 +165,6 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
-              ariaLabel: 'Remove list item',
               url: '#0',
             },
           ],
@@ -184,7 +179,6 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
-              ariaLabel: 'Change list item',
               url: '#0',
             },
           ],
@@ -203,12 +197,10 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
-              ariaLabel: 'Change answer',
               url: '#0',
             },
             {
               text: 'Remove',
-              ariaLabel: 'Change list item',
               url: '#0',
             },
           ],
@@ -223,7 +215,6 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
-              ariaLabel: 'Change list item',
               url: '#0',
             },
           ],
@@ -238,7 +229,6 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
-              ariaLabel: 'Change list item',
               url: '#0',
             },
           ],
