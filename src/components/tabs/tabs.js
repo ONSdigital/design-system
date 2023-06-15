@@ -33,11 +33,12 @@ export default class Tabs {
     this.noInitialActiveTab = this.component.getAttribute('data-no-initial-active-tab');
     console.log('running constructor...');
     if (matchMediaUtil.hasMatchMedia()) {
-      this.checkViewport();
+      this.setupViewportChecks();
+      // this.checkViewport();
     } else {
       this.makeTabs();
     }
-    // let intervalId = setInterval(this.checkTabAndViewportWidth, 1000);
+    let intervalId = setInterval(this.checkTabAndViewportWidth, 1000);
     // clearInterval(intervalId);
   }
 
@@ -45,24 +46,42 @@ export default class Tabs {
   // The tabs will display as tabs for >40rem viewports
   // Tabs will display as a TOC list and show full content for <740px viewports
   // Aria tags are added only for >740px viewports
+  // setupViewportChecks() {
+  //   console.log('running viewport checks...');
+  //   this.viewport = matchMediaUtil('(min-width: 740px)');
+  //   // this.viewport = this.checkTabAndViewportWidth();
+  //   console.log('this.viewport:', this.viewport);
+  //   // window.addEventListener('resize', this.checkViewport.bind(this));
+  //   this.checkViewport();
+  // }
+
+  calculateMinViewportWidth() {
+    const tabsUl = document.querySelector(`.${classTabList}`);
+    const tabsWidth = Object.values(tabsUl.childNodes).reduce((total, i) => total + i.offsetWidth, 0);
+    console.log('tabsWidth:', tabsWidth, 'window.innerWidth:', window.innerWidth);
+    // console.log('tabsUlHeight > 80:', tabsUlHeight > 80);
+    return tabsWidth + 73;
+  }
+
+  // checkViewport() {
+  //   if (this.viewport.matches) {
+  //     this.makeTabs();
+  //   } else {
+  //     this.makeList();
+  //   }
+  // }
+
   setupViewportChecks() {
-    console.log('running viewport checks...');
-    // this.viewport = matchMediaUtil('(min-width: 740px)');
-    this.viewport = this.checkTabandViewportWidth();
-    console.log('this.viewport:', this.viewport);
-    window.addEventListener('resize', this.checkViewport.bind(this), true);
-    this.checkViewport();
+    this.viewport = matchMediaUtil(`(min-width: 740px)`);
+    console.log(this.viewport);
+    // this.viewport.addListener(this.checkViewport.bind(this));
+    this.viewport.onchange = this.checkViewport.bind(this);
+    this.checkViewport(this.viewport);
   }
 
-  checkTabAndViewportWidth() {
-    const tabsUlHeight = document.querySelector(`.${classTabList}`).offsetHeight;
-    console.log(tabsUlHeight);
-    console.log('tabsUlHeight > 80:', tabsUlHeight > 80);
-    return tabsUlHeight > 80;
-  }
-
-  checkViewport() {
-    if (this.checkTabAndViewportWidth()) {
+  checkViewport(event) {
+    console.log('event:', event);
+    if (event.matches && this.calculateMinViewportWidth() > window.innerWidth) {
       this.makeTabs();
     } else {
       this.makeList();
@@ -70,6 +89,7 @@ export default class Tabs {
   }
 
   makeTabs() {
+    console.log('making tabs...');
     this.tabList[0].setAttribute('role', 'tablist');
     this.tabList[0].classList.add(this.jsTabListAsRowClass);
 
@@ -106,6 +126,7 @@ export default class Tabs {
   }
 
   makeList() {
+    console.log('making list...');
     this.tabList[0].removeAttribute('role');
     this.tabList[0].classList.remove(this.jsTabListAsRowClass);
 
