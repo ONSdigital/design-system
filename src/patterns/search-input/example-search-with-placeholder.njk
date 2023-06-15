@@ -1,0 +1,33 @@
+
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton%}
+
+{% set buttonLabel %}
+<span class="ons-u-vh">Search</span>
+{% endset %}
+{%
+    call onsInput({
+        "id": 'search-field',
+            "label": {
+                "text": 'Search this service'
+        },
+            "accessiblePlaceholder": true,
+            "searchButton": {
+                "visuallyHideButtonText": true,
+                "text": 'Search',
+                "iconType": 'search'
+        },
+        "searchButton": true
+    })
+    %}
+    {{
+    onsButton({
+        "visuallyHideButtonText": true,
+        "html": buttonLabel,
+        "text": 'Search',
+        "iconType": 'search',
+        "classes": 'ons-btn--small',
+        "iconPosition": 'only'
+    })
+}}
+{% endcall %}

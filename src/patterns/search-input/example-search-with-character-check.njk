@@ -1,0 +1,31 @@
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton%}
+
+{%
+    call onsInput({
+        "id": 'search-field',
+            "label": {
+                'text': 'Filter results',
+                "classes": 'ons-u-pb-xxs ons-u-mb-no'
+        },
+            "width": "10",
+            "charCheckLimit": {
+            "charcheckCountdown": true,
+            "limit": 10,
+            "charCountSingular": "{x} more character needed",
+            "charCountPlural": "{x} more characters needed",
+            "charCountOverLimitSingular": "{x} character too many",
+            "charCountOverLimitPlural": "{x} characters too many"
+        },
+        "searchButton": true
+    })
+    %}
+    {{
+    onsButton({
+        "text": "Filter",
+        "classes": 'ons-btn--small ons-btm__inner'
+    })
+}}
+{% endcall %}
+
+
