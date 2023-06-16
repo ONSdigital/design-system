@@ -12,7 +12,8 @@ const PAGINATION_PREV_NEXT_LABELS = {
 
 const EXAMPLE_PAGINATION_MINIMAL = {
   ...PAGINATION_PREV_NEXT_LABELS,
-  pages: [{ url: '/page/1', current: true }],
+  currentPageNumber: 1,
+  pages: [{ url: '/page/1' }],
 };
 
 describe('macro: pagination', () => {
@@ -54,7 +55,8 @@ describe('macro: pagination', () => {
     const $ = cheerio.load(
       renderComponent('pagination', {
         ...PAGINATION_PREV_NEXT_LABELS,
-        pages: [{ url: '/page/1', current: true }],
+        currentPageNumber: 1,
+        pages: [{ url: '/page/1' }],
       }),
     );
 
@@ -85,7 +87,8 @@ describe('macro: pagination', () => {
     const $ = cheerio.load(
       renderComponent('pagination', {
         ...PAGINATION_PREV_NEXT_LABELS,
-        pages: [{ url: '/page/1', current: true }, { url: '/page/2' }],
+        currentPageNumber: 1,
+        pages: [{ url: '/page/1' }, { url: '/page/2' }],
       }),
     );
 
@@ -118,7 +121,8 @@ describe('macro: pagination', () => {
     const $ = cheerio.load(
       renderComponent('pagination', {
         ...PAGINATION_PREV_NEXT_LABELS,
-        pages: [{ url: '/page/1' }, { url: '/page/2', current: true }],
+        currentPageNumber: 2,
+        pages: [{ url: '/page/1' }, { url: '/page/2' }],
       }),
     );
 
@@ -151,7 +155,8 @@ describe('macro: pagination', () => {
     const $ = cheerio.load(
       renderComponent('pagination', {
         ...PAGINATION_PREV_NEXT_LABELS,
-        pages: [{ url: '/page/1' }, { url: '/page/2', current: true }, { url: '/page/3' }],
+        currentPageNumber: 2,
+        pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }],
       }),
     );
 
@@ -186,7 +191,8 @@ describe('macro: pagination', () => {
     const $ = cheerio.load(
       renderComponent('pagination', {
         ...PAGINATION_PREV_NEXT_LABELS,
-        pages: [{ url: '/page/1' }, { url: '/page/2', current: true }, { url: '/page/3' }, { url: '/page/4' }, { url: '/page/5' }],
+        currentPageNumber: 2,
+        pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }, { url: '/page/4' }, { url: '/page/5' }],
       }),
     );
 
@@ -223,14 +229,8 @@ describe('macro: pagination', () => {
     const $ = cheerio.load(
       renderComponent('pagination', {
         ...PAGINATION_PREV_NEXT_LABELS,
-        pages: [
-          { url: '/page/1' },
-          { url: '/page/2', current: true },
-          { url: '/page/3' },
-          { url: '/page/4' },
-          { url: '/page/5' },
-          { url: '/page/6' },
-        ],
+        currentPageNumber: 2,
+        pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }, { url: '/page/4' }, { url: '/page/5' }, { url: '/page/6' }],
       }),
     );
 
@@ -267,12 +267,13 @@ describe('macro: pagination', () => {
     const $ = cheerio.load(
       renderComponent('pagination', {
         ...PAGINATION_PREV_NEXT_LABELS,
+        currentPageNumber: 5,
         pages: [
           { url: '/page/1' },
           { url: '/page/2' },
           { url: '/page/3' },
           { url: '/page/4' },
-          { url: '/page/5', current: true },
+          { url: '/page/5' },
           { url: '/page/6' },
           { url: '/page/7' },
           { url: '/page/8' },
@@ -318,6 +319,7 @@ describe('macro: pagination', () => {
     const $ = cheerio.load(
       renderComponent('pagination', {
         ...PAGINATION_PREV_NEXT_LABELS,
+        currentPageNumber: 10,
         pages: [
           { url: '/page/1' },
           { url: '/page/2' },
@@ -328,7 +330,7 @@ describe('macro: pagination', () => {
           { url: '/page/7' },
           { url: '/page/8' },
           { url: '/page/9' },
-          { url: '/page/10', current: true },
+          { url: '/page/10' },
           { url: '/page/11' },
         ],
       }),

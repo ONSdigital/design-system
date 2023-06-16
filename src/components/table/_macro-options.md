@@ -28,7 +28,6 @@
 | --------- | ----------- | -------- | --------------------------------------------------- |
 | tds       | Array`<td>` | true     | An array of `td` [cell elements](#td) for each `tr` |
 | id        | string      | false    | The HTML `id` of the `tr` element                   |
-| name      | string      | false    | The HTML `name` attribute for the `tr` element      |
 | highlight | boolean     | false    | Set to “true” to highlight the row                  |
 
 ## td
@@ -37,7 +36,6 @@
 | --------- | -------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
 | tdClasses | string         | false                                      | Classes to add to the `td` element                                                                                                    |
 | id        | string         | false                                      | The HTML `id` of the `td` element                                                                                                     |
-| name      | string         | false                                      | The HTML `name` attribute for the `td` element                                                                                        |
 | data      | string         | false (unless “responsive” variant is set) | Set to the corresponding `th` header cell when using the “responsive” variant                                                         |
 | dataSort  | integer        | false                                      | Set the numerical order of a table cell in a column when using the “sortable” variant                                                 |
 | value     | string         | false                                      | The content for the `td` cell                                                                                                         |

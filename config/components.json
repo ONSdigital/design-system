@@ -12,7 +12,7 @@
   "icon": {
     "macroName": "onsIcon"
   },
-  "images": {
+  "image": {
     "macroName": "onsImage"
   },
   "list": {
