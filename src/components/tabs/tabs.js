@@ -3,15 +3,11 @@
 // The tab js is based on the GDS tabs component(https://design-system.service.gov.uk/components/tabs/)
 // https://github.com/alphagov/govuk-frontend/blob/master/src/components/tabs/tabs.js
 
-import matchMedia from '../../js/utils/matchMedia';
-
 const classTab = 'ons-tab';
 const classTabTitle = 'ons-tabs__title';
 const classTabList = 'ons-tabs__list';
 const classTabListItems = 'ons-tab__list-item';
 const classTabsPanel = 'ons-tabs__panel';
-
-const matchMediaUtil = matchMedia;
 
 export default class Tabs {
   constructor(component) {
@@ -31,65 +27,43 @@ export default class Tabs {
     this.jsTabAsListClass = 'ons-tab--row';
 
     this.noInitialActiveTab = this.component.getAttribute('data-no-initial-active-tab');
-    console.log('running constructor...');
-    if (matchMediaUtil.hasMatchMedia()) {
-      this.setupViewportChecks();
-      // this.checkViewport();
-    } else {
+
+    window.addEventListener('load', () => {
       this.makeTabs();
-    }
-    let intervalId = setInterval(this.checkTabAndViewportWidth, 1000);
-    // clearInterval(intervalId);
+      this.makeTabsOrList();
+    });
+
+    window.addEventListener('resize', () => {
+      this.makeTabs();
+      this.makeTabsOrList();
+    });
   }
 
   // Set up checks for responsive functionality
-  // The tabs will display as tabs for >40rem viewports
-  // Tabs will display as a TOC list and show full content for <740px viewports
-  // Aria tags are added only for >740px viewports
-  // setupViewportChecks() {
-  //   console.log('running viewport checks...');
-  //   this.viewport = matchMediaUtil('(min-width: 740px)');
-  //   // this.viewport = this.checkTabAndViewportWidth();
-  //   console.log('this.viewport:', this.viewport);
-  //   // window.addEventListener('resize', this.checkViewport.bind(this));
-  //   this.checkViewport();
-  // }
+  // The tabs will display as tabs when their total width is less than the width of the tab list
+  // Otherwise, Tabs will display as a TOC list
+  // Aria tags are added only in tab view. In TOC view, the aria tags are removed
 
-  calculateMinViewportWidth() {
-    const tabsUl = document.querySelector(`.${classTabList}`);
-    const tabsWidth = Object.values(tabsUl.childNodes).reduce((total, i) => total + i.offsetWidth, 0);
-    console.log('tabsWidth:', tabsWidth, 'window.innerWidth:', window.innerWidth);
-    // console.log('tabsUlHeight > 80:', tabsUlHeight > 80);
-    return tabsWidth + 73;
-  }
+  makeTabsOrList() {
+    this.tabListWidth = this.tabList[0].offsetWidth;
+    this.tabListItemsWidth = this.fetchElementWidth(this.tabListItems);
 
-  // checkViewport() {
-  //   if (this.viewport.matches) {
-  //     this.makeTabs();
-  //   } else {
-  //     this.makeList();
-  //   }
-  // }
-
-  setupViewportChecks() {
-    this.viewport = matchMediaUtil(`(min-width: 740px)`);
-    console.log(this.viewport);
-    // this.viewport.addListener(this.checkViewport.bind(this));
-    this.viewport.onchange = this.checkViewport.bind(this);
-    this.checkViewport(this.viewport);
-  }
-
-  checkViewport(event) {
-    console.log('event:', event);
-    if (event.matches && this.calculateMinViewportWidth() > window.innerWidth) {
-      this.makeTabs();
+    if (this.tabListItemsWidth < this.tabListWidth) {
+      return this.makeTabs();
     } else {
-      this.makeList();
+      return this.makeList();
     }
   }
 
+  fetchElementWidth(elementsArray) {
+    let elementWidth = 0;
+    elementsArray.forEach(element => {
+      elementWidth += element.offsetWidth;
+    });
+    return elementWidth;
+  }
+
   makeTabs() {
-    console.log('making tabs...');
     this.tabList[0].setAttribute('role', 'tablist');
     this.tabList[0].classList.add(this.jsTabListAsRowClass);
 
@@ -126,7 +100,6 @@ export default class Tabs {
   }
 
   makeList() {
-    console.log('making list...');
     this.tabList[0].removeAttribute('role');
     this.tabList[0].classList.remove(this.jsTabListAsRowClass);
 
