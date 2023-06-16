@@ -32,9 +32,9 @@
                 </thead>
                 <tbody class="ons-table__body">
                     {% for tr in params.trs %}
-                    <tr class="ons-table__row{{ " ons-table__row--highlight" if tr.highlight }}" {% if tr.name %} name="{{ tr.name }}"{% endif %} {% if tr.id %} id="{{ tr.id }}"{% endif %}>
+                    <tr class="ons-table__row{{ " ons-table__row--highlight" if tr.highlight }}" {% if tr.id %} id="{{ tr.id }}"{% endif %}>
                         {% for td in tr.tds %}
-                        <td class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses }}{{ " ons-table__cell--numeric" if td.numeric }}" {% if td.id %} id="{{ td.id }}"{% endif %} {% if td.name %} name="{{ td.name }}"{% endif %} {% if td.data %} data-th="{{ td.data }}"{% endif %} {% if td.dataSort %} data-sort-value="{{ td.dataSort }}"{% endif %}>
+                        <td class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses }}{{ " ons-table__cell--numeric" if td.numeric }}" {% if td.id %} id="{{ td.id }}"{% endif %} {% if td.data %} data-th="{{ td.data }}"{% endif %} {% if td.dataSort %} data-sort-value="{{ td.dataSort }}"{% endif %}>
                             {% if td.form %}
                                 <form action="{{ td.form.action }}" method="{{ td.form.method | default('POST')}}">
                                     {{
