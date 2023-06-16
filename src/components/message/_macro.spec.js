@@ -18,7 +18,6 @@ const EXAMPLE_MESSAGE = {
   unreadLink: 'https://example.com/message/1',
   unreadLinkText: 'Unread message',
   id: 'message1',
-  name: 'example-message-1',
   fromId: 'from1',
   sentId: 'sent1',
   unreadLinkId: 'unreadLink1',
