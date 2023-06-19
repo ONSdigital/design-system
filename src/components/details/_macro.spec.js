@@ -134,7 +134,7 @@ describe('macro: details', () => {
 
   it('has `chevron` icon', () => {
     const faker = templateFaker();
-    const iconsSpy = faker.spy('icons');
+    const iconsSpy = faker.spy('icon');
     faker.renderComponent('details', EXAMPLE_DETAILS_BASIC);
 
     expect(iconsSpy.occurrences[0].iconType).toBe('chevron');

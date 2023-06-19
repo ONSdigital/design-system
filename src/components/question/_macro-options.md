@@ -32,11 +32,11 @@
 
 ## GuidanceLists
 
-| Name            | Type                                | Required | Description                             |
-| --------------- | ----------------------------------- | -------- | --------------------------------------- |
-| listHeading     | string                              | false    | A heading for each include/exclude list |
-| listLeadingLine | string                              | false    | A leading line for each list            |
-| itemsList       | `List` [_(ref)_](/components/lists) | true     | An array of list items for each list    |
+| Name            | Type                               | Required | Description                             |
+| --------------- | ---------------------------------- | -------- | --------------------------------------- |
+| listHeading     | string                             | false    | A heading for each include/exclude list |
+| listLeadingLine | string                             | false    | A leading line for each list            |
+| itemsList       | `List` [_(ref)_](/components/list) | true     | An array of list items for each list    |
 
 ## QuestionJustification
 

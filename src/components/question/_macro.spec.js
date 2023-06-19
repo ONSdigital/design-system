@@ -239,7 +239,7 @@ describe('macro: question', () => {
 
     it('outputs the expected list', () => {
       const faker = templateFaker();
-      const listSpy = faker.spy('lists');
+      const listSpy = faker.spy('list');
 
       faker.renderComponent('question', EXAMPLE_QUESTION_GUIDANCE);
 

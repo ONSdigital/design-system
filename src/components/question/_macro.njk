@@ -52,7 +52,7 @@
                         {% if item.listLeadingLine %}
                             <p class="ons-question-guidance__list-leading-line">{{ item.listLeadingLine }}</p>
                         {% endif %}
-                        {% from "components/lists/_macro.njk" import onsList %}
+                        {% from "components/list/_macro.njk" import onsList %}
                         {{
                             onsList({
                                 "itemsList": item.itemsList

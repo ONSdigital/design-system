@@ -15,7 +15,7 @@
           }
         ) %}            
           <nav class="ons-related-content__navigation" aria-labelledby="{{ row.id }}">
-            {% from "components/lists/_macro.njk" import onsList %}
+            {% from "components/list/_macro.njk" import onsList %}
             {{
               onsList({
                 "variants": 'bare',

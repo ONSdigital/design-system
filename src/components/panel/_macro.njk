@@ -39,7 +39,7 @@
             {% endif %}
 
             {% if params.type == "announcement" %}
-                {% from "components/icons/_macro.njk" import onsIcon %}
+                {% from "components/icon/_macro.njk" import onsIcon %}
                 <span class="ons-panel__icon" aria-hidden="true">
                     {{
                         onsIcon({
@@ -70,7 +70,7 @@
             {% endif %}
 
             {% if params.iconType %}
-                {% from "components/icons/_macro.njk" import onsIcon %}
+                {% from "components/icon/_macro.njk" import onsIcon %}
                 <span class= "ons-panel__icon ons-u-fs-{{ params.iconSize | default('r') }}">
                     {{
                         onsIcon({

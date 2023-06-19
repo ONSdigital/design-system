@@ -81,7 +81,7 @@ describe('macro: content-pagination', () => {
 
   it('renders the `arrow-previous` icon for the previous link entry', () => {
     const faker = templateFaker();
-    const iconsSpy = faker.spy('icons');
+    const iconsSpy = faker.spy('icon');
 
     faker.renderComponent('content-pagination', EXAMPLE_CONTENT_PAGINATION_PREV_ONLY);
 
@@ -91,7 +91,7 @@ describe('macro: content-pagination', () => {
 
   it('renders the `arrow-next` icon for the next link entry', () => {
     const faker = templateFaker();
-    const iconsSpy = faker.spy('icons');
+    const iconsSpy = faker.spy('icon');
 
     faker.renderComponent('content-pagination', EXAMPLE_CONTENT_PAGINATION_NEXT_ONLY);
 

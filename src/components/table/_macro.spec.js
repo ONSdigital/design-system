@@ -111,7 +111,7 @@ describe('macro: table', () => {
 
     it('does not render "sort-sprite" icon', () => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('table', EXAMPLE_TABLE);
 

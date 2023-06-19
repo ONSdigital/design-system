@@ -65,7 +65,7 @@ describe('macro: timeline', () => {
 
   it('has the provided inner item list', () => {
     const faker = templateFaker();
-    const listSpy = faker.spy('lists');
+    const listSpy = faker.spy('list');
 
     faker.renderComponent('timeline', EXAMPLE_TIMELINE);
 

@@ -134,7 +134,7 @@ describe('macro: collapsible', () => {
 
   it('has `chevron` icon', () => {
     const faker = templateFaker();
-    const iconsSpy = faker.spy('icons');
+    const iconsSpy = faker.spy('icon');
     faker.renderComponent('collapsible', EXAMPLE_COLLAPSIBLE_BASIC);
 
     expect(iconsSpy.occurrences[0].iconType).toBe('chevron');

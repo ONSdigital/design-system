@@ -5,7 +5,7 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
-describe('macro: icons', () => {
+describe('macro: icon', () => {
   describe.each([
     'arrow-forward',
     'arrow-next',
@@ -35,21 +35,21 @@ describe('macro: icons', () => {
     'circle-lined',
   ])('icon type: %s', iconType => {
     it('passes jest-axe checks', async () => {
-      const $ = cheerio.load(renderComponent('icons', { iconType }));
+      const $ = cheerio.load(renderComponent('icon', { iconType }));
 
       const results = await axe($.html());
       expect(results).toHaveNoViolations();
     });
 
     it('has an svg element', () => {
-      const $ = cheerio.load(renderComponent('icons', { iconType }));
+      const $ = cheerio.load(renderComponent('icon', { iconType }));
 
       expect($('svg').length).toBe(1);
     });
 
     it('has additionally provided style classes', () => {
       const $ = cheerio.load(
-        renderComponent('icons', {
+        renderComponent('icon', {
           iconType,
           classes: 'extra-class another-extra-class',
         }),
@@ -80,7 +80,7 @@ describe('macro: icons', () => {
   ])('icon type: %s', iconType => {
     it('has style variation class for provided icon size', () => {
       const $ = cheerio.load(
-        renderComponent('icons', {
+        renderComponent('icon', {
           iconType,
           iconSize: 'xxl',
         }),
@@ -99,7 +99,7 @@ describe('macro: icons', () => {
     ['ogl', 'Open Government License logo'],
   ])('icon type: %s', (iconType, expectedAltText) => {
     it(`has default alt text '${expectedAltText}'`, () => {
-      const $ = cheerio.load(renderComponent('icons', { iconType }));
+      const $ = cheerio.load(renderComponent('icon', { iconType }));
 
       expect(
         $('title')
@@ -110,7 +110,7 @@ describe('macro: icons', () => {
 
     it('has provided alt text', () => {
       const $ = cheerio.load(
-        renderComponent('icons', {
+        renderComponent('icon', {
           iconType,
           altText: 'Example alt text',
         }),

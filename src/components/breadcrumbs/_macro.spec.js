@@ -119,7 +119,7 @@ describe('macro: breadcrumbs', () => {
 
   it('has a "chevron" icon for each breadcrumb item', () => {
     const faker = templateFaker();
-    const iconsSpy = faker.spy('icons');
+    const iconsSpy = faker.spy('icon');
 
     faker.renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_MINIMAL);
 
