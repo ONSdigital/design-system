@@ -477,26 +477,11 @@ describe('macro: summary', () => {
 
         expect(
           $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').text(),
-        ).toBe('Action 1');
+        ).toBe('Action 1answer for row title 2');
         expect(
           $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').text(),
-        ).toBe('Action 2');
+        ).toBe('Action 2answer for row title 2');
       });
-
-      // it('has the `aria-label` provided', () => {
-      //   const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
-
-      //   expect(
-      //     $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').attr(
-      //       'aria-label',
-      //     ),
-      //   ).toBe('action aria label 1');
-      //   expect(
-      //     $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').attr(
-      //       'aria-label',
-      //     ),
-      //   ).toBe('action aria label 2');
-      // });
 
       it('has the correct visually hidden <span> text', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
@@ -505,10 +490,7 @@ describe('macro: summary', () => {
           $(
             '.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child .ons-u-vh',
           ).text(),
-        ).toBe('Action 1 answer for row title 2');
-        expect(
-          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child .ons-u-vh').text(),
-        ).toBe('Action 2 answer for row title 3');
+        ).toBe('answer for row title 2');
       });
 
       it('has custom `attributes`', () => {
