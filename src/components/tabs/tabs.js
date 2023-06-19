@@ -32,14 +32,15 @@ export default class Tabs {
 
     this.noInitialActiveTab = this.component.getAttribute('data-no-initial-active-tab');
 
-    // function fetchElementWidth(elementsArray) {
-    //   let elementWidth = 70.4*elementsArray.length;
-    //   elementsArray.forEach(element => {
-    //     elementWidth += element.offsetWidth;
-    //   });
-    //   return elementWidth;
-    // }
-    this.tabWidth = this.fetchElementWidth([...component.getElementsByClassName(classTab)]);
+    function fetchElementWidth(elementsArray) {
+      //70.4 is a hard coded value based on padding and margin set in _tabs.scss - if this changes, this will need to be updated
+      let elementWidth = 70.4 * elementsArray.length;
+      elementsArray.forEach(element => {
+        elementWidth += element.offsetWidth;
+      });
+      return elementWidth;
+    }
+    this.breakpoint = fetchElementWidth([...component.getElementsByClassName(classTab)]);
 
     if (matchMediaUtil.hasMatchMedia()) {
       this.setupViewportChecks();
@@ -48,23 +49,12 @@ export default class Tabs {
     }
   }
 
-  fetchElementWidth(elementsArray) {
-    console.log('calling fetchElementWidth');
-    // let elementWidth = 0;
-    let elementWidth = 70.4 * elementsArray.length;
-    elementsArray.forEach(element => {
-      elementWidth += element.offsetWidth;
-    });
-    console.log('window.innerWidth', window.innerWidth, 'elementWidth', elementWidth, 'difference:', window.innerWidth - elementWidth);
-    return elementWidth;
-  }
-
   // Set up checks for responsive functionality
-  // The tabs will display as tabs for >40rem viewports
-  // Tabs will display as a TOC list and show full content for <740px viewports
+  // The tabs will display as tabs up until this.breakpoint is reached
+  // Tabs will display as a TOC list and show full content for <this.breakpoint viewports
   // Aria tags are added only for >740px viewports
   setupViewportChecks() {
-    this.viewport = matchMediaUtil(`(min-width: ${this.tabWidth}px)`);
+    this.viewport = matchMediaUtil(`(min-width: ${this.breakpoint}px)`);
     this.viewport.addListener(this.checkViewport.bind(this));
     this.checkViewport();
   }

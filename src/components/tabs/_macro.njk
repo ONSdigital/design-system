@@ -20,6 +20,7 @@
         </ul>
 
         {% for tab in params.tabs %}
+            {% if tab.showTitle %}<h2>{{ tab.title }}</h2>{% endif %}
             <section id="{{ tab.id if tab.id else tab.title|trim|replace(' ','-')|lower }}" class="ons-tabs__panel">
                 {{ tab.content | safe }}
             </section>
