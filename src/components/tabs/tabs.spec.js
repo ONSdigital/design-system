@@ -180,6 +180,7 @@ describe('script: tabs', () => {
 
     it('has no aria attributes on tabs', async () => {
       const tabElements = await page.$$('.ons-tab');
+      console.log(tabElements);
       for (let i = 0; i < 3; ++i) {
         const hasRoleAttribute = await tabElements[i].evaluate(node => node.getAttribute('role') !== null);
         expect(hasRoleAttribute).toBe(false);
