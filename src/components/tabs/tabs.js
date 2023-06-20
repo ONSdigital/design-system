@@ -75,6 +75,10 @@ export default class Tabs {
 
     this.tabPanels.forEach(panel => {
       panel.setAttribute('tabindex', '0');
+      if (panel.firstElementChild.nodeName === 'H2') {
+        console.log('found h2');
+        panel.firstElementChild.classList.add('ons-u-vh');
+      }
     });
 
     this.tabListItems.forEach(item => {
@@ -111,6 +115,10 @@ export default class Tabs {
 
     this.tabPanels.forEach(panel => {
       panel.removeAttribute('tabindex', '0');
+      if (panel.firstElementChild.classList.contains('ons-u-vh')) {
+        panel.firstElementChild.classList.remove('ons-u-vh');
+      }
+      console.log('looking here...', panel.firstElementChild.classList.remove('ons-u-vh'));
     });
 
     this.tabListItems.forEach(item => {
