@@ -9,6 +9,7 @@ const EXAMPLE_TABS = {
     {
       id: 'tab.id.1',
       title: 'Tab 1',
+      showTitle: true,
       content: 'First content...',
     },
     {
@@ -20,6 +21,38 @@ const EXAMPLE_TABS = {
       id: 'tab.id.3',
       title: 'Tab 3',
       content: 'Third content...',
+    },
+  ],
+};
+
+const EXAMPLE_TABS_LONGER = {
+  title: 'Example tabs',
+  tabs: [
+    {
+      id: 'tab.id.1',
+      title: 'Tab 1',
+      showTitle: true,
+      content: 'First content...',
+    },
+    {
+      id: 'tab.id.2',
+      title: 'Tab 2',
+      content: 'Second content...',
+    },
+    {
+      id: 'tab.id.3',
+      title: 'Tab 3',
+      content: 'Third content...',
+    },
+    {
+      id: 'tab.id.4',
+      title: 'Tab 4',
+      content: 'Fourth content...',
+    },
+    {
+      id: 'tab.id.5',
+      title: 'Tab 5',
+      content: 'Fifth content...',
     },
   ],
 };
@@ -175,12 +208,11 @@ describe('script: tabs', () => {
     beforeEach(async () => {
       await page.emulate(puppeteer.devices['iPhone X']);
 
-      await setTestPage('/test', renderComponent('tabs', EXAMPLE_TABS));
+      await setTestPage('/test', renderComponent('tabs', EXAMPLE_TABS_LONGER));
     });
 
     it('has no aria attributes on tabs', async () => {
       const tabElements = await page.$$('.ons-tab');
-      console.log(tabElements);
       for (let i = 0; i < 3; ++i) {
         const hasRoleAttribute = await tabElements[i].evaluate(node => node.getAttribute('role') !== null);
         expect(hasRoleAttribute).toBe(false);
@@ -195,10 +227,15 @@ describe('script: tabs', () => {
 
     it('has no hidden tab panels', async () => {
       const panelCount = await page.$$eval('.ons-tabs__panel', nodes => nodes.length);
-      expect(panelCount).toBe(3);
+      expect(panelCount).toBe(5);
 
       const hiddenPanelCount = await page.$$eval('.ons-tabs__panel--hidden', nodes => nodes.length);
       expect(hiddenPanelCount).toBe(0);
+    });
+
+    it('displays a h2 element with a unique id', async () => {
+      const panelCount = await page.$$eval('#tab-1-content-title', nodes => nodes.length);
+      expect(panelCount).toBe(1);
     });
   });
 

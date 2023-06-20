@@ -32,15 +32,7 @@ export default class Tabs {
 
     this.noInitialActiveTab = this.component.getAttribute('data-no-initial-active-tab');
 
-    function fetchElementWidth(elementsArray) {
-      //70.4 is a hard coded value based on padding and margin set in _tabs.scss - if this changes, this will need to be updated
-      let elementWidth = 70.4 * elementsArray.length;
-      elementsArray.forEach(element => {
-        elementWidth += element.offsetWidth;
-      });
-      return elementWidth;
-    }
-    this.breakpoint = fetchElementWidth([...component.getElementsByClassName(classTab)]);
+    this.breakpoint = this.fetchElementWidth([...component.getElementsByClassName(classTab)]);
 
     if (matchMediaUtil.hasMatchMedia()) {
       this.setupViewportChecks();
@@ -57,6 +49,15 @@ export default class Tabs {
     this.viewport = matchMediaUtil(`(min-width: ${this.breakpoint}px)`);
     this.viewport.addListener(this.checkViewport.bind(this));
     this.checkViewport();
+  }
+
+  fetchElementWidth(elementsArray) {
+    //70.4 is a hard coded value based on padding and margin set in _tabs.scss - if this changes, this will need to be updated
+    let elementWidth = 70.4 * elementsArray.length;
+    elementsArray.forEach(element => {
+      elementWidth += element.offsetWidth;
+    });
+    return elementWidth;
   }
 
   checkViewport() {
