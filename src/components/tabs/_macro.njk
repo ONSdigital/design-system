@@ -21,9 +21,9 @@
 
         {% for tab in params.tabs %}
             <section id="{{ tab.id if tab.id else tab.title|trim|replace(' ','-')|lower }}" class="ons-tabs__panel">
-                {% if tab.showTitle %}<h2 class="ons-u-vh">{{ tab.title }}</h2>{% endif %}
+                {% if tab.showTitle %}<h2 id="{{ tab.title|trim|replace(' ','-')|lower + '-content-title' }}" class="ons-u-vh">{{ tab.title }}</h2>{% endif %}
                 {{ tab.content | safe }}
             </section>
-        {% endfor %}
+        {% endfor %}    
     </section>
 {% endmacro %}
