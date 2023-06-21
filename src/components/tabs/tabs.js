@@ -44,7 +44,7 @@ export default class Tabs {
   // Set up checks for responsive functionality
   // The tabs will display as tabs up until this.breakpoint is reached
   // Tabs will display as a TOC list and show full content for <this.breakpoint viewports
-  // Aria tags are added only for >740px viewports
+  // Aria tags are added only in toc view
   setupViewportChecks() {
     this.viewport = matchMediaUtil(`(min-width: ${this.breakpoint}px)`);
     this.viewport.addListener(this.checkViewport.bind(this));
