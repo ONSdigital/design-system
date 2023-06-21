@@ -24,7 +24,7 @@ describe('script: textarea', () => {
 
     describe('Given that the char limit helper has initialised correctly', () => {
       it('the char limit readout should be visible', async () => {
-        const hasClass = await page.$eval('#example-textarea-lim-remaining', node => node.classList.contains('ons-u-d-no'));
+        const hasClass = await page.$eval('#example-textarea-lim', node => node.classList.contains('ons-u-d-no'));
         expect(hasClass).toBe(false);
       });
     });
@@ -36,7 +36,7 @@ describe('script: textarea', () => {
         });
 
         it('then the characters remaining readout reflect the number of characters remaining', async () => {
-          const readout = await page.$eval('#example-textarea-lim-remaining', node => node.textContent);
+          const readout = await page.$eval('#example-textarea-lim', node => node.textContent);
           expect(readout).toBe('You have 12 characters remaining');
         });
       });
@@ -47,7 +47,7 @@ describe('script: textarea', () => {
         });
 
         it('then the characters remaining readout reflect the number of characters remaining', async () => {
-          const readout = await page.$eval('#example-textarea-lim-remaining', node => node.textContent);
+          const readout = await page.$eval('#example-textarea-lim', node => node.textContent);
           expect(readout).toBe('You have 0 characters remaining');
         });
 
@@ -57,9 +57,7 @@ describe('script: textarea', () => {
         });
 
         it('then the readout should be given limit reached classes', async () => {
-          const hasClass = await page.$eval('#example-textarea-lim-remaining', node =>
-            node.classList.contains('ons-input__limit--reached'),
-          );
+          const hasClass = await page.$eval('#example-textarea-lim', node => node.classList.contains('ons-input__limit--reached'));
           expect(hasClass).toBe(true);
         });
       });
@@ -77,7 +75,7 @@ describe('script: textarea', () => {
         });
 
         it('then the characters remaining readout reflect the number of characters remaining', async () => {
-          const readout = await page.$eval('#example-textarea-lim-remaining', node => node.textContent);
+          const readout = await page.$eval('#example-textarea-lim', node => node.textContent);
           expect(readout).toBe('You have 1 character remaining');
         });
 
@@ -87,9 +85,7 @@ describe('script: textarea', () => {
         });
 
         it('then the readout should not be given limit reached classes', async () => {
-          const hasClass = await page.$eval('#example-textarea-lim-remaining', node =>
-            node.classList.contains('ons-input__limit--reached'),
-          );
+          const hasClass = await page.$eval('#example-textarea-lim', node => node.classList.contains('ons-input__limit--reached'));
           expect(hasClass).toBe(false);
         });
       });
