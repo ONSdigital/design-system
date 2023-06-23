@@ -29,7 +29,7 @@
                 {% if option.id %}id="{{ option.id }}" {% endif %}
                 {% if option.selected %}selected {% endif %}
                 {% if option.disabled %}disabled {% endif %}
-                {% if params.attributes %}{% for attribute, value in option.attributes %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                {% if option.attributes %}{% for attribute, value in option.attributes %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
             >
                 {{- option.text -}}
             </option>
