@@ -601,7 +601,7 @@ describe('macro: input', () => {
     it('has data attribute which references the character limit component', () => {
       const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_WITH_CHARACTER_LIMIT));
 
-      expect($('.ons-input').attr('data-char-check-ref')).toBe('example-id-check-remaining');
+      expect($('.ons-input').attr('data-char-check-ref')).toBe('example-id-check');
     });
 
     it('has data attribute which defines limit for character check', () => {
@@ -613,7 +613,7 @@ describe('macro: input', () => {
     it('has `aria-describedby` attribute which references the character limit component', () => {
       const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_WITH_CHARACTER_LIMIT));
 
-      expect($('.ons-input').attr('aria-describedby')).toBe('example-id-check-remaining');
+      expect($('.ons-input').attr('aria-describedby')).toBe('example-id-check');
     });
 
     it('renders character limit component', () => {

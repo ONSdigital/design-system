@@ -111,7 +111,7 @@ describe('macro: related-content', () => {
 
     it('renders the expected list items using the list macro', () => {
       const faker = templateFaker();
-      const listsSpy = faker.spy('lists');
+      const listsSpy = faker.spy('list');
 
       faker.renderComponent('related-content', EXAMPLE_RELATED_CONTENT_LINKS);
 

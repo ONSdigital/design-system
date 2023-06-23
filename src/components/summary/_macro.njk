@@ -23,7 +23,7 @@
                     {% if group.rows %}
                         <div class="ons-summary__items">
 
-                            {% for row in (group.rows if group.rows is iterable else group.rows.items()) %}
+                            {% for row in group.rows %}
                                 {% set itemClass = "" %}
                                 {% if row.error %} {% set itemClass = " ons-summary__item--error" %}{% endif %}
                                 {% if row.total %} {% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
@@ -42,7 +42,7 @@
                                                 {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
                                                 {% if rowItem.iconType %}
-                                                    {% from "components/icons/_macro.njk" import onsIcon %}
+                                                    {% from "components/icon/_macro.njk" import onsIcon %}
                                                     <span class="ons-summary__item-title-icon{% if rowItem.iconType == 'check' %} ons-summary__item-title-icon--check{% endif %}">
                                                         {{
                                                             onsIcon({
@@ -75,7 +75,7 @@
                                                         {% endif %}
                                                     {% else %}
                                                         <ul class="ons-u-mb-no">
-                                                            {% for value in (rowItem.valueList if rowItem.valueList is iterable else rowItem.valueList.items()) %}
+                                                            {% for value in rowItem.valueList %}
                                                                 <li>
                                                                     <span class="ons-summary__text">{{ value.text | safe }}</span>
                                                                     {% if value.other or value.other == 0 %}
@@ -91,14 +91,13 @@
                                             {% endif %}
                                             {% if rowItem.actions %}
                                                 <dd class="ons-summary__actions">
-                                                    {% for action in (rowItem.actions if rowItem.actions is iterable else rowItem.actions.items()) %}
+                                                    {% for action in rowItem.actions %}
                                                         {% if loop.index > 1 %}<span class="ons-summary__spacer"></span>{% endif %}
                                                         <a
                                                             href="{{ action.url }}"
                                                             class="ons-summary__button"
-                                                            {% if action.ariaLabel %} aria-label="{{ action.ariaLabel }}"{% endif %}
                                                             {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
-                                                        >{{ action.text }}</a>
+                                                        >{{ action.text }}<span class="ons-u-vh">answer for {{ row.rowTitle }}</span></a>
                                                     {% endfor %}
                                                 </dd>
                                             {% endif %}

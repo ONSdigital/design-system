@@ -49,7 +49,6 @@ const EXAMPLE_SUMMARY_ROWS = {
           actions: [
             {
               text: 'Action 1',
-              ariaLabel: 'action aria label 1',
               attributes: {
                 a: 'abc',
                 b: 'def',
@@ -58,7 +57,6 @@ const EXAMPLE_SUMMARY_ROWS = {
             },
             {
               text: 'Action 2',
-              ariaLabel: 'action aria label 2',
               url: '#2',
             },
           ],
@@ -149,12 +147,10 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
-              ariaLabel: 'Change list item',
               url: '#0',
             },
             {
               text: 'Remove',
-              ariaLabel: 'Remove list item',
               url: '#0',
             },
           ],
@@ -169,7 +165,6 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
-              ariaLabel: 'Remove list item',
               url: '#0',
             },
           ],
@@ -184,7 +179,6 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
-              ariaLabel: 'Change list item',
               url: '#0',
             },
           ],
@@ -203,12 +197,10 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
-              ariaLabel: 'Change answer',
               url: '#0',
             },
             {
               text: 'Remove',
-              ariaLabel: 'Change list item',
               url: '#0',
             },
           ],
@@ -223,7 +215,6 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
-              ariaLabel: 'Change list item',
               url: '#0',
             },
           ],
@@ -238,7 +229,6 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
-              ariaLabel: 'Change list item',
               url: '#0',
             },
           ],
@@ -409,7 +399,7 @@ describe('macro: summary', () => {
 
       it('has a custom icon `iconType`', () => {
         const faker = templateFaker();
-        const iconsSpy = faker.spy('icons');
+        const iconsSpy = faker.spy('icon');
 
         faker.renderComponent('summary', EXAMPLE_SUMMARY_BASIC);
 
@@ -487,25 +477,20 @@ describe('macro: summary', () => {
 
         expect(
           $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').text(),
-        ).toBe('Action 1');
+        ).toBe('Action 1answer for row title 2');
         expect(
           $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').text(),
-        ).toBe('Action 2');
+        ).toBe('Action 2answer for row title 2');
       });
 
-      it('has the `aria-label` provided', () => {
+      it('has the correct visually hidden <span> text', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
         expect(
-          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').attr(
-            'aria-label',
-          ),
-        ).toBe('action aria label 1');
-        expect(
-          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').attr(
-            'aria-label',
-          ),
-        ).toBe('action aria label 2');
+          $(
+            '.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child .ons-u-vh',
+          ).text(),
+        ).toBe('answer for row title 2');
       });
 
       it('has custom `attributes`', () => {

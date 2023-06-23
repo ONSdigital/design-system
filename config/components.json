@@ -9,13 +9,13 @@
     "templateName": "components/checkboxes/_checkbox-macro.njk",
     "macroName": "onsCheckbox"
   },
-  "icons": {
+  "icon": {
     "macroName": "onsIcon"
   },
-  "images": {
+  "image": {
     "macroName": "onsImage"
   },
-  "lists": {
+  "list": {
     "macroName": "onsList"
   },
   "related-content/section": {

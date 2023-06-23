@@ -48,7 +48,7 @@ describe('macro: share-page', () => {
 
   it('uses the provided icon size', () => {
     const faker = templateFaker();
-    const listsSpy = faker.spy('lists');
+    const listsSpy = faker.spy('list');
 
     faker.renderComponent('share-page', {
       ...EXAMPLE_SHARE_PAGE,
@@ -61,7 +61,7 @@ describe('macro: share-page', () => {
   describe('Share on Twitter', () => {
     it('has a link with the expected url', () => {
       const faker = templateFaker();
-      const listsSpy = faker.spy('lists');
+      const listsSpy = faker.spy('list');
 
       faker.renderComponent('share-page', EXAMPLE_SHARE_PAGE);
 
@@ -73,7 +73,7 @@ describe('macro: share-page', () => {
 
     it('has a link which opens in a new tab', () => {
       const faker = templateFaker();
-      const listsSpy = faker.spy('lists');
+      const listsSpy = faker.spy('list');
 
       faker.renderComponent('share-page', EXAMPLE_SHARE_PAGE);
 
@@ -87,7 +87,7 @@ describe('macro: share-page', () => {
   describe('Share on Facebook', () => {
     it('has a link with the expected url', () => {
       const faker = templateFaker();
-      const listsSpy = faker.spy('lists');
+      const listsSpy = faker.spy('list');
 
       faker.renderComponent('share-page', EXAMPLE_SHARE_PAGE);
 
@@ -97,7 +97,7 @@ describe('macro: share-page', () => {
 
     it('has a link which opens in a new tab', () => {
       const faker = templateFaker();
-      const listsSpy = faker.spy('lists');
+      const listsSpy = faker.spy('list');
 
       faker.renderComponent('share-page', EXAMPLE_SHARE_PAGE);
 

@@ -3,7 +3,7 @@ title: "Example: News index page"
 layout: ~
 ---
 {% extends "layout/_template.njk" %}
-{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/list/_macro.njk" import onsList %}
 {% from "components/document-list/_macro.njk" import onsDocumentList %}
 {% from "components/pagination/_macro.njk" import onsPagination %}
 {% from "components/related-content/_macro.njk" import onsRelatedContent %}
@@ -164,10 +164,10 @@ layout: ~
                     onsPagination({
                         "previous": "Previous",
                         "next": "Next",
+                        "currentPageNumber": 1,
                         "pages": [
                             {
-                                "url": "#0",
-                                "current": true
+                                "url": "#0"
                             },
                             {
                                 "url": "#0"

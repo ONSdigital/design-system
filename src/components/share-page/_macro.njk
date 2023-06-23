@@ -1,5 +1,5 @@
 {% macro onsSharePage(params) %}
-    {% from "components/lists/_macro.njk" import onsList %}
+    {% from "components/list/_macro.njk" import onsList %}
 
     {% if params.title %}
         {% set titleTag = params.titleTag | default("h2") %}

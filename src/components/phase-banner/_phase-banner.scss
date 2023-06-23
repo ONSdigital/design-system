@@ -1,5 +1,6 @@
 .ons-phase-banner {
-  background: var(--ons-color-grey-5);
+  background: var(--ons-color-white);
+  border-bottom: 1px solid var(--ons-color-borders);
   padding: 0.5rem 0;
 
   &__badge {

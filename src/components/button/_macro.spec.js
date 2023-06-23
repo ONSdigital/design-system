@@ -60,7 +60,7 @@ describe('macro: button', () => {
 
   it('has `download` icon when `variants` contains "download"', () => {
     const faker = templateFaker();
-    const iconsSpy = faker.spy('icons');
+    const iconsSpy = faker.spy('icon');
 
     faker.renderComponent('button', {
       url: 'http://example.com',
@@ -84,7 +84,7 @@ describe('macro: button', () => {
 
   it('has `print` icon when `variants` contains "print"', () => {
     const faker = templateFaker();
-    const iconsSpy = faker.spy('icons');
+    const iconsSpy = faker.spy('icon');
 
     faker.renderComponent('button', {
       url: 'http://example.com',
@@ -108,7 +108,7 @@ describe('macro: button', () => {
 
   it('has `loader` icon when `variants` contains "loader"', () => {
     const faker = templateFaker();
-    const iconsSpy = faker.spy('icons');
+    const iconsSpy = faker.spy('icon');
 
     faker.renderComponent('button', {
       variants: 'loader',
@@ -119,7 +119,7 @@ describe('macro: button', () => {
 
   it('has `chevron` icon when `variants` contains "mobile"', () => {
     const faker = templateFaker();
-    const iconsSpy = faker.spy('icons');
+    const iconsSpy = faker.spy('icon');
 
     faker.renderComponent('button', {
       variants: 'mobile',
@@ -346,7 +346,7 @@ describe('macro: button', () => {
 
     it('has `arrow-next` icon by default', () => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('button', {
         url: 'http://example.com',
@@ -369,7 +369,7 @@ describe('macro: button', () => {
 
     it('has `external-link` icon when `newWindow` is `true`', () => {
       const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+      const iconsSpy = faker.spy('icon');
 
       faker.renderComponent('button', {
         url: 'http://example.com',

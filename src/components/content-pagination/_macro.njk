@@ -6,7 +6,7 @@
           <a href="{{ contentPaginationItem.url }}" class="ons-content-pagination__link" rel="{{ contentPaginationItem.rel }}">
             <span class="ons-content-pagination__link-title">
                 {% if contentPaginationItem.rel == 'prev' %}
-                  {% from "components/icons/_macro.njk" import onsIcon %}
+                  {% from "components/icon/_macro.njk" import onsIcon %}
                   {{
                       onsIcon({
                           "iconType": 'arrow-previous',
@@ -14,7 +14,7 @@
                       })
                   }}
                 {% else %}
-                  {% from "components/icons/_macro.njk" import onsIcon %}
+                  {% from "components/icon/_macro.njk" import onsIcon %}
                   {{
                       onsIcon({
                           "iconType": 'arrow-next',

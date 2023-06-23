@@ -57,7 +57,6 @@
 | ---------- | ------ | -------- | ------------------------------------------------------------------------------------------ |
 | text       | string | true     | Text for the action link                                                                   |
 | url        | string | true     | The URL for the HTML `href` attribute of the link used to change the value of the row item |
-| ariaLabel  | string | false    | An `aria-label` to apply to the action link to add more context for screen readers         |
 | attributes | object | false    | HTML attributes (for example, data attributes) to add to the action link                   |
 
 ## SummaryLink
