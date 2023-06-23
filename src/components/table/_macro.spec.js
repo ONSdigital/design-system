@@ -80,6 +80,22 @@ describe('macro: table', () => {
       expect($('.ons-table__header').hasClass('another-extra-column-class')).toBe(true);
     });
 
+    it('adds additional width attribute to column header', () => {
+      const $ = cheerio.load(
+        renderComponent('table', {
+          ...EXAMPLE_TABLE,
+          ths: [
+            {
+              value: 'Column 1',
+              widthPercentage: 50,
+            },
+          ],
+        }),
+      );
+
+      expect($('.ons-table__header').attr('width')).toBe('50%');
+    });
+
     it('does not add "numeric" modifier class to column header when `td.numeric` is not provided', () => {
       const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
 
