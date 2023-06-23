@@ -1,9 +1,0 @@
-.ons-search-component {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 0.5rem;
-
-  @include mq(s) {
-    flex-flow: row nowrap !important;
-  }
-}

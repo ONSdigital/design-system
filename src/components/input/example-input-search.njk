@@ -1,9 +1,7 @@
-{% from "components/search/_macro.njk" import onsSearch %}
-
+{% from "components/input/_macro.njk" import onsInput %}
 {{
-    onsSearch({
-        "inputParams": {
-            "id": 'search-field',
+    onsInput({
+        "id": 'search-field',
         "label": {
             'text': 'Search',
             "classes": 'ons-u-pb-xxs ons-u-mb-no'
@@ -13,7 +11,5 @@
             "text": 'Search',
             "iconType": 'search'
         }
-        }
-        
     })
 }}

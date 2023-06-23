@@ -535,26 +535,6 @@ describe('macro: input', () => {
   });
 
   describe('search', () => {
-    it('renders `search` component', () => {
-      const faker = templateFaker();
-      const searchSpy = faker.spy('search');
-
-      faker.renderComponent('input', EXAMPLE_WITH_SEARCH);
-
-      expect(searchSpy.occurrences[0]).toEqual({
-        accessiblePlaceholder: true,
-        searchButton: {
-          type: 'button',
-          text: 'Search for address',
-          id: 'search-for-address',
-          attributes: { a: 42 },
-          classes: 'extra-search-button-class',
-          iconType: 'search',
-          visuallyHideButtonText: true,
-        },
-      });
-    });
-
     it.each('outputs `type` attribute of "search"', () => {
       const $ = cheerio.load(renderComponent('input', EXAMPLE_WITH_SEARCH));
 

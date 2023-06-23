@@ -137,6 +137,12 @@
   }
 }
 
+.ons-input_search-button {
+  display: flex;
+  flex-flow: row nowrap !important;
+  gap: 0.5rem;
+}
+
 .ons-input-search {
   @extend .ons-input--block;
   @extend .ons-input--ghost;
