@@ -15,7 +15,7 @@
         {% if hasOther == false and params.autoSelect and params.autoSelect.selectAllText %}
             {% set btnClasses = ['small', 'secondary'] %}
             {% if params.borderlessParent == false %}
-                {% set btnClasses = ['small', 'secondary', 'ghost-dark'] %}
+                {% set btnClasses = ['small', 'secondary', 'ghost', 'ghost-dark'] %}
             {% endif %}
             {{
                 onsButton({
