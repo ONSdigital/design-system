@@ -96,9 +96,8 @@
                                                         <a
                                                             href="{{ action.url }}"
                                                             class="ons-summary__button"
-                                                            {% if action.ariaLabel %} aria-label="{{ action.ariaLabel }}"{% endif %}
                                                             {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
-                                                        >{{ action.text }}</a>
+                                                        >{{ action.text }}<span class="ons-u-vh">answer for {{ row.rowTitle }}</span></a>
                                                     {% endfor %}
                                                 </dd>
                                             {% endif %}
