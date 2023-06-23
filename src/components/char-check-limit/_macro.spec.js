@@ -40,7 +40,7 @@ describe('macro: char-check-limit', () => {
   it('has the provided `id` attribute', () => {
     const $ = cheerio.load(renderComponent('char-check-limit', EXAMPLE_CHAR_CHECK_LIMIT));
 
-    expect($('.ons-input__limit').attr('id')).toBe('example-char-check-limit-remaining');
+    expect($('.ons-input__limit').attr('id')).toBe('example-char-check-limit');
   });
 
   it('has the provided data attributes', () => {
