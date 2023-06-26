@@ -2,11 +2,11 @@
   <dl class="ons-metadata ons-metadata__list ons-grid ons-grid--gutterless ons-u-cf{{ (' ' + params.classes) if params.classes }}"{% if params.id %} id="{{ params.id }}" {% endif %}{% if params.metadataLabel %} title="{{ params.metadataLabel }}" aria-label="{{ params.metadataLabel }}"{% endif %}>
     {% for item in params.itemsList %}
       {% if item.term | length %}
-          <dt class="ons-metadata__term ons-grid__col ons-col-{{ params.termCol }}@m">{{ item.term }}</dt>
+          <dt class="ons-metadata__term ons-grid__col {% if params.termCol %}ons-col-{{ params.termCol }}@m {% endif %}">{{ item.term }}</dt>
       {% endif %}
         {% for description in item.descriptions %}
           {% if description.description | length %}
-            <dd {% if description.id %}id="{{ description.id }}" {% endif %}class="ons-metadata__value ons-grid__col ons-col-{{ params.descriptionCol }}@m">{{ description.description }}</dd>
+            <dd {% if description.id %}id="{{ description.id }}" {% endif %}class="ons-metadata__value ons-grid__col {% if params.descriptionCol %} ons-col-{{ params.descriptionCol }}@m {% endif %}">{{ description.description }}</dd>
           {% endif %}
         {% endfor %}
     {% endfor %}
