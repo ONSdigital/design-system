@@ -1,9 +1,9 @@
 {% macro onsInput(params) %}
     {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
     {% from "components/char-check-limit/_macro.njk" import onsCharLimit %}
-    {% from "components/search/_macro.njk" import onsSearch %}
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/label/_macro.njk" import onsLabel %}
+    {% from "components/button/_macro.njk" import onsButton %}
 
     {% if params.type == "number" %}
         {# Type must be "text" or Firefox and Safari will set a blank value to the server if non numeric characters are entered -
@@ -100,21 +100,28 @@
                 </span>
             {% endif %}
         {% elif params.searchButton %}
-            <span class="ons-grid--flex ons-search">
-                {% call onsSearch({
-                    "accessiblePlaceholder": params.accessiblePlaceholder,
-                    "searchButton": {
+            <span class="ons-grid--flex ons-input_search-button">
+                {{ input | safe }}
+                {%- set buttonLabel -%}
+                    {%- if params.searchButton.visuallyHideButtonText == true -%}
+                        <span class="ons-u-vh">{{ params.searchButton.text }}</span>
+                    {%- else -%}
+                        {{ params.searchButton.text }}
+                    {%- endif -%}
+                {%- endset -%}
+                {{
+                    onsButton({
                         "type": params.searchButton.type,
+                        "html": buttonLabel,
                         "text": params.searchButton.text,
-                        "visuallyHideButtonText": params.searchButton.visuallyHideButtonText,
                         "id": params.searchButton.id,
+                        "variants": 'small',
+                        "classes": 'ons-search__btn' + (" " + params.searchButton.classes if params.searchButton.classes else ""),
                         "attributes": params.searchButton.attributes,
-                        "classes": params.searchButton.classes,
-                        "iconType": params.searchButton.iconType
-                    }
-                }) %}
-                    {{ input | safe }}
-                {% endcall %}
+                        "iconType": params.searchButton.iconType,
+                        "iconPosition": 'only' if params.searchButton.visuallyHideButtonText == true else 'before'
+                    })
+                }}
             </span>
         {% else %}
             {{ input | safe }}
