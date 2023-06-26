@@ -10,7 +10,6 @@ const classTabTitle = 'ons-tabs__title';
 const classTabList = 'ons-tabs__list';
 const classTabListItems = 'ons-tab__list-item';
 const classTabsPanel = 'ons-tabs__panel';
-
 const matchMediaUtil = matchMedia;
 
 export default class Tabs {
@@ -22,6 +21,7 @@ export default class Tabs {
     this.tabsTitle = component.querySelector(`.${classTabTitle}`);
     this.tabs = [...component.getElementsByClassName(classTab)];
     this.tabList = component.getElementsByClassName(classTabList);
+    this.tabListContainer = this.tabList[0].parentElement;
     this.tabListItems = [...component.getElementsByClassName(classTabListItems)];
     this.tabPanels = [...component.getElementsByClassName(classTabsPanel)];
 
@@ -31,7 +31,6 @@ export default class Tabs {
     this.jsTabAsListClass = 'ons-tab--row';
 
     this.noInitialActiveTab = this.component.getAttribute('data-no-initial-active-tab');
-
     if (matchMediaUtil.hasMatchMedia()) {
       this.setupViewportChecks();
     } else {
@@ -40,11 +39,22 @@ export default class Tabs {
   }
 
   // Set up checks for responsive functionality
-  // The tabs will display as tabs for >40rem viewports
-  // Tabs will display as a TOC list and show full content for <740px viewports
-  // Aria tags are added only for >740px viewports
+  // The tabs will display as tabs up until this.breakpoint is reached
+  // Tabs will display as a TOC list and show full content for <this.breakpoint viewports
+  // Aria tags are added only in toc view
   setupViewportChecks() {
-    this.viewport = matchMediaUtil('(min-width: 740px)');
+    const breakpoint = () => {
+      let finalBreakpoint = 0;
+      this.tabListItems.forEach(tab => {
+        finalBreakpoint += tab.offsetWidth;
+      });
+      if (finalBreakpoint < 450) {
+        return (finalBreakpoint = 450);
+      } else {
+        return finalBreakpoint;
+      }
+    };
+    this.viewport = matchMediaUtil(`(min-width: ${breakpoint()}px)`);
     this.viewport.addListener(this.checkViewport.bind(this));
     this.checkViewport();
   }
@@ -62,9 +72,12 @@ export default class Tabs {
     this.tabList[0].classList.add(this.jsTabListAsRowClass);
 
     this.tabsTitle.classList.add('ons-u-vh');
-
+    this.tabListContainer.classList.add('ons-tabs__container');
     this.tabPanels.forEach(panel => {
       panel.setAttribute('tabindex', '0');
+      if (panel.querySelector('[id*="content-title"]')) {
+        panel.firstElementChild.classList.add('ons-u-vh');
+      }
     });
 
     this.tabListItems.forEach(item => {
@@ -96,11 +109,14 @@ export default class Tabs {
   makeList() {
     this.tabList[0].removeAttribute('role');
     this.tabList[0].classList.remove(this.jsTabListAsRowClass);
-
+    this.tabListContainer.classList.remove('ons-tabs__container');
     this.tabsTitle.classList.remove('ons-u-vh');
 
     this.tabPanels.forEach(panel => {
       panel.removeAttribute('tabindex', '0');
+      if (panel.firstElementChild.classList.contains('ons-u-vh')) {
+        panel.firstElementChild.classList.remove('ons-u-vh');
+      }
     });
 
     this.tabListItems.forEach(item => {

@@ -11,23 +11,18 @@
     margin: 0 0 1rem;
     overflow: visible;
     padding: 0;
-
+    width: max-content;
     // Tabs
     &--row {
       margin: 0;
       position: relative;
-
-      &::after {
-        background: var(--ons-color-borders);
-        bottom: 0;
-        box-shadow: 0 1px 0 0 var(--ons-color-page-light);
-        content: '';
-        height: 1px;
-        left: 0;
-        position: absolute;
-        width: 100%;
-      }
     }
+  }
+  &__container {
+    border-bottom: 1px solid var(--ons-color-borders);
+    margin: 0;
+    padding: 0;
+    z-index: -2;
   }
 }
 
@@ -81,10 +76,12 @@
   // Tab when selected
   &[aria-selected='true'] {
     background-color: var(--ons-color-page-light);
-    border-bottom: none;
+    border-bottom: 2px white;
     border-color: var(--ons-color-borders);
     border-radius: 3px 3px 0 0;
+    position: relative;
     text-decoration: none;
+    top: 1px;
     z-index: 1;
 
     &:focus {
@@ -109,7 +106,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 3px var(--ons-color-page-light), 0 0 0 5px var(--ons-color-text-link-focus), 0 0 0 8px var(--ons-color-focus);
+    box-shadow: 0 0 0 0 var(--ons-color-page-light), 0 0 0 2px var(--ons-color-text-link-focus), 0 0 0 6px var(--ons-color-focus);
     outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
     z-index: 1;
   }
@@ -137,7 +134,6 @@
   }
 
   .ons-tabs__list--row {
-    margin-bottom: -1px;
     padding: 0;
   }
 
