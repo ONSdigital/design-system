@@ -26,7 +26,7 @@
         {% set rejectedText =  'You have rejected all additional cookies.' %}
         {% set preferencesText =  'You can <a href="' + settingsLinkURL + '">change your cookie preferences</a> at any time.' %}
         {% set confirmationButtonText = 'Hide' %}
-        {% set confirmationButtonTextAria = 'this message' %}
+        {% set contextSuffix = 'this message' %}
     {% endif %}
 
     <div class="ons-cookies-banner" role="region" aria-label="{{ params.ariaLabel | default(ariaLabel)}}">
@@ -78,7 +78,7 @@
                     onsButton({
                         "type": 'button',
                         "text": params.confirmationButtonText | default(confirmationButtonText),
-                        "buttonContext": params.confirmationButtonTextAria | default(confirmationButtonTextAria),
+                        "buttonContext": params.contextSuffix | default(contextSuffix),
                         "classes": 'ons-btn--secondary ons-btn--small ons-js-hide-button'
                     })
                 }}
