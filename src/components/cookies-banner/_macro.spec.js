@@ -16,7 +16,7 @@ const EXAMPLE_COOKIES_BANNER_PARAMS = {
   rejectButtonText: 'Reject additional cookies override',
   preferencesText: 'Text override',
   confirmationButtonText: 'Hide override',
-  confirmationButtonTextAria: 'the cookie message override',
+  contextSuffix: 'the cookie message override',
 };
 
 describe('macro: cookies-banner', () => {
@@ -112,7 +112,7 @@ describe('macro: cookies-banner', () => {
         expect(buttonSpy.occurrences[2].text).toBe('Hide override');
       });
 
-      it('has the correct `confirmationButtonTextAria` for `buttonContext`', () => {
+      it('has the correct `contextSuffix` for `buttonContext`', () => {
         const faker = templateFaker();
         const buttonSpy = faker.spy('button');
 

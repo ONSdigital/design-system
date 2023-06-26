@@ -22,6 +22,23 @@ const EXAMPLE_TABS = {
   ],
 };
 
+const EXAMPLE_TABS_WITH_SHOWTITLE = {
+  title: 'Example tabs',
+  tabs: [
+    {
+      id: 'first-tab',
+      title: 'Tab 1',
+      showTitle: true,
+      content: 'Example content...',
+    },
+    {
+      id: 'second-tab',
+      title: 'Tab 2',
+      content: 'Some nested <strong>strong element</strong>...',
+    },
+  ],
+};
+
 const EXAMPLE_TABS_WITHOUT_TAB_IDS = {
   title: 'Example tabs',
   tabs: [
@@ -126,5 +143,11 @@ describe('macro: tabs', () => {
         .html()
         .trim(),
     ).toBe('Some nested <strong>strong element</strong>...');
+  });
+
+  it('displays a h2 when showTitle set to true', () => {
+    const $ = cheerio.load(renderComponent('tabs', EXAMPLE_TABS_WITH_SHOWTITLE));
+
+    expect($('.ons-tabs__panel:first').find('h2').length).toBe(1);
   });
 });

@@ -15,12 +15,13 @@
 
 ## th
 
-| Name      | Type    | Required | Description                                                                                                                                                  |
-| --------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| thClasses | string  | false    | Classes to add to the `th` element                                                                                                                           |
-| ariaSort  | string  | false    | Set to “ascending” or “descending” to set the default order of a table column when the page loads when setting `variants` to “sortable”. Defaults to “none”. |
-| value     | string  | true     | The content for the `th` cell                                                                                                                                |
-| numeric   | boolean | false    | Set to “true” if all the cells in the column contain numbers. This aligns the content to the right so numbers can easily be compared.                        |
+| Name            | Type    | Required | Description                                                                                                                                                  |
+| --------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| thClasses       | string  | false    | Classes to add to the `th` element                                                                                                                           |
+| ariaSort        | string  | false    | Set to “ascending” or “descending” to set the default order of a table column when the page loads when setting `variants` to “sortable”. Defaults to “none”. |
+| value           | string  | true     | The content for the `th` cell                                                                                                                                |
+| numeric         | boolean | false    | Set to “true” if all the cells in the column contain numbers. This aligns the content to the right so numbers can easily be compared.                        |
+| widthPercentage | integer | false    | Sets the `width` attribute for the `th` element                                                                                                              |
 
 ## tr
 
