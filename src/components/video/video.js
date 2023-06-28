@@ -23,7 +23,6 @@ export default class Video {
 
   showIframe() {
     const src = this.addDNTtoVimeoVideos();
-    console.log(src);
     this.iframe.src = src;
     this.iframe.classList.remove('ons-u-d-no');
     this.component.classList.add('ons-video--hasIframe');
