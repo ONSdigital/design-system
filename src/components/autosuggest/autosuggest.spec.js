@@ -3,13 +3,15 @@ import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
 const EXAMPLE_AUTOSUGGEST = {
   id: 'country-of-birth',
-  label: {
-    text: 'Current name of country',
-    description: 'Enter your own answer or select from suggestions',
-    id: 'country-of-birth-label',
-    classes: 'extra-label-class',
+  input: {
+    label: {
+      text: 'Current name of country',
+      description: 'Enter your own answer or select from suggestions',
+      id: 'country-of-birth-label',
+      classes: 'extra-label-class',
+    },
+    autocomplete: 'off',
   },
-  autocomplete: 'off',
   instructions: 'Use up and down keys to navigate.',
   ariaYouHaveSelected: 'You have selected',
   ariaMinChars: 'Enter 3 or more characters for suggestions.',

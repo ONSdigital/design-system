@@ -7,13 +7,15 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_AUTOSUGGEST = {
   id: 'country-of-birth',
-  label: {
-    text: 'Current name of country',
-    description: 'Enter your own answer or select from suggestions',
-    id: 'country-of-birth-label',
-    classes: 'extra-label-class',
+  input: {
+    label: {
+      text: 'Current name of country',
+      description: 'Enter your own answer or select from suggestions',
+      id: 'country-of-birth-label',
+      classes: 'extra-label-class',
+    },
+    autocomplete: 'off',
   },
-  autocomplete: 'off',
   instructions: 'Use up and down keys to navigate.',
   ariaYouHaveSelected: 'You have selected',
   ariaMinChars: 'Enter 3 or more characters for suggestions.',
@@ -132,18 +134,27 @@ describe('macro: autosuggest', () => {
 
       faker.renderComponent('autosuggest', {
         ...EXAMPLE_AUTOSUGGEST,
-        classes: 'extra-class another-extra-class',
-        width: '7',
-        value: 'abc',
-        attributes: {
-          a: 42,
+        input: {
+          label: {
+            text: 'Current name of country',
+            description: 'Enter your own answer or select from suggestions',
+            id: 'country-of-birth-label',
+            classes: 'extra-label-class',
+          },
+          autocomplete: 'off',
+          classes: 'extra-class another-extra-class',
+          width: '7',
+          value: 'abc',
+          attributes: {
+            a: 42,
+          },
+          error: {
+            id: 'error-id',
+            text: 'An error occurred.',
+          },
+          mutuallyExclusive: null,
+          accessiblePlaceholder: true,
         },
-        error: {
-          id: 'error-id',
-          text: 'An error occurred.',
-        },
-        mutuallyExclusive: null,
-        accessiblePlaceholder: true,
       });
 
       expect(inputSpy.occurrences[0]).toHaveProperty('id', 'country-of-birth');
