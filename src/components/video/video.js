@@ -31,7 +31,7 @@ export default class Video {
   addDNTtoVimeoVideos() {
     let src = this.iframe.getAttribute('data-src');
     if (src.includes('player.vimeo.com/video') && src.includes('?dnt=1') === false) {
-      src = src + '?dnt=1';
+      src += '?dnt=1';
       return src;
     } else {
       return src;
