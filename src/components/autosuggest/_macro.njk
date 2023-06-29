@@ -44,30 +44,7 @@
             <div class="ons-autosuggest-input__status ons-u-vh ons-js-autosuggest-aria-status" aria-live="assertive" aria-atomic="true" role="status" tabindex="-1"></div>
         {% endset %}
 
-        {# {{ onsInput({
-            "id": params.id,
-            "classes": "ons-js-autosuggest-input " + (params.classes if params.classes else ''),
-            "width": params.width,
-            "label": { - already available
-                "text": params.input.label.text,
-                "description": params.input.label.description,
-                "id": params.input.label.id,
-                "classes": params.input.label.classes
-            },
-            "autocomplete": params.input.autocomplete,
-            "legend": params.legend,
-            "legendClasses": params.legendClasses,
-            "value": params.value, -already available
-            "attributes": params.attributes,
-            "error": params.error,
-            "mutuallyExclusive": params.mutuallyExclusive, - already available
-            "accessiblePlaceholder": params.accessiblePlaceholder,
-            "name": params.name,
-            "autosuggestResults": autosuggestResults
-         }) }} #}
-
-         {# WITH ALL PARAMS (END GOAL)  #}
-         {{ onsInput({
+        {{ onsInput({
             "id": params.id,
             "type": params.input.type,
             "classes": "ons-js-autosuggest-input " + (params.input.classes if params.input.classes else ''),
@@ -100,8 +77,9 @@
             "listeners": params.input.listeners
          }) }}
 
-         {% if not params.mutuallyExclusive %}
+        {% if not params.mutuallyExclusive %}
             {{ autosuggestResults | safe }}
-         {% endif %}
+        {% endif %}
+
     </div>
 {% endmacro %}
