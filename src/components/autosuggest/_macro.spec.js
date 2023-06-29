@@ -135,6 +135,9 @@ describe('macro: autosuggest', () => {
       faker.renderComponent('autosuggest', {
         ...EXAMPLE_AUTOSUGGEST,
         input: {
+          type: 'text',
+          classes: 'extra-class another-extra-class',
+          width: '7',
           label: {
             text: 'Current name of country',
             description: 'Enter your own answer or select from suggestions',
@@ -142,8 +145,8 @@ describe('macro: autosuggest', () => {
             classes: 'extra-label-class',
           },
           autocomplete: 'off',
-          classes: 'extra-class another-extra-class',
-          width: '7',
+          legend: 'this is a legend',
+          legendClasses: 'legend-extra-class',
           value: 'abc',
           attributes: {
             a: 42,
@@ -154,10 +157,44 @@ describe('macro: autosuggest', () => {
           },
           mutuallyExclusive: null,
           accessiblePlaceholder: true,
+          name: 'country-of-birth-test',
+          min: 1,
+          max: 10,
+          minLength: 1,
+          maxLength: 10,
+          prefix: {
+            title: 'Great British Pounds',
+            text: '£',
+            id: 'gbp-prefix',
+          },
+          suffix: {
+            title: 'Percentage of total',
+            text: '%',
+            id: 'percentage-suffix',
+          },
+          fieldId: 'field-id-test',
+          fieldClasses: 'field-class-test',
+          dontWrap: true,
+          charCheckLimit: {
+            limit: 200,
+            charCountSingular: 'You have {x} character remaining',
+            charCountPlural: 'You have {x} characters remaining',
+            charCountOverLimitSingular: '{x} character too many',
+            charCountOverLimitPlural: '{x} characters too many',
+          },
+          searchButton: {
+            text: 'Search',
+          },
+          postTextboxLinkText: 'Post textbox link text',
+          postTextboxLinkUrl: 'https://www.ons.gov.uk',
+          listeners: {
+            click: "function() { console.log('click'); }",
+          },
         },
       });
 
       expect(inputSpy.occurrences[0]).toHaveProperty('id', 'country-of-birth');
+      expect(inputSpy.occurrences[0]).toHaveProperty('type', 'text');
       expect(inputSpy.occurrences[0]).toHaveProperty('classes', 'ons-js-autosuggest-input extra-class another-extra-class');
       expect(inputSpy.occurrences[0]).toHaveProperty('width', '7');
       expect(inputSpy.occurrences[0]).toHaveProperty('label.text', 'Current name of country');
@@ -165,13 +202,38 @@ describe('macro: autosuggest', () => {
       expect(inputSpy.occurrences[0]).toHaveProperty('label.id', 'country-of-birth-label');
       expect(inputSpy.occurrences[0]).toHaveProperty('label.classes', 'extra-label-class');
       expect(inputSpy.occurrences[0]).toHaveProperty('autocomplete', 'off');
+      expect(inputSpy.occurrences[0]).toHaveProperty('legend', 'this is a legend');
+      expect(inputSpy.occurrences[0]).toHaveProperty('legendClasses', 'legend-extra-class');
       expect(inputSpy.occurrences[0]).toHaveProperty('value', 'abc');
       expect(inputSpy.occurrences[0]).toHaveProperty('attributes.a', 42);
       expect(inputSpy.occurrences[0]).toHaveProperty('error.id', 'error-id');
       expect(inputSpy.occurrences[0]).toHaveProperty('error.text', 'An error occurred.');
       expect(inputSpy.occurrences[0]).toHaveProperty('mutuallyExclusive', null);
       expect(inputSpy.occurrences[0]).toHaveProperty('accessiblePlaceholder', true);
+      expect(inputSpy.occurrences[0]).toHaveProperty('name', 'country-of-birth-test');
       expect(typeof inputSpy.occurrences[0].autosuggestResults).toBe('string');
+      expect(inputSpy.occurrences[0]).toHaveProperty('min');
+      expect(inputSpy.occurrences[0]).toHaveProperty('max', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('minLength', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('maxLength', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('prefix.title', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('prefix.text', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('prefix.id', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('suffix.title', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('suffix.text', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('suffix.id', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('fieldId', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('fieldClasses', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('dontWrap', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.limit', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.charCountSingular', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.charCountPlural', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.charCountOverLimitSingular', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.charCountOverLimitPlural', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('searchButton.text', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('postTextboxLinkText', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('postTextboxLinkUrl', 'test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('listeners.click', 'test');
     });
   });
 
