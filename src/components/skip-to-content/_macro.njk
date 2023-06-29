@@ -1,3 +1,4 @@
 {% macro onsSkipToContent(params) %}
-    <a class="ons-skip-link" href="{{ params.url }}">{{ params.text }}</a>
+ {% set text = params.text | default('Skip to content') %}
+    <a class="ons-skip-link" href="{{ params.url }}">{{ text }}</a>
 {% endmacro %}

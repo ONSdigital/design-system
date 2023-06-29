@@ -54,4 +54,18 @@ describe('macro: skip-to-content', () => {
         .trim(),
     ).toBe('Skip to the content');
   });
+
+  it('has skip link with the default text if no text provided`', async () => {
+    const $ = cheerio.load(
+      renderComponent('skip-to-content', {
+        url: '#example-anchor',
+      }),
+    );
+
+    expect(
+      $('.ons-skip-link')
+        .text()
+        .trim(),
+    ).toBe('Skip to content');
+  });
 });
