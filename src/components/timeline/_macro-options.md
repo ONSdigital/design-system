@@ -1,7 +1,8 @@
-| Name    | Type                   | Required | Description                                  |
-| ------- | ---------------------- | -------- | -------------------------------------------- |
-| classes | string                 | false    | Classes to add to the component              |
-| items   | array`<TimelineItems>` | true     | An array of [timeline items](#timelineitems) |
+| Name     | Type                   | Required | Description                                                                                                          |
+| -------- | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
+| classes  | string                 | false    | Classes to add to the component                                                                                      |
+| titleTag | string                 | false    | The HTML heading tag to wrap the title text in for it’s correct semantic order on the page. Will default to an `h2`. |
+| items    | array`<TimelineItems>` | true     | An array of [timeline items](#timelineitems)                                                                         |
 
 ## TimelineItems
 
