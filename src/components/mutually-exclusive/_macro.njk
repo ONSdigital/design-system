@@ -7,6 +7,7 @@
     {# Resolves caller issue in Jinja: https://github.com/pallets/jinja/issues/371 #}
     {% set content = caller() %}
     {% set exclusiveOptionsLength = params.exclusiveOptions | length %}
+    {% set or = params.or | default("Or") %}
 
     {% call onsFieldset({
         "id": params.id,
@@ -26,7 +27,7 @@
             {% endif %}
             {% if exclusiveOptionsLength == 1 %}
                 <p class="ons-checkboxes--mutually-exclusive__item ons-u-mt-s">
-                    <span class="ons-checkboxes__label ons-u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
+                    <span class="ons-checkboxes__label ons-u-fs-r--b" aria-hidden="true">{{ or }}</span>
                     {{
                         onsCheckbox({
                             "id": params.exclusiveOptions[0].id,
@@ -38,7 +39,7 @@
                             "deselectMessage": params.deselectMessage,
                             "inputClasses": "ons-js-exclusive-option",
                             "label": {
-                                "text": '<span class="ons-u-vh">' + params.or + ', </span> ' + params.exclusiveOptions[0].label.text,
+                                "text": '<span class="ons-u-vh">' + or + ', </span> ' + params.exclusiveOptions[0].label.text,
                                 "description": params.exclusiveOptions[0].label.description
                             }
                         })
@@ -46,7 +47,7 @@
                 </p>
             {% elif exclusiveOptionsLength > 1 %}
                 <p class="ons-checkboxes--mutually-exclusive__item ons-u-mt-s">
-                    <span class="ons-checkboxes__label ons-u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
+                    <span class="ons-checkboxes__label ons-u-fs-r--b" aria-hidden="true">{{ or }}</span>
                     {{
                         onsRadios({
                             "dontWrap": true,
