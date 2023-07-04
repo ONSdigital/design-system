@@ -5,10 +5,11 @@
     display: inline-block;
     font-size: 1rem;
     margin-top: 0;
+    min-width: 3.2rem;
     vertical-align: top;
 
     &:not(:last-child) {
-      margin-right: 1rem;
+      margin-right: 0.5rem;
     }
   }
 }
