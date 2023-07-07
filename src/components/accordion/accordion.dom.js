@@ -1,7 +1,7 @@
 import domready from '../../js/domready';
 
 async function initialiseAccordions() {
-  const toggleAllButtons = [...document.querySelectorAll('.ons-js-accordion-all')];
+  const toggleAllButtons = [...document.querySelectorAll('.ons-accordion__toggle-all')];
 
   if (toggleAllButtons.length) {
     const detailsComponents = [...document.querySelectorAll('.ons-js-details')];

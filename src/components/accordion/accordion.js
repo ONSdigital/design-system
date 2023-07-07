@@ -3,7 +3,7 @@ export default class Accordion {
     this.openDetailsEls = 0;
 
     this.button = button;
-    this.buttonInner = button.querySelector('.ons-js-accordion-all-inner');
+    this.buttonInner = button.querySelector('.ons-accordion__toggle-all-inner');
     this.group = button.getAttribute('data-group');
     this.detailsEls = detailsEls.filter(details => details.group === this.group);
     this.totalDetailsEls = this.detailsEls.length;
