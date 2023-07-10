@@ -79,6 +79,19 @@ const EXAMPLE_INPUT_WITH_MUTUALLY_EXCLUSIVE_WITH_ERROR = {
   },
 };
 
+const EXAMPLE_INPUT_ACCESS_CODE = {
+  ...EXAMPLE_INPUT_MINIMAL,
+  postTextboxLinkText: 'Where to find your access code',
+  postTextboxLinkUrl: '#0',
+  label: {
+    text: 'Enter your 16-character access code',
+    description: 'Keep this code safe. You will need to enter it every time you access your study',
+  },
+  accessCode: {
+    securityMessage: 'Your personal information is protected by law and will be kept confidential',
+  },
+};
+
 describe('macro: input', () => {
   it('passes jest-axe checks', async () => {
     const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_WITH_LABEL));
@@ -705,6 +718,158 @@ describe('macro: input', () => {
         error: EXAMPLE_INPUT_WITH_MUTUALLY_EXCLUSIVE_WITH_ERROR.error,
         autosuggestResults: 'RESULTS',
       });
+    });
+  });
+
+  describe('access-code-input', () => {
+    it('passes jest-axe checks', async () => {
+      const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_ACCESS_CODE));
+      const results = await axe($.html());
+      expect(results).toHaveNoViolations();
+    });
+
+    it('has the provided `id` attribute', () => {
+      const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_ACCESS_CODE));
+
+      expect($('#example-id').length).toBe(1);
+    });
+
+    it('has the provided `name` attribute', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          name: 'special-name',
+        }),
+      );
+
+      expect($('.ons-input').attr('name')).toBe('special-name');
+    });
+
+    it('has a default `type` of "text"', () => {
+      const $ = cheerio.load(renderComponent('input'));
+
+      expect($('.ons-input').attr('type')).toBe('text');
+    });
+
+    it('has the provided `type` attribute', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          type: 'number',
+        }),
+      );
+
+      expect($('.ons-input').attr('inputmode')).toBe('numeric');
+    });
+
+    it('has additionally provided style classes', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          classes: 'extra-class another-extra-class',
+          accessCode: {
+            securityMessage: 'security message',
+          },
+        }),
+      );
+
+      expect($('.ons-panel--info').hasClass('extra-class')).toBe(true);
+      expect($('.ons-panel--info').hasClass('another-extra-class')).toBe(true);
+    });
+
+    it('has provided label text and description', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          label: {
+            text: 'Enter your 16-character access code',
+            description: 'Keep this code safe. You will need to enter it every time you access your study',
+          },
+        }),
+      );
+
+      expect($('.ons-label--with-description').text()).toBe('Enter your 16-character access code');
+      expect($('.ons-input--with-description').text()).toBe(
+        'Keep this code safe. You will need to enter it every time you access your study',
+      );
+    });
+
+    it('has provided maximum length attribute including spaces required for groupSize', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          maxLength: 6,
+          accessCode: {
+            groupSize: 3,
+          },
+        }),
+      );
+
+      expect($('.ons-input').attr('maxlength')).toBe('7');
+    });
+
+    it('has provided group size attribute', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          accessCode: {
+            groupSize: 2,
+          },
+        }),
+      );
+
+      expect($('.ons-input').attr('data-group-size')).toBe('2');
+    });
+
+    it('has autocomplete disabled on its text input', () => {
+      const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_ACCESS_CODE));
+
+      expect($('.ons-input').attr('autocomplete')).toBe('off');
+    });
+
+    it('has automatic capitalization on its text input', () => {
+      const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_ACCESS_CODE));
+
+      expect($('.ons-input').attr('autocapitalize')).toBe('characters');
+    });
+
+    it('has provided security message text', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          accessCode: {
+            securityMessage: 'Example security message.',
+          },
+        }),
+      );
+
+      expect(
+        $('.ons-panel__body')
+          .text()
+          .trim(),
+      ).toBe('Example security message.');
+    });
+
+    it('has provided `postTextBoxLinkText` and `postTextBoxLinkUrl`', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          postTextboxLinkText: 'Example link text',
+          postTextboxLinkUrl: '#3',
+        }),
+      );
+
+      expect(
+        $('a[href="#3"]')
+          .text()
+          .trim(),
+      ).toBe('Example link text');
+    });
+
+    it('has provided `error` output', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          error: {
+            id: 'access-code-error',
+            text: 'Enter an access code',
+          },
+        }),
+      );
+
+      expect($('#access-code-error').length).toBe(1);
+      expect($('.ons-panel__error > strong').text()).toBe('Enter an access code');
     });
   });
 });

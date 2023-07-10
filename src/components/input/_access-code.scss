@@ -1,0 +1,29 @@
+.ons-access-code {
+  &__input {
+    font-family: $font-mono !important;
+    font-weight: $font-weight-bold;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    width: 15.1em;
+
+    @media all and (min-width: 375px) {
+      font-size: 20px !important;
+      width: 15.1em !important;
+    }
+
+    @media all and (max-width: 374px) {
+      letter-spacing: 0;
+      max-width: 12.6em !important;
+    }
+
+    @media all and (max-width: 299px) {
+      max-width: 100%;
+    }
+
+    @include mq('s') {
+      font-size: 24px !important;
+      max-width: 14.9em;
+      width: 14.9em !important;
+    }
+  }
+}

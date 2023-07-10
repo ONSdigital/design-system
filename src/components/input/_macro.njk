@@ -4,6 +4,7 @@
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/label/_macro.njk" import onsLabel %}
     {% from "components/button/_macro.njk" import onsButton %}
+    {% from "components/panel/_macro.njk" import onsPanel %}
 
     {% if params.type == "number" %}
         {# Type must be "text" or Firefox and Safari will set a blank value to the server if non numeric characters are entered -
@@ -21,12 +22,15 @@
 
     {% set exclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
     {% set inputPlaceholder = ' ons-input--placeholder' if params.accessiblePlaceholder else "" %}
+    {% set groupSize = params.accessCode.groupSize | default(4) %}
+    {% set extraSpaces = (params.maxLength | default(16) / groupSize) - 1 %}
+    {% set maxlength = params.maxLength | default(16) + extraSpaces %}
 
     {% set input %}
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="ons-input ons-input--text ons-input-type__input{% if params.error %} ons-input--error{% endif %}{% if params.searchButton %} ons-search__input{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}{% if params.width %} ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            class="ons-input ons-input--text ons-input-type__input{% if params.error %} ons-input--error{% endif %}{% if params.searchButton %} ons-search__input{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}{% if params.width %} ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }} {{('ons-access-code__input ons-js-access-code' + ( ' ons-u-mb-xs' if params.postTextboxLinkText) if params.accessCode)}}"
             {% if params.prefix and params.prefix.id and not params.prefix.title %}aria-labelledby="{{ params.prefix.id }}"{% elif params.suffix and params.suffix.id and not params.suffix.title %}aria-labelledby="{{ params.suffix.id }}"{% endif %}
             {% if params.prefix and params.prefix.id %}aria-labelledby="{{ params.id }} {{ params.prefix.id }}"{% elif params.suffix and params.suffix.id %}aria-labelledby="{{ params.id }} {{ params.suffix.id }}"{% endif %}
             {% if params.name %}name="{{ params.name }}"{% endif %}
@@ -35,7 +39,7 @@
             {% if params.min %}min="{{ params.min }}"{% endif %}
             {% if params.max %}max="{{ params.max }}"{% endif %}
             {% if params.minLength %}minlength="{{ params.minLength }}"{% endif %}
-            {% if params.maxLength %}maxlength="{{ params.maxLength }}"{% endif %}
+            {% if params.maxLength %} {% if params.accessCode %} maxlength= "{{ maxlength }}"{% else %} maxlength = "{{params.maxLength}}"{% endif %}{% endif %}
             {% if pattern %}pattern="{{ pattern }}"{% endif %}
             {% if inputmode %}inputmode="{{ inputmode }}"{% endif %}
             {% if params.autocomplete %}autocomplete="{{ params.autocomplete }}"{% endif %}
@@ -44,6 +48,8 @@
             {% if params.charCheckLimit and params.charCheckLimit.charcheckCountdown %}data-char-check-countdown="true"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             {% if params.label and params.label.description %}{% if params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
+            {% if params.accessCode %} data-group-size="{{ groupSize }}"  autocapitalize="characters" autocomplete="off" field-class="ons-question__answer"{% endif %}
+            
         />
         {% if params.listeners %}
             <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
@@ -57,6 +63,8 @@
         {% endif %}
     {% endset %}
     {% set field %}
+    {# {% if params.accessCode %}class="ons-question__answer"{% endif %}
+        {% set fieldClasses="ons-question__answer"  if params.accessCode %} #}
         {% if params.label and params.label.text %}
             {{ onsLabel({
                 "for": params.id,
@@ -123,6 +131,27 @@
                     })
                 }}
             </span>
+        {% elif params.accessCode %}
+            {% if not params.error %}
+                {% call onsPanel({
+                    "classes": "ons-u-mb-s" + (' ' + params.classes if params.classes else '')
+                    }) 
+                %}
+                    {{ input | safe }}
+                {% endcall %}
+            {% else %}
+                {{ input | safe }}
+            {% endif %}
+
+            {% if params.accessCode.securityMessage %}
+                {% call onsPanel({
+                    "type": "bare",
+                    "iconType": "lock",
+                    "classes": "ons-u-mb-s"
+                }) %}
+                    {{ params.accessCode.securityMessage }}
+                {% endcall %}
+            {% endif %}
         {% else %}
             {{ input | safe }}
         {% endif %}
@@ -171,7 +200,7 @@
     {% else %}
         {% call onsField({
             "id": params.fieldId,
-            "classes": params.fieldClasses,
+            "classes": params.fieldClasses //"ons-question__answer" if params.accessCode else params.fieldClasses,
             "dontWrap": params.dontWrap,
             "error": params.error,
             "inline": params.label.inline if params.label else ''
