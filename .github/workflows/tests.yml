@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Read .nvmrc file
-        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Read .nvmrc file
+        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
       - name: Install Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v1
         with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+          node-version: "${{ steps.read-nvmrc-file.outputs.nvmrc }}"
       - name: Install dependencies
         run: yarn install
       - name: Run macro and script tests
