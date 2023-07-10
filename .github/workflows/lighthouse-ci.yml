@@ -11,7 +11,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Read .nvmrc file
-        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        run: echo echo "{NVMRC}={$(cat .nvmrc)}" >> $GITHUB_OUTPUT
         id: nvm
       - name: Install Node
         uses: actions/setup-node@v1
