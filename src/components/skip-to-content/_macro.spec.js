@@ -26,7 +26,7 @@ describe('macro: skip-to-content', () => {
       }),
     );
 
-    expect($('.ons-skip-link')[0].tagName).toBe('a');
+    expect($('.ons-skip-to-content')[0].tagName).toBe('a');
   });
 
   it('has skip link with the provided `url`', async () => {
@@ -37,7 +37,7 @@ describe('macro: skip-to-content', () => {
       }),
     );
 
-    expect($('.ons-skip-link').attr('href')).toBe('#example-anchor');
+    expect($('.ons-skip-to-content').attr('href')).toBe('#example-anchor');
   });
 
   it('has skip link with the provided `text`', async () => {
@@ -49,7 +49,7 @@ describe('macro: skip-to-content', () => {
     );
 
     expect(
-      $('.ons-skip-link')
+      $('.ons-skip-to-content')
         .text()
         .trim(),
     ).toBe('Skip to the content');
@@ -63,7 +63,7 @@ describe('macro: skip-to-content', () => {
     );
 
     expect(
-      $('.ons-skip-link')
+      $('.ons-skip-to-content')
         .text()
         .trim(),
     ).toBe('Skip to content');
