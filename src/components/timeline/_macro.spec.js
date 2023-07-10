@@ -73,6 +73,14 @@ describe('macro: timeline', () => {
     expect($firstItem.html().includes('h3')).toBe(true);
   });
 
+  it('has a provided ons-timeline__content class, wrapping the content', () => {
+    const $ = cheerio.load(renderComponent('timeline', EXAMPLE_TIMELINE));
+
+    const $content = $('.ons-timeline__content');
+
+    expect($content.length).toBe(3);
+  });
+
   it('has the provided inner item list', () => {
     const faker = templateFaker();
     const listSpy = faker.spy('list');

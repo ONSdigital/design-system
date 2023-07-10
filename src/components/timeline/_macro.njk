@@ -10,6 +10,7 @@
             <{{ titleTag }} class="ons-timeline__heading">{{ item.heading }}</{{ titleTag }}>
 
             {% if item.itemsList %}
+            <div class="ons-timeline__content">
 
                 {{
                     onsList({
@@ -17,11 +18,13 @@
                         "itemsList": item.itemsList
                     })
                 }}
-
+            </div>
             {% else %}
+            <div class="ons-timeline__content">
 
                 {{ item.content | safe }}
 
+            </div>
             {% endif %}
 
         </div>
