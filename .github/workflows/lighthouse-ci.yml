@@ -11,12 +11,12 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Read .nvmrc file
-        run: echo echo "{NVMRC}={$(cat .nvmrc)}" >> $GITHUB_OUTPUT
-        id: nvm
+        id: read-nvmrc-file
+        run: echo "nvmrc=$(cat .nvmrc)" >> $GITHUB_OUTPUT
       - name: Install Node
         uses: actions/setup-node@v1
         with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+          node-version: "${{ steps.read-nvmrc-file.outputs.nvmrc }}"
       - name: Install dependencies
         run: yarn install
       - name: Build pages

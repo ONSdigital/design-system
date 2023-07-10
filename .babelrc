@@ -1,9 +1,9 @@
 {
     "presets": [
-        ["@babel/preset-env", {
-            "targets": {
-                "node": "16"
+        [
+            "@babel/preset-env", {
+                "targets": "process.versions.node"
             }
-        }]
+        ]
     ]
 }
