@@ -5,28 +5,24 @@
     <div class="ons-timeline{{ ' ' + params.classes if params.classes else '' }}">
         {% set titleTag = params.titleTag | default("h2") %}
         {% for item in params.items %}
-        <div class="ons-timeline__item">
-
-            <{{ titleTag }} class="ons-timeline__heading">{{ item.heading }}</{{ titleTag }}>
-
-            {% if item.itemsList %}
-
-                {{
-                    onsList({
-                        "variants": 'bare',
-                        "itemsList": item.itemsList
-                    })
-                }}
-
-            {% else %}
-
-                {{ item.content | safe }}
-
-            {% endif %}
-
-        </div>
+            <div class="ons-timeline__item">
+                <{{ titleTag }} class="ons-timeline__heading">{{ item.heading }}</{{ titleTag }}>
+                {% if item.itemsList %}
+                    <div class="ons-timeline__content">
+                        {{
+                            onsList({
+                                "variants": 'bare',
+                                "itemsList": item.itemsList
+                            })
+                        }}
+                    </div>
+                {% elif item.content %}
+                    <div class="ons-timeline__content">
+                        {{ item.content | safe }}
+                    </div>
+                {% endif %}
+            </div>
         {% endfor %}
-
     </div>
 
 {% endmacro %}
