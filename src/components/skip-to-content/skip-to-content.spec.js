@@ -15,7 +15,7 @@ describe('script: skip-to-content', () => {
   it('sets `tabIndex` of target element to -1', async () => {
     await setTestPage('/test', EXAMPLE_SKIP_TO_LINK_TEMPLATE);
 
-    await page.focus('.ons-skip-link');
+    await page.focus('.ons-skip-to-content');
     await page.keyboard.press('Enter');
 
     const targetTabIndex = await page.$eval('#target-element', el => el.tabIndex);
@@ -25,7 +25,7 @@ describe('script: skip-to-content', () => {
   it('removes outline from target element on navigate', async () => {
     await setTestPage('/test', EXAMPLE_SKIP_TO_LINK_TEMPLATE);
 
-    await page.focus('.ons-skip-link');
+    await page.focus('.ons-skip-to-content');
     await page.keyboard.press('Enter');
 
     const targetOutline = await page.$eval('#target-element', el => el.style.outline);
@@ -35,7 +35,7 @@ describe('script: skip-to-content', () => {
   it('focuses target element on navigate', async () => {
     await setTestPage('/test', EXAMPLE_SKIP_TO_LINK_TEMPLATE);
 
-    await page.focus('.ons-skip-link');
+    await page.focus('.ons-skip-to-content');
     await page.keyboard.press('Enter');
 
     const focusedElementId = await page.evaluate(() => document.activeElement.id);
