@@ -58,62 +58,62 @@ describe('macro: breadcrumbs', () => {
   it('has additionally provided style classes', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    expect($('.ons-breadcrumb').hasClass('extra-class')).toBe(true);
-    expect($('.ons-breadcrumb').hasClass('another-extra-class')).toBe(true);
+    expect($('.ons-breadcrumbs').hasClass('extra-class')).toBe(true);
+    expect($('.ons-breadcrumbs').hasClass('another-extra-class')).toBe(true);
   });
 
   it('has a default `aria-label` of "Breadcrumbs"', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_MINIMAL));
 
-    expect($('.ons-breadcrumb').attr('aria-label')).toBe('Breadcrumbs');
+    expect($('.ons-breadcrumbs').attr('aria-label')).toBe('Breadcrumbs');
   });
 
   it('has the provided `ariaLabel` for `aria-label`', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    expect($('.ons-breadcrumb').attr('aria-label')).toBe('Breadcrumbs label');
+    expect($('.ons-breadcrumbs').attr('aria-label')).toBe('Breadcrumbs label');
   });
 
   it('has the provided `id`', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    expect($('.ons-breadcrumb').attr('id')).toBe('example-breadcrumbs');
+    expect($('.ons-breadcrumbs').attr('id')).toBe('example-breadcrumbs');
   });
 
   it('has additionally provided style classes on `item` element', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    expect($('.ons-breadcrumb__item:first').hasClass('item-extra-class')).toBe(true);
-    expect($('.ons-breadcrumb__item:first').hasClass('item-another-extra-class')).toBe(true);
+    expect($('.ons-breadcrumbs__item:first').hasClass('item-extra-class')).toBe(true);
+    expect($('.ons-breadcrumbs__item:first').hasClass('item-another-extra-class')).toBe(true);
   });
 
   it('has additionally provided style classes on `link` element', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    expect($('.ons-breadcrumb__link:first').hasClass('link-extra-class')).toBe(true);
-    expect($('.ons-breadcrumb__link:first').hasClass('link-another-extra-class')).toBe(true);
+    expect($('.ons-breadcrumbs__link:first').hasClass('link-extra-class')).toBe(true);
+    expect($('.ons-breadcrumbs__link:first').hasClass('link-another-extra-class')).toBe(true);
   });
 
   it('has provided `url` on `link` elements', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    const urls = mapAll($('.ons-breadcrumb__link'), node => node.attr('href'));
+    const urls = mapAll($('.ons-breadcrumbs__link'), node => node.attr('href'));
     expect(urls).toEqual(['https://example.com/', 'https://example.com/guide/']);
   });
 
   it('has provided `text` on `link` elements', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    const labels = mapAll($('.ons-breadcrumb__link'), node => node.text().trim());
+    const labels = mapAll($('.ons-breadcrumbs__link'), node => node.text().trim());
     expect(labels).toEqual(['Home', 'Guide']);
   });
 
   it('has provided `attributes` on `link` elements', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    const testValuesA = mapAll($('.ons-breadcrumb__link'), node => node.attr('data-a'));
+    const testValuesA = mapAll($('.ons-breadcrumbs__link'), node => node.attr('data-a'));
     expect(testValuesA).toEqual(['123', '789']);
-    const testValuesB = mapAll($('.ons-breadcrumb__link'), node => node.attr('data-b'));
+    const testValuesB = mapAll($('.ons-breadcrumbs__link'), node => node.attr('data-b'));
     expect(testValuesB).toEqual(['456', 'ABC']);
   });
 

@@ -1265,11 +1265,11 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                 
                                     
                                     
-    <nav class=\\"ons-breadcrumb\\" aria-label=\\"Breadcrumbs\\">
-        <ol class=\\"ons-breadcrumb__items ons-u-fs-s\\">
+    <nav class=\\"ons-breadcrumbs\\" aria-label=\\"Breadcrumbs\\">
+        <ol class=\\"ons-breadcrumbs__items ons-u-fs-s\\">
             
-                <li class=\\"ons-breadcrumb__item\\" id=\\"breadcrumb-1\\">
-                    <a class=\\"ons-breadcrumb__link\\" href=\\"/\\">Home</a>
+                <li class=\\"ons-breadcrumbs__item\\" id=\\"breadcrumb-1\\">
+                    <a class=\\"ons-breadcrumbs__link\\" href=\\"/\\">Home</a>
                     
 
     
@@ -1283,8 +1283,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
                 </li>
             
-                <li class=\\"ons-breadcrumb__item\\" id=\\"breadcrumb-2\\">
-                    <a class=\\"ons-breadcrumb__link\\" href=\\"/components\\">Components</a>
+                <li class=\\"ons-breadcrumbs__item\\" id=\\"breadcrumb-2\\">
+                    <a class=\\"ons-breadcrumbs__link\\" href=\\"/components\\">Components</a>
                     
 
     
