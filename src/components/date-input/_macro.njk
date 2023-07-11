@@ -57,7 +57,8 @@
                     "description": params.month.label.description if numberOfFields > 1 else params.description,
                     "id": params.id + "-month-label"
                 },
-                "value": params.month.value
+                "value": params.month.value,
+                "error": params.error if params.month > params.max
             }) }}
         {% endif %}
 
@@ -77,7 +78,7 @@
                     "description": params.year.label.description if numberOfFields > 1 else params.description,
                     "id": params.id + "-year-label"
                 },
-                "value": params.year.value
+                "value": params.year.value,
             }) }}
         {% endif %}
     {% endset %}
