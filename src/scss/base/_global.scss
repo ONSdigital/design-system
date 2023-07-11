@@ -61,7 +61,7 @@ a {
     color: var(--ons-color-text-link-hover);
     text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
   }
-  &:focus:not(.ons-btn--link):not(.ons-btn--ghost):not(.ons-js-clear-btn):not(.ons-download__thumbnail--link):not(.ons-tab--row):not(.ons-skip-link) {
+  &:focus:not(.ons-btn--link):not(.ons-btn--ghost):not(.ons-js-clear-btn):not(.ons-download__thumbnail--link):not(.ons-tab--row):not(.ons-skip-to-content) {
     @extend %a-focus;
   }
 }
