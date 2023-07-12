@@ -200,7 +200,7 @@ describe('macro: button', () => {
       }),
     );
 
-    expect($('.ons-svg-icon + .ons-btn__text').text()).toBe('Click me!');
+    expect($('.ons-icon + .ons-btn__text').text()).toBe('Click me!');
   });
 
   it('has custom icon after button text', () => {
@@ -213,7 +213,7 @@ describe('macro: button', () => {
     );
 
     expect(
-      $('.ons-btn__text + .ons-svg-icon')
+      $('.ons-btn__text + .ons-icon')
         .prev()
         .text(),
     ).toBe('Click me!');

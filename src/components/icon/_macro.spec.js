@@ -86,7 +86,7 @@ describe('macro: icon', () => {
         }),
       );
 
-      expect($('svg').hasClass('ons-svg-icon--xxl')).toBe(true);
+      expect($('svg').hasClass('ons-icon--xxl')).toBe(true);
     });
   });
 

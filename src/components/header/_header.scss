@@ -79,10 +79,10 @@
   &--neutral & {
     &__top {
       background: var(--ons-color-header-masthead-internal);
-      .ons-svg-logo {
+      .ons-icon--logo {
         display: block;
-        .ons-svg-logo__group--text,
-        .ons-svg-logo__group--primary {
+        .ons-icon--logo__group--text,
+        .ons-icon--logo__group--primary {
           fill: var(--ons-color-white);
         }
       }
@@ -91,7 +91,7 @@
       background-color: transparent;
       box-shadow: none;
       outline: 3px solid var(--ons-color-focus);
-      .ons-svg-logo {
+      .ons-icon--logo {
         fill: var(--ons-color-text-link-focus);
       }
     }
@@ -140,7 +140,7 @@
     }
   }
 
-  .ons-svg-logo {
+  .ons-icon--logo {
     display: block;
   }
 
@@ -155,9 +155,9 @@
 
   &__org-logo-link {
     &:focus {
-      .ons-svg-logo {
+      .ons-icon--logo {
         fill: var(--ons-color-black) !important;
-        .ons-svg-logo__group {
+        .ons-icon--logo__group {
           fill: var(--ons-color-black) !important;
         }
       }
@@ -207,7 +207,7 @@
       &:first-child {
         margin-left: 0;
       }
-      .ons-svg-icon {
+      .ons-icon {
         clip-path: circle(9px at center);
         margin-right: 0.5rem;
       }

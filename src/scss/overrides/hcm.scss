@@ -3,7 +3,7 @@
   // Brightness makes all images black, except transparent parts, which remain transparent
   // Then, invert(1) makes the black parts white
   .ons-footer__ogl-img,
-  .ons-quote .ons-svg-icon,
+  .ons-quote .ons-icon,
   .ons-footer img {
     filter: brightness(0) invert(1);
   }
@@ -36,7 +36,7 @@
   // Select - Overrides custom background image icon
   .ons-input--select {
     background: var(--ons-color-input-bg)
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ons-svg-icon' viewBox='0 0 12 8'%3E%3Cpath fill='%23fff' d='M1.5.3 6 5.4 10.5.3c.2-.2.4-.2.6 0l.7.7c.1.2.1.4 0 .5L6.3 7.7c-.2.2-.4.2-.6 0L.2 1.6C.1 1.4.1 1.2.2 1L.9.3c.2-.1.4-.1.6 0z'/%3E%3C/svg%3E")
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ons-icon' viewBox='0 0 12 8'%3E%3Cpath fill='%23fff' d='M1.5.3 6 5.4 10.5.3c.2-.2.4-.2.6 0l.7.7c.1.2.1.4 0 .5L6.3 7.7c-.2.2-.4.2-.6 0L.2 1.6C.1 1.4.1 1.2.2 1L.9.3c.2-.1.4-.1.6 0z'/%3E%3C/svg%3E")
       no-repeat center right 10px;
     background-size: 1rem;
   }
@@ -53,7 +53,7 @@
   .ons-btn__inner,
   .ons-external-link,
   .ons-list--icons {
-    & .ons-svg-icon {
+    & .ons-icon {
       fill: currentColor !important;
       forced-color-adjust: auto;
     }
@@ -63,7 +63,7 @@
   .ons-header__org-logo,
   .ons-header__title-logo,
   .ons-footer {
-    & .ons-svg-logo {
+    & .ons-icon--logo {
       fill: currentColor !important;
       forced-color-adjust: auto;
     }
