@@ -150,13 +150,13 @@ describe('macro: access-code', () => {
     const $ = cheerio.load(
       renderComponent('access-code', {
         error: {
-          id: 'uac-error',
+          id: 'access-code-error',
           text: 'Enter an access code',
         },
       }),
     );
 
-    expect($('#uac-error').length).toBe(1);
+    expect($('#access-code-error').length).toBe(1);
     expect($('.ons-panel__error > strong').text()).toBe('Enter an access code');
   });
 });

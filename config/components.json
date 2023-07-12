@@ -1,6 +1,6 @@
 {
   "access-code": {
-    "macroName": "onsUACInput"
+    "macroName": "onsAccessCode"
   },
   "char-check-limit": {
     "macroName": "onsCharLimit"
