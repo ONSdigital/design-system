@@ -53,6 +53,21 @@ const EXAMPLE_YEAR_FIELD = {
   },
 };
 
+const EXAMPLE_YEAR_FIELD_WITH_ERROR = {
+  year: {
+    label: {
+      text: 'Year',
+      description: 'The year',
+    },
+    value: 'Year',
+    error: true,
+    name: 'year',
+    attributes: {
+      autocomplete: 'bday-year',
+    },
+  },
+};
+
 const EXAMPLE_DATE_SINGLE_FIELD = {
   ...EXAMPLE_DATE_INPUT_BASE,
   ...EXAMPLE_YEAR_FIELD,
@@ -63,6 +78,13 @@ const EXAMPLE_DATE_MULTIPLE_FIELDS = {
   ...EXAMPLE_DAY_FIELD,
   ...EXAMPLE_MONTH_FIELD,
   ...EXAMPLE_YEAR_FIELD,
+};
+
+const EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_SINGLE_ERROR = {
+  ...EXAMPLE_DATE_INPUT_BASE,
+  ...EXAMPLE_DAY_FIELD,
+  ...EXAMPLE_MONTH_FIELD,
+  ...EXAMPLE_YEAR_FIELD_WITH_ERROR,
 };
 
 describe('macro: date input', () => {
@@ -280,6 +302,21 @@ describe('macro: date input', () => {
       expect(errorSpy.occurrences[0]).toEqual({
         text: 'Enter a date that is after 1 January 2019',
       });
+    });
+  });
+
+  describe('mode: multiple fields with single field error', () => {
+    it('passes jest-axe checks', async () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_SINGLE_ERROR));
+
+      const results = await axe($.html());
+      expect(results).toHaveNoViolations();
+    });
+
+    it('has the correct class on each input', async () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_SINGLE_ERROR));
+
+      expect($('.ons-input__error')).toBe(true);
     });
   });
 });
