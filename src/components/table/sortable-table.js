@@ -29,7 +29,7 @@ export default class TableSort {
   createHeadingButtons(heading, i) {
     const text = heading.textContent.trim();
     heading.querySelector('.ons-table__header-text').remove();
-    heading.querySelector('.ons-svg-icon').classList.remove('ons-u-d-no');
+    heading.querySelector('.ons-icon').classList.remove('ons-u-d-no');
     const button = document.createElement('button');
     button.setAttribute('aria-label', this.table.getAttribute('data-aria-sort') + ' ' + text);
     button.setAttribute('type', 'button');

@@ -1,6 +1,6 @@
 $breadcrumb-chevron-height: 0.65rem;
 
-.ons-breadcrumb {
+.ons-breadcrumbs {
   align-items: center;
   display: flex;
   padding: 1rem 0;
@@ -20,7 +20,7 @@ $breadcrumb-chevron-height: 0.65rem;
       display: none;
     }
 
-    .ons-svg-icon {
+    .ons-icon {
       height: $breadcrumb-chevron-height;
       margin: 0 0.2rem;
       vertical-align: middle;
@@ -30,7 +30,7 @@ $breadcrumb-chevron-height: 0.65rem;
     &:nth-last-child(1) {
       // small screen last child
       direction: rtl;
-      .ons-svg-icon {
+      .ons-icon {
         margin-left: -0.13rem;
         transform: rotate(180deg);
       }
@@ -46,7 +46,7 @@ $breadcrumb-chevron-height: 0.65rem;
       &:nth-last-child(1) {
         // last child
         direction: ltr;
-        .ons-svg-icon {
+        .ons-icon {
           display: none;
         }
       }
@@ -54,13 +54,13 @@ $breadcrumb-chevron-height: 0.65rem;
       &:first-child:nth-last-child(1) {
         //first and last child
         direction: rtl;
-        .ons-svg-icon {
+        .ons-icon {
           display: inline-block;
           vertical-align: middle;
         }
       }
 
-      &:not(:last-child).ons-svg-icon {
+      &:not(:last-child).ons-icon {
         //not last child
         margin: 0;
 

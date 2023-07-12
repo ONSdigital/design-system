@@ -155,7 +155,7 @@
 
   &--sortable {
     [aria-sort='descending'].ons-table__header {
-      .ons-svg-icon {
+      .ons-icon {
         .ons-topTriangle {
           fill: var(--ons-color-grey-15);
         }
@@ -164,7 +164,7 @@
         }
       }
       .ons-table__sort-button:focus {
-        .ons-svg-icon {
+        .ons-icon {
           .ons-topTriangle {
             fill: #e3ba02;
           }
@@ -173,7 +173,7 @@
     }
 
     [aria-sort='ascending'].ons-table__header {
-      .ons-svg-icon {
+      .ons-icon {
         .ons-topTriangle {
           fill: var(--ons-color-text);
         }
@@ -182,7 +182,7 @@
         }
       }
       .ons-table__sort-button:focus {
-        .ons-svg-icon {
+        .ons-icon {
           .ons-bottomTriangle {
             fill: #e3ba02;
           }
@@ -210,7 +210,7 @@
           text-underline-position: under;
         }
 
-        .ons-svg-icon {
+        .ons-icon {
           fill: var(--ons-color-grey-75);
           height: 16px;
           margin-left: 0.2rem;
@@ -220,7 +220,7 @@
 
         &:focus {
           @extend %a-focus;
-          .ons-svg-icon {
+          .ons-icon {
             fill: var(--ons-color-black);
           }
         }
