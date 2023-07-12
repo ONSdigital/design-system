@@ -13,7 +13,7 @@ describe('getComponentInfo(componentName)', () => {
   it('gets information about a component that has explicit configuration', () => {
     const info = helper.getComponentInfo('access-code');
 
-    expect(info.macroName).toBe('onsUACInput');
+    expect(info.macroName).toBe('onsAccessCode');
   });
 });
 
@@ -30,7 +30,7 @@ describe('getMacroName(componentName)', () => {
   it('gets name of a component that has explicit configuration', () => {
     const macroName = helper.getMacroName('access-code');
 
-    expect(macroName).toBe('onsUACInput');
+    expect(macroName).toBe('onsAccessCode');
   });
 });
 

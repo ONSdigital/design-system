@@ -1,7 +1,7 @@
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-{% macro onsUACInput(params) %}
+{% macro onsAccessCode(params) %}
     {% set groupSize = params.groupSize | default(4) %}
     {% set extraSpaces = (params.maxlength | default(16) / groupSize) - 1 %}
     {% set maxlength = params.maxlength | default(16) + extraSpaces %}
@@ -11,7 +11,7 @@
             "id": params.id,
             "type": params.type,
             "name": params.name,
-            "classes": "ons-uac__input ons-js-uac" + (" ons-u-mb-xs" if params.postTextboxLinkText else ""),
+            "classes": "ons-access-code__input ons-js-access-code" + (" ons-u-mb-xs" if params.postTextboxLinkText else ""),
             "label": params.label,
             "attributes": {
                 "maxlength": maxlength,
