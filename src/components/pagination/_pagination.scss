@@ -44,6 +44,14 @@ $pagination-item-width: 2.5rem;
     box-shadow: none;
     display: block;
     padding: $pagination-item-padding;
+    text-decoration: none;
+
+    &-text {
+      display: inline-block;
+      vertical-align: middle;
+
+      @extend .ons-u-fs-r--b;
+    }
 
     &:focus {
       border-radius: 0;
