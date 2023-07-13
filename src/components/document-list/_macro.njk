@@ -50,10 +50,8 @@
 
                                     {%- if document.metadata.date %}
                                         <li class="ons-document-list__item-attribute">
-                                            {% if document.metadata.date -%}
-                                                {% set prefixClasses = "ons-u-fw-b" if document.metadata.date.showPrefix == true else "ons-u-vh" %}
-                                                <span class="{{ prefixClasses }}">{{ document.metadata.date.prefix | default("Published") }}: </span>
-                                            {%- endif -%}
+                                            {% set prefixClasses = "ons-u-fw-b" if document.metadata.date.showPrefix == true else "ons-u-vh" %}
+                                            <span class="{{ prefixClasses }}">{{ document.metadata.date.prefix | default("Published") }}: </span>
                                             {% if document.metadata.date.iso -%}
                                                 <time datetime="{{ document.metadata.date.iso }}">{{ document.metadata.date.short }}</time>
                                             {%- endif %}
