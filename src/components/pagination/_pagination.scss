@@ -47,10 +47,10 @@ $pagination-item-width: 2.5rem;
     text-decoration: none;
 
     &-text {
+      @extend .ons-u-fs-r--b;
+
       display: inline-block;
       vertical-align: middle;
-
-      @extend .ons-u-fs-r--b;
     }
 
     &:focus {
