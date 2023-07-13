@@ -2,9 +2,9 @@
     <ul{% if params.id %} id="{{ params.id }}"{% endif %} class="ons-document-list{{ ' ' + params.classes if params.classes else '' }}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
         {% for document in params.documents %}
 
-        <li class="ons-document-list__item{{ ' ons-document-list__item--featured' if document.featured }}{{ ' ons-document-list__item--full-width' if document.fullWidth == true }}{{ ' ' + document.classes if document.classes else '' }}"{% if document.attributes %}{% for attribute, value in (document.attributes.items() if document.attributes is mapping and document.attributes.items else document.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
+        <li class="ons-document-list__item{{ ' ons-document-list__item--featured' if document.featured }}{{ ' ons-document-list__item--full-width' if document.featured and document.fullWidth == true }}{{ ' ' + document.classes if document.classes else '' }}"{% if document.attributes %}{% for attribute, value in (document.attributes.items() if document.attributes is mapping and document.attributes.items else document.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
 
-            {% if document.fullWidth == true %}
+            {% if document.featured and document.fullWidth == true %}
 
                 <div class="ons-container{{ ' ons-container--wide' if document.wide == true }}">
 
@@ -99,7 +99,7 @@
 
                     </div>
 
-            {% if document.fullWidth == true %}
+            {% if document.featured and document.fullWidth == true %}
 
                 </div>
 
