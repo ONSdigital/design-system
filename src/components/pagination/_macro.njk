@@ -23,8 +23,8 @@
                 <li class="ons-pagination__item ons-pagination__item--previous">
                     <a href="{{ params.pages[prevPageIndex].url }}" class="ons-pagination__link" rel="prev" aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})">
                         {{ onsIcon({
-                            "iconType": "arrow-previous",
-                            "classes": "ons-u-mr-xs",
+                            "iconType": 'arrow-previous',
+                            "classes": 'ons-u-mr-xs',
                             "iconSize": 'm'
                         }) }}
                         <span class="ons-pagination__link-text">{{ params.previous | default("Previous") }}</span>
@@ -78,8 +78,8 @@
                     <a href="{{ params.pages[currentPageIndex].url }}" class="ons-pagination__link" rel="next" aria-label="Go to the next page (Page {{ currentPageIndex + 1 }})">
                         <span class="ons-pagination__link-text">{{ params.next | default("Next") }}</span>
                         {{ onsIcon({
-                            "iconType": "arrow-next",
-                            "classes": "ons-u-ml-xs",
+                            "iconType": 'arrow-next',
+                            "classes": 'ons-u-ml-xs',
                             "iconSize": 'm'
                         }) }}
                     </a>
