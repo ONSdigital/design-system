@@ -7,13 +7,6 @@
     {% set firstPage = params.pages | first %}
     {% set prevPageIndex = currentPageIndex - 1 %}
     {% set nextPageIndex = currentPageIndex + 1 %}
-    {% set currentPageIndex = params.currentPageNumber|int %}
-    {% set totalPages = params.pages | length|int %}
-    {% set position = "Page " ~ currentPageIndex ~ " of " ~ totalPages %}
-    {% set lastPage = params.pages | last %}
-    {% set firstPage = params.pages | first %}
-    {% set prevPageIndex = currentPageIndex - 1 %}
-    {% set nextPageIndex = currentPageIndex + 1 %}
 
     <nav class="ons-pagination {{ params.classes }}{% if params.hideRangeIndicator %} ons-pagination--no-indicator{% endif %}" aria-label="Pagination ({{ position }})">
         <div class="ons-pagination__position">{{ position }}</div>
