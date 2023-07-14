@@ -39,12 +39,18 @@ $pagination-item-width: 2.5rem;
     min-width: $pagination-item-width;
   }
 
+  &__link--no-underline {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   &__link {
     border-radius: 3px;
     box-shadow: none;
     display: block;
     padding: $pagination-item-padding;
-    text-decoration: none;
 
     &-text {
       @extend .ons-u-fs-r--b;
