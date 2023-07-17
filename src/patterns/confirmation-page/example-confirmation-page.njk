@@ -1,0 +1,34 @@
+---
+title: "Example: Conformation page"
+layout: ~
+---
+{% extends "layout/_template.njk" %}
+
+{% set pageConfig = {
+        "header": {
+            "title": "Business Insights and Conditions Survey (BICS)"
+        },
+        "footer": {
+            "rows": [
+                {
+                    "itemsList": [
+                        {
+                            "text": "Accessibility",
+                            "url": "#0"
+                        },
+                        {
+                            "text": "Privacy",
+                            "url": "#0"
+                        }
+                    ]
+                }
+            ]
+        }
+    } 
+%}
+
+{% block main %}
+    <div class="ons-page__body">
+        
+    </div>
+{% endblock %}
