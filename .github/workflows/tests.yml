@@ -12,10 +12,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Read .nvmrc file
+        id: read-nvmrc-file
+        run: echo "nvmrc=$(cat .nvmrc)" >> $GITHUB_OUTPUT
       - name: Install Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v1
         with:
-          node-version: "14"
+          node-version: "${{ steps.read-nvmrc-file.outputs.nvmrc }}"
       - name: Install dependencies
         run: yarn install
       - name: Run macro and script tests
