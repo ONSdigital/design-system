@@ -130,7 +130,7 @@ describe('macro: navigation', () => {
         accessiblePlaceholder: true,
         autocomplete: 'off',
         id: 'ons-site-search',
-        containerClasses: 'ons-autosuggest-input--header',
+        containerClasses: 'ons-autosuggest--header',
         classes: 'ons-input-search ons-input-search--icon',
         label: {
           text: 'Search the design system',

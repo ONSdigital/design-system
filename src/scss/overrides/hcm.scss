@@ -15,17 +15,17 @@
   }
 
   // Adds some style adjustments to the focused item to make it obvious something is selected
-  .ons-autosuggest-input {
+  .ons-autosuggest {
     &__results {
       border: 1px solid Highlight !important;
     }
 
-    .ons-autosuggest-input__option {
+    .ons-autosuggest__option {
       &:focus,
       &:hover,
-      &:hover .ons-autosuggest-input__category,
+      &:hover .ons-autosuggest__category,
       &--focused,
-      &--focused .ons-autosuggest-input__category {
+      &--focused .ons-autosuggest__category {
         background: Highlight !important;
         color: HighlightText !important;
         forced-color-adjust: none;

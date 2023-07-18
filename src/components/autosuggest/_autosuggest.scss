@@ -1,4 +1,4 @@
-.ons-autosuggest-input {
+.ons-autosuggest {
   position: relative;
 
   &__combobox {
@@ -57,8 +57,8 @@
       border-color: var(--ons-color-text-link-hover);
       color: var(--ons-color-white);
 
-      .ons-autosuggest-input__group,
-      .ons-autosuggest-input__category {
+      .ons-autosuggest__group,
+      .ons-autosuggest__category {
         color: var(--ons-color-white);
       }
     }
@@ -67,8 +67,8 @@
       background: var(--ons-color-focus);
       color: var(--ons-color-text-link-focus);
 
-      .ons-autosuggest-input__group,
-      .ons-autosuggest-input__category {
+      .ons-autosuggest__group,
+      .ons-autosuggest__category {
         color: var(--ons-color-text-link-focus);
       }
     }
@@ -126,7 +126,7 @@
   }
 
   &--header {
-    .ons-autosuggest-input__results {
+    .ons-autosuggest__results {
       border: none;
       box-shadow: 0 0 5px 0 rgba(34, 34, 34, 0.6);
       left: 0;

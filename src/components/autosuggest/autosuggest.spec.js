@@ -88,7 +88,7 @@ describe('script: autosuggest', () => {
       await page.type('.ons-js-autosuggest-input', 'Unite', { delay: 20 });
       await page.keyboard.press('ArrowDown');
 
-      const selectedOption = await page.$eval('.ons-autosuggest-input__option--focused', node => node.textContent);
+      const selectedOption = await page.$eval('.ons-autosuggest__option--focused', node => node.textContent);
       expect(selectedOption.trim()).toBe('United States of America');
     });
 
@@ -99,7 +99,7 @@ describe('script: autosuggest', () => {
       await page.keyboard.press('ArrowDown');
       await page.keyboard.press('ArrowDown');
 
-      const selectedOption = await page.$eval('.ons-autosuggest-input__option--focused', node => node.textContent);
+      const selectedOption = await page.$eval('.ons-autosuggest__option--focused', node => node.textContent);
       expect(selectedOption.trim()).toBe('United States Virgin Islands');
     });
 
@@ -110,10 +110,10 @@ describe('script: autosuggest', () => {
       await page.keyboard.press('ArrowDown');
       await page.keyboard.press('ArrowDown');
 
-      const ariaSelectedValue = await page.$eval('.ons-autosuggest-input__option--focused', node => node.getAttribute('aria-selected'));
+      const ariaSelectedValue = await page.$eval('.ons-autosuggest__option--focused', node => node.getAttribute('aria-selected'));
       expect(ariaSelectedValue).toBe('true');
 
-      const selectedOptionId = await page.$eval('.ons-autosuggest-input__option--focused', node => node.getAttribute('id'));
+      const selectedOptionId = await page.$eval('.ons-autosuggest__option--focused', node => node.getAttribute('id'));
       const ariaActiveDescendant = await page.$eval('.ons-js-autosuggest-input', node => node.getAttribute('aria-activedescendant'));
       expect(ariaActiveDescendant).toBe(selectedOptionId);
     });
@@ -135,7 +135,7 @@ describe('script: autosuggest', () => {
       await page.keyboard.press('ArrowDown');
       await page.keyboard.press('ArrowDown');
 
-      const selectedSuggestionCount = await page.$$eval('.ons-autosuggest-input__option[aria-selected=true]', nodes => nodes.length);
+      const selectedSuggestionCount = await page.$$eval('.ons-autosuggest__option[aria-selected=true]', nodes => nodes.length);
       expect(selectedSuggestionCount).toBe(1);
     });
 
@@ -147,7 +147,7 @@ describe('script: autosuggest', () => {
       await page.keyboard.press('ArrowDown');
       await page.keyboard.press('ArrowDown');
 
-      const selectedOption = await page.$eval('.ons-autosuggest-input__option--focused', node => node.textContent);
+      const selectedOption = await page.$eval('.ons-autosuggest__option--focused', node => node.textContent);
       expect(selectedOption.trim()).toBe('United States Virgin Islands');
     });
 
@@ -174,7 +174,7 @@ describe('script: autosuggest', () => {
       await page.type('.ons-js-autosuggest-input', 'Unite', { delay: 20 });
       await page.keyboard.press('ArrowUp');
 
-      const selectedOption = await page.$eval('.ons-autosuggest-input__option--focused', node => node.textContent);
+      const selectedOption = await page.$eval('.ons-autosuggest__option--focused', node => node.textContent);
       expect(selectedOption.trim()).toBe('United States of America');
     });
 
@@ -186,7 +186,7 @@ describe('script: autosuggest', () => {
       await page.keyboard.press('ArrowDown');
       await page.keyboard.press('ArrowUp');
 
-      const selectedOption = await page.$eval('.ons-autosuggest-input__option--focused', node => node.textContent);
+      const selectedOption = await page.$eval('.ons-autosuggest__option--focused', node => node.textContent);
       expect(selectedOption.trim()).toBe('United States of America');
     });
 
@@ -198,10 +198,10 @@ describe('script: autosuggest', () => {
       await page.keyboard.press('ArrowDown');
       await page.keyboard.press('ArrowUp');
 
-      const ariaSelectedValue = await page.$eval('.ons-autosuggest-input__option--focused', node => node.getAttribute('aria-selected'));
+      const ariaSelectedValue = await page.$eval('.ons-autosuggest__option--focused', node => node.getAttribute('aria-selected'));
       expect(ariaSelectedValue).toBe('true');
 
-      const selectedOptionId = await page.$eval('.ons-autosuggest-input__option--focused', node => node.getAttribute('id'));
+      const selectedOptionId = await page.$eval('.ons-autosuggest__option--focused', node => node.getAttribute('id'));
       const ariaActiveDescendant = await page.$eval('.ons-js-autosuggest-input', node => node.getAttribute('aria-activedescendant'));
       expect(ariaActiveDescendant).toBe(selectedOptionId);
     });
@@ -214,7 +214,7 @@ describe('script: autosuggest', () => {
       await page.keyboard.press('ArrowDown');
       await page.keyboard.press('ArrowUp');
 
-      const selectedSuggestionCount = await page.$$eval('.ons-autosuggest-input__option[aria-selected=true]', nodes => nodes.length);
+      const selectedSuggestionCount = await page.$$eval('.ons-autosuggest__option[aria-selected=true]', nodes => nodes.length);
       expect(selectedSuggestionCount).toBe(1);
     });
 
@@ -225,7 +225,7 @@ describe('script: autosuggest', () => {
       await page.keyboard.press('ArrowUp');
       await page.keyboard.press('ArrowUp');
 
-      const selectedOption = await page.$eval('.ons-autosuggest-input__option--focused', node => node.textContent);
+      const selectedOption = await page.$eval('.ons-autosuggest__option--focused', node => node.textContent);
       expect(selectedOption.trim()).toBe('United States of America');
     });
 
@@ -264,15 +264,15 @@ describe('script: autosuggest', () => {
       await page.type('.ons-js-autosuggest-input', 'Unite', { delay: 20 });
       await page.keyboard.press('Tab');
 
-      const suggestionCountSample1 = await page.$$eval('.ons-autosuggest-input__option', nodes => nodes.length);
+      const suggestionCountSample1 = await page.$$eval('.ons-autosuggest__option', nodes => nodes.length);
       expect(suggestionCountSample1).toBe(2);
 
       await page.waitForTimeout(200);
-      const suggestionCountSample2 = await page.$$eval('.ons-autosuggest-input__option', nodes => nodes.length);
+      const suggestionCountSample2 = await page.$$eval('.ons-autosuggest__option', nodes => nodes.length);
       expect(suggestionCountSample2).toBe(2);
 
       await page.waitForTimeout(320);
-      const suggestionCountSample3 = await page.$$eval('.ons-autosuggest-input__option', nodes => nodes.length);
+      const suggestionCountSample3 = await page.$$eval('.ons-autosuggest__option', nodes => nodes.length);
       expect(suggestionCountSample3).toBe(0);
     });
 
@@ -294,7 +294,7 @@ describe('script: autosuggest', () => {
       await page.keyboard.press('Tab');
       await page.waitForTimeout(320);
 
-      const hasClass = await page.$eval('.ons-autosuggest-input', node => node.classList.contains('ons-autosuggest-input--has-results'));
+      const hasClass = await page.$eval('.ons-autosuggest', node => node.classList.contains('ons-autosuggest--has-results'));
       expect(hasClass).toBe(false);
     });
 
@@ -316,7 +316,7 @@ describe('script: autosuggest', () => {
       await setTestPage('/test', renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
       await page.type('.ons-js-autosuggest-input', 'Unite', { delay: 20 });
-      await page.click('.ons-autosuggest-input__option:nth-child(2)');
+      await page.click('.ons-autosuggest__option:nth-child(2)');
 
       const inputValue = await page.$eval('.ons-js-autosuggest-input', node => node.value);
       expect(inputValue).toBe('United States Virgin Islands');
@@ -329,7 +329,7 @@ describe('script: autosuggest', () => {
 
       await page.type('.ons-js-autosuggest-input', 'En', { delay: 20 });
 
-      const suggestionCount = await page.$$eval('.ons-autosuggest-input__option', nodes => nodes.length);
+      const suggestionCount = await page.$$eval('.ons-autosuggest__option', nodes => nodes.length);
       expect(suggestionCount).toBe(0);
     });
 
@@ -338,7 +338,7 @@ describe('script: autosuggest', () => {
 
       await page.type('.ons-js-autosuggest-input', 'Eng', { delay: 20 });
 
-      const suggestionCount = await page.$$eval('.ons-autosuggest-input__option', nodes => nodes.length);
+      const suggestionCount = await page.$$eval('.ons-autosuggest__option', nodes => nodes.length);
       expect(suggestionCount).toBe(1);
     });
   });
@@ -349,9 +349,9 @@ describe('script: autosuggest', () => {
 
       await page.type('.ons-js-autosuggest-input', 'state', { delay: 20 });
       await page.keyboard.press('ArrowDown');
-      await page.hover('.ons-autosuggest-input__option:nth-child(2)');
+      await page.hover('.ons-autosuggest__option:nth-child(2)');
 
-      const focusedClassCount = await page.$$eval('.ons-autosuggest-input__option--focused', nodes => nodes.length);
+      const focusedClassCount = await page.$$eval('.ons-autosuggest__option--focused', nodes => nodes.length);
       expect(focusedClassCount).toBe(0);
     });
   });
@@ -368,10 +368,10 @@ describe('script: autosuggest', () => {
 
       await page.type('.ons-js-autosuggest-input', 'state', { delay: 20 });
       await page.keyboard.press('ArrowDown');
-      await page.hover('.ons-autosuggest-input__option:nth-child(2)');
+      await page.hover('.ons-autosuggest__option:nth-child(2)');
       await page.hover('#dummy');
 
-      const focusedClassCount = await page.$$eval('.ons-autosuggest-input__option--focused', nodes => nodes.length);
+      const focusedClassCount = await page.$$eval('.ons-autosuggest__option--focused', nodes => nodes.length);
       expect(focusedClassCount).toBe(1);
     });
   });
@@ -384,7 +384,7 @@ describe('script: autosuggest', () => {
       await page.keyboard.press('ArrowDown');
       await page.type('.ons-js-autosuggest-input', 'd', { delay: 20 });
 
-      const focusedNodeCount = await page.$$eval('.ons-autosuggest-input__option--focused', nodes => nodes.length);
+      const focusedNodeCount = await page.$$eval('.ons-autosuggest__option--focused', nodes => nodes.length);
       expect(focusedNodeCount).toBe(0);
     });
 
@@ -402,7 +402,7 @@ describe('script: autosuggest', () => {
 
       await page.type('.ons-js-autosuggest-input', 'Unite', { delay: 20 });
 
-      const emboldened = await page.$$eval('.ons-autosuggest-input__option strong', nodes => nodes.map(node => node.textContent));
+      const emboldened = await page.$$eval('.ons-autosuggest__option strong', nodes => nodes.map(node => node.textContent));
       expect(emboldened).toEqual(['Unite', 'Unite']);
     });
 
@@ -411,9 +411,9 @@ describe('script: autosuggest', () => {
 
       await page.type('.ons-js-autosuggest-input', 'tland', { delay: 20 });
 
-      const matchCount = await page.$$eval('.ons-autosuggest-input__option', nodes => nodes.length);
+      const matchCount = await page.$$eval('.ons-autosuggest__option', nodes => nodes.length);
       expect(matchCount).toBe(2);
-      const emboldened = await page.$$eval('.ons-autosuggest-input__option strong', nodes => nodes.map(node => node.textContent));
+      const emboldened = await page.$$eval('.ons-autosuggest__option strong', nodes => nodes.map(node => node.textContent));
       expect(emboldened).toEqual(['tland']);
     });
 
@@ -452,7 +452,7 @@ describe('script: autosuggest', () => {
 
         await page.type('.ons-js-autosuggest-input', 'abc', { delay: 20 });
 
-        const noResultsContent = await page.$eval('.ons-autosuggest-input__option--no-results', node => node.textContent);
+        const noResultsContent = await page.$eval('.ons-autosuggest__option--no-results', node => node.textContent);
         expect(noResultsContent).toBe('No suggestions found.');
       });
 
@@ -496,7 +496,7 @@ describe('script: autosuggest', () => {
 
         await page.type('.ons-js-autosuggest-input', 'abc', { delay: 20 });
 
-        const matchCount = await page.$$eval('.ons-autosuggest-input__option', nodes => nodes.length);
+        const matchCount = await page.$$eval('.ons-autosuggest__option', nodes => nodes.length);
         expect(matchCount).toBe(0);
       });
 
@@ -534,7 +534,7 @@ describe('script: autosuggest', () => {
       it('shows the type more message', async () => {
         const listItemCount = await page.$$eval('.ons-js-autosuggest-listbox > *', nodes => nodes.length);
         expect(listItemCount).toBe(1);
-        const noResultsText = await page.$eval('.ons-autosuggest-input__option--no-results', node => node.innerText);
+        const noResultsText = await page.$eval('.ons-autosuggest__option--no-results', node => node.innerText);
         expect(noResultsText.trim()).toBe('Continue entering to get suggestions');
       });
     });
@@ -565,7 +565,7 @@ describe('script: autosuggest', () => {
       it('shows the API error message', async () => {
         const listItemCount = await page.$$eval('.ons-js-autosuggest-listbox > *', nodes => nodes.length);
         expect(listItemCount).toBe(1);
-        const warningText = await page.$eval('.ons-autosuggest-input__warning', node => node.textContent);
+        const warningText = await page.$eval('.ons-autosuggest__warning', node => node.textContent);
         expect(warningText.trim()).toBe('!Sorry, there is a problem.');
       });
 
