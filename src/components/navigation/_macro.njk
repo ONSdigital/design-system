@@ -42,7 +42,7 @@
                 <ul class="ons-navigation__list">
                     {% for item in params.navigation.itemsList %}
                         <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}">
-                           <a class="ons-navigation__link" href="{{ item.url }}" {% if item.id %}id="{{ item.id }}" {% endif %}{% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %}>{{ item.title }}</a>
+                           <a class="ons-navigation__link" href="{{ item.url }}" {% if item.id %}id="{{ item.id }}" {% endif %}{% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %}>{{ item.text }}</a>
                         </li>
                     {% endfor %}
                 </ul>
