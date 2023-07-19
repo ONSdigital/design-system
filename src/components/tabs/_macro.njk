@@ -15,9 +15,7 @@
         <div>
             <ul class="ons-tabs__list">
                 {%- for tab in params.tabs -%}
-                    <li class="ons-tab__list-item">
-                        <a href="#{{ tab.id if tab.id else tab.title|trim|replace(' ','-')|lower}}" class="ons-tab" data-ga="click" data-ga-category="tabs" data-ga-action="Show: {{ tab.title }}" data-ga-label="Show: {{ tab.title }}">{{ tab.title }}{% if tab.hiddenSpan %}<span class='ons-u-vh'>{{tab.hiddenSpan}}</span>{% endif %}</a>
-                    </li>
+                    <li class="ons-tab__list-item"><a href="#{{ tab.id if tab.id else tab.title|trim|replace(' ','-')|lower}}" class="ons-tab" data-ga="click" data-ga-category="tabs" data-ga-action="Show: {{ tab.title }}" data-ga-label="Show: {{ tab.title }}">{{ tab.title }}{% if tab.hiddenSpan %}<span class='ons-u-vh'>{{tab.hiddenSpan}}</span>{% endif %}</a></li>
                 {%- endfor -%}
             </ul>
         </div>
