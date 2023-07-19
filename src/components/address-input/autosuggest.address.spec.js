@@ -241,7 +241,7 @@ describe('script: address-input', () => {
       await page.type('.ons-js-autosuggest-input', '2', { delay: 20 });
       await page.keyboard.press('ArrowDown');
 
-      const selectedOption = await page.$eval('.ons-autosuggest-input__option--focused', node => node.textContent);
+      const selectedOption = await page.$eval('.ons-autosuggest__option--focused', node => node.textContent);
       expect(selectedOption.trim()).toBe('196 College Road, Birmingham, B44 8HF');
     });
 
@@ -267,7 +267,7 @@ describe('script: address-input', () => {
       });
 
       it('has expected suggestion entries', async () => {
-        const suggestions = await page.$$eval('.ons-autosuggest-input__option', nodes => nodes.map(node => node.textContent.trim()));
+        const suggestions = await page.$$eval('.ons-autosuggest__option', nodes => nodes.map(node => node.textContent.trim()));
         expect(suggestions).toEqual(['196 College Road, Birmingham, B44 8HF', '196 College Road, Whitchurch, Cardiff, CF14 2NZ']);
       });
     });
@@ -313,7 +313,7 @@ describe('script: address-input', () => {
       });
 
       it('has expected suggestion entries', async () => {
-        const suggestions = await page.$$eval('.ons-autosuggest-input__option', nodes => nodes.map(node => node.textContent.trim()));
+        const suggestions = await page.$$eval('.ons-autosuggest__option', nodes => nodes.map(node => node.textContent.trim()));
         expect(suggestions).toEqual(['1 Penlline Road, Whitchurch, Cardiff, CF14 2NZ', '2 Penlline Road, Whitchurch, Cardiff, CF14 2NZ']);
       });
 
@@ -353,7 +353,7 @@ describe('script: address-input', () => {
       });
 
       it('has expected suggestion entries', async () => {
-        const suggestions = await page.$$eval('.ons-autosuggest-input__option', nodes => nodes.map(node => node.textContent.trim()));
+        const suggestions = await page.$$eval('.ons-autosuggest__option', nodes => nodes.map(node => node.textContent.trim()));
         expect(suggestions).toEqual([
           'Penlline Road, Whitchurch, Cardiff, CF14 2AA (41 addresses)',
           '197 College Road, Whitchurch, Cardiff, CF14 2AB',
@@ -376,7 +376,7 @@ describe('script: address-input', () => {
         });
 
         it('has expected suggestion entries', async () => {
-          const suggestions = await page.$$eval('.ons-autosuggest-input__option', nodes => nodes.map(node => node.textContent.trim()));
+          const suggestions = await page.$$eval('.ons-autosuggest__option', nodes => nodes.map(node => node.textContent.trim()));
           expect(suggestions).toEqual(['197 College Road, Whitchurch, Cardiff, CF14 2AB']);
         });
 
