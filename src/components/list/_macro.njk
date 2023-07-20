@@ -20,13 +20,21 @@
     {% else %}
         {% set listEl = 'ul' %}
     {% endif %}
-        <{{listEl}} {% if params.id %}id="{{ params.id }}"{% endif %} class="ons-list{% if listEl == 'p' %} ons-list--p{% endif %}{% if params.classes %} {{ params.classes -}}{% endif %}{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-list--{{ variant }}{% endfor %}{% else %} ons-list--{{ params.variants }}{% endif %}{% endif %}{% if otherClasses %} {{ otherClasses -}}{% endif %}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
-            {%- for item in params.itemsList  -%}
-                {% if listLength > 1 or listEl == 'ul' %}
+
+    <{{ listEl }} {% if params.id %}id="{{ params.id }}"{% endif %} class="ons-list{% if listEl == 'p' %} ons-list--p{% endif %}{% if params.classes %} {{ params.classes -}}{% endif %}{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-list--{{ variant }}{% endfor %}{% else %} ons-list--{{ params.variants }}{% endif %}{% endif %}{% if otherClasses %} {{ otherClasses -}}{% endif %}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
+        {%- for item in params.itemsList  -%}
+            {% set sublistClasses = item.listClasses if item.listClasses else '' %}
+            {% set sublistParams = {
+                'variants': item.variants if item.variants else variants,
+                'itemsList': item.subItems,
+                'classes': sublistClasses
+            } %}
+            {% if listLength > 1 or listEl == 'ul' %}
                 <li class="ons-list__item{% if item.listClasses %} {{ item.listClasses }}{% endif %}"{% if item.current %} aria-current="true"{% endif %}>
-                {% endif %}
-                    {% set itemText = item.text %}
-                    {% set itemIconType = item.iconType if item.iconType else iconType %}
+            {% endif %}
+                {% set itemText = item.text %}
+                    {% if item.text %}
+                    {% set itemIconType = item.iconType if item.iconType else iconType %} {% endif %}
 
                     {# For Craft support we also support title and navigation title #}
                     {% if item.navigationTitle %}
@@ -84,9 +92,15 @@
                             }}
                         {%- endif -%} </span>
                     {%- endif -%}
-                {% if listLength > 1 or listEl == 'ul' %}
-                </li>
+
+                {% if item.subItems %}
+                    {# Handle nested lists with recursive call for sub layer #}
+                    {{ onsList(sublistParams) }}
                 {% endif %}
-            {%- endfor -%}
-        </{{listEl}}>
+            {% if listLength > 1 or listEl == 'ul' %}
+                </li>
+            {% endif %}
+        {%- endfor -%}
+    </{{ listEl }}>
+
 {% endmacro %}
