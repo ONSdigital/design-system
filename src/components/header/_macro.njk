@@ -102,9 +102,9 @@
                                                         href="{{ item.url }}"
                                                         class="ons-header-service-nav__link"
                                                         {% if item.id %} id="{{ item.id }}"{% endif %}
-                                                    >{{ item.title }}</a>
+                                                    >{% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}</a>
                                                 {% else %}
-                                                    {{ item.title }}
+                                                    {% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}
                                                 {% endif %}
                                                 </li>
                                             {% endfor %}
@@ -153,9 +153,9 @@
                                     href="{{ item.url }}"
                                     class="ons-header-service-nav__link"
                                     {% if item.id %} id="{{ item.id }}"{% endif %}
-                                >{{ item.text }}</a>
+                                >{% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}</a>
                             {% else %}
-                                {{ item.text }}
+                                {% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}
                             {% endif %}
                             </li>
                         {% endfor %}
