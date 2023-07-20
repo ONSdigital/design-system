@@ -26,7 +26,7 @@
             {% set sublistClasses = item.listClasses if item.listClasses else '' %}
             {% set sublistParams = {
                 'variants': item.variants if item.variants else variants,
-                'itemsList': item.subItems,
+                'itemsList': item.itemsList,
                 'classes': sublistClasses
             } %}
             {% if listLength > 1 or listEl == 'ul' %}
@@ -93,7 +93,7 @@
                         {%- endif -%} </span>
                     {%- endif -%}
 
-                {% if item.subItems %}
+                {% if item.itemsList %}
                     {# Handle nested lists with recursive call for sub layer #}
                     {{ onsList(sublistParams) }}
                 {% endif %}
