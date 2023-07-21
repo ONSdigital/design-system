@@ -141,6 +141,12 @@ describe('macro: section-navigation', () => {
     expect($('.ons-section-nav').attr('aria-labelledby')).toBe('section-menu-nav-title');
   });
 
+  it('has the visually hidden class', () => {
+    const $ = cheerio.load(renderComponent('section-navigation', EXAMPLE_SECTION_NAVIGATION));
+
+    expect($('h2').hasClass('.ons-u-vh')).toBe(true);
+  });
+
   it('assumes a default `hiddenTitle` of "Pages in this section"', () => {
     const $ = cheerio.load(renderComponent('section-navigation', EXAMPLE_SECTION_NAVIGATION));
 
