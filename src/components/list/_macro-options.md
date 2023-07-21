@@ -12,20 +12,21 @@
 
 ## ListItem
 
-| Name                | Type    | Required | Description                                                                                                                            |
-| ------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| listClasses         | string  | false    | Classes to be added to the list item                                                                                                   |
-| text                | string  | true     | The text for the list item                                                                                                             |
-| title               | string  | false    | The text for the list item - _used for Craft CMS_                                                                                      |
-| navigationTitle     | string  | false    | The text for the list item - _used for Craft CMS_                                                                                      |
-| url                 | string  | false    | Wraps the list item text in a link with the set `href`                                                                                 |
-| classes             | string  | false    | Classes to be added to the list item link                                                                                              |
-| variants            | string  | false    | Use the value “inPageLink” for list items set with `url` when using the [error summary panel](/patterns/correct-errors/#error-summary) |
-| target              | string  | false    | Sets the HTML `target` attribute for the list item when `url` is set                                                                   |
-| screenreaderMessage | string  | false    | Sets a message to be read out by screen readers when `target` is set to “\_blank” to open a new tab. Defaults to “opens in a new tab”. |
-| external            | boolean | false    | Sets the list item as an [external link](#external-links)                                                                              |
-| prefix              | string  | false    | Will prefix the list item with the parameter’s value                                                                                   |
-| suffix              | string  | false    | Will suffix the list item with the parameter’s value                                                                                   |
-| current             | boolean | false    | Set to “true” to indicate the current page in a list of content navigational links                                                     |
-| iconType            | string  | false    | Adds an icon to the individual list item when set to the name of one of the [available icons](/foundations/icons#a-to-z)               |
-| attributes          | object  | false    | HTML attributes (for example, data attributes) to add to list item link                                                                |
+| Name                | Type              | Required | Description                                                                                                                            |
+| ------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| listClasses         | string            | false    | Classes to be added to the list item                                                                                                   |
+| text                | string            | true     | The text for the list item                                                                                                             |
+| title               | string            | false    | The text for the list item - _used for Craft CMS_                                                                                      |
+| navigationTitle     | string            | false    | The text for the list item - _used for Craft CMS_                                                                                      |
+| url                 | string            | false    | Wraps the list item text in a link with the set `href`                                                                                 |
+| classes             | string            | false    | Classes to be added to the list item link                                                                                              |
+| variants            | string            | false    | Use the value “inPageLink” for list items set with `url` when using the [error summary panel](/patterns/correct-errors/#error-summary) |
+| target              | string            | false    | Sets the HTML `target` attribute for the list item when `url` is set                                                                   |
+| screenreaderMessage | string            | false    | Sets a message to be read out by screen readers when `target` is set to “\_blank” to open a new tab. Defaults to “opens in a new tab”. |
+| external            | boolean           | false    | Sets the list item as an [external link](#external-links)                                                                              |
+| prefix              | string            | false    | Will prefix the list item with the parameter’s value                                                                                   |
+| suffix              | string            | false    | Will suffix the list item with the parameter’s value                                                                                   |
+| current             | boolean           | false    | Set to “true” to indicate the current page in a list of content navigational links                                                     |
+| iconType            | string            | false    | Adds an icon to the individual list item when set to the name of one of the [available icons](/foundations/icons#a-to-z)               |
+| attributes          | object            | false    | HTML attributes (for example, data attributes) to add to list item link                                                                |
+| itemsList           | `Array<ListItem>` | false    | Settings for each [list item](#listitem)                                                                                               |
