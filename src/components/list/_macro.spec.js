@@ -21,6 +21,13 @@ const EXAMPLE_ITEM_NAVIGATION_TITLE = {
   title: 'Long article title',
   navigationTitle: 'Nav friendly title',
 };
+const EXAMPLE_NESTED_LIST_TEXT_ITEMS = {
+  itemsList: [
+    { text: 'First item' },
+    { text: 'Second item' },
+    { text: 'Third item', itemsList: [{ text: 'First item' }, { text: 'Second item' }] },
+  ],
+};
 
 describe('macro: list', () => {
   describe('list element', () => {
