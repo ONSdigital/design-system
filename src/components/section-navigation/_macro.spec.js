@@ -138,7 +138,7 @@ describe('macro: section-navigation', () => {
   it('assumes a default `hiddenTitleId` of "Section menu"', () => {
     const $ = cheerio.load(renderComponent('section-navigation', EXAMPLE_SECTION_NAVIGATION));
 
-    expect($('.ons-section-nav').attr('aria-labelledby')).toBe('navigation-menu');
+    expect($('.ons-section-nav').attr('aria-labelledby')).toBe('section-menu-nav-title');
   });
 
   it('assumes a default `hiddenTitle` of "Pages in this section"', () => {
