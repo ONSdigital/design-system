@@ -91,6 +91,11 @@
     }
   }
 
+  &__wrapper {
+    max-width: max-content;
+    width: 100%;
+  }
+
   &__panel.ons-panel--warn {
     background: none;
     border: 0;
