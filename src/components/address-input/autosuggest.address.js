@@ -4,7 +4,7 @@ import AutosuggestUI from '../autosuggest/autosuggest.ui';
 import AddressError from './autosuggest.address.error';
 import AddressSetter from './autosuggest.address.setter';
 
-export const classInputContainer = 'ons-autosuggest-input';
+export const classInputContainer = 'ons-autosuggest';
 export const classNotEditable = 'ons-js-address-not-editable';
 export const classMandatory = 'ons-js-address-mandatory';
 export const classSearch = 'ons-js-address-input__search';
@@ -205,7 +205,7 @@ export default class AutosuggestAddress {
           (townName === postTown ? postTown : townName + ', ' + postTown) +
           ', ' +
           postcode +
-          ' (<span class="ons-autosuggest-input__group">' +
+          ' (<span class="ons-autosuggest__group">' +
           this.groupCount.replace(`{n}`, addressCount) +
           '</span>)',
         postcode,
