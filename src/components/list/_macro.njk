@@ -20,7 +20,6 @@
     {% else %}
         {% set listEl = 'ul' %}
     {% endif %}
-
     <{{ listEl }} {% if params.id %}id="{{ params.id }}"{% endif %} class="ons-list{% if listEl == 'p' %} ons-list--p{% endif %}{% if params.classes %} {{ params.classes -}}{% endif %}{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-list--{{ variant }}{% endfor %}{% else %} ons-list--{{ params.variants }}{% endif %}{% endif %}{% if otherClasses %} {{ otherClasses -}}{% endif %}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
         {%- for item in params.itemsList  -%}
             {% set sublistClasses = item.listClasses if item.listClasses else '' %}
@@ -92,7 +91,6 @@
                             }}
                         {%- endif -%} </span>
                     {%- endif -%}
-
                 {% if item.itemsList %}
                     {# Handle nested lists with recursive call for sub layer #}
                     {{ onsList(sublistParams) }}

@@ -1413,7 +1413,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
     <ul class=\\"ons-list ons-u-mb-no ons-list--bare\\">
             
             
@@ -1474,7 +1473,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
     <ul class=\\"ons-list ons-u-mb-no ons-list--bare\\">
             
             
@@ -1535,7 +1533,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
     <ul class=\\"ons-list ons-u-mb-no ons-list--bare\\">
             
             
@@ -1612,7 +1609,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
     <ul class=\\"ons-list ons-u-mb-s ons-footer--rows ons-list--bare ons-list--inline\\">
             
             
