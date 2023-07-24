@@ -25,7 +25,7 @@
         {%- for item in params.itemsList  -%}
             {% set sublistClasses = item.listClasses if item.listClasses else '' %}
             {% set sublistParams = {
-                'variants': item.variants if item.variants else variants,
+                'variants': variants,
                 'itemsList': item.itemsList,
                 'classes': sublistClasses
             } %}
