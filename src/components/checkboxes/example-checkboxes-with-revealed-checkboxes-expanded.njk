@@ -1,0 +1,88 @@
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+
+    {{
+        onsCheckboxes({
+            "legend": "Content type",
+            "checkboxesLabel": "Show only:",
+            "borderless": true,
+            "name": "dietary",
+            "checkboxes": [
+                {
+                    "id": "data",
+                    "label": {
+                        "text": "Data (309)"
+                    },
+                    "value": "data",
+                    "checked": true,
+                    "other": {
+                        "otherType": "checkboxes",
+                        "selectAllChildren": true,
+                        "legend": "Data type",
+                        "legendClasses": "ons-u-vh",
+                        "name": "name",
+                        "checkboxes": [
+                            {
+                                "id": "datasets",
+                                "label": {
+                                    "text": "Datasets (100)"
+                                },
+                                "value": "datasets"
+                            },
+                            {
+                                "id": "timeseries",
+                                "label": {
+                                    "text": "Timeseries (20)"
+                                },
+                                "value": "timeseries"
+                            },
+                            {
+                                "id": "requested",
+                                "label": {
+                                    "text": "User requested data (17)"
+                                },
+                                "value": "requested"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "publications",
+                    "label": {
+                        "text": "Publications (137)"
+                    },
+                    "value": "publications",
+                    "checked": true,
+                    "other": {
+                        "otherType": "checkboxes",
+                        "selectAllChildren": true,
+                        "legend": "Publication type",
+                        "legendClasses": "ons-u-vh",
+                        "name": "name",
+                        "checkboxes": [
+                            {
+                                "id": "press-release",
+                                "label": {
+                                    "text": "Press release (100)"
+                                },
+                                "value": "pressrelease"
+                            },
+                            {
+                                "id": "bulletin",
+                                "label": {
+                                    "text": "Bulletin (20)"
+                                },
+                                "value": "bulletin"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "areas",
+                    "label": {
+                        "text": "Areas (0)"
+                    },
+                    "value": "areas"
+                }       
+            ]
+        })
+    }}
