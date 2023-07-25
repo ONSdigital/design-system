@@ -215,7 +215,7 @@ describe('macro: navigation', () => {
         variants: ['mobile', 'dropdown'],
         type: 'button',
         attributes: {
-          'aria-label': 'Toggle section navigation',
+          'aria-label': 'Toggle Main nav item 2 menu',
           'aria-controls': 'sub-nav',
           'aria-expanded': 'false',
         },
