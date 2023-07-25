@@ -10,7 +10,14 @@ const EXAMPLE_TEXTAREA = {
   name: 'reply',
   label: {
     text: 'Reply',
+    description: 'Reply description',
   },
+  charCheckLimit: {
+      limit: 300,
+      charCountSingular: '{x} more character needed',
+      charCountPlural: '{x} more characters needed',
+  },
+  rows: 5,
 };
 
 const EXAMPLE_BUTTON = {
@@ -40,7 +47,6 @@ describe('macro: reply', () => {
     const textareaSpy = faker.spy('textarea');
 
     cheerio.load(faker.renderComponent('reply', EXAMPLE_REPLY));
-
     expect(textareaSpy.occurrences[0]).toEqual(EXAMPLE_TEXTAREA);
   });
 
