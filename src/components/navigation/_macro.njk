@@ -68,7 +68,7 @@
                 "type": "button",
                 "variants": ["mobile", "dropdown"],
                 "attributes": {
-                    "aria-label": "Toggle " + params.navigation.currentPageTitle + " menu",
+                    "aria-label": "Toggle " + params.navigation.currentPageTitle + " menu" if params.navigation.currentPageTitle else "Toggle section menu",
                     "aria-controls": params.navigation.subNavigation.id,
                     "aria-expanded": "false"
                 }
