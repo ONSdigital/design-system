@@ -21,6 +21,13 @@ const EXAMPLE_ITEM_NAVIGATION_TITLE = {
   title: 'Long article title',
   navigationTitle: 'Nav friendly title',
 };
+const EXAMPLE_NESTED_LIST_TEXT_ITEMS = {
+  itemsList: [
+    { text: 'First item' },
+    { text: 'Second item' },
+    { text: 'Third item', itemsList: [{ text: 'First item' }, { text: 'Second item' }] },
+  ],
+};
 
 describe('macro: list', () => {
   describe('list element', () => {
@@ -613,6 +620,41 @@ describe('macro: list', () => {
       );
 
       expect($('#first + .ons-list__suffix').length).toBe(1);
+    });
+  });
+
+  describe('nested list element', () => {
+    it('has provided variant style class when one variant is provided', () => {
+      const $ = cheerio.load(
+        renderComponent('list', {
+          ...EXAMPLE_NESTED_LIST_TEXT_ITEMS,
+          variants: 'dashed',
+        }),
+      );
+
+      expect($('.ons-list--dashed').length).toBe(2);
+    });
+
+    it('has provided variant style classes when multiple variants are provided', () => {
+      const $ = cheerio.load(
+        renderComponent('list', {
+          ...EXAMPLE_NESTED_LIST_TEXT_ITEMS,
+          variants: ['dashed', 'inline'],
+        }),
+      );
+
+      expect($('.ons-list').hasClass('ons-list--dashed')).toBe(true);
+      expect($('.ons-list').hasClass('ons-list--inline')).toBe(true);
+    });
+
+    it('has the expected quantity of <li> elements when a <ol> element is specified', () => {
+      const $ = cheerio.load(
+        renderComponent('list', {
+          ...EXAMPLE_NESTED_LIST_TEXT_ITEMS,
+        }),
+      );
+
+      expect($('.ons-list li').length).toBe(5);
     });
   });
 });

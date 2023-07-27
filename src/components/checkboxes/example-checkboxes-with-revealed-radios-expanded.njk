@@ -1,0 +1,70 @@
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+
+{{
+    onsCheckboxes({
+        "checkboxesLabel": "Select all that apply",
+        "legend": "How would you like us to contact you?",
+        "name": "contact",
+        "borderless": true,
+        "checkboxes": [
+            {
+                "id": "post",
+                "label": {
+                    "text": "By post"
+                },
+                "value": "post"
+            },
+            {
+                "id": "email",
+                "label": {
+                    "text": "By email"
+                },
+                "value": "email"
+            },
+            {
+                "id": "phone",
+                "label": {
+                    "text": "By phone"
+                },
+                "value": "phone",
+                "checked": true,
+                "other": {
+                    "otherType": "radios",
+                    "id": "phone-time",
+                    "name": "phone-time",
+                    "legend": "Choose preferred time of day",
+                    "radios": [
+                        {
+                            "value": "anytime",
+                            "id": "anytime",
+                            "label": {
+                                "text": "Any time of day"
+                            }
+                        },
+                        {
+                            "value": "morning",
+                            "id": "morning",
+                            "label": {
+                                "text": "Morning"
+                            }
+                        },
+                        {
+                            "value": "afternoon",
+                            "id": "afternoon",
+                            "label": {
+                                "text": "Afternoon"
+                            }
+                        },
+                        {
+                            "value": "evening",
+                            "id": "evening",
+                            "label": {
+                                "text": "Evening"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    })
+}}

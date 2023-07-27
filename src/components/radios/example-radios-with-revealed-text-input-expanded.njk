@@ -1,0 +1,81 @@
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+
+{% call onsQuestion({
+    "title": "How do you usually travel to work?",
+    "classes": "ons-u-mt-no",
+    "legendIsQuestionTitle": true
+}) %}
+    {{
+        onsRadios({
+            "dontWrap": true,
+            "name": "travel",
+            "radios": [
+                {
+                    "id": "home",
+                    "label": {
+                        "text": "Work mainly from home"
+                    },
+                    "value": "home"
+                },
+                {
+                    "id": "car",
+                    "label": {
+                        "text": "Car or van"
+                    },
+                    "value": "car"
+                },
+                {
+                    "id": "underground",
+                    "label": {
+                        "text": "Underground, metro, light rail or tram"
+                    },
+                    "value": "underground"
+                },
+                {
+                    "id": "train",
+                    "label": {
+                        "text": "Train"
+                    },
+                    "value": "train"
+                },
+                {
+                    "id": "bus",
+                    "label": {
+                        "text": "Bus, minibus or coach"
+                    },
+                    "value": "bus"
+                },
+                {
+                    "id": "bicycle",
+                    "label": {
+                        "text": "Bicycle"
+                    },
+                    "value": "bicycle"
+                },
+                {
+                    "id": "walk",
+                    "label": {
+                        "text": "Walk"
+                    },
+                    "value": "walk"
+                },
+                {
+                    "id": "other-radio",
+                    "label": {
+                        "text": "Other"
+                    },
+                    "value": "other",
+                    "checked": true,
+                    "other": {
+                        "id": "other-textbox",
+                        "name": "other-answer",
+                        "label": {
+                            "text": "Enter how you travel"
+                        }
+                    }
+                }
+            ]
+        })
+    }}
+{% endcall %}
