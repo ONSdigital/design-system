@@ -1136,7 +1136,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
     
 
-    <button type=\\"button\\" class=\\"ons-btn ons-u-d-no ons-js-sub-navigation-button ons-btn--mobile ons-btn--dropdown\\" aria-label=\\"Toggle section navigation\\" aria-controls=\\"sub-nav\\" aria-expanded=\\"false\\">
+    <button type=\\"button\\" class=\\"ons-btn ons-u-d-no ons-js-sub-navigation-button ons-btn--mobile ons-btn--dropdown\\" aria-label=\\"Toggle Design system menu\\" aria-controls=\\"sub-nav\\" aria-expanded=\\"false\\">
         <span class=\\"ons-btn__inner\\"><span class=\\"ons-btn__text\\">Design system</span>
                 
 
