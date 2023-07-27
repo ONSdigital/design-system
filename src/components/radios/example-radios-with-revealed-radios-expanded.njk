@@ -1,0 +1,69 @@
+{% from "components/radios/_macro.njk" import onsRadios %}
+
+{{
+    onsRadios({
+        "legend": "How would you like us to contact you?",
+        "name": "contact",
+        "borderless": true,
+        "radios": [
+            {
+                "id": "post",
+                "label": {
+                    "text": "By post"
+                },
+                "value": "post"
+            },
+            {
+                "id": "email",
+                "label": {
+                    "text": "By email"
+                },
+                "value": "email"
+            },
+            {
+                "id": "phone",
+                "label": {
+                    "text": "By phone"
+                },
+                "value": "phone",
+                "checked": true,
+                "other": {
+                    "otherType": "radios",
+                    "id": "phone-time",
+                    "name": "phone-time",
+                    "legend": "Choose preferred time of day",
+                    "radios": [
+                        {
+                            "value": "anytime",
+                            "id": "anytime",
+                            "label": {
+                                "text": "Anytime of day"
+                            }
+                        },
+                        {
+                            "value": "morning",
+                            "id": "morning",
+                            "label": {
+                                "text": "Morning"
+                            }
+                        },
+                        {
+                            "value": "afternoon",
+                            "id": "afternoon",
+                            "label": {
+                                "text": "Afternoon"
+                            }
+                        },
+                        {
+                            "value": "evening",
+                            "id": "evening",
+                            "label": {
+                                "text": "Evening"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    })
+}}
