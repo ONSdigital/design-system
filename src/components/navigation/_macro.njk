@@ -14,7 +14,7 @@
                     {% endif %}
                     {{ onsAutosuggest({
                         "id": "ons-site-search",
-                        "containerClasses": "ons-autosuggest-input--header",
+                        "containerClasses": "ons-autosuggest--header",
                         "classes": autosuggestClasses,
                         "label": {
                             "text": params.siteSearchAutosuggest.label,
@@ -42,7 +42,7 @@
                 <ul class="ons-navigation__list">
                     {% for item in params.navigation.itemsList %}
                         <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}">
-                           <a class="ons-navigation__link" href="{{ item.url }}" {% if item.id %}id="{{ item.id }}" {% endif %}{% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %}>{{ item.title }}</a>
+                           <a class="ons-navigation__link" href="{{ item.url }}" {% if item.id %}id="{{ item.id }}" {% endif %}{% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %}>{% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}</a>
                         </li>
                     {% endfor %}
                 </ul>
@@ -55,7 +55,7 @@
                 <ul class="ons-navigation__list ons-navigation__list">
                     {% for item in params.navigation.subNavigation.itemsList %}
                         <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}">
-                            <a class="ons-navigation__link ons-navigation__link" href="{{ item.url }}" {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %} {% if item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
+                            <a class="ons-navigation__link ons-navigation__link" href="{{ item.url }}" {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %} {% if item.id %}id="{{ item.id }}" {% endif %}>{% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}</a>
                         </li>
                     {% endfor %}
                 </ul>
@@ -81,14 +81,14 @@
                         </li>
                         {% for item in params.navigation.subNavigation.itemsList %}
                             <li class="ons-navigation__item {{ ' ons-navigation__item--active' if (item.url == params.navigation.subNavigation.currentPath) or (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}">
-                                <a class="ons-navigation__link" href="{{ item.url }}" {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %} {% if item.id %}id="{{ item.id }}--mobile" {% endif %}>{{ item.title }}</a>
+                                <a class="ons-navigation__link" href="{{ item.url }}" {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %} {% if item.id %}id="{{ item.id }}--mobile" {% endif %}>{% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}</a>
                                 {% if item.sections %}
                                     {% for section in item.sections %}
                                         {% if section.sectionTitle %}<h3 class="ons-navigation__list-header">{{ section.sectionTitle }}</h3>{% endif %}
                                         <ul class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs">
                                             {% for child in section.children %}
                                                 <li class="ons-navigation__item ons-list__item {{ ' ons-navigation__item--active' if (child.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and child.url in params.navigation.currentPath) }}">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="{{ child.url }}" {% if child.ariaLabel %}aria-label="{{ child.ariaLabel }}" {% endif %} {% if child.id %}id="{{ child.id }}" {% endif %}>{{ child.title }}</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="{{ child.url }}" {% if child.ariaLabel %}aria-label="{{ child.ariaLabel }}" {% endif %} {% if child.id %}id="{{ child.id }}" {% endif %}>{% if child.title %}{{ child.title }}{% elif child.text %}{{ child.text }}{% endif %}</a>
                                                 </li>
                                             {% endfor %}
                                         </ul>

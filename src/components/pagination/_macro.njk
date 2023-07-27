@@ -1,4 +1,5 @@
 {% macro onsPagination(params) %}
+    {% from "components/icon/_macro.njk" import onsIcon %}
     {% set currentPageIndex = params.currentPageNumber|int %}
     {% set totalPages = params.pages | length|int %}
     {% set position = "Page " ~ currentPageIndex ~ " of " ~ totalPages %}
@@ -13,7 +14,14 @@
             {% if currentPageIndex != 1 %}
                 {% set prevPageIndex = currentPageIndex - 2 %}
                 <li class="ons-pagination__item ons-pagination__item--previous">
-                    <a href="{{ params.pages[prevPageIndex].url }}" class="ons-pagination__link" rel="prev" aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})">{{ params.previous | default("Previous") }}</a>
+                    <a href="{{ params.pages[prevPageIndex].url }}" class="ons-pagination__link ons-pagination__link--no-underline" rel="prev" aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})">
+                        {{ onsIcon({
+                            "iconType": 'arrow-previous',
+                            "classes": 'ons-u-mr-xs',
+                            "iconSize": 'm'
+                        }) }}
+                        <span class="ons-pagination__link-text">{{ params.previous | default("Previous") }}</span>
+                    </a>
                 </li>
             {% endif %}
             {% if currentPageIndex > 2 %}
@@ -60,7 +68,14 @@
             {% endif %}
             {% if totalPages > 1 and totalPages != currentPageIndex %}
                 <li class="ons-pagination__item ons-pagination__item--next">
-                    <a href="{{ params.pages[currentPageIndex].url }}" class="ons-pagination__link" rel="next" aria-label="Go to the next page (Page {{ currentPageIndex + 1 }})">{{ params.next | default("Next") }}</a>
+                    <a href="{{ params.pages[currentPageIndex].url }}" class="ons-pagination__link ons-pagination__link--no-underline" rel="next" aria-label="Go to the next page (Page {{ currentPageIndex + 1 }})">
+                        <span class="ons-pagination__link-text">{{ params.next | default("Next") }}</span>
+                        {{ onsIcon({
+                            "iconType": 'arrow-next',
+                            "classes": 'ons-u-ml-xs',
+                            "iconSize": 'm'
+                        }) }}
+                    </a>
                 </li>
             {% endif %}
         </ul>

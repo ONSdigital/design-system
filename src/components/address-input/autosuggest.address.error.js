@@ -2,7 +2,7 @@ import inPageLinks from '../../js/inpagelink';
 
 const classAutosuggest = 'ons-js-address-autosuggest';
 const classErrorPanel = 'ons-js-autosuggest-error-panel';
-const classInputContainer = 'ons-autosuggest-input';
+const classInputContainer = 'ons-autosuggest';
 const classInput = 'ons-js-autosuggest-input';
 const classSearch = 'ons-js-address-input__search';
 

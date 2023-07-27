@@ -4,12 +4,12 @@ import runFuse from './fuse-config';
 
 export const baseClass = 'ons-js-autosuggest';
 
-export const classAutosuggestOption = 'ons-autosuggest-input__option';
+export const classAutosuggestOption = 'ons-autosuggest__option';
 export const classAutosuggestOptionFocused = `${classAutosuggestOption}--focused`;
 export const classAutosuggestOptionNoResults = `${classAutosuggestOption}--no-results`;
 export const classAutosuggestOptionMoreResults = `${classAutosuggestOption}--more-results ons-u-fs-s`;
-export const classAutosuggestHasResults = 'ons-autosuggest-input--has-results';
-export const classAutosuggestResultsTitle = 'ons-autosuggest-input__results-title';
+export const classAutosuggestHasResults = 'ons-autosuggest--has-results';
+export const classAutosuggestResultsTitle = 'ons-autosuggest__results-title';
 
 export default class AutosuggestUI {
   constructor({
@@ -117,7 +117,7 @@ export default class AutosuggestUI {
     this.input.setAttribute('autocomplete', this.input.getAttribute('autocomplete') || 'off');
     this.input.setAttribute('role', 'combobox');
 
-    this.context.classList.add('ons-autosuggest-input--initialised');
+    this.context.classList.add('ons-autosuggest--initialised');
 
     this.bindEventListeners();
   }
@@ -350,8 +350,7 @@ export default class AutosuggestUI {
           listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
           listElement.setAttribute('role', 'option');
           if (result.category) {
-            innerHTML =
-              innerHTML + `<span class="ons-autosuggest-input__category ons-u-lighter ons-u-fs-s ons-u-db">${result.category}</span>`;
+            innerHTML = innerHTML + `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${result.category}</span>`;
           }
           listElement.innerHTML = innerHTML;
           listElement.addEventListener('click', () => {
@@ -434,7 +433,7 @@ export default class AutosuggestUI {
           option.classList.add(classAutosuggestOptionFocused);
           option.setAttribute('aria-selected', true);
           this.input.setAttribute('aria-activedescendant', option.getAttribute('id'));
-          const groupedResult = option.querySelector('.ons-autosuggest-input__group');
+          const groupedResult = option.querySelector('.ons-autosuggest__group');
           const optionText = option.innerHTML.replace('<strong>', '').replace('</strong>', '');
           if (groupedResult) {
             let groupedAriaMsg = this.ariaGroupedResults.replace('{n}', groupedResult.innerHTML);
@@ -503,8 +502,8 @@ export default class AutosuggestUI {
     const warningBodyElement = document.createElement('div');
 
     warningListElement.setAttribute('aria-hidden', 'true');
-    warningListElement.className = 'ons-autosuggest-input__warning';
-    warningElement.className = 'ons-panel ons-panel--warn ons-autosuggest-input__panel';
+    warningListElement.className = 'ons-autosuggest__warning';
+    warningElement.className = 'ons-panel ons-panel--warn ons-autosuggest__panel';
 
     warningSpanElement.className = 'ons-panel__icon';
     warningSpanElement.setAttribute('aria-hidden', 'true');
