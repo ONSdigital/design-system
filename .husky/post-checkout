@@ -1,0 +1,2 @@
+yarn tidy-clean
+yarn install --check-files
