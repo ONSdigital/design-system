@@ -104,9 +104,15 @@
                         "id": "reply",
                         "name": "reply",
                         "label": {
-                            "text": "Reply"
+                            "text": "Reply",
+                            "description": "Maximum 300 characters"
                         },
-                        "rows": 3
+                        "rows": 3,
+                        "charCheckLimit": {
+                            "limit": 300,
+                            "charCountSingular": "You have {x} character remaining",
+                            "charCountPlural": "You have {x} characters remaining"
+                        }
                     },
                     "button": {
                         "type": 'button',
