@@ -1,0 +1,98 @@
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+{% call onsQuestion({
+    "title": "What is your religion?",
+    "legendIsQuestionTitle": true
+}) %}
+    {{
+        onsPanel({
+            "body": '<p>This question is <strong>voluntary</strong></p>',
+            "classes": 'ons-u-mb-m'
+        })
+    }}
+    <form onsubmit="return false;">
+        {{
+            onsRadios({
+                "dontWrap": true,
+                "name": "religion",
+                "clearRadios": {
+                    "text": "Clear selection",
+                    "name": "clear-radios",
+                    "ariaClearText": "You can clear your answer using the clear selection button after the radio inputs",
+                    "ariaClearedText": "You have cleared your answer"
+                },
+                "radios": [
+                    {
+                        "id": "none",
+                        "label": {
+                            "text": "No religion"
+                        },
+                        "value": "none"
+                    },
+                    {
+                        "id": "christian",
+                        "label": {
+                            "text": "Christian",
+                            "description": "Including Church of England, Catholic, Protestant and all other Christian denominations"
+                        },
+                        "value": "christian"
+                    },
+                    {
+                        "id": "buddhist",
+                        "label": {
+                            "text": "Buddhist"
+                        },
+                        "value": "buddhist"
+                    },
+                    {
+                        "id": "hindu",
+                        "label": {
+                            "text": "Hindu"
+                        },
+                        "value": "hindu"
+                    },
+                    {
+                        "id": "jewish",
+                        "label": {
+                            "text": "Jewish"
+                        },
+                        "value": "jewish"
+                    },
+                    {
+                        "id": "muslim",
+                        "label": {
+                            "text": "Muslim"
+                        },
+                        "value": "muslim"
+                    },
+                    {
+                        "id": "sikh",
+                        "label": {
+                            "text": "Sikh"
+                        },
+                        "value": "sikh"
+                    },
+                    {
+                        "id": "other-radio",
+                        "label": {
+                            "text": "Any other religion"
+                        },
+                        "value": "other",
+                        "checked": true,
+                        "other": {
+                            "otherType": "input",
+                            "id": "other-textbox",
+                            "name": "other-answer",
+                            "label": {
+                                "text": "Enter your religion"
+                            }
+                        }
+                    }
+                ]
+            })
+        }}
+    </form>
+{% endcall %}
