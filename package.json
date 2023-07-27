@@ -36,7 +36,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "prettier --print-width 140 --single-quote ---parser babel --write",
+      "prettier --print-width 140 --single-quote --parser babel --write",
       "eslint --fix",
       "git add"
     ],
