@@ -1,0 +1,60 @@
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+
+{% call onsQuestion({
+    "title": "Do you have any dietary requirements?",
+    "legendIsQuestionTitle": true,
+    "classes": "ons-u-mt-no"
+}) %}
+    {{
+        onsCheckboxes({
+            "checkboxesLabel": "Select all that apply",
+            "dontWrap": true,
+            "checkboxes": [
+                {
+                    "id": "gluten-free",
+                    "label": {
+                        "text": "Gluten free"
+                    },
+                    "value": "gluten-free"
+                },
+                {
+                    "id": "lactose-intolerant",
+                    "label": {
+                        "text": "Lactose intolerant"
+                    },
+                    "value": "lactose-intolerant"
+                },
+                {
+                    "id": "vegan",
+                    "label": {
+                        "text": "Vegan"
+                    },
+                    "value": "vegan"
+                },
+                {
+                    "id": "vegetarian",
+                    "label": {
+                        "text": "Vegetarian"
+                    },
+                    "value": "vegetarian"
+                },
+                {
+                    "id": "other-checkbox",
+                    "label": {
+                        "text": "Other"
+                    },
+                    "value": "other",
+                    "checked": true,
+                    "other": {
+                        "id": "other-textbox",
+                        "name": "other-answer",
+                        "label": {
+                            "text": "Enter dietary requirements"
+                        }
+                    }
+                }
+            ]
+        })
+    }}
+{% endcall %}
