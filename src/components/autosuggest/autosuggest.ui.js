@@ -105,7 +105,7 @@ export default class AutosuggestUI {
   }
 
   get lang() {
-    return this.language.toLowerCase() || document.documentElement.getAttribute('lang').toLowerCase();
+    return !this.language ? document.documentElement.getAttribute('lang').toLowerCase() : this.language.toLowerCase();
   }
 
   initialiseUI() {

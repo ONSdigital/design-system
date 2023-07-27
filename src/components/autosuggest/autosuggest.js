@@ -14,7 +14,7 @@ export default class Autosuggest {
   }
 
   get lang() {
-    return this.language.toLowerCase() || document.documentElement.getAttribute('lang').toLowerCase();
+    return !this.language ? document.documentElement.getAttribute('lang').toLowerCase() : this.language.toLowerCase();
   }
 
   async onSelect(result) {
