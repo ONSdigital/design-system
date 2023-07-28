@@ -105,7 +105,7 @@
     "jest-axe": "^6.0.0",
     "jest-puppeteer": "^6.1.0",
     "js-beautify": "^1.11.0",
-    "lighthouse": "^7.5.0",
+    "lighthouse": "^10.4.0",
     "lint-staged": "^8.1.0",
     "lodash": "^4.17.21",
     "mdn-polyfills": "^5.14.0",
