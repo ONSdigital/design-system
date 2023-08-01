@@ -48,7 +48,7 @@ const EXAMPLE_AUTOSUGGEST_WITH_LANGUAGE = {
   noResults: 'No suggestions found.',
   typeMore: 'Continue entering to get suggestions',
   autosuggestData: '/test/fake/api/countries',
-  language: 'en',
+  language: 'en-gb',
 };
 
 describe('script: autosuggest', () => {
@@ -373,8 +373,7 @@ describe('script: autosuggest', () => {
       await page.type('.ons-js-autosuggest-input', 'Eng', { delay: 20 });
 
       const attributes = await getNodeAttributes(page, '.ons-js-autosuggest');
-      const languageCount = attributes['data-lang'];
-      expect(languageCount).toBeDefined;
+      expect(attributes['data-lang']).toBe('en-gb');
     });
   });
 
