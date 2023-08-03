@@ -44,11 +44,15 @@ export default class NavigationToggle {
     this.navigation.classList.add(this.hideClass);
   }
 
+  isHidden(el) {
+    return el.offsetParent === null;
+  }
+
   setAria() {
-    const viewportDetails = GetViewportDetails();
+    const isToggleHidden = this.isHidden(this.toggle);
     const hasAria = this.navigation.hasAttribute(attrHidden);
 
-    if (viewportDetails.width < 980) {
+    if (!isToggleHidden) {
       if (!hasAria) {
         this.closeNav();
       }
