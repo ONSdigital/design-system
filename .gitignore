@@ -6,6 +6,7 @@ coverage/
 .vscode/
 .idea/
 package-lock.json
+.husky/pre-push
 
 # Generated from visual regression tests
 backstop_data/bitmaps_test/
