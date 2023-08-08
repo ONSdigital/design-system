@@ -36,7 +36,7 @@
     >
 
         {% set autosuggestResults %}
-            <div class="ons-autosuggest__results ons-js-autosuggest-results {% if params.width %} ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %} {% if not params.width %} ons-input--w-20 {% endif %}">
+            <div class="ons-autosuggest__results ons-js-autosuggest-results {% if params.width %} ons-input--w-{{ params.width }}{% else %} ons-input--w-20 {% endif %}">
                 <div id="{{ params.resultsTitleId }}" class="ons-autosuggest__results-title ons-u-fs-s">{{ params.resultsTitle }}</div>
                 <ul class="ons-autosuggest__listbox ons-js-autosuggest-listbox" title="{{ params.resultsTitle }}" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
             </div>
