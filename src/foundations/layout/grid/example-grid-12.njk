@@ -1,0 +1,24 @@
+---
+layout: example
+---
+{% from "helpers/design-system/grid.njk" import patternLibExampleGrid %}
+
+<style>
+    .ons-pl-grid-col {
+        background: var(--ons-color-grey-5);
+        font-size: 0.8rem;
+        margin: 0 0 1rem;
+        padding: 1rem;
+    }
+</style>
+
+{{
+    patternLibExampleGrid({
+        "itemsList": [
+            {
+            'repeat': 12,
+            'col': 1
+            }
+        ]
+    })
+}}
