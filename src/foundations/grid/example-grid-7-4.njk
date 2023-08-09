@@ -1,7 +1,7 @@
 ---
-layout: example
+layout: layouts/example
 ---
-{% from "helpers/design-system/grid.njk" import patternLibExampleGrid %}
+{% from "components/helpers/grid.njk" import patternLibExampleGrid %}
 
 <style>
     .ons-pl-grid-col {
@@ -14,10 +14,14 @@ layout: example
 
 {{
     patternLibExampleGrid({
+        'container': true,
         "itemsList": [
             {
-            'repeat': 12,
-            'col': 1
+                'col': 7
+            },
+            {
+                'classes': 'ons-push-1@m',
+                'col': 4
             }
         ]
     })
