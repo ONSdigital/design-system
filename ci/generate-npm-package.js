@@ -8,12 +8,12 @@ const componentsPath = `${sourcePath}/components`;
 const newComponentsPath = `${cwd}/components`;
 const templatesPath = `${sourcePath}/layout`;
 const newTemplatesPath = `${cwd}/layout`;
-const assetFolders = ['css', 'favicons', 'fonts', 'img', 'scripts', 'js'];
+const assetFolders = ['css', 'favicons', 'img', 'scripts', 'js'];
 const builtAssetsFolders = assetFolders.map((folder) => `${cwd}/build/${folder}`);
 const newSassPath = `${cwd}/scss`;
 
 async function removeExistingFolders() {
-  const folders = [newComponentsPath, newTemplatesPath, ...assetFolders];
+  const folders = [newComponentsPath, newTemplatesPath, 'fonts', ...assetFolders];
   for (let folder of folders) {
     await fs.remove(folder);
   }
@@ -50,7 +50,7 @@ async function copyAssets() {
   }
 }
 
-async function copyBaseSass() {
+async function copyBaseSassAndFonts() {
   await fs.ensureDir(newSassPath);
   await fs.copy(`${sourcePath}/scss`, `${newSassPath}`);
   await fs.copy(`${sourcePath}/static/fonts`, `${newSassPath}/fonts`);
@@ -61,7 +61,7 @@ async function run() {
   await copyComponents(componentsPath, newComponentsPath);
   await copyTemplates(templatesPath, newTemplatesPath);
   await copyAssets();
-  await copyBaseSass();
+  await copyBaseSassAndFonts();
 }
 
 run();
