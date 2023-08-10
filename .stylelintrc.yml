@@ -5,6 +5,7 @@ extends:
     - stylelint-config-sass-guidelines
 plugins:
     - stylelint-scss
+    - stylelint-order
 rules:
     # Line Spacing
     rule-empty-line-before:

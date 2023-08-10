@@ -15,19 +15,16 @@ $button-shadow-size: 3px;
   position: relative;
   text-align: center;
   text-decoration: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   vertical-align: top;
   white-space: nowrap;
 
   // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
   &::after {
     border: ems($button-shadow-size) solid transparent;
-    bottom: -(ems($button-shadow-size)); // makes sure button shadow is selectable
+    inset: 0 0 -(ems($button-shadow-size)) 0; // makes sure button shadow is selectable
     content: '';
-    left: 0;
     position: absolute;
-    right: 0;
-    top: 0;
   }
 
   &--search {
@@ -172,8 +169,8 @@ $button-shadow-size: 3px;
     text-decoration: none;
   }
 
-  &--link:focus:not(:active):not(&--secondary) &,
-  &--link:focus:hover:not(:active):not(&--secondary) & {
+  &--link:focus:not(:active, &--secondary) &,
+  &--link:focus:hover:not(:active, &--secondary) & {
     outline: inherit;
 
     &__inner {
@@ -245,7 +242,8 @@ $button-shadow-size: 3px;
   &--text-link:active:focus & {
     &__inner {
       background-color: var(--ons-color-focus);
-      box-shadow: 0 -2px var(--ons-color-focus), 0 4px var(--ons-color-text-link-focus) !important;
+      box-shadow: 0 -2px var(--ons-color-focus),
+        0 4px var(--ons-color-text-link-focus) !important;
       color: var(--ons-color-text-link-focus);
       .ons-icon {
         fill: var(--ons-color-text-link-focus);
@@ -256,7 +254,7 @@ $button-shadow-size: 3px;
   &--ghost & {
     &__inner {
       background: transparent;
-      border: 2px solid rgba(255, 255, 255, 0.6);
+      border: 2px solid rgb(255 255 255 / 60%);
       box-shadow: none;
       color: var(--ons-color-text-inverse);
       .ons-icon {
@@ -314,7 +312,7 @@ $button-shadow-size: 3px;
 
   &--ghost:hover & {
     &__inner {
-      background: rgba(0, 0, 0, 0.1);
+      background: rgb(0 0 0 / 10%);
       border-color: var(--ons-color-white);
     }
   }
@@ -323,8 +321,8 @@ $button-shadow-size: 3px;
   &--ghost:active:focus &,
   &--ghost.active & {
     &__inner {
-      background: rgba(0, 0, 0, 0.2);
-      border-color: rgba(255, 255, 255, 0.6);
+      background: rgb(0 0 0 / 20%);
+      border-color: rgb(255 255 255 / 60%);
       color: var(--ons-color-text-inverse);
       .ons-icon {
         fill: var(--ons-color-text-inverse);
@@ -514,8 +512,7 @@ $button-shadow-size: 3px;
 
   align-items: baseline;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
 
   & .ons-btn,
   & a {
