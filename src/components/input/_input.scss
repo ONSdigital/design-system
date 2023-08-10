@@ -1,5 +1,6 @@
 %ons-input-focus {
-  box-shadow: 0 0 0 $input-border-width var(--ons-color-input-border), 0 0 0 4px var(--ons-color-focus);
+  box-shadow: 0 0 0 $input-border-width var(--ons-color-input-border),
+    0 0 0 4px var(--ons-color-focus);
 
   // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
   outline: 3px solid transparent;
@@ -31,7 +32,7 @@
   @include mq(s) {
     &--text,
     &--select {
-      &:not(.ons-input--block):not([class*='input--w-']) {
+      &:not(.ons-input--block, [class*='input--w-']) {
         width: $input-width;
       }
     }
@@ -131,7 +132,7 @@
 }
 
 .ons-input--ghost {
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid rgb(255 255 255 / 60%);
   &:focus {
     border: 2px solid var(--ons-color-input-border);
   }
