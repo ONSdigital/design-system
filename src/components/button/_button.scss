@@ -22,7 +22,7 @@ $button-shadow-size: 3px;
   // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
   &::after {
     border: ems($button-shadow-size) solid transparent;
-    inset: 0 0 -(ems($button-shadow-size)) 0; // makes sure button shadow is selectable
+    inset: 0 0 - (ems($button-shadow-size)) 0; // makes sure button shadow is selectable
     content: '';
     position: absolute;
   }
