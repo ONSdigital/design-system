@@ -43,7 +43,7 @@
       "git add"
     ],
     "*.scss": [
-      "prettier --print-width 140 --single-quote --parser postcss --write",
+      "prettier --print-width 140 --single-quote --parser scss --write",
       "yarn run stylelint-fix",
       "git add"
     ]
@@ -124,6 +124,7 @@
     "stylelint-config-recommended": "^13.0.0",
     "stylelint-config-sass-guidelines": "^10.0.0",
     "stylelint-config-standard": "^34.0.0",
+    "stylelint-order": "^6.0.3",
     "stylelint-scss": "^5.0.1",
     "through2": "^4.0.2",
     "tick-manager": "^1.0.3",
