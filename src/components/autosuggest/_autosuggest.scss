@@ -51,7 +51,7 @@
       border-bottom: 1px solid var(--ons-color-input-border);
     }
 
-    &:not(&--no-results):not(&--more-results):hover,
+    &:not(&--no-results, &--more-results):hover,
     &--focused:not(&--no-results) {
       background: var(--ons-color-text-link-hover);
       border-color: var(--ons-color-text-link-hover);
@@ -63,7 +63,7 @@
       }
     }
 
-    &:active:not(&--no-results):not(&--more-results) {
+    &:active:not(&--no-results, &--more-results) {
       background: var(--ons-color-focus);
       color: var(--ons-color-text-link-focus);
 
@@ -128,7 +128,7 @@
   &--header {
     .ons-autosuggest__results {
       border: none;
-      box-shadow: 0 0 5px 0 rgba(34, 34, 34, 0.6);
+      box-shadow: 0 0 5px 0 rgb(34 34 34 / 60%);
       left: 0;
       position: absolute;
       z-index: 10;

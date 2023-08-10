@@ -10,7 +10,7 @@
 
   // Panels – add border to replace backgrounds
   .ons-panel {
-    border-color: currentColor;
+    border-color: currentcolor;
     border-left-width: 8px !important;
   }
 
@@ -43,7 +43,7 @@
 
   // I would have approached the mark differently, but without changing the existing approach this fixes it
   .ons-timeline__item::before {
-    border: 2px solid currentColor;
+    border: 2px solid currentcolor;
   }
 
   // Element icons – matches icon with the link colour
@@ -54,7 +54,7 @@
   .ons-external-link,
   .ons-list--icons {
     & .ons-icon {
-      fill: currentColor !important;
+      fill: currentcolor !important;
       forced-color-adjust: auto;
     }
   }
@@ -64,7 +64,7 @@
   .ons-header__title-logo,
   .ons-footer {
     & .ons-icon--logo {
-      fill: currentColor !important;
+      fill: currentcolor !important;
       forced-color-adjust: auto;
     }
   }
@@ -122,21 +122,21 @@
   .ons-header__top,
   .ons-hero,
   .ons-phase-banner {
-    border-bottom: 1px solid currentColor;
+    border-bottom: 1px solid currentcolor;
   }
 
   .ons-footer {
-    border-top: 1px solid currentColor;
+    border-top: 1px solid currentcolor;
   }
 
   @include mq(m) {
     .ons-header__main {
-      border-bottom: 1px solid currentColor;
+      border-bottom: 1px solid currentcolor;
     }
   }
 
   .ons-navigation--sub {
-    border-top: 1px solid currentColor;
+    border-top: 1px solid currentcolor;
   }
 
   // Search – override focus state background image
@@ -174,8 +174,8 @@
       }
     }
 
-    &:checked:not(:disabled):not(:visited),
-    &:checked:not(:disabled):not(:visited)::after {
+    &:checked:not(:disabled, :visited),
+    &:checked:not(:disabled, :visited)::after {
       border-color: Highlight;
     }
 
