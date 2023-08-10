@@ -40,7 +40,8 @@ rules:
         - ignoreProperties:
             - 'box-orient'
         - ignoreAtRules: ['each', 'else', 'extend', 'for', 'function', 'if', 'include', 'mixin', 'return', 'while']
-
+    # Imports
+    import-notation: 'string'
     # Nesting
     max-nesting-depth:
         - 5
