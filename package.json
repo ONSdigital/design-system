@@ -29,7 +29,7 @@
     "stylelint-fix": "stylelint '**/*.scss' --fix",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable", 
-    "prepare": "[ -d .git ] && husky install || true"
+    "prepare": "if [ -d .git ]; then husky install; fi"
   },
   "lint-staged": {
     "*.js": [
