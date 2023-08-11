@@ -27,7 +27,6 @@
     "lint-staged": "lint-staged",
     "stylelint": "stylelint '**/*.scss'",
     "stylelint-fix": "stylelint '**/*.scss' --fix",
-    "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable"
   },
