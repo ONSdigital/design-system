@@ -1,6 +1,20 @@
 .ons-card {
   margin: 0 0 2rem;
   width: 100%;
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__image--reorder {
+    order: 1;
+  }
+
+  &__title--reorder {
+    order: 2;
+  }
+
   &__link:hover {
     text-decoration-thickness: 3px;
   }

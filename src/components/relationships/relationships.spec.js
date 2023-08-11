@@ -2,7 +2,7 @@ import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
 const EXAMPLE_RELATIONSHIPS = {
   dontWrap: true,
-  playback: "Amanda Bloggs is Joe Bloggs' <em>…</em>",
+  playback: "Amanda Bloggs is Joe Bloggs' <strong>…</strong>",
   name: 'relationship',
   radios: [
     {
@@ -12,8 +12,8 @@ const EXAMPLE_RELATIONSHIPS = {
         text: 'Grandparent',
       },
       attributes: {
-        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>grandparents</em>',
-        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>grandparents</em>",
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <strong>grandparents</strong>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <strong>grandparents</strong>",
       },
     },
     {
@@ -23,8 +23,8 @@ const EXAMPLE_RELATIONSHIPS = {
         text: 'Other relation',
       },
       attributes: {
-        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>other relation</em>',
-        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>other relation</em>",
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <strong>other relation</strong>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <strong>other relation</strong>",
       },
     },
     {
@@ -35,8 +35,8 @@ const EXAMPLE_RELATIONSHIPS = {
         description: 'Including foster child',
       },
       attributes: {
-        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is <em>unrelated</em> to Joe Bloggs',
-        'data-playback': 'Amanda Bloggs is <em>unrelated</em> to Joe Bloggs',
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is <strong>unrelated</strong> to Joe Bloggs',
+        'data-playback': 'Amanda Bloggs is <strong>unrelated</strong> to Joe Bloggs',
       },
     },
   ],
@@ -49,7 +49,7 @@ describe('script: relationships', () => {
       renderComponent(
         'question',
         {
-          title: 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>',
+          title: 'Thinking of Joe Bloggs, Amanda Bloggs is their <strong>…</strong>',
           readDescriptionFirst: true,
           legendIsQuestionTitle: true,
           legendTitleClasses: 'ons-js-relationships-legend',
@@ -61,7 +61,7 @@ describe('script: relationships', () => {
 
   describe('when the component initialises', () => {
     it('then the playback paragraph should become visible', async () => {
-      const hasHideClass = await page.$eval('.ons-relationships__playback', node => node.classList.contains('ons-u-d-no'));
+      const hasHideClass = await page.$eval('.ons-relationships__playback', (node) => node.classList.contains('ons-u-d-no'));
       expect(hasHideClass).toBe(false);
     });
   });
@@ -72,13 +72,13 @@ describe('script: relationships', () => {
     });
 
     it('the question title should be changed to reflect the relationship', async () => {
-      const headingText = await page.$eval('h1', element => element.innerHTML);
-      expect(headingText.trim()).toBe('Thinking of Joe Bloggs, Amanda Bloggs is their <em>other relation</em>');
+      const headingText = await page.$eval('h1', (element) => element.innerHTML);
+      expect(headingText.trim()).toBe('Thinking of Joe Bloggs, Amanda Bloggs is their <strong>other relation</strong>');
     });
 
     it('the playback should be changed to reflect the relationship', async () => {
-      const playbackText = await page.$eval('.ons-relationships__playback', element => element.innerHTML);
-      expect(playbackText.trim()).toBe("Amanda Bloggs is Joe Bloggs' <em>other relation</em>");
+      const playbackText = await page.$eval('.ons-relationships__playback', (element) => element.innerHTML);
+      expect(playbackText.trim()).toBe("Amanda Bloggs is Joe Bloggs' <strong>other relation</strong>");
     });
   });
 });

@@ -115,7 +115,9 @@
       overflow-x: auto;
       width: 100%;
       &:focus {
-        box-shadow: 0 0 0 3px var(--ons-color-page-light), 0 0 0 5px var(--ons-color-text-link-focus), 0 0 0 8px var(--ons-color-focus);
+        box-shadow: 0 0 0 3px var(--ons-color-page-light),
+          0 0 0 5px var(--ons-color-text-link-focus),
+          0 0 0 8px var(--ons-color-focus);
         outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
         outline-offset: 1px;
       }
@@ -141,13 +143,15 @@
       .ons-table__right-shadow {
         right: 0;
         &.ons-visible {
-          box-shadow: inset -1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
+          box-shadow: inset -1px 0 0 0 #bfc1c3,
+            inset -5px 0 0 0 rgb(191 193 195 / 40%);
         }
       }
       .ons-table__left-shadow {
         left: 0;
         &.ons-visible {
-          box-shadow: inset 1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
+          box-shadow: inset 1px 0 0 0 #bfc1c3,
+            inset -5px 0 0 0 rgb(191 193 195 / 40%);
         }
       }
     }
