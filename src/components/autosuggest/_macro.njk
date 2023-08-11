@@ -28,6 +28,7 @@
         {% if params.tooManyResults %}data-too-many-results="{{ params.tooManyResults }}"{% endif %}
         {% if params.errorMessageAPI %}data-error-api="{{ params.errorMessageAPI }}"{% endif %}
         {% if params.errorMessageAPILinkText %}data-error-api-link-text="{{ params.errorMessageAPILinkText }}"{% endif %}
+        {% if params.language %}data-lang="{{ params.language }}"{% endif %}
         {% if params.options %}
             {% if params.options.oneYearAgo %}data-options-one-year-ago="true"{% endif %}
             {% if params.options.regionCode %}data-options-region-code="{{ params.options.regionCode }}"{% endif %}
