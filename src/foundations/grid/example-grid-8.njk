@@ -1,0 +1,15 @@
+---
+layout: layouts/example
+---
+{% from "components/helpers/grid.njk" import patternLibExampleGrid %}
+
+{{
+    patternLibExampleGrid({
+        'container': true,
+        "itemsList": [
+            {
+                'col': 8
+            }
+        ]
+    })
+}}
