@@ -1,4 +1,10 @@
 {% macro onsCookiesBanner(params) %}
+    {% if IsDesignSystemExample %}
+        {% set settingsLinkUrl = params.settingsLinkTextURL | default(defaultCookiesLink) %}
+    {% else %}
+        {% set settingsLinkUrl = '#0' %}
+    {% endif %}
+    
     {% if params.lang == 'cy' %}
         {% set ariaLabel = 'Cwcis' %}
         {% set serviceName = 'ons.gov.uk' %}
@@ -30,11 +36,7 @@
         {% set beforeLinkPreferencesUrl = 'You can' %}
         {% set afterLinkPreferencesUrl = 'change your cookie preferences</a> at any time.' %}
     {% endif %}
-     {% if IsDesignSystemExample %}
-        {% set settingsLinkUrl = params.settingsLinkTextURL | default(defaultCookiesLink) %}
-    {% else %}
-        {% set settingsLinkUrl = '#0' %}
-    {% endif %}
+     
     {% set preferencesText = beforeLinkPreferencesUrl + ' <a href="' + settingsLinkUrl + '">' + afterLinkPreferencesUrl %}
 
     <div class="ons-cookies-banner" role="region" aria-label="{{ params.ariaLabel | default(ariaLabel)}}">
