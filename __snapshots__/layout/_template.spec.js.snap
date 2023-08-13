@@ -44,7 +44,7 @@ exports[`base page template matches the body block override snapshot 1`] = `
         
 
     </head>
-    <body>
+    <body class=\\"ons-container \\">
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         
         Content
@@ -112,7 +112,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
         
 
     </head>
-    <body>
+    <body class=\\"ons-container \\">
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         
         
@@ -259,7 +259,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
 
                     
                     
-                        <div class=\\"ons-page__container ons-container\\">
+                        <div class=\\"ons-page__container\\">
                             
                                 
                             
@@ -354,7 +354,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
         
 
     </head>
-    <body>
+    <body class=\\"ons-container \\">
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         
         
@@ -501,7 +501,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
 
                     
                     
-                        <div class=\\"ons-page__container ons-container\\">
+                        <div class=\\"ons-page__container\\">
                             
                                 
                             
@@ -616,7 +616,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             <link rel=\\"manifest\\" href=\\"/some-path/favicons/manifest.json\\">
         
 
-        </head><body class=\\"custom-class\\">Some head content
+        </head><body class=\\"ons-container  custom-class \\">Some head content
 
     
     
@@ -1260,7 +1260,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
                     
                     
-                        <div class=\\"ons-page__container ons-container\\">
+                        <div class=\\"ons-page__container\\">
                             
                                 
                                     
@@ -1836,7 +1836,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
         
 
     </head>
-    <body>
+    <body class=\\"ons-container \\">
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         
         
@@ -1983,7 +1983,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
 
                     
                     
-                        <div class=\\"ons-page__container ons-container\\">
+                        <div class=\\"ons-page__container\\">
                             
                                 
                             
@@ -2062,7 +2062,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
         
 
     </head>
-    <body>
+    <body class=\\"ons-container \\">
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         
         
@@ -2209,7 +2209,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
 
                     
                     
-                        <div class=\\"ons-page__container ons-container\\">
+                        <div class=\\"ons-page__container\\">
                             
                                 
                             
