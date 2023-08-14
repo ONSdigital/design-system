@@ -57,13 +57,10 @@
     @extend %ons-input-focus;
 
     border-radius: $input-radius;
-    bottom: 0;
+    inset: 0;
     content: '';
     display: block;
-    left: 0;
     position: absolute;
-    right: 0;
-    top: 0;
   }
 
   &:not(&--prefix) & {
@@ -100,16 +97,13 @@
 
   & + .ons-input-type__type::after {
     border-radius: $input-radius;
-    bottom: 0;
+    inset: 0;
 
     // Style input + prefix/suffix for errors
     box-shadow: 0 0 0 1px var(--ons-color-errors);
     content: '';
     display: block;
-    left: 0;
     outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
     position: absolute;
-    right: 0;
-    top: 0;
   }
 }

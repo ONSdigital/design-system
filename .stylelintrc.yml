@@ -5,6 +5,7 @@ extends:
     - stylelint-config-sass-guidelines
 plugins:
     - stylelint-scss
+    - stylelint-order
 rules:
     # Line Spacing
     rule-empty-line-before:
@@ -39,7 +40,8 @@ rules:
         - ignoreProperties:
             - 'box-orient'
         - ignoreAtRules: ['each', 'else', 'extend', 'for', 'function', 'if', 'include', 'mixin', 'return', 'while']
-
+    # Imports
+    import-notation: 'string'
     # Nesting
     max-nesting-depth:
         - 5

@@ -156,12 +156,9 @@ $checkbox-padding: 11px;
       background: var(--ons-color-white);
       border: 1px solid var(--ons-color-input-border);
       border-radius: 3px;
-      bottom: 0;
+      inset: 0;
       content: '';
-      left: 0;
       position: absolute;
-      right: 0;
-      top: 0;
       z-index: -1;
     }
 
