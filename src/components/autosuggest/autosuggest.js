@@ -3,6 +3,7 @@ import AutosuggestUI from './autosuggest.ui';
 export default class Autosuggest {
   constructor(context) {
     this.context = context;
+    this.language = context.getAttribute('data-lang');
 
     this.autosuggest = new AutosuggestUI({
       context,
@@ -13,7 +14,7 @@ export default class Autosuggest {
   }
 
   get lang() {
-    return document.documentElement.getAttribute('lang').toLowerCase();
+    return !this.language ? document.documentElement.getAttribute('lang').toLowerCase() : this.language.toLowerCase();
   }
 
   async onSelect(result) {
