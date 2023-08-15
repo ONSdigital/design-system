@@ -109,7 +109,7 @@ layout: ~
         {{
             onsInput({
                 "type": "number",
-                "id": "number",
+                "id": "number-example-proto-errors",
                 "width": "5",
                 "fieldClasses": "ons-question__answer",
                 "label": {
@@ -125,7 +125,7 @@ layout: ~
         {{
             onsInput({
                 "type": "number",
-                "id": "number-input",
+                "id": "number-input-example-proto-errors",
                 "width": "3",
                 "fieldClasses": "ons-question__answer",
                 "value": "110",
@@ -149,7 +149,7 @@ layout: ~
                 "legend": "Date of birth",
                 "description": "For example, 31 3 1980",
                 "legendOrLabel": "Date of birth",
-                "id": "dates",
+                "id": "dates-example-proto-error",
                 "day": {
                     "label": {
                         "text": "Day"
@@ -194,28 +194,28 @@ layout: ~
                 },
                 "radios": [
                     {
-                        "id": "post",
+                        "id": "post-example-proto-error",
                         "label": {
                             "text": "By post"
                         },
                         "value": "post"
                     },
                     {
-                        "id": "email",
+                        "id": "email-example-proto-error",
                         "label": {
                             "text": "By email"
                         },
                         "value": "email"
                     },
                     {
-                        "id": "phone",
+                        "id": "phone-example-proto-error",
                         "label": {
                             "text": "By phone"
                         },
                         "value": "phone",
                         "other": {
                             "otherType": "select",
-                            "id": "phone-time",
+                            "id": "phone-time-example-proto-error",
                             "name": "phone-time",
                             "label": {
                                 "text": "Choose preferred time of day"
@@ -262,34 +262,34 @@ layout: ~
                 },
                 "checkboxes": [
                     {
-                        "id": "gas",
+                        "id": "gas-example-proto-error",
                         "label": {
                             "text": "Gas"
                         },
                         "value": "gas"
                     },
                     {
-                        "id": "electric",
+                        "id": "electric-example-proto-error",
                         "label": {
                             "text": "Electric"
                         },
                         "value": "electric"
                     },
                     {
-                        "id": "solid-fuel",
+                        "id": "solid-fuel-example-proto-error",
                         "label": {
                             "text": "Solid fuel"
                         },
                         "value": "solid-fuel"
                     },
                     {
-                        "id": "other-fuel",
+                        "id": "other-fuel-proto-errors",
                         "label": {
                             "text": "Other"
                         },
                         "value": "other",
                         "other": {
-                            "id": "other-fuel-textbox",
+                            "id": "other-fuel-textbox-proto-errors",
                             "name": "other-fuel-answer",
                             "label": {
                                 "text": "Enter type of central heating"
@@ -317,7 +317,7 @@ layout: ~
 
         {{
             onsPassword({
-                "id": "password",
+                "id": "password-example-proto-error",
                 "label": {
                     "text": "Password"
                 },
@@ -331,7 +331,7 @@ layout: ~
 
         {{
             onsInput({
-                "id": "email-address-input",
+                "id": "email-address-input-example-proto-error",
                 "type": "email",
                 "value": "name.com",
                 "label": {
@@ -341,7 +341,7 @@ layout: ~
                 "legendClasses": "ons-u-vh",
                 "error": {
                     "text": "Enter an email address in a valid format, for example, name@example.com",
-                    "id": "email-error"
+                    "id": "email-error-example-proto-error"
                 },
                 "mutuallyExclusive": {
                     "or": "Or",
@@ -350,7 +350,7 @@ layout: ~
                     "deselectExclusiveOptionAdjective": "deselected",
                     "exclusiveOptions": [
                         {
-                            "id": "email-checkbox",
+                            "id": "email-checkbox-example-proto-error",
                             "name": "no-email",
                             "value": "no-email",
                             "label": {
@@ -365,26 +365,26 @@ layout: ~
         {{
             onsDuration({
                 "legendOrLabel": "Duration",
-                "id": "address-duration",
+                "id": "address-duration-errors",
                 "error": {
                     "text": "Enter a number that is less than 60",
                     "id": "duration-error"
                 },
                 "field1": {
-                    "id": "address-duration-hours",
+                    "id": "address-duration-hours-errors",
                     "name": "address-duration-hours",
                     "suffix": {
                         "text": "Hours",
-                        "id": "address-duration-hours-suffix"
+                        "id": "address-duration-hours-suffix-errors"
                     },
                     "value": "2"
                 },
                 "field2": {
-                    "id": "address-duration-minutes",
+                    "id": "address-duration-minutes-errors",
                     "name": "address-duration-minutes",
                     "suffix": {
                         "text": "Minutes",
-                        "id": "address-duration-mins-suffix"
+                        "id": "address-duration-mins-suffix-errors"
                     },
                     "value": "60",
                     "error": true
