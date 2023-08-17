@@ -64,6 +64,7 @@ export default class AutosuggestUI {
     this.errorAPI = errorAPI || context.getAttribute('data-error-api');
     this.errorAPILinkText = errorAPILinkText || context.getAttribute('data-error-api-link-text');
     this.typeMore = typeMore || context.getAttribute('data-type-more');
+    this.language = context.getAttribute('data-lang');
     this.allowMultiple = context.getAttribute('data-allow-multiple') || false;
     this.listboxId = this.listbox.getAttribute('id');
     this.resultLimit = resultLimit || 10;
@@ -104,7 +105,7 @@ export default class AutosuggestUI {
   }
 
   get lang() {
-    return document.documentElement.getAttribute('lang').toLowerCase();
+    return !this.language ? document.documentElement.getAttribute('lang').toLowerCase() : this.language.toLowerCase();
   }
 
   initialiseUI() {
@@ -261,7 +262,7 @@ export default class AutosuggestUI {
   getSuggestions(force, groupResults) {
     if (!this.settingResult) {
       if (this.allowMultiple === 'true' && this.allSelections.length) {
-        const newQuery = this.input.value.split(', ').find(item => !this.allSelections.includes(item));
+        const newQuery = this.input.value.split(', ').find((item) => !this.allSelections.includes(item));
         this.query = newQuery ? newQuery : this.input.value;
       } else {
         this.query = this.input.value;
@@ -276,7 +277,7 @@ export default class AutosuggestUI {
         if (this.sanitisedQuery.length >= this.minChars) {
           this.fetchSuggestions(this.sanitisedQuery, this.data, groupResults)
             .then(this.handleResults.bind(this))
-            .catch(error => {
+            .catch((error) => {
               if (error.name !== 'AbortError') {
                 console.log('error:', error);
                 this.handleNoResults(500);
@@ -292,7 +293,7 @@ export default class AutosuggestUI {
   async fetchSuggestions(sanitisedQuery, data) {
     this.abortFetch();
     const results = await runFuse(sanitisedQuery, data, this.lang, this.resultLimit);
-    results.forEach(result => {
+    results.forEach((result) => {
       result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
     });
     return {
@@ -520,14 +521,14 @@ export default class AutosuggestUI {
   }
 
   storeExistingSelections(value) {
-    this.currentSelections = this.input.value.split(', ').filter(items => this.allSelections.includes(items));
+    this.currentSelections = this.input.value.split(', ').filter((items) => this.allSelections.includes(items));
     this.allSelections = [];
     if (this.currentSelections.length) {
       this.allSelections = this.currentSelections;
     }
     this.allSelections.push(value);
 
-    this.allSelections = this.allSelections.filter(function(value, index, array) {
+    this.allSelections = this.allSelections.filter(function (value, index, array) {
       return array.indexOf(value) == index;
     });
 
@@ -535,12 +536,7 @@ export default class AutosuggestUI {
   }
 
   emboldenMatch(string, query) {
-    let reg = new RegExp(
-      this.escapeRegExp(query)
-        .split(' ')
-        .join('[\\s,]*'),
-      'gi',
-    );
+    let reg = new RegExp(this.escapeRegExp(query).split(' ').join('[\\s,]*'), 'gi');
 
     return string.replace(reg, '<strong>$&</strong>');
   }

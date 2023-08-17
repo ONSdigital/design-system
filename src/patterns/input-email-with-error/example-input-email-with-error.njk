@@ -1,7 +1,7 @@
 {% from "components/input/_macro.njk" import onsInput %}
 {{
     onsInput({
-        "id": "email",
+        "id": "email-example-input-email-with-error",
         "type": "email",
         "autocomplete": "email",
         "value": "name.com",
@@ -10,7 +10,7 @@
             "description": "This will not be stored and only used once to send your confirmation"
         },
         "error": {
-            "id": "email-error",
+            "id": "email-error-example-input-email-with-error",
             "text": "Enter an email address in a valid format, for example, name@example.com"
         }
     })
