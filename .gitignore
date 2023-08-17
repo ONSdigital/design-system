@@ -24,6 +24,8 @@ backstop_data/html_report/
 /img/
 /scripts/
 /scss/
+/js/
+/layout/
 
 secrets.yml
 
