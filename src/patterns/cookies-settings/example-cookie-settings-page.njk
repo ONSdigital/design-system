@@ -71,7 +71,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }) %}
             <h2>Your cookie settings have been saved</h2>
             <p class="ons-u-mb-no">Some parts of the ONS may use additional cookies and will have their own cookie policy and banner.</p>
-            <a class="{% if isDesignSystemExample %}ons-js-return-link {% endif %}ons-u-mt-s ons-u-dib" href="#0">Return to previous page</a>
+            <a class="{% if not isDesignSystemExample %}ons-js-return-link {% endif %}ons-u-mt-s ons-u-dib" href="#0">Return to previous page</a>
         {% endcall %}
 
         <p>Cookies are small files saved on your phone, tablet or computer when you visit a website.</p>

@@ -35,7 +35,7 @@
         {% set afterLinkStatementText = 'additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services. </p>' %}
     {% endif %}
 
-    {% if isDesignSystemExample %}
+    {% if not isDesignSystemExample %}
         {% set settingsLinkURL = params.settingsLinkTextURL | default(defaultCookiesLink) %}
     {% else %}
         {% set settingsLinkURL = '#0' %}
