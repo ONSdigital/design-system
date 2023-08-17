@@ -672,7 +672,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             <div class=\\"ons-grid ons-grid--flex ons-grid--gutterless ons-grid--vertical-top ons-grid--no-wrap\\">
                 
                 <div class=\\"ons-grid__col ons-col-auto ons-u-flex-no-grow ons-u-flex-no-shrink\\">
-                    <h3 class=\\"ons-phase-banner__badge\\">BETA</h3>
+                    <strong class=\\"ons-phase-banner__badge\\">BETA</strong>
                 </div>
                 
                 <div class=\\"ons-grid__col ons-col-auto ons-u-flex-shrink\\">
