@@ -19,7 +19,7 @@ layout: ~
         "itemsList": [
             {
                 "url": '/',
-                "id": "back",
+                "id": "back-example-feedback-form-error",
                 "text": 'Back',
                 "attributes": {
                     "data-attribute": "Example attribute"
@@ -69,12 +69,12 @@ layout: ~
                 "legend": "Select what your feedback is about",
                 "name": "feedback-type",
                 "error": {
-                    "id": "feedback-type",
+                    "id": "feedback-type-example-feedback-form",
                     "text": "Select what question topic your feedback is about"
                 },
                 "radios": [
                     {
-                        "id": "questions",
+                        "id": "questions-example-feedback-form-error",
                         "label": {
                             "text": "The questions",
                             "description": "For example, questions not clear, answer options not relevant"
@@ -83,7 +83,7 @@ layout: ~
                         "checked": true,
                         "other": {
                             "otherType": "select",
-                            "id": "other-select",
+                            "id": "other-select-feedback-form-errors",
                             "classes": "ons-input--block",
                             "name": "topic",
                             "label": {
@@ -132,14 +132,14 @@ layout: ~
                         }
                     },
                     {
-                        "id": "design",
+                        "id": "design-example-feedback-form",
                         "label": {
                             "text": "Page design and structure"
                         },
                         "value": "design"
                     },
                     {
-                        "id": "general",
+                        "id": "general-example-feedback-form",
                         "label": {
                             "text": "General feedback about this service"
                         },
@@ -150,7 +150,7 @@ layout: ~
         }}
         {{
             onsTextarea({
-                "id": "feedback-textarea",
+                "id": "feedback-textarea-example-feedback-form",
                 "name": "feedback-text",
                 "width": "30",
                 "label": {
@@ -163,7 +163,7 @@ layout: ~
                     "charCountPlural": "You have {x} characters remaining"
                 },
                 "error": {
-                    "id": "feedback-content",
+                    "id": "feedback-content-example-feedback-form",
                     "text": "Enter your feedback"
                 }
             })
