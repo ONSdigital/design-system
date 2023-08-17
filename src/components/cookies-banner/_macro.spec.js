@@ -83,7 +83,7 @@ describe('macro: cookies-banner', () => {
         const $ = cheerio.load(renderComponent('cookies-banner', EXAMPLE_COOKIES_BANNER_PARAMS));
 
         const linkText = $('.ons-cookies-banner__link').attr('href');
-        expect(linkText).toBe('#0');
+        expect(linkText).toBe('/cookiesoverride');
       });
     });
 
@@ -135,7 +135,7 @@ describe('macro: cookies-banner', () => {
 
         const statementText = $('.ons-cookies-banner__primary .ons-cookies-banner__statement').html().trim();
         expect(statementText).toBe(
-          '<p>Cookies are small files stored on your device when you visit a website. We use some essential cookies to make this website work.</p><p>We would like to set <a href="#0">additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services. </p>',
+          '<p>Cookies are small files stored on your device when you visit a website. We use some essential cookies to make this website work.</p><p>We would like to set <a href="/cookies">additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services. </p>',
         );
       });
 
@@ -168,7 +168,7 @@ describe('macro: cookies-banner', () => {
         const $ = cheerio.load(renderComponent('cookies-banner', {}));
 
         const linkText = $('.ons-cookies-banner__link').attr('href');
-        expect(linkText).toBe('#0');
+        expect(linkText).toBe('/cookies');
       });
 
       it('has `container--wide` class when `wide` is true', () => {
@@ -197,7 +197,7 @@ describe('macro: cookies-banner', () => {
         const $ = cheerio.load(renderComponent('cookies-banner', {}));
 
         const preferencesText = $('.ons-cookies-banner__confirmation .ons-cookies-banner__preferences-text').html().trim();
-        expect(preferencesText).toBe('You can <a href="#0">change your cookie preferences</a> at any time.');
+        expect(preferencesText).toBe('You can <a href="/cookies">change your cookie preferences</a> at any time.');
       });
 
       it('renders a button with text', () => {

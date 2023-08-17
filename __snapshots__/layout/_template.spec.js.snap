@@ -1269,7 +1269,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         <ol class=\\"ons-breadcrumbs__items ons-u-fs-s\\">
             
                 <li class=\\"ons-breadcrumbs__item\\" id=\\"breadcrumb-1\\">
-                    <a class=\\"ons-breadcrumbs__link\\" href=\\"#0\\">Home</a>
+                    <a class=\\"ons-breadcrumbs__link\\" href=\\"/\\">Home</a>
                     
 
     
@@ -1284,7 +1284,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                 </li>
             
                 <li class=\\"ons-breadcrumbs__item\\" id=\\"breadcrumb-2\\">
-                    <a class=\\"ons-breadcrumbs__link\\" href=\\"#0\\">Components</a>
+                    <a class=\\"ons-breadcrumbs__link\\" href=\\"/components\\">Components</a>
                     
 
     

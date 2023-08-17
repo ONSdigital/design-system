@@ -98,7 +98,7 @@ describe('macro: breadcrumbs', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
     const urls = mapAll($('.ons-breadcrumbs__link'), (node) => node.attr('href'));
-    expect(urls).toEqual(['#0', '#0']);
+    expect(urls).toEqual(['https://example.com/', 'https://example.com/guide/']);
   });
 
   it('has provided `text` on `link` elements', () => {
