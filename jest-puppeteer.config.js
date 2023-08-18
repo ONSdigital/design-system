@@ -12,7 +12,6 @@ module.exports = {
       '--disable-software-rasterizer',
     ],
     dumpio: true,
-    headless: 'new',
   },
   server: {
     command: `yarn test:start-server`,
