@@ -49,7 +49,7 @@ const EXAMPLE_SUMMARY_ROWS = {
           actions: [
             {
               text: 'Action 1',
-              visuallyHiddenText: 'action 1',
+              visuallyHiddenText: 'action 1 for row title 2',
               attributes: {
                 a: 'abc',
                 b: 'def',
@@ -58,7 +58,7 @@ const EXAMPLE_SUMMARY_ROWS = {
             },
             {
               text: 'Action 2',
-              visuallyHiddenText: 'action 2',
+              visuallyHiddenText: 'action 2 for row title 2',
               url: '#2',
             },
           ],
@@ -490,7 +490,10 @@ describe('macro: summary', () => {
           $(
             '.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child .ons-u-vh',
           ).text(),
-        ).toBe('answer for row title 2');
+        ).toBe('action 1 for row title 2');
+        expect(
+          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child .ons-u-vh').text(),
+        ).toBe('action 2 for row title 2');
       });
 
       it('has custom `attributes`', () => {
