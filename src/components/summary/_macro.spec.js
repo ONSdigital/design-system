@@ -482,7 +482,7 @@ describe('macro: summary', () => {
         ).toBe('Action 1');
         expect(
           $(
-            '.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child ons-summary__button-text',
+            '.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child .ons-summary__button-text',
           ).text(),
         ).toBe('Action 2');
       });
