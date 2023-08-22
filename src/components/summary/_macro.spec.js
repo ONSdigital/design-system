@@ -476,10 +476,14 @@ describe('macro: summary', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
         expect(
-          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').text(),
+          $(
+            '.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child .ons-summary__button-text',
+          ).text(),
         ).toBe('Action 1');
         expect(
-          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').text(),
+          $(
+            '.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child ons-summary__button-text',
+          ).text(),
         ).toBe('Action 2');
       });
 
