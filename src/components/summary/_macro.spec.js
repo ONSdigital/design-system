@@ -49,6 +49,7 @@ const EXAMPLE_SUMMARY_ROWS = {
           actions: [
             {
               text: 'Action 1',
+              visuallyHiddenText: 'action 1',
               attributes: {
                 a: 'abc',
                 b: 'def',
@@ -57,6 +58,7 @@ const EXAMPLE_SUMMARY_ROWS = {
             },
             {
               text: 'Action 2',
+              visuallyHiddenText: 'action 2',
               url: '#2',
             },
           ],
@@ -147,10 +149,12 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
+              visuallyHiddenText: 'change list item',
               url: '#0',
             },
             {
               text: 'Remove',
+              visuallyHiddenText: 'remove list item',
               url: '#0',
             },
           ],
@@ -165,6 +169,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
+              visuallyHiddenText: 'change list item',
               url: '#0',
             },
           ],
@@ -179,6 +184,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
+              visuallyHiddenText: 'change list item',
               url: '#0',
             },
           ],
@@ -197,10 +203,12 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
+              visuallyHiddenText: 'change answer',
               url: '#0',
             },
             {
               text: 'Remove',
+              visuallyHiddenText: 'remove list item',
               url: '#0',
             },
           ],
@@ -215,6 +223,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
+              visuallyHiddenText: 'change list item',
               url: '#0',
             },
           ],
@@ -229,6 +238,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           actions: [
             {
               text: 'Change',
+              visuallyHiddenText: 'change list item',
               url: '#0',
             },
           ],
@@ -390,11 +400,7 @@ describe('macro: summary', () => {
       it('displays the `rowTitle` text', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect(
-          $('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__item--text')
-            .text()
-            .trim(),
-        ).toBe('row title 1');
+        expect($('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__item--text').text().trim()).toBe('row title 1');
       });
 
       it('has a custom icon `iconType`', () => {
@@ -430,21 +436,15 @@ describe('macro: summary', () => {
       it('displays the `valueList` text', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect(
-          $('.ons-summary__items .ons-summary__item:nth-of-type(1) dl .ons-summary__values .ons-summary__text')
-            .text()
-            .trim(),
-        ).toBe('row value 1');
+        expect($('.ons-summary__items .ons-summary__item:nth-of-type(1) dl .ons-summary__values .ons-summary__text').text().trim()).toBe(
+          'row value 1',
+        );
       });
 
       it('displays the `other` text', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect(
-          $('.ons-summary__items .ons-summary__item:nth-of-type(1) dl .ons-summary__values ul li')
-            .text()
-            .trim(),
-        ).toBe('other value');
+        expect($('.ons-summary__items .ons-summary__item:nth-of-type(1) dl .ons-summary__values ul li').text().trim()).toBe('other value');
       });
 
       it('wraps the `valueList` in a ul if multiple values provided', () => {
@@ -477,10 +477,10 @@ describe('macro: summary', () => {
 
         expect(
           $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').text(),
-        ).toBe('Action 1answer for row title 2');
+        ).toBe('Action 1');
         expect(
           $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').text(),
-        ).toBe('Action 2answer for row title 2');
+        ).toBe('Action 2');
       });
 
       it('has the correct visually hidden <span> text', () => {
@@ -588,11 +588,7 @@ describe('macro: summary', () => {
     it('has the correct link `text`', () => {
       const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_WITH_NO_ROWS));
 
-      expect(
-        $('.ons-summary__group .ons-summary__link a')
-          .text()
-          .trim(),
-      ).toBe('Summary link');
+      expect($('.ons-summary__group .ons-summary__link a').text().trim()).toBe('Summary link');
     });
 
     it('has the correct link `url`', () => {
