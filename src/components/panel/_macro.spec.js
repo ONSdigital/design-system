@@ -51,19 +51,13 @@ describe('macro: panel', () => {
         }),
       );
 
-      expect(
-        $('.ons-panel__body')
-          .text()
-          .trim(),
-      ).toBe('Some panel text');
+      expect($('.ons-panel__body').text().trim()).toBe('Some panel text');
     });
 
     it('calls with content', () => {
       const $ = cheerio.load(renderComponent('panel', { EXAMPLE_PANEL_BASIC, type: panelType }, 'Example content...'));
 
-      const content = $('.ons-panel__body')
-        .text()
-        .trim();
+      const content = $('.ons-panel__body').text().trim();
       expect(content).toBe('Example content...');
     });
 
@@ -124,11 +118,7 @@ describe('macro: panel', () => {
         }),
       );
 
-      expect(
-        $('.ons-panel__assistive-text')
-          .text()
-          .trim(),
-      ).toBe(accessibleText);
+      expect($('.ons-panel__assistive-text').text().trim()).toBe(accessibleText);
     });
 
     it('has the provided visually hidden accessible text', () => {
@@ -140,11 +130,7 @@ describe('macro: panel', () => {
         }),
       );
 
-      expect(
-        $('.ons-panel__assistive-text')
-          .text()
-          .trim(),
-      ).toBe('Some helpful text:');
+      expect($('.ons-panel__assistive-text').text().trim()).toBe('Some helpful text:');
     });
   });
 
@@ -333,11 +319,7 @@ describe('macro: panel', () => {
         }),
       );
 
-      expect(
-        $('.ons-panel__icon')
-          .text()
-          .trim(),
-      ).toBe('!');
+      expect($('.ons-panel__icon').text().trim()).toBe('!');
     });
   });
 
@@ -362,11 +344,7 @@ describe('macro: panel', () => {
         }),
       );
 
-      expect(
-        $('.ons-panel__icon')
-          .text()
-          .trim(),
-      ).toBe('!');
+      expect($('.ons-panel__icon').text().trim()).toBe('!');
     });
   });
 
@@ -406,7 +384,7 @@ describe('macro: panel', () => {
       expect($('.ons-panel__icon').hasClass('ons-u-fs-r')).toBe(true);
     });
 
-    it.each(['r', 'm', 'l', 'xl'])('has the correct class for the provided `iconSize` override (%s)', customIconSize => {
+    it.each(['r', 'm', 'l', 'xl'])('has the correct class for the provided `iconSize` override (%s)', (customIconSize) => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
