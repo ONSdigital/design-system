@@ -97,23 +97,23 @@ describe('macro: breadcrumbs', () => {
   it('has provided `url` on `link` elements', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    const urls = mapAll($('.ons-breadcrumbs__link'), node => node.attr('href'));
+    const urls = mapAll($('.ons-breadcrumbs__link'), (node) => node.attr('href'));
     expect(urls).toEqual(['https://example.com/', 'https://example.com/guide/']);
   });
 
   it('has provided `text` on `link` elements', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    const labels = mapAll($('.ons-breadcrumbs__link'), node => node.text().trim());
+    const labels = mapAll($('.ons-breadcrumbs__link'), (node) => node.text().trim());
     expect(labels).toEqual(['Home', 'Guide']);
   });
 
   it('has provided `attributes` on `link` elements', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    const testValuesA = mapAll($('.ons-breadcrumbs__link'), node => node.attr('data-a'));
+    const testValuesA = mapAll($('.ons-breadcrumbs__link'), (node) => node.attr('data-a'));
     expect(testValuesA).toEqual(['123', '789']);
-    const testValuesB = mapAll($('.ons-breadcrumbs__link'), node => node.attr('data-b'));
+    const testValuesB = mapAll($('.ons-breadcrumbs__link'), (node) => node.attr('data-b'));
     expect(testValuesB).toEqual(['456', 'ABC']);
   });
 
@@ -123,7 +123,7 @@ describe('macro: breadcrumbs', () => {
 
     faker.renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_MINIMAL);
 
-    const iconTypes = iconsSpy.occurrences.map(occurrence => occurrence.iconType);
+    const iconTypes = iconsSpy.occurrences.map((occurrence) => occurrence.iconType);
     expect(iconTypes).toEqual(['chevron', 'chevron']);
   });
 });
