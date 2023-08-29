@@ -16,7 +16,7 @@ jobs:
         id: read-nvmrc-file
         run: echo "nvmrc=$(cat .nvmrc)" >> $GITHUB_OUTPUT
       - name: Install Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: "${{ steps.read-nvmrc-file.outputs.nvmrc }}"
       - name: Install dependencies

@@ -1,7 +1,8 @@
-import puppeteer from 'puppeteer';
-
+import { KnownDevices } from 'puppeteer';
 import { setViewport } from '../../tests/helpers/puppeteer';
 import { renderComponent, renderTemplate, setTestPage } from '../../tests/helpers/rendering';
+
+const iPhoneX = KnownDevices['iPhone X'];
 
 const EXAMPLE_PAGE = `
   <div class="ons-page">
@@ -199,12 +200,12 @@ describe('script: download-resources', () => {
     });
 
     it('updates result count text', async () => {
-      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', node => node.textContent.trim());
+      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', (node) => node.textContent.trim());
       expect(resultsCount).toBe('3');
     });
 
     it('hides the "No results" content', async () => {
-      const isHidden = await page.$eval('.ons-adv-filter__no-results', node => node.classList.contains('ons-u-hidden'));
+      const isHidden = await page.$eval('.ons-adv-filter__no-results', (node) => node.classList.contains('ons-u-hidden'));
       expect(isHidden).toBe(true);
     });
   });
@@ -226,12 +227,12 @@ describe('script: download-resources', () => {
     });
 
     it('updates result count text', async () => {
-      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', node => node.textContent.trim());
+      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', (node) => node.textContent.trim());
       expect(resultsCount).toBe('0');
     });
 
     it('shows the "No results" content', async () => {
-      const isHidden = await page.$eval('.ons-adv-filter__no-results', node => node.classList.contains('ons-u-hidden'));
+      const isHidden = await page.$eval('.ons-adv-filter__no-results', (node) => node.classList.contains('ons-u-hidden'));
       expect(isHidden).toBe(false);
     });
   });
@@ -253,12 +254,12 @@ describe('script: download-resources', () => {
     });
 
     it('updates result count text', async () => {
-      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', node => node.textContent.trim());
+      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', (node) => node.textContent.trim());
       expect(resultsCount).toBe('2');
     });
 
     it('hides the "No results" content', async () => {
-      const isHidden = await page.$eval('.ons-adv-filter__no-results', node => node.classList.contains('ons-u-hidden'));
+      const isHidden = await page.$eval('.ons-adv-filter__no-results', (node) => node.classList.contains('ons-u-hidden'));
       expect(isHidden).toBe(true);
     });
   });
@@ -281,12 +282,12 @@ describe('script: download-resources', () => {
     });
 
     it('updates result count text', async () => {
-      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', node => node.textContent.trim());
+      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', (node) => node.textContent.trim());
       expect(resultsCount).toBe('3');
     });
 
     it('hides the "No results" content', async () => {
-      const isHidden = await page.$eval('.ons-adv-filter__no-results', node => node.classList.contains('ons-u-hidden'));
+      const isHidden = await page.$eval('.ons-adv-filter__no-results', (node) => node.classList.contains('ons-u-hidden'));
       expect(isHidden).toBe(true);
     });
   });
@@ -309,12 +310,12 @@ describe('script: download-resources', () => {
     });
 
     it('updates result count text', async () => {
-      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', node => node.textContent.trim());
+      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', (node) => node.textContent.trim());
       expect(resultsCount).toBe('0');
     });
 
     it('shows the "No results" content', async () => {
-      const isHidden = await page.$eval('.ons-adv-filter__no-results', node => node.classList.contains('ons-u-hidden'));
+      const isHidden = await page.$eval('.ons-adv-filter__no-results', (node) => node.classList.contains('ons-u-hidden'));
       expect(isHidden).toBe(false);
     });
   });
@@ -337,12 +338,12 @@ describe('script: download-resources', () => {
     });
 
     it('updates result count text', async () => {
-      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', node => node.textContent.trim());
+      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', (node) => node.textContent.trim());
       expect(resultsCount).toBe('2');
     });
 
     it('hides the "No results" content', async () => {
-      const isHidden = await page.$eval('.ons-adv-filter__no-results', node => node.classList.contains('ons-u-hidden'));
+      const isHidden = await page.$eval('.ons-adv-filter__no-results', (node) => node.classList.contains('ons-u-hidden'));
       expect(isHidden).toBe(true);
     });
   });
@@ -365,12 +366,12 @@ describe('script: download-resources', () => {
     });
 
     it('updates result count text', async () => {
-      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', node => node.textContent.trim());
+      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', (node) => node.textContent.trim());
       expect(resultsCount).toBe('1');
     });
 
     it('hides the "No results" content', async () => {
-      const isHidden = await page.$eval('.ons-adv-filter__no-results', node => node.classList.contains('ons-u-hidden'));
+      const isHidden = await page.$eval('.ons-adv-filter__no-results', (node) => node.classList.contains('ons-u-hidden'));
       expect(isHidden).toBe(true);
     });
   });
@@ -394,12 +395,12 @@ describe('script: download-resources', () => {
     });
 
     it('updates result count text', async () => {
-      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', node => node.textContent.trim());
+      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', (node) => node.textContent.trim());
       expect(resultsCount).toBe('2');
     });
 
     it('hides the "No results" content', async () => {
-      const isHidden = await page.$eval('.ons-adv-filter__no-results', node => node.classList.contains('ons-u-hidden'));
+      const isHidden = await page.$eval('.ons-adv-filter__no-results', (node) => node.classList.contains('ons-u-hidden'));
       expect(isHidden).toBe(true);
     });
   });
@@ -432,7 +433,7 @@ describe('script: download-resources', () => {
 
     it('resets state of all filter checkboxes ', async () => {
       const selector = '.ons-js-adv-filter__item .ons-js-checkbox';
-      const checkboxStates = await page.$$eval(selector, nodes => nodes.map(node => `${node.id}: ${node.checked}`));
+      const checkboxStates = await page.$$eval(selector, (nodes) => nodes.map((node) => `${node.id}: ${node.checked}`));
 
       expect(checkboxStates).toEqual(['community-groups: false', 'general-public: false', 'booklet: false', 'logo: false']);
     });
@@ -448,12 +449,12 @@ describe('script: download-resources', () => {
     });
 
     it('updates result count text', async () => {
-      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', node => node.textContent.trim());
+      const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', (node) => node.textContent.trim());
       expect(resultsCount).toBe('3');
     });
 
     it('hides the "No results" content', async () => {
-      const isHidden = await page.$eval('.ons-adv-filter__no-results', node => node.classList.contains('ons-u-hidden'));
+      const isHidden = await page.$eval('.ons-adv-filter__no-results', (node) => node.classList.contains('ons-u-hidden'));
       expect(isHidden).toBe(true);
     });
   });
@@ -470,19 +471,19 @@ describe('script: download-resources', () => {
     });
 
     it('hides elements that are only needed for mobile', async () => {
-      const displayStyle = await page.$eval('.ons-adv-filter__trigger', node => getComputedStyle(node).display);
+      const displayStyle = await page.$eval('.ons-adv-filter__trigger', (node) => getComputedStyle(node).display);
       expect(displayStyle).toBe('none');
     });
 
     it('shows filter elements', async () => {
-      const displayStyle = await page.$eval('.ons-adv-filter__panel', node => getComputedStyle(node).display);
+      const displayStyle = await page.$eval('.ons-adv-filter__panel', (node) => getComputedStyle(node).display);
       expect(displayStyle).not.toBe('none');
     });
   });
 
   describe('when the viewport is small', () => {
     beforeEach(async () => {
-      await page.emulate(puppeteer.devices['iPhone X']);
+      await page.emulate(iPhoneX);
       await setTestPage('/test', RENDERED_EXAMPLE_PAGE);
     });
 
@@ -492,27 +493,27 @@ describe('script: download-resources', () => {
     });
 
     it('shows elements that are only needed for mobile', async () => {
-      const displayStyle = await page.$eval('.ons-adv-filter__trigger', node => getComputedStyle(node).display);
+      const displayStyle = await page.$eval('.ons-adv-filter__trigger', (node) => getComputedStyle(node).display);
       expect(displayStyle).not.toBe('none');
     });
 
     it('hides filter elements', async () => {
-      const displayStyle = await page.$eval('.ons-adv-filter__panel', node => getComputedStyle(node).display);
+      const displayStyle = await page.$eval('.ons-adv-filter__panel', (node) => getComputedStyle(node).display);
       expect(displayStyle).toBe('none');
     });
 
     it('shows filter elements when the "Show filters" button is pressed', async () => {
       await page.click('.ons-js-adv-filter__trigger');
 
-      const displayStyle = await page.$eval('.ons-adv-filter__panel', node => getComputedStyle(node).display);
+      const displayStyle = await page.$eval('.ons-adv-filter__panel', (node) => getComputedStyle(node).display);
       expect(displayStyle).not.toBe('none');
     });
 
     it('hides the underlying page elements when the "Show filters" button is pressed', async () => {
       await page.click('.ons-js-adv-filter__trigger');
 
-      const pageIsHidden = await page.$eval('.ons-page', node => node.classList.contains('ons-u-d-no'));
-      const pageIsAriaHidden = await page.$eval('.ons-page', node => node.getAttribute('aria-hidden'));
+      const pageIsHidden = await page.$eval('.ons-page', (node) => node.classList.contains('ons-u-d-no'));
+      const pageIsAriaHidden = await page.$eval('.ons-page', (node) => node.getAttribute('aria-hidden'));
 
       expect(pageIsHidden).toBe(true);
       expect(pageIsAriaHidden).toBe('true');
@@ -522,7 +523,7 @@ describe('script: download-resources', () => {
       await page.click('.ons-js-adv-filter__trigger');
       await page.click('.ons-js-adv-filter__show');
 
-      const displayStyle = await page.$eval('.ons-adv-filter__panel', node => getComputedStyle(node).display);
+      const displayStyle = await page.$eval('.ons-adv-filter__panel', (node) => getComputedStyle(node).display);
       expect(displayStyle).toBe('none');
     });
 
@@ -530,8 +531,8 @@ describe('script: download-resources', () => {
       await page.click('.ons-js-adv-filter__trigger');
       await page.click('.ons-js-adv-filter__show');
 
-      const pageIsHidden = await page.$eval('.ons-page', node => node.classList.contains('ons-u-d-no'));
-      const pageIsAriaHidden = await page.$eval('.ons-page', node => node.getAttribute('aria-hidden'));
+      const pageIsHidden = await page.$eval('.ons-page', (node) => node.classList.contains('ons-u-d-no'));
+      const pageIsAriaHidden = await page.$eval('.ons-page', (node) => node.getAttribute('aria-hidden'));
 
       expect(pageIsHidden).toBe(false);
       expect(pageIsAriaHidden).toBe('false');
@@ -541,7 +542,7 @@ describe('script: download-resources', () => {
       await page.click('.ons-js-adv-filter__trigger');
       await page.click('.ons-js-adv-filter__close');
 
-      const displayStyle = await page.$eval('.ons-adv-filter__panel', node => getComputedStyle(node).display);
+      const displayStyle = await page.$eval('.ons-adv-filter__panel', (node) => getComputedStyle(node).display);
       expect(displayStyle).toBe('none');
     });
 
@@ -549,8 +550,8 @@ describe('script: download-resources', () => {
       await page.click('.ons-js-adv-filter__trigger');
       await page.click('.ons-js-adv-filter__close');
 
-      const pageIsHidden = await page.$eval('.ons-page', node => node.classList.contains('ons-u-d-no'));
-      const pageIsAriaHidden = await page.$eval('.ons-page', node => node.getAttribute('aria-hidden'));
+      const pageIsHidden = await page.$eval('.ons-page', (node) => node.classList.contains('ons-u-d-no'));
+      const pageIsAriaHidden = await page.$eval('.ons-page', (node) => node.getAttribute('aria-hidden'));
 
       expect(pageIsHidden).toBe(false);
       expect(pageIsAriaHidden).toBe('false');
@@ -559,7 +560,7 @@ describe('script: download-resources', () => {
 });
 
 async function getTextContent(page, selector) {
-  return await page.$$eval(selector, nodes => nodes.map(node => node.textContent.trim()));
+  return await page.$$eval(selector, (nodes) => nodes.map((node) => node.textContent.trim()));
 }
 
 async function getFilterSelectionLabels(page) {
