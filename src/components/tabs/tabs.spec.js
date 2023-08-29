@@ -1,7 +1,8 @@
-import puppeteer from 'puppeteer';
-
+import { KnownDevices } from 'puppeteer';
 import { setViewport } from '../../tests/helpers/puppeteer';
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
+
+const iPhoneX = KnownDevices['iPhone X'];
 
 const EXAMPLE_TABS = {
   title: 'Example tabs',
@@ -75,43 +76,43 @@ describe('script: tabs', () => {
     });
 
     it('has the "presentation" role assigned to tab list items', async () => {
-      const role = await page.$eval('.ons-tab__list-item', node => node.getAttribute('role'));
+      const role = await page.$eval('.ons-tab__list-item', (node) => node.getAttribute('role'));
       expect(role).toBe('presentation');
     });
 
     it('has the "tab" role assigned to each tab', async () => {
-      const tabRoleValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('role')));
+      const tabRoleValues = await page.$$eval('.ons-tab', (nodes) => nodes.map((node) => node.getAttribute('role')));
 
       expect(tabRoleValues).toEqual(['tab', 'tab', 'tab']);
     });
 
     it('has "aria-controls" assigned to each tab with the corresponding panel id', async () => {
-      const ariaControlsValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('aria-controls')));
+      const ariaControlsValues = await page.$$eval('.ons-tab', (nodes) => nodes.map((node) => node.getAttribute('aria-controls')));
 
       expect(ariaControlsValues).toEqual(['tab.id.1', 'tab.id.2', 'tab.id.3']);
     });
 
     it('has "aria-selected" assigned to the first tab', async () => {
-      const ariaSelectedValue = await page.$eval('.ons-tab', node => node.getAttribute('aria-selected'));
+      const ariaSelectedValue = await page.$eval('.ons-tab', (node) => node.getAttribute('aria-selected'));
 
       expect(ariaSelectedValue).toBe('true');
     });
 
     it('has the "ons-tab--selected" class assigned to the first tab', async () => {
-      const hasClass = await page.$eval('.ons-tab', node => node.classList.contains('ons-tab--selected'));
+      const hasClass = await page.$eval('.ons-tab', (node) => node.classList.contains('ons-tab--selected'));
 
       expect(hasClass).toBe(true);
     });
 
     it('has "tabindex" assigned to each tab', async () => {
-      const tabIndexValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('tabindex')));
+      const tabIndexValues = await page.$$eval('.ons-tab', (nodes) => nodes.map((node) => node.getAttribute('tabindex')));
 
       expect(tabIndexValues).toEqual(['0', '-1', '-1']);
     });
 
     it('has only one visible tab panel', async () => {
-      const panelHiddenStates = await page.$$eval('.ons-tabs__panel', nodes =>
-        nodes.map(node => node.classList.contains('ons-tabs__panel--hidden')),
+      const panelHiddenStates = await page.$$eval('.ons-tabs__panel', (nodes) =>
+        nodes.map((node) => node.classList.contains('ons-tabs__panel--hidden')),
       );
 
       expect(panelHiddenStates).toEqual([false, true, true]);
@@ -124,26 +125,26 @@ describe('script: tabs', () => {
       });
 
       it('is assigned a "tabindex" value', async () => {
-        const tabIndexValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('tabindex')));
+        const tabIndexValues = await page.$$eval('.ons-tab', (nodes) => nodes.map((node) => node.getAttribute('tabindex')));
 
         expect(tabIndexValues).toEqual(['-1', '0', '-1']);
       });
 
       it('has the "aria-selected" attribute', async () => {
-        const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', node => node.getAttribute('aria-selected'));
+        const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', (node) => node.getAttribute('aria-selected'));
 
         expect(ariaSelectedValue).toBe('true');
       });
 
       it('has the "ons-tab--selected" class assigned', async () => {
-        const hasClass = await page.$eval('a[href="#tab.id.2"]', node => node.classList.contains('ons-tab--selected'));
+        const hasClass = await page.$eval('a[href="#tab.id.2"]', (node) => node.classList.contains('ons-tab--selected'));
 
         expect(hasClass).toBe(true);
       });
 
       it('shows the corresponding panel', async () => {
-        const panelHiddenStates = await page.$$eval('.ons-tabs__panel', nodes =>
-          nodes.map(node => node.classList.contains('ons-tabs__panel--hidden')),
+        const panelHiddenStates = await page.$$eval('.ons-tabs__panel', (nodes) =>
+          nodes.map((node) => node.classList.contains('ons-tabs__panel--hidden')),
         );
 
         expect(panelHiddenStates).toEqual([true, false, true]);
@@ -178,26 +179,26 @@ describe('script: tabs', () => {
     });
 
     it('is assigned a "tabindex" value', async () => {
-      const tabIndexValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('tabindex')));
+      const tabIndexValues = await page.$$eval('.ons-tab', (nodes) => nodes.map((node) => node.getAttribute('tabindex')));
 
       expect(tabIndexValues).toEqual(['-1', '0', '-1']);
     });
 
     it('has the "aria-selected" attribute', async () => {
-      const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', node => node.getAttribute('aria-selected'));
+      const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', (node) => node.getAttribute('aria-selected'));
 
       expect(ariaSelectedValue).toBe('true');
     });
 
     it('has the "ons-tab--selected" class assigned', async () => {
-      const hasClass = await page.$eval('a[href="#tab.id.2"]', node => node.classList.contains('ons-tab--selected'));
+      const hasClass = await page.$eval('a[href="#tab.id.2"]', (node) => node.classList.contains('ons-tab--selected'));
 
       expect(hasClass).toBe(true);
     });
 
     it('shows the corresponding panel', async () => {
-      const panelHiddenStates = await page.$$eval('.ons-tabs__panel', nodes =>
-        nodes.map(node => node.classList.contains('ons-tabs__panel--hidden')),
+      const panelHiddenStates = await page.$$eval('.ons-tabs__panel', (nodes) =>
+        nodes.map((node) => node.classList.contains('ons-tabs__panel--hidden')),
       );
 
       expect(panelHiddenStates).toEqual([true, false, true]);
@@ -206,7 +207,7 @@ describe('script: tabs', () => {
 
   describe('when the viewport is small', () => {
     beforeEach(async () => {
-      await page.emulate(puppeteer.devices['iPhone X']);
+      await page.emulate(iPhoneX);
 
       await setTestPage('/test', renderComponent('tabs', EXAMPLE_TABS_LONGER));
     });
@@ -214,27 +215,27 @@ describe('script: tabs', () => {
     it('has no aria attributes on tabs', async () => {
       const tabElements = await page.$$('.ons-tab');
       for (let i = 0; i < 3; ++i) {
-        const hasRoleAttribute = await tabElements[i].evaluate(node => node.getAttribute('role') !== null);
+        const hasRoleAttribute = await tabElements[i].evaluate((node) => node.getAttribute('role') !== null);
         expect(hasRoleAttribute).toBe(false);
 
-        const hasAriaControlsAttribute = await tabElements[i].evaluate(node => node.getAttribute('aria-controls') !== null);
+        const hasAriaControlsAttribute = await tabElements[i].evaluate((node) => node.getAttribute('aria-controls') !== null);
         expect(hasAriaControlsAttribute).toBe(false);
 
-        const hasAriaSelectedAttribute = await tabElements[i].evaluate(node => node.getAttribute('aria-selected') !== null);
+        const hasAriaSelectedAttribute = await tabElements[i].evaluate((node) => node.getAttribute('aria-selected') !== null);
         expect(hasAriaSelectedAttribute).toBe(false);
       }
     });
 
     it('has no hidden tab panels', async () => {
-      const panelCount = await page.$$eval('.ons-tabs__panel', nodes => nodes.length);
+      const panelCount = await page.$$eval('.ons-tabs__panel', (nodes) => nodes.length);
       expect(panelCount).toBe(5);
 
-      const hiddenPanelCount = await page.$$eval('.ons-tabs__panel--hidden', nodes => nodes.length);
+      const hiddenPanelCount = await page.$$eval('.ons-tabs__panel--hidden', (nodes) => nodes.length);
       expect(hiddenPanelCount).toBe(0);
     });
 
     it('displays a h2 element with a unique id', async () => {
-      const panelCount = await page.$$eval('#tab-1-content-title', nodes => nodes.length);
+      const panelCount = await page.$$eval('#tab-1-content-title', (nodes) => nodes.length);
       expect(panelCount).toBe(1);
     });
   });
@@ -246,13 +247,13 @@ describe('script: tabs', () => {
     });
 
     it('does not assign "aria-selected" to the first tab', async () => {
-      const ariaSelectedValue = await page.$eval('.ons-tab', node => node.getAttribute('aria-selected'));
+      const ariaSelectedValue = await page.$eval('.ons-tab', (node) => node.getAttribute('aria-selected'));
 
       expect(ariaSelectedValue).not.toBe('true');
     });
 
     it('does not assign the "ons-tab--selected" class to the first tab', async () => {
-      const hasClass = await page.$eval('.ons-tab', node => node.classList.contains('ons-tab--selected'));
+      const hasClass = await page.$eval('.ons-tab', (node) => node.classList.contains('ons-tab--selected'));
 
       expect(hasClass).toBe(false);
     });
@@ -264,26 +265,26 @@ describe('script: tabs', () => {
       });
 
       it('is assigned a "tabindex" value', async () => {
-        const tabIndexValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('tabindex')));
+        const tabIndexValues = await page.$$eval('.ons-tab', (nodes) => nodes.map((node) => node.getAttribute('tabindex')));
 
         expect(tabIndexValues).toEqual(['0', '-1', '-1']);
       });
 
       it('has the "aria-selected" attribute', async () => {
-        const ariaSelectedValue = await page.$eval('a[href="#tab.id.1"]', node => node.getAttribute('aria-selected'));
+        const ariaSelectedValue = await page.$eval('a[href="#tab.id.1"]', (node) => node.getAttribute('aria-selected'));
 
         expect(ariaSelectedValue).toBe('true');
       });
 
       it('has the "ons-tab--selected" class assigned', async () => {
-        const hasClass = await page.$eval('a[href="#tab.id.1"]', node => node.classList.contains('ons-tab--selected'));
+        const hasClass = await page.$eval('a[href="#tab.id.1"]', (node) => node.classList.contains('ons-tab--selected'));
 
         expect(hasClass).toBe(true);
       });
 
       it('shows the corresponding panel', async () => {
-        const panelHiddenStates = await page.$$eval('.ons-tabs__panel', nodes =>
-          nodes.map(node => node.classList.contains('ons-tabs__panel--hidden')),
+        const panelHiddenStates = await page.$$eval('.ons-tabs__panel', (nodes) =>
+          nodes.map((node) => node.classList.contains('ons-tabs__panel--hidden')),
         );
 
         expect(panelHiddenStates).toEqual([false, true, true]);
@@ -298,26 +299,26 @@ describe('script: tabs', () => {
       });
 
       it('is assigned a "tabindex" value', async () => {
-        const tabIndexValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('tabindex')));
+        const tabIndexValues = await page.$$eval('.ons-tab', (nodes) => nodes.map((node) => node.getAttribute('tabindex')));
 
         expect(tabIndexValues).toEqual(['0', '-1', '-1']);
       });
 
       it('does not have the "aria-selected" attribute', async () => {
-        const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', node => node.getAttribute('aria-selected'));
+        const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', (node) => node.getAttribute('aria-selected'));
 
         expect(ariaSelectedValue).not.toBe('true');
       });
 
       it('does not have the "ons-tab--selected" class assigned', async () => {
-        const hasClass = await page.$eval('a[href="#tab.id.2"]', node => node.classList.contains('ons-tab--selected'));
+        const hasClass = await page.$eval('a[href="#tab.id.2"]', (node) => node.classList.contains('ons-tab--selected'));
 
         expect(hasClass).toBe(false);
       });
 
       it('hides the corresponding panel', async () => {
-        const panelHiddenStates = await page.$$eval('.ons-tabs__panel', nodes =>
-          nodes.map(node => node.classList.contains('ons-tabs__panel--hidden')),
+        const panelHiddenStates = await page.$$eval('.ons-tabs__panel', (nodes) =>
+          nodes.map((node) => node.classList.contains('ons-tabs__panel--hidden')),
         );
 
         expect(panelHiddenStates).toEqual([true, true, true]);
@@ -332,26 +333,26 @@ describe('script: tabs', () => {
     });
 
     it('is assigned a "tabindex" value', async () => {
-      const tabIndexValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('tabindex')));
+      const tabIndexValues = await page.$$eval('.ons-tab', (nodes) => nodes.map((node) => node.getAttribute('tabindex')));
 
       expect(tabIndexValues).toEqual(['-1', '0', '-1']);
     });
 
     it('has the "aria-selected" attribute', async () => {
-      const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', node => node.getAttribute('aria-selected'));
+      const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', (node) => node.getAttribute('aria-selected'));
 
       expect(ariaSelectedValue).toBe('true');
     });
 
     it('has the "ons-tab--selected" class assigned', async () => {
-      const hasClass = await page.$eval('a[href="#tab.id.2"]', node => node.classList.contains('ons-tab--selected'));
+      const hasClass = await page.$eval('a[href="#tab.id.2"]', (node) => node.classList.contains('ons-tab--selected'));
 
       expect(hasClass).toBe(true);
     });
 
     it('shows the corresponding panel', async () => {
-      const panelHiddenStates = await page.$$eval('.ons-tabs__panel', nodes =>
-        nodes.map(node => node.classList.contains('ons-tabs__panel--hidden')),
+      const panelHiddenStates = await page.$$eval('.ons-tabs__panel', (nodes) =>
+        nodes.map((node) => node.classList.contains('ons-tabs__panel--hidden')),
       );
 
       expect(panelHiddenStates).toEqual([true, false, true]);
