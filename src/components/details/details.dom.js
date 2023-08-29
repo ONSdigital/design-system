@@ -6,7 +6,17 @@ async function initialiseDetailsEls() {
 
   if (detailsComponents.length && !accordionComponents.length) {
     const Details = (await import('./details')).default;
-    detailsComponents.map(element => new Details(element));
+    detailsComponents.map((element) => new Details(element));
+
+    // Open all details tags when printing.
+    window.addEventListener('beforeprint', () => {
+      detailsComponents.map((element) => element.setAttribute('open', ''));
+    });
+
+    // Close all details tags after printing.
+    window.addEventListener('afterprint', () => {
+      detailsComponents.map((element) => element.removeAttribute('open'));
+    });
   }
 }
 
