@@ -72,7 +72,6 @@ exports[`base page template matches the body block override snapshot 1`] = `
 
         
     
-
 </body></html>"
 `;
 
@@ -119,15 +118,15 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             <div class="ons-page">
                 <div class="ons-page__content">
                     
-                    
-                    
                         
+                        
+                            
  
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
 
-                    
-                    
                         
+                        
+                            
     
     
     
@@ -257,23 +256,23 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
         
     </header>
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
-                            
+                        
+                        
+                            <div class="ons-page__container ons-container">
                                 
-                            
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
-                                        
-                                    </main>
+                                    
+                                
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m ">
+                                        <main id="main-content" class="ons-page__main ">
+                                            
+                                        </main>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    
+                        
 
-                    
+                        
                 </div>
                 
                 
@@ -306,7 +305,6 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
 
         
     
-
 </body></html>"
 `;
 
@@ -361,15 +359,15 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             <div class="ons-page">
                 <div class="ons-page__content">
                     
-                    
-                    
                         
+                        
+                            
  
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
 
-                    
-                    
                         
+                        
+                            
     
     
     
@@ -499,23 +497,23 @@ exports[`base page template matches the footer block override snapshot 1`] = `
         
     </header>
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
-                            
+                        
+                        
+                            <div class="ons-page__container ons-container">
                                 
-                            
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
-                                        
-                                    </main>
+                                    
+                                
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m ">
+                                        <main id="main-content" class="ons-page__main ">
+                                            
+                                        </main>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    
+                        
 
-                    
+                        
                 </div>
                 
                 
@@ -546,7 +544,6 @@ exports[`base page template matches the footer block override snapshot 1`] = `
 
         
     
-
 </body></html>"
 `;
 
@@ -590,7 +587,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             <meta property="og:locale" content="en">
 
             
-                <meta property="og:locale:alternate" content="cy"> 
+                <meta property="og:locale:alternate" content="cy">
             
 
             
@@ -627,16 +624,16 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                 <div class="ons-page__content">
                     
                         <form class="form-class" method="POST" autocomplete="off" novalidate="null">
-                    
-                    Some preHeader content
-                    
                         
+                        Some preHeader content
+                        
+                            
  
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
 
-                    
-                    
                         
+                        
+                            
     
     
     
@@ -1258,13 +1255,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
     </header>
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
-                            
+                        
+                        
+                            <div class="ons-page__container ons-container">
                                 
                                     
-                                    
+                                        
+                                        
     <nav class="ons-breadcrumbs" aria-label="Breadcrumbs">
         <ol class="ons-breadcrumbs__items ons-u-fs-s">
             
@@ -1301,24 +1298,24 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </ol>
     </nav>
 
+                                    
                                 
-                            
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
-                                        
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m ">
+                                        <main id="main-content" class="ons-page__main ">
+                                            
     <h1>Page Title</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
     <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                                    </main>
+                                        </main>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    
+                        
 
-                    
+                        
                         </form>
                     
                 </div>
@@ -1790,7 +1787,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
         <script src="random-script.js"></script>
     
-
 </body></html>"
 `;
 
@@ -1843,15 +1839,15 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             <div class="ons-page">
                 <div class="ons-page__content">
                     
-                    
-                    
                         
+                        
+                            
  
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
 
-                    
-                    
                         
+                        
+                            
     
     
     
@@ -1981,23 +1977,23 @@ exports[`base page template matches the meta block override snapshot 1`] = `
         
     </header>
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
-                            
+                        
+                        
+                            <div class="ons-page__container ons-container">
                                 
-                            
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
-                                        
-                                    </main>
+                                    
+                                
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m ">
+                                        <main id="main-content" class="ons-page__main ">
+                                            
+                                        </main>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    
+                        
 
-                    
+                        
                 </div>
                 
                 
@@ -2030,7 +2026,6 @@ exports[`base page template matches the meta block override snapshot 1`] = `
 
         
     
-
 </body></html>"
 `;
 
@@ -2069,15 +2064,15 @@ exports[`base page template matches the social block override snapshot 1`] = `
             <div class="ons-page">
                 <div class="ons-page__content">
                     
-                    
-                    
                         
+                        
+                            
  
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
 
-                    
-                    
                         
+                        
+                            
     
     
     
@@ -2207,23 +2202,23 @@ exports[`base page template matches the social block override snapshot 1`] = `
         
     </header>
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
-                            
+                        
+                        
+                            <div class="ons-page__container ons-container">
                                 
-                            
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
-                                        
-                                    </main>
+                                    
+                                
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m ">
+                                        <main id="main-content" class="ons-page__main ">
+                                            
+                                        </main>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    
+                        
 
-                    
+                        
                 </div>
                 
                 
@@ -2256,6 +2251,5 @@ exports[`base page template matches the social block override snapshot 1`] = `
 
         
     
-
 </body></html>"
 `;
