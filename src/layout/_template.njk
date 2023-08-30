@@ -14,8 +14,9 @@
 {% if pageConfig.cdn or release_version or designSystemVersion %}
     {# Production #}
     {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
-    {% set slash = "" if cdn_url | last == "/" else "/" %}
-    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version if pageConfig.cdn and pageConfig.cdn.version) or release_version or designSystemVersion) %}
+    {% set slash = "" if cdn_url | last == "/" else 
+        "/" %}
+    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version if pageConfig.cdn and pageConfig.cdn.version)or release_version or designSystemVersion) %}
 {% elif pageConfig.assetsURL %}
     {# Runner Dev #}
     {% set assetsURL = pageConfig.assetsURL %}
@@ -43,9 +44,12 @@
 
 {# Page columns #}
 {% set pageColNumber = pageConfig.pageColNumber | default("12") %}
-{% set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else '' %}
-{% set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else '' %}
-
+{% set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else 
+    '' %}
+{% set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else 
+    '' %}
+{% set theme = pageConfig.theme if pageConfig.theme else 
+    "#206095" %}
 <!doctype html>
 <html lang="{{ currentLanguageISOCode }}">
     <head>
@@ -55,7 +59,7 @@
         <title>{{ page_title }}</title>
         <link rel="stylesheet" href="{{ assetsURL }}/css/main.css">
         <link rel="stylesheet" media="print" href="{{ assetsURL }}/css/print.css">
-        <meta name="theme-color" content="#206095"/>
+        <meta name="theme-color" content="{{theme}}"/>
         {% block meta %}
             {% if pageConfig.meta %}
                 {% if pageConfig.meta.description or pageConfig.description %}
@@ -87,12 +91,13 @@
             <meta property="og:locale" content="{{ currentLanguageISOCode }}">
 
             {% if otherLanguageISOCode %}
-                <meta property="og:locale:alternate" content="{{ otherLanguageISOCode }}"> 
+                <meta property="og:locale:alternate" content="{{ otherLanguageISOCode }}">
             {% endif %}
 
             {% if pageConfig.social %}
 
-                {% set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else assetsURL + '/favicons/twitter.png' %}
+                {% set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else 
+                    assetsURL + '/favicons/twitter.png' %}
                 <!-- Twitter -->
                 <meta name="twitter:card" content="summary">
                 <meta name="twitter:site" content="{{ pageConfig.social.twitterSite }}">
@@ -128,18 +133,18 @@
                             method="{{ form.method | default('POST') }}"
                             {% if form.attributes %}{% for attribute, value in (form.attributes.items() if form.attributes is mapping and form.attributes.items else form.attributes) %}{{ attribute }}{% if value %}="{{value}}" {% endif %}{% endfor %}{% endif %}
                         >
-                    {% endif %}
-                    {% block preHeader %}{% endblock %}
-                    {% block skipLink %}
-                        {{
+                        {% endif %}
+                        {% block preHeader %}{% endblock %}
+                        {% block skipLink %}
+                            {{
                             onsSkipToContent({
                                 "url": "#main-content",
                                 "text": "Skip to main content"
                             })
                         }}
-                    {% endblock %}
-                    {% block header %}
-                        {{
+                        {% endblock %}
+                        {% block header %}
+                            {{
                             onsHeader({
                                 "wide": pageConfig.wide,
                                 "fullWidth": pageConfig.fullWidth,
@@ -163,32 +168,32 @@
                                 "titleLogo": pageConfig.header.titleLogo
                             })
                         }}
-                    {% endblock %}
-                    {% block pageContent %}
-                        <div class="ons-page__container ons-container{{ containerClasses }}">
-                            {% block preMain %}
-                                {% if pageConfig.breadcrumbs %}
-                                    {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
-                                    {{
+                        {% endblock %}
+                        {% block pageContent %}
+                            <div class="ons-page__container ons-container{{ containerClasses }}">
+                                {% block preMain %}
+                                    {% if pageConfig.breadcrumbs %}
+                                        {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+                                        {{
                                         onsBreadcrumbs({
                                             "id": pageConfig.breadcrumbs.id,
                                             "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
                                             "itemsList": pageConfig.breadcrumbs.itemsList
                                         })
                                     }}
-                                {% endif %}
-                            {% endblock %}
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m {{ pageColClasses }}">
-                                    <main id="main-content" class="ons-page__main {{ mainColClasses }}">
-                                        {% block main %}{% endblock %}
-                                    </main>
+                                    {% endif %}
+                                {% endblock %}
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-{{ pageColNumber }}@m {{ pageColClasses }}">
+                                        <main id="main-content" class="ons-page__main {{ mainColClasses }}">
+                                            {% block main %}{% endblock %}
+                                        </main>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endblock %}
+                        {% endblock %}
 
-                    {% if form and form.attributes %}
+                        {% if form and form.attributes %}
                         </form>
                     {% endif %}
                 </div>
