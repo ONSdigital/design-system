@@ -78,4 +78,3 @@ jobs:
             { "title": "By", "value": "${{ github.actor }}", "short": true },
             { "title": "Branch", "value": "${{ github.head_ref }}", "short": true },
             { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
-
