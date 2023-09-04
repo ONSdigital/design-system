@@ -48,7 +48,7 @@
     '' %}
 {% set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else 
     '' %}
-{% set theme = pageConfig.theme if pageConfig.theme else 
+{% set themeColor = pageConfig.themeColor if pageConfig.themeColor else 
     "#206095" %}
 <!doctype html>
 <html lang="{{ currentLanguageISOCode }}">
@@ -59,7 +59,7 @@
         <title>{{ page_title }}</title>
         <link rel="stylesheet" href="{{ assetsURL }}/css/main.css">
         <link rel="stylesheet" media="print" href="{{ assetsURL }}/css/print.css">
-        <meta name="theme-color" content="{{theme}}"/>
+        <meta name="themeColor-color" content="{{ themeColor }}"/>
         {% block meta %}
             {% if pageConfig.meta %}
                 {% if pageConfig.meta.description or pageConfig.description %}
@@ -133,67 +133,67 @@
                             method="{{ form.method | default('POST') }}"
                             {% if form.attributes %}{% for attribute, value in (form.attributes.items() if form.attributes is mapping and form.attributes.items else form.attributes) %}{{ attribute }}{% if value %}="{{value}}" {% endif %}{% endfor %}{% endif %}
                         >
-                        {% endif %}
-                        {% block preHeader %}{% endblock %}
-                        {% block skipLink %}
-                            {{
-                            onsSkipToContent({
-                                "url": "#main-content",
-                                "text": "Skip to main content"
-                            })
-                        }}
-                        {% endblock %}
-                        {% block header %}
-                            {{
-                            onsHeader({
-                                "wide": pageConfig.wide,
-                                "fullWidth": pageConfig.fullWidth,
-                                "language": pageConfig.header.language,
-                                "button": pageConfig.header.signoutButton,
-                                "toggleNavigationButton": pageConfig.header.toggleNavigationButton,
-                                "navigation": pageConfig.header.navigation,
-                                "siteSearchAutosuggest": pageConfig.header.siteSearchAutosuggest,
-                                "browserBanner": pageConfig.header.browserBanner,
-                                "phase": pageConfig.header.phase,
-                                "assetsURL": assetsURL,
-                                "serviceLinks": pageConfig.header.serviceLinks,
-                                "variants": pageConfig.header.variants,
-                                "classes": pageConfig.header.classes,
-                                "mastheadLogo": pageConfig.header.mastheadLogo,
-                                "mastheadLogoUrl": pageConfig.header.mastheadLogoUrl,
-                                "titleUrl": pageConfig.header.titleUrl,
-                                "title": pageConfig.header.title | default(pageConfig.title),
-                                "description": pageConfig.header.description,
-                                "titleAsH1": pageConfig.header.titleAsH1,
-                                "titleLogo": pageConfig.header.titleLogo
-                            })
-                        }}
-                        {% endblock %}
-                        {% block pageContent %}
-                            <div class="ons-page__container ons-container{{ containerClasses }}">
-                                {% block preMain %}
-                                    {% if pageConfig.breadcrumbs %}
-                                        {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
-                                        {{
-                                        onsBreadcrumbs({
-                                            "id": pageConfig.breadcrumbs.id,
-                                            "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
-                                            "itemsList": pageConfig.breadcrumbs.itemsList
-                                        })
-                                    }}
-                                    {% endif %}
-                                {% endblock %}
-                                <div class="ons-grid">
-                                    <div class="ons-grid__col ons-col-{{ pageColNumber }}@m {{ pageColClasses }}">
-                                        <main id="main-content" class="ons-page__main {{ mainColClasses }}">
-                                            {% block main %}{% endblock %}
-                                        </main>
-                                    </div>
+                    {% endif %}
+                    {% block preHeader %}{% endblock %}
+                    {% block skipLink %}
+                        {{
+                        onsSkipToContent({
+                            "url": "#main-content",
+                            "text": "Skip to main content"
+                        })
+                    }}
+                    {% endblock %}
+                    {% block header %}
+                        {{
+                        onsHeader({
+                            "wide": pageConfig.wide,
+                            "fullWidth": pageConfig.fullWidth,
+                            "language": pageConfig.header.language,
+                            "button": pageConfig.header.signoutButton,
+                            "toggleNavigationButton": pageConfig.header.toggleNavigationButton,
+                            "navigation": pageConfig.header.navigation,
+                            "siteSearchAutosuggest": pageConfig.header.siteSearchAutosuggest,
+                            "browserBanner": pageConfig.header.browserBanner,
+                            "phase": pageConfig.header.phase,
+                            "assetsURL": assetsURL,
+                            "serviceLinks": pageConfig.header.serviceLinks,
+                            "variants": pageConfig.header.variants,
+                            "classes": pageConfig.header.classes,
+                            "mastheadLogo": pageConfig.header.mastheadLogo,
+                            "mastheadLogoUrl": pageConfig.header.mastheadLogoUrl,
+                            "titleUrl": pageConfig.header.titleUrl,
+                            "title": pageConfig.header.title | default(pageConfig.title),
+                            "description": pageConfig.header.description,
+                            "titleAsH1": pageConfig.header.titleAsH1,
+                            "titleLogo": pageConfig.header.titleLogo
+                        })
+                    }}
+                    {% endblock %}
+                    {% block pageContent %}
+                        <div class="ons-page__container ons-container{{ containerClasses }}">
+                            {% block preMain %}
+                                {% if pageConfig.breadcrumbs %}
+                                    {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+                                    {{
+                                    onsBreadcrumbs({
+                                        "id": pageConfig.breadcrumbs.id,
+                                        "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
+                                        "itemsList": pageConfig.breadcrumbs.itemsList
+                                    })
+                                }}
+                                {% endif %}
+                            {% endblock %}
+                            <div class="ons-grid">
+                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m {{ pageColClasses }}">
+                                    <main id="main-content" class="ons-page__main {{ mainColClasses }}">
+                                        {% block main %}{% endblock %}
+                                    </main>
                                 </div>
                             </div>
-                        {% endblock %}
+                        </div>
+                    {% endblock %}
 
-                        {% if form and form.attributes %}
+                    {% if form and form.attributes %}
                         </form>
                     {% endif %}
                 </div>
