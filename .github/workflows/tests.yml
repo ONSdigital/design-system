@@ -57,6 +57,9 @@ jobs:
       - name: Install Docker
         run: |
           brew install docker
+          brew remove --ignore-dependencies qemu
+          curl -o ./qemu.rb https://raw.githubusercontent.com/Homebrew/homebrew-core/dc0669eca9479e9eeb495397ba3a7480aaa45c2e/Formula/qemu.rb
+          brew install ./qemu.rb
           colima start
       - name: Run visual regression tests
         run: yarn test-visual

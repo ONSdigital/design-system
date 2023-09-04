@@ -72,7 +72,6 @@ exports[`base page template matches the body block override snapshot 1`] = `
 
         
     
-
 </body></html>"
 `;
 
@@ -306,7 +305,6 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
 
         
     
-
 </body></html>"
 `;
 
@@ -546,7 +544,6 @@ exports[`base page template matches the footer block override snapshot 1`] = `
 
         
     
-
 </body></html>"
 `;
 
@@ -590,7 +587,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             <meta property="og:locale" content="en">
 
             
-                <meta property="og:locale:alternate" content="cy"> 
+                <meta property="og:locale:alternate" content="cy">
             
 
             
@@ -1790,7 +1787,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
         <script src="random-script.js"></script>
     
-
 </body></html>"
 `;
 
@@ -2030,7 +2026,6 @@ exports[`base page template matches the meta block override snapshot 1`] = `
 
         
     
-
 </body></html>"
 `;
 
@@ -2256,6 +2251,5 @@ exports[`base page template matches the social block override snapshot 1`] = `
 
         
     
-
 </body></html>"
 `;
