@@ -57,6 +57,7 @@ jobs:
       - name: Install Docker
         run: |
           brew install docker
+          brew update qemu
           colima start
       - name: Run visual regression tests
         run: yarn test-visual
