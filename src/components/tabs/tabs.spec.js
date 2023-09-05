@@ -6,6 +6,7 @@ const iPhoneX = KnownDevices['iPhone X'];
 
 const EXAMPLE_TABS = {
   title: 'Example tabs',
+  titleClasses: 'ons-u-fs-m',
   tabs: [
     {
       id: 'tab.id.1',
@@ -73,6 +74,12 @@ describe('script: tabs', () => {
     beforeEach(async () => {
       await setViewport(page, { width: 1650, height: 1050 });
       await setTestPage('/test', renderComponent('tabs', EXAMPLE_TABS));
+    });
+
+    it('has additionally provided `titleClasses`', async () => {
+      const hasClass = await page.$eval('.ons-tabs__title', (node) => node.classList.contains('ons-u-fs-m'));
+
+      expect(hasClass).toBe(true);
     });
 
     it('has the "presentation" role assigned to tab list items', async () => {
