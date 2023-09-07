@@ -24,6 +24,6 @@
                 {% if tab.showTitle %}<h2 id="{{ tab.title|trim|replace(' ','-')|lower + '-content-title' }}" class="ons-u-vh">{{ tab.title }}</h2>{% endif %}
                 {{ tab.content | safe }}
             </section>
-        {% endfor %}    
+        {% endfor %}
     </section>
 {% endmacro %}
