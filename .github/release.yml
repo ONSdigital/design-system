@@ -7,6 +7,9 @@ changelog:
       labels:
         - Component
         - Pattern
+    - title: Accessibility improvements
+      labels:
+        - Accessibility
     - title: Enhancements
       labels:
         - Enhancement
@@ -16,6 +19,9 @@ changelog:
     - title: Documentation
       labels:
         - Documentation
+    - title: Dependency updates
+      labels:
+        - Dependencies
     - title: Other changes
       labels:
         - "*"
