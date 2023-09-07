@@ -1,0 +1,23 @@
+name: Label Checker
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - labeled
+      - unlabeled
+
+jobs:
+
+  check_labels:
+    name: Check labels
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - uses: docker://onsdigital/github-pr-label-checker:v1.2.7
+        with:
+          one_of: breaking changes,accessibility,bug,documentation,dependencies,enhancement,example
+          none_of: awaiting resource,do not merge,duplicate,needs validating,not doing
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
