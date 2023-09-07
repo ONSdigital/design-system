@@ -6,6 +6,7 @@ on:
       - edited
 
 jobs:
+
   check-tasks:
     name: Check tasks
     runs-on: ubuntu-latest
