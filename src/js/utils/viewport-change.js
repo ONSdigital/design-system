@@ -1,5 +1,5 @@
 import { AddTick } from 'tick-manager';
-import { GetViewportDetails } from 'viewport-details';
+import { getViewportDetails } from 'viewport-details';
 
 const callbacks = [];
 let running = false;
@@ -14,9 +14,9 @@ export default function onViewportChange(callback) {
 }
 
 function tick() {
-  const viewportDetails = GetViewportDetails();
+  const viewportDetails = getViewportDetails();
 
   if (viewportDetails.resized) {
-    callbacks.forEach(callback => callback(viewportDetails));
+    callbacks.forEach((callback) => callback(viewportDetails));
   }
 }
