@@ -1,5 +1,3 @@
-import { GetViewportDetails } from 'viewport-details';
-
 import onViewportChange from '../../js/utils/viewport-change';
 
 const attrExpanded = 'aria-expanded';

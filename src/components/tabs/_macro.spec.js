@@ -76,11 +76,7 @@ describe('macro: tabs', () => {
   it('has the provided `title`', () => {
     const $ = cheerio.load(renderComponent('tabs', EXAMPLE_TABS));
 
-    expect(
-      $('.ons-tabs__title')
-        .text()
-        .trim(),
-    ).toBe('Example tabs');
+    expect($('.ons-tabs__title').text().trim()).toBe('Example tabs');
   });
 
   it('has title with provided tag override', () => {
@@ -113,11 +109,7 @@ describe('macro: tabs', () => {
     const $ = cheerio.load(renderComponent('tabs', EXAMPLE_TABS));
 
     expect($('.ons-tab:first').html()).toBe('Tab 1<span class="ons-u-vh">for Example</span>');
-    expect(
-      $('.ons-tab:last')
-        .text()
-        .trim(),
-    ).toBe('Tab 2');
+    expect($('.ons-tab:last').text().trim()).toBe('Tab 2');
   });
 
   it('has Google Analytics integration on tab links', () => {
@@ -133,16 +125,8 @@ describe('macro: tabs', () => {
   it('has expected content in tab panels', () => {
     const $ = cheerio.load(renderComponent('tabs', EXAMPLE_TABS));
 
-    expect(
-      $('.ons-tabs__panel:first')
-        .html()
-        .trim(),
-    ).toBe('Example content...');
-    expect(
-      $('.ons-tabs__panel:last')
-        .html()
-        .trim(),
-    ).toBe('Some nested <strong>strong element</strong>...');
+    expect($('.ons-tabs__panel:first').html().trim()).toBe('Example content...');
+    expect($('.ons-tabs__panel:last').html().trim()).toBe('Some nested <strong>strong element</strong>...');
   });
 
   it('displays a h2 when showTitle set to true', () => {
