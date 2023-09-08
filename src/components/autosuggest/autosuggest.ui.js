@@ -503,7 +503,7 @@ export default class AutosuggestUI {
     const warningBodyElement = document.createElement('div');
 
     //warningListElement.setAttribute('aria-hidden', 'true');
-    warningListElement.setAttribute('role', 'status');
+    //warningListElement.setAttribute('role', 'status');
     warningListElement.className = 'ons-autosuggest__warning';
     warningElement.className = 'ons-panel ons-panel--warn ons-autosuggest__panel';
 
