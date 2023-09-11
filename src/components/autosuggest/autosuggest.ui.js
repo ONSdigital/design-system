@@ -377,6 +377,7 @@ export default class AutosuggestUI {
       if (this.resultLimit === 100 && this.foundResults > this.resultLimit) {
         let message = this.tooManyResults.replace('{n}', this.foundResults);
         this.listbox.insertBefore(this.createWarningElement(message), this.listbox.firstChild);
+        this.ariaStatus.setAttribute('aria-hidden', 'true');
       }
 
       this.setHighlightedResult(null);
@@ -416,6 +417,7 @@ export default class AutosuggestUI {
 
       this.listbox.innerHTML = '';
       this.listbox.insertBefore(this.createWarningElement(message), this.listbox.firstChild);
+      this.ariaStatus.setAttribute('aria-hidden', 'true');
       this.setAriaStatus(ariaMessage);
     } else {
       message = this.noResults;
@@ -502,8 +504,6 @@ export default class AutosuggestUI {
     const warningSpanElement = document.createElement('span');
     const warningBodyElement = document.createElement('div');
 
-    //warningListElement.setAttribute('aria-hidden', 'true');
-    //warningListElement.setAttribute('role', 'status');
     warningListElement.className = 'ons-autosuggest__warning';
     warningElement.className = 'ons-panel ons-panel--warn ons-autosuggest__panel';
 
