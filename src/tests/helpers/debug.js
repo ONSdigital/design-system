@@ -15,8 +15,8 @@ async function extractTextFromMessage(message) {
     // the actual error text. This is some sort of serialization thing between Chromium and
     // Puppeteer: https://github.com/puppeteer/puppeteer/issues/3397#issuecomment-434970058
     messageParts = await Promise.all(
-      message.args().map(arg =>
-        arg.executionContext().evaluate(arg => {
+      message.args().map((arg) =>
+        arg.executionContext().evaluate((arg) => {
           if (arg instanceof Error) {
             return arg.message;
           } else {
@@ -44,7 +44,7 @@ export function verifyConsoleSubscription(page) {
 
   consoleSubscriptionPage = page;
 
-  page.on('console', async message => {
+  page.on('console', async (message) => {
     const text = await extractTextFromMessage(message);
     quietLog(`browser ${message.type()}: ${text}`, message.type());
 
