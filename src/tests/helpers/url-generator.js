@@ -1,6 +1,6 @@
-const fs = require('fs');
-const util = require('util');
-const glob = require('glob');
+import fs from 'fs';
+import util from 'util';
+import glob from 'glob';
 
 const globUtil = util.promisify(glob);
 const readdir = util.promisify(fs.readdir);

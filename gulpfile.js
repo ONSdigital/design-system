@@ -1,22 +1,20 @@
-const browserSync = require('browser-sync');
-const browserify = require('browserify');
-const gulp = require('gulp');
-const gulpIf = require('gulp-if');
-const gulpPostCss = require('gulp-postcss');
-const gulpDartSass = require('gulp-dart-sass');
-const gulpSourcemaps = require('gulp-sourcemaps');
-const gulpTerser = require('gulp-terser');
-const buffer = require('vinyl-buffer');
-const source = require('vinyl-source-stream');
-const backstop = require('backstopjs');
+import browserSync from 'browser-sync';
+import browserify from 'browserify';
+import gulp from 'gulp';
+import gulpIf from 'gulp-if';
+import gulpPostCss from 'gulp-postcss';
+import gulpDartSass from 'gulp-dart-sass';
+import gulpSourcemaps from 'gulp-sourcemaps';
+import gulpTerser from 'gulp-terser';
+import buffer from 'vinyl-buffer';
+import source from 'vinyl-source-stream';
+import backstop from 'backstopjs';
 
-require('@babel/register');
-
-const babelEsmConfig = require('./babel.conf.esm');
-const babelNomoduleConfig = require('./babel.conf.nomodule');
-const postCssPlugins = require('./postcss.config').default;
-const generateURLs = require('./src/tests/helpers/url-generator.js').default;
-const generateStaticPages = require('./lib/generate-static-pages').default;
+import babelEsmConfig from './babel.conf.esm';
+import babelNomoduleConfig from './babel.conf.nomodule';
+import postCssPlugins from './postcss.config';
+import generateURLs from './src/tests/helpers/url-generator.js';
+import generateStaticPages from './lib/generate-static-pages';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;
@@ -87,7 +85,7 @@ gulp.task('copy-js-files', () => {
   return gulp.src('./src/js/*.js').pipe(gulp.dest('./build/js'));
 });
 
-gulp.task('generate-pages', async function() {
+gulp.task('generate-pages', async function () {
   await generateStaticPages();
 });
 
