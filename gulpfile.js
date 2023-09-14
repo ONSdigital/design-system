@@ -87,7 +87,7 @@ gulp.task('copy-js-files', () => {
   return gulp.src('./src/js/*.js').pipe(gulp.dest('./build/js'));
 });
 
-gulp.task('generate-pages', async function() {
+gulp.task('generate-pages', async function () {
   await generateStaticPages();
 });
 
