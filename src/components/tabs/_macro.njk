@@ -11,7 +11,7 @@
         {% if params.noInitialActiveTab %}data-no-initial-active-tab="true"{% endif %}
     >
         {% set titleTag = params.titleTag | default("h2") %}
-        <{{ titleTag }} class="ons-tabs__title ons-u-fs-r--b ons-u-mt-no">{{ params.title }}</{{ titleTag }}>
+        <{{ titleTag }} class="ons-tabs__title ons-u-fs-r--b ons-u-mt-no{% if params.titleClasses %} {{ params.titleClasses }}{% endif %}">{{ params.title }}</{{ titleTag }}>
         <div>
             <ul class="ons-tabs__list">
                 {%- for tab in params.tabs -%}
@@ -24,6 +24,6 @@
                 {% if tab.showTitle %}<h2 id="{{ tab.title|trim|replace(' ','-')|lower + '-content-title' }}" class="ons-u-vh">{{ tab.title }}</h2>{% endif %}
                 {{ tab.content | safe }}
             </section>
-        {% endfor %}    
+        {% endfor %}
     </section>
 {% endmacro %}

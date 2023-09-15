@@ -48,15 +48,21 @@ jobs:
         with:
           lfs: true
           url: https://github.com/ONSdigital/design-system.git
+      - name: Read .nvmrc file
+        id: read-nvmrc-file
+        run: echo "nvmrc=$(cat .nvmrc)" >> $GITHUB_OUTPUT
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "${{ steps.read-nvmrc-file.outputs.nvmrc }}"
       - name: Install dependencies
         run: yarn install
       - name: Install Docker
         run: |
           brew install docker
+          brew remove --ignore-dependencies qemu
+          curl -o ./qemu.rb https://raw.githubusercontent.com/Homebrew/homebrew-core/dc0669eca9479e9eeb495397ba3a7480aaa45c2e/Formula/qemu.rb
+          brew install ./qemu.rb
           colima start
       - name: Run visual regression tests
         run: yarn test-visual
@@ -75,4 +81,3 @@ jobs:
             { "title": "By", "value": "${{ github.actor }}", "short": true },
             { "title": "Branch", "value": "${{ github.head_ref }}", "short": true },
             { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
-            
