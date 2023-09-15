@@ -43,6 +43,7 @@ export default class AutosuggestUI {
     this.input = context.querySelector(`.${baseClass}-input`);
     this.resultsContainer = context.querySelector(`.${baseClass}-results`);
     this.listbox = this.resultsContainer.querySelector(`.${baseClass}-listbox`);
+    this.resultsTitleContainer = this.resultsContainer.querySelector(`.ons-autosuggest__results-title`);
     this.instructions = context.querySelector(`.${baseClass}-instructions`);
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
     this.form = context.closest('form');
@@ -378,6 +379,8 @@ export default class AutosuggestUI {
         let message = this.tooManyResults.replace('{n}', this.foundResults);
         this.resultsContainer.insertBefore(this.createWarningElement(message), this.resultsContainer.firstChild);
         this.ariaStatus.setAttribute('aria-hidden', 'true');
+        this.listbox.remove();
+        this.resultsTitleContainer.remove();
       }
 
       this.setHighlightedResult(null);
@@ -419,6 +422,8 @@ export default class AutosuggestUI {
       this.resultsContainer.insertBefore(this.createWarningElement(message), this.resultsContainer.firstChild);
       this.ariaStatus.setAttribute('aria-hidden', 'true');
       this.setAriaStatus(ariaMessage);
+      this.listbox.remove();
+      this.resultsTitleContainer.remove();
     } else {
       message = this.noResults;
       this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
@@ -499,12 +504,12 @@ export default class AutosuggestUI {
   }
 
   createWarningElement(content) {
-    const warningListElement = document.createElement('div');
+    const warningDivElement = document.createElement('div');
     const warningElement = document.createElement('div');
     const warningSpanElement = document.createElement('span');
     const warningBodyElement = document.createElement('div');
 
-    warningListElement.className = 'ons-autosuggest__warning';
+    warningDivElement.className = 'ons-autosuggest__warning';
     warningElement.className = 'ons-panel ons-panel--warn ons-autosuggest__panel';
 
     warningSpanElement.className = 'ons-panel__icon';
@@ -516,9 +521,9 @@ export default class AutosuggestUI {
 
     warningElement.appendChild(warningSpanElement);
     warningElement.appendChild(warningBodyElement);
-    warningListElement.appendChild(warningElement);
+    warningDivElement.appendChild(warningElement);
 
-    return warningListElement;
+    return warningDivElement;
   }
 
   storeExistingSelections(value) {

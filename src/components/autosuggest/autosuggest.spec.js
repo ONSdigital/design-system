@@ -598,9 +598,17 @@ describe('script: autosuggest', () => {
 
       it('shows the API error message', async () => {
         const listItemCount = await page.$$eval('.ons-js-autosuggest-results > *', (nodes) => nodes.length);
-        expect(listItemCount).toBe(3);
+        expect(listItemCount).toBe(1);
         const warningText = await page.$eval('.ons-autosuggest__warning', (node) => node.textContent);
         expect(warningText.trim()).toBe('!Sorry, there is a problem.');
+      });
+
+      it('the list and results element should be removed from the page', async () => {
+        const listboxCount = await page.$$eval('.ons-js-autosuggest-listbox > *', (nodes) => nodes.length);
+        const resultsTitleCount = await page.$$eval('.ons-autosuggest__results-title > *', (nodes) => nodes.length);
+
+        expect(listboxCount).toBe(0);
+        expect(resultsTitleCount).toBe(0);
       });
 
       it('the input should be disabled', async () => {
