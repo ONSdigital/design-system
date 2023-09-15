@@ -566,8 +566,8 @@ describe('script: autosuggest', () => {
       });
 
       it('shows the type more message', async () => {
-        const listItemCount = await page.$$eval('.ons-js-autosuggest-listbox > *', (nodes) => nodes.length);
-        expect(listItemCount).toBe(1);
+        const listItemCount = await page.$$eval('.ons-js-autosuggest-results > *', (nodes) => nodes.length);
+        expect(listItemCount).toBe(2);
         const noResultsText = await page.$eval('.ons-autosuggest__option--no-results', (node) => node.innerText);
         expect(noResultsText.trim()).toBe('Continue entering to get suggestions');
       });
@@ -597,8 +597,8 @@ describe('script: autosuggest', () => {
       });
 
       it('shows the API error message', async () => {
-        const listItemCount = await page.$$eval('.ons-js-autosuggest-listbox > *', (nodes) => nodes.length);
-        expect(listItemCount).toBe(1);
+        const listItemCount = await page.$$eval('.ons-js-autosuggest-results > *', (nodes) => nodes.length);
+        expect(listItemCount).toBe(3);
         const warningText = await page.$eval('.ons-autosuggest__warning', (node) => node.textContent);
         expect(warningText.trim()).toBe('!Sorry, there is a problem.');
       });

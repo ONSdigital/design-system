@@ -376,7 +376,7 @@ export default class AutosuggestUI {
 
       if (this.resultLimit === 100 && this.foundResults > this.resultLimit) {
         let message = this.tooManyResults.replace('{n}', this.foundResults);
-        this.listbox.insertBefore(this.createWarningElement(message), this.listbox.firstChild);
+        this.resultsContainer.insertBefore(this.createWarningElement(message), this.resultsContainer.firstChild);
         this.ariaStatus.setAttribute('aria-hidden', 'true');
       }
 
@@ -416,7 +416,7 @@ export default class AutosuggestUI {
       this.label.classList.add('ons-u-lighter');
 
       this.listbox.innerHTML = '';
-      this.listbox.insertBefore(this.createWarningElement(message), this.listbox.firstChild);
+      this.resultsContainer.insertBefore(this.createWarningElement(message), this.resultsContainer.firstChild);
       this.ariaStatus.setAttribute('aria-hidden', 'true');
       this.setAriaStatus(ariaMessage);
     } else {
@@ -499,7 +499,7 @@ export default class AutosuggestUI {
   }
 
   createWarningElement(content) {
-    const warningListElement = document.createElement('li');
+    const warningListElement = document.createElement('div');
     const warningElement = document.createElement('div');
     const warningSpanElement = document.createElement('span');
     const warningBodyElement = document.createElement('div');
