@@ -597,8 +597,8 @@ describe('script: autosuggest', () => {
       });
 
       it('shows the API error message', async () => {
-        const listItemCount = await page.$$eval('.ons-js-autosuggest-results > *', (nodes) => nodes.length);
-        expect(listItemCount).toBe(1);
+        const resultsItemCount = await page.$$eval('.ons-js-autosuggest-results > *', (nodes) => nodes.length);
+        expect(resultsItemCount).toBe(1);
         const warningText = await page.$eval('.ons-autosuggest__warning', (node) => node.textContent);
         expect(warningText.trim()).toBe('!Sorry, there is a problem.');
       });
