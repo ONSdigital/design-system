@@ -5,7 +5,7 @@ import { quietLog } from './debug';
 const INTERCEPT_INSTANCE_HEADER_NAME = 'x-test-intercept-instance';
 
 export async function getNodeAttributes(page, selector) {
-  return await page.$eval(selector, node => {
+  return await page.$eval(selector, (node) => {
     const reducer = (map, attr) => {
       map[attr.name] = attr.value;
       return map;
@@ -41,7 +41,7 @@ export class PuppeteerEndpointFaker {
   }
 
   get requestedPaths() {
-    return this.requestHistory.map(entry => entry.path);
+    return this.requestHistory.map((entry) => entry.path);
   }
 
   async setup(page) {
@@ -67,7 +67,7 @@ export class PuppeteerEndpointFaker {
   }
 
   setOverrides(paths, response) {
-    paths.forEach(path => this.setOverride(path, response));
+    paths.forEach((path) => this.setOverride(path, response));
   }
 
   setTemporaryOverride(path, response) {
@@ -75,12 +75,12 @@ export class PuppeteerEndpointFaker {
   }
 
   setTemporaryOverrides(paths, response) {
-    paths.forEach(path => this.setTemporaryOverride(path, response));
+    paths.forEach((path) => this.setTemporaryOverride(path, response));
   }
 
   getRequestCount(path) {
     path = sanitizeHref(path);
-    return this.requestHistory.filter(entry => entry.path === path).length;
+    return this.requestHistory.filter((entry) => entry.path === path).length;
   }
 
   async #refreshInstanceHeader() {
