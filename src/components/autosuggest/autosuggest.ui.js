@@ -504,12 +504,12 @@ export default class AutosuggestUI {
   }
 
   createWarningElement(content) {
-    const warningDivElement = document.createElement('div');
+    const warningContainer = document.createElement('div');
     const warningElement = document.createElement('div');
     const warningSpanElement = document.createElement('span');
     const warningBodyElement = document.createElement('div');
 
-    warningDivElement.className = 'ons-autosuggest__warning';
+    warningContainer.className = 'ons-autosuggest__warning';
     warningElement.className = 'ons-panel ons-panel--warn ons-autosuggest__panel';
 
     warningSpanElement.className = 'ons-panel__icon';
@@ -521,9 +521,9 @@ export default class AutosuggestUI {
 
     warningElement.appendChild(warningSpanElement);
     warningElement.appendChild(warningBodyElement);
-    warningDivElement.appendChild(warningElement);
+    warningContainer.appendChild(warningElement);
 
-    return warningDivElement;
+    return warningContainer;
   }
 
   storeExistingSelections(value) {

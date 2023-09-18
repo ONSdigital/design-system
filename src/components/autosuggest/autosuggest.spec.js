@@ -566,8 +566,8 @@ describe('script: autosuggest', () => {
       });
 
       it('shows the type more message', async () => {
-        const listItemCount = await page.$$eval('.ons-js-autosuggest-results > *', (nodes) => nodes.length);
-        expect(listItemCount).toBe(2);
+        const resultsContainer = await page.$$eval('.ons-js-autosuggest-results > *', (nodes) => nodes.length);
+        expect(resultsContainer).toBe(2);
         const noResultsText = await page.$eval('.ons-autosuggest__option--no-results', (node) => node.innerText);
         expect(noResultsText.trim()).toBe('Continue entering to get suggestions');
       });
@@ -604,11 +604,11 @@ describe('script: autosuggest', () => {
       });
 
       it('the list and results element should be removed from the page', async () => {
-        const listboxCount = await page.$$eval('.ons-js-autosuggest-listbox > *', (nodes) => nodes.length);
-        const resultsTitleCount = await page.$$eval('.ons-autosuggest__results-title > *', (nodes) => nodes.length);
+        const hasListBox = await page.$eval('.ons-autosuggest', (node) => node.classList.contains('.ons-js-autosuggest-listbox'));
+        const hasResultsTitle = await page.$eval('.ons-autosuggest', (node) => node.classList.contains('.ons-autosuggest__results-title'));
 
-        expect(listboxCount).toBe(0);
-        expect(resultsTitleCount).toBe(0);
+        expect(hasListBox).toBe(false);
+        expect(hasResultsTitle).toBe(false);
       });
 
       it('the input should be disabled', async () => {
