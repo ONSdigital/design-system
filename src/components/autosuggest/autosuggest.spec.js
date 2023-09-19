@@ -603,12 +603,9 @@ describe('script: autosuggest', () => {
         expect(warningText.trim()).toBe('!Sorry, there is a problem.');
       });
 
-      it('the list and results element should be removed from the page', async () => {
-        const hasListBox = await page.$eval('.ons-autosuggest', (node) => node.classList.contains('.ons-js-autosuggest-listbox'));
-        const hasResultsTitle = await page.$eval('.ons-autosuggest', (node) => node.classList.contains('.ons-autosuggest__results-title'));
-
-        expect(hasListBox).toBe(false);
-        expect(hasResultsTitle).toBe(false);
+      it('the results list and title elements should be removed from the page', async () => {
+        expect($('.ons-js-autosuggest-listbox').length).toBe(0);
+        expect($('.ons-autosuggest__results-title').length).toBe(0);
       });
 
       it('the input should be disabled', async () => {
