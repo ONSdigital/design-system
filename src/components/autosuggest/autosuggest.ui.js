@@ -43,7 +43,7 @@ export default class AutosuggestUI {
     this.input = context.querySelector(`.${baseClass}-input`);
     this.resultsContainer = context.querySelector(`.${baseClass}-results`);
     this.listbox = this.resultsContainer.querySelector(`.${baseClass}-listbox`);
-    this.resultsTitleContainer = this.resultsContainer.querySelector(`.${baseClass}__results-title`);
+    this.resultsTitleContainer = this.resultsContainer.querySelector(`.ons-autosuggest__results-title`);
     this.instructions = context.querySelector(`.${baseClass}-instructions`);
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
     this.form = context.closest('form');
@@ -418,7 +418,6 @@ export default class AutosuggestUI {
       this.input.value = '';
       this.label.classList.add('ons-u-lighter');
 
-      this.listbox.innerHTML = '';
       this.resultsContainer.insertBefore(this.createWarningElement(message), this.resultsContainer.firstChild);
       this.ariaStatus.setAttribute('aria-hidden', 'true');
       this.setAriaStatus(ariaMessage);
