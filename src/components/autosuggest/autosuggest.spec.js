@@ -566,8 +566,8 @@ describe('script: autosuggest', () => {
       });
 
       it('shows the type more message', async () => {
-        const resultsContainer = await page.$$eval('.ons-js-autosuggest-results > *', (nodes) => nodes.length);
-        expect(resultsContainer).toBe(2);
+        const listItemCount = await page.$$eval('.ons-js-autosuggest-listbox > *', (nodes) => nodes.length);
+        expect(listItemCount).toBe(1);
         const noResultsText = await page.$eval('.ons-autosuggest__option--no-results', (node) => node.innerText);
         expect(noResultsText.trim()).toBe('Continue entering to get suggestions');
       });
