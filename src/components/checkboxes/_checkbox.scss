@@ -94,7 +94,6 @@ $checkbox-padding: 11px;
 
       &:checked,
       &:focus {
-        background-color: initial;
 
         & + .ons-checkbox__label::before {
           background: none;
@@ -123,7 +122,6 @@ $checkbox-padding: 11px;
 
       &:checked,
       &:focus {
-        background-color: initial;
 
         & + .ons-checkbox__label::before {
           background: none;
