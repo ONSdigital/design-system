@@ -16,3 +16,4 @@ This needs to be completed by the person raising the PR.
 
 - [ ] I have selected the correct Project for this PR (Design System) and selected the correct status
 - [ ] I have selected the correct Assignee
+- [ ] I have linked the correct Issue
