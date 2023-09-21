@@ -106,7 +106,6 @@
     "lint-staged": "^8.1.0",
     "lodash": "^4.17.21",
     "mdn-polyfills": "^5.14.0",
-    "minimist": "^1.2.5",
     "normalize.css": "^8.0.1",
     "nunjucks": "^3.2.3",
     "pinst": "^3.0.0",
@@ -134,8 +133,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "resolutions": {
-    "minimist": "^1.2.5"
   }
 }
