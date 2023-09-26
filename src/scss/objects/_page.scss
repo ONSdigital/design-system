@@ -21,6 +21,12 @@
   @include mq(xxs, m) {
     margin-top: 1.5rem;
   }
+
+}
+
+// Adjust margin-top when .ons-page__main contains .ons-panel--error */
+.ons-page__main:has(.ons-panel--error){
+  margin-top: 1rem; 
 }
 
 .ons-page__body {
