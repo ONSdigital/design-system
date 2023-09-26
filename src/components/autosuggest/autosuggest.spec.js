@@ -597,10 +597,18 @@ describe('script: autosuggest', () => {
       });
 
       it('shows the API error message', async () => {
-        const listItemCount = await page.$$eval('.ons-js-autosuggest-listbox > *', (nodes) => nodes.length);
-        expect(listItemCount).toBe(1);
+        const resultsItemCount = await page.$$eval('.ons-js-autosuggest-results > *', (nodes) => nodes.length);
+        expect(resultsItemCount).toBe(1);
         const warningText = await page.$eval('.ons-autosuggest__warning', (node) => node.textContent);
         expect(warningText.trim()).toBe('!Sorry, there is a problem.');
+      });
+
+      it('the list and results element should be removed from the page', async () => {
+        const hasListBox = await page.$eval('.ons-autosuggest', (node) => node.classList.contains('.ons-js-autosuggest-listbox'));
+        const hasResultsTitle = await page.$eval('.ons-autosuggest', (node) => node.classList.contains('.ons-autosuggest__results-title'));
+
+        expect(hasListBox).toBe(false);
+        expect(hasResultsTitle).toBe(false);
       });
 
       it('the input should be disabled', async () => {
