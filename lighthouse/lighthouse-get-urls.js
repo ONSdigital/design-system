@@ -1,6 +1,6 @@
 const fs = require('fs');
 const util = require('util');
-const glob = util.promisify(require('glob'));
+const { glob } = require('glob');
 const readdir = util.promisify(fs.readdir);
 
 async function createURLsFile() {
