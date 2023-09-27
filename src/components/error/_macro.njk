@@ -2,12 +2,23 @@
 
 {% macro onsError(params) %}
     {% set content %}
-        <p
-            class="ons-panel__error"
+    <ul class="ons-list ons-list--bare">
+        {% if params.text is not string %}
+            {% for item in params.text %}
+            <li class="ons-panel__error ons-list__item"
+                {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            >
+                <strong>{{ item }}</strong>
+            </li>
+            {% endfor %}
+        {% else %}
+        <li class="ons-panel__error ons-list__item"
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
             <strong>{{ params.text }}</strong>
-        </p>
+        </li>
+        {% endif %}
+    </ul>
         {{ caller() }}
     {% endset %}
 
@@ -15,6 +26,6 @@
         "type": "error",
         "id": params.id
     }) %}
-       {{ content | safe }}
+    {{ content | safe }}
     {% endcall %}
-{% endmacro %}
+{% endmacro %} 

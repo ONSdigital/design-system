@@ -36,11 +36,23 @@ describe('macro: error', () => {
       ),
     );
 
-    expect(
-      $('.ons-panel__error')
-        .text()
-        .trim(),
-    ).toBe('Example error text.');
+    expect($('.ons-panel__error').text().trim()).toBe('Example error text.');
+  });
+
+  it('has the provided `text` if an array was provided', () => {
+    const $ = cheerio.load(
+      renderComponent(
+        'error',
+        {
+          text: ['Example error text.', 'Example error text 2.'],
+          id: 'example-error',
+        },
+        FAKE_NESTED_CONTENT,
+      ),
+    );
+
+    expect($('.ons-panel__error').text().trim()).toContain('Example error text.');
+    expect($('.ons-panel__error').text().trim()).toContain('Example error text 2.');
   });
 
   it('applies the provided `attributes` to the error content paragraph', () => {
