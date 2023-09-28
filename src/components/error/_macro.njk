@@ -2,22 +2,22 @@
 
 {% macro onsError(params) %}
     {% set content %}
-    {% if params.text is not string %}
-        <ul class="ons-list ons-list--bare">
-            {% for item in params.text %}
-            <li class="ons-panel__error ons-list__item"
+        {% if params.text is not string %}
+            <ul class="ons-list ons-list--bare">
+                {% for item in params.text %}
+                    <li class="ons-panel__error ons-list__item"
+                        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+                    >
+                        <strong>{{ item }}</strong>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="ons-panel__error"
                 {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             >
-                <strong>{{ item }}</strong>
-            </li>
-            {% endfor %}
-    </ul>
-    {% else %}
-        <p class="ons-panel__error"
-            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-        >
-            <strong>{{ params.text }}</strong>
-        </p>
+                <strong>{{ params.text }}</strong>
+            </p>
         {% endif %}
         {{ caller() }}
     {% endset %}
@@ -26,6 +26,6 @@
         "type": "error",
         "id": params.id
     }) %}
-    {{ content | safe }}
+        {{ content | safe }}
     {% endcall %}
 {% endmacro %} 
