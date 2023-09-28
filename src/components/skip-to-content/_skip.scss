@@ -14,7 +14,7 @@
 
   &:focus {
     background-color: var(--ons-color-focus);
-    box-shadow: 0;
+    box-shadow: 0;        
     clip: auto;
     clip-path: none;
     color: var(--ons-color-text-link-focus);
@@ -26,7 +26,7 @@
     overflow: visible;
     padding: 1rem;
     position: static;
-    text-decoration: underline solid var(--ons-color-text-link-focus) 2px;
+    text-decoration: underline solid var(--ons-color-text-link-focus) 4px;
     white-space: inherit;
     width: auto;
   }
