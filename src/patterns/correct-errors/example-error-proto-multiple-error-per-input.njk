@@ -1,0 +1,96 @@
+
+{% from "components/date-input/_macro.njk" import onsDateInput %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/list/_macro.njk" import onsList %}
+
+{% call
+        onsPanel({
+            title: "There is a problem with this page",
+            type: "error"
+        })
+    %}
+
+        {{
+            onsList({
+                "element": "ol",
+                "itemsList": [
+                    {
+                        "text": "Enter a number between 1 to 12",
+                        "url": "#month-error",
+                        "variants": "inPageLink"
+                    },
+                    {
+                        "text": "Enter a date that is after 1 January 2019",
+                        "url": "#year-error",
+                        "variants": "inPageLink"
+                    }
+                ]
+            })
+        }}
+    {% endcall %}
+{{
+    onsDateInput({
+        "id": "period-from-date",
+        "legendOrLabel": "Period from:",
+        "description": "For example, 31 3 2019",
+        "day": {
+            "label": {
+                "text": "Day"
+            },
+            "name": "day",
+            "value": "31"
+        },
+        "month": {
+            "label": {
+                "text": "Month"
+            },
+            "name": "month",
+            "value": "13"
+        },
+        "year": {
+            "label": {
+                "text": "Year"
+            },
+            "name": "year",
+            "value": "2018"
+        }
+    })
+}}
+
+{{
+    onsDateInput({
+        "id": "period-to-date",
+        "legendOrLabel": "Period to:",
+        "description": "For example, 31 3 2020",
+        "day": {
+            "label": {
+                "text": "Day"
+            },
+            "name": "day",
+            "value": "31"
+        },
+        "month": {
+            "label": {
+                "text": "Month"
+            },
+            "name": "month",
+            "value": "13",
+            "error": true
+        },
+        "year": {
+            "label": {
+                "text": "Year"
+            },
+            "name": "year",
+            "value": "2018",
+            "error": true
+        },
+        "error": {
+            "id": "date-input-error",
+            "text": [
+                "Enter a number between 1 to 12",
+                "Enter a date that is after 1 January 2019" 
+            ]
+        }
+    })
+}}
