@@ -39,7 +39,7 @@ describe('macro: error', () => {
     expect($('.ons-panel__error').text().trim()).toBe('Example error text.');
   });
 
-  it('has the provided `text` if an array was provided', () => {
+  it('has the provided error messages when the `text` param is set to an array type', () => {
     const $ = cheerio.load(
       renderComponent(
         'error',
