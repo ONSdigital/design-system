@@ -72,6 +72,7 @@ exports[`base page template matches the body block override snapshot 1`] = `
 
         
     
+
 </body></html>"
 `;
 
@@ -117,7 +118,6 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
         
             <div class="ons-page">
                 <div class="ons-page__content">
-                    
                     
                     
                         
@@ -275,7 +275,6 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                     
                 </div>
                 
-                
                     
                 
             </div>
@@ -305,6 +304,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
 
         
     
+
 </body></html>"
 `;
 
@@ -360,7 +360,6 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                 <div class="ons-page__content">
                     
                     
-                    
                         
  
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
@@ -516,7 +515,6 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                     
                 </div>
                 
-                
             </div>
             
         
@@ -544,6 +542,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
 
         
     
+
 </body></html>"
 `;
 
@@ -622,9 +621,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
             <div class="ons-page">
                 <div class="ons-page__content">
-                    
-                        <form class="form-class" method="POST" autocomplete="off" novalidate="null">
-                    
                     Some preHeader content
                     
                         
@@ -1315,11 +1311,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                         </div>
                     
 
-                    
-                        </form>
-                    
+                    Some preFooter content
                 </div>
-                Some preFooter content
                 
                     
                         
@@ -1787,6 +1780,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
         <script src="random-script.js"></script>
     
+
 </body></html>"
 `;
 
@@ -1840,7 +1834,6 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                 <div class="ons-page__content">
                     
                     
-                    
                         
  
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
@@ -1996,7 +1989,6 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                     
                 </div>
                 
-                
                     
                 
             </div>
@@ -2026,6 +2018,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
 
         
     
+
 </body></html>"
 `;
 
@@ -2065,7 +2058,6 @@ exports[`base page template matches the social block override snapshot 1`] = `
                 <div class="ons-page__content">
                     
                     
-                    
                         
  
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
@@ -2221,7 +2213,6 @@ exports[`base page template matches the social block override snapshot 1`] = `
                     
                 </div>
                 
-                
                     
                 
             </div>
@@ -2251,5 +2242,6 @@ exports[`base page template matches the social block override snapshot 1`] = `
 
         
     
+
 </body></html>"
 `;
