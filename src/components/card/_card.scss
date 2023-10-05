@@ -5,6 +5,12 @@
   &__link {
     display: flex;
     flex-direction: column;
+    margin-bottom: 1rem;
+    width: fit-content;
+  }
+
+  &__remove--margin {
+    margin-bottom: 0;
   }
 
   &__image--reorder {

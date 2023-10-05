@@ -10,7 +10,7 @@
       {%- if params.url -%}
         <a href="{{ params.url }}" class="ons-card__link">
       {%- endif -%}
-          <h{{ titleSize }} class="ons-card__title ons-card__title--reorder {{ params.titleClasses | default('ons-u-fs-m')}}" id="{{ params.id }}">
+          <h{{ titleSize }} class="ons-card__title ons-card__title--reorder {{ params.titleClasses | default('ons-u-fs-m')}} ons-card__remove--margin" id="{{ params.id }}">
               {{ params.title }}
           </h{{ titleSize }}>
           {% if params.image.smallSrc %}
@@ -24,15 +24,15 @@
 
     {%- else -%}
 
-      <h{{ titleSize }} class="ons-card__title {{ params.titleClasses | default('ons-u-fs-m') }}" id="{{ params.id }}">
-        {%- if params.url -%}
-          <a class="ons-card__link" href="{{ params.url }}">
-        {%- endif -%}
+      {%- if params.url -%}
+        <a class="ons-card__link" href="{{ params.url }}">
+      {%- endif -%}
+        <h{{ titleSize }} class="ons-card__title ons-card__title--reorder {{ params.titleClasses | default('ons-u-fs-m')}} ons-card__remove--margin" id="{{ params.id }}">
           {{ params.title }}
-        {%- if params.url -%}
-          </a>
-        {%- endif -%}
-      </h{{ titleSize }}>
+        </h{{ titleSize }}>
+      {%- if params.url -%}
+        </a>
+      {%- endif -%}
 
     {%- endif -%}
 
