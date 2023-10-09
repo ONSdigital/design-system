@@ -1,0 +1,7 @@
+[tool.djlint]
+
+profile="nunjucks"
+
+blank_line_after_tag="load,extends,include"
+blank_line_before_tag="load,extends,include"
+blank_line_after_block="block,block.super,blocktrans,comment,for,if,ifchanged,ifequal,ifnotequal,spaceless,regroup,filter,with"
