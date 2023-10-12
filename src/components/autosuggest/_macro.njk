@@ -44,27 +44,6 @@
             <div class="ons-autosuggest__instructions ons-u-vh ons-js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
             <div class="ons-autosuggest__status ons-u-vh ons-js-autosuggest-aria-status" aria-live="assertive" aria-atomic="true" role="status" tabindex="-1"></div>
         {% endset %}
-            {{ onsInput({
-                "id": params.id,
-                "classes": "ons-js-autosuggest-input " + (params.classes if params.classes else ''),
-                "width": params.width,
-                "label": {
-                    "text": params.label.text,
-                    "description": params.label.description,
-                    "id": params.label.id,
-                    "classes": params.label.classes
-                },
-                "autocomplete": params.autocomplete,
-                "legend": params.legend,
-                "legendClasses": params.legendClasses,
-                "value": params.value,
-                "attributes": params.attributes,
-                "error": params.error,
-                "mutuallyExclusive": params.mutuallyExclusive,
-                "accessiblePlaceholder": params.accessiblePlaceholder,
-                "name": params.name,
-                "autosuggestResults": autosuggestResults
-            }) }}
 
         {{ onsInput({
             "id": params.id,
