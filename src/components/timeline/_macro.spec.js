@@ -63,6 +63,24 @@ describe('macro: timeline', () => {
     expect($secondItem.text()).toContain('Timeline entry 2');
   });
 
+  it('renders a heading based upon titleTag parameter', () => {
+    const EXAMPLE_TIMELINE_WITH_TITLE_TAG = {
+      ...EXAMPLE_TIMELINE,
+      titleTag: 'h3',
+    };
+    const $ = cheerio.load(renderComponent('timeline', EXAMPLE_TIMELINE_WITH_TITLE_TAG));
+    const $firstItem = $('.ons-timeline__item:nth-child(1)');
+    expect($firstItem.html().includes('h3')).toBe(true);
+  });
+
+  it('has a provided ons-timeline__content class, wrapping the content', () => {
+    const $ = cheerio.load(renderComponent('timeline', EXAMPLE_TIMELINE));
+
+    const $content = $('.ons-timeline__content');
+
+    expect($content.length).toBe(3);
+  });
+
   it('has the provided inner item list', () => {
     const faker = templateFaker();
     const listSpy = faker.spy('list');

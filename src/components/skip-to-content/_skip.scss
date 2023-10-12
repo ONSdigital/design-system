@@ -1,4 +1,4 @@
-.ons-skip-link {
+.ons-skip-to-content {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   display: block;
@@ -26,7 +26,7 @@
     overflow: visible;
     padding: 1rem;
     position: static;
-    text-decoration: underline solid var(--ons-color-text-link-focus) 2px;
+    text-decoration: underline solid var(--ons-color-text-link-focus) 4px;
     white-space: inherit;
     width: auto;
   }

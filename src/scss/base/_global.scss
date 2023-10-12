@@ -32,7 +32,8 @@ hr {
 %a-focus {
   background-color: var(--ons-color-focus);
   box-decoration-break: clone;
-  box-shadow: 0 -2px var(--ons-color-focus), 0 4px var(--ons-color-text-link-focus);
+  box-shadow: 0 -2px var(--ons-color-focus),
+    0 4px var(--ons-color-text-link-focus);
   color: var(--ons-color-text-link-focus);
   outline: 3px solid transparent;
   outline-offset: 1px;
@@ -61,7 +62,7 @@ a {
     color: var(--ons-color-text-link-hover);
     text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
   }
-  &:focus:not(.ons-btn--link):not(.ons-btn--ghost):not(.ons-js-clear-btn):not(.ons-download__thumbnail--link):not(.ons-tab--row):not(.ons-skip-link) {
+  &:focus:not(.ons-btn--link, .ons-btn--ghost, .ons-js-clear-btn, .ons-download__thumbnail--link, .ons-tab--row, .ons-skip-to-content) {
     @extend %a-focus;
   }
 }

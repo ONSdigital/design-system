@@ -10,7 +10,7 @@ export default class CookiesSettings {
     this.cookiesBanner = document.querySelector('.ons-cookies-banner');
 
     this.component.addEventListener('submit', this.submitSettingsForm.bind(this));
-    this.returnLink.addEventListener('click', this.goBackToPrevPage.bind(this));
+    this.returnLink?.addEventListener('click', this.goBackToPrevPage.bind(this));
 
     this.setInitialFormValues();
   }

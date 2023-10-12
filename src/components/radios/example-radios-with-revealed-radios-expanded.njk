@@ -1,0 +1,69 @@
+{% from "components/radios/_macro.njk" import onsRadios %}
+
+{{
+    onsRadios({
+        "legend": "How would you like us to contact you?",
+        "name": "contact",
+        "borderless": true,
+        "radios": [
+            {
+                "id": "post-example-with-revealed-radio-expanded",
+                "label": {
+                    "text": "By post"
+                },
+                "value": "post"
+            },
+            {
+                "id": "email-example-with-revealed-radio-expanded",
+                "label": {
+                    "text": "By email"
+                },
+                "value": "email"
+            },
+            {
+                "id": "phone-example-with-revealed-radio-expanded",
+                "label": {
+                    "text": "By phone"
+                },
+                "value": "phone",
+                "checked": true,
+                "other": {
+                    "otherType": "radios",
+                    "id": "phone-time-example-with-revealed-radio-expanded",
+                    "name": "phone-time",
+                    "legend": "Choose preferred time of day",
+                    "radios": [
+                        {
+                            "value": "anytime",
+                            "id": "anytime-example-with-revealed-radio-expanded",
+                            "label": {
+                                "text": "Anytime of day"
+                            }
+                        },
+                        {
+                            "value": "morning",
+                            "id": "morning-example-with-revealed-radio-expanded",
+                            "label": {
+                                "text": "Morning"
+                            }
+                        },
+                        {
+                            "value": "afternoon",
+                            "id": "afternoon-example-with-revealed-radio-expanded",
+                            "label": {
+                                "text": "Afternoon"
+                            }
+                        },
+                        {
+                            "value": "evening",
+                            "id": "evening-example-with-revealed-radio-expanded",
+                            "label": {
+                                "text": "Evening"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    })
+}}

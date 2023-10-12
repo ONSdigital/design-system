@@ -10,7 +10,7 @@ const PARAMS = {
   id: 'main-nav',
   ariaLabel: 'Main menu',
   currentPath: ['#1', '/sub-item-1', '/sub-item-2/child-item-1'],
-  currentPageTitle: 'Main nav item 2',
+  currentPageTitle: 'main nav item 2',
   itemsList: [
     {
       title: 'Main nav item 1',
@@ -130,7 +130,7 @@ describe('macro: navigation', () => {
         accessiblePlaceholder: true,
         autocomplete: 'off',
         id: 'ons-site-search',
-        containerClasses: 'ons-autosuggest-input--header',
+        containerClasses: 'ons-autosuggest--header',
         classes: 'ons-input-search ons-input-search--icon',
         label: {
           text: 'Search the design system',
@@ -210,12 +210,12 @@ describe('macro: navigation', () => {
       faker.renderComponent('navigation', { navigation: PARAMS });
 
       expect(buttonSpy.occurrences).toContainEqual({
-        text: 'Main nav item 2',
+        text: 'main nav item 2',
         classes: 'ons-u-d-no ons-js-sub-navigation-button',
         variants: ['mobile', 'dropdown'],
         type: 'button',
         attributes: {
-          'aria-label': 'Toggle section navigation',
+          'aria-label': 'Toggle main nav item 2 menu',
           'aria-controls': 'sub-nav',
           'aria-expanded': 'false',
         },

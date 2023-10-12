@@ -1,4 +1,4 @@
-.ons-uac {
+.ons-access-code {
   &__input {
     font-family: $font-mono !important;
     font-weight: $font-weight-bold;
@@ -6,17 +6,17 @@
     text-transform: uppercase;
     width: 15.1em;
 
-    @media all and (min-width: 375px) {
+    @media all and (width >= 375px) {
       font-size: 20px !important;
       width: 15.1em !important;
     }
 
-    @media all and (max-width: 374px) {
+    @media all and (width <= 374px) {
       letter-spacing: 0;
       max-width: 12.6em !important;
     }
 
-    @media all and (max-width: 299px) {
+    @media all and (width <= 299px) {
       max-width: 100%;
     }
 

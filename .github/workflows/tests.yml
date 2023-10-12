@@ -11,11 +11,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+      - name: Read .nvmrc file
+        id: read-nvmrc-file
+        run: echo "nvmrc=$(cat .nvmrc)" >> $GITHUB_OUTPUT
       - name: Install Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: "${{ steps.read-nvmrc-file.outputs.nvmrc }}"
       - name: Install dependencies
         run: yarn install
       - name: Run macro and script tests
@@ -41,14 +44,17 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           lfs: true
           url: https://github.com/ONSdigital/design-system.git
+      - name: Read .nvmrc file
+        id: read-nvmrc-file
+        run: echo "nvmrc=$(cat .nvmrc)" >> $GITHUB_OUTPUT
       - name: Install Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "${{ steps.read-nvmrc-file.outputs.nvmrc }}"
       - name: Install dependencies
         run: yarn install
       - name: Install Docker
@@ -72,4 +78,3 @@ jobs:
             { "title": "By", "value": "${{ github.actor }}", "short": true },
             { "title": "Branch", "value": "${{ github.head_ref }}", "short": true },
             { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
-            

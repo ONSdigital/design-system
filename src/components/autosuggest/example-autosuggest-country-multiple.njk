@@ -4,11 +4,11 @@
     <div class="ons-grid__col ons-col-8@m">
 
         {{ onsAutosuggest({
-            "id": "country-of-birth",
+            "id": "country-of-birth-autosuggest-multiple",
             "input": {
                 "label": {
                     "text": "Passport",
-                    "id": "country-of-birth-label",
+                    "id": "country-of-birth-label-multiple",
                     "description": "Enter your own answer or select from suggestions. You can enter multiple countries if you have a passport for more than one."
                 },
                 "autocomplete": "off"
@@ -25,7 +25,8 @@
             "allowMultiple": true,
             "autosuggestData": "/examples/data/country-of-birth.json",
             "noResults": "No suggestions found. You can enter your own answer",
-            "typeMore": "Continue entering to get suggestions"
+            "typeMore": "Continue entering to get suggestions",
+            "language": "en"
         }) }}
 
     </div>

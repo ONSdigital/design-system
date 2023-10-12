@@ -43,13 +43,13 @@ describe('macro: autosuggest', () => {
   it('has expected id on container element', () => {
     const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-    expect($('.ons-autosuggest-input').attr('id')).toBe('country-of-birth-container');
+    expect($('.ons-autosuggest').attr('id')).toBe('country-of-birth-container');
   });
 
   it('has the provided data attributes', () => {
     const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-    const $element = $('.ons-autosuggest-input');
+    const $element = $('.ons-autosuggest');
     expect($element.attr('data-allow-multiple')).toBeUndefined();
     expect($element.attr('data-min-chars')).toBe('2');
     expect($element.attr('data-aria-limited-results')).toBe('Type more characters to improve your search');
@@ -73,13 +73,13 @@ describe('macro: autosuggest', () => {
       }),
     );
 
-    expect($('.ons-autosuggest-input').attr('data-allow-multiple')).toBe('true');
+    expect($('.ons-autosuggest').attr('data-allow-multiple')).toBe('true');
   });
 
   it('has a special class that indicates the component should initialise itself', () => {
     const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-    expect($('.ons-autosuggest-input').hasClass('ons-js-autosuggest')).toBe(true);
+    expect($('.ons-autosuggest').hasClass('ons-js-autosuggest')).toBe(true);
   });
 
   it('does not have a special class when the component has an external initialiser', () => {
@@ -90,7 +90,7 @@ describe('macro: autosuggest', () => {
       }),
     );
 
-    expect($('.ons-autosuggest-input').hasClass('ons-js-autosuggest')).toBe(false);
+    expect($('.ons-autosuggest').hasClass('ons-js-autosuggest')).toBe(false);
   });
 
   it('has special class to indicate that component is not editable', () => {
@@ -101,7 +101,7 @@ describe('macro: autosuggest', () => {
       }),
     );
 
-    expect($('.ons-autosuggest-input').hasClass('ons-js-address-not-editable')).toBe(true);
+    expect($('.ons-autosuggest').hasClass('ons-js-address-not-editable')).toBe(true);
   });
 
   it('has special class to indicate that component input is mandatory', () => {
@@ -112,7 +112,7 @@ describe('macro: autosuggest', () => {
       }),
     );
 
-    expect($('.ons-autosuggest-input').hasClass('ons-js-address-mandatory')).toBe(true);
+    expect($('.ons-autosuggest').hasClass('ons-js-address-mandatory')).toBe(true);
   });
 
   it('has additionally provided container style classes', () => {
@@ -123,8 +123,8 @@ describe('macro: autosuggest', () => {
       }),
     );
 
-    expect($('.ons-autosuggest-input').hasClass('extra-class')).toBe(true);
-    expect($('.ons-autosuggest-input').hasClass('another-extra-class')).toBe(true);
+    expect($('.ons-autosuggest').hasClass('extra-class')).toBe(true);
+    expect($('.ons-autosuggest').hasClass('another-extra-class')).toBe(true);
   });
 
   describe('input', () => {
@@ -241,7 +241,7 @@ describe('macro: autosuggest', () => {
     it('is rendered `mutallyExclusive` parameter is not defined', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-      expect($('.ons-autosuggest-input__results').length).toBe(1);
+      expect($('.ons-autosuggest__results').length).toBe(1);
     });
 
     it('is not rendered when `mutallyExclusive` parameter is defined', () => {
@@ -252,20 +252,20 @@ describe('macro: autosuggest', () => {
         }),
       );
 
-      expect($('.ons-autosuggest-input__results').length).toBe(0);
+      expect($('.ons-autosuggest__results').length).toBe(0);
     });
 
     it('renders div with the provided title identifier', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-      expect($('.ons-autosuggest-input__results-title').attr('id')).toBe('country-of-birth-suggestions');
+      expect($('.ons-autosuggest__results-title').attr('id')).toBe('country-of-birth-suggestions');
     });
 
     it('renders div with the provided title text', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
       expect(
-        $('.ons-autosuggest-input__results-title')
+        $('.ons-autosuggest__results-title')
           .text()
           .trim(),
       ).toBe('Suggestions');
@@ -274,32 +274,32 @@ describe('macro: autosuggest', () => {
     it('renders list with a generated identifier', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-      expect($('.ons-autosuggest-input__listbox').attr('id')).toBe('country-of-birth-listbox');
+      expect($('.ons-autosuggest__listbox').attr('id')).toBe('country-of-birth-listbox');
     });
 
     it('renders an accessible list', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-      expect($('.ons-autosuggest-input__listbox').attr('title')).toBe('Suggestions');
+      expect($('.ons-autosuggest__listbox').attr('title')).toBe('Suggestions');
     });
 
     it('renders instructions with a generated identifier', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-      expect($('.ons-autosuggest-input__instructions').attr('id')).toBe('country-of-birth-instructions');
+      expect($('.ons-autosuggest__instructions').attr('id')).toBe('country-of-birth-instructions');
     });
 
     it('adds aria-atomic=true value to status container', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-      expect($('.ons-autosuggest-input__status').attr('aria-atomic')).toBe('true');
+      expect($('.ons-autosuggest__status').attr('aria-atomic')).toBe('true');
     });
 
     it('renders instructions text', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
       expect(
-        $('.ons-autosuggest-input__instructions')
+        $('.ons-autosuggest__instructions')
           .text()
           .trim(),
       ).toBe('Use up and down keys to navigate.');

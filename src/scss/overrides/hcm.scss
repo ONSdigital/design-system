@@ -3,29 +3,29 @@
   // Brightness makes all images black, except transparent parts, which remain transparent
   // Then, invert(1) makes the black parts white
   .ons-footer__ogl-img,
-  .ons-quote .ons-svg-icon,
+  .ons-quote .ons-icon,
   .ons-footer img {
     filter: brightness(0) invert(1);
   }
 
   // Panels – add border to replace backgrounds
   .ons-panel {
-    border-color: currentColor;
+    border-color: currentcolor;
     border-left-width: 8px !important;
   }
 
   // Adds some style adjustments to the focused item to make it obvious something is selected
-  .ons-autosuggest-input {
+  .ons-autosuggest {
     &__results {
       border: 1px solid Highlight !important;
     }
 
-    .ons-autosuggest-input__option {
+    .ons-autosuggest__option {
       &:focus,
       &:hover,
-      &:hover .ons-autosuggest-input__category,
+      &:hover .ons-autosuggest__category,
       &--focused,
-      &--focused .ons-autosuggest-input__category {
+      &--focused .ons-autosuggest__category {
         background: Highlight !important;
         color: HighlightText !important;
         forced-color-adjust: none;
@@ -36,25 +36,25 @@
   // Select - Overrides custom background image icon
   .ons-input--select {
     background: var(--ons-color-input-bg)
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ons-svg-icon' viewBox='0 0 12 8'%3E%3Cpath fill='%23fff' d='M1.5.3 6 5.4 10.5.3c.2-.2.4-.2.6 0l.7.7c.1.2.1.4 0 .5L6.3 7.7c-.2.2-.4.2-.6 0L.2 1.6C.1 1.4.1 1.2.2 1L.9.3c.2-.1.4-.1.6 0z'/%3E%3C/svg%3E")
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ons-icon' viewBox='0 0 12 8'%3E%3Cpath fill='%23fff' d='M1.5.3 6 5.4 10.5.3c.2-.2.4-.2.6 0l.7.7c.1.2.1.4 0 .5L6.3 7.7c-.2.2-.4.2-.6 0L.2 1.6C.1 1.4.1 1.2.2 1L.9.3c.2-.1.4-.1.6 0z'/%3E%3C/svg%3E")
       no-repeat center right 10px;
     background-size: 1rem;
   }
 
   // I would have approached the mark differently, but without changing the existing approach this fixes it
   .ons-timeline__item::before {
-    border: 2px solid currentColor;
+    border: 2px solid currentcolor;
   }
 
   // Element icons – matches icon with the link colour
   .ons-details,
-  .ons-breadcrumb__item,
+  .ons-breadcrumbs__item,
   .ons-panel,
   .ons-btn__inner,
   .ons-external-link,
   .ons-list--icons {
-    & .ons-svg-icon {
-      fill: currentColor !important;
+    & .ons-icon {
+      fill: currentcolor !important;
       forced-color-adjust: auto;
     }
   }
@@ -63,8 +63,8 @@
   .ons-header__org-logo,
   .ons-header__title-logo,
   .ons-footer {
-    & .ons-svg-logo {
-      fill: currentColor !important;
+    & .ons-icon--logo {
+      fill: currentcolor !important;
       forced-color-adjust: auto;
     }
   }
@@ -115,28 +115,28 @@
   }
 
   // Add borders to separate banners with no backgrounds
-  .ons-skip-link,
+  .ons-skip-to-content,
   .ons-browser-banner,
   .ons-cookies-banner,
   .ons-header,
   .ons-header__top,
   .ons-hero,
   .ons-phase-banner {
-    border-bottom: 1px solid currentColor;
+    border-bottom: 1px solid currentcolor;
   }
 
   .ons-footer {
-    border-top: 1px solid currentColor;
+    border-top: 1px solid currentcolor;
   }
 
   @include mq(m) {
     .ons-header__main {
-      border-bottom: 1px solid currentColor;
+      border-bottom: 1px solid currentcolor;
     }
   }
 
   .ons-navigation--sub {
-    border-top: 1px solid currentColor;
+    border-top: 1px solid currentcolor;
   }
 
   // Search – override focus state background image
@@ -174,8 +174,8 @@
       }
     }
 
-    &:checked:not(:disabled):not(:visited),
-    &:checked:not(:disabled):not(:visited)::after {
+    &:checked:not(:disabled, :visited),
+    &:checked:not(:disabled, :visited)::after {
       border-color: Highlight;
     }
 

@@ -3,7 +3,7 @@
 @import 'helpers/index';
 @import 'base/index';
 @import 'objects/index';
-@import '../components/access-code/uac';
+@import '../components/access-code/access-code';
 @import '../components/address-output/address-output';
 @import '../components/autosuggest/autosuggest';
 @import '../components/breadcrumbs/breadcrumbs';
@@ -25,6 +25,7 @@
 @import '../components/fieldset/fieldset';
 @import '../components/footer/footer';
 @import '../components/header/header';
+@import '../components/helpers/grid';
 @import '../components/hero/hero';
 @import '../components/icon/icon';
 @import '../components/image/image';

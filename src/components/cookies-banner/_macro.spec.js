@@ -43,18 +43,14 @@ describe('macro: cookies-banner', () => {
       it('has `statementTitle` title text', () => {
         const $ = cheerio.load(renderComponent('cookies-banner', EXAMPLE_COOKIES_BANNER_PARAMS));
 
-        const statementTitle = $('.ons-cookies-banner__title')
-          .text()
-          .trim();
+        const statementTitle = $('.ons-cookies-banner__title').text().trim();
         expect(statementTitle).toBe('Cookies on override ons.gov.uk override');
       });
 
       it('has `statementText` text', () => {
         const $ = cheerio.load(renderComponent('cookies-banner', EXAMPLE_COOKIES_BANNER_PARAMS));
 
-        const statementText = $('.ons-cookies-banner__primary .ons-cookies-banner__statement')
-          .html()
-          .trim();
+        const statementText = $('.ons-cookies-banner__primary .ons-cookies-banner__statement').html().trim();
         expect(statementText).toBe('Statement override');
       });
 
@@ -79,9 +75,7 @@ describe('macro: cookies-banner', () => {
       it('Renders a link with text', () => {
         const $ = cheerio.load(renderComponent('cookies-banner', EXAMPLE_COOKIES_BANNER_PARAMS));
 
-        const linkText = $('.ons-cookies-banner__link')
-          .text()
-          .trim();
+        const linkText = $('.ons-cookies-banner__link').text().trim();
         expect(linkText).toBe('Cookie settings override');
       });
 
@@ -97,9 +91,7 @@ describe('macro: cookies-banner', () => {
       it('has `preferencesText` text', () => {
         const $ = cheerio.load(renderComponent('cookies-banner', EXAMPLE_COOKIES_BANNER_PARAMS));
 
-        const preferencesText = $('.ons-cookies-banner__confirmation .ons-cookies-banner__preferences-text')
-          .html()
-          .trim();
+        const preferencesText = $('.ons-cookies-banner__confirmation .ons-cookies-banner__preferences-text').html().trim();
         expect(preferencesText).toBe('Text override');
       });
 
@@ -134,18 +126,14 @@ describe('macro: cookies-banner', () => {
       it('has `statementTitle` title text', () => {
         const $ = cheerio.load(renderComponent('cookies-banner', {}));
 
-        const statementTitle = $('.ons-cookies-banner__title')
-          .text()
-          .trim();
+        const statementTitle = $('.ons-cookies-banner__title').text().trim();
         expect(statementTitle).toBe('Cookies on ons.gov.uk');
       });
 
       it('has `statementText` text', () => {
         const $ = cheerio.load(renderComponent('cookies-banner', {}));
 
-        const statementText = $('.ons-cookies-banner__primary .ons-cookies-banner__statement')
-          .html()
-          .trim();
+        const statementText = $('.ons-cookies-banner__primary .ons-cookies-banner__statement').html().trim();
         expect(statementText).toBe(
           '<p>Cookies are small files stored on your device when you visit a website. We use some essential cookies to make this website work.</p><p>We would like to set <a href="/cookies">additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services. </p>',
         );
@@ -172,9 +160,7 @@ describe('macro: cookies-banner', () => {
       it('Renders a link with text', () => {
         const $ = cheerio.load(renderComponent('cookies-banner', {}));
 
-        const linkText = $('.ons-cookies-banner__link')
-          .text()
-          .trim();
+        const linkText = $('.ons-cookies-banner__link').text().trim();
         expect(linkText).toBe('View cookies');
       });
 
@@ -210,9 +196,7 @@ describe('macro: cookies-banner', () => {
       it('has `preferencesText` text', () => {
         const $ = cheerio.load(renderComponent('cookies-banner', {}));
 
-        const preferencesText = $('.ons-cookies-banner__confirmation .ons-cookies-banner__preferences-text')
-          .html()
-          .trim();
+        const preferencesText = $('.ons-cookies-banner__confirmation .ons-cookies-banner__preferences-text').html().trim();
         expect(preferencesText).toBe('You can <a href="/cookies">change your cookie preferences</a> at any time.');
       });
 
@@ -260,9 +244,7 @@ describe('macro: cookies-banner', () => {
     it('has the welsh version of default values', () => {
       const $ = cheerio.load(renderComponent('cookies-banner', { lang: 'cy' }));
 
-      const statementTitle = $('.ons-cookies-banner__title')
-        .text()
-        .trim();
+      const statementTitle = $('.ons-cookies-banner__title').text().trim();
       expect(statementTitle).toBe('Cwcis ar ons.gov.uk');
     });
   });

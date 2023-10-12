@@ -2,11 +2,11 @@
 .ons-field-group +,
 .ons-fieldset +,
 .ons-input-items +,
-.ons-figure +,
+.ons-image +,
 .ons-panel +,
 .ons-summary__group +,
 .ons-details:not(.ons-details--accordion) + {
-  .ons-figure,
+  .ons-image,
   .ons-panel,
   .ons-field,
   .ons-field-group,
@@ -17,6 +17,6 @@
   }
 }
 
-.ons-breadcrumb + .ons-grid {
+.ons-breadcrumbs + .ons-grid {
   margin-top: -1rem;
 }

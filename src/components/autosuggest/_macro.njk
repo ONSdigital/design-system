@@ -3,7 +3,7 @@
 {% macro onsAutosuggest(params) %}
     <div
         id="{{ params.id }}-container"
-        class="{% if not params.externalInitialiser %}ons-js-autosuggest {% endif %}{% if params.isEditable == false %}ons-js-address-not-editable{% endif %}{% if params.mandatory == true %} ons-js-address-mandatory{% endif %} {% if params.containerClasses %} {{ params.containerClasses }}{% endif %} ons-autosuggest-input"
+        class="{% if not params.externalInitialiser %}ons-js-autosuggest {% endif %}{% if params.isEditable == false %}ons-js-address-not-editable{% endif %}{% if params.mandatory == true %} ons-js-address-mandatory{% endif %} {% if params.containerClasses %} {{ params.containerClasses }}{% endif %} ons-autosuggest"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
         data-min-chars="{{ params.minChars }}"
@@ -28,6 +28,7 @@
         {% if params.tooManyResults %}data-too-many-results="{{ params.tooManyResults }}"{% endif %}
         {% if params.errorMessageAPI %}data-error-api="{{ params.errorMessageAPI }}"{% endif %}
         {% if params.errorMessageAPILinkText %}data-error-api-link-text="{{ params.errorMessageAPILinkText }}"{% endif %}
+        {% if params.language %}data-lang="{{ params.language }}"{% endif %}
         {% if params.options %}
             {% if params.options.oneYearAgo %}data-options-one-year-ago="true"{% endif %}
             {% if params.options.regionCode %}data-options-region-code="{{ params.options.regionCode }}"{% endif %}
@@ -36,13 +37,34 @@
     >
 
         {% set autosuggestResults %}
-            <div class="ons-autosuggest-input__results ons-js-autosuggest-results">
-                <div id="{{ params.resultsTitleId }}" class="ons-autosuggest-input__results-title ons-u-fs-s">{{ params.resultsTitle }}</div>
-                <ul class="ons-autosuggest-input__listbox ons-js-autosuggest-listbox" title="{{ params.resultsTitle }}" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
+            <div class="ons-autosuggest__results ons-js-autosuggest-results{% if params.width %} ons-input--w-{{ params.width }}{% else %} ons-input--w-20{% endif %}">
+                <div id="{{ params.resultsTitleId }}" class="ons-autosuggest__results-title ons-u-fs-s">{{ params.resultsTitle }}</div>
+                <ul class="ons-autosuggest__listbox ons-js-autosuggest-listbox" title="{{ params.resultsTitle }}" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
             </div>
-            <div class="ons-autosuggest-input__instructions ons-u-vh ons-js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
-            <div class="ons-autosuggest-input__status ons-u-vh ons-js-autosuggest-aria-status" aria-live="assertive" aria-atomic="true" role="status" tabindex="-1"></div>
+            <div class="ons-autosuggest__instructions ons-u-vh ons-js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
+            <div class="ons-autosuggest__status ons-u-vh ons-js-autosuggest-aria-status" aria-live="assertive" aria-atomic="true" role="status" tabindex="-1"></div>
         {% endset %}
+            {{ onsInput({
+                "id": params.id,
+                "classes": "ons-js-autosuggest-input " + (params.classes if params.classes else ''),
+                "width": params.width,
+                "label": {
+                    "text": params.label.text,
+                    "description": params.label.description,
+                    "id": params.label.id,
+                    "classes": params.label.classes
+                },
+                "autocomplete": params.autocomplete,
+                "legend": params.legend,
+                "legendClasses": params.legendClasses,
+                "value": params.value,
+                "attributes": params.attributes,
+                "error": params.error,
+                "mutuallyExclusive": params.mutuallyExclusive,
+                "accessiblePlaceholder": params.accessiblePlaceholder,
+                "name": params.name,
+                "autosuggestResults": autosuggestResults
+            }) }}
 
         {{ onsInput({
             "id": params.id,
@@ -75,7 +97,7 @@
             "postTextboxLinkText": params.input.postTextboxLinkText,
             "postTextboxLinkUrl": params.input.postTextboxLinkUrl,
             "listeners": params.input.listeners
-         }) }}
+        }) }}
 
         {% if not params.mutuallyExclusive %}
             {{ autosuggestResults | safe }}

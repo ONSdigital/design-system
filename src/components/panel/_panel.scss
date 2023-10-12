@@ -69,42 +69,42 @@
       margin-bottom: 0;
     }
 
-    &.ons-svg-icon-margin--xxxl {
+    &.ons-icon-margin--xxxl {
       padding-left: 2.7rem !important;
 
       @include mq(m) {
         padding-left: 3.5rem !important;
       }
     }
-    &.ons-svg-icon-margin--xxl {
+    &.ons-icon-margin--xxl {
       padding-left: 2.45rem !important;
 
       @include mq(m) {
         padding-left: 2.9rem !important;
       }
     }
-    &.ons-svg-icon-margin--xl {
+    &.ons-icon-margin--xl {
       padding-left: 2.35rem !important;
 
       @include mq(m) {
         padding-left: 2.55rem !important;
       }
     }
-    &.ons-svg-icon-margin--l {
+    &.ons-icon-margin--l {
       padding-left: 2.25rem !important;
 
       @include mq(m) {
         padding-left: 2.35rem !important;
       }
     }
-    &.ons-svg-icon-margin--m {
+    &.ons-icon-margin--m {
       padding-left: 2.05rem !important;
 
       @include mq(m) {
         padding-left: 2.2rem !important;
       }
     }
-    &.ons-svg-icon-margin--s {
+    &.ons-icon-margin--s {
       padding-left: 1.7rem !important;
     }
   }
@@ -216,7 +216,7 @@
     &__icon {
       left: 0;
       padding-left: 1rem;
-      .ons-svg-icon {
+      .ons-icon {
         fill: var(--ons-color-success) !important;
         margin-top: -15% !important;
       }

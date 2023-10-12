@@ -3,7 +3,7 @@ title: "Example: Access code error"
 layout: ~
 ---
 {% extends "layout/_template.njk" %}
-{% from "components/access-code/_macro.njk" import onsUACInput %}
+{% from "components/access-code/_macro.njk" import onsAccessCode %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/details/_macro.njk" import onsDetails %}
@@ -27,7 +27,7 @@ layout: ~
                 "itemsList": [
                     {
                         "text": "Enter an access code",
-                        "url": "#uac-error",
+                        "url": "#access-code-error",
                         "variants": "inPageLink"
                     }
                 ]
@@ -37,9 +37,9 @@ layout: ~
 
     <h1 class="ons-u-mt-l">Start study</h1>
 
-    {{ onsUACInput({
-        "id": "uac",
-        "name": "uac",
+    {{ onsAccessCode({
+        "id": "access-code",
+        "name": "access-code",
         "postTextboxLinkText": "Where to find your access code",
         "postTextboxLinkUrl": "#0",
         "label": {
@@ -48,7 +48,7 @@ layout: ~
         },
         "securityMessage": "Your personal information is protected by law and will be kept confidential",
         "error": {
-            "id": "uac-error",
+            "id": "access-code-error",
             "text": "Enter an access code"
         }
     }) }}
@@ -74,7 +74,7 @@ layout: ~
     {% endset %}
 
     {% call onsDetails({
-            "id": "details",
+            "id": "details-access-code-error",
             "title": "Need to answer separately from your household?",
             "button": {
                 "close": "Hide this",

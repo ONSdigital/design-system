@@ -1,0 +1,63 @@
+
+{% from "components/date-input/_macro.njk" import onsDateInput %}
+{{
+    onsDateInput({
+        "id": "period-from-date",
+        "legendOrLabel": "Period from:",
+        "description": "For example, 31 3 2019",
+        "day": {
+            "label": {
+                "text": "Day"
+            },
+            "name": "day",
+            "value": "1"
+        },
+        "month": {
+            "label": {
+                "text": "Month"
+            },
+            "name": "month",
+            "value": "1"
+        },
+        "year": {
+            "label": {
+                "text": "Year"
+            },
+            "name": "year",
+            "value": "2019"
+        }
+    })
+}}
+
+{{
+    onsDateInput({
+        "id": "period-to-date",
+        "legendOrLabel": "Period to:",
+        "description": "For example, 31 3 2020",
+        "day": {
+            "label": {
+                "text": "Day"
+            },
+            "name": "day",
+            "value": "31"
+        },
+        "month": {
+            "label": {
+                "text": "Month"
+            },
+            "name": "month",
+            "value": "12"
+        },
+        "year": {
+            "label": {
+                "text": "Year"
+            },
+            "name": "year",
+            "value": "2018",
+            "error": true
+        },
+        "error": {
+            "text": "Enter a date that is after 1 January 2019"
+        }
+    })
+}}

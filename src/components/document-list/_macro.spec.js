@@ -117,7 +117,7 @@ describe('macro: document list', () => {
     it('has the correct container if `fullWidth`', () => {
       const $ = cheerio.load(
         renderComponent('document-list', {
-          documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, fullWidth: true }],
+          documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, featured: true, fullWidth: true }],
         }),
       );
 
@@ -127,7 +127,7 @@ describe('macro: document list', () => {
     it('has the correct container class if `fullWidth` and `wide`', () => {
       const $ = cheerio.load(
         renderComponent('document-list', {
-          documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, fullWidth: true, wide: true }],
+          documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, featured: true, fullWidth: true, wide: true }],
         }),
       );
 

@@ -1,4 +1,4 @@
-$backdrop-colour: rgba(0, 0, 0, 0.8);
+$backdrop-colour: rgb(0 0 0 / 80%);
 
 .ons-modal {
   border: none;
@@ -13,7 +13,7 @@ $backdrop-colour: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0;
 
-  @media screen and (min-width: 600px) {
+  @media screen and (width >= 600px) {
     margin-left: auto;
     margin-right: auto;
     max-width: 500px;
@@ -21,12 +21,9 @@ $backdrop-colour: rgba(0, 0, 0, 0.8);
 
   &-ie11 & {
     background: var(--ons-color-white);
-    bottom: 0;
+    inset: 50% 0 0;
     height: 350px;
-    left: 0;
     position: fixed;
-    right: 0;
-    top: 50%;
     transform: translate(0, -50%);
   }
 

@@ -84,7 +84,7 @@
 | --------- | ------ | -------- | --------------------------------------------------------------------- |
 | classes   | string | false    | Classes to add to the list item element                               |
 | url       | string | true     | The URL for the HTML `href` attribute for the path to the linked page |
-| title     | string | true     | The text label for the link                                           |
+| text      | string | true     | The text label for the link                                           |
 | id        | string | false    | The HTML `id` of the link                                             |
 | ariaLabel | string | false    | The `aria-label` for the item.                                        |
 

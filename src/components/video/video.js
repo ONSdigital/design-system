@@ -22,10 +22,19 @@ export default class Video {
   }
 
   showIframe() {
-    const src = this.iframe.getAttribute('data-src');
+    const src = this.addDNTtoVimeoVideos();
     this.iframe.src = src;
     this.iframe.classList.remove('ons-u-d-no');
     this.component.classList.add('ons-video--hasIframe');
     this.placeholder.classList.add('ons-u-d-no');
+  }
+  addDNTtoVimeoVideos() {
+    let src = this.iframe.getAttribute('data-src');
+    if (src.includes('player.vimeo.com/video') && src.includes('?dnt=1') === false) {
+      src += '?dnt=1';
+      return src;
+    } else {
+      return src;
+    }
   }
 }

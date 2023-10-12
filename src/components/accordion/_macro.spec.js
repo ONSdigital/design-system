@@ -162,7 +162,7 @@ describe('macro: accordion', () => {
         }),
       );
 
-      expect($('button.ons-js-accordion-all').length).toBe(1);
+      expect($('button.ons-accordion__toggle-all').length).toBe(1);
     });
 
     it('has additionally provided `attributes`', () => {
@@ -180,8 +180,8 @@ describe('macro: accordion', () => {
         }),
       );
 
-      expect($('button.ons-js-accordion-all').attr('a')).toBe('123');
-      expect($('button.ons-js-accordion-all').attr('b')).toBe('456');
+      expect($('button.ons-accordion__toggle-all').attr('a')).toBe('123');
+      expect($('button.ons-accordion__toggle-all').attr('b')).toBe('456');
     });
   });
 });

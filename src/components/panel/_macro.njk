@@ -81,7 +81,7 @@
                 </span>
             {% endif %}
 
-            <div class="ons-panel__body{% if params.iconSize %} ons-svg-icon-margin--{{ params.iconSize }}{% endif %}">{{ (params.body if params else "") | safe }}
+            <div class="ons-panel__body{% if params.iconSize %} ons-icon-margin--{{ params.iconSize }}{% endif %}">{{ (params.body if params else "") | safe }}
                 {{ caller() if caller }}
             </div>
         </div>

@@ -4,12 +4,12 @@ import runFuse from './fuse-config';
 
 export const baseClass = 'ons-js-autosuggest';
 
-export const classAutosuggestOption = 'ons-autosuggest-input__option';
+export const classAutosuggestOption = 'ons-autosuggest__option';
 export const classAutosuggestOptionFocused = `${classAutosuggestOption}--focused`;
 export const classAutosuggestOptionNoResults = `${classAutosuggestOption}--no-results`;
 export const classAutosuggestOptionMoreResults = `${classAutosuggestOption}--more-results ons-u-fs-s`;
-export const classAutosuggestHasResults = 'ons-autosuggest-input--has-results';
-export const classAutosuggestResultsTitle = 'ons-autosuggest-input__results-title';
+export const classAutosuggestHasResults = 'ons-autosuggest--has-results';
+export const classAutosuggestResultsTitle = 'ons-autosuggest__results-title';
 
 export default class AutosuggestUI {
   constructor({
@@ -43,6 +43,7 @@ export default class AutosuggestUI {
     this.input = context.querySelector(`.${baseClass}-input`);
     this.resultsContainer = context.querySelector(`.${baseClass}-results`);
     this.listbox = this.resultsContainer.querySelector(`.${baseClass}-listbox`);
+    this.resultsTitleContainer = this.resultsContainer.querySelector(`.ons-autosuggest__results-title`);
     this.instructions = context.querySelector(`.${baseClass}-instructions`);
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
     this.form = context.closest('form');
@@ -64,6 +65,7 @@ export default class AutosuggestUI {
     this.errorAPI = errorAPI || context.getAttribute('data-error-api');
     this.errorAPILinkText = errorAPILinkText || context.getAttribute('data-error-api-link-text');
     this.typeMore = typeMore || context.getAttribute('data-type-more');
+    this.language = context.getAttribute('data-lang');
     this.allowMultiple = context.getAttribute('data-allow-multiple') || false;
     this.listboxId = this.listbox.getAttribute('id');
     this.resultLimit = resultLimit || 10;
@@ -104,7 +106,7 @@ export default class AutosuggestUI {
   }
 
   get lang() {
-    return document.documentElement.getAttribute('lang').toLowerCase();
+    return !this.language ? document.documentElement.getAttribute('lang').toLowerCase() : this.language.toLowerCase();
   }
 
   initialiseUI() {
@@ -117,7 +119,7 @@ export default class AutosuggestUI {
     this.input.setAttribute('autocomplete', this.input.getAttribute('autocomplete') || 'off');
     this.input.setAttribute('role', 'combobox');
 
-    this.context.classList.add('ons-autosuggest-input--initialised');
+    this.context.classList.add('ons-autosuggest--initialised');
 
     this.bindEventListeners();
   }
@@ -261,7 +263,7 @@ export default class AutosuggestUI {
   getSuggestions(force, groupResults) {
     if (!this.settingResult) {
       if (this.allowMultiple === 'true' && this.allSelections.length) {
-        const newQuery = this.input.value.split(', ').find(item => !this.allSelections.includes(item));
+        const newQuery = this.input.value.split(', ').find((item) => !this.allSelections.includes(item));
         this.query = newQuery ? newQuery : this.input.value;
       } else {
         this.query = this.input.value;
@@ -276,7 +278,7 @@ export default class AutosuggestUI {
         if (this.sanitisedQuery.length >= this.minChars) {
           this.fetchSuggestions(this.sanitisedQuery, this.data, groupResults)
             .then(this.handleResults.bind(this))
-            .catch(error => {
+            .catch((error) => {
               if (error.name !== 'AbortError') {
                 console.log('error:', error);
                 this.handleNoResults(500);
@@ -292,7 +294,7 @@ export default class AutosuggestUI {
   async fetchSuggestions(sanitisedQuery, data) {
     this.abortFetch();
     const results = await runFuse(sanitisedQuery, data, this.lang, this.resultLimit);
-    results.forEach(result => {
+    results.forEach((result) => {
       result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
     });
     return {
@@ -350,8 +352,7 @@ export default class AutosuggestUI {
           listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
           listElement.setAttribute('role', 'option');
           if (result.category) {
-            innerHTML =
-              innerHTML + `<span class="ons-autosuggest-input__category ons-u-lighter ons-u-fs-s ons-u-db">${result.category}</span>`;
+            innerHTML = innerHTML + `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${result.category}</span>`;
           }
           listElement.innerHTML = innerHTML;
           listElement.addEventListener('click', () => {
@@ -376,7 +377,10 @@ export default class AutosuggestUI {
 
       if (this.resultLimit === 100 && this.foundResults > this.resultLimit) {
         let message = this.tooManyResults.replace('{n}', this.foundResults);
-        this.listbox.insertBefore(this.createWarningElement(message), this.listbox.firstChild);
+        this.resultsContainer.insertBefore(this.createWarningElement(message), this.resultsContainer.firstChild);
+        this.ariaStatus.setAttribute('aria-hidden', 'true');
+        this.listbox.remove();
+        this.resultsTitleContainer.remove();
       }
 
       this.setHighlightedResult(null);
@@ -414,9 +418,11 @@ export default class AutosuggestUI {
       this.input.value = '';
       this.label.classList.add('ons-u-lighter');
 
-      this.listbox.innerHTML = '';
-      this.listbox.insertBefore(this.createWarningElement(message), this.listbox.firstChild);
+      this.resultsContainer.insertBefore(this.createWarningElement(message), this.resultsContainer.firstChild);
+      this.ariaStatus.setAttribute('aria-hidden', 'true');
       this.setAriaStatus(ariaMessage);
+      this.listbox.remove();
+      this.resultsTitleContainer.remove();
     } else {
       message = this.noResults;
       this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
@@ -434,7 +440,7 @@ export default class AutosuggestUI {
           option.classList.add(classAutosuggestOptionFocused);
           option.setAttribute('aria-selected', true);
           this.input.setAttribute('aria-activedescendant', option.getAttribute('id'));
-          const groupedResult = option.querySelector('.ons-autosuggest-input__group');
+          const groupedResult = option.querySelector('.ons-autosuggest__group');
           const optionText = option.innerHTML.replace('<strong>', '').replace('</strong>', '');
           if (groupedResult) {
             let groupedAriaMsg = this.ariaGroupedResults.replace('{n}', groupedResult.innerHTML);
@@ -497,14 +503,13 @@ export default class AutosuggestUI {
   }
 
   createWarningElement(content) {
-    const warningListElement = document.createElement('li');
+    const warningContainer = document.createElement('div');
     const warningElement = document.createElement('div');
     const warningSpanElement = document.createElement('span');
     const warningBodyElement = document.createElement('div');
 
-    warningListElement.setAttribute('aria-hidden', 'true');
-    warningListElement.className = 'ons-autosuggest-input__warning';
-    warningElement.className = 'ons-panel ons-panel--warn ons-autosuggest-input__panel';
+    warningContainer.className = 'ons-autosuggest__warning';
+    warningElement.className = 'ons-panel ons-panel--warn ons-autosuggest__panel';
 
     warningSpanElement.className = 'ons-panel__icon';
     warningSpanElement.setAttribute('aria-hidden', 'true');
@@ -515,20 +520,20 @@ export default class AutosuggestUI {
 
     warningElement.appendChild(warningSpanElement);
     warningElement.appendChild(warningBodyElement);
-    warningListElement.appendChild(warningElement);
+    warningContainer.appendChild(warningElement);
 
-    return warningListElement;
+    return warningContainer;
   }
 
   storeExistingSelections(value) {
-    this.currentSelections = this.input.value.split(', ').filter(items => this.allSelections.includes(items));
+    this.currentSelections = this.input.value.split(', ').filter((items) => this.allSelections.includes(items));
     this.allSelections = [];
     if (this.currentSelections.length) {
       this.allSelections = this.currentSelections;
     }
     this.allSelections.push(value);
 
-    this.allSelections = this.allSelections.filter(function(value, index, array) {
+    this.allSelections = this.allSelections.filter(function (value, index, array) {
       return array.indexOf(value) == index;
     });
 
@@ -536,12 +541,7 @@ export default class AutosuggestUI {
   }
 
   emboldenMatch(string, query) {
-    let reg = new RegExp(
-      this.escapeRegExp(query)
-        .split(' ')
-        .join('[\\s,]*'),
-      'gi',
-    );
+    let reg = new RegExp(this.escapeRegExp(query).split(' ').join('[\\s,]*'), 'gi');
 
     return string.replace(reg, '<strong>$&</strong>');
   }

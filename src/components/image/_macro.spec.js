@@ -20,7 +20,7 @@ describe('macro: image', () => {
   it('outputs a `figure` element', () => {
     const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_URL_MINIMAL));
 
-    expect($('.ons-figure')[0].tagName).toBe('figure');
+    expect($('.ons-image')[0].tagName).toBe('figure');
   });
 
   it('outputs a `figurecaption` element when `caption` is provided', () => {
@@ -31,7 +31,7 @@ describe('macro: image', () => {
       }),
     );
 
-    expect($('.ons-figure__caption')[0].tagName).toBe('figcaption');
+    expect($('.ons-image__caption')[0].tagName).toBe('figcaption');
   });
 
   it('outputs a `figurecaption` element with provided `caption` text', () => {
@@ -43,7 +43,7 @@ describe('macro: image', () => {
     );
 
     expect(
-      $('.ons-figure__caption')
+      $('.ons-image__caption')
         .text()
         .trim(),
     ).toBe('Example image caption');
@@ -60,13 +60,13 @@ describe('macro: image', () => {
     it('outputs an `img` element', () => {
       const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_URL_MINIMAL));
 
-      expect($('.ons-figure__image')[0].tagName).toBe('img');
+      expect($('.ons-image__img')[0].tagName).toBe('img');
     });
 
     it('outputs an `img` element with the expected `src`', () => {
       const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_URL_MINIMAL));
 
-      expect($('.ons-figure__image').attr('src')).toBe('example.png');
+      expect($('.ons-image__img').attr('src')).toBe('example.png');
     });
 
     it('outputs an `img` element with the expected alt text', () => {
@@ -77,7 +77,7 @@ describe('macro: image', () => {
         }),
       );
 
-      expect($('.ons-figure__image').attr('alt')).toBe('Example alt text');
+      expect($('.ons-image__img').attr('alt')).toBe('Example alt text');
     });
   });
 
@@ -92,19 +92,19 @@ describe('macro: image', () => {
     it('outputs an `img` element', () => {
       const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_IMAGE_MINIMAL));
 
-      expect($('.ons-figure__image')[0].tagName).toBe('img');
+      expect($('.ons-image__img')[0].tagName).toBe('img');
     });
 
     it('outputs an `img` element with the expected `srcset`', () => {
       const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_IMAGE_MINIMAL));
 
-      expect($('.ons-figure__image').attr('srcset')).toBe('example-small.png 1x, example-large.png 2x');
+      expect($('.ons-image__img').attr('srcset')).toBe('example-small.png 1x, example-large.png 2x');
     });
 
     it('outputs an `img` element with the expected `src`', () => {
       const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_IMAGE_MINIMAL));
 
-      expect($('.ons-figure__image').attr('src')).toBe('example-small.png');
+      expect($('.ons-image__img').attr('src')).toBe('example-small.png');
     });
 
     it('outputs an `img` element with the expected alt text', () => {
@@ -115,7 +115,7 @@ describe('macro: image', () => {
         }),
       );
 
-      expect($('.ons-figure__image').attr('alt')).toBe('Example alt text');
+      expect($('.ons-image__img').attr('alt')).toBe('Example alt text');
     });
   });
 });

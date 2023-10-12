@@ -4,7 +4,7 @@
 .ons-footer,
 .ons-cookies-banner,
 .ons-language-links,
-.ons-breadcrumb,
+.ons-breadcrumbs,
 .ons-u-ph {
   display: none !important;
 }
@@ -51,7 +51,7 @@ details > summary {
 }
 
 .ons-hero {
-  color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 .ons-grid__col {

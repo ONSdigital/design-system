@@ -89,7 +89,7 @@
                     "fromLabel": 'From',
                     "fromValue": 'Jackie Turner',
                     "sentLabel": 'Sent',
-                    "sentValue": 'Today at 13:15',
+                    "sentValue": 'Today at 13:45',
                     "unreadLink": '#0',
                     "unreadLinkText": 'Mark unread'
                 })
@@ -101,10 +101,17 @@
             {{
                 onsReply({
                     "textarea": {
-                        "id": "reply",
+                        "id": "reply-example-conversation",
                         "name": "reply",
                         "label": {
-                            "text": "Reply"
+                            "text": "Reply",
+                            "description": "Maximum 300 characters"
+                        },
+                        "rows": 3,
+                        "charCheckLimit": {
+                            "limit": 300,
+                            "charCountSingular": "You have {x} character remaining",
+                            "charCountPlural": "You have {x} characters remaining"
                         }
                     },
                     "button": {

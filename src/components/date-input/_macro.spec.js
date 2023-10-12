@@ -11,6 +11,15 @@ const EXAMPLE_DATE_INPUT_BASE = {
   description: 'For example, 31 3 1980',
 };
 
+const EXAMPLE_DATE_INPUT_BASE_WITH_ERROR = {
+  id: 'date',
+  legendOrLabel: 'Date of birth',
+  description: 'For example, 31 3 1980',
+  error: {
+    text: 'Enter a date that is after 1 January 2019',
+  },
+};
+
 const EXAMPLE_DAY_FIELD = {
   day: {
     label: {
@@ -53,6 +62,66 @@ const EXAMPLE_YEAR_FIELD = {
   },
 };
 
+const EXAMPLE_DAY_FIELD_WITH_ERROR = {
+  day: {
+    label: {
+      text: 'Day',
+      description: 'The day',
+    },
+    value: 'Day',
+    error: true,
+    name: 'day',
+    attributes: {
+      autocomplete: 'bday-day',
+    },
+  },
+};
+
+const EXAMPLE_MONTH_FIELD_WITH_ERROR = {
+  month: {
+    label: {
+      text: 'Month',
+      description: 'The month',
+    },
+    value: 'Month',
+    error: true,
+    name: 'month',
+    attributes: {
+      autocomplete: 'bday-month',
+    },
+  },
+};
+
+const EXAMPLE_YEAR_FIELD_WITH_ERROR = {
+  year: {
+    label: {
+      text: 'Year',
+      description: 'The year',
+    },
+    value: 'Year',
+    error: true,
+    name: 'year',
+    attributes: {
+      autocomplete: 'bday-year',
+    },
+  },
+};
+
+const EXAMPLE_YEAR_FIELD_WITH_NO_ERROR = {
+  year: {
+    label: {
+      text: 'Year',
+      description: 'The year',
+    },
+    value: 'Year',
+    name: 'year',
+    error: false,
+    attributes: {
+      autocomplete: 'bday-year',
+    },
+  },
+};
+
 const EXAMPLE_DATE_SINGLE_FIELD = {
   ...EXAMPLE_DATE_INPUT_BASE,
   ...EXAMPLE_YEAR_FIELD,
@@ -63,6 +132,25 @@ const EXAMPLE_DATE_MULTIPLE_FIELDS = {
   ...EXAMPLE_DAY_FIELD,
   ...EXAMPLE_MONTH_FIELD,
   ...EXAMPLE_YEAR_FIELD,
+};
+
+const EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_SINGLE_ERROR = {
+  ...EXAMPLE_DATE_INPUT_BASE_WITH_ERROR,
+  ...EXAMPLE_DAY_FIELD,
+  ...EXAMPLE_MONTH_FIELD,
+  ...EXAMPLE_YEAR_FIELD_WITH_ERROR,
+};
+
+const EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_ERROR = {
+  ...EXAMPLE_DATE_INPUT_BASE_WITH_ERROR,
+  ...EXAMPLE_DAY_FIELD_WITH_ERROR,
+  ...EXAMPLE_MONTH_FIELD_WITH_ERROR,
+  ...EXAMPLE_YEAR_FIELD_WITH_ERROR,
+};
+
+const EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_NO_ERROR = {
+  ...EXAMPLE_DATE_INPUT_BASE,
+  ...EXAMPLE_YEAR_FIELD_WITH_NO_ERROR,
 };
 
 describe('macro: date input', () => {
@@ -280,6 +368,36 @@ describe('macro: date input', () => {
       expect(errorSpy.occurrences[0]).toEqual({
         text: 'Enter a date that is after 1 January 2019',
       });
+    });
+  });
+
+  describe('mode: multiple fields with single field error', () => {
+    it('passes jest-axe checks', async () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_SINGLE_ERROR));
+
+      const results = await axe($.html());
+      expect(results).toHaveNoViolations();
+    });
+
+    it('has the provided error class on one input', async () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_SINGLE_ERROR));
+      const $errorContent = $('.ons-input--error');
+
+      expect($errorContent.length).toBe(1);
+    });
+
+    it('has the provided error class on multiple inputs', async () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_ERROR));
+      const $errorContent = $('.ons-input--error');
+
+      expect($errorContent.length).toBe(3);
+    });
+
+    it('does not provide error class when error parameter set to false', async () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_NO_ERROR));
+      const $errorContent = $('.ons-input--error');
+
+      expect($errorContent.length).toBe(0);
     });
   });
 });

@@ -1,4 +1,4 @@
-export default class UAC {
+export default class AccessCode {
   constructor(context) {
     this.input = context;
     const groupSize = parseInt(context.getAttribute('data-group-size'), 10);

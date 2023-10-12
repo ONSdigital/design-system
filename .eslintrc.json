@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "plugins": ["prettier"],
   "extends": ["prettier"],
   "env": {
@@ -23,6 +23,7 @@
     "no-var": [1],
     "one-var": [0],
     "max-len": [0, { "code": 140, "ignoreUrls": true }],
-    "comma-dangle": ["error", "always-multiline"]
+    "comma-dangle": ["error", "always-multiline"],
+    "arrow-parens": 1
   }
 }

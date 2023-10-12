@@ -11,19 +11,19 @@
         {% if params.noInitialActiveTab %}data-no-initial-active-tab="true"{% endif %}
     >
         {% set titleTag = params.titleTag | default("h2") %}
-        <{{ titleTag }} class="ons-tabs__title ons-u-fs-r--b ons-u-mt-no">{{ params.title }}</{{ titleTag }}>
+        <{{ titleTag }} class="ons-tabs__title ons-u-fs-r--b ons-u-mt-no{% if params.titleClasses %} {{ params.titleClasses }}{% endif %}">{{ params.title }}</{{ titleTag }}>
         <div>
-        <ul class="ons-tabs__list">
-            {%- for tab in params.tabs -%}
-                <li class="ons-tab__list-item"><a href="#{{ tab.id if tab.id else tab.title|trim|replace(' ','-')|lower}}" class="ons-tab" data-ga="click" data-ga-category="tabs" data-ga-action="Show: {{ tab.title }}" data-ga-label="Show: {{ tab.title }}">{{ tab.title }}{% if tab.hiddenSpan %}<span class='ons-u-d-no'>{{tab.hiddenSpan}}</span>{% endif %}</a></li>
-            {%- endfor -%}
-        </ul>
+            <ul class="ons-tabs__list">
+                {%- for tab in params.tabs -%}
+                    <li class="ons-tab__list-item"><a href="#{{ tab.id if tab.id else tab.title|trim|replace(' ','-')|lower}}" class="ons-tab" data-ga="click" data-ga-category="tabs" data-ga-action="Show: {{ tab.title }}" data-ga-label="Show: {{ tab.title }}">{{ tab.title }}{% if tab.hiddenSpan %}<span class='ons-u-vh'>{{tab.hiddenSpan}}</span>{% endif %}</a></li>
+                {%- endfor -%}
+            </ul>
         </div>
         {% for tab in params.tabs %}
             <section id="{{ tab.id if tab.id else tab.title|trim|replace(' ','-')|lower }}" class="ons-tabs__panel">
                 {% if tab.showTitle %}<h2 id="{{ tab.title|trim|replace(' ','-')|lower + '-content-title' }}" class="ons-u-vh">{{ tab.title }}</h2>{% endif %}
                 {{ tab.content | safe }}
             </section>
-        {% endfor %}    
+        {% endfor %}
     </section>
 {% endmacro %}
