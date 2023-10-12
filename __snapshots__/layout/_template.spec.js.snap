@@ -48,6 +48,7 @@ exports[`base page template matches the body block override snapshot 1`] = `
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         
         Content
+        
 
         <script>
             (function() {
@@ -271,14 +272,13 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                             </div>
                         </div>
                     
-
-                    
                 </div>
+                
                 
                     
                 
             </div>
-            
+        
         
 
         <script>
@@ -511,12 +511,11 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                             </div>
                         </div>
                     
-
-                    
                 </div>
                 
+                
             </div>
-            
+        
         
 
         <script>
@@ -1310,9 +1309,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             </div>
                         </div>
                     
-
-                    Some preFooter content
                 </div>
+                Some preFooter content
                 
                     
                         
@@ -1754,8 +1752,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     
                 
             </div>
-            Some bodyEnd content
         
+        Some bodyEnd content
 
         <script>
             (function() {
@@ -1985,14 +1983,13 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                             </div>
                         </div>
                     
-
-                    
                 </div>
+                
                 
                     
                 
             </div>
-            
+        
         
 
         <script>
@@ -2209,14 +2206,13 @@ exports[`base page template matches the social block override snapshot 1`] = `
                             </div>
                         </div>
                     
-
-                    
                 </div>
+                
                 
                     
                 
             </div>
-            
+        
         
 
         <script>
