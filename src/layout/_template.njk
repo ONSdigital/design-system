@@ -185,9 +185,8 @@
                             </div>
                         </div>
                     {% endblock %}
-
-                    {% block preFooter %}{% endblock %}
                 </div>
+                {% block preFooter %}{% endblock %}
                 {% block footer %}
                     {% if pageConfig.footer %}
                         {{
@@ -212,8 +211,8 @@
                     {% endif %}
                 {% endblock %}
             </div>
-            {% block bodyEnd %}{% endblock %}
         {% endblock %}
+        {% block bodyEnd %}{% endblock %}
 
         <script{% if pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
             (function() {
