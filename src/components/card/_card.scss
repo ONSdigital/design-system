@@ -5,15 +5,13 @@
   &__link {
     display: flex;
     flex-direction: column;
-  }
+    margin-bottom: 1rem;
+    width: fit-content;
 
-  &__image--reorder {
-    order: 1;
-  }
-
-  &__title--reorder {
-    order: 2;
-  }
+    & > .ons-card__title {
+      margin-bottom: 0;
+    }
+  } 
 
   &__link:hover {
     text-decoration-thickness: 3px;
