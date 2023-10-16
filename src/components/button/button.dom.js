@@ -6,7 +6,7 @@ async function submitButton() {
 
   if (buttons.length) {
     const SubmitButton = (await import('./button')).default;
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
       if (button.classList.contains('ons-js-timer')) {
         submitType = 'timer';
       } else if (button.classList.contains('ons-js-loader')) {
