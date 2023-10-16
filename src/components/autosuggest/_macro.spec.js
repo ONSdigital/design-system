@@ -7,13 +7,15 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_AUTOSUGGEST = {
   id: 'country-of-birth',
-  label: {
-    text: 'Current name of country',
-    description: 'Enter your own answer or select from suggestions',
-    id: 'country-of-birth-label',
-    classes: 'extra-label-class',
+  input: {
+    label: {
+      text: 'Current name of country',
+      description: 'Enter your own answer or select from suggestions',
+      id: 'country-of-birth-label',
+      classes: 'extra-label-class',
+    },
+    autocomplete: 'off',
   },
-  autocomplete: 'off',
   instructions: 'Use up and down keys to navigate.',
   ariaYouHaveSelected: 'You have selected',
   ariaMinChars: 'Enter 3 or more characters for suggestions.',
@@ -132,21 +134,67 @@ describe('macro: autosuggest', () => {
 
       faker.renderComponent('autosuggest', {
         ...EXAMPLE_AUTOSUGGEST,
-        classes: 'extra-class another-extra-class',
-        width: '7',
-        value: 'abc',
-        attributes: {
-          a: 42,
+        input: {
+          type: 'text',
+          classes: 'extra-class another-extra-class',
+          width: '7',
+          label: {
+            text: 'Current name of country',
+            description: 'Enter your own answer or select from suggestions',
+            id: 'country-of-birth-label',
+            classes: 'extra-label-class',
+          },
+          autocomplete: 'off',
+          legend: 'this is a legend',
+          legendClasses: 'legend-extra-class',
+          value: 'abc',
+          attributes: {
+            a: 42,
+          },
+          error: {
+            id: 'error-id',
+            text: 'An error occurred.',
+          },
+          mutuallyExclusive: null,
+          accessiblePlaceholder: true,
+          name: 'country-of-birth-test',
+          min: 1,
+          max: 10,
+          minLength: 1,
+          maxLength: 10,
+          prefix: {
+            title: 'Great British Pounds',
+            text: '£',
+            id: 'gbp-prefix',
+          },
+          suffix: {
+            title: 'Percentage of total',
+            text: '%',
+            id: 'percentage-suffix',
+          },
+          fieldId: 'field-id-test',
+          fieldClasses: 'field-class-test',
+          dontWrap: true,
+          charCheckLimit: {
+            limit: 200,
+            charCountSingular: 'You have {x} character remaining',
+            charCountPlural: 'You have {x} characters remaining',
+            charCountOverLimitSingular: '{x} character too many',
+            charCountOverLimitPlural: '{x} characters too many',
+          },
+          searchButton: {
+            text: 'Search',
+          },
+          postTextboxLinkText: 'Post textbox link text',
+          postTextboxLinkUrl: 'https://www.ons.gov.uk',
+          listeners: {
+            click: "function() { console.log('click'); }",
+          },
         },
-        error: {
-          id: 'error-id',
-          text: 'An error occurred.',
-        },
-        mutuallyExclusive: null,
-        accessiblePlaceholder: true,
       });
 
       expect(inputSpy.occurrences[0]).toHaveProperty('id', 'country-of-birth');
+      expect(inputSpy.occurrences[0]).toHaveProperty('type', 'text');
       expect(inputSpy.occurrences[0]).toHaveProperty('classes', 'ons-js-autosuggest-input extra-class another-extra-class');
       expect(inputSpy.occurrences[0]).toHaveProperty('width', '7');
       expect(inputSpy.occurrences[0]).toHaveProperty('label.text', 'Current name of country');
@@ -154,13 +202,38 @@ describe('macro: autosuggest', () => {
       expect(inputSpy.occurrences[0]).toHaveProperty('label.id', 'country-of-birth-label');
       expect(inputSpy.occurrences[0]).toHaveProperty('label.classes', 'extra-label-class');
       expect(inputSpy.occurrences[0]).toHaveProperty('autocomplete', 'off');
+      expect(inputSpy.occurrences[0]).toHaveProperty('legend', 'this is a legend');
+      expect(inputSpy.occurrences[0]).toHaveProperty('legendClasses', 'legend-extra-class');
       expect(inputSpy.occurrences[0]).toHaveProperty('value', 'abc');
       expect(inputSpy.occurrences[0]).toHaveProperty('attributes.a', 42);
       expect(inputSpy.occurrences[0]).toHaveProperty('error.id', 'error-id');
       expect(inputSpy.occurrences[0]).toHaveProperty('error.text', 'An error occurred.');
       expect(inputSpy.occurrences[0]).toHaveProperty('mutuallyExclusive', null);
       expect(inputSpy.occurrences[0]).toHaveProperty('accessiblePlaceholder', true);
+      expect(inputSpy.occurrences[0]).toHaveProperty('name', 'country-of-birth-test');
       expect(typeof inputSpy.occurrences[0].autosuggestResults).toBe('string');
+      expect(inputSpy.occurrences[0]).toHaveProperty('min', 1);
+      expect(inputSpy.occurrences[0]).toHaveProperty('max', 10);
+      expect(inputSpy.occurrences[0]).toHaveProperty('minLength', 1);
+      expect(inputSpy.occurrences[0]).toHaveProperty('maxLength', 10);
+      expect(inputSpy.occurrences[0]).toHaveProperty('prefix.title', 'Great British Pounds');
+      expect(inputSpy.occurrences[0]).toHaveProperty('prefix.text', '£');
+      expect(inputSpy.occurrences[0]).toHaveProperty('prefix.id', 'gbp-prefix');
+      expect(inputSpy.occurrences[0]).toHaveProperty('suffix.title', 'Percentage of total');
+      expect(inputSpy.occurrences[0]).toHaveProperty('suffix.text', '%');
+      expect(inputSpy.occurrences[0]).toHaveProperty('suffix.id', 'percentage-suffix');
+      expect(inputSpy.occurrences[0]).toHaveProperty('fieldId', 'field-id-test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('fieldClasses', 'field-class-test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('dontWrap', true);
+      expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.limit', 200);
+      expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.charCountSingular', 'You have {x} character remaining');
+      expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.charCountPlural', 'You have {x} characters remaining');
+      expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.charCountOverLimitSingular', '{x} character too many');
+      expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.charCountOverLimitPlural', '{x} characters too many');
+      expect(inputSpy.occurrences[0]).toHaveProperty('searchButton.text', 'Search');
+      expect(inputSpy.occurrences[0]).toHaveProperty('postTextboxLinkText', 'Post textbox link text');
+      expect(inputSpy.occurrences[0]).toHaveProperty('postTextboxLinkUrl', 'https://www.ons.gov.uk');
+      expect(inputSpy.occurrences[0]).toHaveProperty('listeners.click', "function() { console.log('click'); }");
     });
   });
 

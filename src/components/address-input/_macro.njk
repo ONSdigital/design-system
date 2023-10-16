@@ -110,17 +110,19 @@
                         onsAutosuggest({
                             "id": params.id + "-autosuggest",
                             "classes": "ons-address-input__autosuggest ons-u-mb-no",
-                            "width": "50",
-                            "label": {
-                                "text": params.label.text,
-                                "id": params.label.id,
-                                "classes": "ons-js-autosuggest-label"
+                            "input": {
+                                "width": "50",
+                                "label": {
+                                    "text": params.label.text,
+                                    "id": params.label.id,
+                                    "classes": "ons-js-autosuggest-label"
+                                },
+                                "value": params.value,
+                                "attributes": params.attributes,
+                                "error": params.error,
+                                "name": params.name,
+                                "mutuallyExclusive": params.mutuallyExclusive
                             },
-                            "value": params.value,
-                            "attributes": params.attributes,
-                            "error": params.error,
-                            "name": params.name,
-                            "mutuallyExclusive": params.mutuallyExclusive,
                             "externalInitialiser": true,
                             "APIDomain": params.APIDomain,
                             "APIDomainBearerToken": params.APIDomainBearerToken,
