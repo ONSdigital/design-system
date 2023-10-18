@@ -71,7 +71,6 @@ const PARAMS = {
 };
 
 const SITE_SEARCH_AUTOSUGGEST = {
-  label: 'Search the design system',
   instructions:
     "Use up and down keys to navigate results once you've typed more than two characters. Use the enter key to select a result. Touch device users, explore by touch or with swipe gestures.",
   ariaYouHaveSelected: 'You have selected',
@@ -122,20 +121,25 @@ describe('macro: navigation', () => {
         navigation: PARAMS,
         siteSearchAutosuggest: {
           ...SITE_SEARCH_AUTOSUGGEST,
+          input: {
+            label: 'Search the design system',
+          },
         },
       });
 
       expect(autosuggestSpy.occurrences[0]).toEqual({
         ...SITE_SEARCH_AUTOSUGGEST,
-        accessiblePlaceholder: true,
-        autocomplete: 'off',
         id: 'ons-site-search',
         containerClasses: 'ons-autosuggest--header',
-        classes: 'ons-input-search ons-input-search--icon',
-        label: {
-          text: 'Search the design system',
-          id: 'ons-site-search-label',
-          classes: 'ons-u-pl-m ons-label--white',
+        input: {
+          accessiblePlaceholder: true,
+          autocomplete: 'off',
+          label: 'Search the design system',
+          classes: 'ons-input-search ons-input-search--icon',
+          label: {
+            id: 'ons-site-search-label',
+            classes: 'ons-u-pl-m ons-label--white',
+          },
         },
       });
     });
@@ -157,21 +161,21 @@ describe('macro: navigation', () => {
     it('has the correct link href for each list item', () => {
       const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
 
-      const values = mapAll($('.ons-navigation--main .ons-navigation__link'), node => node.attr('href'));
+      const values = mapAll($('.ons-navigation--main .ons-navigation__link'), (node) => node.attr('href'));
       expect(values).toEqual(['#0', '#1']);
     });
 
     it('has the correct link text for each list item', () => {
       const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
 
-      const values = mapAll($('.ons-navigation--main .ons-navigation__link'), node => node.text().trim());
+      const values = mapAll($('.ons-navigation--main .ons-navigation__link'), (node) => node.text().trim());
       expect(values).toEqual(['Main nav item 1', 'Main nav item 2']);
     });
 
     it('has the correct aria-label for each list item', () => {
       const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
 
-      const values = mapAll($('.ons-navigation--main .ons-navigation__link'), node => node.attr('aria-label'));
+      const values = mapAll($('.ons-navigation--main .ons-navigation__link'), (node) => node.attr('aria-label'));
       expect(values).toEqual(['Main nav ariaLabel 1', 'Main nav ariaLabel 2']);
     });
 
@@ -249,21 +253,21 @@ describe('macro: navigation', () => {
     it('has the correct link href for each list item', () => {
       const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
 
-      const values = mapAll($('.ons-navigation--sub .ons-navigation__link'), node => node.attr('href'));
+      const values = mapAll($('.ons-navigation--sub .ons-navigation__link'), (node) => node.attr('href'));
       expect(values).toEqual(['/sub-item-1', '/sub-item-2']);
     });
 
     it('has the correct link text for each list item', () => {
       const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
 
-      const values = mapAll($('.ons-navigation--sub .ons-navigation__link'), node => node.text().trim());
+      const values = mapAll($('.ons-navigation--sub .ons-navigation__link'), (node) => node.text().trim());
       expect(values).toEqual(['Sub nav item 1', 'Sub nav item 2']);
     });
 
     it('has the correct aria-label for each list item', () => {
       const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
 
-      const values = mapAll($('.ons-navigation--sub .ons-navigation__link'), node => node.attr('aria-label'));
+      const values = mapAll($('.ons-navigation--sub .ons-navigation__link'), (node) => node.attr('aria-label'));
       expect(values).toEqual(['Sub nav ariaLabel 1', 'Sub nav ariaLabel 2']);
     });
 
@@ -322,7 +326,7 @@ describe('macro: navigation', () => {
 
       const values = mapAll(
         $('.ons-navigation__list--parent > li a').not('.ons-navigation__list--parent li .ons-navigation__list--child a'),
-        node => node.attr('href'),
+        (node) => node.attr('href'),
       );
       expect(values).toEqual(['#overview', '/sub-item-1', '/sub-item-2']);
     });
@@ -332,7 +336,7 @@ describe('macro: navigation', () => {
 
       const values = mapAll(
         $('.ons-navigation__list--parent > li a').not('.ons-navigation__list--parent li .ons-navigation__list--child a'),
-        node => node.text().trim(),
+        (node) => node.text().trim(),
       );
       expect(values).toEqual(['Overview', 'Sub nav item 1', 'Sub nav item 2']);
     });
@@ -364,14 +368,14 @@ describe('macro: navigation', () => {
     it('has the correct link href for each child list item', () => {
       const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
 
-      const values = mapAll($('.ons-navigation__list--child > li a'), node => node.attr('href'));
+      const values = mapAll($('.ons-navigation__list--child > li a'), (node) => node.attr('href'));
       expect(values).toEqual(['/sub-item-2/child-item-1', '/sub-item-2/child-item-2']);
     });
 
     it('has the correct link text for each child list item', () => {
       const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
 
-      const values = mapAll($('.ons-navigation__list--child > li a'), node => node.text().trim());
+      const values = mapAll($('.ons-navigation__list--child > li a'), (node) => node.text().trim());
       expect(values).toEqual(['Child item 1', 'Child item 2']);
     });
 
