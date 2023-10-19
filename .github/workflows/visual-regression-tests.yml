@@ -1,0 +1,32 @@
+name: Run visual regression tests
+on: [push]
+
+env:
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  RUNNING_IN_CI: true
+
+jobs:
+  run-visual-regression-tests:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+          url: https://github.com/ONSdigital/design-system.git
+      - name: Read .nvmrc file
+        id: read-nvmrc-file
+        run: echo "nvmrc=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "${{ steps.read-nvmrc-file.outputs.nvmrc }}"
+      - name: Install dependencies
+        run: yarn install
+      - name: Install Docker
+        run: |
+          brew install docker
+          colima start
+      - name: Run visual regression tests
+        run: yarn test-visual

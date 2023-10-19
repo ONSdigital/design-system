@@ -1,17 +1,17 @@
-name: Lighthouse CI accessibility checks
-on: [pull_request]
+name: Run macro and script tests
+on: [push]
 
 env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  RUNNING_IN_CI: true
 
 jobs:
-  lhci:
-    name: Lighthouse CI
+  run-macro-and-script-tests:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Read .nvmrc file
         id: read-nvmrc-file
         run: echo "nvmrc=$(cat .nvmrc)" >> $GITHUB_OUTPUT
@@ -21,9 +21,5 @@ jobs:
           node-version: "${{ steps.read-nvmrc-file.outputs.nvmrc }}"
       - name: Install dependencies
         run: yarn install
-      - name: Build pages
-        run: yarn build
-      - name: Run Lighthouse CI
-        run: ./lighthouse/lighthouse.sh
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      - name: Run macro and script tests
+        run: yarn test
