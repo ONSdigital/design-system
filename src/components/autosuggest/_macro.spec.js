@@ -264,11 +264,7 @@ describe('macro: autosuggest', () => {
     it('renders div with the provided title text', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-      expect(
-        $('.ons-autosuggest__results-title')
-          .text()
-          .trim(),
-      ).toBe('Suggestions');
+      expect($('.ons-autosuggest__results-title').text().trim()).toBe('Suggestions');
     });
 
     it('renders list with a generated identifier', () => {
@@ -298,11 +294,7 @@ describe('macro: autosuggest', () => {
     it('renders instructions text', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-      expect(
-        $('.ons-autosuggest__instructions')
-          .text()
-          .trim(),
-      ).toBe('Use up and down keys to navigate.');
+      expect($('.ons-autosuggest__instructions').text().trim()).toBe('Use up and down keys to navigate.');
     });
   });
 });

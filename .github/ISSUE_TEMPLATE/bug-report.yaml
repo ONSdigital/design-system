@@ -1,7 +1,8 @@
 name: Bug Report
 description: File a bug report
 title: "[Bug]: "
-labels: ["bug", "triage"]
+labels: ["Bug", "Triage"]
+projects: ["ONS Design System project", "ONS Design Team community backlog"]
 assignees: []
 body:
   - type: markdown
@@ -47,14 +48,15 @@ body:
       placeholder: For example, 32.2.7
     validations:
       required: true
-  - type: checkboxes
+  - type: dropdown
     id: device
     attributes:
       label: What devices are you seeing the problem on?
       options:
-        - label: Desktop
-        - label: Mobile
-        - label: Tablet
+        - Desktop
+        - Mobile
+        - Tablet
+      multiple: true
   - type: input
     id: device-details
     attributes:
@@ -62,16 +64,17 @@ body:
       description: Here you can provide further information about the device(s) that are affected by this bug or issue.
     validations:
       required: false
-  - type: checkboxes
+  - type: dropdown
     id: operating-system
     attributes:
       label: What operating systems are you seeing the problem on?
       options:
-        - label: Windows
-        - label: macOS
-        - label: Android
-        - label: iOS
-        - label: Other
+        - Windows
+        - macOS
+        - Android
+        - iOS
+        - Other
+      multiple: true
   - type: input
     id: operating-system-details
     attributes:
@@ -79,17 +82,18 @@ body:
       description: Here you can provide further information about the operating system(s) that are affected by this bug or issue.
     validations:
       required: false
-  - type: checkboxes
+  - type: dropdown
     id: browsers
     attributes:
       label: What browsers are you seeing the problem on?
       options:
-        - label: Firefox
-        - label: Chrome
-        - label: Safari
-        - label: Microsoft Edge
-        - label: Microsoft Internet Explorer
-        - label: Other
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - Microsoft Internet Explorer
+        - Other
+      multiple: true
   - type: input
     id: browsers-details
     attributes:

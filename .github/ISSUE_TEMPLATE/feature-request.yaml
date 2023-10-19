@@ -1,14 +1,15 @@
 name: New feature proposal
 description: Propose a new component, pattern, foundation or documentation to add to the ONS Design System
 title: "[Feature]: "
-labels: ["New feature proposal", "triage"]
+labels: ["New feature proposal", "Triage"]
+projects: ["ONS Design System project", "ONS Design Team community backlog"]
 assignees: []
 body:
   - type: markdown
     attributes:
       value: |
         **Before you fill in this proposal template:**
-        - If you are suggesting a change to a component, pattern or foundation that is already in the ONS Design System, please comment on its [GitHub discussion instead] (https://github.com/ONSdigital/design-system/discussions). You can get to the discussion using the direct link at the bottom of each page in the Design System.
+        - If you are suggesting a change to a component, pattern or foundation that is already in the ONS Design System, please comment on its [GitHub discussion instead](https://github.com/ONSdigital/design-system/discussions). You can get to the discussion using the direct link at the bottom of each page in the Design System.
         - If you are proposing something new, check the [ONS Design System community backlog](https://github.com/ONSdigital/design-system/projects/1) first. There may already be a proposal for something similar. You can add examples of your own evidence to an existing proposal.
   - type: textarea
     id: what
