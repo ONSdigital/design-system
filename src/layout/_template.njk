@@ -127,21 +127,14 @@
         {% block body %}
             <div class="ons-page">
                 <div class="ons-page__content">
-                    {% if form and form.attributes %}
-                        <form
-                            {% if form.classes %}class="{{ form.classes }}"{% endif %}
-                            method="{{ form.method | default('POST') }}"
-                            {% if form.attributes %}{% for attribute, value in (form.attributes.items() if form.attributes is mapping and form.attributes.items else form.attributes) %}{{ attribute }}{% if value %}="{{value}}" {% endif %}{% endfor %}{% endif %}
-                        >
-                    {% endif %}
                     {% block preHeader %}{% endblock %}
                     {% block skipLink %}
                         {{
-                        onsSkipToContent({
-                            "url": "#main-content",
-                            "text": "Skip to main content"
-                        })
-                    }}
+                            onsSkipToContent({
+                                "url": "#main-content",
+                                "text": "Skip to main content"
+                            })
+                        }}
                     {% endblock %}
                     {% block header %}
                         {{
@@ -192,10 +185,6 @@
                             </div>
                         </div>
                     {% endblock %}
-
-                    {% if form and form.attributes %}
-                        </form>
-                    {% endif %}
                 </div>
                 {% block preFooter %}{% endblock %}
                 {% block footer %}
@@ -222,8 +211,8 @@
                     {% endif %}
                 {% endblock %}
             </div>
-            {% block bodyEnd %}{% endblock %}
         {% endblock %}
+        {% block bodyEnd %}{% endblock %}
 
         <script{% if pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
             (function() {

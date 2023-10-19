@@ -48,6 +48,7 @@ exports[`base page template matches the body block override snapshot 1`] = `
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         
         Content
+        
 
         <script>
             (function() {
@@ -72,6 +73,7 @@ exports[`base page template matches the body block override snapshot 1`] = `
 
         
     
+
 </body></html>"
 `;
 
@@ -117,7 +119,6 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
         
             <div class="ons-page">
                 <div class="ons-page__content">
-                    
                     
                     
                         
@@ -271,15 +272,13 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                             </div>
                         </div>
                     
-
-                    
                 </div>
                 
                 
                     
                 
             </div>
-            
+        
         
 
         <script>
@@ -305,6 +304,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
 
         
     
+
 </body></html>"
 `;
 
@@ -360,7 +360,6 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                 <div class="ons-page__content">
                     
                     
-                    
                         
  
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
@@ -512,13 +511,11 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                             </div>
                         </div>
                     
-
-                    
                 </div>
                 
                 
             </div>
-            
+        
         
 
         <script>
@@ -544,6 +541,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
 
         
     
+
 </body></html>"
 `;
 
@@ -622,9 +620,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
             <div class="ons-page">
                 <div class="ons-page__content">
-                    
-                        <form class="form-class" method="POST" autocomplete="off" novalidate="null">
-                    
                     Some preHeader content
                     
                         
@@ -1062,23 +1057,38 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                 <ul class="ons-navigation__list">
                     
                         <li class="ons-navigation__item ">
-                           <a class="ons-navigation__link" href="#0">Service standard</a>
+                            <a class="ons-navigation__link" href="#0">
+                                Service standard
+                                
+                            </a>
                         </li>
                     
                         <li class="ons-navigation__item  ons-navigation__item--active">
-                           <a class="ons-navigation__link" href="#design-system">Design system</a>
+                            <a class="ons-navigation__link" href="#design-system">
+                                Design system
+                                
+                            </a>
                         </li>
                     
                         <li class="ons-navigation__item ">
-                           <a class="ons-navigation__link" href="#0">Accessibility</a>
+                            <a class="ons-navigation__link" href="#0">
+                                Accessibility
+                                
+                            </a>
                         </li>
                     
                         <li class="ons-navigation__item ">
-                           <a class="ons-navigation__link" href="#0">Brand guidelines</a>
+                            <a class="ons-navigation__link" href="#0">
+                                Brand guidelines
+                                
+                            </a>
                         </li>
                     
                         <li class="ons-navigation__item ">
-                           <a class="ons-navigation__link" href="#0">Content style guide</a>
+                            <a class="ons-navigation__link" href="#0">
+                                Content style guide
+                                
+                            </a>
                         </li>
                     
                 </ul>
@@ -1091,19 +1101,31 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                 <ul class="ons-navigation__list ons-navigation__list">
                     
                         <li class="ons-navigation__item ">
-                            <a class="ons-navigation__link ons-navigation__link" href="#0">Guidance</a>
+                            <a class="ons-navigation__link ons-navigation__link" href="#0">
+                                Guidance
+                                
+                            </a>
                         </li>
                     
                         <li class="ons-navigation__item ">
-                            <a class="ons-navigation__link ons-navigation__link" href="#0">Foundations</a>
+                            <a class="ons-navigation__link ons-navigation__link" href="#0">
+                                Foundations
+                                
+                            </a>
                         </li>
                     
                         <li class="ons-navigation__item ">
-                            <a class="ons-navigation__link ons-navigation__link" href="#0">Components</a>
+                            <a class="ons-navigation__link ons-navigation__link" href="#0">
+                                Components
+                                
+                            </a>
                         </li>
                     
                         <li class="ons-navigation__item  ons-navigation__item--active">
-                            <a class="ons-navigation__link ons-navigation__link" href="#patterns">Patterns</a>
+                            <a class="ons-navigation__link ons-navigation__link" href="#patterns">
+                                Patterns
+                                
+                            </a>
                         </li>
                     
                 </ul>
@@ -1162,82 +1184,137 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                         </li>
                         
                             <li class="ons-navigation__item ">
-                                <a class="ons-navigation__link" href="#0">Guidance</a>
+                                <a class="ons-navigation__link" href="#0">
+                                    Guidance
+                                    
+                                </a>
                                 
                             </li>
                         
                             <li class="ons-navigation__item ">
-                                <a class="ons-navigation__link" href="#0">Foundations</a>
+                                <a class="ons-navigation__link" href="#0">
+                                    Foundations
+                                    
+                                </a>
                                 
                             </li>
                         
                             <li class="ons-navigation__item ">
-                                <a class="ons-navigation__link" href="#0">Components</a>
+                                <a class="ons-navigation__link" href="#0">
+                                    Components
+                                    
+                                </a>
                                 
                             </li>
                         
                             <li class="ons-navigation__item  ons-navigation__item--active">
-                                <a class="ons-navigation__link" href="#patterns">Patterns</a>
+                                <a class="ons-navigation__link" href="#patterns">
+                                    Patterns
+                                    
+                                </a>
                                 
                                     
-                                        <h3 class="ons-navigation__list-header">Ask users for...</h3>
+                                        
+                                            <h3 class="ons-navigation__list-header">Ask users for...</h3>
+                                        
                                         <ul class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs">
                                             
                                                 <li class="ons-navigation__item ons-list__item  ons-navigation__item--active">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#access-codes">Access codes</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#access-codes">
+                                                        Access codes
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                                 <li class="ons-navigation__item ons-list__item ">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">Addresses</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">
+                                                        Addresses
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                                 <li class="ons-navigation__item ons-list__item ">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">Dates</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">
+                                                        Dates
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                                 <li class="ons-navigation__item ons-list__item ">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">Durations</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">
+                                                        Durations
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                                 <li class="ons-navigation__item ons-list__item ">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">Email addresses</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">
+                                                        Email addresses
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                                 <li class="ons-navigation__item ons-list__item ">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">Numeric values</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">
+                                                        Numeric values
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                                 <li class="ons-navigation__item ons-list__item ">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">Phone numbers</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">
+                                                        Phone numbers
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                         </ul>
                                     
-                                        <h3 class="ons-navigation__list-header">Help users to...</h3>
+                                        
+                                            <h3 class="ons-navigation__list-header">Help users to...</h3>
+                                        
                                         <ul class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs">
                                             
                                                 <li class="ons-navigation__item ons-list__item ">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">Access support in multiple languages</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">
+                                                        Access support in multiple languages
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                                 <li class="ons-navigation__item ons-list__item ">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">Change language</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">
+                                                        Change language
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                                 <li class="ons-navigation__item ons-list__item ">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">Check answers</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">
+                                                        Check answers
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                                 <li class="ons-navigation__item ons-list__item ">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">Control cookies</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">
+                                                        Control cookies
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                                 <li class="ons-navigation__item ons-list__item ">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">Correct errors</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">
+                                                        Correct errors
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                                 <li class="ons-navigation__item ons-list__item ">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">Extend a session</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="#0">
+                                                        Extend a session
+                                                        
+                                                    </a>
                                                 </li>
                                             
                                         </ul>
@@ -1313,10 +1390,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                 </div>
                             </div>
                         </div>
-                    
-
-                    
-                        </form>
                     
                 </div>
                 Some preFooter content
@@ -1761,8 +1834,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     
                 
             </div>
-            Some bodyEnd content
         
+        Some bodyEnd content
 
         <script>
             (function() {
@@ -1787,6 +1860,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
         <script src="random-script.js"></script>
     
+
 </body></html>"
 `;
 
@@ -1840,7 +1914,6 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                 <div class="ons-page__content">
                     
                     
-                    
                         
  
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
@@ -1992,15 +2065,13 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                             </div>
                         </div>
                     
-
-                    
                 </div>
                 
                 
                     
                 
             </div>
-            
+        
         
 
         <script>
@@ -2026,6 +2097,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
 
         
     
+
 </body></html>"
 `;
 
@@ -2065,7 +2137,6 @@ exports[`base page template matches the social block override snapshot 1`] = `
                 <div class="ons-page__content">
                     
                     
-                    
                         
  
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
@@ -2217,15 +2288,13 @@ exports[`base page template matches the social block override snapshot 1`] = `
                             </div>
                         </div>
                     
-
-                    
                 </div>
                 
                 
                     
                 
             </div>
-            
+        
         
 
         <script>
@@ -2251,5 +2320,6 @@ exports[`base page template matches the social block override snapshot 1`] = `
 
         
     
+
 </body></html>"
 `;
