@@ -1,8 +1,7 @@
 name: New feature proposal
 description: Propose a new component, pattern, foundation or documentation to add to the ONS Design System
 title: "[Feature]: "
-labels: ["New feature proposal", "Triage"]
-projects: ["ONS Design System project", "ONS Design Team community backlog"]
+labels: ["New feature proposal", "Community backlog"]
 assignees: []
 body:
   - type: markdown
