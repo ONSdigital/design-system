@@ -98,8 +98,8 @@ $button-shadow-size: 3px;
     }
   }
 
-  &:active &,
-  &.active & {
+  &:active,
+  &.active {
     top: ems($button-shadow-size);
   }
 
