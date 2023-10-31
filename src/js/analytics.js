@@ -5,18 +5,17 @@ export let trackEvent = (event, data) => {
   console.log(data); // eslint-disable-line no-console
 };
 
-if (typeof window.ga !== 'undefined') {
+if (typeof window.gtag !== 'undefined') {
   trackEvent = (evt, data) => {
-    window.ga(evt, data);
+    window.gtag('event', evt, data);
   };
 }
 
 export const trackElement = (el) => {
   return trackEvent('send', {
-    hitType: 'event',
-    eventCategory: el.getAttribute('data-ga-category') || '',
-    eventAction: el.getAttribute('data-ga-action') || '',
-    eventLabel: el.getAttribute('data-ga-label') || '',
+    event_category: el.getAttribute('data-ga-category') || '',
+    event_action: el.getAttribute('data-ga-action') || '',
+    event_label: el.getAttribute('data-ga-label') || '',
   });
 };
 
@@ -42,10 +41,9 @@ export default function initAnalytics() {
 
   const afterPrint = () => {
     return trackEvent('send', {
-      hitType: 'event',
-      eventCategory: 'Print Intent',
-      eventAction: 'Print Intent',
-      eventLabel: window.location.pathname.split('/').slice(-3).join('/'),
+      event_category: 'Print Intent',
+      event_action: 'Print Intent',
+      event_label: window.location.pathname.split('/').slice(-3).join('/'),
     });
   };
 
