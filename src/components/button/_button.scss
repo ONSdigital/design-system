@@ -136,8 +136,8 @@ $button-shadow-size: 3px;
   &--secondary &,
   &--secondary:active &,
   &--secondary.active &,
-  &--secondary:active:focus &
-  &--secondary.active:focus {
+  &--secondary:active:focus &,
+  &--secondary.active:focus & {
     &__inner {
       background: var(--ons-color-button-secondary);
       color: var(--ons-color-text);
