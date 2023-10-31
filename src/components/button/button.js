@@ -18,7 +18,8 @@ export default class SubmitButton {
         this.button.addEventListener('click', this.timerButton.bind(this));
       }
     } else if (this.submitType == 'link') {
-      this.button.addEventListener('keydown', this.linkButton.bind(this));
+      this.button.addEventListener('keydown', this.linkButtonDown.bind(this));
+      this.button.addEventListener('keyup', this.linkButtonUp.bind(this));
     }
   }
 
@@ -48,10 +49,24 @@ export default class SubmitButton {
     );
   }
 
+  linkButtonDown(e){
+    if (e.keyCode == 32 || e.keyCode == 13){
+      this.button.classList.add("active");
+    }
+  }
+  linkButtonUp(e){
+    if (e.keyCode == 32 || e.keyCode == 13) {
+      this.button.classList.remove("active"); 
+      e.preventDefault();
+      this.button.click();
+    }
+  }
+
   linkButton(e) {
     if (e.keyCode == 32) {
       e.preventDefault();
       this.button.click();
     }
   }
+  
 }

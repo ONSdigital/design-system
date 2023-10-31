@@ -78,13 +78,15 @@ $button-shadow-size: 3px;
     }
   }
 
-  &:focus:hover:not(:active) &__inner {
+  &:focus:hover:not(:active, .active) &__inner {
     background: var(--ons-color-focus-dark);
   }
 
   // When down
   &:active &,
-  &:active:focus & {
+  &:active:focus &,
+  &.active &,
+  &.active:focus & {
     &__inner {
       background: var(--ons-color-button);
       box-shadow: none;
@@ -96,7 +98,8 @@ $button-shadow-size: 3px;
     }
   }
 
-  &:active {
+  &:active &,
+  &.active & {
     top: ems($button-shadow-size);
   }
 
@@ -132,7 +135,9 @@ $button-shadow-size: 3px;
 
   &--secondary &,
   &--secondary:active &,
-  &--secondary:active:focus & {
+  &--secondary.active &,
+  &--secondary:active:focus &
+  &--secondary.active:focus {
     &__inner {
       background: var(--ons-color-button-secondary);
       color: var(--ons-color-text);
@@ -169,8 +174,8 @@ $button-shadow-size: 3px;
     text-decoration: none;
   }
 
-  &--link:focus:not(:active, &--secondary) &,
-  &--link:focus:hover:not(:active, &--secondary) & {
+  &--link:focus:not(:active, .active, &--secondary) &,
+  &--link:focus:hover:not(:active, .active, &--secondary) & {
     outline: inherit;
 
     &__inner {
@@ -238,8 +243,8 @@ $button-shadow-size: 3px;
   }
 
   &--text-link:focus &,
-  &--text-link.active:focus &,
-  &--text-link:active:focus & {
+  &--text-link:active:focus &,
+  &--text-link.active:focus & {
     &__inner {
       background-color: var(--ons-color-focus);
       box-shadow: 0 -2px var(--ons-color-focus),
@@ -288,7 +293,9 @@ $button-shadow-size: 3px;
   }
 
   &--ghost:active:focus,
-  &--ghost-dark:active:focus {
+  &--ghost.active:focus
+  &--ghost-dark:active:focus
+  &--ghost-dark.active:focus {
     box-shadow: none;
     outline: 3px solid transparent;
   }
@@ -403,7 +410,8 @@ $button-shadow-size: 3px;
     }
   }
 
-  &--loader.ons-is-loading:active & {
+  &--loader.ons-is-loading:active &, 
+  &--loader.ons-is-loading.active & {
     &__inner {
       box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
     }
@@ -448,7 +456,8 @@ $button-shadow-size: 3px;
     cursor: not-allowed;
   }
 
-  &--disabled:active & {
+  &--disabled:active &,
+  &--disabled.active & {
     &__inner {
       box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
     }
@@ -496,7 +505,9 @@ $button-shadow-size: 3px;
   }
 
   &--dropdown:active &,
-  &--dropdown:active:focus & {
+  &--dropdown.active &,
+  &--dropdown:active:focus &,
+  &--dropdown.active:focus & {
     &__inner {
       background: var(--ons-color-branded-secondary);
       color: var(--ons-color-white);
