@@ -54,6 +54,7 @@ export default class SubmitButton {
       this.button.classList.add("active");
     }
   }
+  
   linkButtonUp(e){
     if (e.keyCode == 32 || e.keyCode == 13) {
       this.button.classList.remove("active"); 
@@ -62,11 +63,4 @@ export default class SubmitButton {
     }
   }
 
-  linkButton(e) {
-    if (e.keyCode == 32) {
-      e.preventDefault();
-      this.button.click();
-    }
-  }
-  
 }
