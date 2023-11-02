@@ -77,6 +77,7 @@
   &--icons {
     margin-bottom: 0;
     .ons-list__item {
+      margin-top: 0;
       margin-bottom: 0.5rem;
     }
   }
@@ -99,7 +100,6 @@
     .ons-list__item {
       display: inline-block;
       margin: 0 1rem 0 0;
-      vertical-align: top;
     }
   }
 
