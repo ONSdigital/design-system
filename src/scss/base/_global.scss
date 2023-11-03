@@ -23,6 +23,11 @@ img {
   vertical-align: middle;
 }
 
+p,
+li {
+  max-width: 685px;
+}
+
 hr {
   border: 0;
   border-top: 1px solid var(--ons-color-borders);
