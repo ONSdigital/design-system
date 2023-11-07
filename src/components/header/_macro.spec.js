@@ -161,6 +161,43 @@ const EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG = {
   },
 };
 
+const EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST = {
+  navigation: {
+    id: 'main-nav',
+    ariaLabel: 'Main menu',
+    currentPath: '#home',
+    itemsList: [
+      {
+        title: 'Home',
+        url: '#home',
+      },
+      {
+        title: 'Guidance',
+        url: '#0',
+      },
+    ],
+    toggleNavigationButton: {
+      text: 'Menu',
+      ariaLabel: 'Toggle main menu',
+    },
+  },
+  siteSearchAutosuggest: {
+    autosuggestData: '/examples/data/country-of-birth.json',
+    label: 'label',
+    instructions: 'instructions',
+    ariaYouHaveSelected: 'ariaYouHaveSelected',
+    ariaMinChars: 'ariaMinChars',
+    ariaResultsLabel: 'ariaResultsLabel',
+    ariaOneResult: 'ariaOneResult',
+    ariaNResults: 'ariaNResults',
+    ariaLimitedResults: 'ariaLimitedResults',
+    moreResults: 'moreResults',
+    resultsTitle: 'resultsTitle',
+    noResults: 'noResults',
+    typeMore: 'TypeMore',
+  },
+};
+
 describe('macro: header', () => {
   describe('mode: basic', () => {
     it('passes jest-axe checks', async () => {
@@ -453,21 +490,21 @@ describe('macro: header', () => {
     it('has the text for each list item', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LIST_ITEMS));
 
-      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__item'), node => node.text().trim());
+      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__item'), (node) => node.text().trim());
       expect(values).toEqual(['Title 1', 'Title 2', 'Title 3']);
     });
 
     it('has the link text for each list item', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE));
 
-      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__link'), node => node.text().trim());
+      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__link'), (node) => node.text().trim());
       expect(values).toEqual(['Title 1', 'Title 2', 'Title 3']);
     });
 
     it('has the link href for each list item', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE));
 
-      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__link'), node => node.attr('href'));
+      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__link'), (node) => node.attr('href'));
       expect(values).toEqual(['#1', '#2', '#3']);
     });
 
@@ -486,14 +523,14 @@ describe('macro: header', () => {
     it('has the link text for each list item for mobile', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE));
 
-      const values = mapAll($('.ons-header-service-nav--mobile .ons-header-service-nav__link'), node => node.text().trim());
+      const values = mapAll($('.ons-header-service-nav--mobile .ons-header-service-nav__link'), (node) => node.text().trim());
       expect(values).toEqual(['Title 1', 'Title 2', 'Title 3']);
     });
 
     it('has the link href for each list item for mobile', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE));
 
-      const values = mapAll($('.ons-header-service-nav--mobile .ons-header-service-nav__link'), node => node.attr('href'));
+      const values = mapAll($('.ons-header-service-nav--mobile .ons-header-service-nav__link'), (node) => node.attr('href'));
       expect(values).toEqual(['#1', '#2', '#3']);
     });
 
@@ -740,5 +777,38 @@ describe('macro: header', () => {
       const subNavContainer = $('.ons-navigation--sub .ons-container');
       expect($(subNavContainer).hasClass('ons-container--full-width')).toBe(true);
     });
+  });
+});
+
+describe('when the component initialises, the autosuggest search also initialises', () => {
+  it('the input should be given the correct aria attributes', async () => {
+    await setTestPage('/test', renderComponent('header', EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST));
+
+    const attributes = await getNodeAttributes(page, '.ons-js-autosuggest-input');
+    expect(attributes['aria-autocomplete']).toBe('off');
+    expect(attributes['aria-controls']).toBe('country-of-birth-listbox');
+    expect(attributes['aria-describedby']).toBe('country-of-birth-instructions');
+    expect(attributes['aria-haspopup']).toBe('true');
+    expect(attributes['aria-owns']).toBe('country-of-birth-listbox');
+    expect(attributes['aria-expanded']).toBe('false');
+    expect(attributes['role']).toBe('combobox');
+  });
+
+  it('the autocomplete attribute be set to be not set to on', async () => {
+    await setTestPage('/test', renderComponent('autosuggest', EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST));
+
+    const attributes = await getNodeAttributes(page, '.ons-js-autosuggest-input');
+    expect(attributes['autocomplete']).not.toBe('on');
+  });
+
+  it('the instructions, listbox, and status should become visible', async () => {
+    await setTestPage('/test', renderComponent('autosuggest', EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST));
+
+    const instructionsDisplayStyle = await page.$eval('.ons-js-autosuggest-instructions', (node) => getComputedStyle(node).display);
+    expect(instructionsDisplayStyle).toBe('block');
+    const listboxDisplayStyle = await page.$eval('.ons-js-autosuggest-listbox', (node) => getComputedStyle(node).display);
+    expect(listboxDisplayStyle).toBe('block');
+    const statusDisplayStyle = await page.$eval('.ons-js-autosuggest-aria-status', (node) => getComputedStyle(node).display);
+    expect(statusDisplayStyle).toBe('block');
   });
 });
