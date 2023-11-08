@@ -782,35 +782,38 @@ describe('macro: header', () => {
   });
 });
 
-describe('when the component initialises, the autosuggest search also initialises', () => {
-  it('the input should be given the correct aria attributes', async () => {
-    await setTestPage('/test', renderComponent('header', EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST));
+describe('mode: with site search autosuggest', () => {
+  it('renders the search with expected parameters', () => {
+    const faker = templateFaker();
+    const buttonSpy = faker.spy('autosuggest');
 
-    const attributes = await getNodeAttributes(page, '.ons-js-autosuggest-input');
-    expect(attributes['aria-autocomplete']).toBe('off');
-    expect(attributes['aria-controls']).toBe('country-of-birth-listbox');
-    expect(attributes['aria-describedby']).toBe('country-of-birth-instructions');
-    expect(attributes['aria-haspopup']).toBe('true');
-    expect(attributes['aria-owns']).toBe('country-of-birth-listbox');
-    expect(attributes['aria-expanded']).toBe('false');
-    expect(attributes['role']).toBe('combobox');
-  });
+    faker.renderComponent('header', EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST);
 
-  it('the autocomplete attribute be set to be not set to on', async () => {
-    await setTestPage('/test', renderComponent('autosuggest', EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST));
-
-    const attributes = await getNodeAttributes(page, '.ons-js-autosuggest-input');
-    expect(attributes['autocomplete']).not.toBe('on');
-  });
-
-  it('the instructions, listbox, and status should become visible', async () => {
-    await setTestPage('/test', renderComponent('autosuggest', EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST));
-
-    const instructionsDisplayStyle = await page.$eval('.ons-js-autosuggest-instructions', (node) => getComputedStyle(node).display);
-    expect(instructionsDisplayStyle).toBe('block');
-    const listboxDisplayStyle = await page.$eval('.ons-js-autosuggest-listbox', (node) => getComputedStyle(node).display);
-    expect(listboxDisplayStyle).toBe('block');
-    const statusDisplayStyle = await page.$eval('.ons-js-autosuggest-aria-status', (node) => getComputedStyle(node).display);
-    expect(statusDisplayStyle).toBe('block');
+    expect(buttonSpy.occurrences[0]).toEqual({
+      ariaLimitedResults: 'Type more characters to improve your search',
+      ariaMinChars: 'Enter 3 or more characters for suggestions.',
+      ariaNResults: 'There are {n} suggestions available.',
+      ariaOneResult: 'There is one suggestion available.',
+      ariaResultsLabel: 'Country suggestions',
+      ariaYouHaveSelected: 'You have selected',
+      autosuggestData: '/test/fake/api/countries',
+      containerClasses: 'ons-autosuggest--header',
+      id: 'ons-site-search',
+      input: {
+        accessiblePlaceholder: true,
+        autocomplete: 'off',
+        classes: 'ons-input-search ons-input-search--icon',
+        label: {
+          classes: 'ons-u-pl-m ons-label--white',
+          id: 'ons-site-search-label',
+          text: 'label',
+        },
+      },
+      instructions: 'Use up and down keys to navigate.',
+      moreResults: 'Continue entering to improve suggestions',
+      noResults: 'No suggestions found.',
+      resultsTitle: 'Suggestions',
+      typeMore: 'Continue entering to get suggestions',
+    });
   });
 });
