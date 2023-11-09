@@ -107,3 +107,23 @@
     position: absolute;
   }
 }
+
+abbr {
+  display: inline;
+
+  &:hover::after, &:focus {
+    content: attr(title);
+    position: absolute;
+    top: 100%;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    color: var(--ons-color-text);
+    background-color: var(--ons-color-button-secondary);
+    font-size: 0.65rem;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+
