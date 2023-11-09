@@ -245,7 +245,7 @@ describe('macro: input', () => {
     expect($('.ons-input').attr('autocomplete')).toBe('on');
   });
 
-  it.each([['email'], ['tel'], ['text']])('outputs `type` attribute of "%s"', type => {
+  it.each([['email'], ['tel'], ['text']])('outputs `type` attribute of "%s"', (type) => {
     const $ = cheerio.load(
       renderComponent('input', {
         ...EXAMPLE_INPUT_MINIMAL,
@@ -421,11 +421,25 @@ describe('macro: input', () => {
 
       expect($('.ons-input-type--prefix .ons-js-input-abbr').attr('id')).toBe('example-prefix-id');
       expect($('.ons-input-type--prefix .ons-js-input-abbr').attr('title')).toBe('Example prefix title');
-      expect(
-        $('.ons-input-type--prefix .ons-js-input-abbr')
-          .text()
-          .trim(),
-      ).toBe('Example prefix text');
+      expect($('.ons-input-type--prefix .ons-js-input-abbr').text().trim()).toBe('Example prefix text');
+    });
+
+    it('focuses input when abbreviation is clicked', async () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_MINIMAL,
+          prefix: {
+            id: 'example-prefix-id',
+            title: 'Example prefix title',
+            text: 'Example prefix text',
+          },
+        }),
+      );
+
+      await page.$('.ons-js-input-abbr').click();
+      const focusedElementId = await page.evaluate(() => document.activeElement.id);
+
+      expect($(focusedElementId).attr('id')).toBe('example-prefix-id');
     });
 
     it('does not render prefix element when `prefix.id` not set', () => {
@@ -483,11 +497,7 @@ describe('macro: input', () => {
 
       expect($('.ons-js-input-abbr').attr('id')).toBe('example-suffix-id');
       expect($('.ons-js-input-abbr').attr('title')).toBe('Example suffix title');
-      expect(
-        $('.ons-js-input-abbr')
-          .text()
-          .trim(),
-      ).toBe('Example suffix text');
+      expect($('.ons-js-input-abbr').text().trim()).toBe('Example suffix text');
     });
 
     it('does not render suffix element when `suffix.id` not set', () => {
@@ -653,11 +663,7 @@ describe('macro: input', () => {
       );
 
       expect($('a.ons-input__post-link').attr('href')).toBe('https://example.com/link');
-      expect(
-        $('a.ons-input__post-link')
-          .text()
-          .trim(),
-      ).toBe('Example link');
+      expect($('a.ons-input__post-link').text().trim()).toBe('Example link');
     });
   });
 

@@ -14,12 +14,12 @@
     z-index: 1;
 
     &:focus {
-      // Overide default input focus so it can wrap prefix/suffix too
+      // Override default input focus so it can wrap prefix/suffix too
       box-shadow: none;
       outline: none;
     }
 
-    // Overide default input error style so it can wrap prefix/suffix too
+    // Override default input error style so it can wrap prefix/suffix too
     &.ons-input--error:not(:focus) {
       border-right: $input-border-width solid var(--ons-color-input-border);
       box-shadow: none;
@@ -108,22 +108,19 @@
   }
 }
 
-abbr {
-  display: inline;
-
-  &:hover::after, &:focus {
-    content: attr(title);
-    position: absolute;
-    top: 100%;
-    padding: 0.25rem;
-    border-radius: 0.25rem;
-    color: var(--ons-color-text);
-    background-color: var(--ons-color-button-secondary);
-    font-size: 0.65rem;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap;
-  }
+.ons-input-type__type {
+  // &:hover, &:focus {
+  //   content: attr(title);
+  //   position: absolute;
+  //   top: 100%;
+  //   padding: 0.25rem;
+  //   border-radius: 0.25rem;
+  //   color: var(--ons-color-text);
+  //   background-color: var(--ons-color-button-secondary);
+  //   font-size: 0.65rem;
+  //   line-height: 1;
+  //   text-align: center;
+  //   white-space: nowrap;
+  //   pointer-events: none;
+  // }
 }
-
-

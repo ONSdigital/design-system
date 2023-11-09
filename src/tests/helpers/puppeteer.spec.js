@@ -70,7 +70,7 @@ describe('PuppeteerEndpointFaker', () => {
         `,
       );
 
-      const paths = apiFaker.requestHistory.map(entry => entry.path);
+      const paths = apiFaker.requestHistory.map((entry) => entry.path);
       expect(paths).toEqual(['/text?abc=123', '/json?abc=456']);
     });
 
@@ -87,7 +87,7 @@ describe('PuppeteerEndpointFaker', () => {
         `,
       );
 
-      const paths = apiFaker.requestHistory.map(entry => entry.path);
+      const paths = apiFaker.requestHistory.map((entry) => entry.path);
       expect(paths).toEqual(['/text?abc=123', '/text?abc=789', '/other', '/json?abc=456']);
     });
 
@@ -103,7 +103,7 @@ describe('PuppeteerEndpointFaker', () => {
         `,
       );
 
-      const paths = apiFaker.requestHistory.map(entry => entry.path);
+      const paths = apiFaker.requestHistory.map((entry) => entry.path);
       expect(paths).toEqual(['/text?abc=123', '/json?abc=456']);
     });
 
@@ -117,7 +117,7 @@ describe('PuppeteerEndpointFaker', () => {
         `,
       );
 
-      const entry = apiFaker.requestHistory.find(entry => entry.path === '/text?abc=123');
+      const entry = apiFaker.requestHistory.find((entry) => entry.path === '/text?abc=123');
       expect(entry.url.href).toBe(`http://localhost:${process.env.TEST_PORT}/test/fake/api/text?abc=123`);
     });
 
@@ -135,7 +135,7 @@ describe('PuppeteerEndpointFaker', () => {
         `,
       );
 
-      const entry = apiFaker.requestHistory.find(entry => entry.path === '/text?abc=123');
+      const entry = apiFaker.requestHistory.find((entry) => entry.path === '/text?abc=123');
       expect(entry.headers).toHaveProperty('foo', '123');
     });
   });
@@ -195,7 +195,7 @@ describe('PuppeteerEndpointFaker', () => {
       await setTestPage('/test', TEST_HTML_REQUEST_DATA_FROM_ENDPOINT);
       await page.waitForSelector('#output.test');
 
-      const output = await page.$eval('#output', node => node.textContent);
+      const output = await page.$eval('#output', (node) => node.textContent);
       expect(output).toBe('200:123');
     });
   });
@@ -209,7 +209,7 @@ describe('PuppeteerEndpointFaker', () => {
       await setTestPage('/test', TEST_HTML_REQUEST_DATA_FROM_ENDPOINT);
       await page.waitForSelector('#output.test');
 
-      const output = await page.$eval('#output', node => node.textContent);
+      const output = await page.$eval('#output', (node) => node.textContent);
       expect(output).toBe('200:123');
     });
 
@@ -222,13 +222,13 @@ describe('PuppeteerEndpointFaker', () => {
       await setTestPage('/test', TEST_HTML_REQUEST_DATA_FROM_ENDPOINT);
       await page.waitForSelector('#output.test');
 
-      const output = await page.$eval('#output', node => node.textContent);
+      const output = await page.$eval('#output', (node) => node.textContent);
       expect(output).toBe('400:123');
     });
   });
 
   describe('setOverrides(paths, response)', () => {
-    it('calls `setOveride` for each provided path', () => {
+    it('calls `setOverride` for each provided path', () => {
       const faker = new puppeteer.PuppeteerEndpointFaker('/test/fake/api');
       const calls = [];
       faker.setOverride = (path, response) => {
@@ -256,7 +256,7 @@ describe('PuppeteerEndpointFaker', () => {
       await setTestPage('/test', TEST_HTML_REQUEST_DATA_FROM_ENDPOINT);
       await page.waitForSelector('#output.test');
 
-      const output = await page.$eval('#output', node => node.textContent);
+      const output = await page.$eval('#output', (node) => node.textContent);
       expect(output).toBe('200:456');
     });
 
@@ -272,7 +272,7 @@ describe('PuppeteerEndpointFaker', () => {
       await setTestPage('/test', TEST_HTML_REQUEST_DATA_FROM_ENDPOINT);
       await page.waitForSelector('#output.test');
 
-      const output = await page.$eval('#output', node => node.textContent);
+      const output = await page.$eval('#output', (node) => node.textContent);
       expect(output).toBe('400:456');
     });
   });
