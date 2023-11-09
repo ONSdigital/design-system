@@ -196,7 +196,7 @@ const EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST = {
     resultsTitleId: 'country-of-birth-suggestions',
     noResults: 'No suggestions found.',
     typeMore: 'Continue entering to get suggestions',
-    autosuggestData: '/test/fake/api/countries',
+    language: 'en-gb',
   },
 };
 
@@ -791,12 +791,13 @@ describe('mode: with site search autosuggest', () => {
 
     expect(buttonSpy.occurrences[0]).toEqual({
       ariaLimitedResults: 'Type more characters to improve your search',
+      minChars: 3,
+      language: 'en-gb',
       ariaMinChars: 'Enter 3 or more characters for suggestions.',
       ariaNResults: 'There are {n} suggestions available.',
       ariaOneResult: 'There is one suggestion available.',
       ariaResultsLabel: 'Country suggestions',
       ariaYouHaveSelected: 'You have selected',
-      autosuggestData: '/test/fake/api/countries',
       containerClasses: 'ons-autosuggest--header',
       id: 'ons-site-search',
       input: {
@@ -814,6 +815,55 @@ describe('mode: with site search autosuggest', () => {
       noResults: 'No suggestions found.',
       resultsTitle: 'Suggestions',
       typeMore: 'Continue entering to get suggestions',
+    });
+  });
+
+  describe('when the user inputs text', () => {
+    let $; // Initialize a Cheerio instance
+
+    const mockData = [
+      { en: 'England' },
+      { en: 'Wales' },
+      { en: 'Scotland' },
+      { en: 'United States of America' },
+      { en: 'United States Virgin Islands' },
+      { en: 'Åland Islands' },
+    ];
+
+    beforeEach(() => {
+      $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST,
+          autosuggestData: mockData,
+        }),
+      );
+    });
+
+    it('does not show suggestions when input length < minimum characters', () => {
+      $('.ons-js-autosuggest-input').val('En');
+
+      setTimeout(() => {
+        const suggestionCount = $('.ons-autosuggest__option').length;
+        expect(suggestionCount).toBe(1);
+        done();
+      }, 20);
+    });
+
+    it('shows suggestions when input length >= minimum characters', (done) => {
+      $('.ons-js-autosuggest-input').val('Eng');
+
+      setTimeout(() => {
+        const suggestionCount = $('.ons-autosuggest__option').length;
+        expect(suggestionCount).toBe(1);
+        done();
+      }, 20);
+    });
+
+    it('gets the language if set', () => {
+      $('.ons-js-autosuggest-input').val('Eng');
+
+      const autosuggestElement = $('.ons-js-autosuggest').attr('data-lang');
+      expect(autosuggestElement).toBe('en-gb');
     });
   });
 });
