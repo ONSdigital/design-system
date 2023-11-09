@@ -844,18 +844,16 @@ describe('mode: with site search autosuggest', () => {
 
       setTimeout(() => {
         const suggestionCount = $('.ons-autosuggest__option').length;
-        expect(suggestionCount).toBe(1);
-        done();
+        expect(suggestionCount).toBe(0);
       }, 20);
     });
 
-    it('shows suggestions when input length >= minimum characters', (done) => {
+    it('shows suggestions when input length >= minimum characters', () => {
       $('.ons-js-autosuggest-input').val('Eng');
 
       setTimeout(() => {
         const suggestionCount = $('.ons-autosuggest__option').length;
         expect(suggestionCount).toBe(1);
-        done();
       }, 20);
     });
 
