@@ -1,11 +1,11 @@
 import domready from '../../js/domready';
 
 domready(async () => {
-  const abbrInputs = [...document.querySelectorAll('.ons-js-input-abbr')];
+  const abbrInputs = [...document.querySelectorAll('.ons-js-input-container-abbr')];
 
   if (abbrInputs.length) {
-    const abbr = (await import('./input')).default;
+    const abbrInput = (await import('./input')).default;
 
-    abbrInputs.forEach((element) => new abbr(element));
+    abbrInputs.forEach((element) => new abbrInput(element));
   }
 });

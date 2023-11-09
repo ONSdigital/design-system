@@ -1,14 +1,14 @@
-export default class Abbr {
+export default class AbbrInput {
   constructor(context) {
-    this.abbr = context;
+    this.abbrInput = context;
     this.bindEventListeners();
   }
 
   bindEventListeners() {
-    this.abbr.addEventListener('click', this.handleClick.bind(this));
+    this.abbrInput.querySelector('.ons-js-input-abbr').addEventListener('click', this.handleClick.bind(this));
   }
 
   handleClick() {
-    this.abbr.parentNode.querySelector('.ons-input').focus();
+    this.abbrInput.querySelector('.ons-input').focus();
   }
 }
