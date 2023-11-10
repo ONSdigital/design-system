@@ -1,0 +1,57 @@
+---
+"fullWidth": true
+---
+{% from "components/header/_macro.njk" import onsHeader %}
+
+{{
+    onsHeader({
+        "title": 'Design system',
+        "titleUrl": '#0',
+        "navigation": {
+            "id": 'main-nav',
+            "ariaLabel": 'Main menu',
+            "currentPath": '#home',
+            "itemsList": [
+                {
+                    "text": 'Home',
+                    "url": '#home'
+                },
+                {
+                    "text": 'Guidance',
+                    "url": '#0'
+                },
+                {
+                    "text": 'Foundations',
+                    "url": '#0'
+                },
+                {
+                    "text": 'Components',
+                    "url": '#0'
+                },
+                {
+                    "text": 'Patterns',
+                    "url": '#0'
+                }
+            ],
+            "toggleNavigationButton": {
+                "text": 'Menu',
+                "ariaLabel": 'Toggle main menu'
+            }
+        },
+           'siteSearchAutosuggest': {
+            "autosuggestData":  "/examples/data/country-of-birth.json",
+            "label": "search",
+            "instructions": "instructions",
+            "ariaYouHaveSelected": "ariaYouHaveSelected",
+            "ariaMinChars": "ariaMinChars",
+            "ariaResultsLabel": "ariaResultsLabel",
+            "ariaOneResult": "ariaOneResult",
+            "ariaNResults": "ariaNResults",
+            "ariaLimitedResults": "ariaLimitedResults",
+            "moreResults": "moreResults",
+            "resultsTitle": "resultsTitle",
+            "noResults": "noResults",
+            "typeMore": "typeMore"
+        }
+    })
+}}
