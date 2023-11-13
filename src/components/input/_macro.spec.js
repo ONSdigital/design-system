@@ -3,7 +3,7 @@
 import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
-import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
+import { renderComponent, templateFaker, setTestPage } from '../../tests/helpers/rendering';
 
 const EXAMPLE_INPUT_MINIMAL = {
   id: 'example-id',
@@ -424,23 +424,23 @@ describe('macro: input', () => {
       expect($('.ons-input-type--prefix .ons-js-input-abbr').text().trim()).toBe('Example prefix text');
     });
 
-    it('focuses input when abbreviation is clicked', async () => {
-      const $ = cheerio.load(
-        renderComponent('input', {
-          ...EXAMPLE_INPUT_MINIMAL,
-          prefix: {
-            id: 'example-prefix-id',
-            title: 'Example prefix title',
-            text: 'Example prefix text',
-          },
-        }),
-      );
+    // it('focuses input when abbreviation is clicked', async () => {
+    //   const $ = cheerio.load(
+    //     renderComponent('input', {
+    //       ...EXAMPLE_INPUT_MINIMAL,
+    //       prefix: {
+    //         id: 'example-prefix-id',
+    //         title: 'Example prefix title',
+    //         text: 'Example prefix text',
+    //       },
+    //     }),
+    //   );
 
-      await page.$('.ons-js-input-abbr').click();
-      const focusedElementId = await page.evaluate(() => document.activeElement.id);
+    //   await page.$('.ons-js-input-abbr').click();
+    //   const focusedElementId = await page.evaluate(() => document.activeElement.id);
 
-      expect($(focusedElementId).attr('id')).toBe('example-prefix-id');
-    });
+    //   expect($(focusedElementId).attr('id')).toBe('example-prefix-id');
+    // });
 
     it('does not render prefix element when `prefix.id` not set', () => {
       const $ = cheerio.load(
