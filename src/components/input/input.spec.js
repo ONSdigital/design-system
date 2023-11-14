@@ -22,7 +22,7 @@ describe('script: input', () => {
       }),
     );
     await page.click('.ons-js-input-abbr');
-    const focusedElementId = await page.evaluate(() => document.activeElement.id === 'example-id');
-    expect(focusedElementId).toBe(true);
+    const focusedElementId = await page.evaluate(() => document.activeElement.id);
+    expect(focusedElementId).toEqual('example-id');
   });
 });
