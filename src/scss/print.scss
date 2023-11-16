@@ -45,11 +45,6 @@ a::after {
   }
 }
 
-details,
-details > summary {
-  display: block !important;
-}
-
 .ons-hero {
   print-color-adjust: exact;
 }
@@ -67,4 +62,31 @@ h5,
 h6,
 p {
   break-inside: avoid;
+}
+
+.ons-details {
+  &--initialised & {
+    &__heading {
+      padding: 0;
+      margin: 0 0 1rem;
+    }
+
+    &__title {
+      color: var(--ons-color-black);
+      font-size: 24px;
+    }
+
+    &__icon {
+      display: none;
+    }
+
+    &__content {
+      display: block;
+    }
+  }
+  &--accordion & {
+    &__heading {
+      padding-top: 1rem;
+    }
+  }
 }
