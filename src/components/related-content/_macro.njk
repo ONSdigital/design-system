@@ -1,36 +1,34 @@
 {% macro onsRelatedContent(params) %}
 
-  {% if params.classes %}
-    {% set classes = ' ' + params.classes %}
-  {% endif %}
-
-  <aside class="ons-related-content{{ classes }}" aria-label="{{ params.ariaLabel | default("Related content") }}">
-    {% if params.rows %}
-      {% for row in params.rows %}
-        {% from "components/related-content/_section-macro.njk" import onsRelatedContentSection %}
-        {% call onsRelatedContentSection(
-          {
-            "title": row.title,
-            "id": row.id
-          }
-        ) %}            
-          <nav class="ons-related-content__navigation" aria-labelledby="{{ row.id }}">
-            {% from "components/list/_macro.njk" import onsList %}
-            {{
-              onsList({
-                "variants": 'bare',
-                "iconType": row.iconType,
-                "iconPosition": row.iconPosition,
-                "iconSize": row.iconSize,
-                "itemsList": row.itemsList
-              })
-            }}
-          </nav>
-        {% endcall %}
-      {% endfor %}
-    {% else %}
-      {{ caller() if caller }}
+    {% if params.classes %}
+        {% set classes = ' ' + params.classes %}
     {% endif %}
-  </aside>
+
+    <aside class="ons-related-content{{ classes }}" aria-label="{{ params.ariaLabel | default("Related content") }}">
+        {% if params.rows %}
+            {% from "components/related-content/_section-macro.njk" import onsRelatedContentSection %}
+            {% from "components/list/_macro.njk" import onsList %}
+            {% for row in params.rows %}
+                {% call onsRelatedContentSection({
+                    "title": row.title,
+                    "id": row.id
+                }) %}
+                    <nav class="ons-related-content__navigation" aria-labelledby="{{ row.id }}">
+                        {{
+                            onsList({
+                                "variants": 'bare',
+                                "iconType": row.iconType,
+                                "iconPosition": row.iconPosition,
+                                "iconSize": row.iconSize,
+                                "itemsList": row.itemsList
+                            })
+                        }}
+                    </nav>
+                {% endcall %}
+            {% endfor %}
+        {% else %}
+            {{ caller() if caller }}
+        {% endif %}
+    </aside>
 
 {% endmacro %}
