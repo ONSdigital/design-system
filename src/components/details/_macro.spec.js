@@ -40,10 +40,7 @@ describe('macro: details', () => {
   it('has provided title text', () => {
     const $ = cheerio.load(renderComponent('details', EXAMPLE_DETAILS_BASIC));
 
-    const titleText = $('.ons-details__title')
-      .first()
-      .text()
-      .trim();
+    const titleText = $('.ons-details__title').first().text().trim();
     expect(titleText).toBe('Title for details');
   });
 
@@ -62,9 +59,7 @@ describe('macro: details', () => {
   it('has provided content text', () => {
     const $ = cheerio.load(renderComponent('details', EXAMPLE_DETAILS_BASIC));
 
-    const titleText = $('.ons-details__content')
-      .text()
-      .trim();
+    const titleText = $('.ons-details__content').text().trim();
     expect(titleText).toEqual(expect.stringContaining('Content for details'));
   });
 
@@ -143,9 +138,7 @@ describe('macro: details', () => {
   it('calls with content', () => {
     const $ = cheerio.load(renderComponent('details', { EXAMPLE_DETAILS_BASIC }, 'Example content...'));
 
-    const content = $('.ons-details__content')
-      .text()
-      .trim();
+    const content = $('.ons-details__content').text().trim();
     expect(content).toEqual(expect.stringContaining('Example content...'));
   });
 });
