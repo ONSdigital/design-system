@@ -161,6 +161,45 @@ const EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG = {
   },
 };
 
+const EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST = {
+  navigation: {
+    id: 'main-nav',
+    ariaLabel: 'Main menu',
+    currentPath: '#home',
+    itemsList: [
+      {
+        title: 'Home',
+        url: '#home',
+      },
+      {
+        title: 'Guidance',
+        url: '#0',
+      },
+    ],
+    toggleNavigationButton: {
+      text: 'Menu',
+      ariaLabel: 'Toggle main menu',
+    },
+  },
+  siteSearchAutosuggest: {
+    label: 'label',
+    instructions: 'Use up and down keys to navigate.',
+    ariaYouHaveSelected: 'You have selected',
+    ariaMinChars: 'Enter 3 or more characters for suggestions.',
+    minChars: 3,
+    ariaResultsLabel: 'Country suggestions',
+    ariaOneResult: 'There is one suggestion available.',
+    ariaNResults: 'There are {n} suggestions available.',
+    ariaLimitedResults: 'Type more characters to improve your search',
+    moreResults: 'Continue entering to improve suggestions',
+    resultsTitle: 'Suggestions',
+    resultsTitleId: 'country-of-birth-suggestions',
+    noResults: 'No suggestions found.',
+    typeMore: 'Continue entering to get suggestions',
+    language: 'en-gb',
+  },
+};
+
 describe('macro: header', () => {
   describe('mode: basic', () => {
     it('passes jest-axe checks', async () => {
@@ -453,21 +492,21 @@ describe('macro: header', () => {
     it('has the text for each list item', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LIST_ITEMS));
 
-      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__item'), node => node.text().trim());
+      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__item'), (node) => node.text().trim());
       expect(values).toEqual(['Title 1', 'Title 2', 'Title 3']);
     });
 
     it('has the link text for each list item', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE));
 
-      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__link'), node => node.text().trim());
+      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__link'), (node) => node.text().trim());
       expect(values).toEqual(['Title 1', 'Title 2', 'Title 3']);
     });
 
     it('has the link href for each list item', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE));
 
-      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__link'), node => node.attr('href'));
+      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__link'), (node) => node.attr('href'));
       expect(values).toEqual(['#1', '#2', '#3']);
     });
 
@@ -486,14 +525,14 @@ describe('macro: header', () => {
     it('has the link text for each list item for mobile', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE));
 
-      const values = mapAll($('.ons-header-service-nav--mobile .ons-header-service-nav__link'), node => node.text().trim());
+      const values = mapAll($('.ons-header-service-nav--mobile .ons-header-service-nav__link'), (node) => node.text().trim());
       expect(values).toEqual(['Title 1', 'Title 2', 'Title 3']);
     });
 
     it('has the link href for each list item for mobile', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE));
 
-      const values = mapAll($('.ons-header-service-nav--mobile .ons-header-service-nav__link'), node => node.attr('href'));
+      const values = mapAll($('.ons-header-service-nav--mobile .ons-header-service-nav__link'), (node) => node.attr('href'));
       expect(values).toEqual(['#1', '#2', '#3']);
     });
 
@@ -739,6 +778,90 @@ describe('macro: header', () => {
 
       const subNavContainer = $('.ons-navigation--sub .ons-container');
       expect($(subNavContainer).hasClass('ons-container--full-width')).toBe(true);
+    });
+  });
+});
+
+describe('mode: with site search autosuggest', () => {
+  it('renders the search with expected parameters', () => {
+    const faker = templateFaker();
+    const buttonSpy = faker.spy('autosuggest');
+
+    faker.renderComponent('header', EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST);
+
+    expect(buttonSpy.occurrences[0]).toEqual({
+      ariaLimitedResults: 'Type more characters to improve your search',
+      minChars: 3,
+      language: 'en-gb',
+      ariaMinChars: 'Enter 3 or more characters for suggestions.',
+      ariaNResults: 'There are {n} suggestions available.',
+      ariaOneResult: 'There is one suggestion available.',
+      ariaResultsLabel: 'Country suggestions',
+      ariaYouHaveSelected: 'You have selected',
+      containerClasses: 'ons-autosuggest--header',
+      id: 'ons-site-search',
+      input: {
+        accessiblePlaceholder: true,
+        autocomplete: 'off',
+        classes: 'ons-input-search ons-input-search--icon',
+        label: {
+          classes: 'ons-u-pl-m ons-label--white',
+          id: 'ons-site-search-label',
+          text: 'label',
+        },
+      },
+      instructions: 'Use up and down keys to navigate.',
+      moreResults: 'Continue entering to improve suggestions',
+      noResults: 'No suggestions found.',
+      resultsTitle: 'Suggestions',
+      typeMore: 'Continue entering to get suggestions',
+    });
+  });
+
+  describe('when the user inputs text', () => {
+    let $; // Initialize a Cheerio instance
+
+    const mockData = [
+      { en: 'England' },
+      { en: 'Wales' },
+      { en: 'Scotland' },
+      { en: 'United States of America' },
+      { en: 'United States Virgin Islands' },
+      { en: 'Åland Islands' },
+    ];
+
+    beforeEach(() => {
+      $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST,
+          autosuggestData: mockData,
+        }),
+      );
+    });
+
+    it('does not show suggestions when input length < minimum characters', () => {
+      $('.ons-js-autosuggest-input').val('En');
+
+      setTimeout(() => {
+        const suggestionCount = $('.ons-autosuggest__option').length;
+        expect(suggestionCount).toBe(0);
+      }, 20);
+    });
+
+    it('shows suggestions when input length >= minimum characters', () => {
+      $('.ons-js-autosuggest-input').val('Eng');
+
+      setTimeout(() => {
+        const suggestionCount = $('.ons-autosuggest__option').length;
+        expect(suggestionCount).toBe(1);
+      }, 20);
+    });
+
+    it('gets the language if set', () => {
+      $('.ons-js-autosuggest-input').val('Eng');
+
+      const autosuggestElement = $('.ons-js-autosuggest').attr('data-lang');
+      expect(autosuggestElement).toBe('en-gb');
     });
   });
 });
