@@ -39,13 +39,9 @@ layout: ~
     }}
 {% endblock %}
 
-{% set form = {
-    "method": "GET",
-    "attributes": {
-        "action": "example-errors-proto-errors",
-        "novalidate": ""
-    }
-} %}
+{% block bodyStart %}
+    <form method="GET" action="example-errors-proto-errors" autocomplete="off" novalidate>
+{% endblock %}
 
 {% block main %}
     {% call onsQuestion({
@@ -370,4 +366,8 @@ layout: ~
             })
         }}
     {% endcall %}
+{% endblock %}
+
+{% block bodyEnd %}
+    </form>
 {% endblock %}
