@@ -1,8 +1,8 @@
 {% macro onsLabel(params) %}
     {% if params.id %}
-        {% set descriptionID = params.id ~ "-description-hint" %}  
+        {% set descriptionID = params.id ~ "-description-hint" %}
     {% else %}
-        {% set descriptionID = "description-hint" %}  
+        {% set descriptionID = "description-hint" %}
     {% endif %}
 
     {% if params.inputType == "checkbox" or params.inputType == "radio" %}
