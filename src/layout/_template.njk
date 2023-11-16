@@ -168,12 +168,12 @@
                                 {% if pageConfig.breadcrumbs %}
                                     {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
                                     {{
-                                    onsBreadcrumbs({
-                                        "id": pageConfig.breadcrumbs.id,
-                                        "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
-                                        "itemsList": pageConfig.breadcrumbs.itemsList
-                                    })
-                                }}
+                                        onsBreadcrumbs({
+                                            "id": pageConfig.breadcrumbs.id,
+                                            "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
+                                            "itemsList": pageConfig.breadcrumbs.itemsList
+                                        })
+                                    }}
                                 {% endif %}
                             {% endblock %}
                             <div class="ons-grid">
