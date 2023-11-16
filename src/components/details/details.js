@@ -3,7 +3,6 @@ export default class Details {
     this.saveState = detailsElement.getAttribute('data-save-state') === 'true';
     this.open = detailsElement.getAttribute('data-open') === 'true';
     this.group = detailsElement.getAttribute('data-group');
-    this.isAccordion = detailsElement.classList.contains('ons-details--accordion');
 
     // Elements
     this.details = detailsElement;
@@ -16,7 +15,6 @@ export default class Details {
     this.details.setAttribute('role', 'group');
     this.detailsHeader.setAttribute('role', 'link');
     this.detailsHeader.setAttribute('aria-controls', detailsId);
-
     this.detailsHeader.setAttribute('tabindex', 0);
 
     if (localStorage.getItem(detailsId) || this.open) {
