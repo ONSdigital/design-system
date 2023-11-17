@@ -40,9 +40,9 @@ describe('script: accordion', () => {
     );
 
     const openElements = await page.$$('.ons-js-details');
-    expect(openElements[0]).hasClass('ons-details--open').toBe(true);
-    expect(openElements[1]).hasClass('ons-details--open').toBe(true);
-    expect(openElements[2]).hasClass('ons-details--open').toBe(true);
+    expect(openElements[0]).classList.contains('ons-details--open').toBe(true);
+    expect(openElements[1]).classList.contains('ons-details--open').toBe(true);
+    expect(openElements[2]).classList.contains('ons-details--open').toBe(true);
   });
 
   it('sets toggle all button label to "Hide all" when open is specified', async () => {
@@ -77,9 +77,9 @@ describe('script: accordion', () => {
     await page.click('button[data-test-trigger]');
 
     const openElements = await page.$$('.ons-js-details');
-    expect(openElements[0]).hasClass('ons-details--open').toBe(true);
-    expect(openElements[1]).hasClass('ons-details--open').toBe(true);
-    expect(openElements[2]).hasClass('ons-details--open').toBe(true);
+    expect(openElements[0]).classList.contains('ons-details--open').toBe(true);
+    expect(openElements[1]).classList.contains('ons-details--open').toBe(true);
+    expect(openElements[2]).classList.contains('ons-details--open').toBe(true);
   });
 
   it('closes all items when accordion `allbutton` is clicked twice', async () => {
@@ -89,9 +89,9 @@ describe('script: accordion', () => {
     await page.click('button[data-test-trigger]');
 
     const openElements = await page.$$('.ons-js-details');
-    expect(openElements[0]).hasClass('ons-details--open').toBe(false);
-    expect(openElements[1]).hasClass('ons-details--open').toBe(false);
-    expect(openElements[2]).hasClass('ons-details--open').toBe(false);
+    expect(openElements[0]).classList.contains('ons-details--open').toBe(true);
+    expect(openElements[1]).classList.contains('ons-details--open').toBe(true);
+    expect(openElements[2]).classList.contains('ons-details--open').toBe(true);
   });
 
   it('starts with the toggle all button labelled as "Open all"', async () => {
