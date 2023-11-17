@@ -39,10 +39,10 @@ describe('script: accordion', () => {
       }),
     );
 
-    const openElements = await page.$$eval('.ons-js-details', (nodes) => nodes.filter((node) => node.open));
-    expect(openElements[0]).not.toBe(undefined);
-    expect(openElements[1]).not.toBe(undefined);
-    expect(openElements[2]).not.toBe(undefined);
+    const openElements = await page.$$('.ons-js-details');
+    expect(openElements[0]).hasClass('ons-details--open').toBe(true);
+    expect(openElements[1]).hasClass('ons-details--open').toBe(true);
+    expect(openElements[2]).hasClass('ons-details--open').toBe(true);
   });
 
   it('sets toggle all button label to "Hide all" when open is specified', async () => {
@@ -76,7 +76,7 @@ describe('script: accordion', () => {
 
     await page.click('button[data-test-trigger]');
 
-    const openElements = await page.$eval('.ons-js-details');
+    const openElements = await page.$$('.ons-js-details');
     expect(openElements[0]).hasClass('ons-details--open').toBe(true);
     expect(openElements[1]).hasClass('ons-details--open').toBe(true);
     expect(openElements[2]).hasClass('ons-details--open').toBe(true);
@@ -88,10 +88,10 @@ describe('script: accordion', () => {
     await page.click('button[data-test-trigger]');
     await page.click('button[data-test-trigger]');
 
-    const openElements = await page.$eval('.ons-js-details');
-    expect(openElements[0]).hasClass('ons-details--open').toBe(true);
-    expect(openElements[1]).hasClass('ons-details--open').toBe(true);
-    expect(openElements[2]).hasClass('ons-details--open').toBe(true);
+    const openElements = await page.$$('.ons-js-details');
+    expect(openElements[0]).hasClass('ons-details--open').toBe(false);
+    expect(openElements[1]).hasClass('ons-details--open').toBe(false);
+    expect(openElements[2]).hasClass('ons-details--open').toBe(false);
   });
 
   it('starts with the toggle all button labelled as "Open all"', async () => {
