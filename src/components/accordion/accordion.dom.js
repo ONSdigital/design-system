@@ -8,9 +8,9 @@ async function initialiseAccordions() {
 
     const Details = (await import('../details/details')).default;
     const Accordion = (await import('./accordion')).default;
-    const detailsEls = detailsComponents.map(element => new Details(element));
+    const detailsEls = detailsComponents.map((element) => new Details(element));
 
-    toggleAllButtons.forEach(button => {
+    toggleAllButtons.forEach((button) => {
       new Accordion(button, detailsEls);
     });
   }
