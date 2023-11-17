@@ -76,7 +76,7 @@
                     {% set prefixClass = " ons-input-type--prefix" %}
                 {% endif %}
 
-                <span class="ons-input-type{{ prefixClass }}">
+                <span class="ons-input-type{{ prefixClass }}{% if params.prefix or params.suffix %} ons-js-input-container-abbr {% endif %}">
                     <span class="ons-input-type__inner">
                         {{ input | safe }}
 
