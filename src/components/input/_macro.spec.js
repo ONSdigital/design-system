@@ -3,7 +3,7 @@
 import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
-import { renderComponent, templateFaker, setTestPage } from '../../tests/helpers/rendering';
+import { renderComponent, templateFaker} from '../../tests/helpers/rendering';
 
 const EXAMPLE_INPUT_MINIMAL = {
   id: 'example-id',
