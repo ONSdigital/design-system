@@ -89,14 +89,6 @@ $details-caret-width: 1.5rem;
       &:focus {
         outline: none;
       }
-
-      &.ons-details--open {
-        .ons-svg-icon {
-          left: 0.4rem;
-          position: absolute;
-          top: 0.25rem;
-        }
-      }
     }
 
     &__title {
@@ -122,6 +114,13 @@ $details-caret-width: 1.5rem;
       border-left: 0;
       margin: 0;
       padding: 0;
+    }
+  }
+
+  &--accordion.ons-details--open {
+    .ons-details__icon {
+      position: absolute;
+      top: 1.25rem;
     }
   }
 
