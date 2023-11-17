@@ -589,7 +589,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-
                 
                 <!-- Twitter -->
                 <meta name="twitter:card" content="summary">
