@@ -39,10 +39,11 @@ describe('script: accordion', () => {
       }),
     );
 
-    const openElements = await page.$$('.ons-js-details');
-    expect(openElements[0]).classList.contains('ons-details--open').toBe(true);
-    expect(openElements[1]).classList.contains('ons-details--open').toBe(true);
-    expect(openElements[2]).classList.contains('ons-details--open').toBe(true);
+    const detailsElementStates = await page.$$eval('.ons-js-details', (nodes) =>
+      nodes.map((node) => node.classList.contains('ons-details--open')),
+    );
+
+    expect(detailsElementStates).toEqual([true, true, true]);
   });
 
   it('sets toggle all button label to "Hide all" when open is specified', async () => {
@@ -76,10 +77,11 @@ describe('script: accordion', () => {
 
     await page.click('button[data-test-trigger]');
 
-    const openElements = await page.$$('.ons-js-details');
-    expect(openElements[0]).classList.contains('ons-details--open').toBe(true);
-    expect(openElements[1]).classList.contains('ons-details--open').toBe(true);
-    expect(openElements[2]).classList.contains('ons-details--open').toBe(true);
+    const detailsElementStates = await page.$$eval('.ons-js-details', (nodes) =>
+      nodes.map((node) => node.classList.contains('ons-details--open')),
+    );
+
+    expect(detailsElementStates).toEqual([true, true, true]);
   });
 
   it('closes all items when accordion `allbutton` is clicked twice', async () => {
@@ -88,10 +90,11 @@ describe('script: accordion', () => {
     await page.click('button[data-test-trigger]');
     await page.click('button[data-test-trigger]');
 
-    const openElements = await page.$$('.ons-js-details');
-    expect(openElements[0]).classList.contains('ons-details--open').toBe(true);
-    expect(openElements[1]).classList.contains('ons-details--open').toBe(true);
-    expect(openElements[2]).classList.contains('ons-details--open').toBe(true);
+    const detailsElementStates = await page.$$eval('.ons-js-details', (nodes) =>
+      nodes.map((node) => node.classList.contains('ons-details--open')),
+    );
+
+    expect(detailsElementStates).toEqual([false, false, false]);
   });
 
   it('starts with the toggle all button labelled as "Open all"', async () => {
