@@ -6,6 +6,12 @@ const EXAMPLE_DETAILS_BASIC = {
   content: 'Content for details',
 };
 
+const EXAMPLE_DETAILS_BASIC_2 = {
+  id: 'details-id-2',
+  title: 'Title for details',
+  content: 'Content for details',
+};
+
 describe('script: details', () => {
   it('begins open when specified', async () => {
     await setTestPage(
@@ -35,6 +41,20 @@ describe('script: details', () => {
       const gaHeadingAttribute = await page.$eval('.ons-js-details-heading', (element) => element.getAttribute('data-ga-action'));
 
       expect(gaHeadingAttribute).toBe('Open panel');
+    });
+  });
+
+  describe('when there is more than one details component and a details heading is clicked to open the details', () => {
+    beforeEach(async () => {
+      await setTestPage('/test', (renderComponent('details', EXAMPLE_DETAILS_BASIC), renderComponent('details', EXAMPLE_DETAILS_BASIC_2)));
+      await page.click('#details-id > .ons-js-details-heading');
+    });
+
+    it('sets the `open` attribute on the right component', async () => {
+      const openAttribute = await page.$eval('#details-id', (node) => node.open !== null);
+      expect(openAttribute).toBe(true);
+      const openAttribute2 = await page.$eval('#details-id-2', (node) => node.open !== null);
+      expect(openAttribute2).toBe(false);
     });
   });
 
