@@ -215,7 +215,7 @@ describe('macro: cookies-banner', () => {
 
         faker.renderComponent('cookies-banner', {});
 
-        expect(buttonSpy.occurrences[2].buttonContext).toBe('this message');
+        expect(buttonSpy.occurrences[2].buttonContext).toBe('cookie message');
       });
 
       it('has `container--wide` class when `wide` is true', () => {
