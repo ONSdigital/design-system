@@ -16,7 +16,7 @@ describe('script: details', () => {
       }),
     );
 
-    const openAttribute = await page.$eval('.ons-js-details', node => node.open !== null);
+    const openAttribute = await page.$eval('.ons-js-details', (node) => node.open !== null);
     expect(openAttribute).toBe(true);
   });
 
@@ -27,12 +27,12 @@ describe('script: details', () => {
     });
 
     it('sets the `open` attribute', async () => {
-      const openAttribute = await page.$eval('.ons-js-details', node => node.open !== null);
+      const openAttribute = await page.$eval('.ons-js-details', (node) => node.open !== null);
       expect(openAttribute).toBe(true);
     });
 
     it('sets the `ga` attributes', async () => {
-      const gaHeadingAttribute = await page.$eval('.ons-js-details-heading', element => element.getAttribute('data-ga-action'));
+      const gaHeadingAttribute = await page.$eval('.ons-js-details-heading', (element) => element.getAttribute('data-ga-action'));
 
       expect(gaHeadingAttribute).toBe('Open panel');
     });
@@ -50,7 +50,7 @@ describe('script: details', () => {
       });
 
       it('opens the details content', async () => {
-        const openAttribute = await page.$eval('.ons-js-details', node => node.open !== null);
+        const openAttribute = await page.$eval('.ons-js-details', (node) => node.open !== null);
         expect(openAttribute).toBe(true);
       });
     });
@@ -61,7 +61,7 @@ describe('script: details', () => {
       });
 
       it('opens the details content', async () => {
-        const openAttribute = await page.$eval('.ons-js-details', node => node.open !== null);
+        const openAttribute = await page.$eval('.ons-js-details', (node) => node.open !== null);
         expect(openAttribute).toBe(true);
       });
     });
