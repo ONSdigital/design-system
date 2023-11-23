@@ -138,7 +138,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
 
     
 
-    <header class="ons-header " role="banner">
+    <header class="ons-header" role="banner">
         
     
         
@@ -377,7 +377,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
 
     
 
-    <header class="ons-header " role="banner">
+    <header class="ons-header" role="banner">
         
     
         
@@ -1930,7 +1930,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
 
     
 
-    <header class="ons-header " role="banner">
+    <header class="ons-header" role="banner">
         
     
         
@@ -2153,7 +2153,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
 
     
 
-    <header class="ons-header " role="banner">
+    <header class="ons-header" role="banner">
         
     
         
