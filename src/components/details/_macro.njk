@@ -8,7 +8,7 @@
         {% if params.open %} data-open="true"{% endif %}
     >
         <div
-            class="ons-details__heading ons-js-details-heading"
+            class="ons-details__heading ons-js-details-heading" role="button"
             {% if params.headingAttributes %}{% for attribute, value in (params.headingAttributes.items() if params.headingAttributes is mapping and params.headingAttributes.items else params.headingAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
                 {% set titleTag = params.titleTag | default("h2") %}
