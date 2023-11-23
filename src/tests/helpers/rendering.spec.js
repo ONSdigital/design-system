@@ -150,7 +150,7 @@ describe('templateFaker()', () => {
   it.each([
     ['when output is not suppressed', null],
     ['when `suppressOutput` option is provided', { suppressOutput: false }],
-  ])('still renders component output when component is being spied on %s', options => {
+  ])('still renders component output when component is being spied on %s', (options) => {
     const faker = helper.templateFaker();
     /*const buttonSpy =*/ faker.spy('button', options);
 
