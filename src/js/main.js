@@ -18,6 +18,7 @@ import '../components/radios/radios.dom';
 import '../components/autosuggest/autosuggest.dom';
 import '../components/address-input/autosuggest.address.dom';
 import '../components/input/character-check.dom';
+import '../components/input/input.dom';
 import '../components/cookies-banner/cookies-banner.dom';
 import '../components/button/button.dom';
 import '../components/reply/reply.dom';
