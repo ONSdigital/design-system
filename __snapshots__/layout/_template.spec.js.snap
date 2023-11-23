@@ -874,10 +874,10 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
                 <nav class="ons-header-service-nav ons-header-service-nav--mobile ons-u-d-no ons-js-services-mobile-nav" id="service-links" aria-label="Services menu">
                     <ul class="ons-header-service-nav__list">
-                            
+                        
                             <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
-                            
                                 
+
 
     
 
@@ -896,10 +896,10 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             </li>
                         
                             <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
-                            
-                            
-                                <a href="#0" class="ons-header-service-nav__link">Sign out</a>
-                            
+                                
+                                
+                                    <a href="#0" class="ons-header-service-nav__link">Sign out</a>
+                                
                             </li>
                         
                     </ul>
