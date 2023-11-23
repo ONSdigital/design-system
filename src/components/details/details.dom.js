@@ -6,7 +6,7 @@ async function initialiseDetailsEls() {
 
   if (detailsComponents.length && !accordionComponents.length) {
     const Details = (await import('./details')).default;
-    detailsComponents.map(element => new Details(element));
+    detailsComponents.map((element) => new Details(element));
   }
 }
 
