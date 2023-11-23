@@ -641,7 +641,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
     
 
-    <header class="ons-header  ons-header--neutral" role="banner">
+    <header class="ons-header ons-header--neutral" role="banner">
         
     
         
@@ -874,7 +874,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
                 <nav class="ons-header-service-nav ons-header-service-nav--mobile ons-u-d-no ons-js-services-mobile-nav" id="service-links" aria-label="Services menu">
                     <ul class="ons-header-service-nav__list">
-                        
+                            
                             <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
                             
                                 
@@ -889,10 +889,10 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </svg>
     
 
-                            
-                            
-                                Jacky Turner
-                            
+                                
+                                
+                                    Jacky Turner
+                                
                             </li>
                         
                             <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
