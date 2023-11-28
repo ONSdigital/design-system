@@ -2,7 +2,7 @@
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 {% macro onsAccessCode(params) %}
-    {% set groupSize = params.groupSize | default(4) %}
+    {% set groupSize = params.groupSize | default(5) %}
     {% set extraSpaces = (params.maxlength | default(16) / groupSize) - 1 %}
     {% set maxlength = params.maxlength | default(16) + extraSpaces %}
 
