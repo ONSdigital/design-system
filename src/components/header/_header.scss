@@ -230,7 +230,8 @@
     }
   }
 
-  .ons-navigation-button.active {
+  .ons-navigation-button,
+  .ons-btn--search {
     top: 0 !important;
   }
 }
