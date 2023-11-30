@@ -1018,7 +1018,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
     
 
-    <button type="submit" class="ons-btn ons-u-ml-xs ons-u-d-no ons-navigation-button ons-js-navigation-button ons-u-d-no@l ons-btn--mobile ons-btn--ghost-dark" aria-label="Toggle main menu" aria-controls="main-nav" aria-expanded="false">
+    <button type="submit" class="ons-btn ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l ons-btn--mobile ons-btn--ghost-dark" aria-label="Toggle main menu" aria-controls="main-nav" aria-expanded="false">
         <span class="ons-btn__inner"><span class="ons-btn__text">Menu</span>
                 
 

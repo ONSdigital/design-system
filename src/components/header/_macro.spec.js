@@ -676,7 +676,7 @@ describe('macro: header', () => {
 
       expect(buttonSpy.occurrences[0]).toEqual({
         text: 'Menu',
-        classes: 'ons-u-ml-xs ons-u-d-no ons-navigation-button ons-js-navigation-button ons-u-d-no@l',
+        classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
         variants: ['mobile', 'ghost'],
         attributes: {
           'aria-label': 'Toggle main menu',
