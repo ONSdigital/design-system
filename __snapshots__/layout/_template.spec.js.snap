@@ -138,7 +138,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
 
     
 
-    <header class="ons-header " role="banner">
+    <header class="ons-header" role="banner">
         
     
         
@@ -377,7 +377,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
 
     
 
-    <header class="ons-header " role="banner">
+    <header class="ons-header" role="banner">
         
     
         
@@ -641,7 +641,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
     
 
-    <header class="ons-header  ons-header--neutral" role="banner">
+    <header class="ons-header ons-header--neutral" role="banner">
         
     
         
@@ -876,8 +876,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     <ul class="ons-header-service-nav__list">
                         
                             <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
-                            
                                 
+                                    
 
     
 
@@ -889,17 +889,17 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </svg>
     
 
-                            
-                            
-                                Jacky Turner
-                            
+                                
+                                
+                                    Jacky Turner
+                                
                             </li>
                         
                             <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
-                            
-                            
-                                <a href="#0" class="ons-header-service-nav__link">Sign out</a>
-                            
+                                
+                                
+                                    <a href="#0" class="ons-header-service-nav__link">Sign out</a>
+                                
                             </li>
                         
                     </ul>
@@ -1930,7 +1930,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
 
     
 
-    <header class="ons-header " role="banner">
+    <header class="ons-header" role="banner">
         
     
         
@@ -2153,7 +2153,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
 
     
 
-    <header class="ons-header " role="banner">
+    <header class="ons-header" role="banner">
         
     
         
