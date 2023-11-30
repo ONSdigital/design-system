@@ -1,0 +1,205 @@
+---
+title: "Example: Long Page"
+layout: ~
+---
+{% extends "layout/_template.njk" %}
+{% from "components/list/_macro.njk" import onsList %}
+{% from "components/image/_macro.njk" import onsImage %}
+{% from "components/related-content/_macro.njk" import onsRelatedContent %}
+{% from "components/share-page/_macro.njk" import onsSharePage %}
+{% from "components/content-pagination/_macro.njk" import onsContentPagination %}
+
+{% set pageConfig = {
+    "header": {
+        "title": 'Service name'
+    },
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Home'
+            },
+            {
+                "url": '#0',
+                "text": 'News'
+            }
+        ]
+    },
+    "footer": {}
+} %}
+
+{% block main %}
+
+<h1 class="ons-u-fs-xxl">
+    <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">Press releases</span>
+    <span class="ons-u-vh">: </span>
+    <span class="ons-u-fs-xxl ons-u-db">ONS launches Integrated Data Service to boost government collaboration on data sharing</span>
+</h1>
+
+<div class="ons-grid ons-grid--column@xs@s">
+
+    <div class="ons-grid__col ons-col-7@m">
+
+        <div class="ons-page__body ons-u-mt-m">
+
+            <p>The Office for National Statistics has today launched the first stage of the Integrated Data Service (IDS), a cloud-based platform giving analysts and researchers greater access to data from a range of sources.</p>
+
+            <p>The private beta version will allow a selection of government analysts to compare and combine data held by the ONS and other departments, helping to unlock the full potential of data, inform policy decisions and encourage collaboration across government.</p>
+
+            <p>Launching next spring, a public beta will open the door for accredited researchers outside of government to use the new service.</p>
+
+            <p>The three projects selected for the private beta and will focus on some of the government’s top priorities:</p>
+
+            {{
+                onsList({
+                    "itemsList": [
+                        {
+                            "text": '<p>wage growth - an ONS and HM Treasury collaboration will investigate in detail how wages change across the country, helping inform the government’s “Levelling Up” policy agenda</p>'
+                        },
+                        {
+                            "text": '<p>energy efficiency - working with the Valuation Office Agency to provide better information on the energy efficiency of homes around the country as part of wider work to help measure the UK’s progress towards reaching net zero by 2050</p>'
+                        },
+                        {
+                            "text": '<p>regional issues - a collaboration with Department for Business, Energy, and Industrial Strategy to analyse how text from local news sources across the UK can be used to understand concerns of communities around the country</p>'
+                        }
+                    ]
+                })
+            }}
+
+            <p>DCMS Minister for State Julia Lopez said: "The Integrated Data Service is a crucial part of our National Data Strategy and will make it easier and quicker for policy makers to access robust evidence for making the decisions that can improve the lives of people across the country.</p>
+
+            <p>"Unlocking the power of data will boost the economy, create jobs and help us build back better from the pandemic.” </p><p>Joanna Davinson, Executive Director at the Central Digital and Data Office, said: “The Integrated Data Service will provide the public sector with secure access to high-quality data for better research and analysis.</p>
+
+            <p>“This is aligned to our vision of having increased availability of data for decision-makers to ensure more data driven policies. In this way, we can enable transformation of the Government’s use of data and support the delivery of efficient public services for users.”</p>
+
+            <p>Alison Pritchard, Deputy National Statistician for Data Capability, said: "The Service demonstrates how data held, managed and accessed in a trusted and secure environment can benefit us all by providing essential insight on social and economic factors. I am particularly looking forward to engaging widely to explain how we are protecting the data appropriately and making sure it is put to use for the public good."</p>
+
+            <div class="ons-u-mt-l ons-u-mt-xl@m">
+                {{
+                    onsContentPagination({
+                        "ariaLabel": 'Article pagination',
+                        "contentPaginationItems": [
+                            {
+                                "rel": 'prev',
+                                "text": 'Previous',
+                                "url": '#0',
+                                "label": 'Office for National Statistics win top Royal Statistical Society award'
+                            },
+                            {
+                                "rel": 'next',
+                                "text": 'Next',
+                                "url": '#0',
+                                "label": 'Five Office for National Statistics names in New Year’s Honours'
+                            }
+                        ]
+                    })
+                }}
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="ons-grid__col ons-col-4@m ons-push-1@m">
+
+        {% call onsRelatedContent({
+            "ariaLabel": 'Related content',
+            "rows": [
+                {
+                    "id": 'published-date',
+                    "title": 'Published on',
+                    "itemsList": [
+                        {
+                            "text": '<time datetime="2021-08-01">1 August 2021</time>'
+                        }
+                    ]
+                },
+                {
+                    "id": 'published-in',
+                    "title": 'Published in',
+                    "classes": 'ons-u-mb-no',
+                    "variants": 'bare',
+                    "itemsList": [
+                        {
+                            "text": 'Press releases',
+                            "url": '#0'
+                        }
+                    ]
+                },
+                {
+                    "id": 'tags',
+                    "title": 'Tags',
+                    "itemsList": [
+                        {
+                            "text": 'Integrated data',
+                            "url": '#0'
+                        },
+                        {
+                            "text": 'Census 2021',
+                            "url": '#0'
+                        },
+                        {
+                            "text": 'Survey',
+                            "url": '#0'
+                        }
+                    ]
+                },
+                {
+                    "id": 'share-this-article',
+                    "title": 'Share this article',
+                    "variants": 'social',
+                    "iconPosition": 'before',
+                    "iconSize": 'xxl',
+                    "itemsList": [
+                        {
+                            "url": '#0',
+                            "text": 'Facebook',
+                            "iconType": 'facebook',
+                            "rel": 'noreferrer external'
+                        },
+                        {
+                            "url": '#0',
+                            "text": 'Twitter',
+                            "iconType": 'twitter',
+                            "rel": 'noreferrer external'
+                        }
+                    ]
+                }
+            ]
+        }) %}
+
+        {% endcall %}
+
+    </div>
+
+
+
+
+
+</div>
+
+<div class="ons-grid">
+    <div class="ons-grid__col ons-col-7@m ">
+      <div class="ons-pl-grid-col">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in. Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis. Enim neque volutpat ac tincidunt. Tortor pretium viverra suspendisse potenti nullam ac tortor. Sed vulputate mi sit amet mauris commodo quis imperdiet massa. Odio morbi quis commodo odio. Lobortis feugiat vivamus at augue eget. Aliquam id diam maecenas ultricies mi eget. Dictum non consectetur a erat nam at lectus urna. Justo laoreet sit amet cursus sit amet. Tristique senectus et netus et malesuada fames. Etiam dignissim diam quis enim. Urna id volutpat lacus laoreet non curabitur. Proin sagittis nisl rhoncus mattis. Vel pretium lectus quam id leo in vitae turpis.
+        Orci nulla pellentesque dignissim enim sit amet venenatis urna. Scelerisque eleifend donec pretium vulputate sapien nec sagittis. Quis commodo odio aenean sed adipiscing. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Pellentesque sit amet porttitor eget dolor. Habitant morbi tristique senectus et netus et malesuada. Curabitur vitae nunc sed velit. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Id leo in vitae turpis massa. Vitae ultricies leo integer malesuada.
+        Elit at imperdiet dui accumsan sit amet nulla. Pretium quam vulputate dignissim suspendisse in est ante. Nullam vehicula ipsum a arcu cursus vitae congue mauris. Mattis aliquam faucibus purus in massa tempor nec. Orci a scelerisque purus semper. Vel fringilla est ullamcorper eget nulla facilisi. Ac ut consequat semper viverra nam libero justo laoreet sit. Mauris pellentesque pulvinar pellentesque habitant morbi tristique. Lobortis scelerisque fermentum dui faucibus in ornare quam. Diam vel quam elementum pulvinar etiam. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean.
+        Pulvinar sapien et ligula ullamcorper malesuada. Risus pretium quam vulputate dignissim suspendisse in est. Facilisi etiam dignissim diam quis enim. Sodales ut eu sem integer vitae. Eget nunc scelerisque viverra mauris. Malesuada bibendum arcu vitae elementum curabitur. Elementum nisi quis eleifend quam adipiscing vitae proin. Ultrices vitae auctor eu augue. Hac habitasse platea dictumst vestibulum rhoncus est. Urna neque viverra justo nec ultrices dui sapien eget mi. Quisque egestas diam in arcu cursus euismod quis viverra. Nullam ac tortor vitae purus faucibus. Fames ac turpis egestas maecenas. Magna fermentum iaculis eu non diam phasellus vestibulum. Nisl nunc mi ipsum faucibus vitae aliquet nec. Nibh ipsum consequat nisl vel pretium lectus quam id leo. Faucibus turpis in eu mi bibendum neque egestas.
+        Lectus nulla at volutpat diam ut venenatis tellus. Tellus rutrum tellus pellentesque eu tincidunt tortor. Purus sit amet volutpat consequat mauris nunc congue. Dignissim cras tincidunt lobortis feugiat vivamus at. Ac felis donec et odio pellentesque diam volutpat commodo. Arcu dui vivamus arcu felis. Pulvinar proin gravida hendrerit lectus a. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus. Maecenas sed enim ut sem viverra aliquet eget. Lacus laoreet non curabitur gravida arcu ac tortor. Laoreet sit amet cursus sit amet dictum. Maecenas accumsan lacus vel facilisis volutpat est velit.
+        Elementum integer enim neque volutpat ac tincidunt vitae semper quis. Sem integer vitae justo eget magna fermentum iaculis. Nunc lobortis mattis aliquam faucibus purus in massa tempor nec. Imperdiet proin fermentum leo vel orci porta non. Sed enim ut sem viverra aliquet eget sit amet. Rhoncus mattis rhoncus urna neque viverra justo. At tellus at urna condimentum mattis pellentesque. Vel orci porta non pulvinar neque laoreet suspendisse. Consectetur purus ut faucibus pulvinar elementum integer enim. Urna condimentum mattis pellentesque id nibh. Sem integer vitae justo eget magna fermentum. Ultrices vitae auctor eu augue ut lectus arcu bibendum. Adipiscing bibendum est ultricies integer quis auctor elit. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Sapien faucibus et molestie ac feugiat. Tempor id eu nisl nunc mi ipsum. Arcu non sodales neque sodales ut etiam sit amet nisl. Et malesuada fames ac turpis egestas integer eget aliquet nibh. Pellentesque adipiscing commodo elit at imperdiet. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend.
+        Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Semper risus in hendrerit gravida rutrum quisque. Tempor nec feugiat nisl pretium fusce id. Ipsum consequat nisl vel pretium. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Etiam tempor orci eu lobortis elementum nibh. Eget nullam non nisi est sit amet facilisis magna. Diam vel quam elementum pulvinar. Dolor morbi non arcu risus quis. Nullam ac tortor vitae purus.
+        Morbi leo urna molestie at elementum eu facilisis sed odio. Purus in mollis nunc sed id. Sit amet est placerat in egestas erat imperdiet sed. Diam sollicitudin tempor id eu nisl nunc mi. Nulla aliquet porttitor lacus luctus accumsan tortor posuere. Ac feugiat sed lectus vestibulum mattis. Potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Faucibus vitae aliquet nec ullamcorper sit amet. Eu consequat ac felis donec et odio pellentesque diam. Morbi tincidunt ornare massa eget egestas purus viverra accumsan. A erat nam at lectus urna duis convallis. Pellentesque elit eget gravida cum sociis. Cursus sit amet dictum sit amet justo donec enim. Vitae justo eget magna fermentum iaculis. Enim ut sem viverra aliquet. Convallis tellus id interdum velit. Orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Venenatis a condimentum vitae sapien. Lacus viverra vitae congue eu consequat ac felis. Diam donec adipiscing tristique risus nec feugiat.
+      </div>
+    </div>
+    <div class="ons-grid__col ons-col-4@m">
+      <div class="ons-pl-grid-col">
+        Elementum integer enim neque volutpat ac tincidunt vitae semper quis. Sem integer vitae justo eget magna fermentum iaculis. Nunc lobortis mattis aliquam faucibus purus in massa tempor nec. Imperdiet proin fermentum leo vel orci porta non. Sed enim ut sem viverra aliquet eget sit amet. Rhoncus mattis rhoncus urna neque viverra justo. At tellus at urna condimentum mattis pellentesque. Vel orci porta non pulvinar neque laoreet suspendisse. Consectetur purus ut faucibus pulvinar elementum integer enim. Urna condimentum mattis pellentesque id nibh. Sem integer vitae justo eget magna fermentum. Ultrices vitae auctor eu augue ut lectus arcu bibendum. Adipiscing bibendum est ultricies integer quis auctor elit. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Sapien faucibus et molestie ac feugiat. Tempor id eu nisl nunc mi ipsum. Arcu non sodales neque sodales ut etiam sit amet nisl. Et malesuada fames ac turpis egestas integer eget aliquet nibh. Pellentesque adipiscing commodo elit at imperdiet. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend.
+        Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Semper risus in hendrerit gravida rutrum quisque. Tempor nec feugiat nisl pretium fusce id. Ipsum consequat nisl vel pretium. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Etiam tempor orci eu lobortis elementum nibh. Eget nullam non nisi est sit amet facilisis magna. Diam vel quam elementum pulvinar. Dolor morbi non arcu risus quis. Nullam ac tortor vitae purus.
+        Morbi leo urna molestie at elementum eu facilisis sed odio. Purus in mollis nunc sed id. Sit amet est placerat in egestas erat imperdiet sed. Diam sollicitudin tempor id eu nisl nunc mi. Nulla aliquet porttitor lacus luctus accumsan tortor posuere. Ac feugiat sed lectus vestibulum mattis. Potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Faucibus vitae aliquet nec ullamcorper sit amet. Eu consequat ac felis donec et odio pellentesque diam. Morbi tincidunt ornare massa eget egestas purus viverra accumsan. A erat nam at lectus urna duis convallis. Pellentesque elit eget gravida cum sociis. Cursus sit amet dictum sit amet justo donec enim. Vitae justo eget magna fermentum iaculis. Enim ut sem viverra aliquet. Convallis tellus id interdum velit. Orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Venenatis a condimentum vitae sapien. Lacus viverra vitae congue eu consequat ac felis. Diam donec adipiscing tristique risus nec feugiat.
+        Sit amet mattis vulputate enim nulla aliquet. Quis commodo odio aenean sed adipiscing diam donec adipiscing tristique. Vulputate odio ut enim blandit volutpat. Elit pellentesque habitant morbi tristique senectus et netus. Aliquet lectus proin nibh nisl condimentum id. A iaculis at erat pellentesque adipiscing commodo elit at. Quis ipsum suspendisse ultrices gravida dictum fusce. Sit amet mauris commodo quis imperdiet massa tincidunt. Adipiscing elit ut aliquam purus. A diam maecenas sed enim ut sem viverra aliquet eget. Enim neque volutpat ac tincidunt vitae. Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. Amet nisl suscipit adipiscing bibendum. Nunc pulvinar sapien et ligula ullamcorper malesuada proin. Nulla facilisi cras fermentum odio eu feugiat.
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
