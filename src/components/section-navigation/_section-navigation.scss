@@ -39,6 +39,14 @@
     }
   }
 
+  &__item-header {
+    @extend .ons-u-mb-no;
+
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
   &__sub-items {
     a {
       color: var(--ons-color-text-link);
