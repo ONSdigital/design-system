@@ -7,20 +7,20 @@
             <span class="ons-content-pagination__link-title">
                 {% if contentPaginationItem.rel == 'prev' %}
                   {% from "components/icon/_macro.njk" import onsIcon %}
-                  {{
+                  {{-
                       onsIcon({
                           "iconType": 'arrow-previous',
                           "iconSize": 'm'
                       })
-                  }}
+                  -}}
                 {% else %}
                   {% from "components/icon/_macro.njk" import onsIcon %}
-                  {{
+                  {{-
                       onsIcon({
                           "iconType": 'arrow-next',
                           "iconSize": 'm'
                       })
-                  }}
+                  -}}
                 {% endif %}
               <span class="ons-content-pagination__link-text">
                 {{ contentPaginationItem.text }}

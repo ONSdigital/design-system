@@ -41,12 +41,12 @@
                             {% if params.mastheadLogo.large %}
                                 {{ params.mastheadLogo.large | safe }}
                             {% else %}
-                                {{
+                                {{-
                                     onsIcon({
                                         "iconType": 'ons-logo-' + currentLanguageISOCode,
                                         "altText": 'Office for National Statistics logo'
                                     })
-                                }}
+                                -}}
                             {% endif %}
                         </div>
                         <div class="ons-header__org-logo ons-header__org-logo--small">
@@ -55,12 +55,12 @@
                             {% elif params.mastheadLogo.large %}
                                 {{ params.mastheadLogo.large | safe }}
                             {% else %}
-                                {{
+                                {{-
                                     onsIcon({
                                         "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
                                         "altText": 'Office for National Statistics logo'
                                     })
-                                }}
+                                -}}
                             {% endif %}
                         </div>
                         {% if params.mastheadLogoUrl %}
@@ -91,11 +91,11 @@
                                             {% for item in params.serviceLinks.itemsList %}
                                                 <li class="ons-header-service-nav__item">
                                                 {% if item.iconType %}
-                                                    {{
+                                                    {{-
                                                         onsIcon({
                                                             "iconType": item.iconType
                                                         })
-                                                    }}
+                                                    -}}
                                                 {% endif %}
                                                 {% if item.url %}
                                                     <a
@@ -142,11 +142,11 @@
                         {% for item in params.serviceLinks.itemsList %}
                             <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
                             {% if item.iconType %}
-                                {{
+                                {{-
                                     onsIcon({
                                         "iconType": item.iconType
                                     })
-                                }}
+                                -}}
                             {% endif %}
                             {% if item.url %}
                                 <a
