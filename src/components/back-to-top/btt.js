@@ -1,8 +1,6 @@
 export default class Btt {
   constructor(component) {
     this.component = component;
-    console.log(this.component);
-    console.log('return this');
     this.footerElement = document.querySelector('.ons-footer');
 
     window.addEventListener('scroll', () => {
@@ -13,12 +11,17 @@ export default class Btt {
   handleScroll() {
     const scrollPosition = window.scrollY;
     const windowHeight = window.innerHeight;
+    const stickyThreshold = windowHeight * 0.4;
+    let isfooterVisible = true;
 
-    const stickyThreshold = windowHeight * 0.25;
+    if (this.footerElement) {
+      this.footerRect = this.footerElement.getBoundingClientRect();
+      isfooterVisible = this.footerRect.top - windowHeight < 0;
+    }
 
     if (scrollPosition < stickyThreshold) {
       this.setHidden();
-    } else if (scrollPosition >= stickyThreshold) {
+    } else if (scrollPosition >= stickyThreshold && !isfooterVisible) {
       this.setSticky();
     } else {
       this.setEnabled();
