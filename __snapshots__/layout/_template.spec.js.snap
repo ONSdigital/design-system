@@ -794,20 +794,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     <ul class="ons-header-service-nav__list">
                         
                             <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
-                                
-                                    
-
-    
-
-    
-    
-        <svg class="ons-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor">
+                                <svg class="ons-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor">
             <path d="M7,9H9a5,5,0,0,1,5,5H2A5,5,0,0,1,7,9Z" transform="translate(-2 -2)"></path>
             <circle cx="6" cy="3" r="3"></circle>
         </svg>
-                            
-                                Jacky Turner
-                            
+                                
+                                    Jacky Turner
+                                
                             </li>
                         
                             <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
@@ -1456,10 +1449,10 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     
                             
     <a href="#0" class="ons-external-link" target="_blank" rel="noopener">
-        <span class="ons-external-link__text">UK Statistics Authority</span><span class="ons-external-link__icon">&nbsp;<svg class="ons-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
-        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
-        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
-    </svg></span><span class="ons-external-link__new-window-description ons-u-vh"> (opens in a new tab)</span></a>
+        <span class="ons-external-link__text">UK Statistics Authority<svg class="ons-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor">
+            <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+            <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+        </svg></span><span class="ons-external-link__new-window-description ons-u-vh"> (opens in a new tab)</span></a>
 
             
                 </li>
@@ -1588,10 +1581,10 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                     
                                         All content is available under the 
     <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" class="ons-external-link" target="_blank" rel="noopener">
-        <span class="ons-external-link__text">Open Government Licence v3.0</span><span class="ons-external-link__icon">&nbsp;<svg class="ons-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
-        <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
-        <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
-    </svg></span><span class="ons-external-link__new-window-description ons-u-vh"> (opens in a new tab)</span></a>
+        <span class="ons-external-link__text">Open Government Licence v3.0<svg class="ons-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor">
+            <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path>
+            <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path>
+        </svg></span><span class="ons-external-link__new-window-description ons-u-vh"> (opens in a new tab)</span></a>
 , except where otherwise stated
                                     
                                 

@@ -5,7 +5,7 @@
         <li class="ons-content-pagination__item">
           <a href="{{ contentPaginationItem.url }}" class="ons-content-pagination__link" rel="{{ contentPaginationItem.rel }}">
             <span class="ons-content-pagination__link-title">
-                {% if contentPaginationItem.rel == 'prev' %}
+                {%- if contentPaginationItem.rel == 'prev' %}
                   {% from "components/icon/_macro.njk" import onsIcon %}
                   {{-
                       onsIcon({
@@ -21,10 +21,8 @@
                           "iconSize": 'm'
                       })
                   -}}
-                {% endif %}
-              <span class="ons-content-pagination__link-text">
-                {{ contentPaginationItem.text }}
-              </span>
+                {% endif -%}
+              <span class="ons-content-pagination__link-text">{{ contentPaginationItem.text }}</span>
             </span>
             <span class="ons-content-pagination__link-divider ons-u-vh">{{ contentPaginationItem.bridgingText | default("page in this guide is:") }}</span>
             <span class="ons-content-pagination__link-label">{{ contentPaginationItem.label }}</span>

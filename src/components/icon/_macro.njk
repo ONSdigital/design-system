@@ -1,8 +1,8 @@
 {% macro onsIcon(params) %}
 
-    {%- if params.classes %}
-        {%- set iconClasses = ' ' + params.classes -%}
-    {% endif -%}
+    {%- if params.classes -%}
+        {% set iconClasses = ' ' + params.classes %}
+    {%- endif -%}
 
     {# Function icons A-Z #}
     {%- if params.iconType == "arrow-forward" -%}
