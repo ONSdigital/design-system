@@ -12,7 +12,7 @@
         {% set currentLanguageISOCode = currentLanguage.ISOCode %}
     {% endif %}
 
-    <header class="ons-header {% if params.classes %} {{ params.classes }}{% endif %}{% if params.variants is not string %}{% for variant in params.variants %} ons-header--{{ variant }}{% endfor %}{% else %} ons-header--{{ params.variants }}{% endif %}" role="banner">
+    <header class="ons-header{% if params.classes %} {{ params.classes }}{% endif %}{% if params.variants is not string %}{% for variant in params.variants %} ons-header--{{ variant }}{% endfor %}{% else %} ons-header--{{ params.variants }}{% endif %}" role="banner">
         {{
             onsBrowserBanner({
                 "lang": currentLanguageISOCode,
@@ -141,22 +141,22 @@
                     <ul class="ons-header-service-nav__list">
                         {% for item in params.serviceLinks.itemsList %}
                             <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
-                            {% if item.iconType %}
-                                {{-
-                                    onsIcon({
-                                        "iconType": item.iconType
-                                    })
-                                -}}
-                            {% endif %}
-                            {% if item.url %}
-                                <a
-                                    href="{{ item.url }}"
-                                    class="ons-header-service-nav__link"
-                                    {% if item.id %} id="{{ item.id }}"{% endif %}
-                                >{% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}</a>
-                            {% else %}
-                                {% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}
-                            {% endif %}
+                                {% if item.iconType %}
+                                    {{-
+                                        onsIcon({
+                                            "iconType": item.iconType
+                                        })
+                                    -}}
+                                {% endif %}
+                                {% if item.url %}
+                                    <a
+                                        href="{{ item.url }}"
+                                        class="ons-header-service-nav__link"
+                                        {% if item.id %} id="{{ item.id }}"{% endif %}
+                                    >{% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}</a>
+                                {% else %}
+                                    {% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}
+                                {% endif %}
                             </li>
                         {% endfor %}
                     </ul>
