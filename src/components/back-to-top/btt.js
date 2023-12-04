@@ -2,7 +2,7 @@ export default class Btt {
   constructor(component) {
     this.component = component;
     console.log(this.component);
-    console.log("return this");
+    console.log('return this');
     this.footerElement = document.querySelector('.ons-footer');
 
     window.addEventListener('scroll', () => {
@@ -26,20 +26,17 @@ export default class Btt {
   }
 
   setSticky() {
-    this.component.classList.remove('ons-back-to-top__enabled, ons-back-to-top__hidden');
+    this.component.classList.remove('ons-back-to-top__enabled', 'ons-back-to-top__hidden');
     this.component.classList.add('ons-back-to-top__sticky');
-    console.log(this.component, "setSticky")
   }
 
   setEnabled() {
-    // this.component.classList.remove('ons-back-to-top__sticky', 'ons-back-to-top__hidden');
-    // this.component.classList.add('ons-back-to-top__enabled');
-    console.log(this.component, "setEnabled")
+    this.component.classList.remove('ons-back-to-top__sticky', 'ons-back-to-top__hidden');
+    this.component.classList.add('ons-back-to-top__enabled');
   }
 
   setHidden() {
-    // this.component.classList.remove('ons-back-to-top__enabled', 'ons-back-to-top__sticky');
-    // this.component.classList.add('ons-back-to-top__hidden');
-    console.log(this.component, "setHidden")
+    this.component.classList.remove('ons-back-to-top__enabled', 'ons-back-to-top__sticky');
+    this.component.classList.add('ons-back-to-top__hidden');
   }
 }
