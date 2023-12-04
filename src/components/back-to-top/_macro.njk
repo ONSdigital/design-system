@@ -1,15 +1,13 @@
-{% macro onsPhaseBanner(params) %}
+{% from "components/icon/_macro.njk" import onsIcon %}
+
+{% macro onsBackToTop() %}
     <div class="ons-back-to-top">
-        <div class="ons-container{{ ' ons-container--full-width' }}{{ ' ons-container--wide' if params.wide }}">
-            <div class="ons-grid ons-grid--flex ons-grid--gutterless ons-grid--vertical-top ons-grid--no-wrap">
-                {% if not params.hideBadge %}
-                <div class="ons-grid__col ons-col-auto ons-u-flex-no-grow ons-u-flex-no-shrink">
-                    <strong class="ons-phase-banner__badge">{{ params.badge | default("Beta") }}</strong>
-                </div>
-                {% endif %}
-                <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
-                    <p class="ons-phase-banner__desc ons-u-fs-s ons-u-mb-no">{{ params.html | safe }}</p>
-                </div>
+        <div class="ons-grid ons-grid--flex ons-grid--gutterless ons-grid--vertical-top ons-grid--align-mid">
+            <div class="ons-grid__col ons-col-auto ons-u-flex-no-grow ons-u-flex-no-shrink">
+                <a href="#top" class="ons-back-to-top__link">
+                    <span>↥ </span>
+                    <span>Back to top</span>
+                </a>
             </div>
         </div>
     </div>
