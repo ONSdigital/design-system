@@ -134,6 +134,8 @@ Checkout the branch locally and run:
 
 `git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.
 
+If your local tests are failing but you have approved them, run `yarn test-visual:reference`. This will update the reference images locally on your machine.
+
 You can then commit and push the updated references and your changes to your branch. The test images that would have been created when you ran `yarn test-visual` are gitignored and the new references images will be pushed to Git LFS.
 
 ## Build
