@@ -130,7 +130,6 @@ Checkout the branch locally and run:
 
 `yarn test-visual:approve` - This will approve the failures/diff caught by the tests.
 
-`yarn test-visual:reference` - This will update the reference images locally on your machine. Run this command if you've approved your reference images but the local tests are still failing.
 
 `git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.
 
