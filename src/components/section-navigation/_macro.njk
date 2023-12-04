@@ -43,6 +43,7 @@
             {% endif %}
             <ul class="ons-section-nav__list">
                 {% for item in params.itemsList %}
+                    {% set sectionItemHeadingLevel =  headingLevel + 2 if params.title else headingLevel + 1 %}
                     {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title|lower) %}
                         {% set isCurrent = true %}
                     {% else %}
