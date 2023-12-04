@@ -1,23 +1,26 @@
 .ons-back-to-top {
-  background: var(--ons-color-cta-bg);
+
   color: var(--ons-link-color);
-  padding: 0.85rem 0 0 0;
 
-  &__heading {
-    padding-right: 0.2rem;
+  &__enabled {
+    background: none;
   }
-}
 
-.sticky_to_window {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-}
+  &__sticky {
+    background: var(--ons-color-grey-15);
+    bottom: -1px;
+    left : 0;
+    position:fixed;
+    width: 100%;
+    z-index: 10;
+    margin: 0;
+  }
 
-.sticky--hiden {
-  opacity: 0;
-  pointer-events: none;
+  &__hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
 }
 
 
