@@ -17,12 +17,12 @@
                             {% else %}
                                 {% set isCurrent = false %}
                             {% endif %}
-                            <li class="ons-section-nav__item{% if item.classes %} ' ' + {{ item.classes }}{% endif %}{% if isCurrent == true %} ons-section-nav__item--active{% endif %}">
-                            {% if isCurrent == true %} 
-                                <h{{ sectionItemHeadingLevel }} class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}" aria-current="location">{{ item.title }}</h{{ sectionItemHeadingLevel }}>
-                            {% else %}
-                                <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
-                            {% endif %}
+                            <li class="ons-section-nav__item{% if item.classes %}{{ ' ' + item.classes }}{% endif %}{% if isCurrent == true %} ons-section-nav__item--active{% endif %}">
+                              {% if isCurrent == true %} 
+                                  <h{{ sectionItemHeadingLevel }} class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}" aria-current="location">{{ item.title }}</h{{ sectionItemHeadingLevel }}>
+                              {% else %}
+                                  <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
+                              {% endif %}
                             {% if item.anchors and isCurrent == true %}
                                     <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs">
                                         {% for anchor in item.anchors %}
@@ -49,8 +49,8 @@
                     {% else %}
                         {% set isCurrent = false %}
                     {% endif %}
-                    <li class="ons-section-nav__item{% if item.classes %} ' ' + {{ item.classes }}{% endif %}{% if isCurrent == true %} ons-section-nav__item--active{% endif %}">
-                       {% if isCurrent == true %} 
+                    <li class="ons-section-nav__item{% if item.classes %}{{ ' ' + item.classes }}{% endif %}{% if isCurrent == true %} ons-section-nav__item--active{% endif %}">
+                        {% if isCurrent == true %} 
                             <h{{ sectionItemHeadingLevel}} class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}" aria-current="location">{{ item.title }}</h{{ headingLevel + 2 if section.title else headingLevel + 1 }}>
                         {% else %}
                             <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
