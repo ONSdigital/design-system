@@ -135,7 +135,7 @@ but the local tests are still failing.
 
 `git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.
 
-The test images that would have been created when you ran `yest test-visual` are gitignored and the new references images will be pushed to Git LFS.
+The test images that would have been created when you ran `yarn test-visual` are gitignored and the new references images will be pushed to Git LFS.
 
 ## Build
 
