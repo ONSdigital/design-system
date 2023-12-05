@@ -1,13 +1,9 @@
-{# Icon needed to be directly put here instead of calling macro to solve an issue with extra space on the end of links being underlined #}
+{% from "components/icon/_macro.njk" import onsIcon %}
+
 {% macro onsExternalLink(params) %}
     <a href="{{ params.url }}" class="ons-external-link{% if params.classes %} {{ params.classes }}{% endif %}" target="_blank" rel="noopener">
         <span class="ons-external-link__text">
         {{- params.linkText | safe -}}
-        {% from "components/icon/_macro.njk" import onsIcon %}
-        {{-
-            onsIcon({
-                "iconType": 'external-link'
-            })
-        -}}
+        </span><span class="ons-external-link__icon">&nbsp;{{- onsIcon({"iconType": 'external-link'}) -}}
         </span><span class="ons-external-link__new-window-description ons-u-vh"> ({{- params.newWindowDescription | default("opens in a new tab") -}})</span></a>
 {% endmacro %}
