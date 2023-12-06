@@ -7,22 +7,24 @@
   }
 
   &__sticky {
-    background: var(--ons-color-grey-5);
+    
     bottom: -1px;
-    left : 0;
     position:fixed;
-    width: 100%;
     z-index: 10;
     margin: 0;
+
+    > .ons-grid--flex > .ons-grid__col > .ons-back-to-top__link {
+      background: var(--ons-color-grey-5);
+      width : 100vw;
+      left : 0;
+    }
+
   }
+
 
   &__hidden {
     opacity: 0;
     pointer-events: none;
-  }
-  
-  .ons-grid__col > a {
-    margin: auto;
   }
 }
 
