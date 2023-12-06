@@ -1,0 +1,53 @@
+---
+title: "Example: Name input"
+layout: ~
+---
+{% extends "layout/_template.njk" %}
+
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+
+{% set pageConfig = {
+    "header": {
+        "title": "Multiple field name example"
+    }
+} %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": "What is your name?",
+        "legendIsQuestionTitle": true,
+        "submitButton": true
+    }) %}
+    <form action="#0">
+        {{
+            onsInput({
+                "id": "first-name",
+                "name": "first-name",
+                "label": {
+                    "text": "First name"
+                }
+            })
+        }}
+        {{
+            onsInput({
+                "id": "middle-names",
+                "type": "middle-names",
+                "label": {
+                    "text": "Middle names"
+                }
+            })
+        }}
+        {{
+            onsInput({
+                "id": "last-name",
+                "name": "last-name",
+                "label": {
+                    "text": "Last name"
+                }
+            })
+        }}
+    </form>
+    {% endcall %}
+{% endblock %}
