@@ -1,18 +1,6 @@
----
-title: "Example: Full name input"
-layout: ~
----
-{% extends "layout/_template.njk" %}
-
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/question/_macro.njk" import onsQuestion %}
-
-{% set pageConfig = {
-    "header": {
-        "title": "Single field name example"
-    }
-} %}
 
 {% block main %}
     {% call onsQuestion({
