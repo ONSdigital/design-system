@@ -1,6 +1,7 @@
 import { renderBaseTemplate, renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
 const EXAMPLE_TABLE_OF_CONTENTS_FP = `
+
 {% set pageConfig = {
   "header": {
       "title": "What is the census?"
@@ -29,6 +30,9 @@ const EXAMPLE_TABLE_OF_CONTENTS_FP = `
   } %}
 
   {% block main %}
+
+  import { onsTableOfContents } from '../../components/table-of-contents/table-of-contents';
+
     <div class="ons-page__container ons-container">
         <div class="ons-grid ons-js-toc-container">
             <div class="ons-grid__col ons-grid__col--sticky@m ons-col-4@m">
@@ -107,7 +111,6 @@ const EXAMPLE_TABLE_OF_CONTENTS_FP = `
         </div>
     </div>
 {% endblock %}
-
 `;
 
 describe('script: table-of-contents', () => {
