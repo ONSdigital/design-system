@@ -615,8 +615,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
-
-     <form class="form-class" method="POST" autocomplete="off" novalidate="">
+         
+    <form class="form-class" method="POST" autocomplete="off" novalidate="">
 
         
             <div class="ons-page">
@@ -1835,9 +1835,9 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     
                 
             </div>
-
+         
         
-     </form>
+    </form>
 
 
         <script>
