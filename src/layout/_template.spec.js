@@ -308,10 +308,8 @@ const FULL_EXAMPLE = `
 {% endblock %}
 
 {% block head %}Some head content{% endblock %}
-{% block bodyStart %}Some bodyStart content{% endblock %}
 {% block preHeader %}Some preHeader content{% endblock %}
 {% block preFooter %}Some preFooter content{% endblock %}
-{% block bodyEnd %}Some bodyEnd content{% endblock %}
 {% block scripts %}<script src="random-script.js"></script>{% endblock %}
 `;
 
