@@ -74,7 +74,7 @@ describe('script: table-of-contents-fixed-position', () => {
                   itemsList: [
                     {
                       url: '#section1',
-                      text: 'What is the benson?',
+                      text: 'What is the census?',
                     },
                     {
                       url: '#section2',
