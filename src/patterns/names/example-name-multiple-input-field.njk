@@ -1,0 +1,40 @@
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": "What is your name?",
+        "legendIsQuestionTitle": true,
+        "submitButton": true
+    }) %}
+        <form action="#0">
+            {{
+                onsInput({
+                    "id": "first-name",
+                    "name": "first-name",
+                    "label": {
+                        "text": "First name"
+                    }
+                })
+            }}
+            {{
+                onsInput({
+                    "id": "middle-names",
+                    "type": "middle-names",
+                    "label": {
+                        "text": "Middle names"
+                    }
+                })
+            }}
+            {{
+                onsInput({
+                    "id": "last-name",
+                    "name": "last-name",
+                    "label": {
+                        "text": "Last name"
+                    }
+                })
+            }}
+        </form>
+    {% endcall %}
+{% endblock %}
