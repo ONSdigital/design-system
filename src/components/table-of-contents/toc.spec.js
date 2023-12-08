@@ -60,7 +60,7 @@ describe('script: table-of-contents', () => {
   });
 });
 
-describe('script: table-of-contents-fixed', () => {
+describe('script: table-of-contents-fixed-position', () => {
   beforeEach(async () => {
     await setTestPage(
       '/test',
@@ -94,7 +94,7 @@ describe('script: table-of-contents-fixed', () => {
                     },
                   ],
                 })}
-    </div>
+        </div>
             <div class="ons-grid__col ons-col-7@m ons-push-1@m">
                 <section id="section1">
                     <h2>What is the census?</h2>
@@ -139,18 +139,33 @@ describe('script: table-of-contents-fixed', () => {
                 </section>
             </div>
         </div>
-    </div>`,
+    </div>
+    `,
+      'main',
     );
   });
 
   it('renders a fixed table of contents in full page and scrolls', async () => {
-    //test that the left column is sticky by scrolling the page and checking the viewport still has the left column
     await page.evaluate(() => {
       window.scrollTo(0, 1000);
     });
-    // await page.waitForTimeout(250);
-    const leftColumn = await page.$eval('#sticky-container', (node) => node.innerText.trim());
 
-    expect(leftColumn).toContain('Contents');
+    await page.waitForTimeout(250);
+    const leftColumn = await page.$('#sticky-container');
+    const boundingBox = await leftColumn.boundingBox();
+
+    const viewport = await page.evaluate(() => ({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    }));
+
+    const isInViewport =
+      boundingBox &&
+      boundingBox.x < viewport.width &&
+      boundingBox.y < viewport.height &&
+      boundingBox.x + boundingBox.width > 0 &&
+      boundingBox.y + boundingBox.height > 0;
+
+    expect(isInViewport).toBeTruthy();
   });
 });
