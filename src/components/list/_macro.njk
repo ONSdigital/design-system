@@ -48,12 +48,12 @@
                                 {{- item.prefix -}}.
                             {% elif params.iconPosition == 'before' %}
                                 {% from "components/icon/_macro.njk" import onsIcon %}
-                                {{
+                                {{-
                                     onsIcon({
                                         "iconType": itemIconType,
                                         "iconSize": params.iconSize
                                     })
-                                }}
+                                -}}
                             {%- endif -%}
                         </span>
                     {%- endif -%}
@@ -83,12 +83,12 @@
                             {{- loop.index -}}
                         {% elif params.iconPosition == 'after' %}
                             {% from "components/icon/_macro.njk" import onsIcon %}
-                            {{
+                            {{-
                                 onsIcon({
                                     "iconType": itemIconType,
                                     "iconSize": params.iconSize
                                 })
-                            }}
+                            -}}
                         {%- endif -%} </span>
                     {%- endif -%}
                 {% if item.itemsList %}
