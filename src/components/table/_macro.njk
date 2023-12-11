@@ -18,13 +18,13 @@
                         <th scope="col" class="ons-table__header{{ ' ' + th.thClasses if th.thClasses }}{{ " ons-table__header--numeric" if th.numeric }}"{% if 'sortable' in variants %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}{% if th.widthPercentage %} width="{{ th.widthPercentage }}%"{% endif %}>
                             <span class="ons-table__header-text">{{- th.value -}}</span>
                             {% if 'sortable' in variants %}
-                                {{
+                                {{-
                                     onsIcon({
                                         "iconType": "sort-sprite",
                                         "id": th.value | replace(' ', '-'),
                                         "classes": 'ons-u-d-no'
                                     })
-                                }}
+                                -}}
                             {% endif %}
                         </th>
                         {% endfor %}
