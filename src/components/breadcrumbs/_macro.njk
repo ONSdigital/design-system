@@ -3,18 +3,18 @@
 {% macro onsBreadcrumbs(params) %}
     <nav class="ons-breadcrumbs{{ ' ' + params.classes if params.classes else '' }}" aria-label="{{ params.ariaLabel | default("Breadcrumbs") }}" {% if params.id %} id="{{ params.id }}"{% endif %}>
         <ol class="ons-breadcrumbs__items ons-u-fs-s">
-            {% for item in params.itemsList %}
+            {%- for item in params.itemsList -%}
                 <li class="ons-breadcrumbs__item{{ ' ' + item.itemClasses if item.itemClasses else '' }}" id="breadcrumb-{{ loop.index }}">
                     <a class="ons-breadcrumbs__link{{ ' ' + item.linkClasses if item.linkClasses else '' }}" href={% if not isDesignSystemExample %}"{{ item.url }}"{% else %}"#0"{% endif %}{% if item.id %} id="{{ item.id }}"{% endif %}
                     {% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                     >{{ item.text }}</a>
-                    {{
+                    {{-
                         onsIcon({
                             "iconType": "chevron"
                         })
-                    }}
+                    -}}
                 </li>
-            {% endfor %}
+            {%- endfor -%}
         </ol>
     </nav>
 {% endmacro %}
