@@ -145,7 +145,7 @@ describe('script: table-of-contents-fixed-position', () => {
     );
   });
 
-  it('renders a fixed table of contents in full page and scrolls', async () => {
+  it('when ons-grid__col--stick is used, ToC stays fixed while scrolling', async () => {
     await page.evaluate(() => {
       window.scrollTo(0, 1000);
     });
