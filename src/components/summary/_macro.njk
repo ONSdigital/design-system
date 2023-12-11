@@ -44,11 +44,11 @@
                                                 {% if rowItem.iconType %}
                                                     {% from "components/icon/_macro.njk" import onsIcon %}
                                                     <span class="ons-summary__item-title-icon{% if rowItem.iconType == 'check' %} ons-summary__item-title-icon--check{% endif %}">
-                                                        {{
+                                                        {{-
                                                             onsIcon({
                                                                 "iconType": rowItem.iconType
                                                             })
-                                                        }}
+                                                        -}}
                                                     </span>
                                                 {% endif %}
 
