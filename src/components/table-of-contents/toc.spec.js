@@ -145,7 +145,7 @@ describe('script: table-of-contents-fixed-position', () => {
     );
   });
 
-  it('when ons-grid__col--stick is used, ToC stays fixed while scrolling', async () => {
+  it('when the "ons-grid__col--sticky" class is used, then the ToC stays in a fixed position while scrolling', async () => {
     await page.evaluate(() => {
       window.scrollTo(0, 1000);
     });
