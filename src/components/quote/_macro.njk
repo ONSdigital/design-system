@@ -1,11 +1,11 @@
 {% macro onsQuote(params) %}
     <blockquote class="ons-quote">
         {% from "components/icon/_macro.njk" import onsIcon %}
-        {{
+        {{-
             onsIcon({
                 "iconType": 'quote'
             })
-        }}
+        -}}
         <span class="ons-quote__text ons-u-fs-{{ params.textFontSize if params.textFontSize else 'l' }}">{{ caller() if caller else params.text | safe }}</span>
         {% if params.ref %}<span class="ons-quote__ref">&mdash; {{ params.ref | safe }}</span>{% endif %}
     </blockquote>
