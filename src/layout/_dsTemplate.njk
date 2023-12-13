@@ -1,24 +1,24 @@
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
 
-{% set inputWithSearch = 
-    onsInput({
+{% set inputWithSearch = {
          "id": 'search-field',
+         "width": '20',
         "label": {
-            "text": 'Search this service'
+            "text": "Search this service",
+            "id": "search-field-label",
+            "classes": "ons-u-pl-m"
         },
+        "classes": "ons-input-search ons-input-search--icon ons-input-search--dark",
         "accessiblePlaceholder": true,
-        "searchButton": {
-            "visuallyHideButtonText": true,
-            "text": 'Search',
-            "iconType": 'search'
-        }
-    })
- %}
+        "autocomplete": "off"
+    } 
+%}
 
 {{ onsAutosuggest({
     "id": "search-input-autosuggest",
     "input": inputWithSearch,
+    "containerClasses": "ons-autosuggest--header",
     "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
     "ariaYouHaveSelected": "You have selected",
     "ariaMinChars": "Enter 3 or more characters for suggestions.",
