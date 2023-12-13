@@ -1,0 +1,34 @@
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
+
+{% set inputWithSearch = 
+    onsInput({
+         "id": 'search-field',
+        "label": {
+            "text": 'Search this service'
+        },
+        "accessiblePlaceholder": true,
+        "searchButton": {
+            "visuallyHideButtonText": true,
+            "text": 'Search',
+            "iconType": 'search'
+        }
+    })
+ %}
+
+{{ onsAutosuggest({
+    "id": "country-of-birth-autosuggest",
+    "input": inputWithSearch,
+    "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+    "ariaYouHaveSelected": "You have selected",
+    "ariaMinChars": "Enter 3 or more characters for suggestions.",
+    "ariaOneResult": "There is one suggestion available.",
+    "ariaNResults": "There are {n} suggestions available.",
+    "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
+    "moreResults": "Continue entering to improve suggestions",
+    "resultsTitle": "Suggestions",
+    "resultsTitleId": "results-suggestions",
+    "autosuggestData": "/examples/data/search-index.json",
+    "noResults": "No suggestions found. You can enter your own answer",
+    "typeMore": "Continue entering to get suggestions"
+}) }}
