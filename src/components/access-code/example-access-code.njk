@@ -34,18 +34,19 @@ layout: ~
         "classes": "ons-u-mb-xl"
     }) }}
 
-    <h2>If you don’t have an access code</h2>
+    <h2>If you do not have an access code</h2>
     <p>
-        You can <a href="#0">request a new access code</a> to start a new study if you have lost or not received an access code. This can be sent to you by text or post.
+        If you have lost or not received an access code, you can request a new access code <a href="#0">[LINK]</a>.
+        This can be sent to you by text or post.
     </p>
 
     {% set content %}
-        <p>If you need to answer separately from the people you live with, you can <a href='#0'>request an individual access code</a> to start a separate study.</p>
+        <p>If you need to answer separately from the people you live with, you can request an individual access code <a href="#0">[LINK]</a>.</p>
         {% call onsPanel({
                 type: "warn"
             })
         %}
-            Someone in your household must still complete a study using a household access code
+            Someone in your household must still complete a study using this household access code
         {% endcall %}
     {% endset %}
 
