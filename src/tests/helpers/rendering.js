@@ -166,13 +166,13 @@ export async function gotoTestPath(path) {
   return await page.goto(`http://localhost:${process.env.TEST_PORT}${path}`);
 }
 
-export async function setTestPage(path, template) {
+export async function setTestPage(path, template, blockName = 'body') {
   const response = await gotoTestPath(path);
 
   verifyConsoleSubscription(page);
 
   const compositedTemplate = `
-    {% block body %}
+    {% block ${blockName} %}
       ${template}
     {% endblock %}
   `;
