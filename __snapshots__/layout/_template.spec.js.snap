@@ -981,41 +981,43 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </div>
     </div>
     
-        <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l" id="sub-nav" aria-label="Section menu" data-analytics="header-section-navigation">
-            <div class="ons-container ons-container--gutterless@xxs@l">
-                <ul class="ons-navigation__list ons-navigation__list">
-                    
-                        <li class="ons-navigation__item ">
-                            <a class="ons-navigation__link ons-navigation__link" href="#0">
-                                Guidance
-                                
-                            </a>
-                        </li>
-                    
-                        <li class="ons-navigation__item ">
-                            <a class="ons-navigation__link ons-navigation__link" href="#0">
-                                Foundations
-                                
-                            </a>
-                        </li>
-                    
-                        <li class="ons-navigation__item ">
-                            <a class="ons-navigation__link ons-navigation__link" href="#0">
-                                Components
-                                
-                            </a>
-                        </li>
-                    
-                        <li class="ons-navigation__item  ons-navigation__item--active">
-                            <a class="ons-navigation__link ons-navigation__link" href="#patterns">
-                                Patterns
-                                
-                            </a>
-                        </li>
-                    
-                </ul>
-            </div>
-        </nav>
+        
+            <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l" id="sub-nav" aria-label="Section menu" data-analytics="header-section-navigation">
+                <div class="ons-container ons-container--gutterless@xxs@l">
+                    <ul class="ons-navigation__list ons-navigation__list">
+                        
+                            <li class="ons-navigation__item ">
+                                <a class="ons-navigation__link ons-navigation__link" href="#0">
+                                    Guidance
+                                    
+                                </a>
+                            </li>
+                        
+                            <li class="ons-navigation__item ">
+                                <a class="ons-navigation__link ons-navigation__link" href="#0">
+                                    Foundations
+                                    
+                                </a>
+                            </li>
+                        
+                            <li class="ons-navigation__item ">
+                                <a class="ons-navigation__link ons-navigation__link" href="#0">
+                                    Components
+                                    
+                                </a>
+                            </li>
+                        
+                            <li class="ons-navigation__item  ons-navigation__item--active">
+                                <a class="ons-navigation__link ons-navigation__link" href="#patterns">
+                                    Patterns
+                                    
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            
         <div class="ons-u-d-no@l">
             
 

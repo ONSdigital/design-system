@@ -1,0 +1,134 @@
+---
+"fullWidth": true
+---
+{% from "components/header/_macro.njk" import onsHeader %}
+
+{{
+    onsHeader({
+        "title": 'Service manual',
+        "mastheadLogoUrl": '#0',
+        "titleUrl": '#0',
+        "navigation": {
+            "id": 'main-nav',
+            "ariaLabel": 'Main menu',
+            "currentPath": [ '#design-system', '#patterns', '#access-codes' ],
+            "currentPageTitle": 'Design system',
+            "itemsList": [
+                {
+                    "text": 'Service standard',
+                    "url": '#0'
+                },
+                {
+                    "text": 'Design system',
+                    "url": '#design-system'
+                },
+                {
+                    "text": 'Accessibility',
+                    "url": '#0'
+                },
+                {
+                    "text": 'Brand guidelines',
+                    "url": '#0'
+                },
+                {
+                    "text": 'Content style guide',
+                    "url": '#0'
+                }
+            ],
+            "toggleNavigationButton": {
+                "text": 'Menu',
+                "ariaLabel": 'Toggle menu'
+            },
+            "subNavigation": {
+                "id": 'sub-nav',
+                "overviewURL": '#design-system',
+                "overviewText": 'Overview',
+                "ariaLabel": 'Section menu',
+                "currentPath": '#access-codes',
+                "hideDisplay": true,
+                "itemsList": [
+                    {
+                        "text": 'Guidance',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Foundations',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Components',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Patterns',
+                        "url": '#patterns',
+                        "sections": [
+                            {
+                                "sectionTitle": 'Ask users for...',
+                                "children": [
+                                    {
+                                        "title": 'Access codes',
+                                        "url": '#access-codes'
+                                    },
+                                    {
+                                        "title": 'Addresses',
+                                        "url": '#0'
+                                    },
+                                    {
+                                        "title": 'Dates',
+                                        "url": '#0'
+                                    },
+                                    {
+                                        "title": 'Durations',
+                                        "url": '#0'
+                                    },
+                                    {
+                                        "title": 'Email addresses',
+                                        "url": '#0'
+                                    },
+                                    {
+                                        "title": 'Numeric values',
+                                        "url": '#0'
+                                    },
+                                    {
+                                        "title": 'Phone numbers',
+                                        "url": '#0'
+                                    }
+                                ]
+                            },
+                            {
+                                "sectionTitle": 'Help users to...',
+                                "children": [
+                                    {
+                                        "title": 'Access support in multiple languages',
+                                        "url": '#0'
+                                    },
+                                    {
+                                        "title": 'Change language',
+                                        "url": '#0'
+                                    },
+                                    {
+                                        "title": 'Check answers',
+                                        "url": '#0'
+                                    },
+                                    {
+                                        "title": 'Control cookies',
+                                        "url": '#0'
+                                    },
+                                    {
+                                        "title": 'Correct errors',
+                                        "url": '#0'
+                                    },
+                                    {
+                                        "title": 'Extend a session',
+                                        "url": '#0'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    })
+}}
