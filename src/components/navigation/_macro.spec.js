@@ -13,14 +13,14 @@ const PARAMS = {
   currentPageTitle: 'main nav item 2',
   itemsList: [
     {
-      title: 'Main nav item 1',
+      text: 'Main nav item 1',
       ariaLabel: 'Main nav ariaLabel 1',
       url: '#0',
       classes: 'custom-class-main-item-1',
       id: 'main-item-1',
     },
     {
-      title: 'Main nav item 2',
+      text: 'Main nav item 2',
       ariaLabel: 'Main nav ariaLabel 2',
       url: '#1',
       classes: 'custom-class-main-item-2',
@@ -34,14 +34,14 @@ const PARAMS = {
     ariaLabel: 'Section menu',
     itemsList: [
       {
-        title: 'Sub nav item 1',
+        text: 'Sub nav item 1',
         ariaLabel: 'Sub nav ariaLabel 1',
         url: '/sub-item-1',
         classes: 'custom-class-sub-item-1',
         id: 'sub-item-1',
       },
       {
-        title: 'Sub nav item 2',
+        text: 'Sub nav item 2',
         ariaLabel: 'Sub nav ariaLabel 2',
         url: '/sub-item-2',
         classes: 'custom-class-sub-item-2',
@@ -51,13 +51,13 @@ const PARAMS = {
             sectionTitle: 'Section 1',
             children: [
               {
-                title: 'Child item 1',
+                text: 'Child item 1',
                 ariaLabel: 'Child item ariaLabel 1',
                 url: '/sub-item-2/child-item-1',
                 id: 'child-item-1',
               },
               {
-                title: 'Child item 2',
+                text: 'Child item 2',
                 ariaLabel: 'Child item ariaLabel 2',
                 url: '/sub-item-2/child-item-2',
                 id: 'child-item-2',

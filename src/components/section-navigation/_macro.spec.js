@@ -11,11 +11,11 @@ const EXAMPLE_SECTION_NAVIGATION = {
   currentPath: '/results',
   itemsList: [
     {
-      title: 'Results',
+      text: 'Results',
       url: '/results',
     },
     {
-      title: 'Dashboard',
+      text: 'Dashboard',
       url: '/results/dashboard',
     },
   ],
@@ -26,29 +26,29 @@ const EXAMPLE_SECTION_NAVIGATION_VERTICAL = {
   currentPath: '#section-2',
   itemsList: [
     {
-      title: 'Section 1',
+      text: 'Section 1',
       url: '#section-1',
     },
     {
-      title: 'Section 2',
+      text: 'Section 2',
       url: '#section-2',
       anchors: [
         {
-          title: 'Sub section 1',
+          text: 'Sub section 1',
           url: '#sub-section-1',
         },
         {
-          title: 'Sub section 2',
+          text: 'Sub section 2',
           url: '#sub-section-2',
         },
         {
-          title: 'Sub section 3',
+          text: 'Sub section 3',
           url: '#sub-section-3',
         },
       ],
     },
     {
-      title: 'Section 3',
+      text: 'Section 3',
       url: '#0',
     },
   ],
@@ -62,29 +62,29 @@ const EXAMPLE_SECTION_NAVIGATION_VERTICAL_WITH_SECTIONS = {
       title: 'Section Title',
       itemsList: [
         {
-          title: 'Section 1',
+          text: 'Section 1',
           url: '#section-1',
         },
         {
-          title: 'Section 2',
+          text: 'Section 2',
           url: '#section-2',
           anchors: [
             {
-              title: 'Sub section 1',
+              text: 'Sub section 1',
               url: '#sub-section-1',
             },
             {
-              title: 'Sub section 2',
+              text: 'Sub section 2',
               url: '#sub-section-2',
             },
             {
-              title: 'Sub section 3',
+              text: 'Sub section 3',
               url: '#sub-section-3',
             },
           ],
         },
         {
-          title: 'Section 3',
+          text: 'Section 3',
           url: '#0',
         },
       ],
