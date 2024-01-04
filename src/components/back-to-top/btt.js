@@ -13,17 +13,22 @@ export default class Btt {
     // otherwise it should be enabled
 
     const scrollPosition = window.scrollY + window.innerHeight;
-    const windowHeight = window.innerHeight;
+    const windowHeight = window.innerHeight + this.component.getBoundingClientRect().height;
     const maincontentRect = this.maincontent.getBoundingClientRect();
     const maincontentBottom = maincontentRect.bottom;
 
     // console.log(scrollPosition, ' scrollposition bottom: ' + scrollPositionBottom + ' maincontenttop: ' + maincontenttop);
-    // console.log(window.innerHeight, maincontentRect.bottom);
 
     const stickyThreshold = document.body.scrollTop + windowHeight * 2;
 
-    console.log(scrollPosition, stickyThreshold, scrollPosition > stickyThreshold);
-    console.log(windowHeight, maincontentBottom, windowHeight < maincontentBottom);
+    // console.log(scrollPosition, stickyThreshold, scrollPosition > stickyThreshold);
+
+    console.log(
+      windowHeight,
+      maincontentBottom,
+      windowHeight - this.component.getBoundingClientRect().height,
+      windowHeight < maincontentBottom,
+    );
 
     if (scrollPosition > stickyThreshold && windowHeight < maincontentBottom) {
       this.setSticky();
