@@ -1,30 +1,31 @@
 .ons-back-to-top {
 
-  color: var(--ons-link-color);
-
   &__enabled {
     background: none;
+    padding: 0;
+  }
+
+  &:focus {
+    outline: none;
   }
 
   &__sticky {
     
-    bottom: -1px;
+    bottom : 0;
     position:fixed;
     z-index: 10;
-    margin: 0;
+    width: 100%;
+    background: var(--ons-color-grey-15);
+    left : 0;
+    height: 2em;
 
-    > .ons-grid > .ons-grid__col > .ons-back-to-top__link {
-      background: var(--ons-color-grey-5);
-      display:block;
-      left : 0;
+    > a {
+      @extend .ons-container;
+
+      display: block;
+      height: 90%;
+      color: var(--ons-color-grey-7);
     }
-
-  }
-
-
-  &__hidden {
-    opacity: 0;
-    pointer-events: none;
   }
 }
 

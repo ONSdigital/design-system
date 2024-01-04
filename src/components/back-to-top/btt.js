@@ -1,7 +1,7 @@
 export default class Btt {
   constructor(component) {
     this.component = component;
-    this.footerElement = document.querySelector('.ons-footer');
+    this.maincontent = document.querySelector('main');
 
     window.addEventListener('scroll', () => {
       this.handleScroll();
@@ -9,19 +9,23 @@ export default class Btt {
   }
 
   handleScroll() {
-    const scrollPosition = window.scrollY;
+    // When the viewport is below the scroll threshold and above the location on the page where the BTT appears in main content, it shoudld be sticky
+    // otherwise it should be enabled
+
+    const scrollPosition = window.scrollY + window.innerHeight;
     const windowHeight = window.innerHeight;
-    const stickyThreshold = windowHeight * 0.4;
-    let isfooterVisible = true;
+    const maincontentRect = this.maincontent.getBoundingClientRect();
+    const maincontentBottom = maincontentRect.bottom;
 
-    if (this.footerElement) {
-      this.footerRect = this.footerElement.getBoundingClientRect();
-      isfooterVisible = this.footerRect.top - windowHeight < 0;
-    }
+    // console.log(scrollPosition, ' scrollposition bottom: ' + scrollPositionBottom + ' maincontenttop: ' + maincontenttop);
+    // console.log(window.innerHeight, maincontentRect.bottom);
 
-    if (scrollPosition < stickyThreshold) {
-      this.setHidden();
-    } else if (scrollPosition >= stickyThreshold && !isfooterVisible) {
+    const stickyThreshold = document.body.scrollTop + windowHeight * 2;
+
+    console.log(scrollPosition, stickyThreshold, scrollPosition > stickyThreshold);
+    console.log(windowHeight, maincontentBottom, windowHeight < maincontentBottom);
+
+    if (scrollPosition > stickyThreshold && windowHeight < maincontentBottom) {
       this.setSticky();
     } else {
       this.setEnabled();
@@ -29,17 +33,12 @@ export default class Btt {
   }
 
   setSticky() {
-    this.component.classList.remove('ons-back-to-top__enabled', 'ons-back-to-top__hidden');
+    this.component.classList.remove('ons-back-to-top__enabled');
     this.component.classList.add('ons-back-to-top__sticky');
   }
 
   setEnabled() {
-    this.component.classList.remove('ons-back-to-top__sticky', 'ons-back-to-top__hidden');
+    this.component.classList.remove('ons-back-to-top__sticky');
     this.component.classList.add('ons-back-to-top__enabled');
-  }
-
-  setHidden() {
-    this.component.classList.remove('ons-back-to-top__enabled', 'ons-back-to-top__sticky');
-    this.component.classList.add('ons-back-to-top__hidden');
   }
 }
