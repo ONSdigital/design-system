@@ -1,7 +1,7 @@
 export default class Btt {
   constructor(component) {
     this.component = component;
-    this.maincontent = document.querySelector('main');
+    this.content = document.querySelector('main') ?? this.component.closest('.ons-container');
 
     window.addEventListener('scroll', () => {
       this.handleScroll();
@@ -9,28 +9,13 @@ export default class Btt {
   }
 
   handleScroll() {
-    // When the viewport is below the scroll threshold and above the location on the page where the BTT appears in main content, it shoudld be sticky
-    // otherwise it should be enabled
-
     const scrollPosition = window.scrollY + window.innerHeight;
-    const windowHeight = window.innerHeight + this.component.getBoundingClientRect().height;
-    const maincontentRect = this.maincontent.getBoundingClientRect();
-    const maincontentBottom = maincontentRect.bottom;
-
-    // console.log(scrollPosition, ' scrollposition bottom: ' + scrollPositionBottom + ' maincontenttop: ' + maincontenttop);
-
+    const windowHeight = window.innerHeight;
+    const contentRect = this.content.getBoundingClientRect();
+    const contentBottom = contentRect.bottom;
     const stickyThreshold = document.body.scrollTop + windowHeight * 2;
 
-    // console.log(scrollPosition, stickyThreshold, scrollPosition > stickyThreshold);
-
-    console.log(
-      windowHeight,
-      maincontentBottom,
-      windowHeight - this.component.getBoundingClientRect().height,
-      windowHeight < maincontentBottom,
-    );
-
-    if (scrollPosition > stickyThreshold && windowHeight < maincontentBottom) {
+    if (scrollPosition > stickyThreshold && windowHeight < contentBottom) {
       this.setSticky();
     } else {
       this.setEnabled();

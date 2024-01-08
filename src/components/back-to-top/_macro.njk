@@ -3,7 +3,12 @@
 {% macro onsBackToTop() %}
     <div class="ons-back-to-top ons-js-btt ons-back-to-top__enabled">
         <a href="#top" class="ons-back-to-top__link">
-            <span>↥</span>
+            {{
+                onsIcon({
+                    "iconType": 'arrow-up',
+                    "iconSize": 'xs'
+                })
+            }}
             <span>Back to top</span>
         </a>
     </div>

@@ -5,7 +5,7 @@ async function btt() {
 
   if (bttElement) {
     const Btt = (await import('./btt')).default;
-    bttElement.forEach(btn => new Btt(btn));
+    bttElement.forEach((btn) => new Btt(btn));
   }
 }
 
