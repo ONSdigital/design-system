@@ -1,7 +1,7 @@
 export default class Btt {
   constructor(component) {
     this.component = component;
-    this.content = document.querySelector('main') ?? this.component.closest('.ons-container');
+    this.content = document.querySelector('.ons-back-to-top-track') ?? this.component.previousElementSibling;
 
     window.addEventListener('scroll', () => {
       this.handleScroll();

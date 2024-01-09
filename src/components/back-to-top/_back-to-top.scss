@@ -3,9 +3,10 @@
   &__enabled {
     background: none;
     padding-bottom: 1em;
-    
+
     > a {
       @extend .ons-container;
+      padding: 0;
       display: block;
       width: auto;
     }
