@@ -57,17 +57,7 @@
         {% endif %}
     {% endset %}
     {% set field %}
-        {% if params.accessiblePlaceholder and params.label.description %}
-            {{ onsLabel({
-                "for": params.id,
-                "id": params.label.id,
-                "classes": params.label.classes,
-                "description": params.label.description,
-                "attributes": params.label.attributes,
-                "accessiblePlaceholder": params.accessiblePlaceholder,
-                "inline": params.label.inline
-            }) }}
-        {% elif params.label and params.label.text %}
+        {% if params.label and params.label.text %}
             {{ onsLabel({
                 "for": params.id,
                 "id": params.label.id,
@@ -147,7 +137,24 @@
                 }}
             </span>
         {% else %}
+            {% if params.accessiblePlaceholder %}
+            <span class="ons-grid--flex {% if params.label.description %} ons-input--with-text-description{% endif %}">
+                {% if params.accessiblePlaceholder %}
+                    {{ onsLabel({
+                    "for": params.id,
+                    "id": params.label.id,
+                    "text": params.label.text,
+                    "classes": params.label.classes,
+                    "attributes": params.label.attributes,
+                    "accessiblePlaceholder": params.accessiblePlaceholder,
+                    "inline": params.label.inline
+                }) }}
+                {% endif %}
+            {% endif %}
             {{ input | safe }}
+            {% if params.accessiblePlaceholder %}
+            </span>
+         {% endif %}
         {% endif %}
     {% endset %}
 
