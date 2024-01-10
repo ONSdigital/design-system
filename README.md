@@ -33,7 +33,7 @@ To enable this we use [nvm (Node Version Manager)](https://github.com/creationix
 
 ```bash
 yarn install
-husky install
+yarn husky install
 ```
 
 ### Start a local server
@@ -129,7 +129,6 @@ Checkout the branch locally and run:
 `yarn test-visual` - This will run the same tests locally as were run in Github Actions. After they have completed the report will open in your default browser.
 
 `yarn test-visual:approve` - This will approve the failures/diff caught by the tests.
-
 
 `git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.
 
