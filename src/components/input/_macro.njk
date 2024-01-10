@@ -57,7 +57,7 @@
         {% endif %}
     {% endset %}
     {% set field %}
-        {% if params.label and params.label.text %}
+        {% if (not params.accessiblePlaceholder or params.label.description) and (params.label and params.label.text)%}
             {{ onsLabel({
                 "for": params.id,
                 "id": params.label.id,
@@ -101,7 +101,7 @@
                 </span>
             {% endif %}
         {% elif params.searchButton %}
-            <span class="ons-grid--flex ons-input_search-button{% if params.label.description %} ons-input--with-text-description{% endif %}"> 
+            <span class="ons-grid--flex  ons-input_search-button{% if params.label.description %} ons-input--with-text-description{% endif %}"> 
                 {% if params.accessiblePlaceholder %}
                 {{ onsLabel({
                     "for": params.id,
