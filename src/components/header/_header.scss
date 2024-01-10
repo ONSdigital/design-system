@@ -164,6 +164,8 @@
     }
   }
 
+  // currently large and small distinguish between screen size for media queries
+
   &__org-logo--large {
     @include mq(xxs, 454px) {
       display: none;

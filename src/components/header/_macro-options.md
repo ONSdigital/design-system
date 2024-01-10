@@ -1,21 +1,22 @@
-| Name            | Type                                              | Required                         | Description                                                                                                                           |
-| --------------- | ------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| phase           | `PhaseBanner` [_(ref)_](/components/phase-banner) | false                            | Settings to set the Phase banner component within the HTML `<header>` element                                                         |
-| wide            | boolean                                           | false                            | Set to “true” to increase the maximum width of the layout container to 1280px                                                         |
-| fullWidth       | boolean                                           | false                            | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                 |
-| classes         | string                                            | false                            | Classes to add to the wrapping `header`                                                                                               |
-| variants        | array or string                                   | false                            | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral" and “description” |
-| mastheadLogoUrl | string                                            | false                            | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                                            |
-| mastheadLogo    | object`<MastheadLogo>`                            | false                            | Settings for a [custom organisation logo](#mastheadlogo) in the masthead. Defaults to the ONS logo.                                   |
-| language        | object`<Language>`                                | false                            | Settings for the [language selector](#language)                                                                                       |
-| serviceLinks    | object`<ServiceLinks>`                            | false                            | Settings for the [service links](#servicelinks) in the masthead                                                                       |
-| title           | string                                            | true (unless `titleLogo` is set) | The title for the service                                                                                                             |
-| description     | string                                            | false                            | Tagline or description for the service                                                                                                |
-| titleAsH1       | boolean                                           | false                            | Override to wrap the header `title` in an `<h1>` heading                                                                              |
-| titleLogo       | object`<TitleLogo>`                               | false                            | Settings for a [custom title logo](#titlelogo) in the header.                                                                         |
-| titleUrl        | string                                            | false                            | Wraps the title logo in a link. Set the URL for the HTML `href` attribute for the link.                                               |
-| button          | object`<SignOutButton>`                           | false                            | Settings for the [sign out button](#signoutbutton) in the header used to exit a transactional service                                 |
-| navigation      | array`<Navigation>`                               | false                            | Settings for the [main menu links](#navigation)                                                                                       |
+| Name                     | Type                                              | Required                         | Description                                                                                                                           |
+| ------------------------ | ------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| phase                    | `PhaseBanner` [_(ref)_](/components/phase-banner) | false                            | Settings to set the Phase banner component within the HTML `<header>` element                                                         |
+| wide                     | boolean                                           | false                            | Set to “true” to increase the maximum width of the layout container to 1280px                                                         |
+| fullWidth                | boolean                                           | false                            | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                 |
+| classes                  | string                                            | false                            | Classes to add to the wrapping `header`                                                                                               |
+| variants                 | array or string                                   | false                            | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral" and “description” |
+| mastheadLogoUrl          | string                                            | false                            | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                                            |
+| mastheadLogo             | object`<MastheadLogo>`                            | false                            | Settings for a [custom organisation logo](#mastheadlogo) in the masthead. Defaults to the ONS logo.                                   |
+| mastheadLogoStackedArray | array`<MastheadLogoStackedArray>`                 | false                            | Settings for multiple logos in masthead                                                                                               |
+| language                 | object`<Language>`                                | false                            | Settings for the [language selector](#language)                                                                                       |
+| serviceLinks             | object`<ServiceLinks>`                            | false                            | Settings for the [service links](#servicelinks) in the masthead                                                                       |
+| title                    | string                                            | true (unless `titleLogo` is set) | The title for the service                                                                                                             |
+| description              | string                                            | false                            | Tagline or description for the service                                                                                                |
+| titleAsH1                | boolean                                           | false                            | Override to wrap the header `title` in an `<h1>` heading                                                                              |
+| titleLogo                | object`<TitleLogo>`                               | false                            | Settings for a [custom title logo](#titlelogo) in the header.                                                                         |
+| titleUrl                 | string                                            | false                            | Wraps the title logo in a link. Set the URL for the HTML `href` attribute for the link.                                               |
+| button                   | object`<SignOutButton>`                           | false                            | Settings for the [sign out button](#signoutbutton) in the header used to exit a transactional service                                 |
+| navigation               | array`<Navigation>`                               | false                            | Settings for the [main menu links](#navigation)                                                                                       |
 
 ## MastheadLogo
 
@@ -24,6 +25,22 @@
 | classes | string | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
 | large   | HTML   | true     | Any HTML to render an image for example embedded `<svg>` or `<img>`            |
 | small   | HTML   | false    | Optionally provide a version of the logo more suited to mobile viewports       |
+
+## MastheadLogoStacked
+
+| Name      | Type   | Required | Description                                                                                                    |
+| --------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------- | --- |
+| logoImage | HTML   | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`. If not supplied will default to ONS icon. |
+| logoURL   | String | false    | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                     |     |
+
+## MastheadLogoStackedArray
+
+| Name    | Type                          | Required | Description                                                                    |
+| ------- | ----------------------------- | -------- | ------------------------------------------------------------------------------ |
+| classes | string                        | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
+| logo1   | object`<MastheadLogoStacked>` | true     | First Logo                                                                     |
+| logo2   | object`<MastheadLogoStacked>` | true     | Second Logo                                                                    |
+| logo3   | object`<MastheadLogoStacked>` | false    | Third Logo                                                                     |
 
 ## TitleLogo
 
