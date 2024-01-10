@@ -67,15 +67,17 @@
                             {% if params.mastheadLogoUrl %}
                                 </a>
                             {% endif %}
-                        {% else %}
-                            {%- for logo in params.mastheadLogoStackedArray %}
-                            {% if logo.logoURL %} 
-                                <a class="ons-header__org-logo-link" href="{{ logo.logoURL }}">
-                            {% endif %}
-                            <div class="ons-header__org-logo ons-header__org-logo--small">
+                        
+                    {% else %}
 
-                            {% if logo.logoImage %}
-                                {{ logo.logoImage | safe }}
+                        <div class="ons-header__org-logo">
+                            {% if params.mastheadLogoStackedArray.logo1.logoURL %} 
+                                <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoStackedArray.logo1.logoURL }}">
+                            {% endif %}
+                            <div class="logo">
+
+                            {% if params.mastheadLogoStackedArray.logo1.logoImage %}
+                                {{ params.mastheadLogoStackedArray.logo1.logoImage | safe }}
                             {% else %}
                                 {{-
                                     onsIcon({
@@ -85,11 +87,51 @@
                                 -}}
                             {% endif %}
                             </div>
-                            {% if logo.logoURL %}
+                            {% if params.mastheadLogoStackedArray.logo1.logoURL %}
                                 </a>
                             {% endif %}
-                                
-                            {% endfor -%}
+
+                            {% if params.mastheadLogoStackedArray.logo2.logoURL %} 
+                                <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoStackedArray.logo3.logoURL }}">
+                            {% endif %}
+                            <div class="logo">
+
+                            {% if params.mastheadLogoStackedArray.logo2.logoImage %}
+                                {{ params.mastheadLogoStackedArray.logo2.logoImage | safe }}
+                            {% else %}
+                                {{-
+                                    onsIcon({
+                                        "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                        "altText": 'Office for National Statistics logo'
+                                    })
+                                -}}
+                            {% endif %}
+                            </div>
+                            {% if params.mastheadLogoStackedArray.logo2.logoURL %}
+                                </a>
+                            {% endif %}
+
+                            {%-if params.mastheadLogoStackedArray.logo3 %}
+                                {% if params.mastheadLogoStackedArray.logo3.logoURL %} 
+                                    <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoStackedArray.logo2.logoURL }}">
+                                {% endif %}
+                                <div class="logo">
+                                {% if params.mastheadLogoStackedArray.logo3.logoImage %}
+                                    {{ params.mastheadLogoStackedArray.logo3.logoImage | safe }}
+                                {% else %}
+                                    {{-
+                                        onsIcon({
+                                            "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                            "altText": 'Office for National Statistics logo'
+                                        })
+                                    -}}
+                                {% endif %}
+                                </div>
+                                {% if params.mastheadLogoStackedArray.logo3.logoURL %}
+                                    </a>
+                                {% endif %}
+                            {% endif-%}
+                        </div>
                         {% endif -%}
                     </div>
                     {% if params.language or params.serviceLinks %}
