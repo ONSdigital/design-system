@@ -7,7 +7,7 @@
 | variants                 | array or string                                   | false                            | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral" and “description” |
 | mastheadLogoUrl          | string                                            | false                            | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                                            |
 | mastheadLogo             | object`<MastheadLogo>`                            | false                            | Settings for a [custom organisation logo](#mastheadlogo) in the masthead. Defaults to the ONS logo.                                   |
-| mastheadLogoStackedArray | array`<MastheadLogoStackedArray>`                 | false                            | Settings for multiple logos in masthead                                                                                               |
+| mastheadLogoStackedArray | object`<MastheadLogoStackedArray>`                | false                            | Settings for multiple logos in masthead                                                                                               |
 | language                 | object`<Language>`                                | false                            | Settings for the [language selector](#language)                                                                                       |
 | serviceLinks             | object`<ServiceLinks>`                            | false                            | Settings for the [service links](#servicelinks) in the masthead                                                                       |
 | title                    | string                                            | true (unless `titleLogo` is set) | The title for the service                                                                                                             |
@@ -28,10 +28,10 @@
 
 ## MastheadLogoStacked
 
-| Name      | Type   | Required | Description                                                                                                    |
-| --------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------- | --- |
-| logoImage | HTML   | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`. If not supplied will default to ONS icon. |
-| logoURL   | String | false    | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                     |     |
+| Name      | Type           | Required | Description                                                                                                    |
+| --------- | -------------- | -------- | -------------------------------------------------------------------------------------------------------------- | --- |
+| logoImage | HTML or string | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`. If not supplied will default to ONS icon. |
+| logoURL   | string         | false    | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                     |     |
 
 ## MastheadLogoStackedArray
 

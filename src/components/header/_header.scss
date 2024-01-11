@@ -178,6 +178,11 @@
     }
   }
 
+  &__org-logo--multi {
+    display: inline-flex;
+    column-gap: 1rem;
+  }
+
   &-service-nav {
     display: inline-block;
 
