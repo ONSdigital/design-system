@@ -2,18 +2,27 @@ export default class Btt {
   constructor(component) {
     this.component = component;
     this.content = document.querySelector('.ons-back-to-top-track') ?? this.component.previousElementSibling;
+    this.target = document.getElementById(this.component.firstElementChild.href.split('#')[1]);
 
     window.addEventListener('scroll', () => {
       this.handleScroll();
     });
+
+    //define resize event
+    
   }
 
   handleScroll() {
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const windowHeight = window.innerHeight;
+    let scrollPosition = window.scrollY + window.innerHeight;
+
+    if (this.target) {
+      scrollPosition = -this.target.getBoundingClientRect().top + window.innerHeight;
+    }
+
     const contentRect = this.content.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
     const contentBottom = contentRect.bottom;
-    const stickyThreshold = document.body.scrollTop + windowHeight * 2;
+    const stickyThreshold = windowHeight * 2;
 
     if (scrollPosition > stickyThreshold && windowHeight < contentBottom) {
       this.setSticky();

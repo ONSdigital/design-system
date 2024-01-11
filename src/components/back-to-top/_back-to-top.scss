@@ -1,11 +1,13 @@
 .ons-back-to-top {
 
   &__enabled {
+    @extend .ons-container;
     background: none;
     padding-bottom: 1em;
+    width: fit-content;
 
     > a {
-      @extend .ons-container;
+      
       padding: 0;
       display: block;
       width: auto;
