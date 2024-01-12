@@ -7,7 +7,7 @@
     {% set fields %}
     {% if params.checkboxesLabel is defined %}
         <p class="ons-checkboxes__label{{ " " + params.checkboxesLabelClasses if params.checkboxesLabelClasses }}">{{ params.checkboxesLabel }}</p>
-    {% endif %}    
+    {% endif %}
         {% set hasOther = false %}
         {% for checkbox in params.checkboxes %}
             {% if checkbox.other %}

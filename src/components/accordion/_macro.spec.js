@@ -57,10 +57,7 @@ describe('macro: accordion', () => {
     it('has provided title text', () => {
       const $ = cheerio.load(renderComponent('accordion', EXAMPLE_ACCORDION_WITH_TWO_ITEMS));
 
-      const titleText = $('.ons-details__title')
-        .first()
-        .text()
-        .trim();
+      const titleText = $('.ons-details__title').first().text().trim();
       expect(titleText).toBe('Title for item 1');
     });
 
@@ -84,10 +81,7 @@ describe('macro: accordion', () => {
     it('has provided content text', () => {
       const $ = cheerio.load(renderComponent('accordion', EXAMPLE_ACCORDION_WITH_TWO_ITEMS));
 
-      const titleText = $('.ons-details__content')
-        .first()
-        .text()
-        .trim();
+      const titleText = $('.ons-details__content').first().text().trim();
       expect(titleText).toBe('Content for item 1');
     });
 

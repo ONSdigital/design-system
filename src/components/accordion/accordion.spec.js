@@ -39,10 +39,11 @@ describe('script: accordion', () => {
       }),
     );
 
-    const openElements = await page.$$eval('.ons-js-details', nodes => nodes.filter(node => node.open));
-    expect(openElements[0]).not.toBe(undefined);
-    expect(openElements[1]).not.toBe(undefined);
-    expect(openElements[2]).not.toBe(undefined);
+    const detailsElementStates = await page.$$eval('.ons-js-details', (nodes) =>
+      nodes.map((node) => node.classList.contains('ons-details--open')),
+    );
+
+    expect(detailsElementStates).toEqual([true, true, true]);
   });
 
   it('sets toggle all button label to "Hide all" when open is specified', async () => {
@@ -54,7 +55,7 @@ describe('script: accordion', () => {
       }),
     );
 
-    const buttonText = await page.$eval('button[data-test-trigger]', element => element.innerText);
+    const buttonText = await page.$eval('button[data-test-trigger]', (element) => element.innerText);
     expect(buttonText.trim()).toBe('Close all');
   });
 
@@ -67,7 +68,7 @@ describe('script: accordion', () => {
       }),
     );
 
-    const ariaExpanded = await page.$eval('button[data-test-trigger]', element => element.getAttribute('aria-expanded'));
+    const ariaExpanded = await page.$eval('button[data-test-trigger]', (element) => element.getAttribute('aria-expanded'));
     expect(ariaExpanded).toBe('true');
   });
 
@@ -76,10 +77,11 @@ describe('script: accordion', () => {
 
     await page.click('button[data-test-trigger]');
 
-    const openElements = await page.$$eval('.ons-js-details', nodes => nodes.filter(node => node.open));
-    expect(openElements[0]).not.toBe(undefined);
-    expect(openElements[1]).not.toBe(undefined);
-    expect(openElements[2]).not.toBe(undefined);
+    const detailsElementStates = await page.$$eval('.ons-js-details', (nodes) =>
+      nodes.map((node) => node.classList.contains('ons-details--open')),
+    );
+
+    expect(detailsElementStates).toEqual([true, true, true]);
   });
 
   it('closes all items when accordion `allbutton` is clicked twice', async () => {
@@ -88,23 +90,24 @@ describe('script: accordion', () => {
     await page.click('button[data-test-trigger]');
     await page.click('button[data-test-trigger]');
 
-    const openElements = await page.$$eval('.ons-js-details', nodes => nodes.filter(node => node.open));
-    expect(openElements[0]).toBe(undefined);
-    expect(openElements[1]).toBe(undefined);
-    expect(openElements[2]).toBe(undefined);
+    const detailsElementStates = await page.$$eval('.ons-js-details', (nodes) =>
+      nodes.map((node) => node.classList.contains('ons-details--open')),
+    );
+
+    expect(detailsElementStates).toEqual([false, false, false]);
   });
 
   it('starts with the toggle all button labelled as "Open all"', async () => {
     await setTestPage('/test', renderComponent('accordion', EXAMPLE_ACCORDION_WITH_ALL_BUTTON));
 
-    const buttonText = await page.$eval('button[data-test-trigger]', element => element.innerText);
+    const buttonText = await page.$eval('button[data-test-trigger]', (element) => element.innerText);
     expect(buttonText.trim()).toBe('Open all');
   });
 
   it('starts with the toggle all button aria-expanded set to false', async () => {
     await setTestPage('/test', renderComponent('accordion', EXAMPLE_ACCORDION_WITH_ALL_BUTTON));
 
-    const ariaExpanded = await page.$eval('button[data-test-trigger]', element => element.getAttribute('aria-expanded'));
+    const ariaExpanded = await page.$eval('button[data-test-trigger]', (element) => element.getAttribute('aria-expanded'));
     expect(ariaExpanded).toBe('false');
   });
 
@@ -113,7 +116,7 @@ describe('script: accordion', () => {
 
     await page.click('button[data-test-trigger]');
 
-    const buttonText = await page.$eval('button[data-test-trigger]', element => element.innerText);
+    const buttonText = await page.$eval('button[data-test-trigger]', (element) => element.innerText);
     expect(buttonText.trim()).toBe('Close all');
   });
 
@@ -122,7 +125,7 @@ describe('script: accordion', () => {
 
     await page.click('button[data-test-trigger]');
 
-    const ariaExpanded = await page.$eval('button[data-test-trigger]', element => element.getAttribute('aria-expanded'));
+    const ariaExpanded = await page.$eval('button[data-test-trigger]', (element) => element.getAttribute('aria-expanded'));
     expect(ariaExpanded).toBe('true');
   });
 
@@ -133,7 +136,7 @@ describe('script: accordion', () => {
     await page.click('#example-accordion-2 .ons-details__heading');
     await page.click('#example-accordion-3 .ons-details__heading');
 
-    const buttonText = await page.$eval('button[data-test-trigger]', element => element.innerText);
+    const buttonText = await page.$eval('button[data-test-trigger]', (element) => element.innerText);
     expect(buttonText.trim()).toBe('Close all');
   });
 });

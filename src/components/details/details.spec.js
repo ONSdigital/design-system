@@ -1,10 +1,26 @@
-import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
+import { renderComponent, renderTemplate, setTestPage } from '../../tests/helpers/rendering';
 
 const EXAMPLE_DETAILS_BASIC = {
   id: 'details-id',
   title: 'Title for details',
   content: 'Content for details',
 };
+
+const EXAMPLE_PAGE = `
+      ${renderComponent('details', {
+        id: 'details-id',
+        title: 'Title for details',
+        content: 'Content for details',
+      })}
+
+      ${renderComponent('details', {
+        id: 'details-id-2',
+        title: 'Title for details',
+        content: 'Content for details',
+      })}
+  `;
+
+const RENDERED_EXAMPLE_PAGE = renderTemplate(EXAMPLE_PAGE);
 
 describe('script: details', () => {
   it('begins open when specified', async () => {
@@ -16,8 +32,8 @@ describe('script: details', () => {
       }),
     );
 
-    const openAttribute = await page.$eval('.ons-js-details', node => node.open !== null);
-    expect(openAttribute).toBe(true);
+    const detailsOpenClass = await page.$eval('.ons-js-details', (node) => node.classList.contains('ons-details--open'));
+    expect(detailsOpenClass).toBe(true);
   });
 
   describe('when the details heading is clicked to open the details', () => {
@@ -26,15 +42,31 @@ describe('script: details', () => {
       await page.click('.ons-js-details-heading');
     });
 
-    it('sets the `open` attribute', async () => {
-      const openAttribute = await page.$eval('.ons-js-details', node => node.open !== null);
-      expect(openAttribute).toBe(true);
+    it('sets the `open` attribute and adds the correct class', async () => {
+      const detailsOpenClass = await page.$eval('.ons-js-details', (node) => node.classList.contains('ons-details--open'));
+
+      expect(detailsOpenClass).toBe(true);
     });
 
     it('sets the `ga` attributes', async () => {
-      const gaHeadingAttribute = await page.$eval('.ons-js-details-heading', element => element.getAttribute('data-ga-action'));
+      const gaHeadingAttribute = await page.$eval('.ons-js-details-heading', (element) => element.getAttribute('data-ga-action'));
 
       expect(gaHeadingAttribute).toBe('Open panel');
+    });
+  });
+
+  describe('when there is more than one details component and a details heading is clicked to open the details', () => {
+    beforeEach(async () => {
+      await setTestPage('/test', RENDERED_EXAMPLE_PAGE);
+      await page.click('#details-id > .ons-js-details-heading');
+    });
+
+    it('sets the `open` attribute and open class on the right component', async () => {
+      const detailsOpenClass = await page.$eval('#details-id', (node) => node.classList.contains('ons-details--open'));
+      const detailsOpenClass2 = await page.$eval('#details-id-2', (node) => node.classList.contains('ons-details--open'));
+
+      expect(detailsOpenClass).toBe(true);
+      expect(detailsOpenClass2).toBe(false);
     });
   });
 
@@ -50,8 +82,8 @@ describe('script: details', () => {
       });
 
       it('opens the details content', async () => {
-        const openAttribute = await page.$eval('.ons-js-details', node => node.open !== null);
-        expect(openAttribute).toBe(true);
+        const detailsOpenClass = await page.$eval('.ons-js-details', (node) => node.classList.contains('ons-details--open'));
+        expect(detailsOpenClass).toBe(true);
       });
     });
 
@@ -61,8 +93,8 @@ describe('script: details', () => {
       });
 
       it('opens the details content', async () => {
-        const openAttribute = await page.$eval('.ons-js-details', node => node.open !== null);
-        expect(openAttribute).toBe(true);
+        const detailsOpenClass = await page.$eval('.ons-js-details', (node) => node.classList.contains('ons-details--open'));
+        expect(detailsOpenClass).toBe(true);
       });
     });
   });
