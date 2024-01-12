@@ -144,7 +144,7 @@ export class TemplateFakerContext {
       return output;
     }
 
-    const renderedSpies = matchedSpies.map(entry => entry.split(','));
+    const renderedSpies = matchedSpies.map((entry) => entry.split(','));
     for (let key of Object.keys(this._spiedOutputs)) {
       const spiedComponent = this._spiedOutputs[key];
 
@@ -153,7 +153,7 @@ export class TemplateFakerContext {
 
       // Nullify occurrences that were not in the rendered output.
       spiedComponent.occurrences = spiedComponent.occurrences.map((occurrence, i) => {
-        const wasRendered = !!renderedSpies.find(entry => entry[0] === key && parseInt(entry[1]) === i);
+        const wasRendered = !!renderedSpies.find((entry) => entry[0] === key && parseInt(entry[1]) === i);
         return wasRendered ? occurrence : undefined;
       });
     }
@@ -166,13 +166,13 @@ export async function gotoTestPath(path) {
   return await page.goto(`http://localhost:${process.env.TEST_PORT}${path}`);
 }
 
-export async function setTestPage(path, template) {
+export async function setTestPage(path, template, blockName = 'body') {
   const response = await gotoTestPath(path);
 
   verifyConsoleSubscription(page);
 
   const compositedTemplate = `
-    {% block body %}
+    {% block ${blockName} %}
       ${template}
     {% endblock %}
   `;

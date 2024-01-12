@@ -14,12 +14,12 @@
     z-index: 1;
 
     &:focus {
-      // Overide default input focus so it can wrap prefix/suffix too
+      // Override default input focus so it can wrap prefix/suffix too
       box-shadow: none;
       outline: none;
     }
 
-    // Overide default input error style so it can wrap prefix/suffix too
+    // Override default input error style so it can wrap prefix/suffix too
     &.ons-input--error:not(:focus) {
       border-right: $input-border-width solid var(--ons-color-input-border);
       box-shadow: none;

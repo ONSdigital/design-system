@@ -84,28 +84,28 @@
         <span class="ons-btn__inner{% if params.innerClasses %} {{ params.innerClasses }}{% endif %}">
             {%- if iconPosition == "before" or iconPosition == "after" %}
                 {%- if iconPosition == "before" %}
-                    {{
+                    {{-
                         onsIcon({
                             "iconType": iconType,
                             "classes": 'ons-u-mr-xs'
                         })
-                    }}
+                    -}}
                 {% endif -%}
                 <span class="ons-btn__text">{{- params.html | safe if params.html else params.text -}}</span>
                 {%- if iconPosition == "after" %}
-                {{
+                {{-
                     onsIcon({
                         "iconType": iconType,
                         "classes": 'ons-u-ml-xs'
                     })
-                }}
+                -}}
                 {% endif -%}
             {% elif iconPosition == "only" -%}
-                {{
+                {{-
                     onsIcon({
                         "iconType": iconType
                     })
-                }}
+                -}}
                 <span class="ons-btn__text ons-u-vh@xxs@s">{{- params.html | safe if params.html else params.text -}}</span>
             {% else -%}
                 <span class="ons-btn__text">{{- params.html | safe if params.html else params.text -}}</span>

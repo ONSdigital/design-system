@@ -95,7 +95,6 @@
             {% endif %}
 
             {% if pageConfig.social %}
-
                 {% set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else 
                     assetsURL + '/favicons/twitter.png' %}
                 <!-- Twitter -->
@@ -138,29 +137,29 @@
                     {% endblock %}
                     {% block header %}
                         {{
-                        onsHeader({
-                            "wide": pageConfig.wide,
-                            "fullWidth": pageConfig.fullWidth,
-                            "language": pageConfig.header.language,
-                            "button": pageConfig.header.signoutButton,
-                            "toggleNavigationButton": pageConfig.header.toggleNavigationButton,
-                            "navigation": pageConfig.header.navigation,
-                            "siteSearchAutosuggest": pageConfig.header.siteSearchAutosuggest,
-                            "browserBanner": pageConfig.header.browserBanner,
-                            "phase": pageConfig.header.phase,
-                            "assetsURL": assetsURL,
-                            "serviceLinks": pageConfig.header.serviceLinks,
-                            "variants": pageConfig.header.variants,
-                            "classes": pageConfig.header.classes,
-                            "mastheadLogo": pageConfig.header.mastheadLogo,
-                            "mastheadLogoUrl": pageConfig.header.mastheadLogoUrl,
-                            "titleUrl": pageConfig.header.titleUrl,
-                            "title": pageConfig.header.title | default(pageConfig.title),
-                            "description": pageConfig.header.description,
-                            "titleAsH1": pageConfig.header.titleAsH1,
-                            "titleLogo": pageConfig.header.titleLogo
-                        })
-                    }}
+                            onsHeader({
+                                "wide": pageConfig.wide,
+                                "fullWidth": pageConfig.fullWidth,
+                                "language": pageConfig.header.language,
+                                "button": pageConfig.header.signoutButton,
+                                "toggleNavigationButton": pageConfig.header.toggleNavigationButton,
+                                "navigation": pageConfig.header.navigation,
+                                "siteSearchAutosuggest": pageConfig.header.siteSearchAutosuggest,
+                                "browserBanner": pageConfig.header.browserBanner,
+                                "phase": pageConfig.header.phase,
+                                "assetsURL": assetsURL,
+                                "serviceLinks": pageConfig.header.serviceLinks,
+                                "variants": pageConfig.header.variants,
+                                "classes": pageConfig.header.classes,
+                                "mastheadLogo": pageConfig.header.mastheadLogo,
+                                "mastheadLogoUrl": pageConfig.header.mastheadLogoUrl,
+                                "titleUrl": pageConfig.header.titleUrl,
+                                "title": pageConfig.header.title | default(pageConfig.title),
+                                "description": pageConfig.header.description,
+                                "titleAsH1": pageConfig.header.titleAsH1,
+                                "titleLogo": pageConfig.header.titleLogo
+                            })
+                        }}
                     {% endblock %}
                     {% block pageContent %}
                         <div class="ons-page__container ons-container{{ containerClasses }}">
@@ -168,12 +167,12 @@
                                 {% if pageConfig.breadcrumbs %}
                                     {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
                                     {{
-                                    onsBreadcrumbs({
-                                        "id": pageConfig.breadcrumbs.id,
-                                        "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
-                                        "itemsList": pageConfig.breadcrumbs.itemsList
-                                    })
-                                }}
+                                        onsBreadcrumbs({
+                                            "id": pageConfig.breadcrumbs.id,
+                                            "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
+                                            "itemsList": pageConfig.breadcrumbs.itemsList
+                                        })
+                                    }}
                                 {% endif %}
                             {% endblock %}
                             <div class="ons-grid">

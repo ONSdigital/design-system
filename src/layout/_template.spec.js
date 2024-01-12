@@ -18,7 +18,6 @@ const FULL_EXAMPLE = `
                 "lang": "en-US",
                 "url": "/some-url-us"
             }
-
         ]
     },
     "social": {
@@ -292,14 +291,11 @@ const FULL_EXAMPLE = `
         "OGLLink": true
     }
 } %}
-{% set form = {
-    "classes": "form-class",
-    "method": "POST",
-    "attributes": {
-        "autocomplete": "off",
-        "novalidate": "null"
-    }
-} %}
+
+{% block bodyStart %}
+    <form class="form-class" method="POST" autocomplete="off" novalidate>
+{% endblock %}
+
 {% block main %}
     <h1>Page Title</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -307,11 +303,13 @@ const FULL_EXAMPLE = `
     <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 {% endblock %}
 
+{% block bodyEnd %}
+    </form>
+{% endblock %}
+
 {% block head %}Some head content{% endblock %}
-{% block bodyStart %}Some bodyStart content{% endblock %}
 {% block preHeader %}Some preHeader content{% endblock %}
 {% block preFooter %}Some preFooter content{% endblock %}
-{% block bodyEnd %}Some bodyEnd content{% endblock %}
 {% block scripts %}<script src="random-script.js"></script>{% endblock %}
 `;
 

@@ -12,7 +12,7 @@
         {% set currentLanguageISOCode = currentLanguage.ISOCode %}
     {% endif %}
 
-    <header class="ons-header {% if params.classes %} {{ params.classes }}{% endif %}{% if params.variants is not string %}{% for variant in params.variants %} ons-header--{{ variant }}{% endfor %}{% else %} ons-header--{{ params.variants }}{% endif %}" role="banner">
+    <header class="ons-header{% if params.classes %} {{ params.classes }}{% endif %}{% if params.variants is not string %}{% for variant in params.variants %} ons-header--{{ variant }}{% endfor %}{% else %} ons-header--{{ params.variants }}{% endif %}" role="banner">
         {{
             onsBrowserBanner({
                 "lang": currentLanguageISOCode,
@@ -41,12 +41,12 @@
                             {% if params.mastheadLogo.large %}
                                 {{ params.mastheadLogo.large | safe }}
                             {% else %}
-                                {{
+                                {{-
                                     onsIcon({
                                         "iconType": 'ons-logo-' + currentLanguageISOCode,
                                         "altText": 'Office for National Statistics logo'
                                     })
-                                }}
+                                -}}
                             {% endif %}
                         </div>
                         <div class="ons-header__org-logo ons-header__org-logo--small">
@@ -55,12 +55,12 @@
                             {% elif params.mastheadLogo.large %}
                                 {{ params.mastheadLogo.large | safe }}
                             {% else %}
-                                {{
+                                {{-
                                     onsIcon({
                                         "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
                                         "altText": 'Office for National Statistics logo'
                                     })
-                                }}
+                                -}}
                             {% endif %}
                         </div>
                         {% if params.mastheadLogoUrl %}
@@ -91,11 +91,11 @@
                                             {% for item in params.serviceLinks.itemsList %}
                                                 <li class="ons-header-service-nav__item">
                                                 {% if item.iconType %}
-                                                    {{
+                                                    {{-
                                                         onsIcon({
                                                             "iconType": item.iconType
                                                         })
-                                                    }}
+                                                    -}}
                                                 {% endif %}
                                                 {% if item.url %}
                                                     <a
@@ -141,22 +141,22 @@
                     <ul class="ons-header-service-nav__list">
                         {% for item in params.serviceLinks.itemsList %}
                             <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
-                            {% if item.iconType %}
-                                {{
-                                    onsIcon({
-                                        "iconType": item.iconType
-                                    })
-                                }}
-                            {% endif %}
-                            {% if item.url %}
-                                <a
-                                    href="{{ item.url }}"
-                                    class="ons-header-service-nav__link"
-                                    {% if item.id %} id="{{ item.id }}"{% endif %}
-                                >{% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}</a>
-                            {% else %}
-                                {% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}
-                            {% endif %}
+                                {% if item.iconType %}
+                                    {{-
+                                        onsIcon({
+                                            "iconType": item.iconType
+                                        })
+                                    -}}
+                                {% endif %}
+                                {% if item.url %}
+                                    <a
+                                        href="{{ item.url }}"
+                                        class="ons-header-service-nav__link"
+                                        {% if item.id %} id="{{ item.id }}"{% endif %}
+                                    >{% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}</a>
+                                {% else %}
+                                    {% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}
+                                {% endif %}
                             </li>
                         {% endfor %}
                     </ul>
