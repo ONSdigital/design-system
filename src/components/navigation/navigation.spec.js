@@ -86,7 +86,7 @@ const EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION = {
   },
 };
 
-const EXAMPLE_NAVIGATION_WITH_HIDDEN_SUBNAVIGATION = {
+const EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION_REMOVED = {
   navigation: {
     id: 'main-nav',
     ariaLabel: 'Main menu',
@@ -112,7 +112,7 @@ const EXAMPLE_NAVIGATION_WITH_HIDDEN_SUBNAVIGATION = {
       overviewText: 'Overview',
       ariaLabel: 'Section menu',
       currentPath: '#1',
-      hideDisplay: true,
+      hideHorizontalSubNav: true,
       itemsList: [
         {
           title: 'Sub nav item 1',
@@ -291,18 +291,13 @@ describe('script: navigation', () => {
   );
 });
 
-describe.each([['sub', EXAMPLE_NAVIGATION_WITH_HIDDEN_SUBNAVIGATION, '.ons-navigation--sub']])(
+describe.each([['sub', EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION_REMOVED, '.ons-navigation--sub']])(
   'level: %s navigation',
-  (_, params, navEl) => {
-    describe('when hideDisplay is set to true', () => {
-      beforeEach(async () => {
-        await setTestPage('/test', renderComponent('header', params));
-      });
-
-      it('does not render the sub-nav element', async () => {
-        const hasSubNavEl = (await page.content()).includes(navEl);
-        expect(hasSubNavEl).toBe(false);
-      });
+  (_, params) => {
+    it('removes the sub-nav element when hideHorizontalSubNav is set to true', async () => {
+      await setTestPage('/test', renderComponent('header', params));
+      const hasSubNavEl = (await page.content()).includes('.ons-navigation--sub');
+      expect(hasSubNavEl).toBe(false);
     });
   },
 );
