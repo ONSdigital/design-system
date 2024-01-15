@@ -32,9 +32,9 @@
         {% endif %}
         <div class="ons-header__top">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
-                <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center {% if params.mastheadLogo.classes %} {{ params.mastheadLogo.classes }}{% elseif params.mastheadLogoStackedArray.classes %} {{ params.mastheadLogoStackedArray.classes }}{% endif %} {% if not params.mastheadLogoStackedArray %} ons-grid--no-wrap {% endif%}">
+                <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center {% if params.mastheadLogo.classes %} {{ params.mastheadLogo.classes }}{% elseif params.mastheadLogoMulti.classes %} {{ params.mastheadLogoMulti.classes }}{% endif %} {% if not params.mastheadLogoMulti %} ons-grid--no-wrap {% endif%}">
                     <div class="ons-grid__col ons-col-auto">
-                        {%- if not params.mastheadLogoStackedArray  %}
+                        {%- if not params.mastheadLogoMulti  %}
                             {%-if params.mastheadLogoUrl %}
                                 <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoUrl }}">
                             {% endif -%}
@@ -72,7 +72,7 @@
 
                     <div class="ons-header__org-logo ons-header__org-logo--multi">
 
-                     {% set logos = [params.mastheadLogoStackedArray.logo1, params.mastheadLogoStackedArray.logo2, params.mastheadLogoStackedArray.logo3] %}
+                     {% set logos = [params.mastheadLogoMulti.logo1, params.mastheadLogoMulti.logo2, params.mastheadLogoMulti.logo3] %}
 
                         {% for logo in logos %}
 
