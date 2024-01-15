@@ -1,58 +1,62 @@
-<div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap
-    {% if params.mastheadLogoClasses %}
-        {{ params.mastheadLogoClasses }}
-    {% endif %}">
+<div class="ons-header__org-logo ons-header__org-logo--multi">
+    {% if params.mastheadLogoStackedArray.logo1.logoURL %} 
+        <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoStackedArray.logo1.logoURL }}">
+    {% endif %}
 
-    <div class="ons-grid__col ons-col-auto">
+    {% if params.mastheadLogoStackedArray.logo1.logoImage != "ONS Logo" %}
+        {{ params.mastheadLogoStackedArray.logo1.logoImage | safe }}
+    {% else %}
+    <script>console.log('{{params.mastheadLogoStackedArray.logo1.logoImage}}')</script>
 
-        {%- if params.mastheadLogoStacked %}
+        {{-
+            onsIcon({
+                "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                "altText": 'Office for National Statistics logo'
+            })
+        -}}
+    {% endif %}
+    
+    {% if params.mastheadLogoStackedArray.logo1.logoURL %}
+        </a>
+    {% endif %}
 
-        {# If want an alternative approach could also limit to 3 via code here - then technically no matter how many are passed in only three could be used - but currently this is done in macro-options #}
+    {% if params.mastheadLogoStackedArray.logo2.logoURL  %} 
+        <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoStackedArray.logo2.logoURL }}">
+    {% endif %}
 
-            {%- for logo in params.mastheadLogoStackedArray %}
-                <a class="ons-header__org-logo-link" href="{{ logo.url }}">
-                <div class="ons-header__org-logo ons-header__org-logo--small">
+    {% if params.mastheadLogoStackedArray.logo2.logoImage != "ONS Logo" %}
+        {{ params.mastheadLogoStackedArray.logo2.logoImage | safe }}
+    {% else %}
+        {{-
+            onsIcon({
+                "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                "altText": 'Office for National Statistics logo'
+            })
+        -}}
+    {% endif %}
+    
+    {% if params.mastheadLogoStackedArray.logo2.logoURL %}
+        </a>
+    {% endif %}
 
-                    {# do we only want to show small for stacked logos? also should there not be alt text for all of these?#}
+    {%-if params.mastheadLogoStackedArray.logo3 %}
+        {% if params.mastheadLogoStackedArray.logo3.logoURL %} 
+            <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoStackedArray.logo3.logoURL }}">
+        {% endif %}
+        {% if params.mastheadLogoStackedArray.logo3.logoImage != "ONS Logo" %}
+            {{ params.mastheadLogoStackedArray.logo3.logoImage | safe }}
+        {% else %}
+            {{-
+                onsIcon({
+                    "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                    "altText": 'Office for National Statistics logo'
+                })
+            -}}
+        {% endif %}
 
-                    {% if logo.small %}
-                        {{ logo.small | safe }}
-                    {# {% elif logo.large %}
-                        {{ logo.large | safe }} #}
-                    {% else %}
 
-                    {# not sure about this #}
-                        {{-
-                            onsIcon({
-                                "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
-                                "altText": 'Office for National Statistics logo'
-                            })
-                        -}}
-                    {% endif %}
-                </div>
-                </a>
-            {% endfor -%}
-
-        {%- elseif params.mastheadLogoSingle -%}
-            <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoSingle.url }}">
-                <div class="ons-header__org-logo ons-header__org-logo--small">
-                    {% if params.mastheadLogoSingle.small %}
-                        {{ params.mastheadLogoSingle.small | safe }}
-                    {% elif params.mastheadLogoSingle.large %}
-                        {{ params.mastheadLogoSingle.large | safe }}
-                    {% else %}
-
-                    {# not sure about this bit - it's not stacked? #}
-                        {{-
-                            onsIcon({
-                                "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
-                                "altText": 'Office for National Statistics logo'
-                            })
-                        -}}
-                    {% endif %}
-                </div>
-                </a>
-        {% endif -%}
-
-    </div>
+        {% if params.mastheadLogoStackedArray.logo3.logoURL %}
+            </a>
+        {% endif %}
+    {% endif-%}
 </div>
