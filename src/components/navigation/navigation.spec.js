@@ -291,13 +291,17 @@ describe('script: navigation', () => {
   );
 });
 
-describe.each([['sub', EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION_REMOVED, '.ons-navigation--sub']])(
-  'level: %s navigation',
-  (_, params) => {
-    it('removes the sub-nav element when hideHorizontalSubNav is set to true', async () => {
-      await setTestPage('/test', renderComponent('header', params));
+describe.each([['sub']])('level: %s navigation', () => {
+  describe('when hideHorizontalSubNav is set to true', () => {
+    beforeEach(async () => {
+      await setTestPage('/test', renderComponent('header', EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION_REMOVED));
+    });
+
+    it('does not render the sub-nav element', async () => {
       const hasSubNavEl = (await page.content()).includes('.ons-navigation--sub');
       expect(hasSubNavEl).toBe(false);
     });
-  },
-);
+  });
+});
+
+
