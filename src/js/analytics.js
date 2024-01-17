@@ -1,7 +1,3 @@
-export let trackEvent = (data) => {
-  console.log(data); // eslint-disable-line no-console
-};
-
 setTimeout(() => {
   if (typeof window.google_tag_manager !== 'undefined') {
     window.dataLayer = window.dataLayer || [];
