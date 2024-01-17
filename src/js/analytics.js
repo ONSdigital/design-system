@@ -4,16 +4,17 @@ export let trackEvent = (data) => {
   console.log('analitycs script connected'); // eslint-disable-line no-console
 };
 console.log('connected');
-setTimeout(() => {
-  if (typeof window.google_tag_manager !== 'undefined') {
-    console.log('GTM active');
-    window.dataLayer = window.dataLayer || [];
-    trackEvent = (data) => {
-      console.log('Data sent to Data Layer');
-      window.dataLayer.push({ data });
-    };
-  }
-}, 300);
+// setTimeout(() => {
+//   if (typeof window.google_tag_manager !== 'undefined') {
+console.log('GTM active');
+window.dataLayer = window.dataLayer || [];
+trackEvent = (data) => {
+  console.log('Data sent to Data Layer');
+  console.log(data);
+  window.dataLayer.push({ data });
+};
+//   }
+// }, 300);
 
 export const trackElement = (el, type) => {
   return trackEvent({
@@ -29,7 +30,7 @@ export default function initAnalytics() {
 
   const interval = window.setInterval(() => {
     trackVisibleElements = trackVisibleElements.filter((element) => {
-      return element ? trackElement(element) && false : true;
+      return element ? trackElement(element, 'visible') && false : true;
     });
     if (trackVisibleElements.length === 0) {
       window.clearInterval(interval);
@@ -37,10 +38,11 @@ export default function initAnalytics() {
   }, 200);
 
   document.body.addEventListener('click', ({ target }) => {
-    if (target.getAttribute('data-ga')) {
+    if (target.getAttribute('data-ga') === 'click') {
       trackElement(target, target.getAttribute('data-ga'));
     }
   });
+  [...document.querySelectorAll('[data-ga=error]')].map((element) => trackElement(element, 'error'));
 
   const afterPrint = () => {
     return trackEvent({
