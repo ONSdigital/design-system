@@ -4,8 +4,10 @@ export let trackEvent = (data) => {
 
 setTimeout(() => {
   if (typeof window.google_tag_manager !== 'undefined') {
+    console.log('GTM active');
     window.dataLayer = window.dataLayer || [];
     trackEvent = (data) => {
+      console.log('Data sent to Data Layer');
       window.dataLayer.push({ data });
     };
   }
