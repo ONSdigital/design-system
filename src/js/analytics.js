@@ -1,3 +1,7 @@
+export let trackEvent = (data) => {
+  console.log('analitycs script connected'); // eslint-disable-line no-console
+};
+
 setTimeout(() => {
   if (typeof window.google_tag_manager !== 'undefined') {
     window.dataLayer = window.dataLayer || [];
