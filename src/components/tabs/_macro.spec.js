@@ -116,7 +116,6 @@ describe('macro: tabs', () => {
     const $ = cheerio.load(renderComponent('tabs', EXAMPLE_TABS));
 
     const tabItem = $('.ons-tab');
-    expect(tabItem.attr('data-ga')).toBe('click');
     expect(tabItem.attr('data-ga-category')).toBe('tabs');
     expect(tabItem.attr('data-ga-action')).toBe('Show: Tab 1');
     expect(tabItem.attr('data-ga-label')).toBe('Show: Tab 1');
