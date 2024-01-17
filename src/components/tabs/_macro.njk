@@ -2,9 +2,9 @@
     {% set classes = 'ons-tabs' %}
 
     {% set variantClasses %}
-        {% for variant in params.variants %}
-            {% set classes = classes ~ ' ons-tabs--' ~ variant %}
-        {% endfor %}
+    {% for variant in params.variants %}
+        {% set classes = classes ~ ' ons-tabs--' ~ variant %}
+    {% endfor %}
     {% endset %}
 
     <section class="{{ classes }}"
@@ -15,13 +15,20 @@
         <div>
             <ul class="ons-tabs__list">
                 {%- for tab in params.tabs -%}
-                    <li class="ons-tab__list-item"><a href="#{{ tab.id if tab.id else tab.title|trim|replace(' ','-')|lower}}" class="ons-tab" data-ga="click" data-ga-category="tabs" data-ga-action="Show: {{ tab.title }}" data-ga-label="Show: {{ tab.title }}">{{ tab.title }}{% if tab.hiddenSpan %}<span class='ons-u-vh'>{{tab.hiddenSpan}}</span>{% endif %}</a></li>
+                    <li class="ons-tab__list-item">
+                        <a href="#{{ tab.id if tab.id else tab.title|trim|replace(' ','-')|lower}}" class="ons-tab" data-ga-category="tabs" data-ga-action="Show: {{ tab.title }}" data-ga-label="Show: {{ tab.title }}" {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}>{{ tab.title }}
+                            {% if tab.hiddenSpan %}
+                                <span class='ons-u-vh'>{{tab.hiddenSpan}}</span>{% endif %}
+                        </a>
+                    </li>
                 {%- endfor -%}
             </ul>
         </div>
         {% for tab in params.tabs %}
             <section id="{{ tab.id if tab.id else tab.title|trim|replace(' ','-')|lower }}" class="ons-tabs__panel">
-                {% if tab.showTitle %}<h2 id="{{ tab.title|trim|replace(' ','-')|lower + '-content-title' }}" class="ons-u-vh">{{ tab.title }}</h2>{% endif %}
+                {% if tab.showTitle %}
+                    <h2 id="{{ tab.title|trim|replace(' ','-')|lower + '-content-title' }}" class="ons-u-vh">{{ tab.title }}</h2>
+                {% endif %}
                 {{ tab.content | safe }}
             </section>
         {% endfor %}

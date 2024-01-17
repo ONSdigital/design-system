@@ -1,18 +1,19 @@
-import domready from './domready';
-
-export let trackEvent = (event, data) => {
-  console.log(`[Analytics disabled] Event: ${event}`); // eslint-disable-line no-console
+export let trackEvent = (data) => {
   console.log(data); // eslint-disable-line no-console
 };
 
-if (typeof window.gtag !== 'undefined') {
-  trackEvent = (evt, data) => {
-    window.gtag('event', evt, data);
-  };
-}
+setTimeout(() => {
+  if (typeof window.google_tag_manager !== 'undefined') {
+    window.dataLayer = window.dataLayer || [];
+    trackEvent = (data) => {
+      window.dataLayer.push({ data });
+    };
+  }
+}, 300);
 
 export const trackElement = (el) => {
-  return trackEvent('send', {
+  return trackEvent({
+    event_tracked: 'true',
     event_category: el.getAttribute('data-ga-category') || '',
     event_action: el.getAttribute('data-ga-action') || '',
     event_label: el.getAttribute('data-ga-label') || '',
@@ -20,27 +21,15 @@ export const trackElement = (el) => {
 };
 
 export default function initAnalytics() {
-  let trackVisibleElements = [...document.querySelectorAll('[data-ga=visible]')];
-
-  const interval = window.setInterval(() => {
-    trackVisibleElements = trackVisibleElements.filter((element) => {
-      return element ? trackElement(element) && false : true;
-    });
-    if (trackVisibleElements.length === 0) {
-      window.clearInterval(interval);
-    }
-  }, 200);
-
-  [...document.querySelectorAll('[data-ga=error]')].map(trackElement);
-
   document.body.addEventListener('click', ({ target }) => {
-    if (target.getAttribute('data-ga') === 'click') {
+    if (target.getAttribute('data-ga')) {
       trackElement(target);
     }
   });
 
   const afterPrint = () => {
-    return trackEvent('send', {
+    return trackEvent({
+      event_tracked: 'true',
       event_category: 'Print Intent',
       event_action: 'Print Intent',
       event_label: window.location.pathname.split('/').slice(-3).join('/'),
@@ -57,5 +46,3 @@ export default function initAnalytics() {
   }
   window.onafterprint = afterPrint;
 }
-
-domready(initAnalytics);
