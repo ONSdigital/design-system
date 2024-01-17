@@ -15,9 +15,9 @@ setTimeout(() => {
   }
 }, 300);
 
-export const trackElement = (el) => {
+export const trackElement = (el, type) => {
   return trackEvent({
-    event_tracked: 'true',
+    event_type: type,
     event_category: el.getAttribute('data-ga-category') || '',
     event_action: el.getAttribute('data-ga-action') || '',
     event_label: el.getAttribute('data-ga-label') || '',
@@ -25,9 +25,20 @@ export const trackElement = (el) => {
 };
 
 export default function initAnalytics() {
+  let trackVisibleElements = [...document.querySelectorAll('[data-ga=visible]')];
+
+  const interval = window.setInterval(() => {
+    trackVisibleElements = trackVisibleElements.filter((element) => {
+      return element ? trackElement(element) && false : true;
+    });
+    if (trackVisibleElements.length === 0) {
+      window.clearInterval(interval);
+    }
+  }, 200);
+
   document.body.addEventListener('click', ({ target }) => {
     if (target.getAttribute('data-ga')) {
-      trackElement(target);
+      trackElement(target, target.getAttribute('data-ga'));
     }
   });
 
