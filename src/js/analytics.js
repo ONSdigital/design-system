@@ -4,17 +4,16 @@ export let trackEvent = (data) => {
   console.log('analitycs script connected'); // eslint-disable-line no-console
 };
 console.log('connected');
-// setTimeout(() => {
-//   if (typeof window.google_tag_manager !== 'undefined') {
-console.log('GTM active');
-window.dataLayer = window.dataLayer || [];
-trackEvent = (data) => {
-  console.log('Data sent to Data Layer');
-  console.log(data);
-  window.dataLayer.push({ data });
-};
-//   }
-// }, 300);
+setTimeout(() => {
+  if (typeof window.google_tag_manager !== 'undefined') {
+    console.log('GTM active');
+    window.dataLayer = window.dataLayer || [];
+    trackEvent = (data) => {
+      console.log('Data sent to Data Layer');
+      window.dataLayer.push({ data });
+    };
+  }
+}, 300);
 
 export const trackElement = (el, type) => {
   return trackEvent({
