@@ -16,7 +16,7 @@
             <ul class="ons-tabs__list">
                 {%- for tab in params.tabs -%}
                     <li class="ons-tab__list-item">
-                        <a href="#{{ tab.id if tab.id else tab.title|trim|replace(' ','-')|lower}}" class="ons-tab" data-ga-category="tabs" data-ga-action="Show: {{ tab.title }}" data-ga-label="Show: {{ tab.title }}" {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}>{{ tab.title }}
+                        <a href="#{{ tab.id if tab.id else tab.title|trim|replace(' ','-')|lower}}" class="ons-tab" data-ga-category="tabs" data-ga-action="Show: {{ tab.title }}" data-ga-label="Show: {{ tab.title }}" {% if tab.attributes %}{% for attribute, value in (tab.attributes.items() if tab.attributes is mapping and tab.attributes.items else tab.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}>{{ tab.title }}
                             {% if tab.hiddenSpan %}
                                 <span class='ons-u-vh'>{{tab.hiddenSpan}}</span>{% endif %}
                         </a>

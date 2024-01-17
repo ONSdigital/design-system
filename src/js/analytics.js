@@ -1,7 +1,9 @@
+import domready from './domready';
+
 export let trackEvent = (data) => {
   console.log('analitycs script connected'); // eslint-disable-line no-console
 };
-
+console.log('connected');
 setTimeout(() => {
   if (typeof window.google_tag_manager !== 'undefined') {
     console.log('GTM active');
@@ -48,3 +50,5 @@ export default function initAnalytics() {
   }
   window.onafterprint = afterPrint;
 }
+
+domready(initAnalytics);
