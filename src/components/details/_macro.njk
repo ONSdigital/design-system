@@ -19,7 +19,7 @@
                     onsIcon({
                         "iconType": "chevron"
                     })
-                    -}}</span>
+                -}}</span>
         </div>
         <div id="{{ params.id }}-content" class="ons-details__content ons-js-details-content"
             {% if params.contentAttributes %}{% for attribute, value in (params.contentAttributes.items() if params.contentAttributes is mapping and params.contentAttributes.items else params.contentAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
