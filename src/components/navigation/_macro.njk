@@ -58,7 +58,7 @@
         </div>
     </div>
     {% if params.navigation.subNavigation %}
-        {% if not params.navigation.subNavigation.hideHorizontalSubNav %}
+        {% if not params.navigation.subNavigation.removeHorizontalSubNav %}
             <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes }}" id="{{ params.navigation.subNavigation.id }}" aria-label="{{ params.navigation.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
                 <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}">
                     <ul class="ons-navigation__list ons-navigation__list">

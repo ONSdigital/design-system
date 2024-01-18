@@ -112,7 +112,7 @@ const EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION_REMOVED = {
       overviewText: 'Overview',
       ariaLabel: 'Section menu',
       currentPath: '#1',
-      hideHorizontalSubNav: true,
+      removeHorizontalSubNav: true,
       itemsList: [
         {
           title: 'Sub nav item 1',
@@ -292,7 +292,7 @@ describe('script: navigation', () => {
 });
 
 describe('level: sub navigation', () => {
-  describe('when hideHorizontalSubNav is set to true', () => {
+  describe('when removeHorizontalSubNav is set to true', () => {
     beforeEach(async () => {
       await setTestPage('/test', renderComponent('header', EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION_REMOVED));
     });
