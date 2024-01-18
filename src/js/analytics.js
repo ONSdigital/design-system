@@ -1,19 +1,16 @@
 import domready from './domready';
 
-export let trackEvent = (data) => {
-  console.log('analitycs script connected'); // eslint-disable-line no-console
+export let trackEvent = () => {
+  console.log('Google analytics not connected'); // eslint-disable-line no-console
 };
-console.log('connected');
-setTimeout(() => {
-  if (typeof window.google_tag_manager !== 'undefined') {
-    console.log('GTM active');
-    window.dataLayer = window.dataLayer || [];
-    trackEvent = (data) => {
-      console.log('Data sent to Data Layer');
-      window.dataLayer.push({ data });
-    };
-  }
-}, 300);
+if (window.google_tag_manager !== 'undefined') {
+  console.log('GTM active');
+  window.dataLayer = window.dataLayer || [];
+  trackEvent = (data) => {
+    console.log('Data sent to Data Layer');
+    window.dataLayer.push({ data });
+  };
+}
 
 export const trackElement = (el, type) => {
   return trackEvent({
