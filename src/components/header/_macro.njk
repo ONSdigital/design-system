@@ -69,38 +69,86 @@
                             {% endif %}
                         
                     {% else %}
-
-                    <div class="ons-header__org-logo ons-header__org-logo--multi">
-
-                     {% set logos = [params.mastheadLogoMulti.logo1, params.mastheadLogoMulti.logo2, params.mastheadLogoMulti.logo3] %}
-
+                        {% set logos = [params.mastheadLogoMulti.logo1, params.mastheadLogoMulti.logo2, params.mastheadLogoMulti.logo3] %}
+                        {% set singleLogo = null %}
+                        
                         {% for logo in logos %}
-
-                            {% if logo.logoURL %} 
-                                <a class="ons-header__org-logo-link" href="{{ logo.logoURL }}">
+                            {% if logo.logoImageLarge %}
+                                {% set singleLogo = logo %}
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if singleLogo %}
+                        
+                            {% if singleLogo.logoURL %} 
+                                <a class="ons-header__org-logo-link" href="{{ singleLogo.logoURL }}">
                             {% endif %}
                         
-                            {% if logo.logoImage != "ONS Logo" %}    
-                            {{ logo.logoImage | safe }}
-                            {% else %}
-                                {{-
-                                    onsIcon({
-                                    "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
-                                    "altText": 'Office for National Statistics logo'
-                                    })
-                                -}}
-                            {% endif %}
-                            
-                            {% if logo.logoURL %}
+                            <div class="ons-header__org-logo {% if singleLogo.logoImage %} ons-header__org-logo--large {% endif %}">
+                                {% if singleLogo.logoImageLarge != "ONS Logo" %}    
+                                    {{ singleLogo.logoImageLarge | safe }}
+                                {% else %}
+                                    {{-
+                                        onsIcon({
+                                        "iconType": 'ons-logo-' + currentLanguageISOCode,
+                                        "altText": 'Office for National Statistics logo'
+                                        })
+                                    -}}
+                                {% endif %}
+                            </div>
+                        
+                            {% if singleLogo.logoImage %}
+                                <div class="ons-header__org-logo ons-header__org-logo--small">   
+                                    {% if singleLogo.logoImage != "ONS Logo" %}  
+                                        {{ singleLogo.logoImageLarge | safe }}
+                                    {% else %}
+                                        {{-
+                                            onsIcon({
+                                            "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                            "altText": 'Office for National Statistics logo'
+                                            })
+                                        -}}
+                                    {% endif %}
+                                </div>
+                            {% endif%}
+                
+                            {% if singleLogo.logoURL %}
                                 </a>
                             {% endif %}
+                            
+                        {% else %}
                         
-                        {% endfor %}
-                        </div>
+                            <div class="ons-header__org-logo ons-header__org-logo--multi">
+                        
+                                {% for logo in logos %}
+                        
+                                    {% if logo.logoURL %} 
+                                        <a class="ons-header__org-logo-link" href="{{ logo.logoURL }}">
+                                    {% endif %}
+                                
+                                    {% if logo.logoImage != "ONS Logo" %}    
+                                        {{ logo.logoImage | safe }}
+                                    {% else %}
+                                        {{-
+                                            onsIcon({
+                                            "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                            "altText": 'Office for National Statistics logo'
+                                            })
+                                        -}}
+                                    {% endif %}
+                                    
+                                    {% if logo.logoURL %}
+                                        </a>
+                                    {% endif %}
+                                
+                                {% endfor %}
+                            </div>
+                        {% endif%}
+
                     {% endif -%}
                     </div>
                     {% if params.language or params.serviceLinks %}
-                        <div class="ons-header__links ons-grid__col ons-col-auto">
+                        <div class="ons-header__links ons-grid__col ons-col-auto ons-u-ml-auto">
                             {% if params.language %}
                                 <div class="ons-grid__col ons-col-auto {{ ' ons-u-mr-s ons-u-d-no@xxs@xs' if params.serviceLinks else '' }}">
                                     {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
