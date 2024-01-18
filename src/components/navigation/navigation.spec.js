@@ -291,7 +291,7 @@ describe('script: navigation', () => {
   );
 });
 
-describe.each([['sub']])('level: %s navigation', () => {
+describe('level: sub navigation', () => {
   describe('when hideHorizontalSubNav is set to true', () => {
     beforeEach(async () => {
       await setTestPage('/test', renderComponent('header', EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION_REMOVED));
