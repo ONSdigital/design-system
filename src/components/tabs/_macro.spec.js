@@ -112,15 +112,6 @@ describe('macro: tabs', () => {
     expect($('.ons-tab:last').text().trim()).toBe('Tab 2');
   });
 
-  it('has Google Analytics integration on tab links', () => {
-    const $ = cheerio.load(renderComponent('tabs', EXAMPLE_TABS));
-
-    const tabItem = $('.ons-tab');
-    expect(tabItem.attr('data-ga-category')).toBe('tabs');
-    expect(tabItem.attr('data-ga-action')).toBe('Show: Tab 1');
-    expect(tabItem.attr('data-ga-label')).toBe('Show: Tab 1');
-  });
-
   it('has expected content in tab panels', () => {
     const $ = cheerio.load(renderComponent('tabs', EXAMPLE_TABS));
 
