@@ -16,3 +16,4 @@
 | showTitle  | boolean | false    | Sets an optional `h2` which will be displayed only in toc view and visually hidden in tab view.                                                |
 | hiddenSpan | string  | false    | Sets a visually hidden span after the title to distinguish the tab from others if multiple tabs with same title are displayed in the same page |
 | content    | string  | true     | The contents of the tab. This can contain HTML.                                                                                                |
+| attributes | object  | false    | HTML attributes (for example, data attributes) to add to the details header element                                                            |

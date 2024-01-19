@@ -1,5 +1,6 @@
 import './inpagelink.dom';
 import './print-button';
+import './analytics';
 import './cookies-settings.dom';
 import '../components/mutually-exclusive/mutually-exclusive.dom';
 import '../components/textarea/textarea.dom';
