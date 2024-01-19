@@ -318,7 +318,7 @@ describe('macro: header', () => {
       expect($('.ons-header__org-logo--small img').attr('src')).toBe('another-logo-small.svg');
     });
 
-    describe.only('mode: with multiple logos', () => {
+    describe('mode: with multiple logos', () => {
       it('has the default ONS icon when requested', () => {
         const faker = templateFaker();
         const iconsSpy = faker.spy('icon');
