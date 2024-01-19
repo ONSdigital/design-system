@@ -3,14 +3,16 @@ import domready from './domready';
 export let trackEvent = () => {
   console.log('Google analytics not connected'); // eslint-disable-line no-console
 };
-if (window.google_tag_manager !== 'undefined') {
-  console.log('GTM active');
-  window.dataLayer = window.dataLayer || [];
-  trackEvent = (data) => {
-    console.log('Data sent to Data Layer');
-    window.dataLayer.push({ data });
-  };
-}
+setTimeout(() => {
+  if (window.google_tag_manager !== 'undefined') {
+    console.log('GA active');
+    window.dataLayer = window.dataLayer || [];
+    trackEvent = (data) => {
+      console.log('Data sent to Data Layer');
+      window.dataLayer.push({ data });
+    };
+  }
+}, 300);
 
 export const trackElement = (el, type) => {
   return trackEvent({
