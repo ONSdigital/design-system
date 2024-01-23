@@ -44,11 +44,11 @@ export default class CharLimit {
 
   track(remaining) {
     if (remaining < 1) {
-      trackEvent('send', {
-        hitType: 'event',
-        eventCategory: 'Error',
-        eventAction: 'Textarea limit reached',
-        eventLabel: `Limit of ${this.maxLength} reached/exceeded`,
+      trackEvent({
+        event_type: 'event',
+        event_category: 'Error',
+        event_action: 'Textarea limit reached',
+        event_label: `Limit of ${this.maxLength} reached/exceeded`,
       });
     }
   }
