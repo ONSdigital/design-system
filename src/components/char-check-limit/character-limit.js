@@ -44,7 +44,7 @@ export default class CharLimit {
 
   track(remaining) {
     if (remaining < 1) {
-      trackEvent('send', {
+      trackEvent({
         event_type: 'event',
         event_category: 'Error',
         event_action: 'Textarea limit reached',
