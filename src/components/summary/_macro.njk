@@ -9,6 +9,11 @@
     {% if params.hub %}
         {% set className = className + " ons-summary--hub" %}
     {% endif %}
+
+     {% if params.card %}
+        {% set className = className + " ons-summary--card" %}
+    {% endif %}
+
     <div class="{{ className }}">
         {% for summary in params.summaries %}
             {% if summary.summaryTitle %}
@@ -16,12 +21,12 @@
                 {% set titleSize = "3" %}
             {% endif %}
             {% for group in summary.groups %}
-                <div {% if group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__group">
+                <div {% if group.id %}id="{{ group.id }}" {% endif %} class="{{"ons-summary__group-card" if params.card else "ons-summary__group"}}">
                     {% if group.groupTitle %}
-                        <h{{ titleSize }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
+                        <h{{ titleSize }} class="{{"ons-summary__group-card-title" if params.card else "ons-summary__group-title"}}">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
                     {% if group.rows %}
-                        <div class="ons-summary__items">
+                        <div class="{{"ons-summary--card__items" if params.card else "ons-summary__items"}}">
 
                             {% for row in group.rows %}
                                 {% set itemClass = "" %}
