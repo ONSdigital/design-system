@@ -81,13 +81,14 @@
 
 ## Navigation
 
-| Name         | Type                      | Required | Description                                                                                                                    |
-| ------------ | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| id           | string                    | true     | The HTML `id` of the `<nav>` element. Used for the `aria-controls` attribute for the menu button displayed on small viewports. |
-| ariaLabel    | string                    | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Main menu”.                                              |
-| itemsList    | array`<Item>`             | true     | Settings for an array of [list items](#item) for each navigation link                                                          |
-| currentPath  | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
-| toggleButton | array`<ToggleButton>`     | true     | Settings for the navigation [menu toggle button](#togglebutton) displayed on small viewports                                   |
+| Name                   | Type                      | Required | Description                                                                                                                    |
+| ---------------------- | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| id                     | string                    | true     | The HTML `id` of the `<nav>` element. Used for the `aria-controls` attribute for the menu button displayed on small viewports. |
+| ariaLabel              | string                    | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Main menu”.                                              |
+| itemsList              | array`<Item>`             | true     | Settings for an array of [list items](#item) for each navigation link                                                          |
+| currentPath            | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
+| toggleButton           | array`<ToggleButton>`     | true     | Settings for the navigation [menu toggle button](#togglebutton) displayed on small viewports                                   |
+| removeHorizontalSubNav | boolean                   | false    | Set to “true” to remove the sub navigation                                                                                     |
 
 ## ToggleButton
 

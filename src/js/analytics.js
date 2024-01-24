@@ -1,22 +1,25 @@
 import domready from './domready';
 
-export let trackEvent = (event, data) => {
-  console.log(`[Analytics disabled] Event: ${event}`); // eslint-disable-line no-console
-  console.log(data); // eslint-disable-line no-console
+export let trackEvent = () => {
+  console.log('Google analytics not connected'); // eslint-disable-line no-console
 };
+setTimeout(() => {
+  if (window.google_tag_manager !== 'undefined') {
+    console.log('GA active');
+    window.dataLayer = window.dataLayer || [];
+    trackEvent = (data) => {
+      console.log('Data sent to Data Layer');
+      window.dataLayer.push({ data });
+    };
+  }
+}, 300);
 
-if (typeof window.ga !== 'undefined') {
-  trackEvent = (evt, data) => {
-    window.ga(evt, data);
-  };
-}
-
-export const trackElement = (el) => {
-  return trackEvent('send', {
-    hitType: 'event',
-    eventCategory: el.getAttribute('data-ga-category') || '',
-    eventAction: el.getAttribute('data-ga-action') || '',
-    eventLabel: el.getAttribute('data-ga-label') || '',
+export const trackElement = (el, type) => {
+  return trackEvent({
+    event_type: type,
+    event_category: el.getAttribute('data-ga-category') || '',
+    event_action: el.getAttribute('data-ga-action') || '',
+    event_label: el.getAttribute('data-ga-label') || '',
   });
 };
 
@@ -25,27 +28,26 @@ export default function initAnalytics() {
 
   const interval = window.setInterval(() => {
     trackVisibleElements = trackVisibleElements.filter((element) => {
-      return element ? trackElement(element) && false : true;
+      return element ? trackElement(element, 'visible') && false : true;
     });
     if (trackVisibleElements.length === 0) {
       window.clearInterval(interval);
     }
   }, 200);
 
-  [...document.querySelectorAll('[data-ga=error]')].map(trackElement);
-
   document.body.addEventListener('click', ({ target }) => {
     if (target.getAttribute('data-ga') === 'click') {
-      trackElement(target);
+      trackElement(target, target.getAttribute('data-ga'));
     }
   });
+  [...document.querySelectorAll('[data-ga=error]')].map((element) => trackElement(element, 'error'));
 
   const afterPrint = () => {
-    return trackEvent('send', {
-      hitType: 'event',
-      eventCategory: 'Print Intent',
-      eventAction: 'Print Intent',
-      eventLabel: window.location.pathname.split('/').slice(-3).join('/'),
+    return trackEvent({
+      event_tracked: 'true',
+      event_category: 'Print Intent',
+      event_action: 'Print Intent',
+      event_label: window.location.pathname.split('/').slice(-3).join('/'),
     });
   };
 
