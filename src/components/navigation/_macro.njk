@@ -58,21 +58,23 @@
         </div>
     </div>
     {% if params.navigation.subNavigation %}
-        <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes }}" id="{{ params.navigation.subNavigation.id }}" aria-label="{{ params.navigation.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
-            <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}">
-                <ul class="ons-navigation__list ons-navigation__list">
-                    {% for item in params.navigation.subNavigation.itemsList %}
-                        <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}">
-                            <a class="ons-navigation__link ons-navigation__link" href="{{ item.url }}" {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %} {% if item.id %}id="{{ item.id }}" {% endif %}>
-                                {% if item.title %}{{ item.title }}
-                                {% elif item.text %}{{ item.text }}
-                                {% endif %}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </nav>
+        {% if not params.navigation.subNavigation.removeHorizontalSubNav %}
+            <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes }}" id="{{ params.navigation.subNavigation.id }}" aria-label="{{ params.navigation.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
+                <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}">
+                    <ul class="ons-navigation__list ons-navigation__list">
+                        {% for item in params.navigation.subNavigation.itemsList %}
+                            <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}">
+                                <a class="ons-navigation__link ons-navigation__link" href="{{ item.url }}" {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %} {% if item.id %}id="{{ item.id }}" {% endif %}>
+                                    {% if item.title %}{{ item.title }}
+                                    {% elif item.text %}{{ item.text }}
+                                    {% endif %}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+        {% endif %}
         <div class="ons-u-d-no@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes }}">
             {{ onsButton({
                 "text": params.navigation.currentPageTitle,

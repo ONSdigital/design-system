@@ -23,6 +23,7 @@ $details-caret-width: 1.5rem;
           margin-left: -$details-caret-width;
           padding-left: $details-caret-width;
         }
+
         .ons-details__icon .ons-icon {
           fill: var(--ons-color-text-link-focus);
         }
@@ -30,9 +31,11 @@ $details-caret-width: 1.5rem;
 
       &:hover:not(:focus) {
         color: var(--ons-color-text-link-hover);
+
         .ons-details__icon {
           fill: var(--ons-color-text-link-hover);
         }
+
         .ons-details__title {
           text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
         }
@@ -60,6 +63,7 @@ $details-caret-width: 1.5rem;
       margin-bottom: 0;
       text-underline-position: under;
       transform: translateY(-1px);
+      pointer-events: none;
     }
   }
 
@@ -126,5 +130,6 @@ $details-caret-width: 1.5rem;
 
   &__icon {
     display: none;
+    pointer-events: none;
   }
 }
