@@ -6,13 +6,9 @@
 
     {% set exclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
 
-    {%- set numberOfFields = 0 -%}
+    {%- set numberOfFields = 1 -%}
 
     {%- if params.day -%}
-        {%- set numberOfFields = numberOfFields + 1 -%}
-    {%- endif -%}
-
-    {%- if params.month -%}
         {%- set numberOfFields = numberOfFields + 1 -%}
     {%- endif -%}
 
@@ -41,25 +37,24 @@
             }) }}
         {% endif %}
 
-        {% if params.month %}
-            {{ onsInput({
-                "id": params.id + "-month",
-                "type": "number",
-                "name": params.month.name,
-                "classes": (" ons-input--error" if (params.error and params.month.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default(""),
-                "width": "2",
-                "min": 1,
-                "max": 12,
-                "maxLength": 2,
-                "attributes": params.month.attributes,
-                "label": {
-                    "text": params.month.label.text if numberOfFields > 1 else params.legendOrLabel,
-                    "description": params.month.label.description if numberOfFields > 1 else params.description,
-                    "id": params.id + "-month-label"
-                },
-                "value": params.month.value
-            }) }}
-        {% endif %}
+        
+        {{ onsInput({
+            "id": params.id + "-month",
+            "type": "number",
+            "name": params.month.name,
+            "classes": (" ons-input--error" if (params.error and params.month.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default(""),
+            "width": "2",
+            "min": 1,
+            "max": 12,
+            "maxLength": 2,
+            "attributes": params.month.attributes,
+            "label": {
+                "text": params.month.label.text if numberOfFields > 1 else params.legendOrLabel,
+                "description": params.month.label.description if numberOfFields > 1 else params.description,
+                "id": params.id + "-month-label"
+            },
+            "value": params.month.value
+        }) }}
 
         {% if params.year %}
             {{ onsInput({
