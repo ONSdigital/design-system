@@ -32,7 +32,7 @@
         {% endif %}
         <div class="ons-header__top">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
-                <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center {% if params.mastheadLogo.classes %} {{ params.mastheadLogo.classes }}{% elseif params.mastheadLogoMulti.classes %} {{ params.mastheadLogoMulti.classes }}{% endif %} {% if not params.mastheadLogoMulti %} ons-grid--no-wrap {% endif%}">
+                <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center{% if params.mastheadLogo.classes %} {{ params.mastheadLogo.classes }}{% elseif params.mastheadLogoMulti.classes %} {{ params.mastheadLogoMulti.classes }}{% endif %}{% if not params.mastheadLogoMulti %} ons-grid--no-wrap{% endif%}">
                     <div class="ons-grid__col ons-col-auto">
                         {%- if not params.mastheadLogoMulti  %}
                             {%-if params.mastheadLogoUrl %}
