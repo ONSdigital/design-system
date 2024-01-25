@@ -32,9 +32,9 @@
         {% endif %}
         <div class="ons-header__top">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
-                <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center{% if params.mastheadLogo.classes %} {{ params.mastheadLogo.classes }}{% elseif params.mastheadLogoMulti.classes %} {{ params.mastheadLogoMulti.classes }}{% endif %}{% if not params.mastheadLogoMulti %} ons-grid--no-wrap{% endif%}">
+                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center{% if params.mastheadLogo.classes %} {{ params.mastheadLogo.classes }}{% endif %}{% if not params.mastheadLogo.multipleLogos %} ons-grid--no-wrap  ons-grid--gutterless{% endif%}">
                     <div class="ons-grid__col ons-col-auto">
-                        {%- if not params.mastheadLogoMulti %}
+                        {%- if not params.mastheadLogo.multipleLogos %}
                             {%-if params.mastheadLogoUrl %}
                                 <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoUrl }}">
                             {% endif -%}
@@ -66,60 +66,12 @@
                             </div>
                             {% if params.mastheadLogoUrl %}
                                 </a>
-                            {% endif %}
-                        
-                    {% else %}
-                        {% set logos = [params.mastheadLogoMulti.logo1, params.mastheadLogoMulti.logo2, params.mastheadLogoMulti.logo3] %}
-                        {% set singleLogo = null %}
-                        
-                        {% for logo in logos %}
-                            {% if logo.logoImageLarge %}
-                                {% set singleLogo = logo %}
-                            {% endif %}
-                        {% endfor %}
-                        
-                        {% if singleLogo %}
-                        
-                            {% if singleLogo.logoURL %}
-                                <a class="ons-header__org-logo-link" href="{{ singleLogo.logoURL }}">
-                            {% endif %}
-                        
-                            <div class="ons-header__org-logo {% if singleLogo.logoImage %} ons-header__org-logo--large {% endif %}">
-                                {% if singleLogo.logoImageLarge != "ONS Logo" %}
-                                    {{ singleLogo.logoImageLarge | safe }}
-                                {% else %}
-                                    {{-
-                                        onsIcon({
-                                            "iconType": 'ons-logo-' + currentLanguageISOCode,
-                                            "altText": 'Office for National Statistics logo'
-                                        })
-                                    -}}
-                                {% endif %}
-                            </div>
-                        
-                            {% if singleLogo.logoImage %}
-                                <div class="ons-header__org-logo ons-header__org-logo--small">
-                                    {% if singleLogo.logoImage != "ONS Logo" %}
-                                        {{ singleLogo.logoImageLarge | safe }}
-                                    {% else %}
-                                        {{-
-                                            onsIcon({
-                                                "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
-                                                "altText": 'Office for National Statistics logo'
-                                            })
-                                        -}}
-                                    {% endif %}
-                                </div>
-                            {% endif%}
-                
-                            {% if singleLogo.logoURL %}
-                                </a>
-                            {% endif %}
-                            
+                            {% endif %} 
                         {% else %}
-                        
                             <div class="ons-header__org-logo ons-header__org-logo--multi">
-                        
+            
+                                {% set logos = [params.mastheadLogo.multipleLogos.logo1, params.mastheadLogo.multipleLogos.logo2, params.mastheadLogo.multipleLogos.logo3] %}
+                                
                                 {% for logo in logos %}
                         
                                     {% if logo.logoURL %}
@@ -143,9 +95,7 @@
                                 
                                 {% endfor %}
                             </div>
-                        {% endif%}
-
-                    {% endif -%}
+                        {% endif -%}
                     </div>
                     {% if params.language or params.serviceLinks %}
                         <div class="ons-header__links ons-grid__col ons-col-auto ons-u-ml-auto">
