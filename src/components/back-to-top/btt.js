@@ -1,22 +1,11 @@
 export default class Btt {
   constructor(component) {
     this.component = component;
-    this.content = this.component.parentElement;
+    this.content = this.component.previousElementSibling;
     this.target = document.getElementById(this.component.firstElementChild.href.split('#')[1]);
 
     this.handleScroll = this.handleScroll.bind(this);
-    this.handleResize = this.handleResize.bind(this);
-
     window.addEventListener('scroll', this.handleScroll);
-
-    // Initialize Resize Observer
-    this.resizeObserver = new ResizeObserver(this.handleResize);
-    this.resizeObserver.observe(this.content);
-    this.componentheight = this.component.getBoundingClientRect().height;
-
-    // Initial setup
-    this.updateMinHeight();
-    this.handleScroll();
   }
 
   handleScroll() {
@@ -31,28 +20,12 @@ export default class Btt {
     const contentBottom = contentRect.bottom;
     const stickyThreshold = windowHeight * 2;
 
+    console.log(scrollPosition, stickyThreshold, windowHeight, contentBottom);
+
     if (scrollPosition > stickyThreshold && windowHeight < contentBottom) {
       this.setSticky();
     } else {
       this.setEnabled();
-    }
-  }
-
-  handleResize(entries) {
-    // Handle resize events, e.g., update min height
-    this.updateMinHeight();
-    this.handleScroll(); // Recheck scroll position after resize
-  }
-
-  updateMinHeight() {
-    const newMinHeight = this.content.getBoundingClientRect().height;
-    const minHeightChange = Math.abs(newMinHeight - this.contentminHeight);
-
-    // Check if the change in min height is more than 10 pixels
-    if (minHeightChange > this.componentheight) {
-      // Update min height and perform additional actions if needed
-      this.contentminHeight = newMinHeight;
-      // Additional actions here...
     }
   }
 
