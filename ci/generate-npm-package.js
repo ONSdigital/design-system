@@ -53,7 +53,7 @@ async function copyAssets() {
 async function copyBaseSassAndFonts() {
   await fs.ensureDir(newSassPath);
   await fs.copy(`${sourcePath}/scss`, `${newSassPath}`);
-  await fs.copy(`${sourcePath}/static/fonts`, `${newSassPath}/fonts`);
+  await fs.copy(`${sourcePath}/static/fonts`, `${cwd}/fonts`);
 }
 
 async function run() {
