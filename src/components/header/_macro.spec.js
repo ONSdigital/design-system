@@ -407,6 +407,17 @@ describe('macro: header', () => {
       });
     });
 
+    it.only('has gutterless tag if there is no button present', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+        }),
+      );
+
+      const titleGridDiv = $('.ons-header__main .ons-container .ons-grid');
+      expect($(titleGridDiv).hasClass('ons-grid--gutterless')).toBe(true);
+    });
+
     it('renders the phase banner with expected parameters', () => {
       const faker = templateFaker();
       const phaseSpy = faker.spy('phase-banner');
