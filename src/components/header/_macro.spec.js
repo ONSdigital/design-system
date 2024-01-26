@@ -325,39 +325,27 @@ describe('macro: header', () => {
 
         faker.renderComponent('header', {
           ...EXAMPLE_HEADER_BASIC,
-          mastheadLogoMulti: {
-            logo1: {
-              logoImage: 'ONS Logo',
+          mastheadLogo: {
+            multipleLogos: {
+              logo1: {
+                logoImage: 'ONS Logo',
+              },
             },
           },
         });
         expect(iconsSpy.occurrences[0].iconType).toBe('ons-logo-stacked-en');
       });
 
-      it('has the default large ONS icon when requested', () => {
-        const faker = templateFaker();
-        const iconsSpy = faker.spy('icon');
-
-        faker.renderComponent('header', {
-          ...EXAMPLE_HEADER_BASIC,
-          mastheadLogoMulti: {
-            logo1: {
-              logoImageLarge: 'ONS Logo',
-            },
-          },
-        });
-
-        expect(iconsSpy.occurrences[0].iconType).toBe('ons-logo-en');
-      });
-
       it('has the provided link', () => {
         const $ = cheerio.load(
           renderComponent('header', {
             ...EXAMPLE_HEADER_BASIC,
-            mastheadLogoMulti: {
-              logo1: {
-                logoImage: '<img src="a-logo.svg">',
-                logoURL: '#0',
+            mastheadLogo: {
+              multipleLogos: {
+                logo1: {
+                  logoImage: '<img src="a-logo.svg">',
+                  logoURL: '#0',
+                },
               },
             },
           }),
@@ -370,15 +358,17 @@ describe('macro: header', () => {
         const $ = cheerio.load(
           renderComponent('header', {
             ...EXAMPLE_HEADER_BASIC,
-            mastheadLogoMulti: {
-              logo1: {
-                logoImage: '<img src="a-logo.svg">',
-              },
-              logo2: {
-                logoImage: '<img src="a-second-logo.svg">',
-              },
-              logo3: {
-                logoImage: '<img src="a-third-logo.svg">',
+            mastheadLogo: {
+              multipleLogos: {
+                logo1: {
+                  logoImage: '<img src="a-logo.svg">',
+                },
+                logo2: {
+                  logoImage: '<img src="a-second-logo.svg">',
+                },
+                logo3: {
+                  logoImage: '<img src="a-third-logo.svg">',
+                },
               },
             },
           }),
@@ -389,25 +379,29 @@ describe('macro: header', () => {
         expect($('.ons-header__org-logo--multi img:nth-of-type(3)').attr('src')).toBe('a-third-logo.svg');
       });
 
-      it('renders only large image even if others supplied', () => {
+      it('renders multiple logos even when small/large parameters are used', () => {
         const $ = cheerio.load(
           renderComponent('header', {
             ...EXAMPLE_HEADER_BASIC,
-            mastheadLogoMulti: {
-              logo1: {
-                logoImageLarge: '<img src="a-logo.svg">',
-              },
-              logo2: {
-                logoImage: '<img src="a-second-logo.svg">',
-              },
-              logo3: {
-                logoImage: '<img src="a-third-logo.svg">',
+            mastheadLogo: {
+              small: '<img src="small-logo.svg">',
+              large: '<img src="big-logo.svg">',
+              multipleLogos: {
+                logo1: {
+                  logoImage: '<img src="a-logo.svg">',
+                },
+                logo2: {
+                  logoImage: '<img src="a-second-logo.svg">',
+                },
+                logo3: {
+                  logoImage: '<img src="a-third-logo.svg">',
+                },
               },
             },
           }),
         );
-        expect($('.ons-header__org-logo img').attr('src')).toBe('a-logo.svg');
-        expect($('.ons-header__org-logo--multi img').attr('src')).toBe(undefined);
+        expect($('.ons-header__org-logo--large').attr('src')).toBe(undefined);
+        expect($('.ons-header__org-logo--multi img').attr('src')).toBe('a-logo.svg');
       });
     });
 
