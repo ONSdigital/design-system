@@ -18,21 +18,19 @@
   }
 
   &__sticky {
+    
     bottom: 0;
     position: fixed;
     z-index: 10;
-    width: 100%;
     background: var(--ons-color-grey-15);
-    left: 0;
+    // left: 0;
     height: 2em;
 
     > a {
-      @extend .ons-container;
-      display: block;
-      height: 90%;
+      height: 100%;
       color: var(--ons-color-grey-7);
     }
   }
 
-  
+
 }
