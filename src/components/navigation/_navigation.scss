@@ -47,12 +47,14 @@
     border-left: 4px solid transparent;
     display: block;
     margin: 0 0 0.2rem;
-    &--active {
+    &--active,
+    &:hover {
       border-color: var(--ons-color-white);
     }
 
     .ons-navigation--sub-mobile & {
-      &--active {
+      &--active,
+      &:hover {
         border-color: var(--ons-color-branded);
         li {
           border: 0;
