@@ -418,6 +418,23 @@ describe('macro: header', () => {
       expect($(titleGridDiv).hasClass('ons-grid--gutterless')).toBe(true);
     });
 
+    it('has does not have gutterless class if there is a button present', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          button: {
+            text: 'Save and sign out',
+            url: '#0',
+            iconType: 'exit',
+            iconPosition: 'after',
+          },
+        }),
+      );
+
+      const titleGridDiv = $('.ons-header__main .ons-container .ons-grid');
+      expect($(titleGridDiv).hasClass('ons-grid--gutterless')).toBe(false);
+    });
+
     it('renders the phase banner with expected parameters', () => {
       const faker = templateFaker();
       const phaseSpy = faker.spy('phase-banner');
