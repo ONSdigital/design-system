@@ -407,7 +407,7 @@ describe('macro: header', () => {
       });
     });
 
-    it('has gutterless tag if there is no button present', () => {
+    it('has gutterless class if there is no button present', () => {
       const $ = cheerio.load(
         renderComponent('header', {
           ...EXAMPLE_HEADER_BASIC,
