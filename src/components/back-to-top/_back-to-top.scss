@@ -1,15 +1,14 @@
 .ons-back-to-top {
 
+  
+
   &__enabled {
     background: none;
-    padding-bottom: 1em;
     width: fit-content;
+    padding: 0.5em 0 0.5em 0;
 
     > a {
-      
       padding: 0;
-      display: block;
-      width: auto;
     }
   }
 
@@ -19,18 +18,20 @@
 
   &__sticky {
     
-    bottom: 0;
+    bottom: -1px;
     position: fixed;
     z-index: 10;
     background: var(--ons-color-grey-15);
-    // left: 0;
-    height: 2em;
+    width: 100%;
+    height: fit-content;
+    left: 0;
 
     > a {
-      height: 100%;
+      padding: 0.5em 0 0.5em 0;
+      position: relative;
+      display: block;
       color: var(--ons-color-grey-7);
     }
   }
-
 
 }
