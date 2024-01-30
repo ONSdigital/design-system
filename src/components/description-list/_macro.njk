@@ -6,7 +6,7 @@
       {% endif %}
         {% for descriptionItem in item.descriptions %}
           {% if descriptionItem.description | length %}
-            <dd {% if description.id %}id="{{ descriptionItem.id }}" {% endif %}class="ons-description__value ons-grid__col ons-col-{{ params.descriptionCol }}@m">{{ descriptionItem.description }}</dd>
+            <dd {% if descriptionItem.id %}id="{{ descriptionItem.id }}" {% endif %}class="ons-description__value ons-grid__col ons-col-{{ params.descriptionCol }}@m">{{ descriptionItem.description }}</dd>
           {% endif %}
         {% endfor %}
     {% endfor %}
