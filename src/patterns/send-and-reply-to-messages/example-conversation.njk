@@ -1,5 +1,5 @@
 {% from "components/message/_macro.njk" import onsMessage %}
-{% from "components/metadata/_macro.njk" import onsMetadata %}
+{% from "components/description-list/_macro.njk" import onsDescriptionList %}
 {% from "components/reply/_macro.njk" import onsReply %}
 
 <div class="ons-grid">
@@ -7,8 +7,8 @@
         <section role="region" aria-label="Conversation: BRES 2017 clarification required for Bolts &amp; Ratchets Ltd">
             <h1 class="ons-u-fs-l"><span class="ons-u-vh">Subject: </span>BRES 2017 clarification required for Bolts &amp; Ratchets Ltd</h1>
             {{
-                onsMetadata({
-                    "metadataLabel": "Information about the survey and respondent",
+                onsDescriptionList({
+                    "descriptionLabel": "Information about the survey and respondent",
                     "termCol": "3",
                     "descriptionCol": "9",
                     "itemsList": [
