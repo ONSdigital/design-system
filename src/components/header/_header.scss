@@ -182,14 +182,6 @@
     display: inline-flex;
     column-gap: 1rem;
     align-items: center;
-
-    @include mq(xxs, 454px) {
-      object-fit: contain;
-      max-width: 100%;
-      min-width: 15rem;
-      column-gap: 3%;
-      padding-right: 1.5rem;
-    }
   }
 
   &-service-nav {
