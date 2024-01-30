@@ -8,7 +8,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 const EXAMPLE_DESCRIPTION_FULL = {
   id: 'example-id',
   classes: 'ons-u-mb-no',
-  metadataLabel: 'This is an example of the description component',
+  descriptionLabel: 'This is an example of the description component',
   termCol: 2,
   descriptionCol: 10,
   itemsList: [
@@ -61,16 +61,16 @@ const EXAMPLE_DESCRIPTION_MINIMAL = {
   ],
 };
 
-describe('macro: description', () => {
+describe('macro: description-list', () => {
   it('passes jest-axe checks when all parameters are provided', async () => {
-    const $ = cheerio.load(renderComponent('description', EXAMPLE_DESCRIPTION_FULL));
+    const $ = cheerio.load(renderComponent('description-list', EXAMPLE_DESCRIPTION_FULL));
 
     const results = await axe($.html());
     expect(results).toHaveNoViolations();
   });
 
   it('passes jest-axe checks when minimal parameters are provided', async () => {
-    const $ = cheerio.load(renderComponent('description', EXAMPLE_DESCRIPTION_MINIMAL));
+    const $ = cheerio.load(renderComponent('description-list', EXAMPLE_DESCRIPTION_MINIMAL));
 
     const results = await axe($.html());
     expect(results).toHaveNoViolations();
@@ -78,7 +78,7 @@ describe('macro: description', () => {
 
   it('has the provided `id` attribute', () => {
     const $ = cheerio.load(
-      renderComponent('description', {
+      renderComponent('description-list', {
         ...EXAMPLE_DESCRIPTION_MINIMAL,
         id: 'example-id',
       }),
@@ -89,7 +89,7 @@ describe('macro: description', () => {
 
   it('has additionally provided style classes', () => {
     const $ = cheerio.load(
-      renderComponent('description', {
+      renderComponent('description-list', {
         ...EXAMPLE_DESCRIPTION_MINIMAL,
         classes: 'extra-class another-extra-class',
       }),
@@ -99,11 +99,11 @@ describe('macro: description', () => {
     expect($('.ons-description').hasClass('another-extra-class')).toBe(true);
   });
 
-  it('outputs `title` and `aria-label` attributes when `metadataLabel` is provided', () => {
+  it('outputs `title` and `aria-label` attributes when `descriptionLabel` is provided', () => {
     const $ = cheerio.load(
-      renderComponent('description', {
+      renderComponent('description-list', {
         ...EXAMPLE_DESCRIPTION_MINIMAL,
-        metadataLabel: 'This is an example of the description component',
+        descriptionLabel: 'This is an example of the description component',
       }),
     );
 
@@ -112,9 +112,9 @@ describe('macro: description', () => {
   });
 
   it('outputs list items as expected', () => {
-    const $ = cheerio.load(renderComponent('description', EXAMPLE_DESCRIPTION_FULL));
+    const $ = cheerio.load(renderComponent('description-list', EXAMPLE_DESCRIPTION_FULL));
 
-    const $listElements = $('.ons-metadata__term, .ons-metadata__value');
+    const $listElements = $('.ons-description__term, .ons-description__value');
 
     expect($listElements[0].tagName).toBe('dt');
     expect($($listElements[0]).text()).toBe('Survey:');
@@ -140,13 +140,13 @@ describe('macro: description', () => {
     [4, 'ons-col-4\\@m'],
   ])('applies class for the provided `termCol` (%i -> %s)', (termCol, expectedClass) => {
     const $ = cheerio.load(
-      renderComponent('description', {
+      renderComponent('description-list', {
         ...EXAMPLE_DESCRIPTION_MINIMAL,
         termCol,
       }),
     );
 
-    const $termElements = $(`.ons-metadata__term.${expectedClass}`);
+    const $termElements = $(`.ons-description__term.${expectedClass}`);
     expect($termElements.length).toBe(2);
   });
 
@@ -155,13 +155,13 @@ describe('macro: description', () => {
     [4, 'ons-col-4\\@m'],
   ])('applies class for the provided `descriptionCol` (%i -> %s)', (descriptionCol, expectedClass) => {
     const $ = cheerio.load(
-      renderComponent('description', {
+      renderComponent('description-list', {
         ...EXAMPLE_DESCRIPTION_MINIMAL,
         descriptionCol,
       }),
     );
 
-    const $valueElements = $(`.ons-metadata__value.${expectedClass}`);
+    const $valueElements = $(`.ons-description__value.${expectedClass}`);
     expect($valueElements.length).toBe(3);
   });
 });
