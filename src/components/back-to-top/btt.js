@@ -3,10 +3,17 @@ export default class Btt {
     this.component = component;
     this.content = this.component.previousElementSibling;
     this.target = document.getElementById(this.component.firstElementChild.href.split('#')[1]);
-    this.contentleft = this.component.getBoundingClientRect().left;
+    this.contentleft, this.contentwidth;
+    this.updateContentDetails();
 
     this.handleScroll = this.handleScroll.bind(this);
     window.addEventListener('scroll', this.handleScroll);
+
+    window.addEventListener('resize', () => {
+      this.setEnabled();
+      this.updateContentDetails();
+      this.handleScroll();
+    });
   }
 
   handleScroll() {
@@ -32,12 +39,17 @@ export default class Btt {
     this.component.classList.remove('ons-back-to-top__enabled');
     this.component.classList.add('ons-back-to-top__sticky');
     this.component.firstElementChild.style.left = `${this.contentleft}px`;
-    this.component.firstElementChild.style.width = `${this.content.offsetWidth}px`;
+    this.component.firstElementChild.style.width = `${this.contentwidth}px`;
   }
 
   setEnabled() {
-    this.contentleft = this.component.getBoundingClientRect().left;
+    this.updateContentDetails();
     this.component.classList.remove('ons-back-to-top__sticky');
     this.component.classList.add('ons-back-to-top__enabled');
+  }
+
+  updateContentDetails() {
+    this.contentleft = this.component.getBoundingClientRect().left;
+    this.contentwidth = this.content.offsetWidth;
   }
 }
