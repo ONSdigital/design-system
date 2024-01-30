@@ -1,8 +1,7 @@
 {% macro onsDetails(params) %}
     <div
         id="{{ params.id }}"
-        class="ons-details ons-js-details{% if params.isAccordion %} ons-details--accordion{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}"
-        {% if params.group %} data-group="{{ params.group }}"{% endif %}
+        class="ons-details ons-js-details{% if params.classes %} {{ params.classes }}{% endif %}"
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         {% if params.saveState %} data-save-state="true"{% endif %}
         {% if params.open %} data-open="true"{% endif %}

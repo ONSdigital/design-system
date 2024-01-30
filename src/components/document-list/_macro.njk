@@ -33,8 +33,8 @@
                                 {%- if document.metadata and document.metadata.file %}
                                 <span class="ons-u-vh">
                                     {% set fileMetadataItems = [] %}
-                                    {% if document.metadata.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileType + ' document download'), fileMetadataItems) %}{% endif %}
-                                    {% if document.metadata.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileSize), fileMetadataItems) %}{% endif %}
+                                    {% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileType + ' document download'), fileMetadataItems) %}
+                                    {% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileSize), fileMetadataItems) %}
                                     {% if document.metadata.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.filePages), fileMetadataItems) %}{% endif %}
 
                                     , {{ fileMetadataItems | join(', ') }}
@@ -52,13 +52,11 @@
                                         <li class="ons-document-list__item-attribute">
                                             {% set prefixClasses = "ons-u-fw-b" if document.metadata.date.showPrefix == true else "ons-u-vh" %}
                                             <span class="{{ prefixClasses }}">{{ document.metadata.date.prefix | default("Published") }}: </span>
-                                            {% if document.metadata.date.iso -%}
-                                                <time datetime="{{ document.metadata.date.iso }}">{{ document.metadata.date.short }}</time>
-                                            {%- endif %}
+                                            <time datetime="{{ document.metadata.date.iso }}">{{ document.metadata.date.short }}</time>
                                         </li>
                                     {% endif %}
 
-                                    {%- if document.metadata.type and document.metadata.type.text %}
+                                    {%- if document.metadata.type %}
                                         <li class="ons-document-list__item-attribute{%- if document.metadata.file %} ons-u-mr-no{% endif %}">
                                             {%- if document.metadata.type.url %}
                                                 <a class="ons-document-list__attribute-link" href="{{ document.metadata.type.url }}">
@@ -73,13 +71,13 @@
                                         </li>
                                     {% endif %}
 
-                                    {%- if document.metadata.file and document.metadata.file.fileType %}
+                                    {%- if document.metadata.file %}
 
                                         <li class="ons-document-list__item-attribute" aria-hidden="true">
                                             {% set fileMetadataItems = [] %}
 
-                                            {% if document.metadata.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileType), fileMetadataItems) %}{% endif %}
-                                            {% if document.metadata.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileSize), fileMetadataItems) %}{% endif %}
+                                            {% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileType), fileMetadataItems) %}
+                                            {% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileSize), fileMetadataItems) %}
                                             {% if document.metadata.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.filePages), fileMetadataItems) %}{% endif %}
 
                                             {{ fileMetadataItems | join(', ') }}

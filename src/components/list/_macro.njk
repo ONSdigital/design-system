@@ -32,8 +32,8 @@
                 <li class="ons-list__item{% if item.listClasses %} {{ item.listClasses }}{% endif %}"{% if item.current %} aria-current="true"{% endif %}>
             {% endif %}
                 {% set itemText = item.text %}
-                    {% if item.text %}
-                    {% set itemIconType = item.iconType if item.iconType else iconType %} {% endif %}
+                
+                    {% set itemIconType = item.iconType if item.iconType else iconType %}
 
                     {# For Craft support we also support title and navigation title #}
                     {% if item.navigationTitle %}

@@ -158,7 +158,7 @@
         {% endif %}
     {% endset %}
 
-    {% if params.charCheckLimit and params.charCheckLimit.limit %}
+    {% if params.charCheckLimit %}
         {% set charCheckField %}
             {% call onsCharLimit({
                 "id": params.id ~ "-check",
