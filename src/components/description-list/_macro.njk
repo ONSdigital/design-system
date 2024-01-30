@@ -4,9 +4,9 @@
       {% if item.term | length %}
           <dt class="ons-description__term ons-grid__col ons-col-{{ params.termCol }}@m">{{ item.term }}</dt>
       {% endif %}
-        {% for description in item.descriptions %}
-          {% if description.description | length %}
-            <dd {% if description.id %}id="{{ description.id }}" {% endif %}class="ons-description__value ons-grid__col ons-col-{{ params.descriptionCol }}@m">{{ description.description }}</dd>
+        {% for descriptionItem in item.descriptions %}
+          {% if descriptionItem.description | length %}
+            <dd {% if description.id %}id="{{ descriptionItem.id }}" {% endif %}class="ons-description__value ons-grid__col ons-col-{{ params.descriptionCol }}@m">{{ descriptionItem.description }}</dd>
           {% endif %}
         {% endfor %}
     {% endfor %}
