@@ -155,7 +155,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap  ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto"><div class="ons-header__org-logo ons-header__org-logo--large">
                                 <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt">
             <title id="ons-logo-en-alt">Office for National Statistics logo</title>
@@ -210,7 +210,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             </g>
         </svg>
                             </div>
-                             
+                            
                         </div>
                     
                 </div>
@@ -374,7 +374,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap  ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto"><div class="ons-header__org-logo ons-header__org-logo--large">
                                 <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt">
             <title id="ons-logo-en-alt">Office for National Statistics logo</title>
@@ -429,7 +429,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             </g>
         </svg>
                             </div>
-                             
+                            
                         </div>
                     
                 </div>
@@ -638,7 +638,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap  ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto">
                                 <a class="ons-header__org-logo-link" href="#0">
                             <div class="ons-header__org-logo ons-header__org-logo--large">
@@ -697,12 +697,12 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             </div>
                             
                                 </a>
-                             
+                            
                         </div>
                     
-                        <div class="ons-header__links ons-grid__col ons-col-auto ons-u-ml-auto">
+                        <div class="ons-header__links ons-grid__col ons-u-ml-auto">
                             
-                                <div class="ons-grid__col ons-col-auto  ons-u-mr-s ons-u-d-no@xxs@xs">
+                                <div class="ons-grid__col ons-col-auto ons-u-mr-s ons-u-d-no@xxs@xs">
                                     
                                     
     
@@ -1767,7 +1767,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap  ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto"><div class="ons-header__org-logo ons-header__org-logo--large">
                                 <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt">
             <title id="ons-logo-en-alt">Office for National Statistics logo</title>
@@ -1822,7 +1822,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             </g>
         </svg>
                             </div>
-                             
+                            
                         </div>
                     
                 </div>
@@ -1970,7 +1970,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap  ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto"><div class="ons-header__org-logo ons-header__org-logo--large">
                                 <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt">
             <title id="ons-logo-en-alt">Office for National Statistics logo</title>
@@ -2025,7 +2025,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
             </g>
         </svg>
                             </div>
-                             
+                            
                         </div>
                     
                 </div>
