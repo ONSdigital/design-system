@@ -37,7 +37,7 @@ const EXAMPLE_DESCRIPTION_LIST_FULL = {
   ],
 };
 
-const EXAMPLE_DESCRIPTION_MINIMAL = {
+const EXAMPLE_DESCRIPTION_LIST_MINIMAL = {
   itemsList: [
     {
       term: 'Survey:',
