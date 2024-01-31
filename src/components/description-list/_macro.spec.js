@@ -79,7 +79,7 @@ describe('macro: description-list', () => {
   it('has the provided `id` attribute', () => {
     const $ = cheerio.load(
       renderComponent('description-list', {
-        ...EXAMPLE_DESCRIPTION_MINIMAL,
+        ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
         id: 'example-id',
       }),
     );
