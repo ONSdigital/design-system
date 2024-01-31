@@ -8,7 +8,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 const EXAMPLE_DESCRIPTION_LIST_FULL = {
   id: 'example-id',
   classes: 'ons-u-mb-no',
-  descriptionListLabel: 'This is an example of the description component',
+  descriptionListLabel: 'This is an example of the description list component',
   termCol: 2,
   descriptionCol: 10,
   itemsList: [
@@ -103,12 +103,12 @@ describe('macro: description-list', () => {
     const $ = cheerio.load(
       renderComponent('description-list', {
         ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
-        descriptionListLabel: 'This is an example of the description component',
+        descriptionListLabel: 'This is an example of the description list component',
       }),
     );
 
-    expect($('.ons-description-list').attr('title')).toBe('This is an example of the description component');
-    expect($('.ons-description-list').attr('aria-label')).toBe('This is an example of the description component');
+    expect($('.ons-description-list').attr('title')).toBe('This is an example of the description list component');
+    expect($('.ons-description-list').attr('aria-label')).toBe('This is an example of the description list component');
   });
 
   it('outputs list items as expected', () => {
