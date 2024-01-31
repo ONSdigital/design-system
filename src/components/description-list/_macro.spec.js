@@ -5,7 +5,7 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
-const EXAMPLE_DESCRIPTION_FULL = {
+const EXAMPLE_DESCRIPTION_LIST_FULL = {
   id: 'example-id',
   classes: 'ons-u-mb-no',
   descriptionLabel: 'This is an example of the description list component',
