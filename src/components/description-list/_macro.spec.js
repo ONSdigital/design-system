@@ -70,7 +70,7 @@ describe('macro: description-list', () => {
   });
 
   it('passes jest-axe checks when minimal parameters are provided', async () => {
-    const $ = cheerio.load(renderComponent('description-list', EXAMPLE_DESCRIPTION_MINIMAL));
+    const $ = cheerio.load(renderComponent('description-list', EXAMPLE_DESCRIPTION_LIST_MINIMAL));
 
     const results = await axe($.html());
     expect(results).toHaveNoViolations();
