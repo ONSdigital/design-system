@@ -95,8 +95,8 @@ describe('macro: description-list', () => {
       }),
     );
 
-    expect($('.ons-description').hasClass('extra-class')).toBe(true);
-    expect($('.ons-description').hasClass('another-extra-class')).toBe(true);
+    expect($('.ons-description-list').hasClass('extra-class')).toBe(true);
+    expect($('.ons-description-list').hasClass('another-extra-class')).toBe(true);
   });
 
   it('outputs `title` and `aria-label` attributes when `descriptionLabel` is provided', () => {
@@ -107,14 +107,14 @@ describe('macro: description-list', () => {
       }),
     );
 
-    expect($('.ons-description').attr('title')).toBe('This is an example of the description component');
-    expect($('.ons-description').attr('aria-label')).toBe('This is an example of the description component');
+    expect($('.ons-description-list').attr('title')).toBe('This is an example of the description component');
+    expect($('.ons-description-list').attr('aria-label')).toBe('This is an example of the description component');
   });
 
   it('outputs list items as expected', () => {
     const $ = cheerio.load(renderComponent('description-list', EXAMPLE_DESCRIPTION_FULL));
 
-    const $listElements = $('.ons-description__term, .ons-description__value');
+    const $listElements = $('.ons-description-list__term, .ons-description-list__value');
 
     expect($listElements[0].tagName).toBe('dt');
     expect($($listElements[0]).text()).toBe('Survey:');
@@ -146,7 +146,7 @@ describe('macro: description-list', () => {
       }),
     );
 
-    const $termElements = $(`.ons-description__term.${expectedClass}`);
+    const $termElements = $(`.ons-description-list__term.${expectedClass}`);
     expect($termElements.length).toBe(2);
   });
 
@@ -161,7 +161,7 @@ describe('macro: description-list', () => {
       }),
     );
 
-    const $valueElements = $(`.ons-description__value.${expectedClass}`);
+    const $valueElements = $(`.ons-description-list__value.${expectedClass}`);
     expect($valueElements.length).toBe(3);
   });
 });
