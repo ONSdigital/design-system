@@ -8,7 +8,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 const EXAMPLE_DESCRIPTION_FULL = {
   id: 'example-id',
   classes: 'ons-u-mb-no',
-  descriptionLabel: 'This is an example of the description component',
+  descriptionLabel: 'This is an example of the description list component',
   termCol: 2,
   descriptionCol: 10,
   itemsList: [
