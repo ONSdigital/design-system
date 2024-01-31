@@ -8,7 +8,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 const EXAMPLE_DESCRIPTION_LIST_FULL = {
   id: 'example-id',
   classes: 'ons-u-mb-no',
-  descriptionLabel: 'This is an example of the description list component',
+  descriptionListLabel: 'This is an example of the description component',
   termCol: 2,
   descriptionCol: 10,
   itemsList: [
@@ -90,7 +90,7 @@ describe('macro: description-list', () => {
   it('has additionally provided style classes', () => {
     const $ = cheerio.load(
       renderComponent('description-list', {
-        ...EXAMPLE_DESCRIPTION_MINIMAL,
+        ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
         classes: 'extra-class another-extra-class',
       }),
     );
@@ -99,11 +99,11 @@ describe('macro: description-list', () => {
     expect($('.ons-description-list').hasClass('another-extra-class')).toBe(true);
   });
 
-  it('outputs `title` and `aria-label` attributes when `descriptionLabel` is provided', () => {
+  it('outputs `title` and `aria-label` attributes when `descriptionListLabel` is provided', () => {
     const $ = cheerio.load(
       renderComponent('description-list', {
-        ...EXAMPLE_DESCRIPTION_MINIMAL,
-        descriptionLabel: 'This is an example of the description component',
+        ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
+        descriptionListLabel: 'This is an example of the description component',
       }),
     );
 
@@ -112,7 +112,7 @@ describe('macro: description-list', () => {
   });
 
   it('outputs list items as expected', () => {
-    const $ = cheerio.load(renderComponent('description-list', EXAMPLE_DESCRIPTION_FULL));
+    const $ = cheerio.load(renderComponent('description-list', EXAMPLE_DESCRIPTION_LIST_FULL));
 
     const $listElements = $('.ons-description-list__term, .ons-description-list__value');
 
@@ -141,7 +141,7 @@ describe('macro: description-list', () => {
   ])('applies class for the provided `termCol` (%i -> %s)', (termCol, expectedClass) => {
     const $ = cheerio.load(
       renderComponent('description-list', {
-        ...EXAMPLE_DESCRIPTION_MINIMAL,
+        ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
         termCol,
       }),
     );
@@ -156,7 +156,7 @@ describe('macro: description-list', () => {
   ])('applies class for the provided `descriptionCol` (%i -> %s)', (descriptionCol, expectedClass) => {
     const $ = cheerio.load(
       renderComponent('description-list', {
-        ...EXAMPLE_DESCRIPTION_MINIMAL,
+        ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
         descriptionCol,
       }),
     );
