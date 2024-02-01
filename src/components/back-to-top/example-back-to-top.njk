@@ -40,7 +40,7 @@ layout: ~
     <span class="ons-u-fs-xxl ons-u-db">ONS launches Integrated Data Service to boost government collaboration on data sharing</span>
 </h1>
 
-<div class="ons-back-to-top-track ons-grid ons-grid--column@xs@s">
+<div class="ons-grid ons-grid--column@xs@s">
 
     <div class="ons-grid__col ons-col-7@m">
 
@@ -77,6 +77,8 @@ layout: ~
             <p>“This is aligned to our vision of having increased availability of data for decision-makers to ensure more data driven policies. In this way, we can enable transformation of the Government’s use of data and support the delivery of efficient public services for users.”</p>
 
             <p>Alison Pritchard, Deputy National Statistician for Data Capability, said: "The Service demonstrates how data held, managed and accessed in a trusted and secure environment can benefit us all by providing essential insight on social and economic factors. I am particularly looking forward to engaging widely to explain how we are protecting the data appropriately and making sure it is put to use for the public good."</p>
+            
+            
 
             <div class="ons-u-mt-l ons-u-mt-xl@m">
                 {{
@@ -98,11 +100,16 @@ layout: ~
                         ]
                     })
                 }}
+
+                {{ onsBackToTop() }}
+                
             </div>
 
         </div>
 
     </div>
+
+    
 
     <div class="ons-grid__col ons-col-4@m ons-push-1@m">
 
@@ -180,7 +187,6 @@ layout: ~
 
 </div>
 
-{{ onsBackToTop() }}
 
 {% endblock %}
 

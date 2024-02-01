@@ -1,7 +1,5 @@
 .ons-back-to-top {
 
-  
-
   &__enabled {
     background: none;
     width: fit-content;
@@ -10,10 +8,6 @@
     > a {
       padding: 0;
     }
-  }
-
-  &:focus {
-    outline: none;
   }
 
   &__sticky {
@@ -27,11 +21,17 @@
     left: 0;
 
     > a {
-      padding: 0.5em 0 0.5em 0;
+      padding: 0.7em 0 0.7em 0;
       position: relative;
       display: block;
-      color: var(--ons-color-grey-7);
-    }
-  }
+      color: var(--ons-color-black);
 
+      &:focus{
+        box-shadow: none;
+      }
+
+
+      
+    }   
+  }
 }
