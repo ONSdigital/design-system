@@ -4,7 +4,6 @@
     {% set cardVariant = "--card" if params.variant == "card" and not params.hub else ""%}
     {% set cardVariantwithMargin = "--card ons-u-mb-l" if params.variant == "card" and not params.hub else ""%}
 
-
     {% if params.classes %}
          {% set className = className + " " + params.classes %}
     {% endif %}
