@@ -17,12 +17,11 @@ $hub-row-spacing: 1.3rem;
       margin-top: 1.5rem;
     }
 
-  &--card{
-      padding: 0px 20px;
+    &--card {
+      padding: 0 20px;
+    }
   }
 
-  }
- 
   &__row {
     display: flex;
     margin: 0;
@@ -53,7 +52,7 @@ $hub-row-spacing: 1.3rem;
     }
 
     &--card {
-      &:not(:last-child){
+      &:not(:last-child) {
         border-bottom: 1px solid var(--ons-color-borders);
       }
     }
@@ -220,21 +219,21 @@ $hub-row-spacing: 1.3rem;
     }
   }
 
-   &__group{
-  &--card{
-    border: 1px solid var(--ons-color-borders);
-    margin-bottom: 30px;
+  &__group {
+    &--card {
+      border: 1px solid var(--ons-color-borders);
+      margin-bottom: 30px;
+    }
   }
-}
-  &__group-title{
-   &--card{
-    background-color: var(--ons-color-grey-15);
-    padding: 15px 20px;
+  &__group-title {
+    &--card {
+      background-color: var(--ons-color-grey-15);
+      padding: 15px 20px;
+    }
   }
-}
-&__link{
-  &--card{
-    padding: 0px 20px;
+  &__link {
+    &--card {
+      padding: 0 20px;
+    }
   }
-}
 }
