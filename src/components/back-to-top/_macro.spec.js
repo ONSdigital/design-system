@@ -18,43 +18,16 @@ describe('macro: back-to-top', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('has a target element', async () => {
-    const $ = cheerio.load(
-      renderComponent('back-to-top', {
-        description: 'Back to top',
-        anchor: 'example-target',
-      }),
-    );
-
-    expect($('.ons-back-to-top')[0].tagName).toBe('a');
-  });
   it('has back to top link with the provided description', async () => {
     const $ = cheerio.load(
       renderComponent('back-to-top', {
-        description: 'Back to top',
+        description: 'Scroll to top',
         anchor: 'example-target',
       }),
     );
-    expect($('.ons-back-to-top').text().trim()).toBe('Back to top');
+    expect($('.ons-back-to-top .ons-back-to-top__link').text().trim()).toBe('Scroll to top');
   });
-  it('has back to top link with the default description if no description provided', async () => {
-    const $ = cheerio.load(
-      renderComponent('back-to-top', {
-        anchor: 'example-target',
-      }),
-    );
 
-    expect($('.ons-back-to-top').text().trim()).toBe('Back to top');
-  });
-  it('has back to top link with the default anchor if no anchor provided', async () => {
-    const $ = cheerio.load(
-      renderComponent('back-to-top', {
-        description: 'Back to top',
-      }),
-    );
-
-    expect($('.ons-back-to-top').attr('href')).toBe('#');
-  });
   it('has back to top link with the provided anchor', async () => {
     const $ = cheerio.load(
       renderComponent('back-to-top', {
@@ -63,6 +36,25 @@ describe('macro: back-to-top', () => {
       }),
     );
 
-    expect($('.ons-back-to-top').attr('href')).toBe('#example-target');
+    expect($('.ons-back-to-top .ons-back-to-top__link').attr('href')).toBe('#example-target');
+  });
+
+  it('has back to top link with the default description if no description provided', async () => {
+    const $ = cheerio.load(
+      renderComponent('back-to-top', {
+        anchor: 'example-target',
+      }),
+    );
+
+    expect($('.ons-back-to-top .ons-back-to-top__link').text().trim()).toBe('Back to top');
+  });
+
+  it('has back to top link with the default anchor if no anchor provided', async () => {
+    const renderedComponent = renderComponent('back-to-top', {
+      description: 'Back to top',
+    });
+    const $ = cheerio.load(renderedComponent);
+
+    expect($('.ons-back-to-top .ons-back-to-top__link').attr('href')).toBe('#top');
   });
 });
