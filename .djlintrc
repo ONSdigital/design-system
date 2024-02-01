@@ -1,0 +1,7 @@
+{
+    "profile": "nunjucks",
+    "extension": "html.njk",
+    "files": [
+        "src/components/*"
+    ]
+}
