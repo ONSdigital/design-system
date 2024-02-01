@@ -33,18 +33,15 @@
   "lint-staged": {
     "*.js": [
       "prettier --print-width 140 --single-quote --parser babel --write",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ],
     "*.md": [
       "prettier --write",
-      "remark",
-      "git add"
+      "remark"
     ],
     "*.scss": [
       "prettier --print-width 140 --single-quote --parser scss --write",
-      "yarn run stylelint-fix",
-      "git add"
+      "yarn run stylelint-fix"
     ]
   },
   "browserslist": [
@@ -102,7 +99,7 @@
     "jest-environment-jsdom": "^29.6.1",
     "jest-puppeteer": "^9.0.0",
     "lighthouse": "^11.0.0",
-    "lint-staged": "^8.1.0",
+    "lint-staged": "^15.2.0",
     "lodash": "^4.17.21",
     "mdn-polyfills": "^5.14.0",
     "normalize.css": "^8.0.1",
