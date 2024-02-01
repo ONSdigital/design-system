@@ -1,4 +1,8 @@
 .ons-back-to-top {
+  > a > span {
+    margin-left: 0.2rem;
+  }
+
   &__enabled {
     background: none;
     width: fit-content;

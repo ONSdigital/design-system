@@ -28,5 +28,4 @@ describe('macro: back-to-top', () => {
 
     expect($('.ons-back-to-top')[0].tagName).toBe('a');
   });
-  
 });
