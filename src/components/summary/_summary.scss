@@ -18,7 +18,7 @@ $hub-row-spacing: 1.3rem;
     }
 
     &--card {
-      padding: 0 20px;
+      padding: 0 1.25rem;
     }
   }
 
@@ -221,19 +221,18 @@ $hub-row-spacing: 1.3rem;
 
   &__group {
     &--card {
-      border: 1px solid var(--ons-color-borders);
-      margin-bottom: 30px;
+      border: 1px solid var(--ons-color-borders-list);
     }
   }
   &__group-title {
     &--card {
-      background-color: var(--ons-color-grey-15);
-      padding: 15px 20px;
+      background-color: var(--ons-color-grey-5);
+      padding: 1rem 1.25rem;
     }
   }
   &__link {
     &--card {
-      padding: 0 20px;
+      padding: 0 1.25rem;
     }
   }
 }
