@@ -27,5 +27,6 @@ jobs:
           sudo apt install -y docker.io
           sudo systemctl start docker
           sudo systemctl enable docker
+          git lfs checkout
       - name: Run visual regression tests
         run: yarn test-visual
