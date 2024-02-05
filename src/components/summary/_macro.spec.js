@@ -607,6 +607,13 @@ describe('macro: summary', () => {
 });
 
 describe('mode: card', () => {
+  it('passes jest-axe checks', async () => {
+    const $ = cheerio.load(renderComponent('summary', { ...EXAMPLE_SUMMARY_BASIC, variant: 'card' }));
+
+    const results = await axe($.html());
+    expect(results).toHaveNoViolations();
+  });
+
   it('has the correct classes applied', () => {
     const $ = cheerio.load(
       renderComponent('summary', {
@@ -621,7 +628,7 @@ describe('mode: card', () => {
     expect($('.ons-summary__link').hasClass('ons-summary__link--card')).toBe(true);
   });
 
-  it('has the correct classes applied', () => {
+  it('does not apply card classes when hub is set to true', () => {
     const $ = cheerio.load(
       renderComponent('summary', {
         ...EXAMPLE_SUMMARY_GROUPS,

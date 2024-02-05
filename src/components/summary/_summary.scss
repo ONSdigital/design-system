@@ -31,7 +31,7 @@ $hub-row-spacing: 1.3rem;
     line-height: 1.4;
 
     &:not(:last-child),
-    &:nth-of-type(1) {
+    &:not(.ons-summary__item--card):nth-of-type(1) {
       border-bottom: 1px solid var(--ons-color-borders);
     }
 
@@ -49,12 +49,6 @@ $hub-row-spacing: 1.3rem;
     &--error {
       background: var(--ons-color-errors-tint);
       border-left: 8px solid var(--ons-color-errors);
-    }
-
-    &--card {
-      &:not(:last-child) {
-        border-bottom: 1px solid var(--ons-color-borders);
-      }
     }
   }
 
