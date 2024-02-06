@@ -46,10 +46,7 @@
   },
   "browserslist": [
     "last 2 versions",
-    "not ie < 11",
-    "not ie_mob < 11",
-    "iOS >= 10.3",
-    "safari >= 12"
+    "not dead"
   ],
   "devDependencies": {
     "@babel/core": "^7.14.6",
