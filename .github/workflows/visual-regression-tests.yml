@@ -7,7 +7,7 @@ env:
 
 jobs:
   run-visual-regression-tests:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout
@@ -22,11 +22,7 @@ jobs:
         run: yarn install
       - name: Install Docker
         run: |
-          sudo apt update
-          sudo apt remove containerd.io
-          sudo apt install -y docker.io
-          sudo systemctl start docker
-          sudo systemctl enable docker
-          git lfs checkout
+          brew install docker
+          colima start
       - name: Run visual regression tests
         run: yarn test-visual
