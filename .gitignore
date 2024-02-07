@@ -33,5 +33,5 @@ secrets.yml
 # Local Netlify folder
 .netlify
 
-# search index data 
+# search index data
 search-index.json
