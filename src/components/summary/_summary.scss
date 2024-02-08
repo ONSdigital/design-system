@@ -35,6 +35,12 @@ $hub-row-spacing: 1.3rem;
       border-bottom: 1px solid var(--ons-color-borders);
     }
 
+    &--card {
+      &:not(:last-child) {
+        border-bottom: 1px solid var(--ons-color-borders-light);
+      }
+    }
+
     &--total {
       @extend .ons-u-fs-m;
 
