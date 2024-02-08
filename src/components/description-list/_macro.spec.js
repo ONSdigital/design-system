@@ -5,10 +5,10 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
-const EXAMPLE_METADATA_FULL = {
+const EXAMPLE_DESCRIPTION_LIST_FULL = {
   id: 'example-id',
   classes: 'ons-u-mb-no',
-  metadataLabel: 'This is an example of the metadata component',
+  descriptionListLabel: 'This is an example of the description list component',
   termCol: 2,
   descriptionCol: 10,
   itemsList: [
@@ -37,7 +37,7 @@ const EXAMPLE_METADATA_FULL = {
   ],
 };
 
-const EXAMPLE_METADATA_MINIMAL = {
+const EXAMPLE_DESCRIPTION_LIST_MINIMAL = {
   itemsList: [
     {
       term: 'Survey:',
@@ -61,16 +61,16 @@ const EXAMPLE_METADATA_MINIMAL = {
   ],
 };
 
-describe('macro: metadata', () => {
+describe('macro: description-list', () => {
   it('passes jest-axe checks when all parameters are provided', async () => {
-    const $ = cheerio.load(renderComponent('metadata', EXAMPLE_METADATA_FULL));
+    const $ = cheerio.load(renderComponent('description-list', EXAMPLE_DESCRIPTION_LIST_FULL));
 
     const results = await axe($.html());
     expect(results).toHaveNoViolations();
   });
 
   it('passes jest-axe checks when minimal parameters are provided', async () => {
-    const $ = cheerio.load(renderComponent('metadata', EXAMPLE_METADATA_MINIMAL));
+    const $ = cheerio.load(renderComponent('description-list', EXAMPLE_DESCRIPTION_LIST_MINIMAL));
 
     const results = await axe($.html());
     expect(results).toHaveNoViolations();
@@ -78,8 +78,8 @@ describe('macro: metadata', () => {
 
   it('has the provided `id` attribute', () => {
     const $ = cheerio.load(
-      renderComponent('metadata', {
-        ...EXAMPLE_METADATA_MINIMAL,
+      renderComponent('description-list', {
+        ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
         id: 'example-id',
       }),
     );
@@ -89,32 +89,32 @@ describe('macro: metadata', () => {
 
   it('has additionally provided style classes', () => {
     const $ = cheerio.load(
-      renderComponent('metadata', {
-        ...EXAMPLE_METADATA_MINIMAL,
+      renderComponent('description-list', {
+        ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
         classes: 'extra-class another-extra-class',
       }),
     );
 
-    expect($('.ons-metadata').hasClass('extra-class')).toBe(true);
-    expect($('.ons-metadata').hasClass('another-extra-class')).toBe(true);
+    expect($('.ons-description-list').hasClass('extra-class')).toBe(true);
+    expect($('.ons-description-list').hasClass('another-extra-class')).toBe(true);
   });
 
-  it('outputs `title` and `aria-label` attributes when `metadataLabel` is provided', () => {
+  it('outputs `title` and `aria-label` attributes when `descriptionListLabel` is provided', () => {
     const $ = cheerio.load(
-      renderComponent('metadata', {
-        ...EXAMPLE_METADATA_MINIMAL,
-        metadataLabel: 'This is an example of the metadata component',
+      renderComponent('description-list', {
+        ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
+        descriptionListLabel: 'This is an example of the description list component',
       }),
     );
 
-    expect($('.ons-metadata').attr('title')).toBe('This is an example of the metadata component');
-    expect($('.ons-metadata').attr('aria-label')).toBe('This is an example of the metadata component');
+    expect($('.ons-description-list').attr('title')).toBe('This is an example of the description list component');
+    expect($('.ons-description-list').attr('aria-label')).toBe('This is an example of the description list component');
   });
 
   it('outputs list items as expected', () => {
-    const $ = cheerio.load(renderComponent('metadata', EXAMPLE_METADATA_FULL));
+    const $ = cheerio.load(renderComponent('description-list', EXAMPLE_DESCRIPTION_LIST_FULL));
 
-    const $listElements = $('.ons-metadata__term, .ons-metadata__value');
+    const $listElements = $('.ons-description-list__term, .ons-description-list__value');
 
     expect($listElements[0].tagName).toBe('dt');
     expect($($listElements[0]).text()).toBe('Survey:');
@@ -140,13 +140,13 @@ describe('macro: metadata', () => {
     [4, 'ons-col-4\\@m'],
   ])('applies class for the provided `termCol` (%i -> %s)', (termCol, expectedClass) => {
     const $ = cheerio.load(
-      renderComponent('metadata', {
-        ...EXAMPLE_METADATA_MINIMAL,
+      renderComponent('description-list', {
+        ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
         termCol,
       }),
     );
 
-    const $termElements = $(`.ons-metadata__term.${expectedClass}`);
+    const $termElements = $(`.ons-description-list__term.${expectedClass}`);
     expect($termElements.length).toBe(2);
   });
 
@@ -155,13 +155,13 @@ describe('macro: metadata', () => {
     [4, 'ons-col-4\\@m'],
   ])('applies class for the provided `descriptionCol` (%i -> %s)', (descriptionCol, expectedClass) => {
     const $ = cheerio.load(
-      renderComponent('metadata', {
-        ...EXAMPLE_METADATA_MINIMAL,
+      renderComponent('description-list', {
+        ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
         descriptionCol,
       }),
     );
 
-    const $valueElements = $(`.ons-metadata__value.${expectedClass}`);
+    const $valueElements = $(`.ons-description-list__value.${expectedClass}`);
     expect($valueElements.length).toBe(3);
   });
 });
