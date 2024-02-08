@@ -1,99 +1,50 @@
-
-{% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
-{% from "components/fieldset/_macro.njk" import onsFieldset %}
-{% from "components/field/_macro.njk" import onsField %}
-{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/date-field-input/_macro.njk" import onsDateFieldInput %}
 
 {% macro onsDuration(params) %}
-    {% set numberOfFields = 0 %}
-
-    {% if params.field1 %}
-        {% set numberOfFields = numberOfFields + 1 %}
-    {% endif %}
-
-    {% if params.field2 %}
-        {% set numberOfFields = numberOfFields + 1 %}
-    {% endif %}
-
-    {% set fields %}
-        {% if params.field1 %}
-            {{ onsInput({
-                "id": params.field1.id,
-                "classes": (" ons-input--error" if (params.error and params.field1.error) or (numberOfFields > 1 and params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else ""),
-                "width": "2",
-                "type": "number",
-                "name": params.field1.name,
-                "value": params.field1.value,
-                "suffix": {
-                    "text": params.field1.suffix.text,
-                    "title": params.field1.suffix.title,
-                    "id": params.field1.suffix.id
-                },
-                "label": {
-                    "text": params.legendOrLabel if numberOfFields < 2,
-                    "description": params.description if numberOfFields < 2
-                },
-                "attributes": params.field1.attributes,
-                "fieldId": params.id if numberOfFields < 2,
-                "error": params.error if numberOfFields < 2
-            }) }}
-        {% endif %}
-
-        {% if params.field2 %}
-            {{ onsInput({
-                "id": params.field2.id,
-                "classes": (" ons-input--error" if (params.error and params.field2.error) or (numberOfFields > 1 and params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else ""),
-                "width": "2",
-                "type": "number",
-                "name": params.field2.name,
-                "value": params.field2.value,
-                "suffix": {
-                    "text": params.field2.suffix.text,
-                    "title": params.field2.suffix.title,
-                    "id": params.field2.suffix.id
-                },
-                "label": {
-                    "text": params.legendOrLabel if numberOfFields < 2,
-                    "description": params.description if numberOfFields < 2
-                },
-                "attributes": params.field2.attributes,
-                "fieldId": params.id if numberOfFields < 2,
-                "error": params.error if numberOfFields < 2
-            }) }}
-        {% endif %}
-    {% endset %}
-
-    {% if params.mutuallyExclusive %}
-        {% set mutuallyExclusive = params.mutuallyExclusive | setAttributes({
-            "id": params.id,
-            "legend": params.legendOrLabel,
-            "legendClasses": params.legendClasses,
-            "description": params.description,
-            "error": params.error,
-            "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "dontWrap": params.dontWrap
-        }) %}
-
-        {% call onsMutuallyExclusive(mutuallyExclusive) %}
-            <div class="ons-field-group">
-                {{ fields | safe }}
-            </div>
-        {% endcall %}
-    {% elif numberOfFields > 1 %}
-        {% call onsFieldset({
-            "id": params.id,
-            "legend": params.legendOrLabel,
-            "description": params.description,
-            "legendClasses": params.legendClasses,
-            "error": params.error,
-            "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "dontWrap": params.dontWrap
-        }) %}
-            <div class="ons-field-group">
-                {{ fields | safe }}
-            </div>
-        {% endcall %}
-    {% else %}
-        {{ fields | safe }}
-    {% endif %}
+    {% set fields = [
+        {
+            "id": params.field1.id, 
+            "name": params.field1.name, 
+            "attributes": params.field1.attributes, 
+            "label": { "text": params.legendOrLabel if numberOfFields < 2, "description": params.description if numberOfFields < 2}, 
+            "suffix": {
+                "text": params.field1.suffix.text,
+                "title": params.field1.suffix.title,
+                "id": params.field1.suffix.id
+            },
+            "width": "2",
+            "value": params.field1.value, 
+            "error": params.error if numberOfFields < 2, 
+            "classes": (" ons-input--error" if (params.error and params.field1.error) or (numberOfFields > 1 and params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else "")
+        },
+        {
+            "id": params.field2.id, 
+            "name": params.field2.name, 
+            "attributes": params.field2.attributes,
+            "width": "2",
+            "label": { "text": params.legendOrLabel if numberOfFields < 2, "description": params.description if numberOfFields < 2},  
+            "suffix": {
+                "text": params.field2.suffix.text,
+                "title": params.field2.suffix.title,
+                "id": params.field2.suffix.id
+            },
+            "value": params.field2.value, 
+            "error": params.error if numberOfFields < 2, 
+            "classes": (" ons-input--error" if (params.error and params.field2.error) or (numberOfFields > 1 and params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else "")
+        }] 
+    %}
+    {% set numberOfFields = fields | length %}
+    {{ onsDateFieldInput({
+        "id": params.id,
+        "legendOrLabel": params.legendOrLabel,
+        "description": params.description,
+        "mutuallyExclusive": params.mutuallyExclusive,
+        "numberOfFields": numberOfFields,
+        "fields": fields,
+        "error": params.error,
+        "legend": params.legendOrLabel,
+        "dontWrap": params.dontWrap,
+        "legendClasses": params.legendClasses,
+        "legendIsQuestionTitle": params.legendIsQuestionTitle
+     }) }}
 {% endmacro %}
