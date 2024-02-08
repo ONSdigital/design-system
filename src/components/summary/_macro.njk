@@ -35,7 +35,6 @@
                                 {% set itemClass = "" %}
                                 {% if row.error %} {% set itemClass = " ons-summary__item--error" %}{% endif %}
                                 {% if row.total %} {% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
-                              
                                 <div {% if row.id %}id="{{ row.id }}" {% endif %}class="ons-summary__item{{ variantItemClasses }}{{ itemClass }}">
                                     {% if row.errorMessage %}
                                         <div class="ons-summary__row-title--error ons-u-fs-r">{{ row.errorMessage }}</div>
