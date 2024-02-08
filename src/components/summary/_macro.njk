@@ -1,13 +1,15 @@
 {% macro onsSummary(params) %}
     {% set className = "ons-summary" %}
     {% set titleSize = "2" %}
-    {% if params.variant and not params.hub%}
+
+    {% if params.variant and not params.hub %}
         {% set variantClasses = " ons-summary__group--" + params.variant %}
-        {% set variantTitleClasses = " ons-summary__group-title--" + params.variant %}         
-        {% set variantItemsClasses = " ons-summary__items--" + params.variant %}        
+        {% set variantTitleClasses = " ons-summary__group-title--" + params.variant %}
+        {% set variantItemsClasses = " ons-summary__items--" + params.variant %}
         {% set variantItemClasses = " ons-summary__item--" + params.variant %}
-        {% set variantLinkClasses = " ons-summary__link--" + params.variant %}            
+        {% set variantLinkClasses = " ons-summary__link--" + params.variant %}
     {% endif %}
+
     {% if params.classes %}
          {% set className = className + " " + params.classes %}
     {% endif %}
