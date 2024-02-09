@@ -16,10 +16,6 @@ $hub-row-spacing: 1.3rem;
     + .ons-summary__group-title {
       margin-top: 1.5rem;
     }
-
-    
-
-
   }
 
   &__row {
@@ -31,7 +27,7 @@ $hub-row-spacing: 1.3rem;
     line-height: 1.4;
 
     &:not(:last-child),
-    &:nth-of-type(1) {
+    &:not(.ons-summary__group--card .ons-summary__item):nth-of-type(1) {
       border-bottom: 1px solid var(--ons-color-borders);
     }
 
@@ -182,10 +178,10 @@ $hub-row-spacing: 1.3rem;
     &__item-title,
     &__values,
     &__actions {
+      overflow: auto;
       flex: 5 1 33%;
       padding-top: $summary-row-spacing;
       vertical-align: top;
-
       &:not(:last-child) {
         padding-right: $summary-col-spacing;
       }
@@ -212,35 +208,30 @@ $hub-row-spacing: 1.3rem;
       }
     }
   }
-  
-  &--card {
-    box-sizing: border-box;
-    margin: 0 auto;
-    max-width: 57.445rem;
-    padding: 0 1rem;
-    position: relative;
-    width: 100%;
-    &__items{
-      padding: 0px 20px;
+
+  &__group {
+    &--card {
+      border: 1px solid var(--ons-color-borders-light);
+      .ons-summary__items {
+        padding: 0 1.25rem;
+        .ons-summary__item:not(:last-child) {
+          border-bottom: 1px solid var(--ons-color-borders-light);
+        }
+      }
+      .ons-summary__group-title {
+        background-color: var(--ons-color-grey-5);
+        padding: 1rem 1.25rem;
+      }
+      .ons-summary__link {
+        padding: 0 1.25rem;
+        a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          padding: 1rem 0;
+          border-top: 1px solid var(--ons-color-borders-light);
+        }
+      }
     }
-
-   
   }
-  
-  
-  &__group-card {
-    border: 1px solid #b1b4b6;
-    margin-bottom: 30px;
-  }
-
-  &__group-card-title{
-    background-color: #f3f2f1;
-    border-bottom: 1px solid transparent;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    padding: 15px 20px
-  }
-
- 
 }

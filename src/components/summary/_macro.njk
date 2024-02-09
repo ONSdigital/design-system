@@ -2,17 +2,16 @@
     {% set className = "ons-summary" %}
     {% set titleSize = "2" %}
 
+    {% if params.variant == "hub" %}
+        {% set className = className + " ons-summary--hub" %}
+    {% elif params.variant %}
+        {% set variantClasses = " ons-summary__group--" + params.variant %}
+    {% endif %}
+
     {% if params.classes %}
          {% set className = className + " " + params.classes %}
     {% endif %}
-
-    {% if params.hub %}
-        {% set className = className + " ons-summary--hub" %}
-    {% endif %}
-
-     {% if params.card %}
-        {% set className = className + " ons-summary--card" %}
-    {% endif %}
+    
 
     <div class="{{ className }}">
         {% for summary in params.summaries %}
@@ -21,18 +20,17 @@
                 {% set titleSize = "3" %}
             {% endif %}
             {% for group in summary.groups %}
-                <div {% if group.id %}id="{{ group.id }}" {% endif %} class="{{"ons-summary__group-card" if params.card else "ons-summary__group"}}">
+                <div {% if group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__group{{ variantClasses }}">
                     {% if group.groupTitle %}
-                        <h{{ titleSize }} class="{{"ons-summary__group-card-title" if params.card else "ons-summary__group-title"}}">{{ group.groupTitle }}</h{{ titleSize }}>
+                        <h{{ titleSize }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
                     {% if group.rows %}
-                        <div class="{{"ons-summary--card__items" if params.card else "ons-summary__items"}}">
+                        <div class="ons-summary__items">
 
                             {% for row in group.rows %}
                                 {% set itemClass = "" %}
                                 {% if row.error %} {% set itemClass = " ons-summary__item--error" %}{% endif %}
                                 {% if row.total %} {% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
-
                                 <div {% if row.id %}id="{{ row.id }}" {% endif %}class="ons-summary__item{{ itemClass }}">
                                     {% if row.errorMessage %}
                                         <div class="ons-summary__row-title--error ons-u-fs-r">{{ row.errorMessage }}</div>
@@ -116,7 +114,7 @@
                     {% endif %}
 
                     {% if group.summaryLink %}
-                        <div class="ons-summary__link{% if group.placeholderText or group.rows %} ons-u-pt-s{% endif %}{% if group.placeholderText is not defined and group.rows | length > 1 %} ons-u-bt{% endif %}{% if not group.last %} ons-u-mb-xl{% endif %}">
+                        <div class="ons-summary__link{% if group.placeholderText or group.rows %} ons-u-pt-s{% endif %}{% if group.placeholderText is not defined and group.rows | length > 1 and not params.variant %} ons-u-bt{% endif %}{% if not group.last %} ons-u-mb-xl{% endif %}">
                             <a {% if group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %} href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
                         </div>
                     {% endif %}

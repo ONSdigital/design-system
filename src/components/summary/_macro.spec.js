@@ -605,3 +605,41 @@ describe('macro: summary', () => {
     });
   });
 });
+
+describe('mode: card', () => {
+  it('passes jest-axe checks', async () => {
+    const $ = cheerio.load(renderComponent('summary', { ...EXAMPLE_SUMMARY_BASIC, variant: 'card' }));
+
+    const results = await axe($.html());
+    expect(results).toHaveNoViolations();
+  });
+
+  it('has the correct classes applied', () => {
+    const $ = cheerio.load(
+      renderComponent('summary', {
+        ...EXAMPLE_SUMMARY_MULTIPLE_GROUPS,
+        variant: 'card',
+      }),
+    );
+
+    expect($('.ons-summary__group').hasClass('ons-summary__group--card')).toBe(true);
+    expect($('.ons-summary__items').hasClass('ons-summary__items--card')).toBe(true);
+    expect($('.ons-summary__item').hasClass('ons-summary__item--card')).toBe(true);
+    expect($('.ons-summary__link').hasClass('ons-summary__link--card')).toBe(true);
+  });
+
+  it('does not apply card classes when hub is set to true', () => {
+    const $ = cheerio.load(
+      renderComponent('summary', {
+        ...EXAMPLE_SUMMARY_GROUPS,
+        variant: 'card',
+        hub: true,
+      }),
+    );
+
+    expect($('.ons-summary__group').hasClass('ons-summary__group--card')).toBe(false);
+    expect($('.ons-summary__items').hasClass('ons-summary__items--card')).toBe(false);
+    expect($('.ons-summary__item').hasClass('ons-summary__item--card')).toBe(false);
+    expect($('.ons-summary__link').hasClass('ons-summary__link--card')).toBe(false);
+  });
+});
