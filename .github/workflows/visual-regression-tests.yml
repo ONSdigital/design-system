@@ -15,7 +15,7 @@ jobs:
         with:
           lfs: true
       - name: Install Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
       - name: Install dependencies
@@ -25,4 +25,14 @@ jobs:
           brew install docker
           colima start
       - name: Run visual regression tests
+        id: vr
         run: yarn test-visual
+      # Archive report artifacts if visual regression tests fail
+      - name: Archive BackstopJS reports
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: backstop-reports
+          path: |
+            backstop_data/bitmaps_test
+            backstop_data/html_report
