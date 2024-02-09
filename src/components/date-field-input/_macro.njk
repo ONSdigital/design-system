@@ -62,7 +62,7 @@
                 {{ fields | safe }}
             </div>
         {% endcall %}
-    {% elif params.numberOfFields >= 1 %}
+    {% elif params.numberOfFields > 1 %}
         {% call onsFieldset({
             "id": params.id,
             "legend": params.legendOrLabel,
@@ -76,6 +76,14 @@
                 {{ fields | safe }}
             </div>
         {% endcall %}
+    {% elif params.numberOfFields == 1 %}
+        {% if params.error %}
+            {% call onsError(params.error) %}
+                {{ fields | safe }}
+            {% endcall %}
+        {% else %}
+            {{ fields | safe }}
+        {% endif %}
     {% else %}
         {{ fields | safe }}
     {% endif %}

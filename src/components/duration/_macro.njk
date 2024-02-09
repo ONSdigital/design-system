@@ -14,8 +14,8 @@
             },
             "width": "2",
             "value": params.field1.value, 
-            "error": params.error if numberOfFields < 2, 
-            "classes": (" ons-input--error" if (params.error and params.field1.error) or (numberOfFields > 1 and params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else "")
+            "error": params.error if numberOfFields < 2,
+            "classes": (" ons-input--error" if (params.error and params.field1.error) or (params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else "")
         },
         {
             "id": params.field2.id, 
@@ -29,8 +29,8 @@
                 "id": params.field2.suffix.id
             },
             "value": params.field2.value, 
-            "error": params.error if numberOfFields < 2, 
-            "classes": (" ons-input--error" if (params.error and params.field2.error) or (numberOfFields > 1 and params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else "")
+            "error": params.error if numberOfFields < 2,
+            "classes": (" ons-input--error" if (params.error and params.field2.error) or (params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else "")
         }] 
     %}
     {% set numberOfFields = fields | length %}
@@ -44,6 +44,7 @@
         "error": params.error,
         "legend": params.legendOrLabel,
         "dontWrap": params.dontWrap,
+        "classes": params.classes,
         "legendClasses": params.legendClasses,
         "legendIsQuestionTitle": params.legendIsQuestionTitle
      }) }}
