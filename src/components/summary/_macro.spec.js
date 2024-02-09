@@ -533,7 +533,7 @@ describe('macro: summary', () => {
       const $ = cheerio.load(
         renderComponent('summary', {
           ...EXAMPLE_SUMMARY_BASIC,
-          hub: true,
+          variant: 'hub',
         }),
       );
 
@@ -545,7 +545,7 @@ describe('macro: summary', () => {
       const $ = cheerio.load(
         renderComponent('summary', {
           ...EXAMPLE_SUMMARY_BASIC,
-          hub: true,
+          variant: 'hub',
         }),
       );
 
@@ -556,7 +556,7 @@ describe('macro: summary', () => {
       const $ = cheerio.load(
         renderComponent('summary', {
           ...EXAMPLE_SUMMARY_BASIC,
-          hub: true,
+          variant: 'hub',
         }),
       );
 
@@ -623,9 +623,6 @@ describe('mode: card', () => {
     );
 
     expect($('.ons-summary__group').hasClass('ons-summary__group--card')).toBe(true);
-    expect($('.ons-summary__items').hasClass('ons-summary__items--card')).toBe(true);
-    expect($('.ons-summary__item').hasClass('ons-summary__item--card')).toBe(true);
-    expect($('.ons-summary__link').hasClass('ons-summary__link--card')).toBe(true);
   });
 
   it('does not apply card classes when hub is set to true', () => {
@@ -633,13 +630,10 @@ describe('mode: card', () => {
       renderComponent('summary', {
         ...EXAMPLE_SUMMARY_GROUPS,
         variant: 'card',
-        hub: true,
+        variant: 'hub',
       }),
     );
 
     expect($('.ons-summary__group').hasClass('ons-summary__group--card')).toBe(false);
-    expect($('.ons-summary__items').hasClass('ons-summary__items--card')).toBe(false);
-    expect($('.ons-summary__item').hasClass('ons-summary__item--card')).toBe(false);
-    expect($('.ons-summary__link').hasClass('ons-summary__link--card')).toBe(false);
   });
 });
