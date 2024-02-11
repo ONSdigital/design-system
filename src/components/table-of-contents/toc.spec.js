@@ -1,4 +1,4 @@
-import { renderBaseTemplate, renderComponent, setTestPage } from '../../tests/helpers/rendering';
+import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
 describe('script: table-of-contents', () => {
   beforeEach(async () => {

@@ -17,6 +17,8 @@ export default class Btt {
   }
 
   handleScroll() {
+    console.log(document.querySelector('.ons-back-to-top > a').style.left);
+
     let scrollPosition = window.scrollY + window.innerHeight;
 
     if (this.target) {
