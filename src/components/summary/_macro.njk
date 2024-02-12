@@ -3,6 +3,7 @@
     {% set titleSize = "2" %}
 
     {% if params.variant == "hub" %}
+        {% set variantHub = true %}
         {% set className = className + " ons-summary--hub" %}
     {% elif params.variant %}
         {% set variantClasses = " ons-summary__group--" + params.variant %}
@@ -59,7 +60,7 @@
                                                 </div>
 
                                                 {# Render section status for mobile if is hub #}
-                                                {% if params.hub and rowItem.valueList %}
+                                                {% if variantHub and rowItem.valueList %}
                                                     <span class="ons-u-d-no@m ons-u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
                                                 {% endif %}
                                             </dt>
