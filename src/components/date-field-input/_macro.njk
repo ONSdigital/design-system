@@ -7,23 +7,23 @@
 {% macro onsDateFieldInput(params) %}
     {% set fields %}
         {% for field in params.fields %}
-            {{ 
+            {{
                 onsInput({
-                "id": field.id,
-                "classes": field.classes,
-                "width": field.width,
-                "type": "number",
-                "name": field.name,
-                "value": field.value,
-                "min": field.min,
-                "max": field.max,
-                "maxLength": field.maxLength,
-                "suffix": field.suffix,
-                "label": field.label,
-                "attributes": field.attributes,
-                "error": field.error,
-                "fieldId": field.fieldId
-                }) 
+                    "id": field.id,
+                    "classes": field.classes,
+                    "width": field.width,
+                    "type": "number",
+                    "name": field.name,
+                    "value": field.value,
+                    "min": field.min,
+                    "max": field.max,
+                    "maxLength": field.maxLength,
+                    "suffix": field.suffix,
+                    "label": field.label,
+                    "attributes": field.attributes,
+                    "error": field.error,
+                    "fieldId": field.fieldId
+                })
             }}
         {% endfor %}
     {% endset %}
