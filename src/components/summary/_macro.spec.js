@@ -624,16 +624,4 @@ describe('mode: card', () => {
 
     expect($('.ons-summary__group').hasClass('ons-summary__group--card')).toBe(true);
   });
-
-  it('does not apply card classes when hub is set to true', () => {
-    const $ = cheerio.load(
-      renderComponent('summary', {
-        ...EXAMPLE_SUMMARY_GROUPS,
-        variant: 'card',
-        variant: 'hub',
-      }),
-    );
-
-    expect($('.ons-summary__group').hasClass('ons-summary__group--card')).toBe(false);
-  });
 });

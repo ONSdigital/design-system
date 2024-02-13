@@ -1,9 +1,8 @@
-| Name      | Type               | Required | Description                                                                |
-| --------- | ------------------ | -------- | -------------------------------------------------------------------------- |
-| summaries | Array`<Summaries>` | true     | An array of [summaries](#summaries)                                        |
-| classes   | string             | false    | Classes to add to the summary component                                    |
-| hub       | boolean            | false    | Set to “true” to use the summary as a hub                                  |
-| variant   | string             | false    | A single value eg. `card` changes the summary with groups to a card layout |
+| Name      | Type               | Required | Description                                                    |
+| --------- | ------------------ | -------- | -------------------------------------------------------------- |
+| summaries | Array`<Summaries>` | true     | An array of [summaries](#summaries)                            |
+| classes   | string             | false    | Classes to add to the summary component                        |
+| variant   | string             | false    | Can be set to card or hub to use those variants of the summary |
 
 ## Summaries
 
