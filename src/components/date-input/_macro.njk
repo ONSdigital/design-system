@@ -19,56 +19,56 @@
     {% set fields = [] %}
     {% if params.day %}
         {% set dayField = {
-            "id": params.id + "-day", 
+            "id": params.id + "-day",
             "label": {
-                 "text": params.day.label.text if numberOfFields > 1 else params.legendOrLabel, 
+                 "text": params.day.label.text if numberOfFields > 1 else params.legendOrLabel,
                  "description": params.day.label.description if numberOfFields > 1 else params.description,
                   "id": params.id + "-day-label"
-            }, 
-            "name": params.day.name, 
-            "width": "2", 
-            "min": 1, 
-            "max": 31, 
-            "maxLength": 2, 
-            "attributes": params.day.attributes, 
-            "value": params.day.value, 
+            },
+            "name": params.day.name,
+            "width": "2",
+            "min": 1,
+            "max": 31,
+            "maxLength": 2,
+            "attributes": params.day.attributes,
+            "value": params.day.value,
             "classes": (" ons-input--error" if (params.error and params.day.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default("")
         } %}
         {% set fields = (fields.push(dayField), fields) %}
     {% endif %}
     {% if params.month %}
         {% set monthField = {
-            "id": params.id + "-month", 
+            "id": params.id + "-month",
             "label": { 
-                "text": params.month.label.text if numberOfFields > 1 else params.legendOrLabel, 
-                "description": params.month.label.description if numberOfFields > 1 else params.description, 
+                "text": params.month.label.text if numberOfFields > 1 else params.legendOrLabel,
+                "description": params.month.label.description if numberOfFields > 1 else params.description,
                 "id": params.id + "-month-label"
             },
-            "name": params.month.name, 
+            "name": params.month.name,
             "width": "2",
-            "min": 1, 
-            "max": 12, 
-            "maxLength": 2, 
-            "attributes": params.month.attributes, 
-            "value": params.month.value, 
+            "min": 1,
+            "max": 12,
+            "maxLength": 2,
+            "attributes": params.month.attributes,
+            "value": params.month.value,
             "classes": (" ons-input--error" if (params.error and params.month.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default("")
         } %}
         {% set fields = (fields.push(monthField), fields) %}
     {% endif %}
     {% if params.year %}
         {% set yearField = {
-            "id": params.id + "-year", 
+            "id": params.id + "-year",
             "label": { 
-                "text": params.year.label.text if numberOfFields > 1 else params.legendOrLabel, 
-                "description": params.year.label.description if numberOfFields > 1 else params.description, 
+                "text": params.year.label.text if numberOfFields > 1 else params.legendOrLabel,
+                "description": params.year.label.description if numberOfFields > 1 else params.description,
                 "id": params.id + "-year-label"
             }, 
-            "name": params.year.name, 
-            "width": "4", 
-            "min": 1000, 
-            "max": 3000, 
-            "maxLength": 4, 
-            "attributes": params.year.attributes, 
+            "name": params.year.name,
+            "width": "4",
+            "min": 1000,
+            "max": 3000,
+            "maxLength": 4,
+            "attributes": params.year.attributes,
             "value": params.year.value, 
             "classes": (" ons-input--error" if (params.error and params.year.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default("")
         } %}
@@ -76,7 +76,7 @@
     {% endif %}
 
     {{ onsDateFieldInput({
-         "id": params.id,
+        "id": params.id,
         "legendOrLabel": params.legendOrLabel,
         "description": params.description,
         "mutuallyExclusive": params.mutuallyExclusive,

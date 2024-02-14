@@ -13,13 +13,13 @@
     {% set fields = [] %}
     {% if params.field1 %}
         {% set field1 = {
-            "id": params.field1.id, 
-            "name": params.field1.name, 
-            "attributes": params.field1.attributes, 
+            "id": params.field1.id,
+            "name": params.field1.name,
+            "attributes": params.field1.attributes,
             "label": {
-                "text": params.legendOrLabel if numberOfFields < 2, 
+                "text": params.legendOrLabel if numberOfFields < 2,
                 "description": params.description if numberOfFields < 2
-            }, 
+            },
             "suffix": {
                 "text": params.field1.suffix.text,
                 "title": params.field1.suffix.title,
@@ -36,12 +36,12 @@
 
     {% if params.field2 %}
         {% set field2 = {
-            "id": params.field2.id, 
-            "name": params.field2.name, 
+            "id": params.field2.id,
+            "name": params.field2.name,
             "attributes": params.field2.attributes,
             "width": "2",
             "label": { 
-                "text": params.legendOrLabel if numberOfFields < 2, 
+                "text": params.legendOrLabel if numberOfFields < 2,
                 "description": params.description if numberOfFields < 2
             },  
             "suffix": {
@@ -49,7 +49,7 @@
                 "title": params.field2.suffix.title,
                 "id": params.field2.suffix.id
             },
-            "value": params.field2.value, 
+            "value": params.field2.value,
             "error": params.error if numberOfFields < 2,
             "fieldId": params.id if numberOfFields < 2,
             "classes": (" ons-input--error" if (params.error and params.field2.error) or (params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else "")
