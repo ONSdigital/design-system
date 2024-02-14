@@ -30,7 +30,7 @@ jobs:
       # Archive report artifacts if visual regression tests fail
       - name: Archive BackstopJS reports
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: backstop-reports
           path: |
