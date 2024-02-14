@@ -19,11 +19,27 @@
 
 ## MastheadLogo
 
-| Name    | Type   | Required | Description                                                                    |
-| ------- | ------ | -------- | ------------------------------------------------------------------------------ |
-| classes | string | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
-| large   | HTML   | true     | Any HTML to render an image for example embedded `<svg>` or `<img>`            |
-| small   | HTML   | false    | Optionally provide a version of the logo more suited to mobile viewports       |
+| Name          | Type                    | Required | Description                                                                    |
+| ------------- | ----------------------- | -------- | ------------------------------------------------------------------------------ |
+| classes       | string                  | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
+| large         | HTML                    | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`            |
+| small         | HTML                    | false    | Optionally provide a version of the logo more suited to mobile viewports       |
+| multipleLogos | object`<MultipleLogos>` | false    | Allows for up to three logos to be used in the masthead.                       |
+
+## MultipleLogos
+
+| Name  | Type                 | Required | Description |
+| ----- | -------------------- | -------- | ----------- |
+| logo1 | object`<LogoObject>` | true     | First Logo  |
+| logo2 | object`<LogoObject>` | false    | Second Logo |
+| logo3 | object`<LogoObject>` | false    | Third Logo  |
+
+## LogoObject
+
+| Name      | Type           | Required | Description                                                                                                   |
+| --------- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| logoImage | HTML or string | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`. Use 'ONS Logo' for the default ONS icon. |
+| logoURL   | string         | false    | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                    |
 
 ## TitleLogo
 
