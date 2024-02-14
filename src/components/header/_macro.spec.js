@@ -318,6 +318,93 @@ describe('macro: header', () => {
       expect($('.ons-header__org-logo--small img').attr('src')).toBe('another-logo-small.svg');
     });
 
+    describe('mode: with multiple logos', () => {
+      it('has the default ONS icon when requested', () => {
+        const faker = templateFaker();
+        const iconsSpy = faker.spy('icon');
+
+        faker.renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          mastheadLogo: {
+            multipleLogos: {
+              logo1: {
+                logoImage: 'ONS Logo',
+              },
+            },
+          },
+        });
+        expect(iconsSpy.occurrences[0].iconType).toBe('ons-logo-stacked-en');
+      });
+
+      it('has the provided link', () => {
+        const $ = cheerio.load(
+          renderComponent('header', {
+            ...EXAMPLE_HEADER_BASIC,
+            mastheadLogo: {
+              multipleLogos: {
+                logo1: {
+                  logoImage: '<img src="a-logo.svg">',
+                  logoURL: '#0',
+                },
+              },
+            },
+          }),
+        );
+
+        expect($('.ons-header__org-logo-link').attr('href')).toBe('#0');
+      });
+
+      it('when multiple images are provided all show', () => {
+        const $ = cheerio.load(
+          renderComponent('header', {
+            ...EXAMPLE_HEADER_BASIC,
+            mastheadLogo: {
+              multipleLogos: {
+                logo1: {
+                  logoImage: '<img src="a-logo.svg">',
+                },
+                logo2: {
+                  logoImage: '<img src="a-second-logo.svg">',
+                },
+                logo3: {
+                  logoImage: '<img src="a-third-logo.svg">',
+                },
+              },
+            },
+          }),
+        );
+
+        expect($('.ons-header__org-logo--multi img').attr('src')).toBe('a-logo.svg');
+        expect($('.ons-header__org-logo--multi img:nth-of-type(2)').attr('src')).toBe('a-second-logo.svg');
+        expect($('.ons-header__org-logo--multi img:nth-of-type(3)').attr('src')).toBe('a-third-logo.svg');
+      });
+
+      it('renders multiple logos even when small/large parameters are used', () => {
+        const $ = cheerio.load(
+          renderComponent('header', {
+            ...EXAMPLE_HEADER_BASIC,
+            mastheadLogo: {
+              small: '<img src="small-logo.svg">',
+              large: '<img src="big-logo.svg">',
+              multipleLogos: {
+                logo1: {
+                  logoImage: '<img src="a-logo.svg">',
+                },
+                logo2: {
+                  logoImage: '<img src="a-second-logo.svg">',
+                },
+                logo3: {
+                  logoImage: '<img src="a-third-logo.svg">',
+                },
+              },
+            },
+          }),
+        );
+        expect($('.ons-header__org-logo--large').attr('src')).toBe(undefined);
+        expect($('.ons-header__org-logo--multi img').attr('src')).toBe('a-logo.svg');
+      });
+    });
+
     it('displays the `title` text', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_BASIC));
 
