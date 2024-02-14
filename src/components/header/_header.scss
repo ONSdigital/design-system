@@ -13,6 +13,7 @@
   }
   &__grid-top {
     padding: 1rem 0;
+    row-gap: 0.5rem;
 
     @include mq(xs) {
       padding: 0.75rem 0;
@@ -142,6 +143,7 @@
 
   .ons-icon--logo {
     display: block;
+    width: 100%;
   }
 
   &__org-logo-link,
@@ -174,6 +176,12 @@
     @include mq(455px) {
       display: none;
     }
+  }
+
+  &__org-logo--multi {
+    display: inline-flex;
+    column-gap: 1rem;
+    align-items: center;
   }
 
   &-service-nav {
