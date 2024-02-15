@@ -224,17 +224,19 @@ $hub-row-spacing: 1.3rem;
       }
       .ons-summary__link {
         padding: 0 1.25rem;
-        a {
-          display: block;
-          width: 100%;
-          height: 100%;
+        div {
           padding: 1rem 0;
           border-top: 1px solid var(--ons-color-borders-light);
         }
       }
       .ons-summary__placeholder {
         display: block;
-        margin: 0.5rem 1.25rem;
+        padding: 0.5rem 1.25rem;
+      }
+      .ons-summary__placeholder + .ons-summary__link {
+        div {
+          border-top: none;
+        }
       }
     }
   }
