@@ -27,7 +27,14 @@ module.exports = {
   },
   engine: 'puppeteer',
   engineOptions: {
-    args: ['--disable-gpu', '--no-sandbox', '--disable-setuid-sandbox'],
+    args: [
+      '--disable-gpu',
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--shm-size=512mb',
+      '--disable-dev-shm-usage',
+      '--cap-add=SYS_ADMIN',
+    ],
   },
   report: process.env.RUNNING_IN_CI === 'true' ? [] : ['browser'],
   dockerCommandTemplate:
