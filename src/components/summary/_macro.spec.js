@@ -436,15 +436,19 @@ describe('macro: summary', () => {
       it('displays the `valueList` text', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect($('.ons-summary__items .ons-summary__item:nth-of-type(1) dl .ons-summary__values .ons-summary__text').text().trim()).toBe(
-          'row value 1',
-        );
+        expect(
+          $('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__row .ons-summary__values .ons-summary__text')
+            .text()
+            .trim(),
+        ).toBe('row value 1');
       });
 
       it('displays the `other` text', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect($('.ons-summary__items .ons-summary__item:nth-of-type(1) dl .ons-summary__values ul li').text().trim()).toBe('other value');
+        expect($('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__row .ons-summary__values ul li').text().trim()).toBe(
+          'other value',
+        );
       });
 
       it('wraps the `valueList` in a ul if multiple values provided', () => {
