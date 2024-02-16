@@ -115,7 +115,7 @@
 
                     {% if group.summaryLink %}
                         <div class="ons-summary__link{% if group.placeholderText or group.rows %} ons-u-pt-s{% endif %}{% if group.placeholderText is not defined and group.rows | length > 1 and not params.variant %} ons-u-bt{% endif %}{% if not group.last %} ons-u-mb-xl{% endif %}">
-                            {% if params.variant %}<div>{% endif %}
+                            {% if params.variant == 'card' %}<div>{% endif %}
                                 <a {% if group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %} href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
                             {% if params.variant %}</div>{% endif %}
                         </div>
