@@ -14,6 +14,10 @@ export default class Btt {
       this.updateContentDetails();
       this.handleScroll();
     });
+
+    this.component.addEventListener('click', (e) => {
+      this.component.firstElementChild.blur();
+    });
   }
 
   handleScroll() {

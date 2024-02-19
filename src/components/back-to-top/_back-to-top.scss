@@ -1,5 +1,5 @@
 .ons-back-to-top {
-  > a > span {
+  &__description {
     margin-left: 0.2rem;
   }
 
@@ -30,6 +30,7 @@
 
       &:focus {
         box-shadow: none;
+        text-decoration: underline solid var(--ons-color-text-link-focus) 4px;
       }
     }
   }
