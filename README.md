@@ -153,3 +153,7 @@ yarn build
 - [Sass](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented)
 - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
 - [vscode-remark-lint](https://marketplace.visualstudio.com/items?itemName=drewbourne.vscode-remark-lint)
+
+## Recommended Visual Studio Code settings for this project
+
+- "render whitespace" set to "all"
