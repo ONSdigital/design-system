@@ -37,27 +37,21 @@ describe('macro: hero', () => {
   it('has expected `title`', () => {
     const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO));
 
-    const title = $('.ons-hero__title')
-      .html()
-      .trim();
+    const title = $('.ons-hero__title').html().trim();
     expect(title).toBe('Hero title');
   });
 
   it('has expected `subtitle`', () => {
     const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO));
 
-    const title = $('.ons-hero__subtitle')
-      .html()
-      .trim();
+    const title = $('.ons-hero__subtitle').html().trim();
     expect(title).toBe('Hero subtitle');
   });
 
   it('has expected `text`', () => {
     const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO));
 
-    const title = $('.ons-hero__text')
-      .html()
-      .trim();
+    const title = $('.ons-hero__text').html().trim();
     expect(title).toBe('Hero text');
   });
 
@@ -90,9 +84,7 @@ describe('macro: hero', () => {
   it('calls with content', () => {
     const $ = cheerio.load(renderComponent('hero', { EXAMPLE_HERO }, 'Example content...'));
 
-    const content = $('.ons-hero__additional-content')
-      .text()
-      .trim();
+    const content = $('.ons-hero__additional-content').text().trim();
     expect(content).toEqual(expect.stringContaining('Example content...'));
   });
 });
