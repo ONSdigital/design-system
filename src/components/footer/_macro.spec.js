@@ -225,7 +225,7 @@ describe('macro: footer', () => {
 
       expect(panelSpy.occurrences).toContainEqual(
         expect.objectContaining({
-          type: 'warn',
+          variant: 'warn',
           classes: 'ons-panel--warn--footer',
         }),
       );
@@ -278,7 +278,7 @@ describe('macro: footer', () => {
     it('renders expected column titles', () => {
       const $ = cheerio.load(renderComponent('footer', params));
 
-      const titleHeadings = mapAll($('.ons-footer__heading'), node => node.text().trim());
+      const titleHeadings = mapAll($('.ons-footer__heading'), (node) => node.text().trim());
       expect(titleHeadings).toEqual(['First column', 'Second column']);
     });
 

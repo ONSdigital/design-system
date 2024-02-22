@@ -36,11 +36,7 @@ describe('macro: error', () => {
       ),
     );
 
-    expect(
-      $('.ons-panel__error')
-        .text()
-        .trim(),
-    ).toBe('Example error text.');
+    expect($('.ons-panel__error').text().trim()).toBe('Example error text.');
   });
 
   it('applies the provided `attributes` to the error content paragraph', () => {
@@ -76,7 +72,7 @@ describe('macro: error', () => {
       FAKE_NESTED_CONTENT,
     );
 
-    expect(panelSpy.occurrences[0].type).toBe('error');
+    expect(panelSpy.occurrences[0].variant).toBe('error');
     expect(panelSpy.occurrences[0].id).toBe('example-error');
   });
 
