@@ -2,6 +2,13 @@
     {% set className = "ons-summary" %}
     {% set titleSize = "2" %}
 
+    {% if params.variant == "hub" %}
+        {% set variantHub = true %}
+        {% set className = className + " ons-summary--hub" %}
+    {% elif params.variant %}
+        {% set variantClasses = " ons-summary__group--" + params.variant %}
+    {% endif %}
+
     {% if params.classes %}
         {% set className = className + " " + params.classes %}
     {% endif %}
@@ -18,7 +25,7 @@
             {% endif %}
 
             {% for group in summary.groups %}
-                <div {% if group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__group">
+                <div {% if group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__group{{ variantClasses }}">
                     {% if group.groupTitle %}
                         <h{{ titleSize }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
@@ -59,7 +66,7 @@
                                                 </div>
 
                                                 {# Render section status for mobile if is hub #}
-                                                {% if params.hub and rowItem.valueList %}
+                                                {% if variantHub and rowItem.valueList %}
                                                     <span class="ons-u-d-no@m ons-u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
                                                 {% endif %}
                                             </dt>
