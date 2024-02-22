@@ -2,13 +2,17 @@
     {% set className = "ons-summary" %}
     {% set titleSize = "2" %}
 
+    {% if params.variant == "hub" %}
+        {% set variantHub = true %}
+        {% set className = className + " ons-summary--hub" %}
+    {% elif params.variant %}
+        {% set variantClasses = " ons-summary__group--" + params.variant %}
+    {% endif %}
+
     {% if params.classes %}
          {% set className = className + " " + params.classes %}
     {% endif %}
-
-    {% if params.hub %}
-        {% set className = className + " ons-summary--hub" %}
-    {% endif %}
+    
     <div class="{{ className }}">
         {% for summary in params.summaries %}
             {% if summary.summaryTitle %}
@@ -16,7 +20,7 @@
                 {% set titleSize = "3" %}
             {% endif %}
             {% for group in summary.groups %}
-                <div {% if group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__group">
+                <div {% if group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__group{{ variantClasses }}">
                     {% if group.groupTitle %}
                         <h{{ titleSize }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
@@ -27,7 +31,6 @@
                                 {% set itemClass = "" %}
                                 {% if row.error %} {% set itemClass = " ons-summary__item--error" %}{% endif %}
                                 {% if row.total %} {% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
-
                                 <div {% if row.id %}id="{{ row.id }}" {% endif %}class="ons-summary__item{{ itemClass }}">
                                     {% if row.errorMessage %}
                                         <div class="ons-summary__row-title--error ons-u-fs-r">{{ row.errorMessage }}</div>
@@ -57,7 +60,7 @@
                                                 </div>
 
                                                 {# Render section status for mobile if is hub #}
-                                                {% if params.hub and rowItem.valueList %}
+                                                {% if variantHub and rowItem.valueList %}
                                                     <span class="ons-u-d-no@m ons-u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
                                                 {% endif %}
                                             </dt>
@@ -111,8 +114,10 @@
                     {% endif %}
 
                     {% if group.summaryLink %}
-                        <div class="ons-summary__link{% if group.placeholderText or group.rows %} ons-u-pt-s{% endif %}{% if group.placeholderText is not defined and group.rows | length > 1 %} ons-u-bt{% endif %}{% if not group.last %} ons-u-mb-xl{% endif %}">
-                            <a {% if group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %} href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
+                        <div class="ons-summary__link{% if group.placeholderText or group.rows %} ons-u-pt-s{% endif %}{% if group.placeholderText is not defined and group.rows | length > 1 and params.variant != 'card' %} ons-u-bt{% endif %}{% if not group.last %} ons-u-mb-xl{% endif %}">
+                            {% if params.variant == 'card' %}<div>{% endif %}
+                                <a {% if group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %} href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
+                            {% if params.variant == 'card' %}</div>{% endif %}
                         </div>
                     {% endif %}
                 </div>
