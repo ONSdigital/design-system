@@ -27,7 +27,7 @@ $hub-row-spacing: 1.3rem;
     line-height: 1.4;
 
     &:not(:last-child),
-    &:nth-of-type(1) {
+    &:not(.ons-summary__group--card .ons-summary__item):nth-of-type(1) {
       border-bottom: 1px solid var(--ons-color-borders);
     }
 
@@ -205,6 +205,38 @@ $hub-row-spacing: 1.3rem;
       &__values,
       &__actions {
         padding-top: $hub-row-spacing;
+      }
+    }
+  }
+
+  &__group {
+    &--card {
+      border: 1px solid var(--ons-color-borders-light);
+      .ons-summary__items {
+        padding: 0 1.25rem;
+        .ons-summary__item:not(:last-child) {
+          border-bottom: 1px solid var(--ons-color-borders-light);
+        }
+      }
+      .ons-summary__group-title {
+        background-color: var(--ons-color-grey-5);
+        padding: 1rem 1.25rem;
+      }
+      .ons-summary__link {
+        padding: 0 1.25rem;
+        div {
+          padding: 1rem 0;
+          border-top: 1px solid var(--ons-color-borders-light);
+        }
+      }
+      .ons-summary__placeholder {
+        display: block;
+        padding: 0.5rem 1.25rem 0;
+      }
+      .ons-summary__placeholder + .ons-summary__link {
+        div {
+          border-top: none;
+        }
       }
     }
   }
