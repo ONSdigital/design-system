@@ -13,13 +13,10 @@ layout: ~
 } %}
 
 {% block main %}
-    {% call
-        onsPanel({
-            title: "There is a problem with this page",
-            type: "error"
-        })
-    %}
-
+    {% call onsPanel({
+        "title": "There is a problem with this page",
+        "variant": "error"
+    }) %}
         {% from "components/list/_macro.njk" import onsList %}
         {{
             onsList({
@@ -67,18 +64,16 @@ layout: ~
     {% set content %}
         <p>If you need to answer separately from the people you live with, you can <a href="#0">request an individual access code</a>.</p>
         {% call onsPanel({
-                "type": "warn"
-            })
-        %}
+            "variant": "warn"
+        }) %}
             Someone in your household must still complete a study using this household access code
         {% endcall %}
     {% endset %}
 
     {% call onsDetails({
-            "id": "details-access-code-error",
+        "id": "details-access-code-error",
         "title": "Need to answer separately from your household?"
-        })
-    %}
+    }) %}
         {{ content | safe }}
     {% endcall %}
 {% endblock %}

@@ -43,9 +43,8 @@ layout: ~
     {% set content %}
         <p>If you need to answer separately from the people you live with, you can <a href="#0">request an individual access code</a>.</p>
         {% call onsPanel({
-                type: "warn"
-            })
-        %}
+            "variant": "warn"
+        }) %}
             Someone in your household must still complete a study using this household access code
         {% endcall %}
     {% endset %}
@@ -53,8 +52,7 @@ layout: ~
     {% call onsDetails({
         "id": "details",
         "title": "Need to answer separately from your household?"
-        })
-    %}
+    }) %}
         {{ content | safe }}
     {% endcall %}
 {% endblock %}

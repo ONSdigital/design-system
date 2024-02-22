@@ -27,7 +27,7 @@ describe('macro: char-check-limit', () => {
         'char-check-limit',
         {
           ...EXAMPLE_CHAR_CHECK_LIMIT,
-          type: 'check',
+          variant: 'check',
         },
         ['<p>Test content.</p>'],
       ),
@@ -58,16 +58,12 @@ describe('macro: char-check-limit', () => {
         'char-check-limit',
         {
           ...EXAMPLE_CHAR_CHECK_LIMIT,
-          type: 'check',
+          variant: 'check',
         },
         ['<p>Test content.</p>'],
       ),
     );
 
-    expect(
-      $('.ons-js-char-check-input')
-        .html()
-        .trim(),
-    ).toBe('<p>Test content.</p>');
+    expect($('.ons-js-char-check-input').html().trim()).toBe('<p>Test content.</p>');
   });
 });

@@ -9,7 +9,7 @@ describe('macro: status', () => {
   it('passes jest-axe checks', async () => {
     const $ = cheerio.load(
       renderComponent('status', {
-        type: 'success',
+        variant: 'success',
         label: 'Example status message',
         size: 'small',
       }),
@@ -19,7 +19,7 @@ describe('macro: status', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('has the default type "info" when `type` is not provided', () => {
+  it('has the default variant "info" when `variant` is not provided', () => {
     const $ = cheerio.load(
       renderComponent('status', {
         label: 'Example status message',
@@ -29,10 +29,10 @@ describe('macro: status', () => {
     expect($('.ons-status').hasClass('ons-status--info')).toBe(true);
   });
 
-  it('has the provided `type`', () => {
+  it('has the provided `variant`', () => {
     const $ = cheerio.load(
       renderComponent('status', {
-        type: 'success',
+        variant: 'success',
         label: 'Example status message',
       }),
     );
@@ -68,10 +68,6 @@ describe('macro: status', () => {
       }),
     );
 
-    expect(
-      $('.ons-status')
-        .text()
-        .trim(),
-    ).toBe('Example status message');
+    expect($('.ons-status').text().trim()).toBe('Example status message');
   });
 });

@@ -1,5 +1,5 @@
 {%- macro onsMessage(params) -%}
-  <div class="ons-message ons-message--{{ params.type }}">
+  <div class="ons-message ons-message--{{ params.variant }}">
     <div class="ons-message__head">
       <dl class="ons-message__metadata" {% if params.id %} id="{{ params.id }}"{% endif %}>
         <div class="ons-message__sender">

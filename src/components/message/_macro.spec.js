@@ -6,7 +6,7 @@ import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
 const EXAMPLE_MESSAGE_MINIMAL = {
-  type: 'sent',
+  variant: 'sent',
   fromLabel: 'From',
   fromValue: 'Example Sender',
   sentLabel: 'Date sent',
@@ -35,13 +35,13 @@ describe('macro: message', () => {
   it.each([
     ['sent', 'ons-message--sent'],
     ['received', 'ons-message--received'],
-  ])('has appropriate class for provided `type` (%s -> %s)', (type, expectedClass) => {
+  ])('has appropriate class for provided `variant` (%s -> %s)', (variant, expectedClass) => {
     const $ = cheerio.load(
       renderComponent(
         'message',
         {
           ...EXAMPLE_MESSAGE_MINIMAL,
-          type,
+          variant,
         },
         ['Message content...'],
       ),
@@ -59,21 +59,13 @@ describe('macro: message', () => {
   it('has the provided `fromLabel`', () => {
     const $ = cheerio.load(renderComponent('message', EXAMPLE_MESSAGE_MINIMAL, ['Message content...']));
 
-    expect(
-      $('.ons-message__sender .ons-message__term')
-        .text()
-        .trim(),
-    ).toBe('From:');
+    expect($('.ons-message__sender .ons-message__term').text().trim()).toBe('From:');
   });
 
   it('has the provided `fromValue`', () => {
     const $ = cheerio.load(renderComponent('message', EXAMPLE_MESSAGE_MINIMAL, ['Message content...']));
 
-    expect(
-      $('.ons-message__sender .ons-message__value')
-        .text()
-        .trim(),
-    ).toBe('Example Sender');
+    expect($('.ons-message__sender .ons-message__value').text().trim()).toBe('Example Sender');
   });
 
   it('has the provided `fromId`', () => {
@@ -85,21 +77,13 @@ describe('macro: message', () => {
   it('has the provided `sentLabel`', () => {
     const $ = cheerio.load(renderComponent('message', EXAMPLE_MESSAGE_MINIMAL, ['Message content...']));
 
-    expect(
-      $('.ons-message__timestamp .ons-message__term')
-        .text()
-        .trim(),
-    ).toBe('Date sent:');
+    expect($('.ons-message__timestamp .ons-message__term').text().trim()).toBe('Date sent:');
   });
 
   it('has the provided `sentValue`', () => {
     const $ = cheerio.load(renderComponent('message', EXAMPLE_MESSAGE_MINIMAL, ['Message content...']));
 
-    expect(
-      $('.ons-message__timestamp .ons-message__value')
-        .text()
-        .trim(),
-    ).toBe('Tue 4 Jul 2020 at 7:47');
+    expect($('.ons-message__timestamp .ons-message__value').text().trim()).toBe('Tue 4 Jul 2020 at 7:47');
   });
 
   it('has the provided `sentId`', () => {
@@ -117,20 +101,12 @@ describe('macro: message', () => {
   it('has the provided `unreadLinkText`', () => {
     const $ = cheerio.load(renderComponent('message', EXAMPLE_MESSAGE, ['Message content...']));
 
-    expect(
-      $('.ons-message__unread-link')
-        .text()
-        .trim(),
-    ).toBe('Unread message');
+    expect($('.ons-message__unread-link').text().trim()).toBe('Unread message');
   });
 
   it('has the message content', () => {
     const $ = cheerio.load(renderComponent('message', EXAMPLE_MESSAGE_MINIMAL, ['Message content...']));
 
-    expect(
-      $('.ons-message__body')
-        .text()
-        .trim(),
-    ).toBe('Message content...');
+    expect($('.ons-message__body').text().trim()).toBe('Message content...');
   });
 });

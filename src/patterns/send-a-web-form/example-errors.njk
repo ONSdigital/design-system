@@ -27,49 +27,48 @@ layout: ~
     },
     "footer": {}
 } %}
+
 {% block main %}
 
-    {% call
-        onsPanel({
-            title: 'There are 4 problems with this page',
-            type: 'error'
-        })
-    %}
+    {% call onsPanel({
+        "title": 'There are 4 problems with this page',
+        "variant": 'error'
+    }) %}
 
-    {{
-        onsList({
-            "element": 'ol',
-            "itemsList": [
-                {
-                    "text": 'Select what you need help with',
-                    "index": true,
-                    "url": '#webform-help-error',
-                    "variants": "inPageLink"
-                },
-                {
-                    "text": 'Enter more detail about what you need help with',
-                    "index": true,
-                    "url": '#webform-detail-error',
-                    "variants": "inPageLink"
-                },
-                {
-                    "text": 'Enter your name',
-                    "index": true,
-                    "url": '#webform-name-error',
-                    "variants": "inPageLink"
-                },
-                {
-                    "text": 'Enter your email address',
-                    "index": true,
-                    "url": '#webform-email-error',
-                    "variants": "inPageLink"
-                }
-            ]
-        })
-    }}
-    
+        {{
+            onsList({
+                "element": 'ol',
+                "itemsList": [
+                    {
+                        "text": 'Select what you need help with',
+                        "index": true,
+                        "url": '#webform-help-error',
+                        "variants": "inPageLink"
+                    },
+                    {
+                        "text": 'Enter more detail about what you need help with',
+                        "index": true,
+                        "url": '#webform-detail-error',
+                        "variants": "inPageLink"
+                    },
+                    {
+                        "text": 'Enter your name',
+                        "index": true,
+                        "url": '#webform-name-error',
+                        "variants": "inPageLink"
+                    },
+                    {
+                        "text": 'Enter your email address',
+                        "index": true,
+                        "url": '#webform-email-error',
+                        "variants": "inPageLink"
+                    }
+                ]
+            })
+        }}
+
     {% endcall %}
-    
+
     <h1 class="ons-u-fs-xxl ons-u-mt-l">Web form</h1>
 
     {{ onsRadios({
