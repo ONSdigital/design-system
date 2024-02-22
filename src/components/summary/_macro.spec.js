@@ -533,7 +533,7 @@ describe('macro: summary', () => {
       const $ = cheerio.load(
         renderComponent('summary', {
           ...EXAMPLE_SUMMARY_BASIC,
-          hub: true,
+          variant: 'hub',
         }),
       );
 
@@ -545,7 +545,7 @@ describe('macro: summary', () => {
       const $ = cheerio.load(
         renderComponent('summary', {
           ...EXAMPLE_SUMMARY_BASIC,
-          hub: true,
+          variant: 'hub',
         }),
       );
 
@@ -556,7 +556,7 @@ describe('macro: summary', () => {
       const $ = cheerio.load(
         renderComponent('summary', {
           ...EXAMPLE_SUMMARY_BASIC,
-          hub: true,
+          variant: 'hub',
         }),
       );
 
@@ -603,5 +603,25 @@ describe('macro: summary', () => {
 
       expect($('.ons-summary__group .ons-summary__link a').attr('href')).toBe('#0');
     });
+  });
+});
+
+describe('mode: card', () => {
+  it('passes jest-axe checks', async () => {
+    const $ = cheerio.load(renderComponent('summary', { ...EXAMPLE_SUMMARY_BASIC, variant: 'card' }));
+
+    const results = await axe($.html());
+    expect(results).toHaveNoViolations();
+  });
+
+  it('has the correct classes applied', () => {
+    const $ = cheerio.load(
+      renderComponent('summary', {
+        ...EXAMPLE_SUMMARY_MULTIPLE_GROUPS,
+        variant: 'card',
+      }),
+    );
+
+    expect($('.ons-summary__group').hasClass('ons-summary__group--card')).toBe(true);
   });
 });
