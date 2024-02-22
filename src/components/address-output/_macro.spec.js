@@ -48,11 +48,7 @@ describe('macro: address-output', () => {
   ])('renders `unit` with %s', (_, params) => {
     const $ = cheerio.load(renderComponent('address-output', params));
 
-    expect(
-      $('.ons-address-output__unit')
-        .text()
-        .trim(),
-    ).toBe('Unit 5');
+    expect($('.ons-address-output__unit').text().trim()).toBe('Unit 5');
   });
 
   it.each([
@@ -61,11 +57,7 @@ describe('macro: address-output', () => {
   ])('renders `organisation` with %s', (_, params) => {
     const $ = cheerio.load(renderComponent('address-output', params));
 
-    expect(
-      $('.ons-address-output__organisation')
-        .text()
-        .trim(),
-    ).toBe('Trescos');
+    expect($('.ons-address-output__organisation').text().trim()).toBe('Trescos');
   });
 
   it.each([
@@ -74,11 +66,7 @@ describe('macro: address-output', () => {
   ])('renders `line1` with %s', (_, params) => {
     const $ = cheerio.load(renderComponent('address-output', params));
 
-    expect(
-      $('.ons-address-output__line1')
-        .text()
-        .trim(),
-    ).toBe('Abingdon Road');
+    expect($('.ons-address-output__line1').text().trim()).toBe('Abingdon Road');
   });
 
   it.each([
@@ -87,11 +75,7 @@ describe('macro: address-output', () => {
   ])('renders `line2` with %s', (_, params) => {
     const $ = cheerio.load(renderComponent('address-output', params));
 
-    expect(
-      $('.ons-address-output__line2')
-        .text()
-        .trim(),
-    ).toBe('Goathill');
+    expect($('.ons-address-output__line2').text().trim()).toBe('Goathill');
   });
 
   it.each([
@@ -100,11 +84,7 @@ describe('macro: address-output', () => {
   ])('renders `town` with %s', (_, params) => {
     const $ = cheerio.load(renderComponent('address-output', params));
 
-    expect(
-      $('.ons-address-output__town')
-        .text()
-        .trim(),
-    ).toBe('Barry');
+    expect($('.ons-address-output__town').text().trim()).toBe('Barry');
   });
 
   it.each([
@@ -113,10 +93,6 @@ describe('macro: address-output', () => {
   ])('renders `postcode` with %s', (_, params) => {
     const $ = cheerio.load(renderComponent('address-output', params));
 
-    expect(
-      $('.ons-address-output__postcode')
-        .text()
-        .trim(),
-    ).toBe('AB12 6UH');
+    expect($('.ons-address-output__postcode').text().trim()).toBe('AB12 6UH');
   });
 });

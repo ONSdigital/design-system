@@ -124,11 +124,7 @@ describe('macro: access-code', () => {
       }),
     );
 
-    expect(
-      $('.ons-panel__body')
-        .text()
-        .trim(),
-    ).toBe('Example security message.');
+    expect($('.ons-panel__body').text().trim()).toBe('Example security message.');
   });
 
   it('has provided `postTextBoxLinkText` and `postTextBoxLinkUrl`', () => {
@@ -139,11 +135,7 @@ describe('macro: access-code', () => {
       }),
     );
 
-    expect(
-      $('a[href="#3"]')
-        .text()
-        .trim(),
-    ).toBe('Example link text');
+    expect($('a[href="#3"]').text().trim()).toBe('Example link text');
   });
 
   it('has provided `error` output', () => {

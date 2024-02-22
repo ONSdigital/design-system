@@ -42,11 +42,7 @@ describe('macro: image', () => {
       }),
     );
 
-    expect(
-      $('.ons-image__caption')
-        .text()
-        .trim(),
-    ).toBe('Example image caption');
+    expect($('.ons-image__caption').text().trim()).toBe('Example image caption');
   });
 
   describe('mode: url', () => {

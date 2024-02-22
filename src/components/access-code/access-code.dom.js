@@ -6,6 +6,6 @@ domready(async () => {
   if (accessCodeInputs.length) {
     const accessCode = (await import('./access-code')).default;
 
-    accessCodeInputs.forEach(element => new accessCode(element));
+    accessCodeInputs.forEach((element) => new accessCode(element));
   }
 });

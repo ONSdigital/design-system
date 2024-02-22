@@ -119,12 +119,7 @@ describe('macro: label', () => {
   ])('has the provided `text` %s', (_, params) => {
     const $ = cheerio.load(renderComponent('label', params));
 
-    expect(
-      $('.ons-label')
-        .text()
-        .trim()
-        .startsWith('Example label text'),
-    ).toBe(true);
+    expect($('.ons-label').text().trim().startsWith('Example label text')).toBe(true);
   });
 
   describe('description element', () => {
@@ -147,11 +142,7 @@ describe('macro: label', () => {
     ])('has the provided `description` text %s', (_, params) => {
       const $ = cheerio.load(renderComponent('label', params));
 
-      expect(
-        $('.ons-label__description')
-          .text()
-          .trim(),
-      ).toBe('An example description');
+      expect($('.ons-label__description').text().trim()).toBe('An example description');
     });
 
     it('has a default `id` attribute of `description-hint`', () => {
@@ -192,7 +183,7 @@ describe('macro: label', () => {
       expect($('.ons-label__description').hasClass('ons-input--with-description')).toBe(false);
     });
 
-    it.each([['checkbox'], ['radio']])('has the description in an `aria-hidden` element when "%s" `inputType` is provided', inputType => {
+    it.each([['checkbox'], ['radio']])('has the description in an `aria-hidden` element when "%s" `inputType` is provided', (inputType) => {
       const $ = cheerio.load(
         renderComponent('label', {
           ...EXAMPLE_LABEL_WITH_DESCRIPTION,
@@ -205,7 +196,7 @@ describe('macro: label', () => {
 
     it.each([['checkbox'], ['radio']])(
       'has a duplicate description in a visually hidden element when "%s" `inputType` is provided',
-      inputType => {
+      (inputType) => {
         const $ = cheerio.load(
           renderComponent('label', {
             ...EXAMPLE_LABEL_WITH_DESCRIPTION,

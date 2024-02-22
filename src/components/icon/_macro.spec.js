@@ -33,7 +33,7 @@ describe('macro: icon', () => {
     'crest',
     'ogl',
     'circle-lined',
-  ])('icon type: %s', iconType => {
+  ])('icon type: %s', (iconType) => {
     it('passes jest-axe checks', async () => {
       const $ = cheerio.load(renderComponent('icon', { iconType }));
 
@@ -77,7 +77,7 @@ describe('macro: icon', () => {
     'twitter',
     'instagram',
     'linkedin',
-  ])('icon type: %s', iconType => {
+  ])('icon type: %s', (iconType) => {
     it('has style variation class for provided icon size', () => {
       const $ = cheerio.load(
         renderComponent('icon', {
@@ -101,11 +101,7 @@ describe('macro: icon', () => {
     it(`has default alt text '${expectedAltText}'`, () => {
       const $ = cheerio.load(renderComponent('icon', { iconType }));
 
-      expect(
-        $('title')
-          .text()
-          .trim(),
-      ).toBe(expectedAltText);
+      expect($('title').text().trim()).toBe(expectedAltText);
     });
 
     it('has provided alt text', () => {
@@ -116,11 +112,7 @@ describe('macro: icon', () => {
         }),
       );
 
-      expect(
-        $('title')
-          .text()
-          .trim(),
-      ).toBe('Example alt text');
+      expect($('title').text().trim()).toBe('Example alt text');
     });
   });
 });

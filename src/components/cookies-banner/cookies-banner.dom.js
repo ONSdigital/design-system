@@ -5,7 +5,7 @@ async function cookiesBanner() {
 
   if (cookiesBanner.length) {
     const CookiesBanner = (await import('./cookies-banner')).default;
-    cookiesBanner.forEach(banner => {
+    cookiesBanner.forEach((banner) => {
       new CookiesBanner(banner);
     });
   }

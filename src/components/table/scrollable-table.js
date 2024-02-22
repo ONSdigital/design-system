@@ -65,7 +65,7 @@ export default class TableScroll {
       ? rightShadow.classList.remove('ons-visible')
       : rightShadow.classList.add('ons-visible');
 
-    setTimeout(function() {
+    setTimeout(function () {
       return leftShadow.classList.add('ons-with-transition'), rightShadow.classList.add('ons-with-transition');
     }, 200);
   }

@@ -25,12 +25,12 @@ describe('script: modal', () => {
     });
 
     it('displays the modal', async () => {
-      const modalIsVisible = await page.$eval('.ons-modal', node => node.classList.contains('ons-u-db'));
+      const modalIsVisible = await page.$eval('.ons-modal', (node) => node.classList.contains('ons-u-db'));
       expect(modalIsVisible).toBe(true);
     });
 
     it('has the correct body class added', async () => {
-      const bodyClassAddition = await page.$eval('body', node => node.classList.contains('ons-modal-overlay'));
+      const bodyClassAddition = await page.$eval('body', (node) => node.classList.contains('ons-modal-overlay'));
       expect(bodyClassAddition).toBe(true);
     });
 
@@ -41,12 +41,12 @@ describe('script: modal', () => {
       });
 
       it('hides the modal', async () => {
-        const modalIsVisible = await page.$eval('.ons-modal', node => node.classList.contains('ons-u-db'));
+        const modalIsVisible = await page.$eval('.ons-modal', (node) => node.classList.contains('ons-u-db'));
         expect(modalIsVisible).toBe(false);
       });
 
       it('has the body class removed', async () => {
-        const bodyClassAddition = await page.$eval('body', node => node.classList.contains('ons-modal-overlay'));
+        const bodyClassAddition = await page.$eval('body', (node) => node.classList.contains('ons-modal-overlay'));
         expect(bodyClassAddition).toBe(false);
       });
 
@@ -64,7 +64,7 @@ describe('script: modal', () => {
       });
 
       it('closes the modal', async () => {
-        const modalIsVisible = await page.$eval('.ons-modal', node => node.classList.contains('ons-u-db'));
+        const modalIsVisible = await page.$eval('.ons-modal', (node) => node.classList.contains('ons-u-db'));
         expect(modalIsVisible).toBe(false);
       });
     });

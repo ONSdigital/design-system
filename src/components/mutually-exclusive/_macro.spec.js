@@ -123,11 +123,7 @@ describe('macro: mutually-exclusive', () => {
     it('renders visually hidden "Or" label', () => {
       const $ = cheerio.load(renderComponent('mutually-exclusive', EXAMPLE_MUTUALLY_EXCLUSIVE, FAKE_FIELD));
 
-      expect(
-        $('.ons-checkboxes__label')
-          .text()
-          .trim(),
-      ).toBe('Or');
+      expect($('.ons-checkboxes__label').text().trim()).toBe('Or');
     });
 
     it('renders a checkbox component with the expected parameters', () => {
@@ -159,11 +155,7 @@ describe('macro: mutually-exclusive', () => {
     it('renders visually hidden "Or" label', () => {
       const $ = cheerio.load(renderComponent('mutually-exclusive', EXAMPLE_MUTUALLY_EXCLUSIVE_RADIOS, FAKE_FIELD));
 
-      expect(
-        $('.ons-checkboxes__label')
-          .text()
-          .trim(),
-      ).toBe('Or');
+      expect($('.ons-checkboxes__label').text().trim()).toBe('Or');
     });
 
     it('renders a radios component with the expected parameters', () => {

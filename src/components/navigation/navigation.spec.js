@@ -303,5 +303,3 @@ describe('level: sub navigation', () => {
     });
   });
 });
-
-

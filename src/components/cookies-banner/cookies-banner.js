@@ -70,7 +70,7 @@ export default class CookiesBanner {
 
   updateRadios(action) {
     const radios = [...document.querySelectorAll('.ons-js-radio')];
-    radios.forEach(radio => {
+    radios.forEach((radio) => {
       if (action == 'reject') {
         radio.value == 'off' ? (radio.checked = true) : (radio.checked = false);
       } else if (action == 'accept') {

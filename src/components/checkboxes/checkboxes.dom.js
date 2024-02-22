@@ -18,7 +18,7 @@ domready(async () => {
     const otherFieldsets = [...document.querySelectorAll('.ons-js-other-fieldset-checkbox')];
     if (otherFieldsets) {
       const CheckboxWithInnerFieldset = (await import('./checkbox-with-fieldset')).default;
-      otherFieldsets.forEach(otherFieldset => {
+      otherFieldsets.forEach((otherFieldset) => {
         const context = otherFieldset.closest('.ons-checkbox');
         new CheckboxWithInnerFieldset(context);
       });
@@ -27,7 +27,7 @@ domready(async () => {
     const autoSelectButtons = [...document.querySelectorAll('.ons-js-auto-selector')];
     if (autoSelectButtons) {
       const CheckboxWithAutoSelect = (await import('./checkbox-with-autoselect')).default;
-      autoSelectButtons.forEach(button => {
+      autoSelectButtons.forEach((button) => {
         const context = button.parentNode;
         const insideReveal = context.parentNode.parentNode.querySelector('.ons-js-other');
         new CheckboxWithAutoSelect(context, button, insideReveal);

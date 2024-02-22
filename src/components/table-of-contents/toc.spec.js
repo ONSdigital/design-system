@@ -1,9 +1,10 @@
-import { renderBaseTemplate, renderComponent, setTestPage } from '../../tests/helpers/rendering';
+import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
 describe('script: table-of-contents', () => {
   beforeEach(async () => {
     await setTestPage(
       '/test',
+      /* eslint-disable indent */
       `
       <div class="ons-page__container ons-container">
         <div class="ons-grid ons-js-toc-container">
@@ -44,6 +45,7 @@ describe('script: table-of-contents', () => {
         </div>
       </div>
       `,
+      /* eslint-enable indent */
     );
   });
 
@@ -64,37 +66,38 @@ describe('script: table-of-contents-fixed-position', () => {
   beforeEach(async () => {
     await setTestPage(
       '/test',
+      /* eslint-disable indent */
       `
         <div class="ons-page__container ons-container">
-            <div class="ons-grid ons-js-toc-container">
-                <div id="sticky-container" class="ons-grid__col ons-grid__col--sticky@m ons-col-4@m">
-                ${renderComponent('table-of-contents', {
-                  title: 'Contents',
-                  ariaLabel: 'Sections in this page',
-                  itemsList: [
-                    {
-                      url: '#section1',
-                      text: 'What is the census?',
-                    },
-                    {
-                      url: '#section2',
-                      text: 'The online census has now closed',
-                    },
-                    {
-                      url: '#section3',
-                      text: 'What happens after Census Day',
-                    },
-                    {
-                      url: '#section4',
-                      text: 'The census in Northern Ireland and Scotland',
-                    },
-                    {
-                      url: '#section5',
-                      text: 'The last census',
-                    },
-                  ],
-                })}
-        </div>
+          <div class="ons-grid ons-js-toc-container">
+            <div id="sticky-container" class="ons-grid__col ons-grid__col--sticky@m ons-col-4@m">
+              ${renderComponent('table-of-contents', {
+                title: 'Contents',
+                ariaLabel: 'Sections in this page',
+                itemsList: [
+                  {
+                    url: '#section1',
+                    text: 'What is the census?',
+                  },
+                  {
+                    url: '#section2',
+                    text: 'The online census has now closed',
+                  },
+                  {
+                    url: '#section3',
+                    text: 'What happens after Census Day',
+                  },
+                  {
+                    url: '#section4',
+                    text: 'The census in Northern Ireland and Scotland',
+                  },
+                  {
+                    url: '#section5',
+                    text: 'The last census',
+                  },
+                ],
+              })}
+            </div>
             <div class="ons-grid__col ons-col-7@m ons-push-1@m">
                 <section id="section1">
                     <h2>What is the census?</h2>
@@ -138,9 +141,10 @@ describe('script: table-of-contents-fixed-position', () => {
                     <p>The CCS has now closed.</p>
                 </section>
             </div>
+          </div>
         </div>
-    </div>
-    `,
+      `,
+      /* eslint-enable indent */
       'main',
     );
   });

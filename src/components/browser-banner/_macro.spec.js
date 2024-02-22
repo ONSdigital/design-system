@@ -18,18 +18,14 @@ describe('macro: browser-banner', () => {
   it('has the default `bannerLeadingText`', () => {
     const $ = cheerio.load(renderComponent('browser-banner', EXAMPLE_BROWSER_BANNER_DEFAULT));
 
-    const bannerLeadingText = $('.ons-browser-banner__lead')
-      .text()
-      .trim();
+    const bannerLeadingText = $('.ons-browser-banner__lead').text().trim();
     expect(bannerLeadingText).toBe('This website no longer supports your browser.');
   });
 
   it('has the default `bannerCTA`', () => {
     const $ = cheerio.load(renderComponent('browser-banner', EXAMPLE_BROWSER_BANNER_DEFAULT));
 
-    const bannerCtaHtml = $('.ons-browser-banner__cta')
-      .text()
-      .trim();
+    const bannerCtaHtml = $('.ons-browser-banner__cta').text().trim();
     expect(bannerCtaHtml).toBe('You can upgrade your browser to the latest version.');
   });
 
@@ -91,18 +87,14 @@ describe('mode: Welsh language', () => {
       }),
     );
 
-    const bannerLeadingText = $('.ons-browser-banner__lead')
-      .text()
-      .trim();
+    const bannerLeadingText = $('.ons-browser-banner__lead').text().trim();
     expect(bannerLeadingText).toBe('Nid yw’r wefan hon yn cefnogi eich porwr mwyach.');
   });
 
   it('has the welsh version of default `bannerCTA`', () => {
     const $ = cheerio.load(renderComponent('browser-banner', { lang: 'cy' }));
 
-    const bannerCtaHtml = $('.ons-browser-banner__cta')
-      .text()
-      .trim();
+    const bannerCtaHtml = $('.ons-browser-banner__cta').text().trim();
     expect(bannerCtaHtml).toBe('Gallwch ddiweddaru eich porwr i’r fersiwn ddiweddaraf.');
   });
 

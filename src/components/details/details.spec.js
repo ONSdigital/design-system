@@ -7,18 +7,18 @@ const EXAMPLE_DETAILS_BASIC = {
 };
 
 const EXAMPLE_PAGE = `
-      ${renderComponent('details', {
-        id: 'details-id',
-        title: 'Title for details',
-        content: 'Content for details',
-      })}
+  ${renderComponent('details', {
+    id: 'details-id',
+    title: 'Title for details',
+    content: 'Content for details',
+  })}
 
-      ${renderComponent('details', {
-        id: 'details-id-2',
-        title: 'Title for details',
-        content: 'Content for details',
-      })}
-  `;
+  ${renderComponent('details', {
+    id: 'details-id-2',
+    title: 'Title for details',
+    content: 'Content for details',
+  })}
+`;
 
 const RENDERED_EXAMPLE_PAGE = renderTemplate(EXAMPLE_PAGE);
 

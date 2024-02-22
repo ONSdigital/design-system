@@ -3,7 +3,7 @@
 import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
-import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
+import { renderComponent } from '../../tests/helpers/rendering';
 
 const PAGINATION_PREV_NEXT_LABELS = {
   previous: 'Previous page',
@@ -70,11 +70,7 @@ describe('macro: pagination', () => {
     });
 
     it('renders element indicating position within pagination', () => {
-      expect(
-        $('.ons-pagination__position')
-          .text()
-          .trim(),
-      ).toBe('Page 1 of 1');
+      expect($('.ons-pagination__position').text().trim()).toBe('Page 1 of 1');
     });
 
     it('has a single list item', () => {
@@ -102,11 +98,7 @@ describe('macro: pagination', () => {
     });
 
     it('renders element indicating position within pagination', () => {
-      expect(
-        $('.ons-pagination__position')
-          .text()
-          .trim(),
-      ).toBe('Page 1 of 2');
+      expect($('.ons-pagination__position').text().trim()).toBe('Page 1 of 2');
     });
 
     it('has a 3 list items ("1", "2", "Next page")', () => {
@@ -136,11 +128,7 @@ describe('macro: pagination', () => {
     });
 
     it('renders element indicating position within pagination', () => {
-      expect(
-        $('.ons-pagination__position')
-          .text()
-          .trim(),
-      ).toBe('Page 2 of 2');
+      expect($('.ons-pagination__position').text().trim()).toBe('Page 2 of 2');
     });
 
     it('has a 3 list items ("Previous page", "1", "2")', () => {
@@ -170,11 +158,7 @@ describe('macro: pagination', () => {
     });
 
     it('renders element indicating position within pagination', () => {
-      expect(
-        $('.ons-pagination__position')
-          .text()
-          .trim(),
-      ).toBe('Page 2 of 3');
+      expect($('.ons-pagination__position').text().trim()).toBe('Page 2 of 3');
     });
 
     it('has a 5 list items ("Previous page", "1", "2", "3", "Next page")', () => {
@@ -206,11 +190,7 @@ describe('macro: pagination', () => {
     });
 
     it('renders element indicating position within pagination', () => {
-      expect(
-        $('.ons-pagination__position')
-          .text()
-          .trim(),
-      ).toBe('Page 2 of 5');
+      expect($('.ons-pagination__position').text().trim()).toBe('Page 2 of 5');
     });
 
     it('has a 7 list items ("Previous page", "1", "2", "3", "4", "5", "Next page")', () => {
@@ -244,11 +224,7 @@ describe('macro: pagination', () => {
     });
 
     it('renders element indicating position within pagination', () => {
-      expect(
-        $('.ons-pagination__position')
-          .text()
-          .trim(),
-      ).toBe('Page 2 of 6');
+      expect($('.ons-pagination__position').text().trim()).toBe('Page 2 of 6');
     });
 
     it('has 7 list items ("Previous page", "1", "2", "3", "...", "6", "Next page")', () => {
@@ -294,11 +270,7 @@ describe('macro: pagination', () => {
     });
 
     it('renders element indicating position within pagination', () => {
-      expect(
-        $('.ons-pagination__position')
-          .text()
-          .trim(),
-      ).toBe('Page 5 of 11');
+      expect($('.ons-pagination__position').text().trim()).toBe('Page 5 of 11');
     });
 
     it('has a 9 list items ("Previous page", "1", "...", "4", "5", "6", "...", "11", "Next page")', () => {
@@ -346,11 +318,7 @@ describe('macro: pagination', () => {
     });
 
     it('renders element indicating position within pagination', () => {
-      expect(
-        $('.ons-pagination__position')
-          .text()
-          .trim(),
-      ).toBe('Page 10 of 11');
+      expect($('.ons-pagination__position').text().trim()).toBe('Page 10 of 11');
     });
 
     it('has a 7 list items ("Previous page", "1", "...", "9", "10", "11", "Next page")', () => {
@@ -371,12 +339,7 @@ function assertIsCurrentPage(pageItem, url, label, text) {
   expect(pageItem.find('.ons-pagination__link').attr('href')).toBe(url);
   expect(pageItem.find('.ons-pagination__link').attr('aria-current')).toBe('true');
   expect(pageItem.find('.ons-pagination__link').attr('aria-label')).toBe(label);
-  expect(
-    pageItem
-      .find('.ons-pagination__link')
-      .text()
-      .trim(),
-  ).toBe(text);
+  expect(pageItem.find('.ons-pagination__link').text().trim()).toBe(text);
 }
 
 function assertIsOtherPage(pageItem, url, label, text) {
@@ -384,12 +347,7 @@ function assertIsOtherPage(pageItem, url, label, text) {
   expect(pageItem.find('.ons-pagination__link').attr('href')).toBe(url);
   expect(pageItem.find('.ons-pagination__link').attr('aria-current')).toBeUndefined();
   expect(pageItem.find('.ons-pagination__link').attr('aria-label')).toBe(label);
-  expect(
-    pageItem
-      .find('.ons-pagination__link')
-      .text()
-      .trim(),
-  ).toBe(text);
+  expect(pageItem.find('.ons-pagination__link').text().trim()).toBe(text);
 }
 
 function assertIsPreviousPage(pageItem, url, label, text) {
