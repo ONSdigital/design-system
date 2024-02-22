@@ -1,8 +1,8 @@
-| Name      | Type               | Required | Description                               |
-| --------- | ------------------ | -------- | ----------------------------------------- |
-| summaries | Array`<Summaries>` | true     | An array of [summaries](#summaries)       |
-| classes   | string             | false    | Classes to add to the summary component   |
-| hub       | boolean            | false    | Set to “true” to use the summary as a hub |
+| Name      | Type               | Required | Description                                                    |
+| --------- | ------------------ | -------- | -------------------------------------------------------------- |
+| summaries | Array`<Summaries>` | true     | An array of [summaries](#summaries)                            |
+| classes   | string             | false    | Classes to add to the summary component                        |
+| variant   | string             | false    | Can be set to card or hub to use those variants of the summary |
 
 ## Summaries
 
@@ -13,13 +13,13 @@
 
 ## SummaryGroup
 
-| Name            | Type                 | Required                            | Description                                                                    |
-| --------------- | -------------------- | ----------------------------------- | ------------------------------------------------------------------------------ |
-| rows            | Array`<SummaryRow>`  | true (unless `placeholderText` set) | An array of [rows](#summaryrow) within a group                                 |
-| placeholderText | string               | true (unless `rows` set)            | A message to be shown as a placeholder if there are no rows in the summary     |
-| groupTitle      | string               | false                               | The title heading for a summary within a group                                 |
-| id              | string               | false                               | The HTML `id` of the group                                                     |
-| summaryLink     | Array`<SummaryLink>` | false                               | Settings for the [summary link](#summarylink) used to a new row to the summary |
+| Name            | Type                 | Required                                    | Description                                                                    |
+| --------------- | -------------------- | ------------------------------------------- | ------------------------------------------------------------------------------ |
+| rows            | Array`<SummaryRow>`  | true (unless `placeholderText` set)         | An array of [rows](#summaryrow) within a group                                 |
+| placeholderText | string               | true (unless `rows` set)                    | A message to be shown as a placeholder if there are no rows in the summary     |
+| groupTitle      | string               | false (`true` if variant is set to `card` ) | The title heading for a summary within a group                                 |
+| id              | string               | false                                       | The HTML `id` of the group                                                     |
+| summaryLink     | Array`<SummaryLink>` | false                                       | Settings for the [summary link](#summarylink) used to a new row to the summary |
 
 ## SummaryRow
 
