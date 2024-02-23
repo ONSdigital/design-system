@@ -98,11 +98,13 @@ describe('script: back-to-top', () => {
     await page.evaluate(() => {
       window.scrollTo(0, window.innerHeight * 2);
     });
+    await new Promise((r) => setTimeout(r, 250));
     const previousWidth = await page.evaluate(() => {
       const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link');
       return window.getComputedStyle(node).width;
     });
     await page.setViewport({ width: 1920, height: 1080 });
+    await new Promise((r) => setTimeout(r, 250));
     await page.evaluate(() => {
       window.scrollTo(0, window.innerHeight * 2);
     });
@@ -118,6 +120,7 @@ describe('script: back-to-top', () => {
     await page.evaluate(() => {
       window.scrollTo(0, window.innerHeight * 2);
     });
+    await new Promise((r) => setTimeout(r, 250));
     const previousWidth = await page.evaluate(() => {
       const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link');
       return window.getComputedStyle(node).left;
@@ -126,6 +129,7 @@ describe('script: back-to-top', () => {
     await page.evaluate(() => {
       window.scrollTo(0, window.innerHeight * 2);
     });
+    await new Promise((r) => setTimeout(r, 250));
     const newWidth = await page.evaluate(() => {
       const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link');
       return window.getComputedStyle(node).left;
