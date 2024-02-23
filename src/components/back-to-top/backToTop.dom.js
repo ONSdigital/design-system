@@ -1,7 +1,7 @@
 import domready from '../../js/domready';
 
 async function backToTop() {
-  const bttElement = [...document.querySelectorAll('.ons-js-btt')];
+  const bttElement = [...document.querySelectorAll('.ons-js-back-to-top')];
 
   if (bttElement) {
     const Btt = (await import('./backToTop')).default;

@@ -3,7 +3,7 @@
 import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
-import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
+import { renderComponent } from '../../tests/helpers/rendering';
 
 describe('macro: back-to-top', () => {
   it('passes jest-axe checks', async () => {
