@@ -10,11 +10,7 @@
     {% endif %}
 
     {% if params.classes %}
-        {% set className = className + " " + params.classes %}
-    {% endif %}
-
-    {% if params.hub %}
-        {% set className = className + " ons-summary--hub" %}
+         {% set className = className + " " + params.classes %}
     {% endif %}
 
     <div class="{{ className }}">
@@ -34,10 +30,9 @@
                         <dl class="ons-summary__items">
                             {% for row in group.rows %}
                                 {% set itemClass = "" %}
-                                {% if row.error %}{% set itemClass = " ons-summary__item--error" %}{% endif %}
-                                {% if row.total %}{% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
-
-                                <div {% if row.id %}id="{{ row.id }}" {% endif %} class="ons-summary__item{{ itemClass }}">
+                                {% if row.error %} {% set itemClass = " ons-summary__item--error" %}{% endif %}
+                                {% if row.total %} {% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
+                                <div {% if row.id %}id="{{ row.id }}" {% endif %}class="ons-summary__item{{ itemClass }}">
                                     {% if row.errorMessage %}
                                         <div class="ons-summary__row-title--error ons-u-fs-r">{{ row.errorMessage }}</div>
                                     {% endif %}
@@ -118,8 +113,10 @@
                     {% endif %}
 
                     {% if group.summaryLink %}
-                        <div class="ons-summary__link{% if group.placeholderText or group.rows %} ons-u-pt-s{% endif %}{% if group.placeholderText is not defined and group.rows | length > 1 %} ons-u-bt{% endif %}{% if not group.last %} ons-u-mb-xl{% endif %}">
-                            <a {% if group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{ attribute }}="{{ value }}" {% endfor %}{% endif %} href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
+                        <div class="ons-summary__link{% if group.placeholderText or group.rows %} ons-u-pt-s{% endif %}{% if group.placeholderText is not defined and group.rows | length > 1 and params.variant != 'card' %} ons-u-bt{% endif %}{% if not group.last %} ons-u-mb-xl{% endif %}">
+                            {% if params.variant == 'card' %}<div>{% endif %}
+                                <a {% if group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %} href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
+                            {% if params.variant == 'card' %}</div>{% endif %}
                         </div>
                     {% endif %}
                 </div>
