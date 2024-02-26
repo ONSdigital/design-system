@@ -26,7 +26,7 @@ describe('script: back-to-top', () => {
             </div>
           </div>
           <div id="contents" class="ons-container">
-              <h1>Contents</h1>
+            <h1>Contents</h1>
           </div>
           <div class="ons-grid">
             <div class="ons-grid__col ons-col-6@m">
