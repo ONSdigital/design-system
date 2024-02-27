@@ -3,7 +3,7 @@ export default class backToTop {
     this.component = component;
     this.content = this.component.previousElementSibling;
     this.target = document.getElementById(this.component.firstElementChild.href.split('#')[1]);
-    this.contentleft, this.contentwidth;
+    this.contentleft;
     this.updateContentDetails();
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -42,18 +42,17 @@ export default class backToTop {
   setSticky() {
     this.component.classList.remove('ons-back-to-top__enabled');
     this.component.classList.add('ons-back-to-top__sticky');
-    this.component.firstElementChild.style.left = `${this.contentleft}px`;
-    this.component.firstElementChild.style.width = `${this.contentwidth}px`;
+    this.component.firstElementChild.children[0].style.marginLeft = `${this.contentleft}px`;
   }
 
   setEnabled() {
     this.updateContentDetails();
     this.component.classList.remove('ons-back-to-top__sticky');
     this.component.classList.add('ons-back-to-top__enabled');
+    this.component.firstElementChild.children[0].style.marginLeft = '';
   }
 
   updateContentDetails() {
     this.contentleft = this.component.getBoundingClientRect().left;
-    this.contentwidth = this.content.offsetWidth;
   }
 }

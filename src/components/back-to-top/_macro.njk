@@ -3,13 +3,15 @@
 {% macro onsBackToTop(params) %}
     <div class="ons-back-to-top ons-js-back-to-top ons-back-to-top__enabled">
             <a href="#{{ params.anchor | default('top') }}" class="ons-back-to-top__link">
-                {{-
-                    onsIcon({
-                        "iconType": 'arrow-up',
-                        "iconSize": 'xs'
-                    })
-                -}}
-                <span class="ons-back-to-top__description">{{ params.description | default('Back to top') }}</span>
+                <div>
+                    {{-
+                        onsIcon({
+                            "iconType": 'arrow-up',
+                            "iconSize": 'xs'
+                        })
+                    -}}
+                    <span class="ons-back-to-top__description">{{ params.description | default('Back to top') }}</span>
+                </div>
             </a>
     </div>
 {% endmacro %}

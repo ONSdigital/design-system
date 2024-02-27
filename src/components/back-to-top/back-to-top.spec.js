@@ -93,28 +93,6 @@ describe('script: back-to-top', () => {
     expect(backToTopEnabled).toBe(true);
   });
 
-  it('changes width when the window is resized', async () => {
-    await page.setViewport({ width: 1000, height: 800 });
-    await page.evaluate(() => {
-      window.scrollTo(0, window.innerHeight * 2);
-    });
-    await new Promise((r) => setTimeout(r, 250));
-    const previousWidth = await page.evaluate(() => {
-      const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link');
-      return window.getComputedStyle(node).width;
-    });
-    await page.setViewport({ width: 1920, height: 1080 });
-    await new Promise((r) => setTimeout(r, 250));
-    await page.evaluate(() => {
-      window.scrollTo(0, window.innerHeight * 2);
-    });
-    const newWidth = await page.evaluate(() => {
-      const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link');
-      return window.getComputedStyle(node).width;
-    });
-    expect(previousWidth).not.toEqual(newWidth);
-  });
-
   it('changes left margin when the window is resized', async () => {
     await page.setViewport({ width: 1300, height: 800 });
     await page.evaluate(() => {
@@ -122,8 +100,8 @@ describe('script: back-to-top', () => {
     });
     await new Promise((r) => setTimeout(r, 250));
     const previousWidth = await page.evaluate(() => {
-      const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link');
-      return window.getComputedStyle(node).left;
+      const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link').children[0];
+      return window.getComputedStyle(node).marginLeft;
     });
     await page.setViewport({ width: 2000, height: 800 });
     await page.evaluate(() => {
@@ -131,8 +109,8 @@ describe('script: back-to-top', () => {
     });
     await new Promise((r) => setTimeout(r, 250));
     const newWidth = await page.evaluate(() => {
-      const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link');
-      return window.getComputedStyle(node).left;
+      const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link').children[0];
+      return window.getComputedStyle(node).marginLeft;
     });
     expect(previousWidth).not.toEqual(newWidth);
   });
