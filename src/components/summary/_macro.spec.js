@@ -303,20 +303,23 @@ const EXAMPLE_SUMMARY_MULTIPLE_GROUPS = {
   ],
 };
 
+// Disable specific axe rules to accommodate the testing scenario
+const axeRules = {
+  rules: {
+    dlitem: {
+      enabled: false,
+    },
+    'definition-list': {
+      enabled: false,
+    },
+  },
+};
+
 describe('macro: summary', () => {
   describe('mode: general', () => {
     it('passes jest-axe checks', async () => {
       const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
-      const results = await axe($.html(), {
-        rules: {
-          dlitem: {
-            enabled: false,
-          },
-          'definition-list': {
-            enabled: false,
-          },
-        },
-      });
+      const results = await axe($.html(), axeRules);
 
       expect(results).toHaveNoViolations();
     });
@@ -529,16 +532,7 @@ describe('macro: summary', () => {
   describe('mode: with title', () => {
     it('passes jest-axe checks', async () => {
       const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_WITH_TITLE));
-      const results = await axe($.html(), {
-        rules: {
-          dlitem: {
-            enabled: false,
-          },
-          'definition-list': {
-            enabled: false,
-          },
-        },
-      });
+      const results = await axe($.html(), axeRules);
 
       expect(results).toHaveNoViolations();
     });
@@ -558,16 +552,7 @@ describe('macro: summary', () => {
           variant: 'hub',
         }),
       );
-      const results = await axe($.html(), {
-        rules: {
-          dlitem: {
-            enabled: false,
-          },
-          'definition-list': {
-            enabled: false,
-          },
-        },
-      });
+      const results = await axe($.html(), axeRules);
 
       expect(results).toHaveNoViolations();
     });
@@ -601,16 +586,7 @@ describe('macro: summary', () => {
     it('passes jest-axe checks', async () => {
       const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_WITH_NO_ROWS));
 
-      const results = await axe($.html(), {
-        rules: {
-          dlitem: {
-            enabled: false,
-          },
-          'definition-list': {
-            enabled: false,
-          },
-        },
-      });
+      const results = await axe($.html(), axeRules);
       expect(results).toHaveNoViolations();
     });
 
@@ -649,16 +625,7 @@ describe('macro: summary', () => {
 describe('mode: card', () => {
   it('passes jest-axe checks', async () => {
     const $ = cheerio.load(renderComponent('summary', { ...EXAMPLE_SUMMARY_BASIC, variant: 'card' }));
-    const results = await axe($.html(), {
-      rules: {
-        dlitem: {
-          enabled: false,
-        },
-        'definition-list': {
-          enabled: false,
-        },
-      },
-    });
+    const results = await axe($.html(), axeRules);
 
     expect(results).toHaveNoViolations();
   });
