@@ -305,7 +305,7 @@ const EXAMPLE_SUMMARY_MULTIPLE_GROUPS = {
 
 // To address a DAC issue, we've disabled specific axe definition list rules causing test failures.
 // While resolving it would require a significant refactor, the failures are deemed non-critical for accessibility,
-// leading to their removal in this context. [https://github.com/ONSdigital/design-system/issues/3027]nario
+// leading to their removal in this context. [https://github.com/ONSdigital/design-system/issues/3027]
 const axeRules = {
   rules: {
     dlitem: {
