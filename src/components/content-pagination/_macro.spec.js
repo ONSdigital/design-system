@@ -128,7 +128,7 @@ describe('macro: content-pagination', () => {
       it('renders the provided `bridgingText`', () => {
         const $ = cheerio.load(
           renderComponent('content-pagination', {
-            contentPaginationItems: params.contentPaginationItems.map(item => ({
+            contentPaginationItems: params.contentPaginationItems.map((item) => ({
               ...item,
               bridgingText: 'custom bridging text:',
             })),
@@ -177,7 +177,7 @@ describe('macro: content-pagination', () => {
       it('renders the provided `bridgingText`', () => {
         const $ = cheerio.load(
           renderComponent('content-pagination', {
-            contentPaginationItems: params.contentPaginationItems.map(item => ({
+            contentPaginationItems: params.contentPaginationItems.map((item) => ({
               ...item,
               bridgingText: 'custom bridging text:',
             })),

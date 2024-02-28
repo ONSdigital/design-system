@@ -59,7 +59,7 @@ describe('macro: table', () => {
     it('renders header cells with expected text', () => {
       const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
 
-      const headerCellValues = mapAll($('.ons-table__header'), node => node.text().trim());
+      const headerCellValues = mapAll($('.ons-table__header'), (node) => node.text().trim());
       expect(headerCellValues).toEqual(['Column 1', 'Column 2', 'Column 3']);
     });
 
@@ -121,7 +121,7 @@ describe('macro: table', () => {
     it('does not add visually hidden class to column headers', () => {
       const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
 
-      const hasClass = mapAll($('.ons-table__header > span'), node => node.hasClass('ons-u-vh'));
+      const hasClass = mapAll($('.ons-table__header > span'), (node) => node.hasClass('ons-u-vh'));
       expect(hasClass).toEqual([false, false, false]);
     });
 
@@ -139,9 +139,9 @@ describe('macro: table', () => {
     it('renders expected row cells', () => {
       const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
 
-      const row1Values = mapAll($('.ons-table__row:nth-child(1) .ons-table__cell'), node => node.text().trim());
+      const row1Values = mapAll($('.ons-table__row:nth-child(1) .ons-table__cell'), (node) => node.text().trim());
       expect(row1Values).toEqual(['Row 1 Cell 1', 'Row 1 Cell 2', 'Row 1 Cell 3']);
-      const row2Values = mapAll($('.ons-table__row:nth-child(2) .ons-table__cell'), node => node.text().trim());
+      const row2Values = mapAll($('.ons-table__row:nth-child(2) .ons-table__cell'), (node) => node.text().trim());
       expect(row2Values).toEqual(['Row 2 Cell 1', 'Row 2 Cell 2', 'Row 2 Cell 3']);
     });
 
@@ -401,7 +401,7 @@ describe('macro: table', () => {
         }),
       );
 
-      const footerCellValues = mapAll($('.ons-table__foot .ons-table__cell'), node => node.text().trim());
+      const footerCellValues = mapAll($('.ons-table__foot .ons-table__cell'), (node) => node.text().trim());
       expect(footerCellValues).toEqual(['Footer Cell 1', 'Footer Cell 2', 'Footer Cell 3']);
     });
   });
@@ -515,11 +515,7 @@ describe('macro: table', () => {
         }),
       );
 
-      expect(
-        $('.ons-table__caption')
-          .text()
-          .trim(),
-      ).toBe('Example table caption');
+      expect($('.ons-table__caption').text().trim()).toBe('Example table caption');
     });
 
     it('does not visually hide caption when `hideCaption` is not provided', () => {

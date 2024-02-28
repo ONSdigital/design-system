@@ -59,7 +59,7 @@ export default class TableSort {
     this.tableBody = this.table.getElementsByClassName(classTableBody);
     const tableBody = [...this.tableBody];
 
-    tableBody.forEach(tbody => {
+    tableBody.forEach((tbody) => {
       const rows = this.getTableRowsArray(tbody);
       const sortedRows = this.sort(rows, columnNumber, newSortDirection);
       this.addRows(tbody, sortedRows);
@@ -74,7 +74,7 @@ export default class TableSort {
     this.trs = tbody.querySelectorAll('tr');
     const trs = [...this.trs];
 
-    trs.forEach(tr => {
+    trs.forEach((tr) => {
       rows.push(tr);
     });
 
@@ -123,7 +123,7 @@ export default class TableSort {
   }
 
   addRows(body, rows) {
-    rows.forEach(row => {
+    rows.forEach((row) => {
       body.append(row);
     });
   }
@@ -131,7 +131,7 @@ export default class TableSort {
   removeButtonStates() {
     this.sortableHeadings = this.table.querySelectorAll(jsSortableHeadings);
     const sortableHeadings = [...this.sortableHeadings];
-    sortableHeadings.forEach(heading => {
+    sortableHeadings.forEach((heading) => {
       heading.setAttribute('aria-sort', 'none');
     });
   }

@@ -125,11 +125,7 @@ describe('macro: checkboxes', () => {
     it('has the expected text', () => {
       const $ = cheerio.load(renderComponent('checkboxes', EXAMPLE_CHECKBOXES));
 
-      expect(
-        $('.ons-checkboxes__label')
-          .text()
-          .trim(),
-      ).toBe('Select all that apply');
+      expect($('.ons-checkboxes__label').text().trim()).toBe('Select all that apply');
     });
 
     it('has additionally provided `checkboxesLabelClasses`', () => {

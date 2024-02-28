@@ -46,11 +46,7 @@ describe('macro: video', () => {
   it('outputs the provided link text', () => {
     const $ = cheerio.load(renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
 
-    expect(
-      $('.ons-video__link-text')
-        .text()
-        .trim(),
-    ).toBe('Example link text');
+    expect($('.ons-video__link-text').text().trim()).toBe('Example link text');
   });
 
   it('outputs a hyperlink with the provided `url`', () => {

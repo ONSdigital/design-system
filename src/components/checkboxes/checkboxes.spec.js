@@ -47,12 +47,12 @@ describe('script: checkboxes', () => {
       });
 
       it('all checkboxes should be checked', async () => {
-        const checkedStates = await page.$$eval('.ons-js-checkbox', nodes => nodes.map(node => node.checked));
+        const checkedStates = await page.$$eval('.ons-js-checkbox', (nodes) => nodes.map((node) => node.checked));
         expect(checkedStates).toEqual([true, true, true]);
       });
 
       it('the button text should have changed', async () => {
-        const buttonText = await page.$eval('.ons-js-button-text', node => node.textContent);
+        const buttonText = await page.$eval('.ons-js-button-text', (node) => node.textContent);
         expect(buttonText).toBe('Unselect all');
       });
     });
@@ -64,23 +64,23 @@ describe('script: checkboxes', () => {
       });
 
       it('all checkboxes should be unchecked', async () => {
-        const checkedStates = await page.$$eval('.ons-js-checkbox', nodes => nodes.map(node => node.checked));
+        const checkedStates = await page.$$eval('.ons-js-checkbox', (nodes) => nodes.map((node) => node.checked));
         expect(checkedStates).toEqual([false, false, false]);
       });
 
       it('the button text should have changed', async () => {
-        const buttonText = await page.$eval('.ons-js-button-text', node => node.textContent);
+        const buttonText = await page.$eval('.ons-js-button-text', (node) => node.textContent);
         expect(buttonText).toBe('Select all');
       });
     });
 
     describe('when all except one checkbox is checked', () => {
       beforeEach(async () => {
-        await page.$eval('#olives-other', node => (node.checked = true));
+        await page.$eval('#olives-other', (node) => (node.checked = true));
       });
 
       it('the button text should be select all', async () => {
-        const buttonText = await page.$eval('.ons-js-button-text', node => node.textContent);
+        const buttonText = await page.$eval('.ons-js-button-text', (node) => node.textContent);
         expect(buttonText).toBe('Select all');
       });
     });
@@ -93,13 +93,13 @@ describe('script: checkboxes', () => {
       });
 
       it('the button text should be unselect all', async () => {
-        const buttonText = await page.$eval('.ons-js-button-text', node => node.textContent);
+        const buttonText = await page.$eval('.ons-js-button-text', (node) => node.textContent);
         expect(buttonText).toBe('Unselect all');
       });
     });
   });
 
-  describe('reveal and fieldset', function() {
+  describe('reveal and fieldset', function () {
     const params = {
       legend: 'What are your favourite pizza toppings?',
       checkboxesLabel: 'Select all that apply',
@@ -157,7 +157,7 @@ describe('script: checkboxes', () => {
     });
 
     it('checkboxes with other options should be given aria-expanded attributes', async () => {
-      const ariaExpanded = await page.$eval('#other-checkbox', node => node.getAttribute('aria-expanded'));
+      const ariaExpanded = await page.$eval('#other-checkbox', (node) => node.getAttribute('aria-expanded'));
       expect(ariaExpanded).toBe('false');
     });
 
@@ -167,7 +167,7 @@ describe('script: checkboxes', () => {
       });
 
       it('has aria-expanded attribute should be set to true', async () => {
-        const ariaExpanded = await page.$eval('#other-checkbox', node => node.getAttribute('aria-expanded'));
+        const ariaExpanded = await page.$eval('#other-checkbox', (node) => node.getAttribute('aria-expanded'));
         expect(ariaExpanded).toBe('true');
       });
 
@@ -177,7 +177,7 @@ describe('script: checkboxes', () => {
         });
 
         it('the checkbox with an other input aria-expanded attribute not change', async () => {
-          const ariaExpanded = await page.$eval('#other-checkbox', node => node.getAttribute('aria-expanded'));
+          const ariaExpanded = await page.$eval('#other-checkbox', (node) => node.getAttribute('aria-expanded'));
           expect(ariaExpanded).toBe('true');
         });
       });
@@ -193,12 +193,12 @@ describe('script: checkboxes', () => {
           });
 
           it('its aria-expanded attribute should be set to false', async () => {
-            const ariaExpanded = await page.$eval('#other-checkbox', node => node.getAttribute('aria-expanded'));
+            const ariaExpanded = await page.$eval('#other-checkbox', (node) => node.getAttribute('aria-expanded'));
             expect(ariaExpanded).toBe('false');
           });
 
           it('the child of other checkbox should be unchecked', async () => {
-            const innerInputChecked = await page.$eval('#inner-bacon-other', node => node.checked);
+            const innerInputChecked = await page.$eval('#inner-bacon-other', (node) => node.checked);
             expect(innerInputChecked).toBe(false);
           });
         });

@@ -25,9 +25,7 @@ describe('macro: text-indent', () => {
         }),
       );
 
-      const content = $('.ons-text-indent')
-        .text()
-        .trim();
+      const content = $('.ons-text-indent').text().trim();
       expect(content).toBe('Example text...');
     });
   });
@@ -43,9 +41,7 @@ describe('macro: text-indent', () => {
     it('has expected text', async () => {
       const $ = cheerio.load(renderComponent('text-indent', {}, 'Example content...'));
 
-      const content = $('.ons-text-indent')
-        .text()
-        .trim();
+      const content = $('.ons-text-indent').text().trim();
       expect(content).toBe('Example content...');
     });
   });

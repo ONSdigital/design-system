@@ -1,7 +1,7 @@
 let callbacks = [];
 
 const onReady = () => {
-  callbacks.forEach(fn => fn.call());
+  callbacks.forEach((fn) => fn.call());
   callbacks = [];
   window.onsDOMReady = true;
 };

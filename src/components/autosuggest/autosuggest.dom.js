@@ -6,7 +6,7 @@ async function initialiseAutosuggests() {
   if (autosuggests.length) {
     const Autosuggest = (await import('./autosuggest')).default;
 
-    autosuggests.forEach(autosuggest => new Autosuggest(autosuggest));
+    autosuggests.forEach((autosuggest) => new Autosuggest(autosuggest));
   }
 }
 

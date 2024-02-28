@@ -5,7 +5,7 @@ async function initialise() {
   if (limitedInputs.length) {
     const CharLimit = (await import('../char-check-limit/character-limit')).default;
 
-    limitedInputs.forEach(input => new CharLimit(input));
+    limitedInputs.forEach((input) => new CharLimit(input));
   }
 }
 

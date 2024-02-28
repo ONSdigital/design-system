@@ -6,7 +6,7 @@ async function initialise() {
   if (replyInputs.length) {
     const ReplyInput = (await import('./reply-input')).default;
 
-    replyInputs.forEach(input => new ReplyInput(input));
+    replyInputs.forEach((input) => new ReplyInput(input));
   }
 }
 

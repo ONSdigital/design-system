@@ -20,11 +20,7 @@ describe('macro: related-content/section', () => {
 
   it('has the provided `title` text', () => {
     const $ = cheerio.load(renderComponent('related-content/section', EXAMPLE_RELATED_SECTION_CONTENT));
-    expect(
-      $('.ons-related-content__title')
-        .text()
-        .trim(),
-    ).toEqual('Related information');
+    expect($('.ons-related-content__title').text().trim()).toEqual('Related information');
   });
 
   it('has the `id` attribute for the title', () => {
@@ -35,9 +31,7 @@ describe('macro: related-content/section', () => {
   it('has the provided content', () => {
     const $ = cheerio.load(renderComponent('related-content/section', { EXAMPLE_RELATED_SECTION_CONTENT }, 'Example content...'));
 
-    const content = $('.ons-related-content__content')
-      .text()
-      .trim();
+    const content = $('.ons-related-content__content').text().trim();
     expect(content).toEqual(expect.stringContaining('Example content...'));
   });
 });

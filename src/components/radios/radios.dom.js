@@ -28,7 +28,7 @@ domready(async () => {
     const otherFieldsets = [...document.querySelectorAll('.ons-js-other-fieldset-radio')];
     if (otherFieldsets) {
       const RadioWithInnerFieldset = (await import('./radio-with-fieldset')).default;
-      otherFieldsets.forEach(otherFieldset => {
+      otherFieldsets.forEach((otherFieldset) => {
         const context = otherFieldset.closest('.ons-radio');
         new RadioWithInnerFieldset(context);
       });

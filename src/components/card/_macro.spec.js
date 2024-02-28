@@ -50,11 +50,7 @@ describe('macro: card', () => {
     it('has the provided `title` text', () => {
       const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
 
-      expect(
-        $('.ons-card__title')
-          .text()
-          .trim(),
-      ).toBe('Example card title');
+      expect($('.ons-card__title').text().trim()).toBe('Example card title');
     });
 
     it.each([
@@ -68,21 +64,13 @@ describe('macro: card', () => {
         }),
       );
 
-      expect(
-        $(`${expectedTitleTag}.ons-card__title`)
-          .text()
-          .trim(),
-      ).toBe('Example card title');
+      expect($(`${expectedTitleTag}.ons-card__title`).text().trim()).toBe('Example card title');
     });
 
     it('has the provided `text` accessible via the `textId` identifier', () => {
       const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
 
-      expect(
-        $('#example-text-id')
-          .text()
-          .trim(),
-      ).toBe('Example card text.');
+      expect($('#example-text-id').text().trim()).toBe('Example card text.');
     });
 
     it('renders the provided `itemsList` using the `list` component', () => {
@@ -123,11 +111,7 @@ describe('macro: card', () => {
     it('has the provided `title` text', () => {
       const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_IMAGE));
 
-      expect(
-        $('.ons-card__title')
-          .text()
-          .trim(),
-      ).toBe('Example card title');
+      expect($('.ons-card__title').text().trim()).toBe('Example card title');
     });
 
     it.each([
@@ -141,11 +125,7 @@ describe('macro: card', () => {
         }),
       );
 
-      expect(
-        $(`${expectedTitleTag}.ons-card__title`)
-          .text()
-          .trim(),
-      ).toBe('Example card title');
+      expect($(`${expectedTitleTag}.ons-card__title`).text().trim()).toBe('Example card title');
     });
 
     it('has the provided `text`', () => {
@@ -155,11 +135,7 @@ describe('macro: card', () => {
         }),
       );
 
-      expect(
-        $('#example-text-id')
-          .text()
-          .trim(),
-      ).toBe('Example card text.');
+      expect($('#example-text-id').text().trim()).toBe('Example card text.');
     });
 
     it('outputs a hyperlink with the provided `url`', () => {
