@@ -25,8 +25,7 @@
                         <h{{ titleSize }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
                     {% if group.rows %}
-                        <div class="ons-summary__items">
-
+                        <dl class="ons-summary__items">
                             {% for row in group.rows %}
                                 {% set itemClass = "" %}
                                 {% if row.error %} {% set itemClass = " ons-summary__item--error" %}{% endif %}
@@ -40,7 +39,7 @@
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
-                                        <dl class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}"{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>
+                                        <div class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}"{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>
                                             <dt class="ons-summary__item-title"
                                                 {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
@@ -104,11 +103,11 @@
                                                     {% endfor %}
                                                 </dd>
                                             {% endif %}
-                                        </dl>
+                                        </div>
                                     {% endfor %}
                                 </div>
                             {% endfor %}
-                        </div>
+                        </dl>
                     {% elif group.placeholderText %}
                         <span class="ons-summary__placeholder">{{ group.placeholderText }}</span>
                     {% endif %}
