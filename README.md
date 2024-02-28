@@ -157,3 +157,4 @@ yarn build
 ## Recommended Visual Studio Code settings for this project
 
 - "render whitespace" set to "all"
+- "insert spaces when pressing tab" checked

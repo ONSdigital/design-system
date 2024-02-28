@@ -191,7 +191,7 @@ Util.osHasReducedMotion = function () {
 };
 
 /*
-	Polyfills
+  Polyfills
 */
 
 // Closest() method
@@ -226,7 +226,7 @@ if (typeof window.CustomEvent !== 'function') {
 }
 
 /*
-	Animation curves
+  Animation curves
 */
 
 Math.easeInOutQuad = function (t, b, c, d) {
