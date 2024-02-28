@@ -18,9 +18,9 @@ describe('script: table', () => {
     });
 
     it('should add shadow elements', async () => {
-      const leftShadowCount = await page.$$eval('.ons-table__left-shadow', nodes => nodes.length);
+      const leftShadowCount = await page.$$eval('.ons-table__left-shadow', (nodes) => nodes.length);
       expect(leftShadowCount).not.toBe(0);
-      const rightShadowCount = await page.$$eval('.ons-table__right-shadow', nodes => nodes.length);
+      const rightShadowCount = await page.$$eval('.ons-table__right-shadow', (nodes) => nodes.length);
       expect(rightShadowCount).not.toBe(0);
     });
 
@@ -33,9 +33,9 @@ describe('script: table', () => {
       it('should show both shadow elements', async () => {
         await page.waitForTimeout(200);
 
-        const leftShadowVisibleCount = await page.$$eval('.ons-table__left-shadow.ons-visible', nodes => nodes.length);
+        const leftShadowVisibleCount = await page.$$eval('.ons-table__left-shadow.ons-visible', (nodes) => nodes.length);
         expect(leftShadowVisibleCount).not.toBe(0);
-        const rightShadowVisibleCount = await page.$$eval('.ons-table__right-shadow.ons-visible', nodes => nodes.length);
+        const rightShadowVisibleCount = await page.$$eval('.ons-table__right-shadow.ons-visible', (nodes) => nodes.length);
         expect(rightShadowVisibleCount).not.toBe(0);
       });
     });
@@ -86,27 +86,31 @@ describe('script: table', () => {
     });
 
     it('should create a button element in each TH', async () => {
-      const buttonCount = await page.$$eval('.ons-table__header .ons-table__sort-button', nodes => nodes.length);
+      const buttonCount = await page.$$eval('.ons-table__header .ons-table__sort-button', (nodes) => nodes.length);
       expect(buttonCount).toBe(4);
     });
 
     it('should create a status element with aria attributes', async () => {
-      const ariaLiveAttribute = await page.$eval('.ons-sortable-table-status', node => node.getAttribute('aria-live'));
+      const ariaLiveAttribute = await page.$eval('.ons-sortable-table-status', (node) => node.getAttribute('aria-live'));
       expect(ariaLiveAttribute).toBe('polite');
-      const roleAttribute = await page.$eval('.ons-sortable-table-status', node => node.getAttribute('role'));
+      const roleAttribute = await page.$eval('.ons-sortable-table-status', (node) => node.getAttribute('role'));
       expect(roleAttribute).toBe('status');
-      const ariaAtomicAttribute = await page.$eval('.ons-sortable-table-status', node => node.getAttribute('aria-atomic'));
+      const ariaAtomicAttribute = await page.$eval('.ons-sortable-table-status', (node) => node.getAttribute('aria-atomic'));
       expect(ariaAtomicAttribute).toBe('true');
     });
 
     describe('Each sort button element', () => {
       it('should contain an aria-label attribute', async () => {
-        const ariaLabelValues = await page.$$eval('.ons-table__sort-button', nodes => nodes.map(node => node.getAttribute('aria-label')));
+        const ariaLabelValues = await page.$$eval('.ons-table__sort-button', (nodes) =>
+          nodes.map((node) => node.getAttribute('aria-label')),
+        );
         expect(ariaLabelValues).toEqual(['Sort by Column 1', 'Sort by Column 2', 'Sort by Column 3', 'Sort by Column 4']);
       });
 
       it('should contain a data-index attribute', async () => {
-        const dataIndexValues = await page.$$eval('.ons-table__sort-button', nodes => nodes.map(node => node.getAttribute('data-index')));
+        const dataIndexValues = await page.$$eval('.ons-table__sort-button', (nodes) =>
+          nodes.map((node) => node.getAttribute('data-index')),
+        );
         expect(dataIndexValues).toEqual(['0', '1', '2', '3']);
       });
     });
@@ -117,19 +121,19 @@ describe('script: table', () => {
       });
 
       it('should update aria-sort value for each column header', async () => {
-        const ariaSortValues = await page.$$eval('.ons-table__header', nodes => nodes.map(node => node.getAttribute('aria-sort')));
+        const ariaSortValues = await page.$$eval('.ons-table__header', (nodes) => nodes.map((node) => node.getAttribute('aria-sort')));
         expect(ariaSortValues).toEqual(['descending', 'none', 'none', 'none']);
       });
 
       it('should sort the column into descending order', async () => {
-        const firstColumnValues = await page.$$eval('.ons-table__row .ons-table__cell:first-child', nodes =>
-          nodes.map(node => node.textContent.trim()),
+        const firstColumnValues = await page.$$eval('.ons-table__row .ons-table__cell:first-child', (nodes) =>
+          nodes.map((node) => node.textContent.trim()),
         );
         expect(firstColumnValues).toEqual(['C', 'B', 'A']);
       });
 
       it('should update the aria-live status', async () => {
-        const statusText = await page.$eval('.ons-sortable-table-status', node => node.textContent);
+        const statusText = await page.$eval('.ons-sortable-table-status', (node) => node.textContent);
         expect(statusText).toBe('Sort by Column 1 (descending)');
       });
 
@@ -139,13 +143,13 @@ describe('script: table', () => {
         });
 
         it('should update aria-sort value for each column header', async () => {
-          const ariaSortValues = await page.$$eval('.ons-table__header', nodes => nodes.map(node => node.getAttribute('aria-sort')));
+          const ariaSortValues = await page.$$eval('.ons-table__header', (nodes) => nodes.map((node) => node.getAttribute('aria-sort')));
           expect(ariaSortValues).toEqual(['ascending', 'none', 'none', 'none']);
         });
 
         it('should sort the column into ascending order', async () => {
-          const firstColumnValues = await page.$$eval('.ons-table__row .ons-table__cell:first-child', nodes =>
-            nodes.map(node => node.textContent.trim()),
+          const firstColumnValues = await page.$$eval('.ons-table__row .ons-table__cell:first-child', (nodes) =>
+            nodes.map((node) => node.textContent.trim()),
           );
           expect(firstColumnValues).toEqual(['A', 'B', 'C']);
         });

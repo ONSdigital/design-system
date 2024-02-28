@@ -196,11 +196,11 @@ describe('script: address-input', () => {
       });
 
       it('does not switch to manual input', async () => {
-        const isManualElementHidden = await page.$eval('.ons-js-address-input__manual', node =>
+        const isManualElementHidden = await page.$eval('.ons-js-address-input__manual', (node) =>
           node.classList.contains('ons-u-db-no-js_enabled'),
         );
         expect(isManualElementHidden).toBe(true);
-        const isSearchElementHidden = await page.$eval('.ons-js-address-input__search', node => node.classList.contains('ons-u-d-no'));
+        const isSearchElementHidden = await page.$eval('.ons-js-address-input__search', (node) => node.classList.contains('ons-u-d-no'));
         expect(isSearchElementHidden).toBe(false);
       });
     });
@@ -218,16 +218,16 @@ describe('script: address-input', () => {
       });
 
       it('switches to manual input', async () => {
-        const isManualElementHidden = await page.$eval('.ons-js-address-input__manual', node =>
+        const isManualElementHidden = await page.$eval('.ons-js-address-input__manual', (node) =>
           node.classList.contains('ons-u-db-no-js_enabled'),
         );
         expect(isManualElementHidden).toBe(false);
-        const isSearchElementHidden = await page.$eval('.ons-js-address-input__search', node => node.classList.contains('ons-u-d-no'));
+        const isSearchElementHidden = await page.$eval('.ons-js-address-input__search', (node) => node.classList.contains('ons-u-d-no'));
         expect(isSearchElementHidden).toBe(true);
       });
 
       it('hides the search button', async () => {
-        const hassClass = await page.$eval('.ons-js-address-search-btn', node => node.classList.contains('ons-u-d-no'));
+        const hassClass = await page.$eval('.ons-js-address-search-btn', (node) => node.classList.contains('ons-u-d-no'));
         expect(hassClass).toBe(true);
       });
     });
@@ -237,18 +237,18 @@ describe('script: address-input', () => {
     it('navigates to the first suggestion with the "Down" arrow key', async () => {
       await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
 
-      await page.$eval('.ons-js-autosuggest-input', node => (node.value = 'CF14'));
+      await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = 'CF14'));
       await page.type('.ons-js-autosuggest-input', '2', { delay: 20 });
       await page.keyboard.press('ArrowDown');
 
-      const selectedOption = await page.$eval('.ons-autosuggest__option--focused', node => node.textContent);
+      const selectedOption = await page.$eval('.ons-autosuggest__option--focused', (node) => node.textContent);
       expect(selectedOption.trim()).toBe('196 College Road, Birmingham, B44 8HF');
     });
 
     it('provides expected parameters to the address API', async () => {
       await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
 
-      await page.$eval('.ons-js-autosuggest-input', node => (node.value = '196 coll'));
+      await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = '196 coll'));
       await page.type('.ons-js-autosuggest-input', 'e');
 
       expect(apiFaker.getRequestCount('/addresses/eq?input=196%20colle&limit=10')).toBe(1);
@@ -258,7 +258,7 @@ describe('script: address-input', () => {
       beforeEach(async () => {
         await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
 
-        await page.$eval('.ons-js-autosuggest-input', node => (node.value = 'CF14 2N'));
+        await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = 'CF14 2N'));
         await page.type('.ons-js-autosuggest-input', 'T');
       });
 
@@ -267,7 +267,7 @@ describe('script: address-input', () => {
       });
 
       it('has expected suggestion entries', async () => {
-        const suggestions = await page.$$eval('.ons-autosuggest__option', nodes => nodes.map(node => node.textContent.trim()));
+        const suggestions = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.map((node) => node.textContent.trim()));
         expect(suggestions).toEqual(['196 College Road, Birmingham, B44 8HF', '196 College Road, Whitchurch, Cardiff, CF14 2NZ']);
       });
     });
@@ -299,7 +299,7 @@ describe('script: address-input', () => {
 
         await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
 
-        await page.$eval('.ons-js-autosuggest-input', node => (node.value = 'Penlline Road, Whitchurch, Cardiff, CF14 2N'));
+        await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = 'Penlline Road, Whitchurch, Cardiff, CF14 2N'));
         await page.type('.ons-js-autosuggest-input', 'Z');
         await page.waitForTimeout(100);
       });
@@ -313,7 +313,7 @@ describe('script: address-input', () => {
       });
 
       it('has expected suggestion entries', async () => {
-        const suggestions = await page.$$eval('.ons-autosuggest__option', nodes => nodes.map(node => node.textContent.trim()));
+        const suggestions = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.map((node) => node.textContent.trim()));
         expect(suggestions).toEqual(['1 Penlline Road, Whitchurch, Cardiff, CF14 2NZ', '2 Penlline Road, Whitchurch, Cardiff, CF14 2NZ']);
       });
 
@@ -329,12 +329,12 @@ describe('script: address-input', () => {
         });
 
         it('populates manual input fields with address from selection', async () => {
-          expect(await page.$eval('.ons-js-address-organisation', node => node.value)).toBe('');
-          expect(await page.$eval('.ons-js-address-line1', node => node.value)).toBe('196 College Road');
-          expect(await page.$eval('.ons-js-address-line2', node => node.value)).toBe('Whitchurch');
-          expect(await page.$eval('.ons-js-address-town', node => node.value)).toBe('Cardiff');
-          expect(await page.$eval('.ons-js-address-postcode', node => node.value)).toBe('CF14 2NT');
-          expect(await page.$eval('.ons-js-hidden-uprn', node => node.value)).toBe('100070332099');
+          expect(await page.$eval('.ons-js-address-organisation', (node) => node.value)).toBe('');
+          expect(await page.$eval('.ons-js-address-line1', (node) => node.value)).toBe('196 College Road');
+          expect(await page.$eval('.ons-js-address-line2', (node) => node.value)).toBe('Whitchurch');
+          expect(await page.$eval('.ons-js-address-town', (node) => node.value)).toBe('Cardiff');
+          expect(await page.$eval('.ons-js-address-postcode', (node) => node.value)).toBe('CF14 2NT');
+          expect(await page.$eval('.ons-js-hidden-uprn', (node) => node.value)).toBe('100070332099');
         });
       });
     });
@@ -343,7 +343,7 @@ describe('script: address-input', () => {
       beforeEach(async () => {
         await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
 
-        await page.$eval('.ons-js-autosuggest-input', node => (node.value = 'CF14 '));
+        await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = 'CF14 '));
         await page.type('.ons-js-autosuggest-input', '2');
         await page.waitForTimeout(200);
       });
@@ -353,7 +353,7 @@ describe('script: address-input', () => {
       });
 
       it('has expected suggestion entries', async () => {
-        const suggestions = await page.$$eval('.ons-autosuggest__option', nodes => nodes.map(node => node.textContent.trim()));
+        const suggestions = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.map((node) => node.textContent.trim()));
         expect(suggestions).toEqual([
           'Penlline Road, Whitchurch, Cardiff, CF14 2AA (41 addresses)',
           '197 College Road, Whitchurch, Cardiff, CF14 2AB',
@@ -376,7 +376,7 @@ describe('script: address-input', () => {
         });
 
         it('has expected suggestion entries', async () => {
-          const suggestions = await page.$$eval('.ons-autosuggest__option', nodes => nodes.map(node => node.textContent.trim()));
+          const suggestions = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.map((node) => node.textContent.trim()));
           expect(suggestions).toEqual(['197 College Road, Whitchurch, Cardiff, CF14 2AB']);
         });
 
@@ -388,12 +388,12 @@ describe('script: address-input', () => {
           });
 
           it('populates manual input fields with address from selection', async () => {
-            expect(await page.$eval('.ons-js-address-organisation', node => node.value)).toBe('');
-            expect(await page.$eval('.ons-js-address-line1', node => node.value)).toBe('197 College Road');
-            expect(await page.$eval('.ons-js-address-line2', node => node.value)).toBe('Whitchurch');
-            expect(await page.$eval('.ons-js-address-town', node => node.value)).toBe('Cardiff');
-            expect(await page.$eval('.ons-js-address-postcode', node => node.value)).toBe('CF14 2AB');
-            expect(await page.$eval('.ons-js-hidden-uprn', node => node.value)).toBe('10002511038');
+            expect(await page.$eval('.ons-js-address-organisation', (node) => node.value)).toBe('');
+            expect(await page.$eval('.ons-js-address-line1', (node) => node.value)).toBe('197 College Road');
+            expect(await page.$eval('.ons-js-address-line2', (node) => node.value)).toBe('Whitchurch');
+            expect(await page.$eval('.ons-js-address-town', (node) => node.value)).toBe('Cardiff');
+            expect(await page.$eval('.ons-js-address-postcode', (node) => node.value)).toBe('CF14 2AB');
+            expect(await page.$eval('.ons-js-hidden-uprn', (node) => node.value)).toBe('10002511038');
           });
         });
       });
@@ -424,21 +424,21 @@ describe('script: address-input', () => {
 
         await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
 
-        await page.$eval('.ons-js-autosuggest-input', node => (node.value = 'cf14'));
+        await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = 'cf14'));
         await page.type('.ons-js-autosuggest-input', '2', { delay: 20 });
         await page.keyboard.press('ArrowDown');
         await page.keyboard.press('Enter');
         await page.waitForTimeout(100);
 
-        const isManualElementHidden = await page.$eval('.ons-js-address-input__manual', node =>
+        const isManualElementHidden = await page.$eval('.ons-js-address-input__manual', (node) =>
           node.classList.contains('ons-u-db-no-js_enabled'),
         );
         expect(isManualElementHidden).toBe(false);
 
-        const isSearchElementHidden = await page.$eval('.ons-js-address-input__search', node => node.classList.contains('ons-u-d-no'));
+        const isSearchElementHidden = await page.$eval('.ons-js-address-input__search', (node) => node.classList.contains('ons-u-d-no'));
         expect(isSearchElementHidden).toBe(true);
 
-        const isSearchButtonElementHidden = await page.$eval('.ons-js-address-search-btn', node => node.classList.contains('ons-u-d-no'));
+        const isSearchButtonElementHidden = await page.$eval('.ons-js-address-search-btn', (node) => node.classList.contains('ons-u-d-no'));
         expect(isSearchButtonElementHidden).toBe(true);
       });
     });
@@ -456,26 +456,26 @@ describe('script: address-input', () => {
             `,
           );
 
-          await page.$eval('form', node =>
-            node.addEventListener('submit', event => {
+          await page.$eval('form', (node) =>
+            node.addEventListener('submit', (event) => {
               event.preventDefault();
               return false;
             }),
           );
 
-          await page.$eval('.ons-js-autosuggest-input', node => (node.value = 'CF14 2N'));
+          await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = 'CF14 2N'));
           await page.type('.ons-js-autosuggest-input', 'T', { delay: 20 });
           await page.keyboard.press('ArrowDown');
           await page.keyboard.press('Enter');
           await page.waitForTimeout(100);
 
-          const urpnValueBefore = await page.$eval('.ons-js-hidden-uprn', node => node.value);
+          const urpnValueBefore = await page.$eval('.ons-js-hidden-uprn', (node) => node.value);
           expect(urpnValueBefore).toBe('100070332099');
 
-          await page.$eval('.ons-js-address-line1', node => (node.value = 'Something else'));
+          await page.$eval('.ons-js-address-line1', (node) => (node.value = 'Something else'));
           await page.click('button[type=submit]');
 
-          const urpnValueAfter = await page.$eval('.ons-js-hidden-uprn', node => node.value);
+          const urpnValueAfter = await page.$eval('.ons-js-hidden-uprn', (node) => node.value);
           expect(urpnValueAfter).toBe('');
         });
       });
@@ -494,8 +494,8 @@ describe('script: address-input', () => {
             `,
           );
 
-          await page.$eval('form', node =>
-            node.addEventListener('submit', event => {
+          await page.$eval('form', (node) =>
+            node.addEventListener('submit', (event) => {
               event.preventDefault();
               return false;
             }),
@@ -505,12 +505,12 @@ describe('script: address-input', () => {
         });
 
         it('then an error summary panel should be added to the DOM', async () => {
-          const panelExists = await page.$$eval('.ons-js-autosuggest-error-panel', nodes => nodes.length === 1);
+          const panelExists = await page.$$eval('.ons-js-autosuggest-error-panel', (nodes) => nodes.length === 1);
           expect(panelExists).toBe(true);
         });
 
         it('then input should be wrapped in an error', async () => {
-          const inputIsError = await page.$$eval('#autosuggest-input-error', nodes => nodes.length === 1);
+          const inputIsError = await page.$$eval('#autosuggest-input-error', (nodes) => nodes.length === 1);
           expect(inputIsError).toBe(true);
         });
 
@@ -518,7 +518,7 @@ describe('script: address-input', () => {
           it('then the error summary should be removed', async () => {
             await page.click('.ons-js-address-manual-btn');
 
-            const panelExists = await page.$$eval('.ons-js-autosuggest-error-panel', nodes => nodes.length === 1);
+            const panelExists = await page.$$eval('.ons-js-autosuggest-error-panel', (nodes) => nodes.length === 1);
             expect(panelExists).toBe(false);
           });
         });
@@ -533,47 +533,47 @@ describe('script: address-input', () => {
     });
 
     it('shows manual input fields', async () => {
-      const isManualElementHidden = await page.$eval('.ons-js-address-input__manual', node =>
+      const isManualElementHidden = await page.$eval('.ons-js-address-input__manual', (node) =>
         node.classList.contains('ons-u-db-no-js_enabled'),
       );
       expect(isManualElementHidden).toBe(false);
-      const isSearchElementHidden = await page.$eval('.ons-js-address-input__search', node => node.classList.contains('ons-u-d-no'));
+      const isSearchElementHidden = await page.$eval('.ons-js-address-input__search', (node) => node.classList.contains('ons-u-d-no'));
       expect(isSearchElementHidden).toBe(true);
     });
 
     it('clears autosuggest input', async () => {
-      const value = await page.$eval('.ons-js-autosuggest-input', node => node.value);
+      const value = await page.$eval('.ons-js-autosuggest-input', (node) => node.value);
       expect(value).toBe('');
     });
 
     describe('and then the search link is clicked', () => {
       beforeEach(async () => {
-        await page.$eval('.ons-js-address-organisation', node => (node.value = 'Test organisation'));
-        await page.$eval('.ons-js-address-line1', node => (node.value = 'Test address line 1'));
-        await page.$eval('.ons-js-address-line2', node => (node.value = 'Test address line 2'));
-        await page.$eval('.ons-js-address-town', node => (node.value = 'Test town'));
-        await page.$eval('.ons-js-address-postcode', node => (node.value = 'PO37 60DE'));
-        await page.$eval('.ons-js-hidden-uprn', node => (node.value = '100070332099'));
+        await page.$eval('.ons-js-address-organisation', (node) => (node.value = 'Test organisation'));
+        await page.$eval('.ons-js-address-line1', (node) => (node.value = 'Test address line 1'));
+        await page.$eval('.ons-js-address-line2', (node) => (node.value = 'Test address line 2'));
+        await page.$eval('.ons-js-address-town', (node) => (node.value = 'Test town'));
+        await page.$eval('.ons-js-address-postcode', (node) => (node.value = 'PO37 60DE'));
+        await page.$eval('.ons-js-hidden-uprn', (node) => (node.value = '100070332099'));
 
         await page.click('.ons-js-address-search-btn');
       });
 
       it('hides manual input fields', async () => {
-        const isManualElementHidden = await page.$eval('.ons-js-address-input__manual', node =>
+        const isManualElementHidden = await page.$eval('.ons-js-address-input__manual', (node) =>
           node.classList.contains('ons-u-db-no-js_enabled'),
         );
         expect(isManualElementHidden).toBe(true);
-        const isSearchElementHidden = await page.$eval('.ons-js-address-input__search', node => node.classList.contains('ons-u-d-no'));
+        const isSearchElementHidden = await page.$eval('.ons-js-address-input__search', (node) => node.classList.contains('ons-u-d-no'));
         expect(isSearchElementHidden).toBe(false);
       });
 
       it('clears manual input fields', async () => {
-        expect(await page.$eval('.ons-js-address-organisation', node => node.value)).toBe('');
-        expect(await page.$eval('.ons-js-address-line1', node => node.value)).toBe('');
-        expect(await page.$eval('.ons-js-address-line2', node => node.value)).toBe('');
-        expect(await page.$eval('.ons-js-address-town', node => node.value)).toBe('');
-        expect(await page.$eval('.ons-js-address-postcode', node => node.value)).toBe('');
-        expect(await page.$eval('.ons-js-hidden-uprn', node => node.value)).toBe('');
+        expect(await page.$eval('.ons-js-address-organisation', (node) => node.value)).toBe('');
+        expect(await page.$eval('.ons-js-address-line1', (node) => node.value)).toBe('');
+        expect(await page.$eval('.ons-js-address-line2', (node) => node.value)).toBe('');
+        expect(await page.$eval('.ons-js-address-town', (node) => node.value)).toBe('');
+        expect(await page.$eval('.ons-js-address-postcode', (node) => node.value)).toBe('');
+        expect(await page.$eval('.ons-js-hidden-uprn', (node) => node.value)).toBe('');
       });
     });
   });
@@ -585,7 +585,7 @@ describe('script: address-input', () => {
     });
 
     it('then the fetch url should contain the favour Welsh parameter', async () => {
-      await page.$eval('.ons-js-autosuggest-input', node => (node.value = '196 coll'));
+      await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = '196 coll'));
       await page.type('.ons-js-autosuggest-input', 'e');
 
       expect(apiFaker.getRequestCount('/addresses/eq?input=196%20colle&limit=10&favourwelsh=true')).toBe(1);
@@ -597,7 +597,7 @@ describe('script: address-input', () => {
       beforeEach(async () => {
         await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
 
-        await page.$eval('.ons-js-autosuggest-input', node => (node.value = 'CF14'));
+        await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = 'CF14'));
         await page.type('.ons-js-autosuggest-input', '2', { delay: 20 });
         await page.keyboard.press('ArrowDown');
         await page.keyboard.press('Enter');
@@ -618,10 +618,7 @@ describe('script: address-input', () => {
             `
               <div class="ons-question">
                 <form action="/test/fake/form-handler" method="post">
-                  ${renderComponent('address-input', {
-                    ...EXAMPLE_ADDRESS_INPUT_WITH_API,
-                    isEditable: false,
-                  })}
+                  ${renderComponent('address-input', { ...EXAMPLE_ADDRESS_INPUT_WITH_API, isEditable: false })}
                   <button type="submit">Submit</button>
                 </form>
               </div>
@@ -632,7 +629,7 @@ describe('script: address-input', () => {
         });
 
         it('sets aria status message', async () => {
-          const statusMessage = await page.$eval('.ons-js-autosuggest-aria-status', node => node.textContent);
+          const statusMessage = await page.$eval('.ons-js-autosuggest-aria-status', (node) => node.textContent);
           expect(statusMessage).toBe('Enter 3 or more characters for suggestions.');
         });
       });
@@ -708,19 +705,19 @@ describe('script: address-input', () => {
         }),
       );
 
-      const setLangAttribute = lang => document.documentElement.setAttribute('lang', lang);
+      const setLangAttribute = (lang) => document.documentElement.setAttribute('lang', lang);
       await page.evaluate(setLangAttribute, lang);
     });
 
     it('provides expected parameters to the address API', async () => {
-      await page.$eval('.ons-js-autosuggest-input', node => (node.value = '196 coll'));
+      await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = '196 coll'));
       await page.type('.ons-js-autosuggest-input', 'e');
 
       expect(apiFaker.getRequestCount(searchEndpoint)).toBe(1);
     });
 
     it('requests further information for the selected address from the API with the expected parameters', async () => {
-      await page.$eval('.ons-js-autosuggest-input', node => (node.value = '196 coll'));
+      await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = '196 coll'));
       await page.type('.ons-js-autosuggest-input', 'e', { delay: 20 });
       await page.keyboard.press('ArrowDown');
       await page.keyboard.press('Enter');

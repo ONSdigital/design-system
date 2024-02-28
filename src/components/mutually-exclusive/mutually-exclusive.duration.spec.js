@@ -66,21 +66,21 @@ describe('script: mutually-exclusive', () => {
         });
 
         it('then the mutually exclusive option should be checked', async () => {
-          const isChecked = await page.$eval('#duration-exclusive-option', node => node.checked);
+          const isChecked = await page.$eval('#duration-exclusive-option', (node) => node.checked);
           expect(isChecked).toBe(true);
         });
 
         it('then the inputs should be cleared', async () => {
-          const yearsValue = await page.$eval('#address-duration-years', node => node.value);
+          const yearsValue = await page.$eval('#address-duration-years', (node) => node.value);
           expect(yearsValue).toBe('');
-          const monthsValue = await page.$eval('#address-duration-months', node => node.value);
+          const monthsValue = await page.$eval('#address-duration-months', (node) => node.value);
           expect(monthsValue).toBe('');
         });
 
         it('then the aria alert should tell the user that the inputs have been cleared', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('Years cleared. Months cleared.');
         });
       });
@@ -98,14 +98,14 @@ describe('script: mutually-exclusive', () => {
         });
 
         it('then the exclusive option should be unchecked', async () => {
-          const isChecked = await page.$eval('#duration-exclusive-option', node => node.checked);
+          const isChecked = await page.$eval('#duration-exclusive-option', (node) => node.checked);
           expect(isChecked).toBe(false);
         });
 
         it('then the aria alert should tell the user that the exclusive option has been unchecked', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('I have not moved in to this address yet deselected.');
         });
       });
@@ -121,7 +121,7 @@ describe('script: mutually-exclusive', () => {
         it('then the aria alert shouldnt say anything', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('');
         });
       });
@@ -134,7 +134,7 @@ describe('script: mutually-exclusive', () => {
         it('then the aria alert shouldnt say anything', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('');
         });
       });

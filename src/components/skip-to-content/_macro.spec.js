@@ -3,7 +3,7 @@
 import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
-import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
+import { renderComponent } from '../../tests/helpers/rendering';
 
 describe('macro: skip-to-content', () => {
   it('passes jest-axe checks', async () => {
@@ -48,11 +48,7 @@ describe('macro: skip-to-content', () => {
       }),
     );
 
-    expect(
-      $('.ons-skip-to-content')
-        .text()
-        .trim(),
-    ).toBe('Skip to the content');
+    expect($('.ons-skip-to-content').text().trim()).toBe('Skip to the content');
   });
 
   it('has skip link with the default text if no text provided`', async () => {
@@ -62,10 +58,6 @@ describe('macro: skip-to-content', () => {
       }),
     );
 
-    expect(
-      $('.ons-skip-to-content')
-        .text()
-        .trim(),
-    ).toBe('Skip to content');
+    expect($('.ons-skip-to-content').text().trim()).toBe('Skip to content');
   });
 });

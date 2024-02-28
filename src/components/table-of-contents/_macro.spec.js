@@ -76,11 +76,7 @@ describe('macro: table-of-contents', () => {
   it('renders title as heading element', () => {
     const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_SINGLE));
 
-    expect(
-      $('.ons-toc__title')
-        .text()
-        .trim(),
-    ).toBe('Contents');
+    expect($('.ons-toc__title').text().trim()).toBe('Contents');
   });
 
   describe('skip to content when `skipLink` is provided', () => {
@@ -140,18 +136,14 @@ describe('macro: table-of-contents', () => {
 
       $('.ons-u-vh').remove();
 
-      const headings = mapAll($('h3'), node =>
-        $(node)
-          .text()
-          .trim(),
-      );
+      const headings = mapAll($('h3'), (node) => $(node).text().trim());
       expect(headings).toEqual(['Household questions:', 'Individual questions:']);
     });
 
     it('renders visually hidden heading for each list', () => {
       const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE));
 
-      const headings = mapAll($('h3 .ons-u-vh'), node => node.text().trim());
+      const headings = mapAll($('h3 .ons-u-vh'), (node) => node.text().trim());
       expect(headings).toEqual(['help topics', 'help topics']);
     });
 

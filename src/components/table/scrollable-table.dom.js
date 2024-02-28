@@ -8,7 +8,7 @@ async function tableScroller() {
   if (tables.length) {
     const TableScroll = (await import('./scrollable-table')).default;
 
-    tables.forEach(table => new TableScroll(table));
+    tables.forEach((table) => new TableScroll(table));
   }
 }
 

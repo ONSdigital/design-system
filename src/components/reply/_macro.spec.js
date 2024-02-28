@@ -13,9 +13,9 @@ const EXAMPLE_TEXTAREA = {
     description: 'Reply description',
   },
   charCheckLimit: {
-      limit: 300,
-      charCountSingular: '{x} more character needed',
-      charCountPlural: '{x} more characters needed',
+    limit: 300,
+    charCountSingular: '{x} more character needed',
+    charCountPlural: '{x} more characters needed',
   },
   rows: 5,
 };

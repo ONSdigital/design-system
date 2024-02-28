@@ -145,10 +145,10 @@ describe('macro: section-navigation', () => {
     it('renders top level navigation items', () => {
       const $ = cheerio.load(renderComponent('section-navigation', EXAMPLE_SECTION_NAVIGATION));
 
-      const itemLabels = mapAll($('.ons-section-nav__item .ons-section-nav__link'), node => node.text().trim());
+      const itemLabels = mapAll($('.ons-section-nav__item .ons-section-nav__link'), (node) => node.text().trim());
       expect(itemLabels).toEqual(['Results', 'Dashboard']);
 
-      const itemLinks = mapAll($('.ons-section-nav__item .ons-section-nav__link'), node => node.attr('href'));
+      const itemLinks = mapAll($('.ons-section-nav__item .ons-section-nav__link'), (node) => node.attr('href'));
       expect(itemLinks).toEqual(['/results', '/results/dashboard']);
     });
 
@@ -173,11 +173,7 @@ describe('macro: section-navigation', () => {
     it('marks the current item with a class when `currentPath` is provided', () => {
       const $ = cheerio.load(renderComponent('section-navigation', EXAMPLE_SECTION_NAVIGATION));
 
-      expect(
-        $('.ons-section-nav__item--active')
-          .text()
-          .trim(),
-      ).toBe('Results');
+      expect($('.ons-section-nav__item--active').text().trim()).toBe('Results');
     });
 
     it('marks the current item with a class when `tabQuery` is provided', () => {
@@ -189,11 +185,7 @@ describe('macro: section-navigation', () => {
         }),
       );
 
-      expect(
-        $('.ons-section-nav__item--active')
-          .text()
-          .trim(),
-      ).toBe('Dashboard');
+      expect($('.ons-section-nav__item--active').text().trim()).toBe('Dashboard');
     });
 
     it('marks the current item with `aria-current` when `currentPath` is provided', () => {
@@ -226,12 +218,14 @@ describe('macro: section-navigation', () => {
       it('renders the expected anchor navigation items', () => {
         const $ = cheerio.load(renderComponent('section-navigation', EXAMPLE_SECTION_NAVIGATION_VERTICAL));
 
-        const itemLabels = mapAll($('.ons-section-nav__sub-items .ons-section-nav__item .ons-section-nav__link'), node =>
+        const itemLabels = mapAll($('.ons-section-nav__sub-items .ons-section-nav__item .ons-section-nav__link'), (node) =>
           node.text().trim(),
         );
         expect(itemLabels).toEqual(['Sub section 1', 'Sub section 2', 'Sub section 3']);
 
-        const itemLinks = mapAll($('.ons-section-nav__sub-items .ons-section-nav__item .ons-section-nav__link'), node => node.attr('href'));
+        const itemLinks = mapAll($('.ons-section-nav__sub-items .ons-section-nav__item .ons-section-nav__link'), (node) =>
+          node.attr('href'),
+        );
         expect(itemLinks).toEqual(['#sub-section-1', '#sub-section-2', '#sub-section-3']);
       });
     });
@@ -247,17 +241,15 @@ describe('macro: section-navigation', () => {
       it('renders itemsLists, anchors and heading for each section', () => {
         const $ = cheerio.load(renderComponent('section-navigation', EXAMPLE_SECTION_NAVIGATION_VERTICAL_WITH_SECTIONS));
 
-        const anchors = mapAll($('.ons-section-nav__sub-items .ons-section-nav__item .ons-section-nav__link'), node => node.text().trim());
+        const anchors = mapAll($('.ons-section-nav__sub-items .ons-section-nav__item .ons-section-nav__link'), (node) =>
+          node.text().trim(),
+        );
         expect(anchors).toEqual(['Sub section 1', 'Sub section 2', 'Sub section 3']);
 
-        const itemLists = mapAll($('.ons-section-nav__item .ons-section-nav__link'), node => node.text().trim());
+        const itemLists = mapAll($('.ons-section-nav__item .ons-section-nav__link'), (node) => node.text().trim());
         expect(itemLists).toEqual(['Section 1', 'Section 2', 'Sub section 1', 'Sub section 2', 'Sub section 3', 'Section 3']);
 
-        const headings = mapAll($('h3'), node =>
-          $(node)
-            .text()
-            .trim(),
-        );
+        const headings = mapAll($('h3'), (node) => $(node).text().trim());
         expect(headings).toEqual(['Section Title']);
       });
     });

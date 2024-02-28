@@ -1,7 +1,7 @@
 export function sanitiseAutosuggestText(string, sanitisedQueryRemoveChars = [], sanitisedQuerySplitNumsChars = false, trimEnd = true) {
   let sanitisedString = string.toLowerCase();
 
-  sanitisedQueryRemoveChars.forEach(char => {
+  sanitisedQueryRemoveChars.forEach((char) => {
     sanitisedString = sanitisedString.replace(new RegExp(char.toLowerCase(), 'g'), '');
   });
 

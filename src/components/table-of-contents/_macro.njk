@@ -4,40 +4,40 @@
 
 <aside class="ons-toc-container" role="complementary">
     {% if params.skipLink %}
-		{{
-		onsSkipToContent({
-			"url": params.skipLink.url,
-			"text": params.skipLink.text
-		})
-		}}
+        {{
+            onsSkipToContent({
+                "url": params.skipLink.url,
+                "text": params.skipLink.text
+            })
+        }}
     {% endif %}
 
     <nav class="ons-toc" aria-label="{{ params.ariaLabel | default('Table of contents') }}">
-      	<h2 class="ons-toc__title ons-u-fs-r--b ons-u-mb-s">{{ params.title }}</h2>
-		{% if params.lists %}
-			{% for list in params.lists %}
-			{% if list.listHeading %}
-				<h3 class="ons-u-fs-r ons-u-mb-xs">{{ list.listHeading }}<span class="ons-u-vh"> {{ list.listHeadingHidden }}</span>:</h3>
-			{% endif %}
-			{{
-				onsList({
-					"element": 'ol',
-					"classes": 'ons-u-mb-m',
-					"variants": 'dashed',
-					"itemsList": list.itemsList
-				})
-			}}
-			{% endfor %}
-		{% elif params.itemsList %}
-			{{
-				onsList({
-					"element": 'ol',
-					"classes": 'ons-u-mb-m',
-					"variants": 'dashed',
-					"itemsList": params.itemsList
-				})
-			}}
-		{% endif %}
+        <h2 class="ons-toc__title ons-u-fs-r--b ons-u-mb-s">{{ params.title }}</h2>
+        {% if params.lists %}
+            {% for list in params.lists %}
+                {% if list.listHeading %}
+                    <h3 class="ons-u-fs-r ons-u-mb-xs">{{ list.listHeading }}<span class="ons-u-vh"> {{ list.listHeadingHidden }}</span>:</h3>
+                {% endif %}
+                {{
+                    onsList({
+                        "element": 'ol',
+                        "classes": 'ons-u-mb-m',
+                        "variants": 'dashed',
+                        "itemsList": list.itemsList
+                    })
+                }}
+            {% endfor %}
+        {% elif params.itemsList %}
+            {{
+                onsList({
+                    "element": 'ol',
+                    "classes": 'ons-u-mb-m',
+                    "variants": 'dashed',
+                    "itemsList": params.itemsList
+                })
+            }}
+        {% endif %}
     </nav>
 </aside>
 {% endmacro %}

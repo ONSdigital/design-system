@@ -6,6 +6,6 @@ domready(async () => {
   if (relationships.length) {
     const Relationships = (await import('./relationships')).default;
 
-    relationships.forEach(element => new Relationships(element));
+    relationships.forEach((element) => new Relationships(element));
   }
 });

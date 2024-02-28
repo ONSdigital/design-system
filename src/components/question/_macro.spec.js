@@ -112,11 +112,7 @@ describe('macro: question', () => {
     it('has the `title` text', () => {
       const $ = cheerio.load(renderComponent('question', EXAMPLE_QUESTION_BASIC));
 
-      expect(
-        $('.ons-question__title')
-          .text()
-          .trim(),
-      ).toBe('Question title');
+      expect($('.ons-question__title').text().trim()).toBe('Question title');
     });
 
     it('has the provided `id` attribute', () => {
@@ -155,19 +151,13 @@ describe('macro: question', () => {
     it('has the `description` text', () => {
       const $ = cheerio.load(renderComponent('question', EXAMPLE_QUESTION_BASIC));
 
-      expect(
-        $('.ons-question__description')
-          .text()
-          .trim(),
-      ).toBe('Question description');
+      expect($('.ons-question__description').text().trim()).toBe('Question description');
     });
 
     it('calls with content', () => {
       const $ = cheerio.load(renderComponent('question', { EXAMPLE_QUESTION_BASIC }, 'Example content...'));
 
-      const content = $('.ons-question__answer')
-        .text()
-        .trim();
+      const content = $('.ons-question__answer').text().trim();
       expect(content).toEqual(expect.stringContaining('Example content...'));
     });
   });
@@ -321,11 +311,7 @@ describe('macro: question', () => {
     it('has a description element visually hidden before the title', () => {
       const $ = cheerio.load(renderComponent('question', EXAMPLE_QUESTION_DESCRIPTION_FIRST));
 
-      expect(
-        $('.ons-question__title')
-          .text()
-          .trim(),
-      ).toBe('Question description Question title');
+      expect($('.ons-question__title').text().trim()).toBe('Question description Question title');
     });
 
     it('has the visible description element with aria-hidden attribute', () => {

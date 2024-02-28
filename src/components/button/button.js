@@ -40,7 +40,7 @@ export default class SubmitButton {
       timerButtonEl.setAttribute('disabled', true);
     }
     setTimeout(
-      timerButtonEl => {
+      (timerButtonEl) => {
         timerButtonEl.removeAttribute('disabled');
         i = 0;
       },
@@ -49,18 +49,17 @@ export default class SubmitButton {
     );
   }
 
-  linkButtonDown(e){
-    if (e.keyCode == 32 || e.keyCode == 13){
-      this.button.classList.add("active");
+  linkButtonDown(e) {
+    if (e.keyCode == 32 || e.keyCode == 13) {
+      this.button.classList.add('active');
     }
   }
-  
-  linkButtonUp(e){
+
+  linkButtonUp(e) {
     if (e.keyCode == 32 || e.keyCode == 13) {
-      this.button.classList.remove("active"); 
+      this.button.classList.remove('active');
       e.preventDefault();
       this.button.click();
     }
   }
-
 }

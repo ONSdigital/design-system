@@ -7,7 +7,7 @@ export default class Relationships {
     this.radios = [...context.querySelectorAll('input[type=radio]')];
     this.playback = context.querySelector('.ons-js-relationships-playback');
 
-    this.radios.forEach(radio => radio.addEventListener('change', this.setPlayback.bind(this)));
+    this.radios.forEach((radio) => radio.addEventListener('change', this.setPlayback.bind(this)));
 
     this.setPlayback();
 
@@ -15,7 +15,7 @@ export default class Relationships {
   }
 
   setPlayback() {
-    const radio = this.radios.find(radio => radio.checked);
+    const radio = this.radios.find((radio) => radio.checked);
 
     if (radio) {
       const title = radio.getAttribute('data-title');

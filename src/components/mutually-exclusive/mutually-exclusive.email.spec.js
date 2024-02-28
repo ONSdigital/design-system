@@ -44,19 +44,19 @@ describe('script: mutually-exclusive', () => {
         });
 
         it('then the mutually exclusive option should be checked', async () => {
-          const isChecked = await page.$eval('#email-exclusive-option', node => node.checked);
+          const isChecked = await page.$eval('#email-exclusive-option', (node) => node.checked);
           expect(isChecked).toBe(true);
         });
 
         it('then the email input should be cleared', async () => {
-          const inputValue = await page.$eval('#email', node => node.value);
+          const inputValue = await page.$eval('#email', (node) => node.value);
           expect(inputValue).toBe('');
         });
 
         it('then the aria alert should tell the user that the email input has been cleared', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('Enter an email cleared.');
         });
       });
@@ -73,14 +73,14 @@ describe('script: mutually-exclusive', () => {
         });
 
         it('then the exclusive option should be unchecked', async () => {
-          const isChecked = await page.$eval('#email-exclusive-option', node => node.checked);
+          const isChecked = await page.$eval('#email-exclusive-option', (node) => node.checked);
           expect(isChecked).toBe(false);
         });
 
         it('then the aria alert should tell the user that the exclusive option has been unchecked', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('I dont want to receive a confirmation email deselected.');
         });
       });
@@ -95,7 +95,7 @@ describe('script: mutually-exclusive', () => {
         it('then the aria alert shouldnt say anything', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('');
         });
       });
@@ -108,7 +108,7 @@ describe('script: mutually-exclusive', () => {
         it('then the aria alert shouldnt say anything', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('');
         });
       });

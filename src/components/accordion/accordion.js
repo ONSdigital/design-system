@@ -5,14 +5,14 @@ export default class Accordion {
     this.button = button;
     this.buttonInner = button.querySelector('.ons-accordion__toggle-all-inner');
     this.group = button.getAttribute('data-group');
-    this.detailsEls = detailsEls.filter(details => details.group === this.group);
+    this.detailsEls = detailsEls.filter((details) => details.group === this.group);
     this.totalDetailsEls = this.detailsEls.length;
     this.buttonOpenEl = this.buttonInner.querySelector('.ons-btn__text');
     this.buttonOpen = this.buttonOpenEl.innerHTML.trim();
     this.closeButton = button.getAttribute('data-close-all');
-    this.open = this.detailsEls.find(details => details.open === true);
+    this.open = this.detailsEls.find((details) => details.open === true);
 
-    this.detailsEls.forEach(details => {
+    this.detailsEls.forEach((details) => {
       details.onOpen = this.onOpen.bind(this);
       details.onClose = this.onClose.bind(this);
     });
@@ -31,7 +31,7 @@ export default class Accordion {
 
     const open = !this.canClose();
 
-    this.detailsEls.forEach(details => {
+    this.detailsEls.forEach((details) => {
       details.setOpen(open);
     });
   }

@@ -1,6 +1,6 @@
 {
   "parser": "@babel/eslint-parser",
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "unused-imports"],
   "extends": ["prettier"],
   "env": {
     "es6": true,
@@ -24,6 +24,17 @@
     "one-var": [0],
     "max-len": [0, { "code": 140, "ignoreUrls": true }],
     "comma-dangle": ["error", "always-multiline"],
-    "arrow-parens": 1
+    "arrow-parens": 1,
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ]
   }
 }

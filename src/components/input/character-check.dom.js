@@ -6,7 +6,7 @@ async function initialise() {
   if (checkedInputs.length) {
     const CharCheck = (await import('../char-check-limit/character-check')).default;
 
-    checkedInputs.forEach(input => new CharCheck(input));
+    checkedInputs.forEach((input) => new CharCheck(input));
   }
 }
 
