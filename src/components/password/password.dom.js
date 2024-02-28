@@ -6,7 +6,7 @@ async function initialisePasswords() {
   if (passwordFields.length) {
     const Password = (await import('./password')).default;
 
-    passwordFields.forEach(field => new Password(field));
+    passwordFields.forEach((field) => new Password(field));
   }
 }
 

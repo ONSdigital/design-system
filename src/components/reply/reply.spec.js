@@ -29,7 +29,7 @@ describe('script: reply', () => {
 
     it('the button has classes applied', async () => {
       await setTestPage('/test', renderComponent('reply', EXAMPLE_REPLY));
-      const disabledButton = await page.$eval('#reply-button', element => element.classList.contains('ons-btn--disabled'));
+      const disabledButton = await page.$eval('#reply-button', (element) => element.classList.contains('ons-btn--disabled'));
       expect(disabledButton).toBe(true);
     });
   });
@@ -49,7 +49,7 @@ describe('script: reply', () => {
       await page.focus('#reply-textarea');
       await page.keyboard.type('Sausages');
 
-      const disabledButton = await page.$eval('#reply-button', element => element.classList.contains('ons-btn--disabled'));
+      const disabledButton = await page.$eval('#reply-button', (element) => element.classList.contains('ons-btn--disabled'));
       expect(disabledButton).toBe(false);
     });
   });
@@ -71,7 +71,7 @@ describe('script: reply', () => {
       await page.keyboard.type('s');
       await page.keyboard.press('Backspace');
 
-      const disabledButton = await page.$eval('#reply-button', element => element.classList.contains('ons-btn--disabled'));
+      const disabledButton = await page.$eval('#reply-button', (element) => element.classList.contains('ons-btn--disabled'));
       expect(disabledButton).toBe(true);
     });
   });

@@ -36,11 +36,7 @@ describe('macro: error', () => {
       ),
     );
 
-    expect(
-      $('.ons-panel__error')
-        .text()
-        .trim(),
-    ).toBe('Example error text.');
+    expect($('.ons-panel__error').text().trim()).toBe('Example error text.');
   });
 
   it('applies the provided `attributes` to the error content paragraph', () => {

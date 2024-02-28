@@ -4,6 +4,7 @@ import { renderComponent, renderTemplate, setTestPage } from '../../tests/helper
 
 const iPhoneX = KnownDevices['iPhone X'];
 
+/* eslint-disable indent */
 const EXAMPLE_PAGE = `
   <div class="ons-page">
     <div class="ons-js-adv-filter">
@@ -179,7 +180,8 @@ const EXAMPLE_PAGE = `
       </div>
     </div>
   </div>
-  `;
+`;
+/* eslint-enable indent */
 
 const RENDERED_EXAMPLE_PAGE = renderTemplate(EXAMPLE_PAGE);
 

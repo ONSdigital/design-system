@@ -75,9 +75,7 @@ describe('macro: field', () => {
   it('calls with content', () => {
     const $ = cheerio.load(renderComponent('field', EXAMPLE_FIELD_BASIC, 'Example content...'));
 
-    const content = $('.ons-field')
-      .html()
-      .trim();
+    const content = $('.ons-field').html().trim();
     expect(content).toEqual(expect.stringContaining('Example content...'));
   });
 

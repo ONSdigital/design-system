@@ -26,16 +26,14 @@ describe('script: button', () => {
         '/test',
         `
         <form>
-          ${renderComponent('button', {
-            id: 'test-button',
-          })}
+          ${renderComponent('button', { id: 'test-button' })}
         </form>
-      `,
+        `,
       );
 
       await page.evaluate(() => {
         window.__COUNTER = 0;
-        document.querySelector('form').addEventListener('submit', event => {
+        document.querySelector('form').addEventListener('submit', (event) => {
           window.__COUNTER++;
           event.preventDefault();
         });
@@ -101,13 +99,9 @@ describe('script: button', () => {
         '/test',
         `
         <form onsubmit="return false;">
-          ${renderComponent('button', {
-            id: 'test-button',
-            text: 'Submit',
-            variants: 'loader',
-          })}
+          ${renderComponent('button', { id: 'test-button', text: 'Submit', variants: 'loader' })}
         </form>
-      `,
+        `,
       );
 
       await page.click('#test-button');
@@ -121,13 +115,9 @@ describe('script: button', () => {
         '/test',
         `
         <form>
-          ${renderComponent('button', {
-            id: 'test-button',
-            text: 'Submit',
-            variants: 'loader',
-          })}
+          ${renderComponent('button', { id: 'test-button', text: 'Submit', variants: 'loader' })}
         </form>
-      `,
+        `,
       );
 
       const hasIsLoadingClass = await page.evaluate(() => document.querySelector('#test-button').classList.contains('ons-is-loading'));
@@ -139,13 +129,9 @@ describe('script: button', () => {
         '/test',
         `
         <form onsubmit="return false;">
-          ${renderComponent('button', {
-            id: 'test-button',
-            text: 'Submit',
-            variants: 'loader',
-          })}
+          ${renderComponent('button', { id: 'test-button', text: 'Submit', variants: 'loader' })}
         </form>
-      `,
+        `,
       );
 
       await page.click('#test-button');
@@ -168,7 +154,7 @@ describe('script: button', () => {
 
       await page.evaluate(() => {
         window.__COUNTER = 0;
-        document.querySelector('#test-button').addEventListener('click', event => {
+        document.querySelector('#test-button').addEventListener('click', (event) => {
           window.__COUNTER++;
           event.preventDefault();
         });
@@ -193,7 +179,7 @@ describe('script: button', () => {
 
       await page.evaluate(() => {
         window.__COUNTER = 0;
-        document.querySelector('#test-button').addEventListener('click', event => {
+        document.querySelector('#test-button').addEventListener('click', (event) => {
           window.__COUNTER++;
           event.preventDefault();
         });
@@ -211,18 +197,14 @@ describe('script: button', () => {
         '/test',
         `
         <form>
-          ${renderComponent('button', {
-            id: 'test-button',
-            variants: 'timer',
-            text: 'Submit',
-          })}
+          ${renderComponent('button', { id: 'test-button', variants: 'timer', text: 'Submit' })}
         </form>
-      `,
+        `,
       );
 
       await page.evaluate(() => {
         window.__COUNTER = 0;
-        document.querySelector('form').addEventListener('submit', event => {
+        document.querySelector('form').addEventListener('submit', (event) => {
           window.__COUNTER++;
           event.preventDefault();
         });
@@ -240,18 +222,14 @@ describe('script: button', () => {
         '/test',
         `
         <form>
-          ${renderComponent('button', {
-            id: 'test-button',
-            variants: 'timer',
-            text: 'Submit',
-          })}
+          ${renderComponent('button', { id: 'test-button', variants: 'timer', text: 'Submit' })}
         </form>
-      `,
+        `,
       );
 
       await page.evaluate(() => {
         window.__COUNTER = 0;
-        document.querySelector('form').addEventListener('submit', event => {
+        document.querySelector('form').addEventListener('submit', (event) => {
           window.__COUNTER++;
           event.preventDefault();
         });

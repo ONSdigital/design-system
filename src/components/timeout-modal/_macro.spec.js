@@ -60,9 +60,7 @@ describe('macro: timeout modal', () => {
   it('has expected `textFirstLine`', () => {
     const $ = cheerio.load(renderComponent('timeout-modal', EXAMPLE_TIMEOUT_MODAL_BASIC));
 
-    const title = $('.ons-modal__body > p')
-      .html()
-      .trim();
+    const title = $('.ons-modal__body > p').html().trim();
     expect(title).toBe('It appears you have been inactive for a while.');
   });
 });

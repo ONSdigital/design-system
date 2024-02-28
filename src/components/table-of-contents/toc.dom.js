@@ -6,7 +6,7 @@ async function toc() {
   if (toc.length) {
     const Toc = (await import('./toc')).default;
 
-    toc.forEach(component => new Toc(component));
+    toc.forEach((component) => new Toc(component));
   }
 }
 

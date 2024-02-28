@@ -465,11 +465,7 @@ describe('macro: list', () => {
         }),
       );
 
-      expect(
-        $('.ons-list__prefix')
-          .text()
-          .trim(),
-      ).toBe('[PREFIX].');
+      expect($('.ons-list__prefix').text().trim()).toBe('[PREFIX].');
     });
 
     it('marks `prefix` content as visually hidden when list element is not <ol>', () => {
@@ -521,11 +517,7 @@ describe('macro: list', () => {
         }),
       );
 
-      expect(
-        $('.ons-list__suffix')
-          .text()
-          .trim(),
-      ).toBe('[SUFFIX]');
+      expect($('.ons-list__suffix').text().trim()).toBe('[SUFFIX]');
     });
 
     it('marks `suffix` content as visually hidden when list element is not <ol>', () => {
@@ -565,7 +557,7 @@ describe('macro: list', () => {
   });
 
   describe('icons', () => {
-    it.each([['before'], ['after']])('renders default icon on list items when icon is positioned %s', iconPosition => {
+    it.each([['before'], ['after']])('renders default icon on list items when icon is positioned %s', (iconPosition) => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icon');
 
@@ -580,7 +572,7 @@ describe('macro: list', () => {
       expect(iconsSpy.occurrences[1]).toEqual({ iconType: 'check', iconSize: 'xl' });
     });
 
-    it.each([['before'], ['after']])('renders a custom icon on specific list items when icon is positioned %s', iconPosition => {
+    it.each([['before'], ['after']])('renders a custom icon on specific list items when icon is positioned %s', (iconPosition) => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icon');
 

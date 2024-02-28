@@ -18,7 +18,7 @@ describe('script: skip-to-content', () => {
     await page.focus('.ons-skip-to-content');
     await page.keyboard.press('Enter');
 
-    const targetTabIndex = await page.$eval('#target-element', el => el.tabIndex);
+    const targetTabIndex = await page.$eval('#target-element', (el) => el.tabIndex);
     expect(targetTabIndex).toBe(-1);
   });
 
@@ -28,7 +28,7 @@ describe('script: skip-to-content', () => {
     await page.focus('.ons-skip-to-content');
     await page.keyboard.press('Enter');
 
-    const targetOutline = await page.$eval('#target-element', el => el.style.outline);
+    const targetOutline = await page.$eval('#target-element', (el) => el.style.outline);
     expect(targetOutline).toBe('none');
   });
 

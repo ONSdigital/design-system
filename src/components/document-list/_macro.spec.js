@@ -167,9 +167,7 @@ describe('macro: document list', () => {
 
     it('has expected `title`', () => {
       const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_BASIC] }));
-      const title = $('.ons-document-list__item-title a')
-        .html()
-        .trim();
+      const title = $('.ons-document-list__item-title a').html().trim();
       expect(title).toBe('Crime and justice');
     });
 
@@ -180,9 +178,7 @@ describe('macro: document list', () => {
 
     it('has expected `description`', () => {
       const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_BASIC] }));
-      const title = $('.ons-document-list__item-description')
-        .html()
-        .trim();
+      const title = $('.ons-document-list__item-description').html().trim();
       expect(title).toBe('Some description');
     });
   });
@@ -244,9 +240,7 @@ describe('macro: document list', () => {
         }),
       );
 
-      const hiddenText = $('.ons-document-list__item-title a .ons-u-vh')
-        .text()
-        .trim();
+      const hiddenText = $('.ons-document-list__item-title a .ons-u-vh').text().trim();
       expect(hiddenText).toBe(', PDF document download, 499KB, 1 page');
     });
 
@@ -257,9 +251,7 @@ describe('macro: document list', () => {
         }),
       );
 
-      const hiddenText = $('.ons-document-list__item-attribute')
-        .text()
-        .trim();
+      const hiddenText = $('.ons-document-list__item-attribute').text().trim();
       expect(hiddenText).toBe('PDF, 499KB, 1 page');
     });
   });
@@ -289,17 +281,13 @@ describe('macro: document list', () => {
 
     it('has expected `text`', () => {
       const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_TYPE] }));
-      const text = $('.ons-document-list__attribute-link > span')
-        .text()
-        .trim();
+      const text = $('.ons-document-list__attribute-link > span').text().trim();
       expect(text).toBe('Poster:');
     });
 
     it('has expected `ref`', () => {
       const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_TYPE] }));
-      const text = $('.ons-document-list__attribute-link + span')
-        .text()
-        .trim();
+      const text = $('.ons-document-list__attribute-link + span').text().trim();
       expect(text).toBe('some ref');
     });
   });
@@ -343,9 +331,7 @@ describe('macro: document list', () => {
         }),
       );
 
-      const text = $('.ons-document-list__item-attribute > span')
-        .text()
-        .trim();
+      const text = $('.ons-document-list__item-attribute > span').text().trim();
       expect(text).toBe('Published:');
     });
 
@@ -386,9 +372,7 @@ describe('macro: document list', () => {
         }),
       );
 
-      const text = $('.ons-document-list__item-attribute > span')
-        .text()
-        .trim();
+      const text = $('.ons-document-list__item-attribute > span').text().trim();
       expect(text).toBe('Released:');
     });
 
@@ -449,9 +433,7 @@ describe('macro: document list', () => {
         }),
       );
 
-      const time = $('.ons-document-list__item-attribute time')
-        .text()
-        .trim();
+      const time = $('.ons-document-list__item-attribute time').text().trim();
       expect(time).toBe('1 January 2022');
     });
   });
