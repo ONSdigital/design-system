@@ -68,10 +68,6 @@ describe('macro: status', () => {
       }),
     );
 
-    expect(
-      $('.ons-status')
-        .text()
-        .trim(),
-    ).toBe('Example status message');
+    expect($('.ons-status').text().trim()).toBe('Example status message');
   });
 });

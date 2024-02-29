@@ -155,35 +155,35 @@ describe('macro: select', () => {
       it('has expected text', () => {
         const $ = cheerio.load(renderComponent('select', EXAMPLE_SELECT));
 
-        const values = mapAll($('select > option'), node => node.text().trim());
+        const values = mapAll($('select > option'), (node) => node.text().trim());
         expect(values).toEqual(['First option', 'Second option', 'Disabled option']);
       });
 
       it('has a provided `id` attribute', () => {
         const $ = cheerio.load(renderComponent('select', EXAMPLE_SELECT));
 
-        const values = mapAll($('select > option'), node => node.attr('id'));
+        const values = mapAll($('select > option'), (node) => node.attr('id'));
         expect(values).toEqual([undefined, 'second-option', undefined]);
       });
 
       it('marks the correct option as selected', () => {
         const $ = cheerio.load(renderComponent('select', EXAMPLE_SELECT));
 
-        const values = mapAll($('select > option'), node => node.attr('selected'));
+        const values = mapAll($('select > option'), (node) => node.attr('selected'));
         expect(values).toEqual([undefined, 'selected', undefined]);
       });
 
       it('marks the correct option as disabled', () => {
         const $ = cheerio.load(renderComponent('select', EXAMPLE_SELECT));
 
-        const values = mapAll($('select > option'), node => node.attr('disabled'));
+        const values = mapAll($('select > option'), (node) => node.attr('disabled'));
         expect(values).toEqual([undefined, undefined, 'disabled']);
       });
 
       it('has a provided `value` attribute', () => {
         const $ = cheerio.load(renderComponent('select', EXAMPLE_SELECT));
 
-        const values = mapAll($('select > option'), node => node.attr('value'));
+        const values = mapAll($('select > option'), (node) => node.attr('value'));
         expect(values).toEqual(['1', '2', '3']);
       });
 
@@ -195,7 +195,7 @@ describe('macro: select', () => {
           }),
         );
 
-        const values = mapAll($('select > option'), node => node.attr('value'));
+        const values = mapAll($('select > option'), (node) => node.attr('value'));
         expect(values).toEqual(['First option', 'Second option']);
       });
     });

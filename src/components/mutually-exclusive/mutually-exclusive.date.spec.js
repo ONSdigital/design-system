@@ -61,23 +61,23 @@ describe('script: mutually-exclusive', () => {
         });
 
         it('then the mutually exclusive option should be checked', async () => {
-          const isChecked = await page.$eval('#date-exclusive-exclusive-option', node => node.checked);
+          const isChecked = await page.$eval('#date-exclusive-exclusive-option', (node) => node.checked);
           expect(isChecked).toBe(true);
         });
 
         it('then the date input should be cleared', async () => {
-          const dayValue = await page.$eval('#date-mutually-exclusive-day', node => node.value);
+          const dayValue = await page.$eval('#date-mutually-exclusive-day', (node) => node.value);
           expect(dayValue).toBe('');
-          const monthValue = await page.$eval('#date-mutually-exclusive-month', node => node.value);
+          const monthValue = await page.$eval('#date-mutually-exclusive-month', (node) => node.value);
           expect(monthValue).toBe('');
-          const yearValue = await page.$eval('#date-mutually-exclusive-year', node => node.value);
+          const yearValue = await page.$eval('#date-mutually-exclusive-year', (node) => node.value);
           expect(yearValue).toBe('');
         });
 
         it('then the aria alert should tell the user that the date input has been cleared', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('Day cleared. Month cleared. Year cleared.');
         });
       });
@@ -96,14 +96,14 @@ describe('script: mutually-exclusive', () => {
         });
 
         it('then the mutually exclusive option should be checked', async () => {
-          const isChecked = await page.$eval('#date-exclusive-exclusive-option', node => node.checked);
+          const isChecked = await page.$eval('#date-exclusive-exclusive-option', (node) => node.checked);
           expect(isChecked).toBe(false);
         });
 
         it('then the aria alert should tell the user that the exclusive option has been unchecked', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('I have never had a paid job deselected.');
         });
       });
@@ -120,7 +120,7 @@ describe('script: mutually-exclusive', () => {
         it('then the aria alert shouldnt say anything', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('');
         });
       });
@@ -133,7 +133,7 @@ describe('script: mutually-exclusive', () => {
         it('then the aria alert shouldnt say anything', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('');
         });
       });

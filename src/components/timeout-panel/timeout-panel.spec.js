@@ -28,9 +28,9 @@ describe('script: timeout panel', () => {
     });
 
     it('shows the time counting down', async () => {
-      const timeAtStart = await page.$eval('.ons-js-timeout-timer', element => element.innerHTML);
+      const timeAtStart = await page.$eval('.ons-js-timeout-timer', (element) => element.innerHTML);
       await page.waitForTimeout(1000);
-      const timeAfterOneSecond = await page.$eval('.ons-js-timeout-timer', element => element.innerHTML);
+      const timeAfterOneSecond = await page.$eval('.ons-js-timeout-timer', (element) => element.innerHTML);
       expect(timeAfterOneSecond).not.toEqual(timeAtStart);
     });
   });
@@ -49,7 +49,7 @@ describe('script: timeout panel', () => {
     });
 
     it('displays the `minutes` (plural) string', async () => {
-      const timeString = await page.$eval('.ons-js-timeout-timer', element => element.innerHTML);
+      const timeString = await page.$eval('.ons-js-timeout-timer', (element) => element.innerHTML);
       expect(timeString).toEqual(expect.stringContaining('minutes'));
     });
   });
@@ -68,7 +68,7 @@ describe('script: timeout panel', () => {
     });
 
     it('displays the `seconds` (plural) string', async () => {
-      const timeString = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
+      const timeString = await page.$eval('.ons-js-timeout-timer span', (element) => element.innerHTML);
       expect(timeString).toEqual(expect.stringContaining('seconds'));
     });
   });
@@ -87,7 +87,7 @@ describe('script: timeout panel', () => {
     });
 
     it('displays the `minute` (singular) string', async () => {
-      const timeString = await page.$eval('.ons-js-timeout-timer', element => element.innerHTML);
+      const timeString = await page.$eval('.ons-js-timeout-timer', (element) => element.innerHTML);
       expect(timeString).toEqual(expect.stringContaining('minute'));
     });
   });
@@ -106,7 +106,7 @@ describe('script: timeout panel', () => {
     });
 
     it('displays the `second` (singular) string', async () => {
-      const timeString = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
+      const timeString = await page.$eval('.ons-js-timeout-timer span', (element) => element.innerHTML);
       expect(timeString).toEqual(expect.stringContaining('second'));
     });
   });
@@ -125,7 +125,7 @@ describe('script: timeout panel', () => {
     });
 
     it('displays the `countdownExpiredText` text', async () => {
-      const timeString = await page.$eval('.ons-js-timeout-timer', element => element.innerHTML);
+      const timeString = await page.$eval('.ons-js-timeout-timer', (element) => element.innerHTML);
       expect(timeString).toEqual(expect.stringContaining('You are being signed out'));
     });
 
@@ -154,7 +154,7 @@ describe('script: timeout panel', () => {
     });
 
     it('displays the `nojsText` text', async () => {
-      const nojsText = await page.$eval('.ons-js-nojs-text', element => element.innerHTML);
+      const nojsText = await page.$eval('.ons-js-nojs-text', (element) => element.innerHTML);
       expect(nojsText.trim()).toBe('For security, your answers will only be available to view for another 1 minute');
     });
   });

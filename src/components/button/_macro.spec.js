@@ -212,11 +212,7 @@ describe('macro: button', () => {
       }),
     );
 
-    expect(
-      $('.ons-btn__text + .ons-icon')
-        .prev()
-        .text(),
-    ).toBe('Click me!');
+    expect($('.ons-btn__text + .ons-icon').prev().text()).toBe('Click me!');
   });
 
   describe('mode: standard', () => {

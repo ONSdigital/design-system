@@ -13,14 +13,14 @@ const EXAMPLE_HTML = `
 describe('mapAll(cheerioNodes, selector)', () => {
   it('gets mapped values`', () => {
     const $ = cheerio.load(EXAMPLE_HTML);
-    const values = helper.mapAll($('div > div'), node => node.attr('id'));
+    const values = helper.mapAll($('div > div'), (node) => node.attr('id'));
 
     expect(values).toEqual(['a', 'b', 'c']);
   });
 
   it('gets all mapped values including `undefined`', () => {
     const $ = cheerio.load(EXAMPLE_HTML);
-    const values = helper.mapAll($('div > div'), node => node.attr('class'));
+    const values = helper.mapAll($('div > div'), (node) => node.attr('class'));
 
     expect(values).toEqual([undefined, 'second', 'third']);
   });

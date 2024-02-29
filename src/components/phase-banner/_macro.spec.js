@@ -20,18 +20,14 @@ describe('macro: phase-banner', () => {
   it('has expected html content', () => {
     const $ = cheerio.load(renderComponent('phase-banner', EXAMPLE_PHASE_BANNER_MINIMAL));
 
-    const htmlContent = $('.ons-phase-banner__desc')
-      .html()
-      .trim();
+    const htmlContent = $('.ons-phase-banner__desc').html().trim();
     expect(htmlContent).toBe('Example content with a <a href="#">link</a>');
   });
 
   it('has the "Beta" badge by default', () => {
     const $ = cheerio.load(renderComponent('phase-banner', EXAMPLE_PHASE_BANNER_MINIMAL));
 
-    const badgeText = $('.ons-phase-banner__badge')
-      .text()
-      .trim();
+    const badgeText = $('.ons-phase-banner__badge').text().trim();
     expect(badgeText).toBe('Beta');
   });
 
@@ -43,9 +39,7 @@ describe('macro: phase-banner', () => {
       }),
     );
 
-    const badgeText = $('.ons-phase-banner__badge')
-      .text()
-      .trim();
+    const badgeText = $('.ons-phase-banner__badge').text().trim();
     expect(badgeText).toBe('Alpha');
   });
 

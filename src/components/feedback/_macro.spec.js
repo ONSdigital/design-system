@@ -70,21 +70,13 @@ describe('macro: feedback', () => {
       }),
     );
 
-    expect(
-      $(`${expectedTitleTag}.ons-feedback__heading`)
-        .text()
-        .trim(),
-    ).toBe('Feedback heading');
+    expect($(`${expectedTitleTag}.ons-feedback__heading`).text().trim()).toBe('Feedback heading');
   });
 
   it('has a default `headingLevel` of 2', () => {
     const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
 
-    expect(
-      $(`h2.ons-feedback__heading`)
-        .text()
-        .trim(),
-    ).toBe('Feedback heading');
+    expect($(`h2.ons-feedback__heading`).text().trim()).toBe('Feedback heading');
   });
 
   it('has additional heading style classes', () => {
@@ -97,11 +89,7 @@ describe('macro: feedback', () => {
   it('has a paragraph with the provided `content`', () => {
     const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
 
-    expect(
-      $('p')
-        .text()
-        .trim(),
-    ).toBe('Feedback content...');
+    expect($('p').text().trim()).toBe('Feedback content...');
   });
 
   it('has a link with the provided `url`', () => {
@@ -113,10 +101,6 @@ describe('macro: feedback', () => {
   it('has a link with the provided `linkText`', () => {
     const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
 
-    expect(
-      $('.ons-feedback__link')
-        .text()
-        .trim(),
-    ).toBe('Feedback link text');
+    expect($('.ons-feedback__link').text().trim()).toBe('Feedback link text');
   });
 });

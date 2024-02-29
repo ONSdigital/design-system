@@ -22,14 +22,14 @@ describe('script: video', () => {
   it('should show the placeholder content', async () => {
     await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
 
-    const displayStyle = await page.$eval('.ons-js-video-placeholder', node => window.getComputedStyle(node).getPropertyValue('display'));
+    const displayStyle = await page.$eval('.ons-js-video-placeholder', (node) => window.getComputedStyle(node).getPropertyValue('display'));
     expect(displayStyle).toBe('block');
   });
 
   it('should not show the iframe', async () => {
     await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
 
-    const displayStyle = await page.$eval('.ons-js-video-iframe', node => window.getComputedStyle(node).getPropertyValue('display'));
+    const displayStyle = await page.$eval('.ons-js-video-iframe', (node) => window.getComputedStyle(node).getPropertyValue('display'));
     expect(displayStyle).toBe('none');
   });
 
@@ -44,29 +44,31 @@ describe('script: video', () => {
     });
 
     it('should hide the placeholder content', async () => {
-      const displayStyle = await page.$eval('.ons-js-video-placeholder', node => window.getComputedStyle(node).getPropertyValue('display'));
+      const displayStyle = await page.$eval('.ons-js-video-placeholder', (node) =>
+        window.getComputedStyle(node).getPropertyValue('display'),
+      );
       expect(displayStyle).toBe('none');
     }, 10000);
 
     it('should show the iframe', async () => {
-      const displayStyle = await page.$eval('.ons-js-video-iframe', node => window.getComputedStyle(node).getPropertyValue('display'));
+      const displayStyle = await page.$eval('.ons-js-video-iframe', (node) => window.getComputedStyle(node).getPropertyValue('display'));
       expect(displayStyle).toBe('block');
     }, 10000);
 
     it('should add the correct modifier class', async () => {
-      const hasClass = await page.$eval('.ons-js-video', node => node.classList.contains('ons-video--hasIframe'));
+      const hasClass = await page.$eval('.ons-js-video', (node) => node.classList.contains('ons-video--hasIframe'));
       expect(hasClass).toBe(true);
     }, 10000);
 
     it('should not add dnt to YouTube videos', async () => {
-      const src = await page.$eval('.ons-js-video-iframe', node => node.getAttribute('src'));
+      const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
       expect(src.includes('?dnt=1')).toBe(false);
     }, 10000);
 
     it('should add dnt to Vimeo videos', async () => {
       await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_VIMEO));
 
-      const src = await page.$eval('.ons-js-video-iframe', node => node.getAttribute('src'));
+      const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
       expect(src.includes('?dnt=1')).toBe(true);
     }, 10000);
   });
@@ -82,21 +84,23 @@ describe('script: video', () => {
     });
 
     it('should hide the placeholder content', async () => {
-      const displayStyle = await page.$eval('.ons-js-video-placeholder', node => window.getComputedStyle(node).getPropertyValue('display'));
+      const displayStyle = await page.$eval('.ons-js-video-placeholder', (node) =>
+        window.getComputedStyle(node).getPropertyValue('display'),
+      );
       expect(displayStyle).toBe('none');
     });
 
     it('should show the iframe', async () => {
-      const displayStyle = await page.$eval('.ons-js-video-iframe', node => window.getComputedStyle(node).getPropertyValue('display'));
+      const displayStyle = await page.$eval('.ons-js-video-iframe', (node) => window.getComputedStyle(node).getPropertyValue('display'));
       expect(displayStyle).toBe('block');
     });
 
     it('should add the correct modifier class', async () => {
-      const hasClass = await page.$eval('.ons-js-video', node => node.classList.contains('ons-video--hasIframe'));
+      const hasClass = await page.$eval('.ons-js-video', (node) => node.classList.contains('ons-video--hasIframe'));
       expect(hasClass).toBe(true);
     }, 10000);
     it('should not add dnt to YouTube videos', async () => {
-      const src = await page.$eval('.ons-js-video-iframe', node => node.getAttribute('src'));
+      const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
       expect(src.includes('?dnt=1')).toBe(false);
     }, 10000);
 
@@ -108,7 +112,7 @@ describe('script: video', () => {
       );
       await page.click('.ons-js-accept-cookies');
 
-      const src = await page.$eval('.ons-js-video-iframe', node => node.getAttribute('src'));
+      const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
       expect(src.includes('?dnt=1')).toBe(true);
     }, 10000);
   });

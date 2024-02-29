@@ -1,8 +1,8 @@
 export default function inPageLinks(links) {
-  links.forEach(link => {
+  links.forEach((link) => {
     const id = link.getAttribute('href').replace('#', '');
 
-    link.addEventListener('click', event => {
+    link.addEventListener('click', (event) => {
       event.preventDefault();
       focusOnInput(id);
     });
@@ -17,7 +17,7 @@ function focusOnInput(id) {
     ...container.getElementsByTagName('INPUT'),
     ...container.getElementsByTagName('TEXTAREA'),
     ...container.getElementsByTagName('SELECT'),
-  ].filter(input => {
+  ].filter((input) => {
     const type = input.getAttribute('type');
 
     return type !== 'readonly' && type !== 'hidden';
