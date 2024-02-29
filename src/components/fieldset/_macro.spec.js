@@ -42,9 +42,7 @@ describe('macro: fieldset', () => {
   it('has the `description` text', () => {
     const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET_BASIC));
 
-    const title = $('.ons-fieldset__description')
-      .html()
-      .trim();
+    const title = $('.ons-fieldset__description').html().trim();
     expect(title).toBe('A fieldset description');
   });
 
@@ -122,9 +120,7 @@ describe('macro: fieldset', () => {
   it('calls with content', () => {
     const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET_BASIC, 'Example content...'));
 
-    const content = $('.ons-fieldset')
-      .html()
-      .trim();
+    const content = $('.ons-fieldset').html().trim();
     expect(content).toEqual(expect.stringContaining('Example content...'));
   });
 
@@ -179,9 +175,7 @@ describe('macro: fieldset', () => {
         }),
       );
 
-      const title = $('.ons-fieldset__legend-title')
-        .html()
-        .trim();
+      const title = $('.ons-fieldset__legend-title').html().trim();
       expect(title).toBe('Fieldset legend');
     });
 

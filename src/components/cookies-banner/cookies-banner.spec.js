@@ -11,7 +11,7 @@ describe('script: cookies-banner', () => {
   it('should show the cookie banner', async () => {
     await setTestPage('/test', EXAMPLE_COOKIES_BANNER_PAGE);
 
-    const displayStyle = await page.$eval('.ons-cookies-banner', node => window.getComputedStyle(node).getPropertyValue('display'));
+    const displayStyle = await page.$eval('.ons-cookies-banner', (node) => window.getComputedStyle(node).getPropertyValue('display'));
     expect(displayStyle).toBe('block');
   });
   describe.each([
@@ -24,7 +24,7 @@ describe('script: cookies-banner', () => {
       await page.click(`.ons-js-${action}-cookies`);
 
       const cookies = await page.cookies();
-      const ons_cookie_policy = cookies.find(cookie => cookie.name === 'ons_cookie_policy');
+      const ons_cookie_policy = cookies.find((cookie) => cookie.name === 'ons_cookie_policy');
       const policy = JSON.parse(ons_cookie_policy.value.replace(/'/g, '"'));
 
       expect(policy).toEqual({
@@ -41,7 +41,7 @@ describe('script: cookies-banner', () => {
       await page.click(`.ons-js-${action}-cookies`);
 
       const cookies = await page.cookies();
-      const ons_cookie_message_displayed = cookies.find(cookie => cookie.name === 'ons_cookie_message_displayed');
+      const ons_cookie_message_displayed = cookies.find((cookie) => cookie.name === 'ons_cookie_message_displayed');
 
       expect(ons_cookie_message_displayed.value).toBe('true');
     });
@@ -51,7 +51,7 @@ describe('script: cookies-banner', () => {
 
       await page.click(`.ons-js-${action}-cookies`);
 
-      const displayStyle = await page.$eval('.ons-cookies-banner__primary', node =>
+      const displayStyle = await page.$eval('.ons-cookies-banner__primary', (node) =>
         window.getComputedStyle(node).getPropertyValue('display'),
       );
       expect(displayStyle).toBe('none');
@@ -62,7 +62,7 @@ describe('script: cookies-banner', () => {
 
       await page.click(`.ons-js-${action}-cookies`);
 
-      const displayStyle = await page.$eval('.ons-cookies-banner__confirmation', node =>
+      const displayStyle = await page.$eval('.ons-cookies-banner__confirmation', (node) =>
         window.getComputedStyle(node).getPropertyValue('display'),
       );
       expect(displayStyle).not.toBe('none');
@@ -76,7 +76,7 @@ describe('script: cookies-banner', () => {
       await page.click('.ons-js-accept-cookies');
       await page.click('.ons-js-hide-button');
 
-      const displayStyle = await page.$eval('.ons-cookies-banner', node => window.getComputedStyle(node).getPropertyValue('display'));
+      const displayStyle = await page.$eval('.ons-cookies-banner', (node) => window.getComputedStyle(node).getPropertyValue('display'));
       expect(displayStyle).toBe('none');
     });
   });
@@ -87,7 +87,7 @@ describe('script: cookies-banner', () => {
 
       await setTestPage('/test', EXAMPLE_COOKIES_BANNER_PAGE);
 
-      const displayStyle = await page.$eval('.ons-cookies-banner', node => window.getComputedStyle(node).getPropertyValue('display'));
+      const displayStyle = await page.$eval('.ons-cookies-banner', (node) => window.getComputedStyle(node).getPropertyValue('display'));
       expect(displayStyle).toBe('none');
     });
   });

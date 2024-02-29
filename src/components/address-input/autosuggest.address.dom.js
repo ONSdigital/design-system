@@ -6,7 +6,7 @@ async function initialiseAddressAutosuggests() {
   if (addressAutosuggests.length) {
     const AutosuggestAddress = (await import('./autosuggest.address')).default;
 
-    addressAutosuggests.forEach(addressAutosuggest => new AutosuggestAddress(addressAutosuggest));
+    addressAutosuggests.forEach((addressAutosuggest) => new AutosuggestAddress(addressAutosuggest));
   }
 }
 

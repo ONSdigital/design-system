@@ -1,0 +1,192 @@
+---
+title: "Example: Long Page"
+layout: ~
+---
+{% extends "layout/_template.njk" %}
+{% from "components/list/_macro.njk" import onsList %}
+{% from "components/back-to-top/_macro.njk" import onsBackToTop %}
+{% from "components/related-content/_macro.njk" import onsRelatedContent %}
+{% from "components/content-pagination/_macro.njk" import onsContentPagination %}
+
+{% set pageConfig = {
+    "header": {
+        "title": 'Service name'
+    },
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Home'
+            },
+            {
+                "url": '#0',
+                "text": 'News'
+            }
+        ]
+    },
+    "footer": {}
+} %}
+
+
+
+{% block main %}
+
+    <h1 class="ons-u-fs-xxl">
+        <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">Press releases</span>
+        <span class="ons-u-vh">: </span>
+        <span class="ons-u-fs-xxl ons-u-db">ONS launches Integrated Data Service to boost government collaboration on data sharing</span>
+    </h1>
+
+    <div class="ons-grid ons-grid--column@xs@s">
+
+        <div class="ons-grid__col ons-col-7@m">
+
+            <div class="ons-page__body ons-u-mt-m">
+
+                <p>In a groundbreaking move, the Office for National Statistics (ONS) has embarked on a transformative journey with the introduction of the Integrated Data Service (IDS). This sophisticated, cloud-based platform is meticulously crafted to empower analysts and researchers, providing them with unprecedented access to a diverse array of data sources. The overarching goal of the IDS is nothing short of unlocking the boundless potential inherent in data, thereby contributing significantly to evidence-based policymaking while fostering a culture of collaboration across various government departments.</p>
+
+                <p>The inaugural phase of the IDS has now been unveiled through the exclusive introduction of a private beta version. This exclusive access is extended to a carefully curated group of government analysts, offering them a unique opportunity to delve into the intricacies of comparing and combining data held not only by the ONS but also by other government departments. The emphasis here is on fostering a collaborative ecosystem that transcends traditional boundaries, a move poised to play a pivotal role in maximizing the utility of data for the collective benefit of the government's policy formulation and decision-making processes.</p>
+
+                <p>Launching next spring, a public beta will open the door for accredited researchers outside of government to use the new service.</p>
+
+                <p>The three projects selected for the private beta and will focus on some of the government’s top priorities:</p>
+
+                {{
+                    onsList({
+                        "itemsList": [
+                            {
+                                "text": '<p>wage growth - an ONS and HM Treasury collaboration will investigate in detail how wages change across the country, helping inform the government’s “Levelling Up” policy agenda</p>'
+                            },
+                            {
+                                "text": '<p>energy efficiency - working with the Valuation Office Agency to provide better information on the energy efficiency of homes around the country as part of wider work to help measure the UK’s progress towards reaching net zero by 2050</p>'
+                            },
+                            {
+                                "text": '<p>regional issues - a collaboration with Department for Business, Energy, and Industrial Strategy to analyse how text from local news sources across the UK can be used to understand concerns of communities around the country</p>'
+                            }
+                        ]
+                    })
+                }}
+
+                <p>DCMS Minister for State Julia Lopez said: "The Integrated Data Service is a crucial part of our National Data Strategy and will make it easier and quicker for policy makers to access robust evidence for making the decisions that can improve the lives of people across the country.</p>
+
+                <p>"Unlocking the power of data will boost the economy, create jobs and help us build back better from the pandemic.” </p><p>Joanna Davinson, Executive Director at the Central Digital and Data Office, said: “The Integrated Data Service will provide the public sector with secure access to high-quality data for better research and analysis.</p>
+
+                <p>“This is aligned to our vision of having increased availability of data for decision-makers to ensure more data driven policies. In this way, we can enable transformation of the Government’s use of data and support the delivery of efficient public services for users.”</p>
+
+                <p>Alison Pritchard, Deputy National Statistician for Data Capability, said: "The Service demonstrates how data held, managed and accessed in a trusted and secure environment can benefit us all by providing essential insight on social and economic factors. I am particularly looking forward to engaging widely to explain how we are protecting the data appropriately and making sure it is put to use for the public good."</p>
+                
+                
+
+                <div class="ons-u-mt-l ons-u-mt-xl@m">
+                    {{
+                        onsContentPagination({
+                            "ariaLabel": 'Article pagination',
+                            "contentPaginationItems": [
+                                {
+                                    "rel": 'prev',
+                                    "text": 'Previous',
+                                    "url": '#0',
+                                    "label": 'Office for National Statistics win top Royal Statistical Society award'
+                                },
+                                {
+                                    "rel": 'next',
+                                    "text": 'Next',
+                                    "url": '#0',
+                                    "label": 'Five Office for National Statistics names in New Year’s Honours'
+                                }
+                            ]
+                        })
+                    }}
+
+                    {{ onsBackToTop() }}
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="ons-grid__col ons-col-4@m ons-push-1@m">
+
+            {% call onsRelatedContent({
+                "ariaLabel": 'Related content',
+                "rows": [
+                    {
+                        "id": 'published-date',
+                        "title": 'Published on',
+                        "itemsList": [
+                            {
+                                "text": '<time datetime="2021-08-01">1 August 2021</time>'
+                            }
+                        ]
+                    },
+                    {
+                        "id": 'published-in',
+                        "title": 'Published in',
+                        "classes": 'ons-u-mb-no',
+                        "variants": 'bare',
+                        "itemsList": [
+                            {
+                                "text": 'Press releases',
+                                "url": '#0'
+                            }
+                        ]
+                    },
+                    {
+                        "id": 'tags',
+                        "title": 'Tags',
+                        "itemsList": [
+                            {
+                                "text": 'Integrated data',
+                                "url": '#0'
+                            },
+                            {
+                                "text": 'Census 2021',
+                                "url": '#0'
+                            },
+                            {
+                                "text": 'Survey',
+                                "url": '#0'
+                            }
+                        ]
+                    },
+                    {
+                        "id": 'share-this-article',
+                        "title": 'Share this article',
+                        "variants": 'social',
+                        "iconPosition": 'before',
+                        "iconSize": 'xxl',
+                        "itemsList": [
+                            {
+                                "url": '#0',
+                                "text": 'Facebook',
+                                "iconType": 'facebook',
+                                "rel": 'noreferrer external'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Twitter',
+                                "iconType": 'twitter',
+                                "rel": 'noreferrer external'
+                            }
+                        ]
+                    }
+                ]
+            }) %}
+
+            {% endcall %}
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+
+    
+    
+
+
+

@@ -224,7 +224,7 @@ export default class AutosuggestAddress {
     for (const item of items) {
       if (item.addressCount === 1 && item.firstUprn !== 0) {
         let result = await this.createAddressObject(item.firstUprn);
-        const matchingItem = items.findIndex(x => x.firstUprn == result.uprn);
+        const matchingItem = items.findIndex((x) => x.firstUprn == result.uprn);
         items[matchingItem] = result;
       }
     }
@@ -244,7 +244,8 @@ export default class AutosuggestAddress {
   }
 
   testFullPostcodeQuery(input) {
-    const fullPostcodeRegex = /\b((?:(?:gir)|(?:[a-pr-uwyz])(?:(?:[0-9](?:[a-hjkpstuw]|[0-9])?)|(?:[a-hk-y][0-9](?:[0-9]|[abehmnprv-y])?)))) ?([0-9][abd-hjlnp-uw-z]{2})\b/i;
+    const fullPostcodeRegex =
+      /\b((?:(?:gir)|(?:[a-pr-uwyz])(?:(?:[0-9](?:[a-hjkpstuw]|[0-9])?)|(?:[a-hk-y][0-9](?:[0-9]|[abehmnprv-y])?)))) ?([0-9][abd-hjlnp-uw-z]{2})\b/i;
     const testFullPostcode = fullPostcodeRegex.test(input);
     if (testFullPostcode) {
       return true;

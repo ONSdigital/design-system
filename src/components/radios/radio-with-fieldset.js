@@ -8,20 +8,20 @@ export default class RadioWithFieldset {
     if (this.selectAllChildrenInput) {
       this.selectAllChildrenInput.addEventListener('change', this.checkChildInputsOnSelect.bind(this));
     } else {
-      this.radios.forEach(radio => radio.addEventListener('change', this.uncheckChildInputsOnDeselect.bind(this)));
+      this.radios.forEach((radio) => radio.addEventListener('change', this.uncheckChildInputsOnDeselect.bind(this)));
     }
   }
 
   checkChildInputsOnSelect() {
-    this.childInputs.forEach(input => {
+    this.childInputs.forEach((input) => {
       input.checked = this.selectAllChildrenInput.checked === true ? true : false;
     });
   }
 
   uncheckChildInputsOnDeselect() {
-    const isOther = this.radios.find(radio => radio.classList.contains('ons-js-other'));
+    const isOther = this.radios.find((radio) => radio.classList.contains('ons-js-other'));
     if (isOther && isOther.checked === false) {
-      this.childInputs.forEach(input => {
+      this.childInputs.forEach((input) => {
         input.checked = false;
       });
     }

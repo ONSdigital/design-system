@@ -12,7 +12,7 @@ export default class MutuallyExclusive {
 
     const groupInputs = [...context.getElementsByClassName(exclusiveGroupItemClass)];
     this.numberOfGroupInputs = groupInputs.length;
-    this.groupInputs = groupInputs.map(element => ({
+    this.groupInputs = groupInputs.map((element) => ({
       element,
       labelText: this.getElementLabelText(element),
       hasValue: this.inputHasValue(element),
@@ -21,7 +21,7 @@ export default class MutuallyExclusive {
 
     const exclusiveElements = [...context.getElementsByClassName(optionClass)];
     this.numberOfExclusiveElements = exclusiveElements.length;
-    this.exclusiveElements = exclusiveElements.map(element => ({
+    this.exclusiveElements = exclusiveElements.map((element) => ({
       element,
       label: context.querySelector(`label[for=${element.id}]`),
       labelText: this.getElementLabelText(element),
@@ -39,14 +39,14 @@ export default class MutuallyExclusive {
   }
 
   bindEventListeners() {
-    this.allInputs.forEach(input => {
+    this.allInputs.forEach((input) => {
       const event = ['checkbox', 'radio'].includes(input.element.type) ? 'click' : 'input';
       input.element.addEventListener(event, () => this.handleValueChange(input));
     });
   }
 
   handleValueChange(input) {
-    const previousSelectedValues = this.allInputs.filter(input => input.hasValue).map(input => input.labelText);
+    const previousSelectedValues = this.allInputs.filter((input) => input.hasValue).map((input) => input.labelText);
     let adjective;
 
     input.hasValue = this.inputHasValue(input.element);
@@ -57,8 +57,8 @@ export default class MutuallyExclusive {
         adjective = this.groupAdjective;
 
         this.allInputs
-          .filter(input => !input.exclusive)
-          .forEach(input => {
+          .filter((input) => !input.exclusive)
+          .forEach((input) => {
             input.hasValue = false;
 
             if (['checkbox', 'radio'].includes(input.element.type)) {
@@ -70,10 +70,10 @@ export default class MutuallyExclusive {
             }
           });
       } else if (!input.exclusive) {
-        const inputs = this.allInputs.filter(input => input.exclusive);
+        const inputs = this.allInputs.filter((input) => input.exclusive);
         adjective = this.optionAttrAdjective;
 
-        inputs.forEach(input => {
+        inputs.forEach((input) => {
           input.hasValue = false;
           input.element.checked = false;
         });
@@ -81,8 +81,8 @@ export default class MutuallyExclusive {
         this.triggerEvent(input.element, 'change');
       }
 
-      const updatedSelectedValues = this.allInputs.filter(input => input.hasValue).map(input => input.labelText);
-      const deselectedValues = previousSelectedValues.filter(labelText => !updatedSelectedValues.includes(labelText));
+      const updatedSelectedValues = this.allInputs.filter((input) => input.hasValue).map((input) => input.labelText);
+      const deselectedValues = previousSelectedValues.filter((labelText) => !updatedSelectedValues.includes(labelText));
 
       this.setDeselectMessage();
 
@@ -113,7 +113,7 @@ export default class MutuallyExclusive {
       } else if (label.classList.contains(inputLegendClass) && label.querySelector('h1')) {
         labelText = label.querySelector('h1').innerText;
       } else {
-        labelText = [...label.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
+        labelText = [...label.childNodes].filter((node) => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
       }
     }
 
@@ -129,7 +129,7 @@ export default class MutuallyExclusive {
   }
 
   setAriaLive(deselectedValues, adjective) {
-    const deselectionMessage = deselectedValues.map(label => `${label} ${adjective}.`).join(' ');
+    const deselectionMessage = deselectedValues.map((label) => `${label} ${adjective}.`).join(' ');
 
     // Only update aria-live if value changes to prevent typing from clearing the message before it's read
     if (deselectionMessage) {
@@ -138,7 +138,7 @@ export default class MutuallyExclusive {
   }
 
   setDeselectMessage() {
-    const groupElementSelected = this.groupInputs.find(input => input.hasValue);
+    const groupElementSelected = this.groupInputs.find((input) => input.hasValue);
 
     if (!this.deselectMessageElement && groupElementSelected) {
       const deselectMessageElement = document.createElement('span');

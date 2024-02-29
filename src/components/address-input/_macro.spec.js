@@ -240,11 +240,7 @@ describe('macro: address-input', () => {
         }),
       );
 
-      expect(
-        $('.ons-js-address-search-btn')
-          .text()
-          .trim(),
-      ).toBe('Search for address');
+      expect($('.ons-js-address-search-btn').text().trim()).toBe('Search for address');
     });
   });
 
@@ -408,11 +404,7 @@ describe('macro: address-input', () => {
       );
 
       expect($('.ons-js-address-manual-btn').attr('href')).toBe('#0');
-      expect(
-        $('.ons-js-address-manual-btn')
-          .text()
-          .trim(),
-      ).toBe('Manually enter address');
+      expect($('.ons-js-address-manual-btn').text().trim()).toBe('Manually enter address');
     });
 
     it('renders `manualLinkText` with `manualLink` when provided', () => {
@@ -425,11 +417,7 @@ describe('macro: address-input', () => {
       );
 
       expect($('.ons-js-address-manual-btn').attr('href')).toBe('https://example.com/edit-address');
-      expect(
-        $('.ons-js-address-manual-btn')
-          .text()
-          .trim(),
-      ).toBe('Manually enter address');
+      expect($('.ons-js-address-manual-btn').text().trim()).toBe('Manually enter address');
     });
   });
 
