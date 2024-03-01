@@ -17,7 +17,7 @@
         </span>
     {%- endset %}
     {%- if params.description and params.accessiblePlaceholder -%}
-        {{- description | safe -}}    
+        {{- description | safe -}}
     {%- else -%}
     <label
         class="{% if params.inputType is not defined -%}ons-label{%- endif %}{{- ' ' + params.classes if params.classes else "" -}}{%- if params.description %} ons-label--with-description{%- endif %} {{- ' ons-label--placeholder' if params.accessiblePlaceholder else "" -}}"
@@ -43,5 +43,5 @@
                 {{- description | safe -}}
             {%- endif -%}
         {%- endif %}
-    {%- endif -%} 
+    {%- endif -%}
 {% endmacro %}
