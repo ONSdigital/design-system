@@ -4,10 +4,6 @@
   &__title {
     @extend .ons-u-mb-m;
 
-    em,
-    .ons-highlight {
-      @extend .ons-highlight;
-    }
     mark,
     .ons-instruction {
       background-color: var(--ons-color-instruction);

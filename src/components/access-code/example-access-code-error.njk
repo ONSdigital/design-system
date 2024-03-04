@@ -9,7 +9,7 @@ layout: ~
 {% from "components/details/_macro.njk" import onsDetails %}
 
 {% set pageConfig = {
-  "title": "Study title"
+    "title": "Study title"
 } %}
 
 {% block main %}
@@ -67,18 +67,16 @@ layout: ~
     {% set content %}
         <p>If you need to answer separately from the people you live with, you can <a href="#0">request an individual access code</a>.</p>
         {% call onsPanel({
-                "type": "warn"
-            })
-        %}
+            "type": "warn"
+        }) %}
             Someone in your household must still complete a study using this household access code
         {% endcall %}
     {% endset %}
 
     {% call onsDetails({
-            "id": "details-access-code-error",
+        "id": "details-access-code-error",
         "title": "Need to answer separately from your household?"
-        })
-    %}
+    }) %}
         {{ content | safe }}
     {% endcall %}
 {% endblock %}
