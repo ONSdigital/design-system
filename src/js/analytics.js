@@ -1,22 +1,23 @@
 import domready from './domready';
 
-export let trackEvent = () => {
-  console.log('Google analytics not connected'); // eslint-disable-line no-console
-};
-setTimeout(() => {
-  if (window.google_tag_manager !== 'undefined') {
-    console.log('GA active');
+export let trackEvent = () => {};
+
+if (window.google_tag_manager !== undefined) {
+  console.log('GA active');
+  trackEvent = (type, data) => {
     window.dataLayer = window.dataLayer || [];
-    trackEvent = (data) => {
-      console.log('Data sent to Data Layer');
-      window.dataLayer.push({ data });
-    };
-  }
-}, 300);
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('event', type, { ...data });
+    console.log('Data sent to Data Layer');
+  };
+} else {
+  console.log('Google analytics not connected');
+}
 
 export const trackElement = (el, type) => {
-  return trackEvent({
-    event_type: type,
+  return trackEvent(type, {
     event_category: el.getAttribute('data-ga-category') || '',
     event_action: el.getAttribute('data-ga-action') || '',
     event_label: el.getAttribute('data-ga-label') || '',
