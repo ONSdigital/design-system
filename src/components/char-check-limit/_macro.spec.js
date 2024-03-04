@@ -64,10 +64,6 @@ describe('macro: char-check-limit', () => {
       ),
     );
 
-    expect(
-      $('.ons-js-char-check-input')
-        .html()
-        .trim(),
-    ).toBe('<p>Test content.</p>');
+    expect($('.ons-js-char-check-input').html().trim()).toBe('<p>Test content.</p>');
   });
 });

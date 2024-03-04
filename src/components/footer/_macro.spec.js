@@ -278,7 +278,7 @@ describe('macro: footer', () => {
     it('renders expected column titles', () => {
       const $ = cheerio.load(renderComponent('footer', params));
 
-      const titleHeadings = mapAll($('.ons-footer__heading'), node => node.text().trim());
+      const titleHeadings = mapAll($('.ons-footer__heading'), (node) => node.text().trim());
       expect(titleHeadings).toEqual(['First column', 'Second column']);
     });
 
@@ -409,6 +409,18 @@ describe('macro: footer', () => {
 
           expect(iconsSpy.occurrences).toContainEqual(expect.objectContaining(defaultIcon));
         });
+      });
+    });
+    describe('correct link for language', () => {
+      it('has the Welsh lang link when the default Welsh lang ons icon is present', () => {
+        const $ = cheerio.load(renderComponent('footer', { lang: 'cy' }));
+
+        expect($('.ons-footer__poweredBy-link').attr('href')).toBe('https://cy.ons.gov.uk/');
+      });
+      it('has the English lang link when the default English lang ons icon is present', () => {
+        const $ = cheerio.load(renderComponent('footer', { lang: 'en' }));
+
+        expect($('.ons-footer__poweredBy-link').attr('href')).toBe('https://www.ons.gov.uk/');
       });
     });
     describe('provided poweredBy logo', () => {

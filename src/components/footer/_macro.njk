@@ -158,9 +158,11 @@
                             </div>
                         {% endif %}
                         {% if not params.poweredBy %}
-                            <div class="ons-footer__poweredby ons-u-mb-m">
-                                {{ onsLogo | safe }}
-                            </div>
+                            <a class="ons-footer__poweredBy-link" {% if lang == "cy" %}href="https://cy.ons.gov.uk/"{% else %}href="https://www.ons.gov.uk/"{% endif %}>
+                                <div class="ons-footer__poweredby-logo ons-u-mb-m">
+                                    {{ onsLogo | safe }}
+                                </div>
+                            </a>
                         {% endif %}
                     </div>
                     {% if params.crest %}

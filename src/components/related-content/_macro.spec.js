@@ -82,9 +82,7 @@ describe('macro: related-content', () => {
     it('calls with content', () => {
       const $ = cheerio.load(renderComponent('related-content', { EXAMPLE_RELATED_CONTENT_GENERAL }, 'Example content...'));
 
-      const content = $('.ons-related-content')
-        .text()
-        .trim();
+      const content = $('.ons-related-content').text().trim();
       expect(content).toEqual(expect.stringContaining('Example content...'));
     });
   });
@@ -105,7 +103,7 @@ describe('macro: related-content', () => {
     it('has the `aria-labelledby` attribute for each section of links', () => {
       const $ = cheerio.load(renderComponent('related-content', EXAMPLE_RELATED_CONTENT_LINKS));
 
-      const values = mapAll($('.ons-related-content__navigation'), node => node.attr('aria-labelledby'));
+      const values = mapAll($('.ons-related-content__navigation'), (node) => node.attr('aria-labelledby'));
       expect(values).toEqual(['related-articles', 'related-links']);
     });
 

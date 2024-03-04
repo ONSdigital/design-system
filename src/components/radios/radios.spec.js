@@ -64,14 +64,14 @@ describe('script: radios', () => {
     });
 
     it('radios with other options should be given aria-expanded attributes', async () => {
-      const ariaExpandedOption1 = await page.$eval('#email', node => node.getAttribute('aria-expanded'));
+      const ariaExpandedOption1 = await page.$eval('#email', (node) => node.getAttribute('aria-expanded'));
       expect(ariaExpandedOption1).toBe('false');
-      const ariaExpandedOption2 = await page.$eval('#phone', node => node.getAttribute('aria-expanded'));
+      const ariaExpandedOption2 = await page.$eval('#phone', (node) => node.getAttribute('aria-expanded'));
       expect(ariaExpandedOption2).toBe('false');
     });
 
     it('radios with "open" other options should not be given aria-expanded attributes', async () => {
-      const hasAriaExpandedOption3 = await page.$eval('#text', node => node.hasAttribute('aria-expanded'));
+      const hasAriaExpandedOption3 = await page.$eval('#text', (node) => node.hasAttribute('aria-expanded'));
       expect(hasAriaExpandedOption3).toBe(false);
     });
 
@@ -81,27 +81,27 @@ describe('script: radios', () => {
       });
 
       it('then the checked radio aria-expanded attribute should be set to true', async () => {
-        const ariaExpandedOption1 = await page.$eval('#email', node => node.getAttribute('aria-expanded'));
+        const ariaExpandedOption1 = await page.$eval('#email', (node) => node.getAttribute('aria-expanded'));
         expect(ariaExpandedOption1).toBe('true');
       });
 
       it('then the unchecked radio aria-expanded attribute should be set to false', async () => {
-        const ariaExpandedOption2 = await page.$eval('#phone', node => node.getAttribute('aria-expanded'));
+        const ariaExpandedOption2 = await page.$eval('#phone', (node) => node.getAttribute('aria-expanded'));
         expect(ariaExpandedOption2).toBe('false');
       });
 
       it('then the unchecked radio aria-expanded attribute of "open" radio should not be set', async () => {
-        const hasAriaExpanded = await page.$eval('#text', node => node.hasAttribute('aria-expanded'));
+        const hasAriaExpanded = await page.$eval('#text', (node) => node.hasAttribute('aria-expanded'));
         expect(hasAriaExpanded).toBe(false);
       });
 
       it('then the clear button should be visible', async () => {
-        const isHidden = await page.$eval('.ons-js-clear-btn', node => node.classList.contains('ons-u-db-no-js_enabled'));
+        const isHidden = await page.$eval('.ons-js-clear-btn', (node) => node.classList.contains('ons-u-db-no-js_enabled'));
         expect(isHidden).toBe(false);
       });
 
       it('then the aria live message should announce that the answer can be cleared', async () => {
-        const alertText = await page.$eval('.ons-js-clear-radio-alert', node => node.innerHTML);
+        const alertText = await page.$eval('.ons-js-clear-radio-alert', (node) => node.innerHTML);
         expect(alertText).toBe('You can clear your answer by clicking the clear selection button under the radio buttons');
       });
 
@@ -111,17 +111,17 @@ describe('script: radios', () => {
         });
 
         it('then the checked radio aria-expanded attribute should be set to true', async () => {
-          const ariaExpandedOption2 = await page.$eval('#phone', node => node.getAttribute('aria-expanded'));
+          const ariaExpandedOption2 = await page.$eval('#phone', (node) => node.getAttribute('aria-expanded'));
           expect(ariaExpandedOption2).toBe('true');
         });
 
         it('then the unchecked radio aria-expanded attribute should be set to false', async () => {
-          const ariaExpandedOption1 = await page.$eval('#email', node => node.getAttribute('aria-expanded'));
+          const ariaExpandedOption1 = await page.$eval('#email', (node) => node.getAttribute('aria-expanded'));
           expect(ariaExpandedOption1).toBe('false');
         });
 
         it('then the unchecked radio aria-expanded attribute of "open" radio should not be set', async () => {
-          const hasAriaExpanded = await page.$eval('#text', node => node.hasAttribute('aria-expanded'));
+          const hasAriaExpanded = await page.$eval('#text', (node) => node.hasAttribute('aria-expanded'));
           expect(hasAriaExpanded).toBe(false);
         });
       });
@@ -129,30 +129,30 @@ describe('script: radios', () => {
 
     describe('the clear button is clicked', () => {
       beforeEach(async () => {
-        await page.$eval('.ons-js-clear-btn', node => node.click());
+        await page.$eval('.ons-js-clear-btn', (node) => node.click());
       });
 
       it('then the clear button should not be visible', async () => {
-        const isHidden = await page.$eval('.ons-js-clear-btn', node => node.classList.contains('ons-u-db-no-js_enabled'));
+        const isHidden = await page.$eval('.ons-js-clear-btn', (node) => node.classList.contains('ons-u-db-no-js_enabled'));
         expect(isHidden).toBe(true);
       });
 
       it('then the aria live message should announce that the answer has been cleared', async () => {
-        const alertText = await page.$eval('.ons-js-clear-radio-alert', node => node.innerHTML);
+        const alertText = await page.$eval('.ons-js-clear-radio-alert', (node) => node.innerHTML);
         expect(alertText).toBe('You have cleared your answer');
       });
 
       it('then all radios should not be checked', async () => {
-        const checkedRadios = await page.$$eval('.ons-js-radio', nodes => nodes.map(node => node.checked));
+        const checkedRadios = await page.$$eval('.ons-js-radio', (nodes) => nodes.map((node) => node.checked));
         expect(checkedRadios).not.toContain(true);
       });
 
       it('then all other input fields should be empty', async () => {
-        const emailOtherValue = await page.$eval('#email-other', node => node.value);
+        const emailOtherValue = await page.$eval('#email-other', (node) => node.value);
         expect(emailOtherValue).toBe('');
-        const telOtherValue = await page.$eval('#tel-other', node => node.value);
+        const telOtherValue = await page.$eval('#tel-other', (node) => node.value);
         expect(telOtherValue).toBe('');
-        const textOtherValue = await page.$eval('#text-other', node => node.value);
+        const textOtherValue = await page.$eval('#text-other', (node) => node.value);
         expect(textOtherValue).toBe('');
       });
     });
@@ -163,7 +163,7 @@ describe('script: radios', () => {
       });
 
       it('then the radio button should be checked', async () => {
-        const isRadioChecked = await page.$eval('#text', node => node.checked);
+        const isRadioChecked = await page.$eval('#text', (node) => node.checked);
         expect(isRadioChecked).toBe(true);
       });
     });
@@ -174,13 +174,13 @@ describe('script: radios', () => {
       });
 
       it('then the input should have a tab index of 0', async () => {
-        const tabIndex = await page.$eval('#text-other', node => node.getAttribute('tabindex'));
+        const tabIndex = await page.$eval('#text-other', (node) => node.getAttribute('tabindex'));
         expect(tabIndex).toBe('0');
       });
     });
   });
 
-  describe('reveal and fieldset', function() {
+  describe('reveal and fieldset', function () {
     const params = {
       legend: 'What are your favourite pizza toppings?',
       name: 'food-other',
@@ -237,7 +237,7 @@ describe('script: radios', () => {
     });
 
     it('radios with other options should be given aria-expanded attributes', async () => {
-      const ariaExpanded = await page.$eval('#other-radio', node => node.getAttribute('aria-expanded'));
+      const ariaExpanded = await page.$eval('#other-radio', (node) => node.getAttribute('aria-expanded'));
       expect(ariaExpanded).toBe('false');
     });
 
@@ -247,7 +247,7 @@ describe('script: radios', () => {
       });
 
       it('has aria-expanded attribute should be set to true', async () => {
-        const ariaExpanded = await page.$eval('#other-radio', node => node.getAttribute('aria-expanded'));
+        const ariaExpanded = await page.$eval('#other-radio', (node) => node.getAttribute('aria-expanded'));
         expect(ariaExpanded).toBe('true');
       });
 
@@ -257,7 +257,7 @@ describe('script: radios', () => {
         });
 
         it('the radio with an other input aria-expanded attribute changes', async () => {
-          const ariaExpanded = await page.$eval('#other-radio', node => node.getAttribute('aria-expanded'));
+          const ariaExpanded = await page.$eval('#other-radio', (node) => node.getAttribute('aria-expanded'));
           expect(ariaExpanded).toBe('false');
         });
       });
@@ -273,12 +273,12 @@ describe('script: radios', () => {
           });
 
           it('the other radio aria-expanded attribute should be set to false', async () => {
-            const ariaExpanded = await page.$eval('#other-radio', node => node.getAttribute('aria-expanded'));
+            const ariaExpanded = await page.$eval('#other-radio', (node) => node.getAttribute('aria-expanded'));
             expect(ariaExpanded).toBe('false');
           });
 
           it('the child of other checkbox should be unchecked', async () => {
-            const innerInputChecked = await page.$eval('#inner-bacon-other', node => node.checked);
+            const innerInputChecked = await page.$eval('#inner-bacon-other', (node) => node.checked);
             expect(innerInputChecked).toBe(false);
           });
         });

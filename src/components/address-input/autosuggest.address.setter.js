@@ -103,7 +103,7 @@ export default class AddressSetter {
   }
 
   clearManualInputs() {
-    this.manualInputs.forEach(input => {
+    this.manualInputs.forEach((input) => {
       if (input) {
         input.value = '';
       }
@@ -112,13 +112,13 @@ export default class AddressSetter {
 
   checkManualInputsValues(onLoad) {
     if (onLoad) {
-      this.originalValues = this.manualInputs.map(input => {
+      this.originalValues = this.manualInputs.map((input) => {
         if (input) {
           return input.value;
         }
       });
     } else if (this.uprn.value !== '' && this.originalValues.length) {
-      this.newValues = this.manualInputs.map(input => {
+      this.newValues = this.manualInputs.map((input) => {
         return input.value;
       });
       if (this.originalValues.toString() !== this.newValues.toString()) {

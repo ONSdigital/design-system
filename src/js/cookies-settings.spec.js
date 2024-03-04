@@ -46,7 +46,7 @@ describe('script: cookies-settings', () => {
     await setTestPage('/test', EXAMPLE_COOKIES_SETTINGS_PAGE);
 
     const cookies = await page.cookies();
-    const ons_cookie_policy = cookies.find(cookie => cookie.name === 'ons_cookie_policy');
+    const ons_cookie_policy = cookies.find((cookie) => cookie.name === 'ons_cookie_policy');
     const policy = JSON.parse(ons_cookie_policy.value.replace(/'/g, '"'));
 
     expect(policy).toEqual({
@@ -60,9 +60,9 @@ describe('script: cookies-settings', () => {
   it('sets all radio buttons to the default values of every `cookieType`', async () => {
     await setTestPage('/test', EXAMPLE_COOKIES_SETTINGS_PAGE);
 
-    const cookiesSettingsOffRadio = await page.$eval('input[name=cookies-settings][value=off]', node => node.checked);
-    const cookiesUsageOffRadio = await page.$eval('input[name=cookies-usage][value=off]', node => node.checked);
-    const cookiesCampaignsOffRadio = await page.$eval('input[name=cookies-campaigns][value=off]', node => node.checked);
+    const cookiesSettingsOffRadio = await page.$eval('input[name=cookies-settings][value=off]', (node) => node.checked);
+    const cookiesUsageOffRadio = await page.$eval('input[name=cookies-usage][value=off]', (node) => node.checked);
+    const cookiesCampaignsOffRadio = await page.$eval('input[name=cookies-campaigns][value=off]', (node) => node.checked);
 
     expect(cookiesSettingsOffRadio).toBe(true);
     expect(cookiesUsageOffRadio).toBe(true);
@@ -72,8 +72,8 @@ describe('script: cookies-settings', () => {
   it('sets the provided radio buttons to the default values of every matched `cookieType`', async () => {
     await setTestPage('/test', EXAMPLE_PART_COOKIES_SETTINGS_PAGE);
 
-    const cookiesSettingsOffRadio = await page.$eval('input[name=cookies-settings][value=off]', node => node.checked);
-    const cookiesCampaignsOffRadio = await page.$eval('input[name=cookies-campaigns][value=off]', node => node.checked);
+    const cookiesSettingsOffRadio = await page.$eval('input[name=cookies-settings][value=off]', (node) => node.checked);
+    const cookiesCampaignsOffRadio = await page.$eval('input[name=cookies-campaigns][value=off]', (node) => node.checked);
 
     expect(cookiesSettingsOffRadio).toBe(true);
     expect(cookiesCampaignsOffRadio).toBe(true);
@@ -84,23 +84,23 @@ describe('script: cookies-settings', () => {
 
     await page.click('.ons-js-accept-cookies');
 
-    const cookiesSettingsOnRadio = await page.$eval('input[name=cookies-settings][value=on]', node => node.checked);
-    const cookiesUsageOnRadio = await page.$eval('input[name=cookies-usage][value=on]', node => node.checked);
-    const cookiesCampaignsOnRadio = await page.$eval('input[name=cookies-campaigns][value=on]', node => node.checked);
+    const cookiesSettingsOnRadio = await page.$eval('input[name=cookies-settings][value=on]', (node) => node.checked);
+    const cookiesUsageOnRadio = await page.$eval('input[name=cookies-usage][value=on]', (node) => node.checked);
+    const cookiesCampaignsOnRadio = await page.$eval('input[name=cookies-campaigns][value=on]', (node) => node.checked);
 
     expect(cookiesSettingsOnRadio).toBe(true);
     expect(cookiesUsageOnRadio).toBe(true);
     expect(cookiesCampaignsOnRadio).toBe(true);
   });
 
-  it.each([['settings'], ['usage'], ['campaigns']])('updates consent cookie when "%s" policy is turned on', async policyName => {
+  it.each([['settings'], ['usage'], ['campaigns']])('updates consent cookie when "%s" policy is turned on', async (policyName) => {
     await setTestPage('/test', EXAMPLE_COOKIES_SETTINGS_PAGE);
 
     await page.click(`input[name=cookies-${policyName}][value=on]`);
     await page.click('#submit-button');
 
     const cookies = await page.cookies();
-    const ons_cookie_policy = cookies.find(cookie => cookie.name === 'ons_cookie_policy');
+    const ons_cookie_policy = cookies.find((cookie) => cookie.name === 'ons_cookie_policy');
     const policy = JSON.parse(ons_cookie_policy.value.replace(/'/g, '"'));
 
     expect(policy).toHaveProperty(policyName, true);
@@ -108,7 +108,7 @@ describe('script: cookies-settings', () => {
 
   it.each([['settings'], ['usage'], ['campaigns']])(
     'updates consent cookie when "%s" policy is turned on and then off',
-    async policyName => {
+    async (policyName) => {
       await setTestPage('/test', EXAMPLE_COOKIES_SETTINGS_PAGE);
 
       await page.click(`input[name=cookies-${policyName}][value=on]`);
@@ -118,7 +118,7 @@ describe('script: cookies-settings', () => {
       await page.click('#submit-button');
 
       const cookies = await page.cookies();
-      const ons_cookie_policy = cookies.find(cookie => cookie.name === 'ons_cookie_policy');
+      const ons_cookie_policy = cookies.find((cookie) => cookie.name === 'ons_cookie_policy');
       const policy = JSON.parse(ons_cookie_policy.value.replace(/'/g, '"'));
 
       expect(policy).toHaveProperty(policyName, false);
@@ -129,13 +129,13 @@ describe('script: cookies-settings', () => {
     await setTestPage('/test', EXAMPLE_COOKIES_SETTINGS_PAGE);
 
     const cookiesBefore = await page.cookies();
-    const ons_cookie_message_displayed_before = cookiesBefore.find(cookie => cookie.name === 'ons_cookie_message_displayed');
+    const ons_cookie_message_displayed_before = cookiesBefore.find((cookie) => cookie.name === 'ons_cookie_message_displayed');
     expect(ons_cookie_message_displayed_before).toBeUndefined();
 
     await page.click('#submit-button');
 
     const cookiesAfter = await page.cookies();
-    const ons_cookie_message_displayed_after = cookiesAfter.find(cookie => cookie.name === 'ons_cookie_message_displayed');
+    const ons_cookie_message_displayed_after = cookiesAfter.find((cookie) => cookie.name === 'ons_cookie_message_displayed');
 
     expect(ons_cookie_message_displayed_after.value).toBe('true');
   });
@@ -143,7 +143,7 @@ describe('script: cookies-settings', () => {
   it('does not hide the cookie banner by default', async () => {
     await setTestPage('/test', EXAMPLE_COOKIES_SETTINGS_PAGE);
 
-    const displayStyle = await page.$eval('.ons-cookies-banner', node => window.getComputedStyle(node).getPropertyValue('display'));
+    const displayStyle = await page.$eval('.ons-cookies-banner', (node) => window.getComputedStyle(node).getPropertyValue('display'));
     expect(displayStyle).not.toBe('none');
   });
 
@@ -152,14 +152,14 @@ describe('script: cookies-settings', () => {
 
     await page.click('#submit-button');
 
-    const displayStyle = await page.$eval('.ons-cookies-banner', node => window.getComputedStyle(node).getPropertyValue('display'));
+    const displayStyle = await page.$eval('.ons-cookies-banner', (node) => window.getComputedStyle(node).getPropertyValue('display'));
     expect(displayStyle).toBe('none');
   });
 
   it('does not show a confirmation message by default', async () => {
     await setTestPage('/test', EXAMPLE_COOKIES_SETTINGS_PAGE);
 
-    const displayStyle = await page.$eval('.ons-cookies-confirmation-message', node =>
+    const displayStyle = await page.$eval('.ons-cookies-confirmation-message', (node) =>
       window.getComputedStyle(node).getPropertyValue('display'),
     );
     expect(displayStyle).toBe('none');
@@ -170,7 +170,7 @@ describe('script: cookies-settings', () => {
 
     await page.click('#submit-button');
 
-    const displayStyle = await page.$eval('.ons-cookies-confirmation-message', node =>
+    const displayStyle = await page.$eval('.ons-cookies-confirmation-message', (node) =>
       window.getComputedStyle(node).getPropertyValue('display'),
     );
     expect(displayStyle).not.toBe('none');

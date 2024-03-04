@@ -8,7 +8,7 @@ export function checkStatus(response) {
   }
 }
 
-export default function(url, options) {
+export default function (url, options) {
   return window
     .fetch(url, {
       method: 'GET',

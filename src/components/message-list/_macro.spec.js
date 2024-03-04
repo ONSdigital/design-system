@@ -85,31 +85,19 @@ describe('macro: message-list', () => {
   it('has `unreadText` for unread messages', () => {
     const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST));
 
-    expect(
-      $('#message1 .ons-message-item__unread')
-        .text()
-        .trim(),
-    ).toBe('(New)');
+    expect($('#message1 .ons-message-item__unread').text().trim()).toBe('(New)');
   });
 
   it('has visually hidden label `fromLabel`', () => {
     const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
 
-    expect(
-      $('.ons-message-item__metadata-term--from:first')
-        .text()
-        .trim(),
-    ).toBe('From:');
+    expect($('.ons-message-item__metadata-term--from:first').text().trim()).toBe('From:');
   });
 
   it('has visually hidden label `dateLabel`', () => {
     const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
 
-    expect(
-      $('.ons-message-item__metadata-term--date:first')
-        .text()
-        .trim(),
-    ).toBe('Date:');
+    expect($('.ons-message-item__metadata-term--date:first').text().trim()).toBe('Date:');
   });
 
   it('has visually hidden label `hiddenReadLabel`', () => {
@@ -123,31 +111,11 @@ describe('macro: message-list', () => {
 
     const $message2 = $('.ons-message-item:nth-child(2)');
 
-    expect(
-      $message2
-        .find('.ons-message-item__subject')
-        .text()
-        .trim(),
-    ).toBe('Another example message subject');
+    expect($message2.find('.ons-message-item__subject').text().trim()).toBe('Another example message subject');
     expect($message2.find('.ons-message-item__subject').attr('id')).toBe('message2');
-    expect(
-      $message2
-        .find('.ons-message-item__metadata-value--from')
-        .text()
-        .trim(),
-    ).toBe('Example Sender 2');
-    expect(
-      $message2
-        .find('.ons-message-item__metadata-value--date')
-        .text()
-        .trim(),
-    ).toBe('Mon 1 Oct 2019 at 9:52');
-    expect(
-      $message2
-        .find('.ons-message-item__body')
-        .text()
-        .trim(),
-    ).toBe('Another example message.');
+    expect($message2.find('.ons-message-item__metadata-value--from').text().trim()).toBe('Example Sender 2');
+    expect($message2.find('.ons-message-item__metadata-value--date').text().trim()).toBe('Mon 1 Oct 2019 at 9:52');
+    expect($message2.find('.ons-message-item__body').text().trim()).toBe('Another example message.');
     expect($message2.find('.ons-message-item__link a').attr('href')).toBe('https://example.com/message/2');
   });
 

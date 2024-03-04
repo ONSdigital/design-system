@@ -6,7 +6,7 @@ async function video() {
   if (videos.length) {
     const Video = (await import('./video')).default;
 
-    videos.forEach(component => new Video(component));
+    videos.forEach((component) => new Video(component));
   }
 }
 

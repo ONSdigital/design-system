@@ -220,7 +220,7 @@ export default class Timeout {
 
   throttle(func, wait) {
     let waiting = false;
-    return function() {
+    return function () {
       if (waiting) {
         return;
       }

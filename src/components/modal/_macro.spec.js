@@ -22,18 +22,14 @@ describe('macro: modal', () => {
   it('has expected `title`', () => {
     const $ = cheerio.load(renderComponent('modal', EXAMPLE_MODAL_BASIC));
 
-    const title = $('.ons-modal__title')
-      .html()
-      .trim();
+    const title = $('.ons-modal__title').html().trim();
     expect(title).toBe('Modal title');
   });
 
   it('has expected `body`', () => {
     const $ = cheerio.load(renderComponent('modal', EXAMPLE_MODAL_BASIC));
 
-    const title = $('.ons-modal__body')
-      .html()
-      .trim();
+    const title = $('.ons-modal__body').html().trim();
     expect(title).toBe('Modal body text');
   });
 
@@ -64,9 +60,7 @@ describe('macro: modal', () => {
   it('calls with content', () => {
     const $ = cheerio.load(renderComponent('modal', { EXAMPLE_MODAL_BASIC }, 'Example content...'));
 
-    const content = $('.ons-modal__body')
-      .text()
-      .trim();
+    const content = $('.ons-modal__body').text().trim();
     expect(content).toBe('Example content...');
   });
 

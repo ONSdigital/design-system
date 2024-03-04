@@ -8,7 +8,7 @@ async function mutuallyExclusiveInputs() {
   if (exclusiveWrapperElements.length) {
     const MutuallyExclusive = (await import('./mutually-exclusive')).default;
 
-    exclusiveWrapperElements.forEach(element => new MutuallyExclusive(element));
+    exclusiveWrapperElements.forEach((element) => new MutuallyExclusive(element));
   }
 }
 

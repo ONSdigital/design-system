@@ -13,14 +13,14 @@ export default class CheckboxWithFieldset {
   }
 
   checkChildInputsOnSelect() {
-    this.childInputs.forEach(input => {
+    this.childInputs.forEach((input) => {
       input.checked = this.selectAllChildrenInput.checked === true ? true : false;
     });
   }
 
   uncheckChildInputsOnDeselect() {
     if (this.checkbox.checked === false) {
-      this.childInputs.forEach(input => {
+      this.childInputs.forEach((input) => {
         input.checked = false;
       });
     }

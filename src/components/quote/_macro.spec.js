@@ -25,11 +25,7 @@ describe('macro: quote', () => {
       }),
     );
 
-    expect(
-      $('.ons-quote__text')
-        .text()
-        .trim(),
-    ).toBe('Example quote text.');
+    expect($('.ons-quote__text').text().trim()).toBe('Example quote text.');
   });
 
   it('has the provided `ref` text with a leading "—" character', () => {
@@ -40,11 +36,7 @@ describe('macro: quote', () => {
       }),
     );
 
-    expect(
-      $('.ons-quote__ref')
-        .text()
-        .trim(),
-    ).toBe('— Example quote reference.');
+    expect($('.ons-quote__ref').text().trim()).toBe('— Example quote reference.');
   });
 
   it('has a default `textFontSize` of "l"', () => {

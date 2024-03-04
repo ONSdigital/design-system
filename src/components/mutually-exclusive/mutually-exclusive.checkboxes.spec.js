@@ -80,22 +80,22 @@ describe('script: mutually-exclusive', () => {
         });
 
         it('then the mutually exclusive option is checked', async () => {
-          const isChecked = await page.$eval('#no-central-heating', node => node.checked);
+          const isChecked = await page.$eval('#no-central-heating', (node) => node.checked);
           expect(isChecked).toBe(true);
         });
 
         it('then the checkboxes are not checked', async () => {
-          expect(await page.$eval('#gas', node => node.checked)).toBe(false);
-          expect(await page.$eval('#electric', node => node.checked)).toBe(false);
-          expect(await page.$eval('#solid-fuel', node => node.checked)).toBe(false);
-          expect(await page.$eval('#other-fuel', node => node.checked)).toBe(false);
-          expect(await page.$eval('#other-fuel-textbox', node => node.value)).toBe('');
+          expect(await page.$eval('#gas', (node) => node.checked)).toBe(false);
+          expect(await page.$eval('#electric', (node) => node.checked)).toBe(false);
+          expect(await page.$eval('#solid-fuel', (node) => node.checked)).toBe(false);
+          expect(await page.$eval('#other-fuel', (node) => node.checked)).toBe(false);
+          expect(await page.$eval('#other-fuel-textbox', (node) => node.value)).toBe('');
         });
 
         it('then the aria-live message should reflect the removed non exclusive options', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('Gas deselected. Electric deselected. Other deselected. Please specify deselected.');
         });
       });
@@ -114,20 +114,20 @@ describe('script: mutually-exclusive', () => {
         });
 
         it('then the expected checkboxes are checked', async () => {
-          expect(await page.$eval('#gas', node => node.checked)).toBe(true);
-          expect(await page.$eval('#electric', node => node.checked)).toBe(true);
-          expect(await page.$eval('#solid-fuel', node => node.checked)).toBe(false);
-          expect(await page.$eval('#other-fuel', node => node.checked)).toBe(true);
+          expect(await page.$eval('#gas', (node) => node.checked)).toBe(true);
+          expect(await page.$eval('#electric', (node) => node.checked)).toBe(true);
+          expect(await page.$eval('#solid-fuel', (node) => node.checked)).toBe(false);
+          expect(await page.$eval('#other-fuel', (node) => node.checked)).toBe(true);
         });
 
         it('then the exclusive option should not be checked', async () => {
-          expect(await page.$eval('#no-central-heating', node => node.checked)).toBe(false);
+          expect(await page.$eval('#no-central-heating', (node) => node.checked)).toBe(false);
         });
 
         it('then the aria-live message should reflect the removed exclusive option', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('No central heating deselected.');
         });
 
@@ -139,7 +139,7 @@ describe('script: mutually-exclusive', () => {
           it('the aria-live message should not be updated', async () => {
             await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-            const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+            const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
             expect(alertText).toBe('No central heating deselected.');
           });
         });
@@ -155,20 +155,20 @@ describe('script: mutually-exclusive', () => {
         });
 
         it('then the expected checkboxes are checked', async () => {
-          expect(await page.$eval('#gas', node => node.checked)).toBe(true);
-          expect(await page.$eval('#electric', node => node.checked)).toBe(true);
-          expect(await page.$eval('#solid-fuel', node => node.checked)).toBe(false);
-          expect(await page.$eval('#other-fuel', node => node.checked)).toBe(true);
+          expect(await page.$eval('#gas', (node) => node.checked)).toBe(true);
+          expect(await page.$eval('#electric', (node) => node.checked)).toBe(true);
+          expect(await page.$eval('#solid-fuel', (node) => node.checked)).toBe(false);
+          expect(await page.$eval('#other-fuel', (node) => node.checked)).toBe(true);
         });
 
         it('then the exclusive option should not be checked', async () => {
-          expect(await page.$eval('#no-central-heating', node => node.checked)).toBe(false);
+          expect(await page.$eval('#no-central-heating', (node) => node.checked)).toBe(false);
         });
 
         it('then the aria-live message should say nothing', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('');
         });
       });
@@ -181,20 +181,20 @@ describe('script: mutually-exclusive', () => {
         });
 
         it('then the expected checkboxes are not checked', async () => {
-          expect(await page.$eval('#gas', node => node.checked)).toBe(false);
-          expect(await page.$eval('#electric', node => node.checked)).toBe(false);
-          expect(await page.$eval('#solid-fuel', node => node.checked)).toBe(false);
-          expect(await page.$eval('#other-fuel', node => node.checked)).toBe(false);
+          expect(await page.$eval('#gas', (node) => node.checked)).toBe(false);
+          expect(await page.$eval('#electric', (node) => node.checked)).toBe(false);
+          expect(await page.$eval('#solid-fuel', (node) => node.checked)).toBe(false);
+          expect(await page.$eval('#other-fuel', (node) => node.checked)).toBe(false);
         });
 
         it('then the exclusive option should be checked', async () => {
-          expect(await page.$eval('#no-central-heating', node => node.checked)).toBe(true);
+          expect(await page.$eval('#no-central-heating', (node) => node.checked)).toBe(true);
         });
 
         it('then the aria-live message should say nothing', async () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
-          const alertText = await page.$eval('.ons-js-exclusive-alert', node => node.textContent);
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
           expect(alertText).toBe('');
         });
       });

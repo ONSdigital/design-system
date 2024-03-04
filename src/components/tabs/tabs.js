@@ -45,7 +45,7 @@ export default class Tabs {
   setupViewportChecks() {
     const breakpoint = () => {
       let finalBreakpoint = 0;
-      this.tabListItems.forEach(tab => {
+      this.tabListItems.forEach((tab) => {
         finalBreakpoint += tab.offsetWidth;
       });
       if (finalBreakpoint < 450) {
@@ -73,19 +73,19 @@ export default class Tabs {
 
     this.tabsTitle.classList.add('ons-u-vh');
     this.tabListContainer.classList.add('ons-tabs__container');
-    this.tabPanels.forEach(panel => {
+    this.tabPanels.forEach((panel) => {
       panel.setAttribute('tabindex', '0');
       if (panel.querySelector('[id*="content-title"]')) {
         panel.firstElementChild.classList.add('ons-u-vh');
       }
     });
 
-    this.tabListItems.forEach(item => {
+    this.tabListItems.forEach((item) => {
       item.setAttribute('role', 'presentation');
       item.classList.add(this.jsTabItemAsRowClass);
     });
 
-    this.tabs.forEach(tab => {
+    this.tabs.forEach((tab) => {
       this.setAttributes(tab);
       tab.classList.add(this.jsTabAsListClass);
 
@@ -112,19 +112,19 @@ export default class Tabs {
     this.tabListContainer.classList.remove('ons-tabs__container');
     this.tabsTitle.classList.remove('ons-u-vh');
 
-    this.tabPanels.forEach(panel => {
+    this.tabPanels.forEach((panel) => {
       panel.removeAttribute('tabindex', '0');
       if (panel.firstElementChild.classList.contains('ons-u-vh')) {
         panel.firstElementChild.classList.remove('ons-u-vh');
       }
     });
 
-    this.tabListItems.forEach(item => {
+    this.tabListItems.forEach((item) => {
       item.removeAttribute('role', 'presentation');
       item.classList.remove(this.jsTabItemAsRowClass);
     });
 
-    this.tabs.forEach(tab => {
+    this.tabs.forEach((tab) => {
       tab.removeEventListener('click', this.boundTabClick, true);
       tab.removeEventListener('keydown', this.boundTabKeydown, true);
       tab.classList.remove(this.jsTabAsListClass);
@@ -216,7 +216,7 @@ export default class Tabs {
 
   ensureTabIndexExists() {
     // Ensure that at least the first tab has a tab index when all tabs are hidden.
-    if (!this.tabs.find(tab => tab.getAttribute('tabindex') === '0')) {
+    if (!this.tabs.find((tab) => tab.getAttribute('tabindex') === '0')) {
       this.tabs[0].setAttribute('tabindex', '0');
     }
   }

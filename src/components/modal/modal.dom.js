@@ -7,7 +7,7 @@ async function modals() {
   if (modals.length && !timeouts.length) {
     const Modal = (await import('./modal')).default;
 
-    modals.forEach(component => new Modal(component));
+    modals.forEach((component) => new Modal(component));
   }
 }
 

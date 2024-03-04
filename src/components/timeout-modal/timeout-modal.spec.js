@@ -28,7 +28,7 @@ describe('script: timeout modal', () => {
 
     it('displays the modal after the correct number of seconds', async () => {
       await page.waitForTimeout(2000);
-      const modalIsVisible = await page.$eval('.ons-modal', node => node.classList.contains('ons-u-db'));
+      const modalIsVisible = await page.$eval('.ons-modal', (node) => node.classList.contains('ons-u-db'));
       expect(modalIsVisible).toBe(true);
     });
   });
@@ -51,9 +51,9 @@ describe('script: timeout modal', () => {
       });
 
       it('shows the time counting down', async () => {
-        const timeAtStart = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
+        const timeAtStart = await page.$eval('.ons-js-timeout-timer span', (element) => element.innerHTML);
         await page.waitForTimeout(1000);
-        const timeAfterOneSecond = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
+        const timeAfterOneSecond = await page.$eval('.ons-js-timeout-timer span', (element) => element.innerHTML);
         expect(timeAfterOneSecond).not.toEqual(timeAtStart);
       });
     });
@@ -78,7 +78,7 @@ describe('script: timeout modal', () => {
       });
 
       it('displays the `minutes` (plural) string', async () => {
-        const timeString = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
+        const timeString = await page.$eval('.ons-js-timeout-timer span', (element) => element.innerHTML);
         expect(timeString).toEqual(expect.stringContaining('minutes'));
       });
     });
@@ -103,7 +103,7 @@ describe('script: timeout modal', () => {
       });
 
       it('displays the `seconds` (plural) string', async () => {
-        const timeString = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
+        const timeString = await page.$eval('.ons-js-timeout-timer span', (element) => element.innerHTML);
         expect(timeString).toEqual(expect.stringContaining('seconds'));
       });
     });
@@ -128,7 +128,7 @@ describe('script: timeout modal', () => {
       });
 
       it('displays the `minute` (singular) string', async () => {
-        const timeString = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
+        const timeString = await page.$eval('.ons-js-timeout-timer span', (element) => element.innerHTML);
         expect(timeString).toEqual(expect.stringContaining('minute'));
       });
     });
@@ -153,7 +153,7 @@ describe('script: timeout modal', () => {
       });
 
       it('displays the `second` (singular) string', async () => {
-        const timeString = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
+        const timeString = await page.$eval('.ons-js-timeout-timer span', (element) => element.innerHTML);
         expect(timeString).toEqual(expect.stringContaining('second'));
       });
     });
@@ -178,7 +178,7 @@ describe('script: timeout modal', () => {
       });
 
       it('displays the `countdownExpiredText` text', async () => {
-        const timeString = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
+        const timeString = await page.$eval('.ons-js-timeout-timer span', (element) => element.innerHTML);
         expect(timeString).toEqual(expect.stringContaining('You are being signed out'));
       });
 
@@ -212,13 +212,13 @@ describe('script: timeout modal', () => {
       });
 
       it('closes the modal', async () => {
-        const modalIsVisible = await page.$eval('.ons-modal', node => node.classList.contains('ons-u-db'));
+        const modalIsVisible = await page.$eval('.ons-modal', (node) => node.classList.contains('ons-u-db'));
         expect(modalIsVisible).toBe(false);
       });
 
       it('restarts the timer and displays the modal after the correct number of seconds', async () => {
         await page.waitForTimeout(2000);
-        const modalIsVisible = await page.$eval('.ons-modal', node => node.classList.contains('ons-u-db'));
+        const modalIsVisible = await page.$eval('.ons-modal', (node) => node.classList.contains('ons-u-db'));
         expect(modalIsVisible).toBe(true);
       });
     });

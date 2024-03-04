@@ -5,19 +5,19 @@ function Util() {}
   Class manipulation functions
 */
 
-Util.hasClass = function(el, className) {
+Util.hasClass = function (el, className) {
   if (el.classList) return el.classList.contains(className);
   else return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
 };
 
-Util.addClass = function(el, className) {
+Util.addClass = function (el, className) {
   let classList = className.split(' ');
   if (el.classList) el.classList.add(classList[0]);
   else if (!Util.hasClass(el, classList[0])) el.className += ' ' + classList[0];
   if (classList.length > 1) Util.addClass(el, classList.slice(1).join(' '));
 };
 
-Util.removeClass = function(el, className) {
+Util.removeClass = function (el, className) {
   let classList = className.split(' ');
   if (el.classList) el.classList.remove(classList[0]);
   else if (Util.hasClass(el, classList[0])) {
@@ -27,12 +27,12 @@ Util.removeClass = function(el, className) {
   if (classList.length > 1) Util.removeClass(el, classList.slice(1).join(' '));
 };
 
-Util.toggleClass = function(el, className, bool) {
+Util.toggleClass = function (el, className, bool) {
   if (bool) Util.addClass(el, className);
   else Util.removeClass(el, className);
 };
 
-Util.setAttributes = function(el, attrs) {
+Util.setAttributes = function (el, attrs) {
   for (let key in attrs) {
     el.setAttribute(key, attrs[key]);
   }
@@ -42,7 +42,7 @@ Util.setAttributes = function(el, attrs) {
   DOM manipulation
 */
 
-Util.getChildrenByClassName = function(el, className) {
+Util.getChildrenByClassName = function (el, className) {
   let childrenByClass = [];
   for (let i = 0; i < el.children.length; i++) {
     if (Util.hasClass(el.children[i], className)) childrenByClass.push(el.children[i]);
@@ -50,7 +50,7 @@ Util.getChildrenByClassName = function(el, className) {
   return childrenByClass;
 };
 
-Util.is = function(elem, selector) {
+Util.is = function (elem, selector) {
   if (selector.nodeType) {
     return elem === selector;
   }
@@ -68,11 +68,11 @@ Util.is = function(elem, selector) {
 };
 
 // Animate height of an element
-Util.setHeight = function(start, to, element, duration, cb) {
+Util.setHeight = function (start, to, element, duration, cb) {
   let change = to - start,
     currentTime = null;
 
-  let animateHeight = function(timestamp) {
+  let animateHeight = function (timestamp) {
     if (!currentTime) currentTime = timestamp;
     let progress = timestamp - currentTime;
     let val = parseInt((progress / duration) * change + start);
@@ -90,14 +90,14 @@ Util.setHeight = function(start, to, element, duration, cb) {
 };
 
 // Smooth Scroll
-Util.scrollTo = function(final, duration, cb, scrollEl) {
+Util.scrollTo = function (final, duration, cb, scrollEl) {
   let element = scrollEl || window;
   let start = element.scrollTop || document.documentElement.scrollTop,
     currentTime = null;
 
   if (!scrollEl) start = window.scrollY || document.documentElement.scrollTop;
 
-  let animateScroll = function(timestamp) {
+  let animateScroll = function (timestamp) {
     if (!currentTime) currentTime = timestamp;
     let progress = timestamp - currentTime;
     if (progress > duration) progress = duration;
@@ -118,7 +118,7 @@ Util.scrollTo = function(final, duration, cb, scrollEl) {
 */
 
 // Move focus to an element
-Util.moveFocus = function(element) {
+Util.moveFocus = function (element) {
   if (!element) element = document.getElementsByTagName('body')[0];
   element.focus();
   if (document.activeElement !== element) {
@@ -128,15 +128,15 @@ Util.moveFocus = function(element) {
 };
 
 // Misc
-Util.getIndexInArray = function(array, el) {
+Util.getIndexInArray = function (array, el) {
   return Array.prototype.indexOf.call(array, el);
 };
 
-Util.cssSupports = function(property, value) {
+Util.cssSupports = function (property, value) {
   if ('CSS' in window) {
     return CSS.supports(property, value);
   } else {
-    let jsProperty = property.replace(/-([a-z])/g, function(g) {
+    let jsProperty = property.replace(/-([a-z])/g, function (g) {
       return g[1].toUpperCase();
     });
     return jsProperty in document.body.style;
@@ -146,7 +146,7 @@ Util.cssSupports = function(property, value) {
 // Merge a set of user options into plugin defaults
 // https://gomakethings.com/vanilla-javascript-version-of-jquery-extend/
 
-Util.extend = function() {
+Util.extend = function () {
   // Variables
   let extended = {};
   let deep = false;
@@ -160,7 +160,7 @@ Util.extend = function() {
   }
 
   // Merge the object into the extended object
-  let merge = function(obj) {
+  let merge = function (obj) {
     for (let prop in obj) {
       if (Object.prototype.hasOwnProperty.call(obj, prop)) {
         // If deep merge and property is an object, merge properties
@@ -183,7 +183,7 @@ Util.extend = function() {
 };
 
 // Check if Reduced Motion is enabled
-Util.osHasReducedMotion = function() {
+Util.osHasReducedMotion = function () {
   if (!window.matchMedia) return false;
   let matchMediaObj = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (matchMediaObj) return matchMediaObj.matches;
@@ -191,7 +191,7 @@ Util.osHasReducedMotion = function() {
 };
 
 /*
-	Polyfills
+  Polyfills
 */
 
 // Closest() method
@@ -200,7 +200,7 @@ if (!Element.prototype.matches) {
 }
 
 if (!Element.prototype.closest) {
-  Element.prototype.closest = function(s) {
+  Element.prototype.closest = function (s) {
     let el = this;
     if (!document.documentElement.contains(el)) return null;
     do {
@@ -226,10 +226,10 @@ if (typeof window.CustomEvent !== 'function') {
 }
 
 /*
-	Animation curves
+  Animation curves
 */
 
-Math.easeInOutQuad = function(t, b, c, d) {
+Math.easeInOutQuad = function (t, b, c, d) {
   t /= d / 2;
   if (t < 1) return (c / 2) * t * t + b;
   t--;
@@ -238,8 +238,8 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
 // FILTERS
 
-(function() {
-  let Filter = function(opts) {
+(function () {
+  let Filter = function (opts) {
     this.options = Util.extend(Filter.defaults, opts); // Used to store custom filter/sort functions
     this.element = this.options.element;
     this.elementId = this.element.getAttribute('id');
@@ -285,8 +285,8 @@ Math.easeInOutQuad = function(t, b, c, d) {
       filter.filterString[i] = ''; // Reset filtering
 
       // Get proper filter/sorting string based on selected controllers
-      (function(i) {
-        filter.controllers[i].addEventListener('change', function(event) {
+      (function (i) {
+        filter.controllers[i].addEventListener('change', function (event) {
           if (event.target.tagName.toLowerCase() == 'select') {
             // Select elements
             !event.target.getAttribute('data-filter')
@@ -310,7 +310,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
           updateFilterArray(filter);
         });
 
-        filter.controllers[i].addEventListener('click', function(event) {
+        filter.controllers[i].addEventListener('click', function (event) {
           // Return if target is select/input elements
           let filterEl = event.target.closest('[data-filter]');
           let sortEl = event.target.closest('[data-sort]');
@@ -330,9 +330,9 @@ Math.easeInOutQuad = function(t, b, c, d) {
     }
 
     // Handle resize - update grid coordinates in filter.itemsGrid
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
       clearTimeout(filter.resizingId);
-      filter.resizingId = setTimeout(function() {
+      filter.resizingId = setTimeout(function () {
         createGridInfo(filter);
       }, 300);
     });
@@ -341,7 +341,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     checkInitialFiltering(filter);
 
     // Reset filtering results if filter selection was changed by an external control (e.g., form reset)
-    filter.element.addEventListener('update-filter-results', function() {
+    filter.element.addEventListener('update-filter-results', function () {
       // Reset filters first
       for (let i = 0; i < filter.controllers.length; i++) filter.filterString[i] = '';
       filter.sortingString = '';
@@ -478,7 +478,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
         // Custom sort function -> user takes care of it
         filter.sortingList = filter.options[sortOptions[0]](filter.sortingList);
       } else {
-        filter.sortingList.sort(function(left, right) {
+        filter.sortingList.sort(function (left, right) {
           let leftVal = left[0].getAttribute('data-sort-' + sortOptions[0]),
             rightVal = right[0].getAttribute('data-sort-' + sortOptions[0]);
           if (sortOptions[2] == 'number') {
@@ -596,7 +596,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
       }
     }
 
-    setTimeout(function() {
+    setTimeout(function () {
       for (let i = 0; i < filter.items.length; i++) {
         if (filter.filterList[i] && filter.items[i].getAttribute('data-scale') == 'on') {
           // Scale up item
@@ -635,7 +635,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     }, 50);
 
     // Wait for the end of transition of visible elements
-    setTimeout(function() {
+    setTimeout(function () {
       resetItems(filter);
     }, filter.options.duration + 100);
   }
@@ -688,12 +688,12 @@ Math.easeInOutQuad = function(t, b, c, d) {
     // Get offset first visible element
     for (let i = 0; i < filter.items.length; i++) {
       if (!Util.hasClass(filter.items[i], 'ons-u-hidden')) {
-        (itemStyle = window.getComputedStyle(filter.items[i])),
-          (itemWidth = parseFloat(itemStyle.getPropertyValue('width'))),
-          (itemHeight = parseFloat(itemStyle.getPropertyValue('height'))),
-          (marginX = parseFloat(itemStyle.getPropertyValue('margin-left')) + parseFloat(itemStyle.getPropertyValue('margin-right'))),
-          (marginY = parseFloat(itemStyle.getPropertyValue('margin-bottom')) + parseFloat(itemStyle.getPropertyValue('margin-top'))),
-          (colNumber = parseInt((containerWidth + marginX) / (itemWidth + marginX)));
+        itemStyle = window.getComputedStyle(filter.items[i]);
+        itemWidth = parseFloat(itemStyle.getPropertyValue('width'));
+        itemHeight = parseFloat(itemStyle.getPropertyValue('height'));
+        marginX = parseFloat(itemStyle.getPropertyValue('margin-left')) + parseFloat(itemStyle.getPropertyValue('margin-right'));
+        marginY = parseFloat(itemStyle.getPropertyValue('margin-bottom')) + parseFloat(itemStyle.getPropertyValue('margin-top'));
+        colNumber = parseInt((containerWidth + marginX) / (itemWidth + marginX));
         filter.itemsGrid[0] = [filter.items[i].offsetLeft, filter.items[i].offsetTop]; // Left, top
         break;
       }
@@ -774,14 +774,14 @@ Math.easeInOutQuad = function(t, b, c, d) {
 })();
 
 // ADVANCED FILTERS
-(function() {
+(function () {
   // The Adv Filter object is used to handle:
 
   // - number of results
   // - form reset
   // - filtering sections label (to show a preview of the option selected by the users)
 
-  let AdvFilter = function(element) {
+  let AdvFilter = function (element) {
     this.element = element;
     this.form = document.getElementsByClassName('ons-js-adv-filter__form');
     this.resultsList = this.element.getElementsByClassName('ons-js-adv-filter__gallery')[0];
@@ -794,15 +794,15 @@ Math.easeInOutQuad = function(t, b, c, d) {
   function initAdvFilter(filter) {
     if (filter.form.length > 0) {
       // Reset form
-      filter.form[0].addEventListener('reset', function() {
-        setTimeout(function() {
+      filter.form[0].addEventListener('reset', function () {
+        setTimeout(function () {
           resetFilters(filter);
           resetGallery(filter);
         });
       });
 
       // Update section labels on form change
-      filter.form[0].addEventListener('change', function(event) {
+      filter.form[0].addEventListener('change', function (event) {
         let section = event.target.closest('.ons-js-adv-filter__item');
         if (section) resetSelection(filter, section);
         else if (Util.is(event.target, '.ons-js-adv-filter__form')) {
@@ -815,7 +815,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
     // Reset results count
     if (filter.resultsCount.length > 0) {
-      filter.resultsList.addEventListener('filter-selection-updated', function() {
+      filter.resultsList.addEventListener('filter-selection-updated', function () {
         updateResultsCount(filter);
       });
     }
@@ -960,7 +960,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
   let advFilter = document.getElementsByClassName('ons-js-adv-filter');
   if (advFilter.length > 0) {
     for (let i = 0; i < advFilter.length; i++) {
-      (function(i) {
+      (function (i) {
         new AdvFilter(advFilter[i]);
       })(i);
     }
@@ -978,7 +978,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
       element: gallery,
 
       // This is your gallery element
-      priceRange: function(items) {
+      priceRange: function (items) {
         // This is the price custom function
         let filteredArray = [],
           minVal = document.getElementById('slider-min-value').value,
@@ -989,7 +989,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
         }
         return filteredArray;
       },
-      indexValue: function(items) {
+      indexValue: function (items) {
         // This is the index custom function
         let filteredArray = [],
           value = document.getElementById('index-value').value;
@@ -1004,7 +1004,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
 })();
 
 // TOGGLE FILTERS
-(function() {
+(function () {
   let filters = document.getElementsByClassName('ons-js-adv-filter');
 
   if (filters.length > 0) {
@@ -1017,25 +1017,25 @@ Math.easeInOutQuad = function(t, b, c, d) {
     let page = document.getElementsByClassName('ons-page')[0];
 
     // Detect click on filters trigger
-    filtersTrigger.addEventListener('click', function(event) {
+    filtersTrigger.addEventListener('click', function (event) {
       event.preventDefault();
       toggleFilters(!Util.hasClass(filtersPanel, 'ons-adv-filter__panel--is-visible'));
     });
 
     // Detect click on update
-    filtersShow.addEventListener('click', function(event) {
+    filtersShow.addEventListener('click', function (event) {
       event.preventDefault();
       filtersTrigger.click();
     });
 
     // Detect click on close
-    filtersClose.addEventListener('click', function(event) {
+    filtersClose.addEventListener('click', function (event) {
       event.preventDefault();
       filtersTrigger.click();
     });
 
     // Listen for key events
-    window.addEventListener('keyup', function(event) {
+    window.addEventListener('keyup', function (event) {
       // Listen for ESC key
       if ((event.keyCode && event.keyCode == 27) || (event.key && event.key.toLowerCase() == 'escape')) {
         // Close filter panel on mobile if open
@@ -1048,7 +1048,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     // Listen for resize
     let resizingId = false;
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
       clearTimeout(resizingId);
       resizingId = setTimeout(doneResizing, 500);
     });

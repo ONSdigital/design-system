@@ -8,7 +8,7 @@ export default class ClearRadios {
     this.clearAlert = this.ariaElement.getAttribute('data-clear');
     this.clearedAlert = this.ariaElement.getAttribute('data-cleared');
 
-    this.inputs.forEach(input => input.addEventListener('click', this.setClearAttributes.bind(this)));
+    this.inputs.forEach((input) => input.addEventListener('click', this.setClearAttributes.bind(this)));
     this.button.addEventListener('click', this.clearRadios.bind(this));
     this.checkRadios();
 
@@ -22,7 +22,7 @@ export default class ClearRadios {
   }
 
   checkRadios() {
-    this.inputs.forEach(input => {
+    this.inputs.forEach((input) => {
       if (input.checked) {
         this.setClearAttributes();
       }
@@ -40,7 +40,7 @@ export default class ClearRadios {
   clearRadios() {
     event.preventDefault();
 
-    this.inputs.forEach(input => {
+    this.inputs.forEach((input) => {
       input.checked = false;
     });
 
