@@ -30,6 +30,8 @@ h6 {
 
 mark {
   @extend .ons-highlight;
+
+  font-weight: $font-weight-bold;
 }
 
 code {
