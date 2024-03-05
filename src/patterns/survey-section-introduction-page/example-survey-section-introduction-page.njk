@@ -6,40 +6,39 @@ layout: ~
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-        "header": {
-            "title": "Service name"
-        },
-        "footer": {
-            "rows": [
-                {
-                    "itemsList": [
-                        {
-                            "text": "Accessibility",
-                            "url": "#0"
-                        },
-                        {
-                            "text": "Privacy",
-                            "url": "#0"
-                        }
-                    ]
-                }
-            ]
-        }
-    } 
-%}
+    "header": {
+        "title": "Service name"
+    },
+    "footer": {
+        "rows": [
+            {
+                "itemsList": [
+                    {
+                        "text": "Accessibility",
+                        "url": "#0"
+                    },
+                    {
+                        "text": "Privacy",
+                        "url": "#0"
+                    }
+                ]
+            }
+        ]
+    }
+} %}
 
 {% block main %}
     <div class="ons-page__body">
         <h1 class="ons-u-fs-xxl">Income</h1>
-       
+
         <p>This section asks for information regarding your business's income. This includes questions about total turnover and environmental turnover.</p>
         <p>This section requires figures for business activity within <strong>GB</strong>. Exclude Nothern Ireland business activity.</p>
 
-        {{ 
+        {{
             onsButton({
-            "classes": 'ons-u-mb-m ons-u-mt-l',
-            "text": 'Continue'
-            }) 
+                "classes": 'ons-u-mb-m ons-u-mt-l',
+                "text": 'Continue'
+            })
         }}
 
     </div>

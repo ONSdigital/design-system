@@ -13,70 +13,8 @@ layout: ~
 } %}
 
 {% block main %}
-    {% call
-        onsPanel({
-            title: "There is a problem with this page",
-            type: "error"
-        })
-    %}
 
-        {% from "components/list/_macro.njk" import onsList %}
-        {{
-            onsList({
-                "element": "ol",
-                "itemsList": [
-                    {
-                        "text": "Enter an access code",
-                        "url": "#access-code-error",
-                        "variants": "inPageLink"
-                    }
-                ]
-            })
-        }}
-    {% endcall %}
+    <h2>If you have lost or not <strong>received</strong> an <em>access code</em>, you can.</h2>
+    <p>If you have lost or not <strong>received</strong> an <em>access code</em>, you can.</p>
 
-    <h1 class="ons-u-mt-l">Start study</h1>
-
-    {{ onsAccessCode({
-        "id": "access-code",
-        "name": "access-code",
-        "postTextboxLinkText": "Where to find your access code",
-        "postTextboxLinkUrl": "#0",
-        "label": {
-            "text": "Enter your 16-character access code",
-            "description": "Keep this code safe. You will need to enter it every time you access your survey"
-        },
-        "securityMessage": "Your personal information is protected by law and will be kept confidential",
-        "error": {
-            "id": "access-code-error",
-            "text": "Enter an access code"
-        }
-    }) }}
-
-    {{ onsButton({
-        "text": "Access study",
-        "classes": "ons-u-mb-xl"
-    }) }}
-
-    <h2>If you do not have an access code</h2>
-    <p>
-        If you have lost or not received an access code, you can <a href="#0">request a new access code</a>.
-        This can be sent to you by text or post.
-    </p>
-
-    {% set content %}
-        <p>If you need to answer separately from the people you live with, you can <a href="#0">request an individual access code</a>.</p>
-        {% call onsPanel({
-            "type": "warn"
-        }) %}
-            Someone in your household must still complete a study using this household access code
-        {% endcall %}
-    {% endset %}
-
-    {% call onsDetails({
-        "id": "details-access-code-error",
-        "title": "Need to answer separately from your household?"
-    }) %}
-        {{ content | safe }}
-    {% endcall %}
 {% endblock %}
