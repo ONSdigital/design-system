@@ -193,7 +193,8 @@
   }
 
   // Highlighting
-  strong,
+  h1 strong,
+  mark,
   .ons-highlight {
     background-color: mark;
     color: marktext;
