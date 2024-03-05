@@ -1,22 +1,22 @@
 {%- macro onsMessage(params) -%}
-  <div class="ons-message ons-message--{{ params.variant }}">
-    <div class="ons-message__head">
-      <dl class="ons-message__metadata" {% if params.id %} id="{{ params.id }}"{% endif %}>
-        <div class="ons-message__sender">
-          <dt class="ons-message__term ons-u-fw-b">{{ params.fromLabel }}:</dt>
-          <dd class="ons-message__value ons-u-fw-b" {% if params.fromId %} id="{{ params.fromId }}"{% endif %} {% if params.fromName %} name="{{ params.fromName }}"{% endif %}>{{ params.fromValue }}</dd>
+    <div class="ons-message ons-message--{{ params.variant }}">
+        <div class="ons-message__head">
+            <dl class="ons-message__metadata" {% if params.id %} id="{{ params.id }}"{% endif %}>
+                <div class="ons-message__sender">
+                    <dt class="ons-message__term ons-u-fw-b">{{ params.fromLabel }}:</dt>
+                    <dd class="ons-message__value ons-u-fw-b" {% if params.fromId %} id="{{ params.fromId }}"{% endif %} {% if params.fromName %} name="{{ params.fromName }}"{% endif %}>{{ params.fromValue }}</dd>
+                </div>
+                <div class="ons-message__timestamp">
+                    <dt class="ons-message__term ons-u-fs-s">{{ params.sentLabel }}:</dt>
+                    <dd class="ons-message__value ons-u-fs-s" {% if params.sentId %} id="{{ params.sentId }}"{% endif %} {% if params.sentName %} name="{{ params.sentName }}"{% endif %}>{{ params.sentValue }}</dd>
+                </div>
+            </dl>
+            {% if params.unreadLink %}
+                <a class="ons-message__unread-link" {% if params.unreadLinkId %}id="{{ params.unreadLinkId }}"{% endif %} href="{{ params.unreadLink }}">{{ params.unreadLinkText }}</a>
+            {% endif %}
         </div>
-        <div class="ons-message__timestamp">
-          <dt class="ons-message__term ons-u-fs-s">{{ params.sentLabel }}:</dt>
-          <dd class="ons-message__value ons-u-fs-s" {% if params.sentId %} id="{{ params.sentId }}"{% endif %} {% if params.sentName %} name="{{ params.sentName }}"{% endif %}>{{ params.sentValue }}</dd>
+        <div class="ons-message__body" {% if params.messageID %} id="{{ params.messageID }}"{% endif %}>
+            {{ caller() }}
         </div>
-      </dl>
-      {% if params.unreadLink %}
-          <a class="ons-message__unread-link" {% if params.unreadLinkId %}id="{{ params.unreadLinkId }}"{% endif %} href="{{ params.unreadLink }}">{{ params.unreadLinkText }}</a>
-      {% endif %}
     </div>
-    <div class="ons-message__body" {% if params.messageID %} id="{{ params.messageID }}"{% endif %}>
-      {{ caller() }}
-    </div>
-  </div>
 {%- endmacro -%}
