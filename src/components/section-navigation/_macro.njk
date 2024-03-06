@@ -1,5 +1,5 @@
 {% macro onsSectionNavigation(params) %}
-    {% set headingLevel = params.headingLevel default(2) %}
+    {% set headingLevel = params.headingLevel | default(2) %}
     {% set sectionTitleHeadingLevel = headingLevel + 1 %}
     <nav class="ons-section-nav{% if params.variants == 'vertical' %} ons-section-nav--vertical{% endif %} {% if params.classes %} {{ params.classes }} {% endif %}"{% if params.id %} id="{{ params.id }}"{% endif %} aria-labelledby="{{ params.hiddenTitleId | default("section-menu-nav-title")}}">
         <h{{ headingLevel }} class="ons-u-vh" id="{{ params.hiddenTitleId | default("section-menu-nav-title") }}">{{ params.hiddenTitle | default("Pages in this section") }}</h{{ headingLevel }}>
