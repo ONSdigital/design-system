@@ -248,7 +248,7 @@ describe('macro: header', () => {
     it('has the correct masthead logo link', () => {
       const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, mastheadLogoUrl: '#0' }));
 
-      expect($('.ons-header__org-logo-link').attr('href')).toBe('#0');
+      expect($('.ons-header__org-link').attr('href')).toBe('#0');
     });
 
     it('has the default masthead logo icon', () => {
@@ -275,7 +275,7 @@ describe('macro: header', () => {
 
       faker.renderComponent('header', EXAMPLE_HEADER_BASIC);
 
-      expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics logo');
+      expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics logo which serves as a hyperlink to the homepage');
     });
 
     it('has the default masthead mobile logo icon alt text', () => {

@@ -91,9 +91,9 @@ describe('macro: icon', () => {
   });
 
   describe.each([
-    ['ons-logo-en', 'Office for National Statistics logo'],
+    ['ons-logo-en', 'Office for National Statistics logo which serves as a hyperlink to the homepage'],
     ['ons-logo-cy', 'Logo Swyddfa Ystadegau Gwladol'],
-    ['ons-logo-stacked-en', 'Office for National Statistics logo'],
+    ['ons-logo-stacked-en', 'Office for National Statistics logo which serves as a hyperlink to the homepage'],
     ['ons-logo-stacked-cy', 'Logo Swyddfa Ystadegau Gwladol'],
     ['crest', 'Royal coat of arms of the United Kingdom'],
     ['ogl', 'Open Government License logo'],
