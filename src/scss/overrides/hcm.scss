@@ -193,7 +193,14 @@
   }
 
   // Highlighting
-  h1 em,
+  h1 strong,
+  h2 strong,
+  h3 strong,
+  h4 strong,
+  h5 strong,
+  h6 strong,
+  mark,
+  .ons-fieldset__legend-title strong,
   .ons-highlight {
     background-color: mark;
     color: marktext;

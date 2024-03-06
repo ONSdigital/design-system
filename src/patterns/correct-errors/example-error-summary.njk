@@ -1,27 +1,25 @@
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/list/_macro.njk" import onsList %}
 
-{% call
-    onsPanel({
-        title: "There are 2 problems with your answer",
-        type: "error"
-    })
-%}
-{{
-    onsList({
-        "element": "ol",
-        "itemsList": [
-            {
-                "text": "Enter the number of employees paid monthly",
-                "url": "#container-test-number",
-                "variants": "inPageLink"
-            },
-            {
-                "text": "Enter a number that is less than 101",
-                "url": "#container-test-percent",
-                "variants": "inPageLink"
-            }
-        ]
-    })
-}}
+{% call onsPanel({
+    "title": "There are 2 problems with your answer",
+    "variant": "error"
+}) %}
+    {{
+        onsList({
+            "element": "ol",
+            "itemsList": [
+                {
+                    "text": "Enter the number of employees paid monthly",
+                    "url": "#container-test-number",
+                    "variants": "inPageLink"
+                },
+                {
+                    "text": "Enter a number that is less than 101",
+                    "url": "#container-test-percent",
+                    "variants": "inPageLink"
+                }
+            ]
+        })
+    }}
 {% endcall %}

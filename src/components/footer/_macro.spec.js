@@ -225,7 +225,7 @@ describe('macro: footer', () => {
 
       expect(panelSpy.occurrences).toContainEqual(
         expect.objectContaining({
-          type: 'warn',
+          variant: 'warn',
           classes: 'ons-panel--warn--footer',
         }),
       );

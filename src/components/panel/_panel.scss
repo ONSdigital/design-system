@@ -1,4 +1,4 @@
-@mixin panel-type($name, $color, $color-bg) {
+@mixin panel-variant($name, $color, $color-bg) {
   .ons-panel {
     &--#{$name} {
       background: $color-bg;
@@ -144,7 +144,8 @@
 
   &--announcement {
     a:focus {
-      box-shadow: 0 -2px var(--ons-color-focus), 0 4px (--ons-color-text-inverse-link) !important; // Override focus style because the black border is not visible on a black background
+      box-shadow: 0 -2px var(--ons-color-focus),
+        0 4px (--ons-color-text-inverse-link) !important; // Override focus style because the black border is not visible on a black background
     }
   }
 
@@ -249,10 +250,10 @@
   }
 }
 
-@include panel-type(error, var(--ons-color-errors), var(--ons-color-errors-tint));
-@include panel-type(success, var(--ons-color-success), var(--ons-color-success-tint));
-@include panel-type(info, var(--ons-color-info), var(--ons-color-info-tint));
-@include panel-type(branded, var(--ons-color-branded), var(--ons-color-branded-tint));
-@include panel-type(warn, transparent, transparent);
-@include panel-type(warn-branded, var(--ons-color-branded-tertiary), var(--ons-color-branded-tertiary));
-@include panel-type(announcement, var(--ons-color-black), var(--ons-color-black));
+@include panel-variant(error, var(--ons-color-errors), var(--ons-color-errors-tint));
+@include panel-variant(success, var(--ons-color-success), var(--ons-color-success-tint));
+@include panel-variant(info, var(--ons-color-info), var(--ons-color-info-tint));
+@include panel-variant(branded, var(--ons-color-branded), var(--ons-color-branded-tint));
+@include panel-variant(warn, transparent, transparent);
+@include panel-variant(warn-branded, var(--ons-color-branded-tertiary), var(--ons-color-branded-tertiary));
+@include panel-variant(announcement, var(--ons-color-black), var(--ons-color-black));

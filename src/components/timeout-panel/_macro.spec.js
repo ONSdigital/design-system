@@ -36,7 +36,7 @@ describe('macro: timeout panel', () => {
     expect(panelSpy.occurrences[0]).toEqual({
       id: 'countdown',
       classes: 'ons-js-panel-with-countdown',
-      type: 'warn',
+      variant: 'warn',
       attributes: {
         'data-redirect-url': '#!',
         'data-server-session-expires-at': '000-000-000',
