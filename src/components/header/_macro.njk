@@ -36,7 +36,7 @@
                     <div class="ons-grid__col ons-col-auto">
                         {%- if not params.mastheadLogo.multipleLogos %}
                             {%-if params.mastheadLogoUrl %}
-                                <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoUrl }}">
+                                <a class="ons-header__org-link" href="{{ params.mastheadLogoUrl }}">
                             {% endif -%}
                             <div class="ons-header__org-logo ons-header__org-logo--large">
                                 {% if params.mastheadLogo.large %}
@@ -45,7 +45,7 @@
                                     {{-
                                         onsIcon({
                                             "iconType": 'ons-logo-' + currentLanguageISOCode,
-                                            "altText": 'Office for National Statistics logo'
+                                            "altText": 'Office for National Statistics logo which serves as a hyperlink to the homepage'
                                         })
                                     -}}
                                 {% endif %}
