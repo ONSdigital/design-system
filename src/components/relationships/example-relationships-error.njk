@@ -26,22 +26,21 @@ layout: ~
 {% block main %}
 
     {% call onsPanel({
-            title: "There is a problem with your answer",
-            type: "error"
-        })
-    %}
-    {{
-        onsList({
-            "element": "ol",
-            "itemsList": [
-                {
-                    "text": "Select a relationship",
-                    "url": "#relationship-error",
-                    "variants": "inPageLink"
-                }
-            ]
-        })
-    }}
+        "title": "There is a problem with your answer",
+        "variant": "error"
+    }) %}
+        {{
+            onsList({
+                "element": "ol",
+                "itemsList": [
+                    {
+                        "text": "Select a relationship",
+                        "url": "#relationship-error",
+                        "variants": "inPageLink"
+                    }
+                ]
+            })
+        }}
     {% endcall %}
     {% call onsQuestion({
         "title": "Thinking of Joe Bloggs, Amanda Bloggs is their <strong>…</strong>",

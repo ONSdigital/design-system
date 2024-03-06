@@ -1,18 +1,14 @@
 ---
-
 "fullWidth": true
 ---
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 {% call onsPanel({
-        "type": 'announcement'
-    })
-%}
+    "variant": 'announcement'
+}) %}
+    <p class="ons-u-mb-no">National lockdown: stay at home</p>
 
-<p class="ons-u-mb-no">National lockdown: stay at home</p>
-
-<div class="ons-u-fs-r">
-    <p>Coronavirus (COVID-19) remains a serious threat across the country. <a href="#0">Find out more</a></p>
-</div>
-
+    <div class="ons-u-fs-r">
+        <p>Coronavirus (COVID-19) remains a serious threat across the country. <a href="#0">Find out more</a></p>
+    </div>
 {% endcall %}

@@ -36,10 +36,9 @@
             <div class="ons-footer__warning">
                 <div class="ons-container">
                     {% call onsPanel({
-                            "type": "warn",
-                            "classes": "ons-panel--warn--footer"
-                        })
-                    %}
+                        "variant": "warn",
+                        "classes": "ons-panel--warn--footer"
+                    }) %}
                         {{ params.footerWarning | safe }}
                     {% endcall %}
                 </div>

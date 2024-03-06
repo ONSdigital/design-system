@@ -72,7 +72,7 @@ describe('macro: error', () => {
       FAKE_NESTED_CONTENT,
     );
 
-    expect(panelSpy.occurrences[0].type).toBe('error');
+    expect(panelSpy.occurrences[0].variant).toBe('error');
     expect(panelSpy.occurrences[0].id).toBe('example-error');
   });
 

@@ -170,7 +170,7 @@ describe('macro: question', () => {
       faker.renderComponent('question', EXAMPLE_QUESTION_WARNING);
 
       expect(panelSpy.occurrences[0]).toHaveProperty('id', 'warning-id');
-      expect(panelSpy.occurrences[0]).toHaveProperty('type', 'warn');
+      expect(panelSpy.occurrences[0]).toHaveProperty('variant', 'warn');
     });
 
     it('outputs the expected panel content', () => {

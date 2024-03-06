@@ -17,10 +17,9 @@ layout: ~
 } %}
 {% block main %}
     {% call onsPanel({
-            title: "There are 2 problems with your answer",
-            type: "error"
-        })
-    %}
+        "title": "There are 2 problems with your answer",
+        "variant": "error"
+    }) %}
         {{
             onsList({
                 "element": "ol",

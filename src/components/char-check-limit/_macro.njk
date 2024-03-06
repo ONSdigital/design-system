@@ -1,5 +1,5 @@
 {% macro onsCharLimit(params) %}
-    {% if params.type == "check" %}
+    {% if params.variant == "check" %}
         {% set content = caller() %}
         <span class="ons-js-char-check-input">
             {{ content | safe }}

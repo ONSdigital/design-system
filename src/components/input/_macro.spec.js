@@ -617,7 +617,7 @@ describe('macro: input', () => {
       expect(charCheckLimitSpy.occurrences).toContainEqual({
         id: 'example-id-check',
         limit: 200,
-        type: 'check',
+        variant: 'check',
         charCountSingular: 'You have {x} character remaining',
         charCountPlural: 'You have {x} characters remaining',
         charCountOverLimitSingular: '{x} character too many',
