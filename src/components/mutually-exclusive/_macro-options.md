@@ -11,14 +11,13 @@
 
 ## FieldSet
 
-| Name                  | Type              | Required                                     | Description                                                                               |
-| --------------------- | ----------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| id                    | string            | false                                        | The HTML `id` of the fieldset                                                             |
-| classes               | string            | false                                        | Classes to apply to the fieldset                                                          |
-| legend                | string            | true (unless `legendIsQuestionTitle` is set) | Text for the fieldset’s legend                                                            |
-| legendClasses         | string            | false                                        | Classes to apply to the legend element                                                    |
-| legendIsQuestionTitle | boolean           | true (unless `legend` is set)                | Creates an `h1` inside the `legend`. Use when there is only a single fieldset on the page |
-| legendClasses         | string            | false                                        | Classes to apply to the legend element                                                    |
-| description           | string            | false                                        | Description for the fieldset                                                              |
-| attributes            | object            | false                                        | HTML attributes (for example, data attributes) to add to the fieldset                     |
-| error                 | `Error` [_(ref)_] | false                                        | Configuration for validation errors                                                       |
+| Name                  | Type    | Required                                     | Description                                                                               |
+| --------------------- | ------- | -------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| id                    | string  | false                                        | The HTML `id` of the fieldset                                                             |
+| classes               | string  | false                                        | Classes to apply to the fieldset                                                          |
+| legend                | string  | true (unless `legendIsQuestionTitle` is set) | Text for the fieldset’s legend                                                            |
+| legendClasses         | string  | false                                        | Classes to apply to the legend element                                                    |
+| legendIsQuestionTitle | boolean | true (unless `legend` is set)                | Creates an `h1` inside the `legend`. Use when there is only a single fieldset on the page |
+| legendClasses         | string  | false                                        | Classes to apply to the legend element                                                    |
+| description           | string  | false                                        | Description for the fieldset                                                              |
+| attributes            | object  | false                                        | HTML attributes (for example, data attributes) to add to the fieldset                     |
