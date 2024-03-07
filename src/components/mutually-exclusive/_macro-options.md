@@ -6,4 +6,19 @@
 | deselectGroupAdjective           | string                               | true     | The text the aria-live alert will announce when an answer option is cleared or unselected when the mutually exclusive checkbox is selected                                                                 |
 | deselectExclusiveOptionAdjective | string                               | true     | The text the aria-live alert will announce when an option is cleared or unselected when the mutually exclusive checkbox is selected                                                                        |
 | error                            | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                                                                                                                                                        |
-| dontWrap                         | boolean                              | false    | Prevents the checkboxes,date input,duration,input and Textarea from being wrapped in a [fieldset component](/components/fieldset)                                                                          |
+| dontWrap                         | boolean                              | false    | Prevents fields,checkboxes,date input,duration,input and Textarea from being wrapped in a [fieldset component](/components/fieldset)                                                                       |
+| autosuggestresults               | string                               | false    | Shows suggested options to users as they enter something into an input field                                                                                                                               |
+
+## FieldSet
+
+| Name                  | Type              | Required                                     | Description                                                                               |
+| --------------------- | ----------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| id                    | string            | false                                        | The HTML `id` of the fieldset                                                             |
+| classes               | string            | false                                        | Classes to apply to the fieldset                                                          |
+| legend                | string            | true (unless `legendIsQuestionTitle` is set) | Text for the fieldset’s legend                                                            |
+| legendClasses         | string            | false                                        | Classes to apply to the legend element                                                    |
+| legendIsQuestionTitle | boolean           | true (unless `legend` is set)                | Creates an `h1` inside the `legend`. Use when there is only a single fieldset on the page |
+| legendClasses         | string            | false                                        | Classes to apply to the legend element                                                    |
+| description           | string            | false                                        | Description for the fieldset                                                              |
+| attributes            | object            | false                                        | HTML attributes (for example, data attributes) to add to the fieldset                     |
+| error                 | `Error` [_(ref)_] | false                                        | Configuration for validation errors                                                       |
