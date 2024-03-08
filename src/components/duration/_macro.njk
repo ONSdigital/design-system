@@ -1,6 +1,5 @@
 
-{% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
-{% from "components/fieldset/_macro.njk" import onsFieldset %}
+{% from "components/multiple-input-fields/_macro.njk" import onsMultipleInputFields %}
 {% from "components/input/_macro.njk" import onsInput %}
 
 {% macro onsDuration(params) %}
@@ -62,46 +61,18 @@
         {% endif %}
     {% endset %}
 
-    {% if numberOfFields > 1 %}
-        {% set fields %}
-            <div class="ons-field-group">
-                {{ fields | safe }}
-            </div>
-        {% endset %}
-    {% endif %}
-
-    {% if params.mutuallyExclusive %}
-        {% call onsMutuallyExclusive({
-            "id": params.id,
-            "legend": params.legendOrLabel,
-            "legendClasses": params.legendClasses,
-            "description": params.description,
-            "classes": params.classes,
-            "dontWrap": params.dontWrap if numberOfFields > 1 else true,
-            "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
-            "or": params.mutuallyExclusive.or,
-            "deselectMessage": params.mutuallyExclusive.deselectMessage,
-            "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-            "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
-            "error": params.error
-        }) %}
-            {{ fields | safe }}
-        {% endcall %}
-    {% elif numberOfFields > 1 %}
-        {% call onsFieldset({
-            "id": params.id,
-            "legend": params.legendOrLabel,
-            "legendClasses": params.legendClasses,
-            "description": params.description,
-            "classes": params.classes,
-            "dontWrap": params.dontWrap,
-            "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "error": params.error
-        }) %}
-            {{ fields | safe }}
-        {% endcall %}
-    {% else %}
-        {{ fields | safe }}
-    {% endif %}
+    {{ onsMultipleInputFields({
+        "id": params.id,
+        "legendOrLabel": params.legendOrLabel,
+        "description": params.description,
+        "mutuallyExclusive": params.mutuallyExclusive,
+        "numberOfFields": numberOfFields,
+        "fields": fields,
+        "error": params.error,
+        "legend": params.legendOrLabel,
+        "dontWrap": params.dontWrap,
+        "classes": params.classes,
+        "legendClasses": params.legendClasses,
+        "legendIsQuestionTitle": params.legendIsQuestionTitle
+    }) }}
 {% endmacro %}
