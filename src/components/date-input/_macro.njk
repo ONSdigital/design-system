@@ -21,9 +21,9 @@
         {% set dayField = {
             "id": params.id + "-day",
             "label": {
-                 "text": params.day.label.text if numberOfFields > 1 else params.legendOrLabel,
-                 "description": params.day.label.description if numberOfFields > 1 else params.description,
-                  "id": params.id + "-day-label"
+                "text": params.day.label.text if numberOfFields > 1 else params.legendOrLabel,
+                "description": params.day.label.description if numberOfFields > 1 else params.description,
+                "id": params.id + "-day-label"
             },
             "name": params.day.name,
             "width": "2",
@@ -39,7 +39,7 @@
     {% if params.month %}
         {% set monthField = {
             "id": params.id + "-month",
-            "label": { 
+            "label": {
                 "text": params.month.label.text if numberOfFields > 1 else params.legendOrLabel,
                 "description": params.month.label.description if numberOfFields > 1 else params.description,
                 "id": params.id + "-month-label"
@@ -58,18 +58,18 @@
     {% if params.year %}
         {% set yearField = {
             "id": params.id + "-year",
-            "label": { 
+            "label": {
                 "text": params.year.label.text if numberOfFields > 1 else params.legendOrLabel,
                 "description": params.year.label.description if numberOfFields > 1 else params.description,
                 "id": params.id + "-year-label"
-            }, 
+            },
             "name": params.year.name,
             "width": "4",
             "min": 1000,
             "max": 3000,
             "maxLength": 4,
             "attributes": params.year.attributes,
-            "value": params.year.value, 
+            "value": params.year.value,
             "classes": (" ons-input--error" if (params.error and params.year.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default("")
         } %}
         {% set fields = (fields.push(yearField), fields) %}

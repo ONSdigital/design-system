@@ -27,7 +27,7 @@
             },
             "width": "2",
             "fieldId": params.id if numberOfFields < 2,
-            "value": params.field1.value, 
+            "value": params.field1.value,
             "error": params.error if numberOfFields < 2,
             "classes": (" ons-input--error" if (params.error and params.field1.error) or (params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else "")
         } %}
@@ -40,10 +40,10 @@
             "name": params.field2.name,
             "attributes": params.field2.attributes,
             "width": "2",
-            "label": { 
+            "label": {
                 "text": params.legendOrLabel if numberOfFields < 2,
                 "description": params.description if numberOfFields < 2
-            },  
+            },
             "suffix": {
                 "text": params.field2.suffix.text,
                 "title": params.field2.suffix.title,
@@ -56,7 +56,7 @@
         } %}
         {% set fields = (fields.push(field2), fields) %}
     {% endif %}
-  
+
     {{ onsDateFieldInput({
         "id": params.id,
         "legendOrLabel": params.legendOrLabel,
