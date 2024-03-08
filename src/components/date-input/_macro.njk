@@ -1,8 +1,11 @@
-{% from "components/date-field-input/_macro.njk" import onsDateFieldInput %}
+{% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
+{% from "components/fieldset/_macro.njk" import onsFieldset %}
+{% from "components/input/_macro.njk" import onsInput %}
 
 {% macro onsDateInput(params) %}
     {% set exclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
-     {%- set numberOfFields = 0 -%}
+
+    {%- set numberOfFields = 0 -%}
 
     {%- if params.day -%}
         {%- set numberOfFields = numberOfFields + 1 -%}
@@ -16,82 +19,111 @@
         {%- set numberOfFields = numberOfFields + 1 -%}
     {%- endif -%}
 
-    {% set fields = [] %}
-    {% if params.day %}
-        {% set dayField = {
-            "id": params.id + "-day",
-            "label": {
-                "text": params.day.label.text if numberOfFields > 1 else params.legendOrLabel,
-                "description": params.day.label.description if numberOfFields > 1 else params.description,
-                "id": params.id + "-day-label"
-            },
-            "name": params.day.name,
-            "width": "2",
-            "min": 1,
-            "max": 31,
-            "maxLength": 2,
-            "attributes": params.day.attributes,
-            "value": params.day.value,
-            "classes": (" ons-input--error" if (params.error and params.day.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default("")
-        } %}
-        {% set fields = (fields.push(dayField), fields) %}
-    {% endif %}
-    {% if params.month %}
-        {% set monthField = {
-            "id": params.id + "-month",
-            "label": {
-                "text": params.month.label.text if numberOfFields > 1 else params.legendOrLabel,
-                "description": params.month.label.description if numberOfFields > 1 else params.description,
-                "id": params.id + "-month-label"
-            },
-            "name": params.month.name,
-            "width": "2",
-            "min": 1,
-            "max": 12,
-            "maxLength": 2,
-            "attributes": params.month.attributes,
-            "value": params.month.value,
-            "classes": (" ons-input--error" if (params.error and params.month.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default("")
-        } %}
-        {% set fields = (fields.push(monthField), fields) %}
-    {% endif %}
-    {% if params.year %}
-        {% set yearField = {
-            "id": params.id + "-year",
-            "label": {
-                "text": params.year.label.text if numberOfFields > 1 else params.legendOrLabel,
-                "description": params.year.label.description if numberOfFields > 1 else params.description,
-                "id": params.id + "-year-label"
-            },
-            "name": params.year.name,
-            "width": "4",
-            "min": 1000,
-            "max": 3000,
-            "maxLength": 4,
-            "attributes": params.year.attributes,
-            "value": params.year.value,
-            "classes": (" ons-input--error" if (params.error and params.year.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default("")
-        } %}
-        {% set fields = (fields.push(yearField), fields) %}
+    {% set fields %}
+        {% if params.day %}
+            {{ onsInput({
+                "id": params.id + "-day",
+                "type": "number",
+                "name": params.day.name,
+                "classes": (" ons-input--error" if (params.error and params.day.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default(""),
+                "width": "2",
+                "min": 1,
+                "max": 31,
+                "maxLength": 2,
+                "attributes": params.day.attributes,
+                "label": {
+                    "text": params.day.label.text if numberOfFields > 1 else params.legendOrLabel,
+                    "description": params.day.label.description if numberOfFields > 1 else params.description,
+                    "id": params.id + "-day-label"
+                },
+                "value": params.day.value,
+                "error": params.error if numberOfFields < 2
+            }) }}
+        {% endif %}
+
+        {% if params.month %}
+            {{ onsInput({
+                "id": params.id + "-month",
+                "type": "number",
+                "name": params.month.name,
+                "classes": (" ons-input--error" if (params.error and params.month.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default(""),
+                "width": "2",
+                "min": 1,
+                "max": 12,
+                "maxLength": 2,
+                "attributes": params.month.attributes,
+                "label": {
+                    "text": params.month.label.text if numberOfFields > 1 else params.legendOrLabel,
+                    "description": params.month.label.description if numberOfFields > 1 else params.description,
+                    "id": params.id + "-month-label"
+                },
+                "value": params.month.value,
+                "error": params.error if numberOfFields < 2
+            }) }}
+        {% endif %}
+
+        {% if params.year %}
+            {{ onsInput({
+                "id": params.id + "-year",
+                "type": "number",
+                "name": params.year.name,
+                "classes": (" ons-input--error" if (params.error and params.year.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default(""),
+                "width": "4",
+                "min": 1000,
+                "max": 3000,
+                "maxLength": 4,
+                "attributes": params.year.attributes,
+                "label": {
+                    "text": params.year.label.text if numberOfFields > 1 else params.legendOrLabel,
+                    "description": params.year.label.description if numberOfFields > 1 else params.description,
+                    "id": params.id + "-year-label"
+                },
+                "value": params.year.value,
+                "error": params.error if numberOfFields < 2
+            }) }}
+        {% endif %}
+    {% endset %}
+
+    {% if numberOfFields > 1 %}
+        {% set fields %}
+            <div class="ons-field-group">
+                {{ fields | safe }}
+            </div>
+        {% endset %}
     {% endif %}
 
-    {{ onsDateFieldInput({
-        "id": params.id,
-        "legendOrLabel": params.legendOrLabel,
-        "description": params.description,
-        "mutuallyExclusive": params.mutuallyExclusive,
-        "fields": fields,
-        "numberOfFields": numberOfFields,
-        "error": params.error,
-        "legend": params.legendOrLabel,
-        "dontWrap": params.dontWrap,
-        "legendClasses": params.legendClasses,
-        "legendIsQuestionTitle": params.legendIsQuestionTitle,
-        "classes": params.classes,
-        "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
-        "or": params.mutuallyExclusive.or,
-        "deselectMessage": params.mutuallyExclusive.deselectMessage,
-        "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-        "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective
-    }) }}
+    {% if params.mutuallyExclusive %}
+        {% call onsMutuallyExclusive({
+            "id": params.id,
+            "legend": params.legendOrLabel,
+            "legendClasses": params.legendClasses,
+            "description": params.description,
+            "classes": params.classes,
+            "dontWrap": params.dontWrap if numberOfFields > 1 else true,
+            "legendIsQuestionTitle": params.legendIsQuestionTitle,
+            "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
+            "or": params.mutuallyExclusive.or,
+            "deselectMessage": params.mutuallyExclusive.deselectMessage,
+            "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
+            "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
+            "error": params.error
+        }) %}
+            {{ fields | safe }}
+        {% endcall %}
+    {% elif numberOfFields > 1 %}
+        {% call onsFieldset({
+            "id": params.id,
+            "legend": params.legendOrLabel,
+            "legendClasses": params.legendClasses,
+            "description": params.description,
+            "classes": params.classes,
+            "dontWrap": params.dontWrap,
+            "legendIsQuestionTitle": params.legendIsQuestionTitle,
+            "error": params.error
+        }) %}
+            {{ fields | safe }}
+        {% endcall %}
+    {% else %}
+        {{ fields | safe }}
+    {% endif %}
 {% endmacro %}
