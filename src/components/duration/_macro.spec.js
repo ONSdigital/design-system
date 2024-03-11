@@ -214,7 +214,7 @@ describe('macro: duration', () => {
         id: 'address-duration-years',
         type: 'number',
         width: '2',
-        classes: undefined,
+        classes: '',
         value: '0',
         attributes: undefined,
         error: undefined,
@@ -227,6 +227,7 @@ describe('macro: duration', () => {
         suffix: {
           id: 'address-duration-years-suffix',
           text: 'Years',
+          title: undefined,
         },
       });
     });
