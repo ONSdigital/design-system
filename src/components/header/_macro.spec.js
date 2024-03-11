@@ -351,7 +351,7 @@ describe('macro: header', () => {
           }),
         );
 
-        expect($('.ons-header__org-logo-link').attr('href')).toBe('#0');
+        expect($('.ons-header__org-link').attr('href')).toBe('#0');
       });
 
       it('when multiple images are provided all show', () => {
