@@ -171,7 +171,6 @@ describe('macro: duration', () => {
         legendIsQuestionTitle: true,
         error: false,
         mutuallyExclusive: {
-          exclusiveOptions: {},
           or: 'Or',
           deselectMessage: 'Deselect message',
           deselectGroupAdjective: 'Deselect group adjective',
