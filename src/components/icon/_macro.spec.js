@@ -91,10 +91,10 @@ describe('macro: icon', () => {
   });
 
   describe.each([
-    ['ons-logo-en', 'Office for National Statistics logo which serves as a hyperlink to the homepage'],
-    ['ons-logo-cy', "Logo'r Swyddfa Ystadegau Gwladol sy'n gweithredu fel hyperddolen i'r hafan"],
-    ['ons-logo-stacked-en', 'Office for National Statistics logo which serves as a hyperlink to the homepage'],
-    ['ons-logo-stacked-cy', "Logo'r Swyddfa Ystadegau Gwladol sy'n gweithredu fel hyperddolen i'r hafan"],
+    ['ons-logo-en', 'Office for National Statistics homepage'],
+    ['ons-logo-cy', 'hafan Swyddfa Ystadegau Gwladol'],
+    ['ons-logo-stacked-en', 'Office for National Statistics homepage'],
+    ['ons-logo-stacked-cy', 'hafan Swyddfa Ystadegau Gwladol'],
     ['crest', 'Royal coat of arms of the United Kingdom'],
     ['ogl', 'Open Government License logo'],
   ])('icon type: %s', (iconType, expectedAltText) => {

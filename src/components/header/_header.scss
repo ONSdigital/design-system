@@ -146,7 +146,7 @@
     width: 100%;
   }
 
-  &__org-link,
+  &__org-logo-link,
   &__title-logo-link {
     display: block;
     font-size: 0;
@@ -155,7 +155,7 @@
     }
   }
 
-  &__org-link {
+  &__org-logo-link {
     &:focus {
       .ons-icon--logo {
         fill: var(--ons-color-black) !important;
