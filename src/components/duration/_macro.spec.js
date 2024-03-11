@@ -141,10 +141,11 @@ describe('macro: duration', () => {
           mutuallyExclusive: {
             legendClasses: 'custom-legend-class',
             dontWrap: true,
+            classes: undefined,
             legendIsQuestionTitle: true,
             error: false,
             mutuallyExclusive: {
-              checkbox: {},
+              exclusiveOptions: {},
               or: 'Or',
               deselectMessage: 'Deselect message',
               deselectGroupAdjective: 'Deselect group adjective',
@@ -166,10 +167,11 @@ describe('macro: duration', () => {
         ...EXAMPLE_DURATION_MULTIPLE_FIELDS,
         legendClasses: 'custom-legend-class',
         dontWrap: true,
+        classes: undefined,
         legendIsQuestionTitle: true,
         error: false,
         mutuallyExclusive: {
-          checkbox: {},
+          exclusiveOptions: {},
           or: 'Or',
           deselectMessage: 'Deselect message',
           deselectGroupAdjective: 'Deselect group adjective',
@@ -185,7 +187,6 @@ describe('macro: duration', () => {
         dontWrap: true,
         legendIsQuestionTitle: true,
         error: false,
-        checkbox: {},
         or: 'Or',
         deselectMessage: 'Deselect message',
         deselectGroupAdjective: 'Deselect group adjective',

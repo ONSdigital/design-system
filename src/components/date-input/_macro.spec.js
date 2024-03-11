@@ -177,6 +177,7 @@ describe('macro: date input', () => {
         max: 31,
         maxLength: 2,
         classes: '',
+        error: '',
         label: {
           text: 'Day',
           description: 'The day',
@@ -204,6 +205,7 @@ describe('macro: date input', () => {
         max: 12,
         maxLength: 2,
         classes: '',
+        error: '',
         label: {
           text: 'Month',
           description: 'The month',
@@ -231,6 +233,7 @@ describe('macro: date input', () => {
         max: 3000,
         maxLength: 4,
         classes: '',
+        error: '',
         label: {
           text: 'Year',
           description: 'The year',
