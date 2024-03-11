@@ -275,7 +275,7 @@ describe('macro: header', () => {
 
       faker.renderComponent('header', EXAMPLE_HEADER_BASIC);
 
-      expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics logo which serves as a hyperlink to the homepage');
+      expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics homepage');
     });
 
     it('has the default masthead mobile logo icon alt text', () => {
