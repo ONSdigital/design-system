@@ -10,3 +10,5 @@
 | attributes        | object  | false    | HTML attributes (for example, data attributes) to add to the details                                                |
 | headingAttributes | object  | false    | HTML attributes (for example, data attributes) to add to the details header element                                 |
 | contentAttributes | object  | false    | HTML attributes (for example, data attributes) to add to the details content element                                |
+| isAccordion       | boolean | false    | Checks if the functionaltiy needs to be accordion. If true, adds the appropriate class                              |
+| group             | string  | false    | Used for accordian component where mutilple details components are grouped                                          |
