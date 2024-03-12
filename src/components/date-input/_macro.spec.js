@@ -252,6 +252,12 @@ describe('macro: date input', () => {
       expect($(div).hasClass('ons-field-group')).toBe(true);
     });
 
+    it('has the correct number of inputs', () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS));
+      const $inputs = $('.ons-input');
+      expect($inputs.length).toBe(3);
+    });
+
     it('has the expected `fieldset` output', () => {
       const faker = templateFaker();
       const fieldsetSpy = faker.spy('fieldset');
@@ -357,6 +363,12 @@ describe('macro: date input', () => {
           autocomplete: 'bday-year',
         },
       });
+    });
+
+    it('has the correct number of inputs', () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_SINGLE_FIELD));
+      const $inputs = $('.ons-input');
+      expect($inputs.length).toBe(1);
     });
 
     it('has the expected `error` output', () => {

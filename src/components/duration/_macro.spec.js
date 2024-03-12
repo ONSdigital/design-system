@@ -174,6 +174,12 @@ describe('macro: duration', () => {
       expect($(div).hasClass('ons-field-group')).toBe(true);
     });
 
+    it('has the correct number of inputs', () => {
+      const $ = cheerio.load(renderComponent('duration', EXAMPLE_DURATION_MULTIPLE_FIELDS));
+      const $inputs = $('.ons-input');
+      expect($inputs.length).toBe(2);
+    });
+
     it('has the expected `fieldset` output', () => {
       const faker = templateFaker();
       const fieldsetSpy = faker.spy('fieldset');
@@ -294,6 +300,12 @@ describe('macro: duration', () => {
           title: undefined,
         },
       });
+    });
+
+    it('has the correct number of inputs', () => {
+      const $ = cheerio.load(renderComponent('duration', EXAMPLE_DURATION_SINGLE_FIELD));
+      const $inputs = $('.ons-input');
+      expect($inputs.length).toBe(1);
     });
 
     it('has the expected `error` output', () => {
