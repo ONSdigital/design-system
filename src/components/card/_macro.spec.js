@@ -56,11 +56,11 @@ describe('macro: card', () => {
     it.each([
       [1, 'h1'],
       [4, 'h4'],
-    ])('has the correct element type for the provided `titleSize` (%i -> %s)', (titleSize, expectedTitleTag) => {
+    ])('has the correct element type for the provided `headingLevel` (%i -> %s)', (headingLevel, expectedTitleTag) => {
       const $ = cheerio.load(
         renderComponent('card', {
           ...EXAMPLE_CARD_WITHOUT_IMAGE,
-          titleSize,
+          headingLevel,
         }),
       );
 
@@ -117,11 +117,11 @@ describe('macro: card', () => {
     it.each([
       [1, 'h1'],
       [4, 'h4'],
-    ])('has the correct element type for the provided `titleSize` (%i -> %s)', (titleSize, expectedTitleTag) => {
+    ])('has the correct element type for the provided `headingLevel` (%i -> %s)', (headingLevel, expectedTitleTag) => {
       const $ = cheerio.load(
         renderComponent('card', {
           ...EXAMPLE_CARD_WITH_IMAGE,
-          titleSize,
+          headingLevel,
         }),
       );
 
