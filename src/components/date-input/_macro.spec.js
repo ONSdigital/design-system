@@ -107,7 +107,7 @@ const EXAMPLE_YEAR_FIELD_WITH_ERROR = {
   },
 };
 
-const EXAMPLE_YEAR_FIELD_WITH_NO_ERROR = {
+const EXAMPLE_YEAR_FIELD_WITH_ERROR_FALSE = {
   year: {
     label: {
       text: 'Year',
@@ -148,9 +148,9 @@ const EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_ERROR = {
   ...EXAMPLE_YEAR_FIELD_WITH_ERROR,
 };
 
-const EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_NO_ERROR = {
+const EXAMPLE_DATE_SINGLE_FIELD_WITH_ERROR_FALSE = {
   ...EXAMPLE_DATE_INPUT_BASE,
-  ...EXAMPLE_YEAR_FIELD_WITH_NO_ERROR,
+  ...EXAMPLE_YEAR_FIELD_WITH_ERROR_FALSE,
 };
 
 describe('macro: date input', () => {
@@ -374,7 +374,7 @@ describe('macro: date input', () => {
     });
   });
 
-  describe('mode: multiple fields with single field error', () => {
+  describe('mode: multiple fields with errors', () => {
     it('passes jest-axe checks', async () => {
       const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_SINGLE_ERROR));
 
@@ -397,7 +397,7 @@ describe('macro: date input', () => {
     });
 
     it('does not provide error class when error parameter set to false', async () => {
-      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_NO_ERROR));
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_SINGLE_FIELD_WITH_ERROR_FALSE));
       const $errorContent = $('.ons-input--error');
 
       expect($errorContent.length).toBe(0);

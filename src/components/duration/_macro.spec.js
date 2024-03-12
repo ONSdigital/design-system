@@ -11,6 +11,15 @@ const EXAMPLE_DURATION_INPUT_BASE = {
   description: 'Enter “0” into the years field if you have lived at this address for less than a year',
 };
 
+const EXAMPLE_DURATION_INPUT_BASE_WITH_ERROR = {
+  id: 'duration',
+  legendOrLabel: 'How long have you lived at this address?',
+  description: 'Enter “0” into the years field if you have lived at this address for less than a year',
+  error: {
+    text: 'Enter how long you have lived at this address',
+  },
+};
+
 const EXAMPLE_FIELD_1 = {
   field1: {
     id: 'address-duration-years',
@@ -35,6 +44,45 @@ const EXAMPLE_FIELD_2 = {
   },
 };
 
+const EXAMPLE_FIELD_1_WITH_ERROR = {
+  field1: {
+    id: 'address-duration-years',
+    name: 'address-duration-years',
+    value: '0',
+    error: true,
+    suffix: {
+      text: 'Years',
+      id: 'address-duration-years-suffix',
+    },
+  },
+};
+
+const EXAMPLE_FIELD_2_WITH_ERROR = {
+  field2: {
+    id: 'address-duration-months',
+    name: 'address-duration-months',
+    value: '0',
+    error: true,
+    suffix: {
+      text: 'Months',
+      id: 'address-duration-months-suffix',
+    },
+  },
+};
+
+const EXAMPLE_FIELD_1_WITH_ERROR_FALSE = {
+  field1: {
+    id: 'address-duration-years',
+    name: 'address-duration-years',
+    value: '0',
+    error: false,
+    suffix: {
+      text: 'Years',
+      id: 'address-duration-years-suffix',
+    },
+  },
+};
+
 const EXAMPLE_DURATION_SINGLE_FIELD = {
   ...EXAMPLE_DURATION_INPUT_BASE,
   ...EXAMPLE_FIELD_1,
@@ -44,6 +92,23 @@ const EXAMPLE_DURATION_MULTIPLE_FIELDS = {
   ...EXAMPLE_DURATION_INPUT_BASE,
   ...EXAMPLE_FIELD_1,
   ...EXAMPLE_FIELD_2,
+};
+
+const EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_SINGLE_ERROR = {
+  ...EXAMPLE_DURATION_INPUT_BASE_WITH_ERROR,
+  ...EXAMPLE_FIELD_1,
+  ...EXAMPLE_FIELD_2_WITH_ERROR,
+};
+
+const EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_ERROR = {
+  ...EXAMPLE_DURATION_INPUT_BASE_WITH_ERROR,
+  ...EXAMPLE_FIELD_1_WITH_ERROR,
+  ...EXAMPLE_FIELD_2_WITH_ERROR,
+};
+
+const EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_ERROR_FALSE = {
+  ...EXAMPLE_DATE_INPUT_BASE,
+  ...EXAMPLE_FIELD_1_WITH_ERROR_FALSE,
 };
 
 describe('macro: duration', () => {
@@ -243,6 +308,35 @@ describe('macro: duration', () => {
       expect(errorSpy.occurrences[0]).toEqual({
         text: 'Put something else',
       });
+    });
+  });
+  describe('mode: multiple fields with errors', () => {
+    it('passes jest-axe checks', async () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_SINGLE_ERROR));
+
+      const results = await axe($.html());
+      expect(results).toHaveNoViolations();
+    });
+
+    it('has the provided error class on one input', async () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_SINGLE_ERROR));
+      const $errorContent = $('.ons-input--error');
+
+      expect($errorContent.length).toBe(1);
+    });
+
+    it('has the provided error class on multiple inputs', async () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_ERROR));
+      const $errorContent = $('.ons-input--error');
+
+      expect($errorContent.length).toBe(3);
+    });
+
+    it('does not provide error class when error parameter set to false', async () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_ERROR_FALSE));
+      const $errorContent = $('.ons-input--error');
+
+      expect($errorContent.length).toBe(0);
     });
   });
 });
