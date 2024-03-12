@@ -8,6 +8,8 @@
                 {{ params.fields | safe }}
             </div>
         {% endset %}
+    {% else %}
+        {{ params.fields | safe }}
     {% endif %}
 
     {% if params.mutuallyExclusive %}
