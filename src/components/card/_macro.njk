@@ -1,6 +1,6 @@
 {%- macro onsCard(params) -%}
 
-    {% set titleSize = params.titleSize | default('2') %}
+    {% set headingLevel = params.headingLevel | default(2) %}
 
     <div class="ons-card">
         <a href="{{ params.url }}" class="ons-card__link">
@@ -11,9 +11,9 @@
                     <img class="ons-card__image ons-u-mb-s " height="100" width="303" srcset="{{ params.image.placeholderURL if params.image.placeholderURL }}/img/small/placeholder-card.png 1x, {{ params.image.placeholderURL if params.image.placeholderURL }}/img/large/placeholder-card.png 2x" src="{{ params.image.placeholderURL if params.image.placeholderURL }}/img/small/placeholder-card.png" alt="" loading="lazy">
                 {% endif %}
             {%- endif -%}
-            <h{{ titleSize }} class="ons-card__title {{ params.titleClasses | default('ons-u-fs-m')}}" id="{{ params.id }}">
+            <h{{ headingLevel }} class="ons-card__title {{ params.titleClasses | default('ons-u-fs-m')}}" id="{{ params.id }}">
                 {{ params.title }}
-            </h{{ titleSize }}>
+            </h{{ headingLevel }}>
         </a>
 
         <p id="{{ params.textId }}">{{ params.text }}</p>
