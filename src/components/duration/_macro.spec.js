@@ -310,30 +310,31 @@ describe('macro: duration', () => {
       });
     });
   });
+
   describe('mode: multiple fields with errors', () => {
     it('passes jest-axe checks', async () => {
-      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_SINGLE_ERROR));
+      const $ = cheerio.load(renderComponent('duration', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_SINGLE_ERROR));
 
       const results = await axe($.html());
       expect(results).toHaveNoViolations();
     });
 
     it('has the provided error class on one input', async () => {
-      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_SINGLE_ERROR));
+      const $ = cheerio.load(renderComponent('duration', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_SINGLE_ERROR));
       const $errorContent = $('.ons-input--error');
 
       expect($errorContent.length).toBe(1);
     });
 
     it('has the provided error class on multiple inputs', async () => {
-      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_ERROR));
+      const $ = cheerio.load(renderComponent('duration', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_ERROR));
       const $errorContent = $('.ons-input--error');
 
       expect($errorContent.length).toBe(3);
     });
 
     it('does not provide error class when error parameter set to false', async () => {
-      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_ERROR_FALSE));
+      const $ = cheerio.load(renderComponent('duration', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_ERROR_FALSE));
       const $errorContent = $('.ons-input--error');
 
       expect($errorContent.length).toBe(0);
