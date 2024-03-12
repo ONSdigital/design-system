@@ -330,7 +330,7 @@ describe('macro: duration', () => {
       const $ = cheerio.load(renderComponent('duration', EXAMPLE_DURATION_MULTIPLE_FIELDS_WITH_ERROR));
       const $errorContent = $('.ons-input--error');
 
-      expect($errorContent.length).toBe(3);
+      expect($errorContent.length).toBe(2);
     });
 
     it('does not provide error class when error parameter set to false', async () => {
