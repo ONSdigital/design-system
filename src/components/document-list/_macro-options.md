@@ -40,7 +40,7 @@
 
 | Name | Type   | Required | Description                                                                                                                        |
 | ---- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| text | string | true     | Label for the type of document, for example “User requested data”.                                                                 |
+| text | string | false    | Label for the type of document, for example “User requested data”.                                                                 |
 | url  | string | false    | URL `href` for the type. Can be used to filter a list of documents by category.                                                    |
 | ref  | string | false    | Text for a sub-type or reference. Can be used to give extra detail about the type, for example, “User requested data: Ref 008052”. |
 
@@ -48,8 +48,8 @@
 
 | Name       | Type    | Required | Description                                                                                                                          |
 | ---------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| iso        | string  | true     | ISO format meachine-readable date, for example, `2020-05-20`                                                                         |
-| short      | string  | true     | Displayed short format of the date, for example, “20 May 2020”                                                                       |
+| iso        | string  | false    | ISO format meachine-readable date, for example, `2020-05-20`                                                                         |
+| short      | string  | false    | Displayed short format of the date, for example, “20 May 2020”                                                                       |
 | prefix     | string  | false    | Label to prefix the date for context, for example, “Last updated” (Defaults to “Published”). Is automatically suffixed with a colon. |
 | showPrefix | boolean | false    | Displays the `prefix` when set to `true`. Otherwise it will be hidden. Use when context is required.                                 |
 
@@ -57,6 +57,6 @@
 
 | Name      | Type   | Required | Description                                                      |
 | --------- | ------ | -------- | ---------------------------------------------------------------- |
-| fileType  | string | true     | Format of the file, for example, PDF, DOC, XLS                   |
-| fileSize  | string | true     | Size of the file in megabytes or kilobytes, for example, “850KB” |
+| fileType  | string | false    | Format of the file, for example, PDF, DOC, XLS                   |
+| fileSize  | string | false    | Size of the file in megabytes or kilobytes, for example, “850KB” |
 | filePages | string | false    | Number of pages in the file, for example, “16 pages”             |
