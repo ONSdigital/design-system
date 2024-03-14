@@ -1,0 +1,27 @@
+{% from "components/date-input/_macro.njk" import onsDateInput %}
+
+{{
+    onsDateInput({
+        "id": "date-input-example-double",
+        "legendOrLabel": "Month and year of last MOT",
+        "description": "For example, 3 2023",
+        "month": {
+            "label": {
+                "text": "Month"
+            },
+            "name": "month",
+            "attributes": {
+                "autocomplete": "mot-month"
+            }
+        },
+        "year": {
+            "label": {
+                "text": "Year"
+            },
+            "name": "year",
+            "attributes": {
+                "autocomplete": "mot-year"
+            }
+        }
+    })
+}}
