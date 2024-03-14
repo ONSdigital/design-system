@@ -107,7 +107,7 @@ const EXAMPLE_YEAR_FIELD_WITH_ERROR = {
   },
 };
 
-const EXAMPLE_YEAR_FIELD_WITH_NO_ERROR = {
+const EXAMPLE_YEAR_FIELD_WITH_ERROR_FALSE = {
   year: {
     label: {
       text: 'Year',
@@ -148,9 +148,9 @@ const EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_ERROR = {
   ...EXAMPLE_YEAR_FIELD_WITH_ERROR,
 };
 
-const EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_NO_ERROR = {
+const EXAMPLE_DATE_SINGLE_FIELD_WITH_ERROR_FALSE = {
   ...EXAMPLE_DATE_INPUT_BASE,
-  ...EXAMPLE_YEAR_FIELD_WITH_NO_ERROR,
+  ...EXAMPLE_YEAR_FIELD_WITH_ERROR_FALSE,
 };
 
 describe('macro: date input', () => {
@@ -177,6 +177,7 @@ describe('macro: date input', () => {
         max: 31,
         maxLength: 2,
         classes: '',
+        error: '',
         label: {
           text: 'Day',
           description: 'The day',
@@ -204,6 +205,7 @@ describe('macro: date input', () => {
         max: 12,
         maxLength: 2,
         classes: '',
+        error: '',
         label: {
           text: 'Month',
           description: 'The month',
@@ -231,6 +233,7 @@ describe('macro: date input', () => {
         max: 3000,
         maxLength: 4,
         classes: '',
+        error: '',
         label: {
           text: 'Year',
           description: 'The year',
@@ -247,6 +250,12 @@ describe('macro: date input', () => {
       const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS));
       const div = $('.ons-field:first-child').parent();
       expect($(div).hasClass('ons-field-group')).toBe(true);
+    });
+
+    it('has the correct number of inputs', () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS));
+      const $inputs = $('.ons-input');
+      expect($inputs.length).toBe(3);
     });
 
     it('has the expected `fieldset` output', () => {
@@ -356,6 +365,12 @@ describe('macro: date input', () => {
       });
     });
 
+    it('has the correct number of inputs', () => {
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_SINGLE_FIELD));
+      const $inputs = $('.ons-input');
+      expect($inputs.length).toBe(1);
+    });
+
     it('has the expected `error` output', () => {
       const faker = templateFaker();
       const errorSpy = faker.spy('error');
@@ -371,7 +386,7 @@ describe('macro: date input', () => {
     });
   });
 
-  describe('mode: multiple fields with single field error', () => {
+  describe('mode: multiple fields with errors', () => {
     it('passes jest-axe checks', async () => {
       const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_SINGLE_ERROR));
 
@@ -394,7 +409,7 @@ describe('macro: date input', () => {
     });
 
     it('does not provide error class when error parameter set to false', async () => {
-      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_MULTIPLE_FIELDS_WITH_NO_ERROR));
+      const $ = cheerio.load(renderComponent('date-input', EXAMPLE_DATE_SINGLE_FIELD_WITH_ERROR_FALSE));
       const $errorContent = $('.ons-input--error');
 
       expect($errorContent.length).toBe(0);
