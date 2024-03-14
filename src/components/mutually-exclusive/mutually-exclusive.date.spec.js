@@ -31,7 +31,35 @@ const EXAMPLE_MUTUALLY_EXCLUSIVE_DATE_PARAMS = {
     deselectExclusiveOptionAdjective: 'deselected',
     exclusiveOptions: [
       {
-        id: 'date-exclusive-exclusive-option',
+        id: 'date-exclusive-option',
+        name: 'no-paid-job',
+        value: 'no-paid-job',
+        label: {
+          text: 'I have never had a paid job',
+        },
+      },
+    ],
+  },
+};
+
+const EXAMPLE_MUTUALLY_EXCLUSIVE_DATE_SINGLE_PARAMS = {
+  id: 'date-mutually-exclusive',
+  legendOrLabel: 'What year was your last MOT?',
+  description: 'For example, 2018',
+  year: {
+    label: {
+      text: 'Year',
+    },
+    name: 'year-exclusive',
+  },
+  mutuallyExclusive: {
+    or: 'Or',
+    deselectMessage: 'Selecting this will clear the date if one has been inputted',
+    deselectGroupAdjective: 'cleared',
+    deselectExclusiveOptionAdjective: 'deselected',
+    exclusiveOptions: [
+      {
+        id: 'date-exclusive-option',
         name: 'no-paid-job',
         value: 'no-paid-job',
         label: {
@@ -57,11 +85,11 @@ describe('script: mutually-exclusive', () => {
 
       describe('when the user clicks the mutually exclusive option', () => {
         beforeEach(async () => {
-          await page.click('#date-exclusive-exclusive-option');
+          await page.click('#date-exclusive-option');
         });
 
         it('then the mutually exclusive option should be checked', async () => {
-          const isChecked = await page.$eval('#date-exclusive-exclusive-option', (node) => node.checked);
+          const isChecked = await page.$eval('#date-exclusive-option', (node) => node.checked);
           expect(isChecked).toBe(true);
         });
 
@@ -85,7 +113,7 @@ describe('script: mutually-exclusive', () => {
 
     describe('Given the user has checked the mutually exclusive exclusive option', () => {
       beforeEach(async () => {
-        await page.click('#date-exclusive-exclusive-option');
+        await page.click('#date-exclusive-option');
       });
 
       describe('when the user populates the dateInput', () => {
@@ -96,7 +124,7 @@ describe('script: mutually-exclusive', () => {
         });
 
         it('then the mutually exclusive option should be checked', async () => {
-          const isChecked = await page.$eval('#date-exclusive-exclusive-option', (node) => node.checked);
+          const isChecked = await page.$eval('#date-exclusive-option', (node) => node.checked);
           expect(isChecked).toBe(false);
         });
 
@@ -127,7 +155,93 @@ describe('script: mutually-exclusive', () => {
 
       describe('when the user clicks the mutually exclusive option', () => {
         beforeEach(async () => {
-          await page.click('#date-exclusive-exclusive-option');
+          await page.click('#date-exclusive-option');
+        });
+
+        it('then the aria alert shouldnt say anything', async () => {
+          await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
+
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
+          expect(alertText).toBe('');
+        });
+      });
+    });
+  });
+  describe('date-year', () => {
+    beforeEach(async () => {
+      await setTestPage('/test', renderComponent('date-input', EXAMPLE_MUTUALLY_EXCLUSIVE_DATE_SINGLE_PARAMS));
+    });
+
+    describe('Given the user populated the date input', () => {
+      beforeEach(async () => {
+        await page.type('#date-mutually-exclusive-year', '2018');
+      });
+
+      describe('when the user clicks the mutually exclusive option', () => {
+        beforeEach(async () => {
+          await page.click('#date-exclusive-option');
+        });
+
+        it('then the mutually exclusive option should be checked', async () => {
+          const isChecked = await page.$eval('#date-exclusive-option', (node) => node.checked);
+          expect(isChecked).toBe(true);
+        });
+
+        it('then the date input should be cleared', async () => {
+          const yearValue = await page.$eval('#date-mutually-exclusive-year', (node) => node.value);
+          expect(yearValue).toBe('');
+        });
+
+        it('then the aria alert should tell the user that the date input has been cleared', async () => {
+          await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
+
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
+          expect(alertText).toBe('What year was your last MOT? cleared.');
+        });
+      });
+    });
+
+    describe('Given the user has checked the mutually exclusive exclusive option', () => {
+      beforeEach(async () => {
+        await page.click('#date-exclusive-option');
+      });
+
+      describe('when the user populates the dateInput', () => {
+        beforeEach(async () => {
+          await page.type('#date-mutually-exclusive-year', '2018');
+        });
+
+        it('then the mutually exclusive option should be checked', async () => {
+          const isChecked = await page.$eval('#date-exclusive-option', (node) => node.checked);
+          expect(isChecked).toBe(false);
+        });
+
+        it('then the aria alert should tell the user that the exclusive option has been unchecked', async () => {
+          await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
+
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
+          expect(alertText).toBe('I have never had a paid job deselected.');
+        });
+      });
+    });
+
+    describe('Given the user has not populated the date input or checked the exclusive option', () => {
+      describe('when the user populates the date input', () => {
+        beforeEach(async () => {
+          await page.type('#date-mutually-exclusive-year', '2018');
+        });
+
+        it('then the aria alert shouldnt say anything', async () => {
+          await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
+
+          const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
+          expect(alertText).toBe('');
+        });
+      });
+
+      describe('when the user clicks the mutually exclusive option', () => {
+        beforeEach(async () => {
+          await page.click('#date-exclusive-option');
         });
 
         it('then the aria alert shouldnt say anything', async () => {

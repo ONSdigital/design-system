@@ -9,7 +9,9 @@
             </div>
         {% endset %}
     {% else %}
-        {{ params.fields | safe }}
+        {% set fields %}
+            {{ params.fields | safe }}
+        {% endset %}
     {% endif %}
 
     {% if params.mutuallyExclusive %}
