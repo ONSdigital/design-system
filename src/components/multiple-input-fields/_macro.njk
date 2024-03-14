@@ -2,17 +2,15 @@
 {% from "components/fieldset/_macro.njk" import onsFieldset %}
 
 {% macro onsMultipleInputFields(params) %}
-    {% if params.numberOfFields > 1 %}
-        {% set fields %}
+    {% set fields %}
+        {% if params.numberOfFields > 1 %}
             <div class="ons-field-group">
                 {{ params.fields | safe }}
             </div>
-        {% endset %}
-    {% else %}
-        {% set fields %}
+        {% else %}
             {{ params.fields | safe }}
-        {% endset %}
-    {% endif %}
+        {% endif %}
+    {% endset %}
 
     {% if params.mutuallyExclusive %}
         {% call onsMutuallyExclusive({
