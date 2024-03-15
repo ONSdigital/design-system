@@ -158,3 +158,4 @@ yarn build
 
 - "render whitespace" set to "all"
 - "insert spaces when pressing tab" checked
+- "trim trailing whitespace" checked

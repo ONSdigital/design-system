@@ -1,7 +1,10 @@
-{% from "components/date-field-input/_macro.njk" import onsDateFieldInput %}
+{% from "components/multiple-input-fields/_macro.njk" import onsMultipleInputFields %}
+{% from "components/input/_macro.njk" import onsInput %}
 
 {% macro onsDuration(params) %}
+    {% set exclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
     {% set numberOfFields = 0 %}
+
     {% if params.field1 %}
         {% set numberOfFields = numberOfFields + 1 %}
     {% endif %}
@@ -10,54 +13,55 @@
         {% set numberOfFields = numberOfFields + 1 %}
     {% endif %}
 
-    {% set fields = [] %}
-    {% if params.field1 %}
-        {% set field1 = {
-            "id": params.field1.id,
-            "name": params.field1.name,
-            "attributes": params.field1.attributes,
-            "label": {
-                "text": params.legendOrLabel if numberOfFields < 2,
-                "description": params.description if numberOfFields < 2
-            },
-            "suffix": {
-                "text": params.field1.suffix.text,
-                "title": params.field1.suffix.title,
-                "id": params.field1.suffix.id
-            },
-            "width": "2",
-            "fieldId": params.id if numberOfFields < 2,
-            "value": params.field1.value, 
-            "error": params.error if numberOfFields < 2,
-            "classes": (" ons-input--error" if (params.error and params.field1.error) or (params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else "")
-        } %}
-        {% set fields = (fields.push(field1), fields) %}
-    {% endif %}
+    {% set fields %}
+        {% if params.field1 %}
+            {{ onsInput({
+                "id": params.field1.id,
+                "type": "number",
+                "name": params.field1.name,
+                "classes": (" ons-input--error" if (params.error and params.field1.error) or (numberOfFields > 1 and params.error and not params.field1.error and not params.field2.error) else "") + exclusiveClass | default(""),
+                "width": "2",
+                "attributes": params.field1.attributes,
+                "value": params.field1.value,
+                "suffix": {
+                    "text": params.field1.suffix.text,
+                    "title": params.field1.suffix.title,
+                    "id": params.field1.suffix.id
+                },
+                "label": {
+                    "text": params.legendOrLabel if numberOfFields < 2,
+                    "description": params.description if numberOfFields < 2
+                },
+                "fieldId": params.id if numberOfFields < 2,
+                "error": params.error if numberOfFields < 2
+            }) }}
+        {% endif %}
 
-    {% if params.field2 %}
-        {% set field2 = {
-            "id": params.field2.id,
-            "name": params.field2.name,
-            "attributes": params.field2.attributes,
-            "width": "2",
-            "label": { 
-                "text": params.legendOrLabel if numberOfFields < 2,
-                "description": params.description if numberOfFields < 2
-            },  
-            "suffix": {
-                "text": params.field2.suffix.text,
-                "title": params.field2.suffix.title,
-                "id": params.field2.suffix.id
-            },
-            "value": params.field2.value,
-            "error": params.error if numberOfFields < 2,
-            "fieldId": params.id if numberOfFields < 2,
-            "classes": (" ons-input--error" if (params.error and params.field2.error) or (params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else "")
-        } %}
-        {% set fields = (fields.push(field2), fields) %}
-    {% endif %}
-  
-    {{ onsDateFieldInput({
+        {% if params.field2 %}
+            {{ onsInput({
+                "id": params.field2.id,
+                "type": "number",
+                "name": params.field2.name,
+                "classes": (" ons-input--error" if (params.error and params.field2.error) or (numberOfFields > 1 and params.error and not params.field1.error and not params.field2.error) else "") + exclusiveClass | default(""),
+                "width": "2",
+                "attributes": params.field2.attributes,
+                "value": params.field2.value,
+                "suffix": {
+                    "text": params.field2.suffix.text,
+                    "title": params.field2.suffix.title,
+                    "id": params.field2.suffix.id
+                },
+                "label": {
+                    "text": params.legendOrLabel if numberOfFields < 2,
+                    "description": params.description if numberOfFields < 2
+                },
+                "fieldId": params.id if numberOfFields < 2,
+                "error": params.error if numberOfFields < 2
+            }) }}
+        {% endif %}
+    {% endset %}
+
+    {{ onsMultipleInputFields({
         "id": params.id,
         "legendOrLabel": params.legendOrLabel,
         "description": params.description,
