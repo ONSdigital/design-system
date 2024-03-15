@@ -123,7 +123,7 @@ describe('script: mutually-exclusive', () => {
           await page.type('#date-mutually-exclusive-year', '2018');
         });
 
-        it('then the mutually exclusive option should be checked', async () => {
+        it('then the mutually exclusive option should be unchecked', async () => {
           const isChecked = await page.$eval('#date-exclusive-option', (node) => node.checked);
           expect(isChecked).toBe(false);
         });
@@ -211,7 +211,7 @@ describe('script: mutually-exclusive', () => {
           await page.type('#date-mutually-exclusive-year', '2018');
         });
 
-        it('then the mutually exclusive option should be checked', async () => {
+        it('then the mutually exclusive option should be unchecked', async () => {
           const isChecked = await page.$eval('#date-exclusive-option', (node) => node.checked);
           expect(isChecked).toBe(false);
         });
