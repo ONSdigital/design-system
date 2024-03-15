@@ -19,9 +19,7 @@ jobs:
         with:
           node-version-file: ".nvmrc"
       - name: Install dependencies
-        run: |
-          git config --global url."ssh://git@".insteadOf git://
-          yarn install
+        run: yarn cache clean && yarn install
       - name: Install Docker
         run: |
           brew install docker
