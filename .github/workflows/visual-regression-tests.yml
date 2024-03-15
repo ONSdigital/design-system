@@ -7,7 +7,7 @@ env:
 
 jobs:
   run-visual-regression-tests:
-    runs-on: macos-11
+    runs-on: macos-latest
 
     steps:
       - name: Checkout
@@ -19,7 +19,9 @@ jobs:
         with:
           node-version-file: ".nvmrc"
       - name: Install dependencies
-        run: yarn install
+        run: |
+          git config --global url."ssh://git@".insteadOf git://
+          yarn install
       - name: Install Docker
         run: |
           brew install docker
