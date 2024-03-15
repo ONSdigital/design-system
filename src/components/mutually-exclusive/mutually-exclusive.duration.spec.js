@@ -115,7 +115,7 @@ describe('script: mutually-exclusive', () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
           const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
-          expect(alertText).toBe('How long have you lived at this address? cleared.');
+          expect(alertText).toBe('Years cleared. Months cleared.');
         });
       });
     });
@@ -204,7 +204,7 @@ describe('script: mutually-exclusive', () => {
           await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
           const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
-          expect(alertText).toBe('Years cleared. Months cleared.');
+          expect(alertText).toBe('How long have you lived at this address? cleared.');
         });
       });
     });
