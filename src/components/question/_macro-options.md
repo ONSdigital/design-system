@@ -3,6 +3,7 @@
 | title                 | string                              | true                          | The question heading                                                                                                                                                                                                     |
 | description           | string                              | false                         | The question description to be used to provide added context to the question. This can contain HTML.                                                                                                                     |
 | instruction           | string                              | false                         | An interviewer instruction. This can contain HTML.                                                                                                                                                                       |
+| warning               | `<Object>WarningPanel`              | false                         | Settings for the [WarningPanel](#warningpanel) to be used when a warning message is required                                                                                                                             |
 | definition            | `<Object>QuestionDefinition`        | false                         | Settings for the [question definition](#questiondefinition) to be used to define a word or acronym that is in the question                                                                                               |
 | guidance              | `<Object>QuestionGuidance`          | false                         | Settings for the [question guidance](#questionguidance) to be used to state what should be included or excluded from the answer                                                                                          |
 | justification         | `<Object>QuestionJustification`     | false                         | Settings for the [question justification](#questionjustification) to be used to explain why a question is being asked                                                                                                    |
@@ -55,3 +56,10 @@
 | text       | string | false    | Text for the button label. Defaults to “Save and continue”.                                                                                                                                                       |
 | classes    | string | false    | Classes to add the button element                                                                                                                                                                                 |
 | attributes | object | false    | HTML attributes (for example, data attributes) to add to the button                                                                                                                                               |
+
+## WarningPanel
+
+| Name | Type   | Required | Description                                               |
+| ---- | ------ | -------- | --------------------------------------------------------- |
+| id   | string | true     | The HTML `id` of the Warning Panel                        |
+| body | string | true     | The contents of the warning panel. This can contain HTML. |
