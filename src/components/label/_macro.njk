@@ -21,8 +21,8 @@
     {%- else -%}
     <label
         class="{% if params.inputType is not defined -%}ons-label{%- endif %}{{- ' ' + params.classes if params.classes else "" -}}{%- if params.description %} ons-label--with-description{%- endif %} {{- ' ons-label--placeholder' if params.accessiblePlaceholder else "" -}}"
+        for="{{ params.for }}"
         {% if params.description %}aria-describedby="{{ descriptionID }}"{% endif %}
-        {% if params.for %} for="{{ params.for }}"{% endif %}
         {% if params.id %} id="{{ params.id }}"{% endif %}
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
     >
