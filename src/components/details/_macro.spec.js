@@ -48,12 +48,12 @@ describe('macro: details', () => {
     const $ = cheerio.load(
       renderComponent('details', {
         ...EXAMPLE_DETAILS_BASIC,
-        titleTag: 'h4',
+        headingLevel: 4,
       }),
     );
 
-    const titleTag = $('.ons-details__title')[0].tagName;
-    expect(titleTag).toBe('h4');
+    const expectedTitleTag = $('.ons-details__title')[0].tagName;
+    expect(expectedTitleTag).toBe('h4');
   });
 
   it('has provided content text', () => {

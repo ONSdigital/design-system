@@ -27,11 +27,11 @@ describe('macro: share-page', () => {
     expect($('h2').text().trim()).toBe('Share page');
   });
 
-  it('wraps title in custom element when `titleTag` is provided', () => {
+  it('wraps title in custom element when `headingLevel` is provided', () => {
     const $ = cheerio.load(
       renderComponent('share-page', {
         ...EXAMPLE_SHARE_PAGE,
-        titleTag: 'h4',
+        headingLevel: 4,
       }),
     );
 

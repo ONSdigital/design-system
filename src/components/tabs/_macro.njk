@@ -10,8 +10,8 @@
     <section class="{{ classes }}"
         {% if params.noInitialActiveTab %}data-no-initial-active-tab="true"{% endif %}
     >
-        {% set titleTag = params.titleTag | default("h2") %}
-        <{{ titleTag }} class="ons-tabs__title ons-u-fs-r--b ons-u-mt-no{% if params.titleClasses %} {{ params.titleClasses }}{% endif %}">{{ params.title }}</{{ titleTag }}>
+        {% set headingLevel = params.headingLevel | default(2) %}
+        <h{{ headingLevel }} class="ons-tabs__title ons-u-fs-r--b ons-u-mt-no{% if params.titleClasses %} {{ params.titleClasses }}{% endif %}">{{ params.title }}</h{{ headingLevel }}>
         <div>
             <ul class="ons-tabs__list">
                 {%- for tab in params.tabs -%}
