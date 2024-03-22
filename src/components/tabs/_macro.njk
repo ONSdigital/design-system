@@ -7,13 +7,11 @@
         {% endfor %}
     {% endset %}
 
-    <section class="{{ classes }}" {% if params.noInitialActiveTab %}data-no-initial-active-tab="true"{% endif %}>
-        {% set titleTag = params.titleTag | default("h2") %}
-        {% set openingTag = "<" + titleTag %}
-        {% set closingTag = "</" + titleTag + ">" %}
-        {{ openingTag | safe }}
-        class="ons-tabs__title ons-u-fs-r--b
-        ons-u-mt-no{{ ' ' + params.titleClasses if params.titleClasses else '' }}">{{ params.title }}{{ closingTag | safe }}
+    <section class="{{ classes }}"
+        {% if params.noInitialActiveTab %}data-no-initial-active-tab="true"{% endif %}
+    >
+        {% set headingLevel = params.headingLevel | default(2) %}
+        <h{{ headingLevel }} class="ons-tabs__title ons-u-fs-r--b ons-u-mt-no{% if params.titleClasses %} {{ params.titleClasses }}{% endif %}">{{ params.title }}</h{{ headingLevel }}>
         <div>
             <ul class="ons-tabs__list">
                 <!-- prettier-ignore-start -->

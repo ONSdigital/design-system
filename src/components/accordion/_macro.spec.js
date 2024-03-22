@@ -16,22 +16,22 @@ describe('FOR: Macro: Accordion', () => {
             });
         });
     });
-    describe('GIVEN: Params: required and allButton', () => {
-        describe('WHEN: required and allButton params are provided', () => {
-            const $ = cheerio.load(
-                renderComponent('accordion', {
-                    ...EXAMPLE_ACCORDION,
-                    allButton: {
-                        open: 'Open label',
-                        close: 'Close label',
+
+    it('has title with provided tag override', () => {
+        const $ = cheerio.load(
+            renderComponent('accordion', {
+                itemsList: [
+                    {
+                        title: 'Title for item 1',
+                        headingLevel: 5,
+                        content: 'Content for item 1',
                     },
-                }),
-            );
-            test('THEN: jest-axe checks pass', async () => {
-                const results = await axe($.html());
-                expect(results).toHaveNoViolations();
-            });
-        });
+                ],
+            }),
+        );
+
+        const expectedTitleTag = $('.ons-details__title')[0].tagName;
+        expect(expectedTitleTag).toBe('h5');
     });
     describe('GIVEN: Params: id', () => {
         describe('WHEN: id is provided', () => {

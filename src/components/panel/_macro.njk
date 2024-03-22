@@ -56,9 +56,8 @@
                 {% else %}
                     {% set defaultTitleTag = "div" %}
                 {% endif %}
-                {% set titleTag = params.titleTag | default(defaultTitleTag) %}
-                {% set openingTag = "<" + titleTag %}
-                {% set closingTag = "</" + titleTag + ">" %}
+                {% set headingLevel = "h" ~ params.headingLevel %}
+                {% set titleTag = headingLevel if params.headingLevel else  defaultTitleTag %}
                 <div class="ons-panel__header">
                     {{ openingTag | safe }} id="alert"{% if params.variant %}data-qa="{{ params.variant }}-header"{% endif %}
                     class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}{{ closingTag | safe }}

@@ -116,17 +116,15 @@ layout: ~
                     <li>the pages you visit on ons.gov.uk and how long you spend on each page</li>
                     <li>what you click on while you're visiting the site</li>
                 </ul>
-                {%
-                    call onsDetails({
-                        "id": "cookies-measure-website-use-details",
-                        "classes": "ons-u-mb-s",
-                        "title": "Learn more about these Google Analytics cookies",
-                        "titleTag": 'h4',
-                        "button": {
-                            "close": "Hide this"
-                        }
-                    })
-                %}
+                {% call onsDetails({
+                    "id": "cookies-measure-website-use-details",
+                    "classes": "ons-u-mb-s",
+                    "title": "Learn more about these Google Analytics cookies",
+                    "headingLevel": 4,
+                    "button": {
+                        "close": "Hide this"
+                    }
+                }) %}
                     {{
                         onsTable({
                             "ths": [
@@ -224,17 +222,15 @@ layout: ~
                 </p>
                 <h4>YouTube videos</h4>
                 <p>We use YouTube to show videos on some ons.gov.uk pages. YouTube sets cookies when you visit one of these pages.</p>
-                {%
-                    call onsDetails({
-                        "id": "cookies-measure-website-comms-details",
-                        "classes": "ons-u-mb-s",
-                        "title": "Learn more about these YouTube cookies",
-                        "titleTag": 'h5',
-                        "button": {
-                            "close": "Hide this"
-                        }
-                    })
-                %}
+                {% call onsDetails({
+                    "id": "cookies-measure-website-comms-details",
+                    "classes": "ons-u-mb-s",
+                    "title": "Learn more about these YouTube cookies",
+                    "headingLevel": 5,
+                    "button": {
+                        "close": "Hide this"
+                    }
+                }) %}
                     {{
                         onsTable({
                             "ths": [
@@ -340,17 +336,15 @@ layout: ~
                     <li>remember your progress through a form (for example, an ons study)</li>
                 </ul>
                 <p>They always need to be on.</p>
-                {%
-                    call onsDetails({
-                        "id": "cookies-essential-details",
-                        "classes": "ons-u-mb-l",
-                        "title": "Learn more about these essential cookies",
-                        "titleTag": 'h4',
-                        "button": {
-                            "close": "Hide this"
-                        }
-                    })
-                %}
+                {% call onsDetails({
+                    "id": "cookies-essential-details",
+                    "classes": "ons-u-mb-l",
+                    "title": "Learn more about these essential cookies",
+                    "headingLevel": 4,
+                    "button": {
+                        "close": "Hide this"
+                    }
+                }) %}
                     <h5 class="ons-u-fs-r--b">Your progress when filling in a survey or questionnaire</h5>
                     <p>
                         We’ll set a cookie to remember your progress through a survey or questionnaire. These cookies do not store your
