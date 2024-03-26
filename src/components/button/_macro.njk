@@ -93,12 +93,12 @@
                 {% endif -%}
                 <span class="ons-btn__text">{{- params.html | safe if params.html else params.text -}}</span>
                 {%- if iconPosition == "after" %}
-                {{-
-                    onsIcon({
-                        "iconType": iconType,
-                        "classes": 'ons-u-ml-xs'
-                    })
-                -}}
+                    {{-
+                        onsIcon({
+                            "iconType": iconType,
+                            "classes": 'ons-u-ml-xs'
+                        })
+                    -}}
                 {% endif -%}
             {% elif iconPosition == "only" -%}
                 {{-

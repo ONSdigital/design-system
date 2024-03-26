@@ -1,14 +1,13 @@
 .ons-field-group {
   font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 
   .ons-field {
     display: inline-block;
     font-size: 1rem;
     margin-top: 0;
     vertical-align: top;
-
-    &:not(:last-child) {
-      margin-right: 1rem;
-    }
   }
 }

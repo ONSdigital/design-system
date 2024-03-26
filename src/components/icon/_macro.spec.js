@@ -91,10 +91,10 @@ describe('macro: icon', () => {
   });
 
   describe.each([
-    ['ons-logo-en', 'Office for National Statistics logo'],
-    ['ons-logo-cy', 'Logo Swyddfa Ystadegau Gwladol'],
-    ['ons-logo-stacked-en', 'Office for National Statistics logo'],
-    ['ons-logo-stacked-cy', 'Logo Swyddfa Ystadegau Gwladol'],
+    ['ons-logo-en', 'Office for National Statistics homepage'],
+    ['ons-logo-cy', 'Hafan Swyddfa Ystadegau Gwladol'],
+    ['ons-logo-stacked-en', 'Office for National Statistics homepage'],
+    ['ons-logo-stacked-cy', 'Hafan Swyddfa Ystadegau Gwladol'],
     ['crest', 'Royal coat of arms of the United Kingdom'],
     ['ogl', 'Open Government License logo'],
   ])('icon type: %s', (iconType, expectedAltText) => {

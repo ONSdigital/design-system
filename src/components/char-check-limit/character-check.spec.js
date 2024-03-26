@@ -2,7 +2,7 @@ import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
 const EXAMPLE_INPUT_WITH_CHARACTER_CHECK = {
   id: 'search-field',
-  type: 'number',
+  variant: 'number',
   width: '6',
   label: {
     text: 'Filter results',
@@ -24,7 +24,7 @@ const EXAMPLE_CHARACTER_CHECK_WITH_MUTUALLY_EXCLUSIVE = {
   id: 'feedback',
   name: 'feedback',
   width: '30',
-  legend: 'Feeback legend',
+  legend: 'Feedback legend',
   label: {
     text: 'Enter your feedback',
   },

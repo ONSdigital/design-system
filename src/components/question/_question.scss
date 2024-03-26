@@ -4,16 +4,13 @@
   &__title {
     @extend .ons-u-mb-m;
 
-    em,
-    .ons-highlight {
-      @extend .ons-highlight;
-    }
     mark,
     .ons-instruction {
       background-color: var(--ons-color-instruction);
       color: var(--ons-color-text-inverse);
       margin-right: 0.5rem;
       padding: 0 0.5rem;
+      box-shadow: none;
     }
   }
 

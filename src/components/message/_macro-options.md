@@ -1,6 +1,6 @@
 | Name           | Type   | Required | Description                                                            |
 | -------------- | ------ | -------- | ---------------------------------------------------------------------- |
-| type           | string | true     | Set to “sent” or “received” to style message type                      |
+| variant        | string | true     | Set to “sent” or “received” to style message variant                   |
 | id             | string | false    | The HTML `id` of the message header metadata element                   |
 | fromLabel      | string | true     | Label for the “From” prefix in the message header metadata element     |
 | fromValue      | string | true     | Value of the “From” sender name in the message header metadata element |

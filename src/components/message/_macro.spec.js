@@ -6,7 +6,7 @@ import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
 const EXAMPLE_MESSAGE_MINIMAL = {
-  type: 'sent',
+  variant: 'sent',
   fromLabel: 'From',
   fromValue: 'Example Sender',
   sentLabel: 'Date sent',
@@ -35,13 +35,13 @@ describe('macro: message', () => {
   it.each([
     ['sent', 'ons-message--sent'],
     ['received', 'ons-message--received'],
-  ])('has appropriate class for provided `type` (%s -> %s)', (type, expectedClass) => {
+  ])('has appropriate class for provided `variant` (%s -> %s)', (variant, expectedClass) => {
     const $ = cheerio.load(
       renderComponent(
         'message',
         {
           ...EXAMPLE_MESSAGE_MINIMAL,
-          type,
+          variant,
         },
         ['Message content...'],
       ),

@@ -1,0 +1,18 @@
+{% from "components/date-input/_macro.njk" import onsDateInput %}
+
+{{
+    onsDateInput({
+        "id": "date-input-example-single",
+        "legendOrLabel": "Year of birth",
+        "description": "For example, 1980",
+        "year": {
+            "label": {
+                "text": "Year"
+            },
+            "name": "year",
+            "attributes": {
+                "autocomplete": "bday-year"
+            }
+        }
+    })
+}}

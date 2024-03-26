@@ -74,7 +74,7 @@
                 {% from "components/panel/_macro.njk" import onsPanel %}
                 {% call onsPanel({
                     "id": params.warning.id,
-                    "type": "warn"
+                    "variant": "warn"
                 }) %}
                     <p>{{ params.warning.body }}</p>
                 {% endcall %}

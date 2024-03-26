@@ -27,13 +27,12 @@ layout: ~
 } %}
 
 {% block main %}
-    {% call onsPanel()
-    %}
+    {% call onsPanel() %}
         <p><strong>This is the last viewed question in this section</strong><br>
         You can also <a href="/patterns/hub-and-spoke/examples/spoke-start/">go back to the start of the section</a></p>
     {% endcall %}
     {% call onsQuestion({
-        "title": 'What is <strong class="ons-highlight">John Smith’s</strong> date of birth?',
+        "title": 'What is <strong>John Smith’s</strong> date of birth?',
         "description": '<p>For example, 31 3 1980</p>',
         "legendIsQuestionTitle": true,
         "submitButton": {

@@ -68,7 +68,6 @@
                 "accessiblePlaceholder": params.accessiblePlaceholder,
                 "inline": params.label.inline
             }) }}
-
         {% endif %}
 
         {% if params.prefix or params.suffix %}
@@ -103,16 +102,16 @@
         {% elif params.searchButton %}
             <span class="ons-grid--flex  ons-input_search-button{% if params.label.description %} ons-input--with-text-description{% endif %}"> 
                 {% if params.accessiblePlaceholder %}
-                {{ onsLabel({
-                    "for": params.id,
-                    "id": params.label.id,
-                    "text": params.label.text,
-                    "classes": params.label.classes,
-                    "attributes": params.label.attributes,
-                    "accessiblePlaceholder": params.accessiblePlaceholder,
-                    "inline": params.label.inline
-                }) }}
-           {% endif %}
+                    {{ onsLabel({
+                        "for": params.id,
+                        "id": params.label.id,
+                        "text": params.label.text,
+                        "classes": params.label.classes,
+                        "attributes": params.label.attributes,
+                        "accessiblePlaceholder": params.accessiblePlaceholder,
+                        "inline": params.label.inline
+                    }) }}
+                {% endif %}
 
                 {{ input | safe }}
                 {%- set buttonLabel -%}
@@ -138,23 +137,23 @@
             </span>
         {% else %}
             {% if params.accessiblePlaceholder %}
-            <span class="ons-grid--flex {% if params.label.description %} ons-input--with-text-description{% endif %}">
+                <span class="ons-grid--flex {% if params.label.description %} ons-input--with-text-description{% endif %}">
                 {% if params.accessiblePlaceholder %}
                     {{ onsLabel({
-                    "for": params.id,
-                    "id": params.label.id,
-                    "text": params.label.text,
-                    "classes": params.label.classes,
-                    "attributes": params.label.attributes,
-                    "accessiblePlaceholder": params.accessiblePlaceholder,
-                    "inline": params.label.inline
-                }) }}
+                        "for": params.id,
+                        "id": params.label.id,
+                        "text": params.label.text,
+                        "classes": params.label.classes,
+                        "attributes": params.label.attributes,
+                        "accessiblePlaceholder": params.accessiblePlaceholder,
+                        "inline": params.label.inline
+                    }) }}
                 {% endif %}
             {% endif %}
             {{ input | safe }}
             {% if params.accessiblePlaceholder %}
-            </span>
-         {% endif %}
+                </span>
+            {% endif %}
         {% endif %}
     {% endset %}
 
@@ -163,7 +162,7 @@
             {% call onsCharLimit({
                 "id": params.id ~ "-check",
                 "limit": params.charCheckLimit.limit,
-                "type": "check",
+                "variant": "check",
                 "charCountSingular": params.charCheckLimit.charCountSingular,
                 "charCountPlural": params.charCheckLimit.charCountPlural,
                 "charCountOverLimitSingular": params.charCheckLimit.charCountOverLimitSingular,

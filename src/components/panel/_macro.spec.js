@@ -20,12 +20,12 @@ describe('macro: panel', () => {
     ['branded', 'Important information:'],
     ['success', 'Completed:'],
     ['announcement', 'Announcement:'],
-  ])('mode: %s', (panelType, accessibleText) => {
+  ])('mode: %s', (panelVariant, accessibleText) => {
     it('passes jest-axe checks', async () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: panelType,
+          variant: panelVariant,
         }),
       );
       const results = await axe($.html());
@@ -36,18 +36,18 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: panelType,
+          variant: panelVariant,
         }),
       );
 
-      expect($('.ons-panel').hasClass(`ons-panel--${panelType}`)).toBe(true);
+      expect($('.ons-panel').hasClass(`ons-panel--${panelVariant}`)).toBe(true);
     });
 
     it('has the provided `body` text', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: panelType,
+          variant: panelVariant,
         }),
       );
 
@@ -55,7 +55,7 @@ describe('macro: panel', () => {
     });
 
     it('calls with content', () => {
-      const $ = cheerio.load(renderComponent('panel', { EXAMPLE_PANEL_BASIC, type: panelType }, 'Example content...'));
+      const $ = cheerio.load(renderComponent('panel', { EXAMPLE_PANEL_BASIC, variant: panelVariant }, 'Example content...'));
 
       const content = $('.ons-panel__body').text().trim();
       expect(content).toBe('Example content...');
@@ -65,7 +65,7 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: panelType,
+          variant: panelVariant,
         }),
       );
 
@@ -76,7 +76,7 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: panelType,
+          variant: panelVariant,
           classes: 'ons-custom-class',
         }),
       );
@@ -88,7 +88,7 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: panelType,
+          variant: panelVariant,
           attributes: {
             a: '123',
             b: '456',
@@ -103,7 +103,7 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: panelType,
+          variant: panelVariant,
         }),
       );
 
@@ -114,7 +114,7 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: panelType,
+          variant: panelVariant,
         }),
       );
 
@@ -125,7 +125,7 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: panelType,
+          variant: panelVariant,
           assistiveTextPrefix: 'Some helpful text:',
         }),
       );
@@ -176,13 +176,13 @@ describe('macro: panel', () => {
   describe.each([
     ['error', 'h2'],
     ['success', 'div'],
-  ])('mode: %s', (panelType, tagEl) => {
+  ])('mode: %s', (panelVariant, tagEl) => {
     it('has the default id set', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
           title: 'Title',
-          type: panelType,
+          variant: panelVariant,
         }),
       );
 
@@ -194,7 +194,7 @@ describe('macro: panel', () => {
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
           title: 'Title',
-          type: panelType,
+          variant: panelVariant,
         }),
       );
 
@@ -207,7 +207,7 @@ describe('macro: panel', () => {
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
           title: 'Title',
-          type: panelType,
+          variant: panelVariant,
         }),
       );
 
@@ -219,7 +219,7 @@ describe('macro: panel', () => {
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
           title: 'Title',
-          type: panelType,
+          variant: panelVariant,
         }),
       );
 
@@ -231,7 +231,7 @@ describe('macro: panel', () => {
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
           title: 'Title',
-          type: panelType,
+          variant: panelVariant,
         }),
       );
 
@@ -243,7 +243,7 @@ describe('macro: panel', () => {
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
           title: 'Title',
-          type: panelType,
+          variant: panelVariant,
         }),
       );
 
@@ -259,7 +259,7 @@ describe('macro: panel', () => {
           {
             ...EXAMPLE_PANEL_BASIC,
             title: 'Title',
-            type: panelType,
+            variant: panelVariant,
           },
           null,
           null,
@@ -289,7 +289,7 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: 'announcement',
+          variant: 'announcement',
         }),
       );
 
@@ -303,7 +303,7 @@ describe('macro: panel', () => {
 
       faker.renderComponent('panel', {
         ...EXAMPLE_PANEL_BASIC,
-        type: 'announcement',
+        variant: 'announcement',
       });
 
       expect(iconsSpy.occurrences[0].iconType).toBe('arrow-forward');
@@ -315,7 +315,7 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: 'warn',
+          variant: 'warn',
         }),
       );
 
@@ -328,7 +328,7 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: 'warn-branded',
+          variant: 'warn-branded',
         }),
       );
 
@@ -340,7 +340,7 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: 'warn-branded',
+          variant: 'warn-branded',
         }),
       );
 
