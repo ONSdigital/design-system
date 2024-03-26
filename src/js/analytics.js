@@ -5,10 +5,6 @@ export let trackEvent = () => {};
 if (window.google_tag_manager !== undefined) {
   console.log('GA active');
   trackEvent = (type, data) => {
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
     gtag('event', type, { ...data });
     console.log('Data sent to Data Layer');
   };
@@ -17,7 +13,7 @@ if (window.google_tag_manager !== undefined) {
 }
 
 export const trackElement = (el, type) => {
-  return trackEvent(type, {
+  return trackEvent(`ons_${type}`, {
     event_category: el.getAttribute('data-ga-category') || '',
     event_action: el.getAttribute('data-ga-action') || '',
     event_label: el.getAttribute('data-ga-label') || '',
