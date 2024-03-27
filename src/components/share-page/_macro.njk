@@ -2,8 +2,8 @@
     {% from "components/list/_macro.njk" import onsList %}
 
     {% if params.title %}
-        {% set titleTag = params.titleTag | default("h2") %}
-        <{{ titleTag }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</{{ titleTag }}>
+        {% set headingLevel = params.headingLevel | default(2) %}
+        <h{{ headingLevel }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</h{{ headingLevel }}>
     {% endif %}
 
     {% set list = [] %}

@@ -67,15 +67,15 @@ describe('macro: accordion', () => {
           itemsList: [
             {
               title: 'Title for item 1',
-              titleTag: 'h5',
+              headingLevel: 5,
               content: 'Content for item 1',
             },
           ],
         }),
       );
 
-      const titleTag = $('.ons-details__title')[0].tagName;
-      expect(titleTag).toBe('h5');
+      const expectedTitleTag = $('.ons-details__title')[0].tagName;
+      expect(expectedTitleTag).toBe('h5');
     });
 
     it('has provided content text', () => {

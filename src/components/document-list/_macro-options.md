@@ -1,10 +1,10 @@
-| Name       | Type              | Required | Description                                                                                                                                          |
-| ---------- | ----------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id         | string            | false    | The HTML `id` attribute for the document list element                                                                                                |
-| classes    | string            | false    | Classes for the document list element                                                                                                                |
-| attributes | object            | false    | HTML attributes (for example, data attributes) to add to the document list element                                                                   |
-| documents  | `Array<Document>` | true     | An array of [document items](#document) in the documents list                                                                                        |
-| titleTag   | string            | false    | The HTML heading tag to wrap each document list item’s title to make sure the headings have the correct semantic order on the page. Defaults to `h2` |
+| Name         | Type              | Required | Description                                                                                                                                          |
+| ------------ | ----------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id           | string            | false    | The HTML `id` attribute for the document list element                                                                                                |
+| classes      | string            | false    | Classes for the document list element                                                                                                                |
+| attributes   | object            | false    | HTML attributes (for example, data attributes) to add to the document list element                                                                   |
+| documents    | `Array<Document>` | true     | An array of [document items](#document) in the documents list                                                                                        |
+| headingLevel | int               | false    | Number used to determine the heading level of the list item title. Use to ensure the title has a correct semantic order on the page. Defaults to `2` |
 
 ## Document
 

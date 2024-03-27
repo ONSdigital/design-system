@@ -26,9 +26,9 @@
 
                         <div class="ons-document-list__item-header{{ ' ons-document-list__item-header--reverse' if document.showMetadataFirst == true }}">
 
-                            {% set titleTag = params.titleTag | default("h2") %}
+                            {% set headingLevel = params.headingLevel | default(2) %}
 
-                            <{{ titleTag }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
+                            <h{{ headingLevel }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
                                 <a href="{{ document.url }}">{{ document.title }}
                                 {%- if document.metadata and document.metadata.file %}
                                 <span class="ons-u-vh">
@@ -42,7 +42,7 @@
                                 {% endif %}
 
                                 </span></a>
-                            </{{ titleTag }}>
+                            </h{{ headingLevel }}>
 
                             {%- if document.metadata %}
 

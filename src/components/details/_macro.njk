@@ -11,8 +11,8 @@
             class="ons-details__heading ons-js-details-heading" role="button"
             {% if params.headingAttributes %}{% for attribute, value in (params.headingAttributes.items() if params.headingAttributes is mapping and params.headingAttributes.items else params.headingAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
-            {% set titleTag = params.titleTag | default("h2") %}
-            <{{ titleTag }} class="ons-details__title">{{ params.title }}</{{ titleTag }}>
+            {% set headingLevel = params.headingLevel | default(2) %}
+            <h{{ headingLevel }} class="ons-details__title">{{ params.title }}</h{{ headingLevel }}>
             <span class="ons-details__icon">
                 {% from "components/icon/_macro.njk" import onsIcon %}
                 {{-
