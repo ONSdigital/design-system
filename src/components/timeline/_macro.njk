@@ -6,7 +6,7 @@
         {% set headingLevel = params.headingLevel | default(2) %}
         {% for item in params.items %}
             <div class="ons-timeline__item">
-                <h{{ headingLevel }} class="ons-timeline__heading">{{ item.heading }}</h{{ headingLevel }} >
+                <h{{ headingLevel }} class="ons-timeline__heading">{{ item.heading }}</h{{ headingLevel }}>
                 {% if item.itemsList %}
                     <div class="ons-timeline__content">
                         {{
