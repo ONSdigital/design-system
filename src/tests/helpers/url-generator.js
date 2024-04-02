@@ -18,13 +18,21 @@ export default async () => {
       path: './src/foundations',
     },
   ];
+  // Exclude the following examples from the VR tests
+  let exclude = ['example-table-of-contents-sticky', 'example-table-of-contents-sticky-full-page'];
   for (const directory of directories) {
     const folders = await readdir(directory.path);
     for (const folder of folders) {
       const files = await glob(`${directory.path}/${folder}/**/example-*.njk`);
       for (const file of files) {
         const urlPath = file.replace(/^/, './').replace(/^\.\/src\/(.*\/example-.*?)\.njk$/, '/$1');
-        urls.push({ url: `${testURL}${urlPath}`, label: urlPath, delay: 2000 });
+        let flag = true;
+        for (const ex of exclude) {
+          if (urlPath.endsWith(ex) == true) {
+            flag = false;
+          }
+        }
+        flag && urls.push({ url: `${testURL}${urlPath}`, label: urlPath, delay: 2000 });
       }
     }
   }
