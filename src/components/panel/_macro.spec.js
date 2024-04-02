@@ -147,7 +147,7 @@ describe('macro: panel', () => {
       expect(titleTag).toBe('div');
     });
 
-    it('has the provided heading level', () => {
+    it('has the correct tag', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
