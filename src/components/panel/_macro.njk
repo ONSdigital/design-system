@@ -57,7 +57,7 @@
                     {% set defaultTitleTag = "div" %}
                 {% endif %}
                 {% set headingLevel = "h" ~ params.headingLevel %}
-                {% set titleTag = headingLevel if params.headingLevel else  defaultTitleTag %}
+                {% set titleTag = headingLevel if params.headingLevel else defaultTitleTag %}
                 <div class="ons-panel__header">
                     <{{ titleTag }} id="alert"{% if params.variant %} data-qa="{{ params.variant }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
                 </div>
