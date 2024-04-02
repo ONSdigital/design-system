@@ -63,7 +63,7 @@ describe('macro: timeline', () => {
     expect($secondItem.text()).toContain('Timeline entry 2');
   });
 
-  it('renders a heading based upon heading level parameter', () => {
+  it('renders a heading based upon `headingLevel` parameter', () => {
     const EXAMPLE_TIMELINE_WITH_TITLE_TAG = {
       ...EXAMPLE_TIMELINE,
       headingLevel: 3,
