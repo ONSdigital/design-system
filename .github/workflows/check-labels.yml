@@ -17,6 +17,6 @@ jobs:
     steps:
       - uses: docker://onsdigital/github-pr-label-checker:v1.2.7
         with:
-          one_of: Breaking changes,Accessibility,Bug,Documentation,Dependencies,Enhancement,Example,Component,Pattern
+          one_of: Breaking changes,Accessibility,Bug,Documentation,Dependencies,Enhancement,Example,Component,Pattern, Tech improvements
           none_of: Awaiting resource,Do not merge,Duplicate,Needs validating,Not doing
           repo_token: ${{ secrets.GITHUB_TOKEN }}
