@@ -97,15 +97,15 @@
 
 ## Item
 
-| Name      | Type   | Required | Description                                                                                                                                            |
-| --------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| classes   | string | false    | Classes to add to the list item element                                                                                                                |
-| url       | string | true     | The URL for the HTML `href` attribute for the path to the linked page                                                                                  |
-| text      | string | true     | The text label for the link                                                                                                                            |
-| id        | string | false    | The HTML `id` of the link                                                                                                                              |
-| ariaLabel | string | false    | The `aria-label` for the item.                                                                                                                         |
-| title     | string | false    | The title text for the list item element                                                                                                               |
-| iconType  | string | false    | Adds an icon to all the list items when set to the name of one of the [available icons](/foundations/icons#a-to-z). Requires `iconPosition` to be set. |
+| Name      | Type   | Required | Description                                                                                                                                                          |
+| --------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| classes   | string | false    | Classes to add to the list item element                                                                                                                              |
+| url       | string | true     | The URL for the HTML `href` attribute for the path to the linked page                                                                                                |
+| text      | string | true     | The text label for the link                                                                                                                                          |
+| id        | string | false    | The HTML `id` of the link                                                                                                                                            |
+| ariaLabel | string | false    | The `aria-label` for the item.                                                                                                                                       |
+| title     | string | false    | The title text for the list item element                                                                                                                             |
+| iconType  | string | false    | Adds an icon only to the service link item set to the name of one of the [available icons](/foundations/icons#a-to-z). This is not compatible with navigation links. |
 
 ## SignOutButton
 
