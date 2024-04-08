@@ -728,7 +728,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                         <ul class="ons-header-service-nav__list">
                                             
                                                 <li class="ons-header-service-nav__item">
-                                                <svg class="ons-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="{ons-icon-person">
+                                                <svg class="ons-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-person">
             <path d="M7,9H9a5,5,0,0,1,5,5H2A5,5,0,0,1,7,9Z" transform="translate(-2 -2)"></path>
             <circle cx="6" cy="3" r="3"></circle>
         </svg>
@@ -796,7 +796,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     <ul class="ons-header-service-nav__list">
                         
                             <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
-                                <svg class="ons-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="{ons-icon-person">
+                                <svg class="ons-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-person">
             <path d="M7,9H9a5,5,0,0,1,5,5H2A5,5,0,0,1,7,9Z" transform="translate(-2 -2)"></path>
             <circle cx="6" cy="3" r="3"></circle>
         </svg>
