@@ -36,7 +36,6 @@ module.exports = {
       '--cap-add=SYS_ADMIN',
     ],
     headless: 'old',
-    gotoParameters: { waitUntil: 'networkidle0' },
   },
   report: process.env.RUNNING_IN_CI === 'true' ? [] : ['browser'],
   dockerCommandTemplate:
