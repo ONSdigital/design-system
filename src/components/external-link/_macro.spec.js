@@ -3,7 +3,7 @@
 import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
-import { renderComponent } from '../../tests/helpers/rendering';
+import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_EXTERNAL_LINK = {
   url: 'http://example.com',
@@ -69,9 +69,14 @@ describe('macro: external-link', () => {
   });
 
   it('has an "external-link" icon', async () => {
-    const $ = cheerio.load(renderComponent('external-link', EXAMPLE_EXTERNAL_LINK));
+    const faker = templateFaker();
+    const iconsSpy = faker.spy('icon');
 
-    const $svg = $('.ons-external-link__icon svg');
-    expect($svg.length).toBe(1);
+    faker.renderComponent('external-link', {
+      ...EXAMPLE_EXTERNAL_LINK,
+      newWindowDescription: 'custom opens in a new tab text',
+    });
+
+    expect(iconsSpy.occurrences[0].iconType).toBe('external-link');
   });
 });
