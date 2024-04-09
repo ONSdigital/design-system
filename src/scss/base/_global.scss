@@ -66,3 +66,7 @@ a {
     @extend %a-focus;
   }
 }
+
+code {
+  white-space: pre-wrap;
+}
