@@ -377,6 +377,7 @@ describe('macro: input', () => {
       );
 
       const results = await axe($.html());
+      console.log(results.violations);
       expect(results).toHaveNoViolations();
     });
 

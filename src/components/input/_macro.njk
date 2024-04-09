@@ -29,8 +29,6 @@
             class="ons-input ons-input--text ons-input-type__input{% if params.error %} ons-input--error{% endif %}{% if params.searchButton %} ons-search__input{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}{% if params.width %} ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix and params.prefix.id and not params.prefix.title %}aria-labelledby="{{ params.prefix.id }}"{% elif params.suffix and params.suffix.id and not params.suffix.title %}aria-labelledby="{{ params.suffix.id }}"{% endif %}
             {% if params.prefix and params.prefix.id %}aria-labelledby="{{ params.id }} {{ params.prefix.id }}"{% elif params.suffix and params.suffix.id %}aria-labelledby="{{ params.id }} {{ params.suffix.id }}"{% endif %}
-            {% if params.prefix.title %}title="{{ params.prefix.title }}"{% endif %}
-            {% if params.suffix.title %}title="{{ params.suffix.title }}"{% endif %}
             {% if params.name %}name="{{ params.name }}"{% endif %}
             {% if params.value %}value="{{ params.value }}"{% endif %}
             {% if params.accept %}accept="{{ params.accept }}"{% endif %}
@@ -46,6 +44,8 @@
             {% if params.charCheckLimit and params.charCheckLimit.charcheckCountdown %}data-char-check-countdown="true"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             {% if params.label and params.label.description %}{% if params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
+            {% if params.prefix.title %}title="{{ params.prefix.title }}" aria-hidden=true{% endif %}
+            {% if params.suffix.title %}title="{{ params.suffix.title }}" aria-hidden=true{% endif %}
         />
         {% if params.listeners %}
             <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
