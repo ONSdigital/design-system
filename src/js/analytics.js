@@ -33,8 +33,8 @@ export default function initAnalytics() {
   }, 200);
 
   document.body.addEventListener('click', ({ target }) => {
-    if (target.getAttribute('data-ga') === 'click') {
-      trackElement(target, target.getAttribute('data-ga'));
+    if (target.getAttribute('data-ga') === 'click' || target.parentElement.getAttribute('data-ga') === 'click') {
+      trackElement(target, target.getAttribute('data-ga') || target.parentElement.getAttribute('data-ga'));
     }
   });
   [...document.querySelectorAll('[data-ga=error]')].map((element) => trackElement(element, 'error'));
