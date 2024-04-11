@@ -44,8 +44,8 @@
             {% if params.charCheckLimit and params.charCheckLimit.charcheckCountdown %}data-char-check-countdown="true"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             {% if params.label and params.label.description %}{% if params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
-            {% if params.prefix.title %}title="{{ params.prefix.title }}" aria-hidden=true{% endif %}
-            {% if params.suffix.title %}title="{{ params.suffix.title }}" aria-hidden=true{% endif %}
+            {% if params.prefix.title %}title="{{ params.prefix.title }}" {% endif %}
+            {% if params.suffix.title %}title="{{ params.suffix.title }}" {% endif %}
         />
         {% if params.listeners %}
             <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>

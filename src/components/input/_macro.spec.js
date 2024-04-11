@@ -369,6 +369,14 @@ describe('macro: input', () => {
       const $ = cheerio.load(
         renderComponent('input', {
           ...EXAMPLE_INPUT_MINIMAL,
+          label: {
+            id: 'example-input-label',
+            text: 'Example input label',
+            classes: 'extra-label-class',
+            description: 'Example input label description',
+            attributes: { a: 42 },
+            inline: false,
+          },
           prefix: {
             id: 'example-prefix-id',
             title: 'Example prefix title',
