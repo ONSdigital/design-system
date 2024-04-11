@@ -73,7 +73,7 @@
 | url        | string  | true     | URL to change the application language                                                              |
 | ISOCode    | string  | true     | The ISO language code for the language                                                              |
 | text       | string  | true     | The name of the language to display                                                                 |
-| textAbbr   | string  | false    | Abbreviated version of the language text can be provided. This will be displayed on small viewports |
+| abbrText   | string  | false    | Abbreviated version of the language text can be provided. This will be displayed on small viewports |
 | current    | boolean | true     | The current selected language                                                                       |
 | attributes | object  | false    | HTML attributes (for example, data attributes) to add to the details element                        |
 
@@ -97,13 +97,15 @@
 
 ## Item
 
-| Name      | Type   | Required | Description                                                           |
-| --------- | ------ | -------- | --------------------------------------------------------------------- |
-| classes   | string | false    | Classes to add to the list item element                               |
-| url       | string | true     | The URL for the HTML `href` attribute for the path to the linked page |
-| text      | string | true     | The text label for the link                                           |
-| id        | string | false    | The HTML `id` of the link                                             |
-| ariaLabel | string | false    | The `aria-label` for the item.                                        |
+| Name      | Type   | Required | Description                                                                                                                                                        |
+| --------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| classes   | string | false    | Classes to add to the list item element                                                                                                                            |
+| url       | string | true     | The URL for the HTML `href` attribute for the path to the linked page                                                                                              |
+| text      | string | true     | The text label for the link                                                                                                                                        |
+| id        | string | false    | The HTML `id` of the link                                                                                                                                          |
+| ariaLabel | string | false    | The `aria-label` for the item.                                                                                                                                     |
+| title     | string | false    | The title text for the list item element                                                                                                                           |
+| iconType  | string | false    | Adds an icon to a service link item when set to the name of one of the [available icons](/foundations/icons#a-to-z). This is not compatible with navigation links. |
 
 ## SignOutButton
 
