@@ -13,7 +13,6 @@ if (window.google_tag_manager !== undefined) {
 }
 
 export const trackElement = (el, type) => {
-  console.log(el);
   return trackEvent(`ons_${type}`, {
     event_category: el.getAttribute('data-ga-category') || '',
     event_action: el.getAttribute('data-ga-action') || '',
