@@ -31,7 +31,11 @@ layout: ~
 
     {{ onsButton({
         "text": "Access study",
-        "classes": "ons-u-mb-xl"
+        "classes": "ons-u-mb-xl",
+        "attributes": {
+            "data-ga": "click",
+            "data-ga-testing": "this is a test"
+        }
     }) }}
 
     <h2>If you do not have an access code</h2>
