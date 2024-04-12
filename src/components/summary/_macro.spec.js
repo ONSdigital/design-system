@@ -22,6 +22,7 @@ const EXAMPLE_SUMMARY_ROWS = {
             b: 'bbb',
           },
           iconType: 'check',
+          iconVisuallyHiddenText: 'Section Completed',
           id: 'item-id-1',
           valueList: [
             {
@@ -430,6 +431,14 @@ describe('macro: summary', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
         expect($('.ons-summary__item-title-icon').hasClass('ons-summary__item-title-icon--check')).toBe(true);
+      });
+
+      it('has the visually hidden text <span> text when `iconType` is `check`', () => {
+        const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
+
+        console.log($('.ons-summary__item-title-icon').text());
+
+        expect($('.ons-summary__item-title-icon').text().trim()).toBe('Section Completed');
       });
 
       it('has the correct item text class when `iconType` is provided', () => {
