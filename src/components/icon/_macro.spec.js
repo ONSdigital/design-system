@@ -47,6 +47,12 @@ describe('macro: icon', () => {
       expect($('svg').length).toBe(1);
     });
 
+    it('has a role of image', () => {
+      const $ = cheerio.load(renderComponent('icon', { iconType }));
+
+      expect($('svg').attr('role')).toBe('img');
+    });
+
     it('has additionally provided style classes', () => {
       const $ = cheerio.load(
         renderComponent('icon', {
