@@ -34,7 +34,9 @@ export default function initAnalytics() {
 
   document.body.addEventListener('click', ({ target }) => {
     if (target.getAttribute('data-ga') === 'click') {
-      trackElement(target, target.getAttribute('data-ga'));
+      return trackElement(target, 'click');
+    } else if (target.parentElement.getAttribute('data-ga') === 'click') {
+      return trackElement(target.parentElement, 'click');
     }
   });
   [...document.querySelectorAll('[data-ga=error]')].map((element) => trackElement(element, 'error'));
