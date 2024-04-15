@@ -22,7 +22,7 @@ const EXAMPLE_SUMMARY_ROWS = {
             b: 'bbb',
           },
           iconType: 'check',
-          iconVisuallyHiddenText: 'Section Completed',
+          iconVisuallyHiddenText: true,
           id: 'item-id-1',
           valueList: [
             {
@@ -438,7 +438,7 @@ describe('macro: summary', () => {
 
         console.log($('.ons-summary__item-title-icon').text());
 
-        expect($('.ons-summary__item-title-icon').text().trim()).toBe('Section Completed');
+        expect($('.ons-summary__item-title-icon').text().trim()).toBe('Section completed');
       });
 
       it('has the correct item text class when `iconType` is provided', () => {

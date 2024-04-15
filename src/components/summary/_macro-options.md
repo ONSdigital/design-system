@@ -34,16 +34,16 @@
 
 ## SummaryRowItem
 
-| Name                   | Type                   | Required | Description                                                                                 |
-| ---------------------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------- |
-| id                     | string                 | false    | The HTML `id` of the row item                                                               |
-| iconType               | string                 | false    | Adds an icon before the row title, by setting the [icon type](/foundations/icons#icon-type) |
-| iconVisuallyHiddenText | string                 | false    | Visually hidden text in a span under the icon to add more context for screen readers        |
-| rowTitle               | string                 | false    | The title for the row item                                                                  |
-| rowTitleAttributes     | object                 | false    | HTML attributes (for example, data attributes) to add to the rowTitle                       |
-| valueList              | Array`<SummaryValue>`  | false    | An array of [value(s)](#summaryvalue) for the row item                                      |
-| actions                | Array`<SummaryAction>` | false    | Settings for the row [action links](#summaryaction)                                         |
-| attributes             | object                 | false    | HTML attributes (for example, data attributes) to add to the row item                       |
+| Name                   | Type                   | Required | Description                                                                                   |
+| ---------------------- | ---------------------- | -------- | --------------------------------------------------------------------------------------------- |
+| id                     | string                 | false    | The HTML `id` of the row item                                                                 |
+| iconType               | string                 | false    | Adds an icon before the row title, by setting the [icon type](/foundations/icons#icon-type)   |
+| iconVisuallyHiddenText | boolean                | false    | Set to "true" for visually hidden text on the icon if no other context is provided in the row |
+| rowTitle               | string                 | false    | The title for the row item                                                                    |
+| rowTitleAttributes     | object                 | false    | HTML attributes (for example, data attributes) to add to the rowTitle                         |
+| valueList              | Array`<SummaryValue>`  | false    | An array of [value(s)](#summaryvalue) for the row item                                        |
+| actions                | Array`<SummaryAction>` | false    | Settings for the row [action links](#summaryaction)                                           |
+| attributes             | object                 | false    | HTML attributes (for example, data attributes) to add to the row item                         |
 
 ## SummaryValue
 
