@@ -436,8 +436,6 @@ describe('macro: summary', () => {
       it('has the visually hidden text <span> text when `iconType` is `check`', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        console.log($('.ons-summary__item-title-icon').text());
-
         expect($('.ons-summary__item-title-icon').text().trim()).toBe('Section completed');
       });
 
