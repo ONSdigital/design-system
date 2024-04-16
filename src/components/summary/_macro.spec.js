@@ -22,7 +22,7 @@ const EXAMPLE_SUMMARY_ROWS = {
             b: 'bbb',
           },
           iconType: 'check',
-          iconVisuallyHiddenText: true,
+          iconVisuallyHiddenText: 'Section completed',
           id: 'item-id-1',
           valueList: [
             {
