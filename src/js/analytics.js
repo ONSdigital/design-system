@@ -13,11 +13,20 @@ if (window.google_tag_manager !== undefined) {
 }
 
 export const trackElement = (el, type) => {
-  return trackEvent(`ons_${type}`, {
-    event_category: el.getAttribute('data-ga-category') || '',
-    event_action: el.getAttribute('data-ga-action') || '',
-    event_label: el.getAttribute('data-ga-label') || '',
-  });
+  const attributes = el.attributes;
+  const eventData = {};
+  // Loop through all attributes of the element
+  for (let i = 0; i < attributes.length; i++) {
+    const attributeName = attributes[i].name;
+    // Check if the attribute starts with 'data-ga-'
+    if (attributeName.startsWith('data-ga-')) {
+      // Extract the key by removing 'data-ga-' prefix
+      const key = attributeName.replace('data-ga-', '').replace('-', '_');
+      // Use the attribute value as the value for the key
+      eventData[key] = el.getAttribute(attributeName);
+    }
+  }
+  return trackEvent(`ons_${type}`, eventData);
 };
 
 export default function initAnalytics() {
