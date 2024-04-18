@@ -20,6 +20,11 @@
   white-space: nowrap;
 }
 
+// Utility class to force wrapping of values
+.ons-u-wrap {
+  white-space: normal !important;
+}
+
 // Utility class to set direction right to left
 .ons-u-rtl {
   direction: rtl;

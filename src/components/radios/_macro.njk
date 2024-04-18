@@ -113,6 +113,25 @@
                                             "radios": radio.other.radios
                                         })
                                     }}
+                                {% elif otherType == "textarea" %}
+                                    {% from "components/textarea/_macro.njk" import onsTextarea %}
+                                    {{
+                                        onsTextarea({
+                                            "id": radio.other.id,
+                                            "name": radio.other.name,
+                                            "label": {
+                                                "id": radio.other.id + "-label",
+                                                "text": radio.other.label.text,
+                                                "classes": 'ons-u-fw-n',
+                                                "description": radio.other.label.description
+                                            },
+                                            "charCheckLimit": {
+                                                "limit": radio.other.charCheckLimit.limit,
+                                                "charCountSingular": radio.other.charCheckLimit.charCountSingular,
+                                                "charCountPlural": radio.other.charCheckLimit.charCountPlural
+                                            }
+                                        })
+                                    }}
                                 {% endif %}
                             </span>
                         {% endif %}
