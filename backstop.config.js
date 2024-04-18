@@ -35,8 +35,6 @@ module.exports = {
       '--disable-dev-shm-usage',
       '--cap-add=SYS_ADMIN',
     ],
-    headless: 'new',
-    gotoParameters: { waitUntil: 'networkidle0' },
   },
   report: process.env.RUNNING_IN_CI === 'true' ? [] : ['browser'],
   dockerCommandTemplate:
