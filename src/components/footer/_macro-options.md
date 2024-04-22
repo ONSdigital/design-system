@@ -14,6 +14,7 @@
 | wide                 | boolean                        | false    | Set to “true” to increase the maximum width of the layout container to 1280px                                                                        |
 | fullWidth            | boolean                        | false    | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                                |
 | attributes           | object                         | false    | HTML attributes (for example, data attributes) to add to the footer                                                                                  |
+| logo                 | object`<LogoObject>`           | false    | Additional logo to be used in the footer.                                                                                                            |
 
 ## OGLLink
 
@@ -50,3 +51,10 @@
 | Name      | Type                                                        | Required | Description                 |
 | --------- | ----------------------------------------------------------- | -------- | --------------------------- |
 | itemsList | array`<ListItem>` [_(ref)_](/foundations/typography/#lists) | true     | A list of links for the row |
+
+## LogoObject
+
+| Name      | Type           | Required | Description                                                                                  |
+| --------- | -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| logoImage | HTML or string | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`.                         |
+| logoURL   | string         | false    | Wraps the additional logo in a link. Set the URL for the HTML `href` attribute for the link. |

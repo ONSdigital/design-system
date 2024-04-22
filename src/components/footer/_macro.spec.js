@@ -478,6 +478,22 @@ describe('macro: footer', () => {
           expect($('.custom-logo').length).toBe(1);
         });
       });
+
+      it('it has the additional logo image and link', () => {
+        const $ = cheerio.load(
+          renderComponent('footer', {
+            legal: EXAMPLE_LEGAL_PARAM,
+            crest: true,
+            logo: {
+              logoURL: '#0',
+              logoImage: '<img src="a-logo.svg" class="additional-logo">',
+            },
+          }),
+        );
+
+        expect($('.ons-footer__additional-logo').attr('href')).toBe('#0');
+        expect($('.additional-logo').attr('src')).toBe('a-logo.svg');
+      });
     });
   });
 
