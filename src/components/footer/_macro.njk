@@ -15,7 +15,8 @@
                 onsIcon({
                     "iconType": 'ons-logo-stacked-cy' if params.logo else 'ons-logo-cy',
                     "altText": 'Swyddfa Ystadegau Gwladol',
-                    "altTextId": 'ons-logo-cy-footer-alt'
+                    "altTextId": 'ons-logo-cy-footer-alt',
+                    "classes": 'ons-u-mr-xxs' if params.logo else ''
                 })
             -}}
         {% else %}
@@ -23,7 +24,8 @@
                 onsIcon({
                     "iconType": 'ons-logo-stacked-en' if params.logo else 'ons-logo-en' ,
                     "altText": 'Office for National Statistics',
-                    "altTextId": 'ons-logo-en-footer-alt'
+                    "altTextId": 'ons-logo-en-footer-alt',
+                    "classes": 'ons-u-mr-xxs' if params.logo else ''
                 })
             -}}
         {% endif %}
@@ -173,7 +175,7 @@
                         {% if not params.poweredBy %}
                             <a class="ons-footer__poweredBy-link" {% if lang == "cy" %}href="https://cy.ons.gov.uk/"{% else %}href="https://www.ons.gov.uk/"{% endif %}>
                                 <div class="ons-footer__poweredby-logo ons-u-mb-m{% if params.logo %} ons-grid--flex ons-grid--vertical-center{% endif %}">
-                                    {{ onsLogo | safe }} 
+                                    {{ onsLogo | safe }}
                                     {{ additionalLogo | safe }}
                                 </div>
                             </a>
