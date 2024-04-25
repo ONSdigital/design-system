@@ -492,7 +492,7 @@ describe('macro: footer', () => {
         );
 
         expect($('.ons-footer__additional-logo').attr('href')).toBe('#0');
-        expect($('.additional-logo').attr('src')).toBe('a-logo.svg');
+        expect($('.ons-footer__additional-logo').find('.additional-logo').length).toBe(1);
       });
     });
   });

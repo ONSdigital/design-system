@@ -173,7 +173,7 @@
                             </div>
                         {% endif %}
                         {% if not params.poweredBy %}
-                            <a class="ons-footer__poweredBy-link" {% if lang == "cy" %}href="https://cy.ons.gov.uk/"{% else %}href="https://www.ons.gov.uk/"{% endif %}>
+                            <a class="{% if not params.logo %}ons-footer__poweredBy-link{% endif %}" {% if lang == "cy" %}href="https://cy.ons.gov.uk/"{% else %}href="https://www.ons.gov.uk/"{% endif %}>
                                 <div class="ons-footer__poweredby-logo ons-u-mb-m{% if params.logo %} ons-grid--flex ons-grid--vertical-center{% endif %}">
                                     {{ onsLogo | safe }}
                                     {{ additionalLogo | safe }}
