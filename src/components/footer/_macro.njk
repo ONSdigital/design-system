@@ -9,30 +9,8 @@
         {% set lang = 'en' %}
     {% endif %}
 
-    {% set onsLogo %}
-        {% if params.lang == 'cy' %}
-            {{-
-                onsIcon({
-                    "iconType": 'ons-logo-stacked-cy' if params.logo else 'ons-logo-cy',
-                    "altText": 'Swyddfa Ystadegau Gwladol',
-                    "altTextId": 'ons-logo-cy-footer-alt',
-                    "classes": 'ons-u-mr-xxs' if params.logo else ''
-                })
-            -}}
-        {% else %}
-            {{-
-                onsIcon({
-                    "iconType": 'ons-logo-stacked-en' if params.logo else 'ons-logo-en' ,
-                    "altText": 'Office for National Statistics',
-                    "altTextId": 'ons-logo-en-footer-alt',
-                    "classes": 'ons-u-mr-xxs' if params.logo else ''
-                })
-            -}}
-        {% endif %}
-    {% endset %}
-
-    {% set additionalLogo %}
-        {% if params.logo %}
+    {% if params.logo%}
+        {% set additionalLogo %}
             {% if params.logo.logoURL %}
                 <a class="ons-footer__additional-logo" href="{{ params.logo.logoURL }}">
             {% endif %}
@@ -42,7 +20,29 @@
             {% if params.logo.logoURL %}
                 </a>
             {% endif %}
-        {%endif%}
+        {% endset %}
+    {% endif %}
+
+    {% set onsLogo %}
+        {% if params.lang == 'cy' %}
+            {{-
+                onsIcon({
+                    "iconType": 'ons-logo-stacked-cy' if additionalLogo else 'ons-logo-cy',
+                    "altText": 'Swyddfa Ystadegau Gwladol',
+                    "altTextId": 'ons-logo-cy-footer-alt',
+                    "classes": 'ons-u-mr-xs' if additionalLogo else ''
+                })
+            -}}
+        {% else %}
+            {{-
+                onsIcon({
+                    "iconType": 'ons-logo-stacked-en' if additionalLogo else 'ons-logo-en' ,
+                    "altText": 'Office for National Statistics',
+                    "altTextId": 'ons-logo-en-footer-alt',
+                    "classes": 'ons-u-mr-xs' if additionalLogo else ''
+                })
+            -}}
+        {% endif %}
     {% endset %}
 
     <footer class="ons-footer">
@@ -173,8 +173,8 @@
                             </div>
                         {% endif %}
                         {% if not params.poweredBy %}
-                            <a class="{% if not params.logo %}ons-footer__poweredBy-link{% endif %}" {% if lang == "cy" %}href="https://cy.ons.gov.uk/"{% else %}href="https://www.ons.gov.uk/"{% endif %}>
-                                <div class="ons-footer__poweredby-logo ons-u-mb-m{% if params.logo %} ons-grid--flex ons-grid--vertical-center{% endif %}">
+                            <a class="{% if not additionalLogo %}ons-footer__poweredBy-link{% endif %}" {% if lang == "cy" %}href="https://cy.ons.gov.uk/"{% else %}href="https://www.ons.gov.uk/"{% endif %}>
+                                <div class="ons-footer__poweredby-logo ons-u-mb-m{% if additionalLogo %}  ons-grid--flex{% endif %}">
                                     {{ onsLogo | safe }}
                                     {{ additionalLogo | safe }}
                                 </div>

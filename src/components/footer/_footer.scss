@@ -30,7 +30,8 @@
     vertical-align: middle;
   }
 
-  &__poweredBy-link {
+  &__poweredBy-link,
+  &__additional-poweredBy-link {
     &:focus {
       .ons-icon--logo {
         @extend %a-focus;
