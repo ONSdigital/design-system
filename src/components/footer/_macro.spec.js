@@ -152,13 +152,13 @@ describe('macro: footer', () => {
                 crest: true,
                 logo: {
                     logoURL: '#0',
-                    logoImage: '<img src="a-logo.svg" class="additional-logo">',
+                    logoImage: '<img src="a-logo.svg">',
                 },
             }),
         );
 
         expect($('.ons-footer__additional-logo').attr('href')).toBe('#0');
-        expect($('.ons-footer__additional-logo').find('.additional-logo').length).toBe(1);
+        expect($('.ons-footer__additional-logo > img').attr('src')).toBe('a-logo.svg');
     });
 
     it('renders raw HTML when `HTML` is provided', () => {
