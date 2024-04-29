@@ -157,7 +157,7 @@ describe('macro: footer', () => {
             }),
         );
 
-        expect($('.ons-footer__additional-logo').attr('href')).toBe('#0');
+        expect($('.ons-footer__additional-poweredBy-link').attr('href')).toBe('#0');
         expect($('.ons-footer__additional-poweredBy-link > img').attr('src')).toBe('a-logo.svg');
     });
 
