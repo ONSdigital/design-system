@@ -25,8 +25,6 @@
                 "name": params.day.name,
                 "classes": (" ons-input--error" if (params.error and params.day.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default(""),
                 "width": "2",
-                "min": 1,
-                "max": 31,
                 "maxLength": 2,
                 "attributes": params.day.attributes,
                 "label": {
@@ -46,8 +44,6 @@
                 "name": params.month.name,
                 "classes": (" ons-input--error" if (params.error and params.month.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default(""),
                 "width": "2",
-                "min": 1,
-                "max": 12,
                 "maxLength": 2,
                 "attributes": params.month.attributes,
                 "label": {
@@ -67,8 +63,6 @@
                 "name": params.year.name,
                 "classes": (" ons-input--error" if (params.error and params.year.error) or (params.error and not params.day.error and not params.month.error and not params.year.error) else "") + exclusiveClass | default(""),
                 "width": "4",
-                "min": 1000,
-                "max": 3000,
                 "maxLength": 4,
                 "attributes": params.year.attributes,
                 "label": {
