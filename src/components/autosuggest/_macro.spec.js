@@ -157,9 +157,7 @@ describe('macro: autosuggest', () => {
           },
           mutuallyExclusive: null,
           accessiblePlaceholder: true,
-          name: 'country-of-birth-test',
-          min: 1,
-          max: 10,
+          name: 'test-params',
           minLength: 1,
           maxLength: 10,
           prefix: {
@@ -210,10 +208,8 @@ describe('macro: autosuggest', () => {
       expect(inputSpy.occurrences[0]).toHaveProperty('error.text', 'An error occurred.');
       expect(inputSpy.occurrences[0]).toHaveProperty('mutuallyExclusive', null);
       expect(inputSpy.occurrences[0]).toHaveProperty('accessiblePlaceholder', true);
-      expect(inputSpy.occurrences[0]).toHaveProperty('name', 'country-of-birth-test');
+      expect(inputSpy.occurrences[0]).toHaveProperty('name', 'test-params');
       expect(typeof inputSpy.occurrences[0].autosuggestResults).toBe('string');
-      expect(inputSpy.occurrences[0]).toHaveProperty('min', 1);
-      expect(inputSpy.occurrences[0]).toHaveProperty('max', 10);
       expect(inputSpy.occurrences[0]).toHaveProperty('minLength', 1);
       expect(inputSpy.occurrences[0]).toHaveProperty('maxLength', 10);
       expect(inputSpy.occurrences[0]).toHaveProperty('prefix.title', 'Great British Pounds');
