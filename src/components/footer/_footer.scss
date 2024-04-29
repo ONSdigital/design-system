@@ -30,15 +30,6 @@
     vertical-align: middle;
   }
 
-  &__poweredBy-link,
-  &__additional-poweredBy-link {
-    &:focus {
-      .ons-icon--logo {
-        @extend %a-focus;
-      }
-    }
-  }
-
   .ons-icon--logo,
   .ons-icon--logo__group {
     fill: var(--ons-color-black) !important;
