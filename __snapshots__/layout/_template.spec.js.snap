@@ -1597,7 +1597,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             </div>
                         
                         
-                                <div class="ons-footer__poweredby-logo ons-u-mb-m">
+                                <div class="ons-footer__poweredby ons-u-mb-m">
                                     <a class="ons-footer__poweredBy-link" href="https://www.ons.gov.uk/">
                                         
         <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-footer-alt" role="img">
