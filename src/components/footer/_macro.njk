@@ -12,7 +12,7 @@
     {% if params.logo%}
         {% set additionalLogo %}
             {% if params.logo.logoURL %}
-                <a class="ons-footer__additional-poweredBy-link" href="{{ params.logo.logoURL }}">
+                <a class="ons-footer__poweredBy-additional-link" href="{{ params.logo.logoURL }}">
             {% endif %}
             {% if params.logo.logoImage != "ONS Logo" %}
                 {{ params.logo.logoImage | safe }}
