@@ -9,35 +9,11 @@
         }
     }
 
-  &__button-container {
-    background-clip: border-box;
-    background-color: var(--ons-color-header);
-    padding: 1rem;
-  }
-
-  &__warning {
-    background-color: var(--ons-color-banner-bg-dark);
-    outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
-  }
-
-  &__license {
-    @extend .ons-u-fs-s;
-  }
-
-  &__ogl-img {
-    margin: 0 0.5rem 0.2rem 0;
-    max-width: 100%;
-    vertical-align: middle;
-  }
-
-  &__poweredBy-link,
-  &__additional-poweredBy-link {
-    &:focus {
-      .ons-icon--logo {
-        @extend %a-focus;
-      }
+    &__button-container {
+        background-clip: border-box;
+        background-color: var(--ons-color-header);
+        padding: 1rem;
     }
-  }
 
     &__warning {
         background-color: var(--ons-color-banner-bg-dark);
