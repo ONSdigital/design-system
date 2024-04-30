@@ -145,7 +145,7 @@ describe('macro: footer', () => {
         });
     });
 
-    it('has the additional logo image and link', () => {
+    it('has the extra powered by logo image and link', () => {
         const $ = cheerio.load(
             renderComponent('footer', {
                 legal: EXAMPLE_LEGAL_PARAM,
