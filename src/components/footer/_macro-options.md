@@ -6,6 +6,7 @@
 | rows                 | array`<FooterRow>`             | false    | An array for the first [footer row](#footerrow)                                                                                                      |
 | legal                | array`<LegalRow>`              | false    | An array of for the [row of legal links](#legalrow)                                                                                                  |
 | poweredBy            | HTML                           | false    | Any HTML to render an image for example embedded `<svg>` or `<img>` to override the default ONS logo                                                 |
+| extraPoweredByLogo   | object`<extraPoweredByLogo>`   | false    | Extra logo to go alongside the ONS logo in the footer                                                                                                |
 | lang                 | string                         | false    | Set the ISO language code for current page to display the correct language ONS logo. Defaults to “en”.                                               |
 | newTabWarning        | string                         | false    | Leading line of text to warn users that all footer links will open a new tab                                                                         |
 | OGLLink              | object`<OGLLink>`              | false    | An object containing settings for the [Open Government Licence content](#ogllink). Set to “true” to display the default values for English and Welsh |
@@ -14,7 +15,6 @@
 | wide                 | boolean                        | false    | Set to “true” to increase the maximum width of the layout container to 1280px                                                                        |
 | fullWidth            | boolean                        | false    | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                                |
 | attributes           | object                         | false    | HTML attributes (for example, data attributes) to add to the footer                                                                                  |
-| extraPoweredByLogo   | object`<extraPoweredByLogo>`   | false    | Extra logo to go alongside the ONS logo in the footer                                                                                                |
 
 ## OGLLink
 
