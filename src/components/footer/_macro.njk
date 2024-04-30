@@ -8,15 +8,15 @@
         {% set lang = 'en' %}
     {% endif %}
 
-    {% if params.logo%}
-        {% set additionalLogo %}
-            {% if params.logo.logoURL %}
-                <a class="ons-footer__poweredBy-additional-link" href="{{ params.logo.logoURL }}">
+    {% if params.extraPoweredByLogo%}
+        {% set extraPoweredByLogo %}
+            {% if params.extraPoweredByLogo.logoUrl %}
+                <a class="ons-footer__poweredBy-extra-link" href="{{ params.extraPoweredByLogo.logoUrl }}">
             {% endif %}
-            {% if params.logo.logoImage != "ONS Logo" %}
-                {{ params.logo.logoImage | safe }}
+            {% if params.extraPoweredByLogo.logoImage != "ONS Logo" %}
+                {{ params.extraPoweredByLogo.logoImage | safe }}
             {% endif %}
-            {% if params.logo.logoURL %}
+            {% if params.extraPoweredByLogo.logoUrl %}
                 </a>
             {% endif %}
         {% endset %}
@@ -26,7 +26,7 @@
         {% if params.lang == 'cy' %}
             {{-
                 onsIcon({
-                    "iconType": 'ons-logo-stacked-cy' if additionalLogo else 'ons-logo-cy',
+                    "iconType": 'ons-logo-stacked-cy' if extraPoweredByLogo else 'ons-logo-cy',
                     "altText": 'Swyddfa Ystadegau Gwladol',
                     "altTextId": 'ons-logo-cy-footer-alt',
                     "classes": 'ons-u-mr-xs' if extraPoweredByLogo else ''
