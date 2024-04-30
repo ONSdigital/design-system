@@ -14,7 +14,7 @@
 | wide                 | boolean                        | false    | Set to “true” to increase the maximum width of the layout container to 1280px                                                                        |
 | fullWidth            | boolean                        | false    | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                                |
 | attributes           | object                         | false    | HTML attributes (for example, data attributes) to add to the footer                                                                                  |
-| logo                 | object`<LogoObject>`           | false    | Additional logo to go alongside the ONS logo in the footer                                                                                           |
+| extraPoweredByLogo   | object`<extraPoweredByLogo>`   | false    | Extra logo to go alongside the ONS logo in the footer                                                                                                |
 
 ## OGLLink
 
