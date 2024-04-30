@@ -491,8 +491,8 @@ describe('macro: footer', () => {
           }),
         );
 
-        expect($('.ons-footer__poweredBy-additional-link').attr('href')).toBe('#0');
-        expect($('.ons-footer__poweredBy-additional-link > img').attr('src')).toBe('a-logo.svg');
+        expect($('.ons-footer__poweredBy-extra-link').attr('href')).toBe('#0');
+        expect($('.ons-footer__poweredBy-extra-link > img').attr('src')).toBe('a-logo.svg');
       });
     });
   });
