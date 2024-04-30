@@ -12,7 +12,6 @@ import {
   EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE,
   EXAMPLE_HEADER_SERVICE_LINKS_SINGLE,
   EXAMPLE_HEADER_LANGUAGE_CONFIG,
-  EXAMPLE_HEADER_NAVIGATION_CONFIG,
   EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG,
   EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST,
 } from './_test_examples';
@@ -527,7 +526,25 @@ describe('FOR: Header', () => {
 
       faker.renderComponent('header', {
         ...EXAMPLE_HEADER_BASIC,
-        ...EXAMPLE_HEADER_NAVIGATION_CONFIG,
+        navigation: {
+          id: 'main-nav',
+          ariaLabel: 'Main menu',
+          currentPath: '#home',
+          itemsList: [
+            {
+              title: 'Home',
+              url: '#home',
+            },
+            {
+              title: 'Guidance',
+              url: '#0',
+            },
+          ],
+          toggleNavigationButton: {
+            text: 'Menu',
+            ariaLabel: 'Toggle main menu',
+          },
+        },
       });
       test('THEN: renders navigation with provided parameters', () => {
         expect(navigationSpy.occurrences[0]).toEqual({

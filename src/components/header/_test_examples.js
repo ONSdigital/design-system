@@ -4,7 +4,6 @@ export {
   EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE,
   EXAMPLE_HEADER_SERVICE_LINKS_SINGLE,
   EXAMPLE_HEADER_LANGUAGE_CONFIG,
-  EXAMPLE_HEADER_NAVIGATION_CONFIG,
   EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG,
   EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST,
 };
@@ -12,7 +11,6 @@ export {
 const EXAMPLE_HEADER_BASIC = {
   title: 'Header title',
 };
-
 const EXAMPLE_SERVICE_LINKS_CONFIG = {
   id: 'service-links',
   ariaLabel: 'Services menu',
@@ -76,28 +74,6 @@ const EXAMPLE_HEADER_LANGUAGE_CONFIG = {
     ],
   },
 };
-const EXAMPLE_HEADER_NAVIGATION_CONFIG = {
-  navigation: {
-    id: 'main-nav',
-    ariaLabel: 'Main menu',
-    currentPath: '#home',
-    itemsList: [
-      {
-        title: 'Home',
-        url: '#home',
-      },
-      {
-        title: 'Guidance',
-        url: '#0',
-      },
-    ],
-    toggleNavigationButton: {
-      text: 'Menu',
-      ariaLabel: 'Toggle main menu',
-    },
-  },
-};
-
 const EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG = {
   navigation: {
     id: 'main-nav',
