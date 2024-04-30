@@ -484,8 +484,8 @@ describe('macro: footer', () => {
           renderComponent('footer', {
             legal: EXAMPLE_LEGAL_PARAM,
             crest: true,
-            logo: {
-              logoURL: '#0',
+            extraPoweredByLogo: {
+              logoUrl: '#0',
               logoImage: '<img src="a-logo.svg">',
             },
           }),
