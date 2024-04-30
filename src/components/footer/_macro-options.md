@@ -52,9 +52,9 @@
 | --------- | ----------------------------------------------------------- | -------- | --------------------------- |
 | itemsList | array`<ListItem>` [_(ref)_](/foundations/typography/#lists) | true     | A list of links for the row |
 
-## Logo
+## ExtraPoweredByLogo
 
 | Name      | Type           | Required | Description                                                                                  |
 | --------- | -------------- | -------- | -------------------------------------------------------------------------------------------- |
 | logoImage | HTML or string | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`.                         |
-| logoURL   | string         | false    | Wraps the additional logo in a link. Set the URL for the HTML `href` attribute for the link. |
+| logoURL   | string         | false    | Wraps the extra logo in a link. Set the URL for the HTML `href` attribute for the link.      |
