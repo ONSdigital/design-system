@@ -7,9 +7,6 @@ const EXAMPLE_MUTUALLY_EXCLUSIVE_NUMBER_INPUT_PARAMS = {
   type: 'number',
   legend: 'What is your annual income before tax in 2018/19?',
   width: '5',
-  attributes: {
-    min: 0,
-  },
   label: {
     text: 'Gross annual income',
   },
