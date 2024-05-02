@@ -3,7 +3,7 @@
     color: var(--ons-color-text-banner-link);
     text-decoration: underline;
 
-    &:hover {
+    &:hover:not(:focus) {
       color: var(--ons-color-text-banner-link-hover);
       text-decoration: underline solid var(--ons-color-text-banner-link-hover) 2px;
     }
