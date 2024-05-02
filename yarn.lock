@@ -2539,7 +2539,7 @@ bach@^1.0.0:
     async-settle "^1.0.0"
     now-and-later "^2.0.0"
 
-backstopjs@^6.3.23:
+backstopjs@^6.1.4:
   version "6.3.23"
   resolved "https://registry.yarnpkg.com/backstopjs/-/backstopjs-6.3.23.tgz#33e7ad7d9739ea60bd5c2ff783eee5a13cb669ab"
   integrity sha512-GRSth3jEWI0goJ5ETA+D6QsK7ZZi0+qvZ0AAroGoLODCb20Y7NG3gc0Egnf4Qdrqg4D+seJHVjfZwqm3nuYqZg==
