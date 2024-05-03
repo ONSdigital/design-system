@@ -38,7 +38,7 @@ module.exports = {
     headless: 'old',
     gotoParameters: { waitUntil: 'networkidle0' },
   },
-  asyncCaptureLimit: 20,
+  //asyncCaptureLimit: 20,
   asyncCompareLimit: 100,
   report: process.env.RUNNING_IN_CI === 'true' ? [] : ['browser'],
   dockerCommandTemplate:
