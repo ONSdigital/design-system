@@ -32,10 +32,11 @@
                                 <a href="{{ document.url }}">{{ document.title }}
                                 {%- if document.metadata and document.metadata.file %}
                                 <span class="ons-u-vh">
-                                    {% set fileMetadataItems = [] %}
-                                    {% if document.metadata.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileType + ' document download'), fileMetadataItems) %}{% endif %}
-                                    {% if document.metadata.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileSize), fileMetadataItems) %}{% endif %}
-                                    {% if document.metadata.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.filePages), fileMetadataItems) %}{% endif %}
+                                    {% set fileMetadataItems = [
+                                        document.metadata.file.fileType + ' document download' if document.metadata.file.fileType, 
+                                        document.metadata.file.fileSize if document.metadata.file.fileSize,
+                                        document.metadata.file.filePages if document.metadata.file.filePages ]
+                                    %}
 
                                     , {{ fileMetadataItems | join(', ') }}
 
@@ -76,12 +77,11 @@
                                     {%- if document.metadata.file and document.metadata.file.fileType %}
 
                                         <li class="ons-document-list__item-attribute" aria-hidden="true">
-                                            {% set fileMetadataItems = [] %}
-
-                                            {% if document.metadata.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileType), fileMetadataItems) %}{% endif %}
-                                            {% if document.metadata.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileSize), fileMetadataItems) %}{% endif %}
-                                            {% if document.metadata.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.filePages), fileMetadataItems) %}{% endif %}
-
+                                            {% set fileMetadataItems = [
+                                                document.metadata.file.fileType if document.metadata.file.fileType, 
+                                                document.metadata.file.fileSize if document.metadata.file.fileSize,
+                                                document.metadata.file.filePages if document.metadata.file.filePages ]
+                                             %}
                                             {{ fileMetadataItems | join(', ') }}
                                         </li>
 
