@@ -30,6 +30,12 @@
     vertical-align: middle;
   }
 
+  &__extra-poweredby svg,
+  img {
+    height: 30px !important;
+    width: fit-content;
+  }
+
   .ons-icon--logo,
   .ons-icon--logo__group {
     fill: var(--ons-color-black) !important;
