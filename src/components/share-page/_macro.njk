@@ -17,6 +17,8 @@
                 "target": '_blank'
             }
          %}
+
+        {% set list = (list.push(facebook), list) %}
     {% endif %}
     {% if params.twitter and params.twitter == true %}
         {% set twitter =
@@ -28,13 +30,17 @@
                 "target": '_blank'
             }
          %}
+
+        {% set list = (list.push(twitter), list) %}
+
     {% endif %}
+
     {{
         onsList({
             "variants": 'inline',
             "iconPosition": 'before',
             "iconSize": params.iconSize | default("xxl"),
-            "itemsList": [facebook, twitter]
+            "itemsList": list
         })
     }}
 {% endmacro %}
