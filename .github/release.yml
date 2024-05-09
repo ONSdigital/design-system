@@ -13,6 +13,7 @@ changelog:
     - title: Enhancements
       labels:
         - Enhancement
+        - CI/CD
     - title: Fixes
       labels:
         - Bug
