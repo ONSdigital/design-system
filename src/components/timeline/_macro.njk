@@ -4,7 +4,7 @@
 
     <div class="ons-timeline{{ ' ' + params.classes if params.classes else '' }}">
         {% set titleTag = params.titleTag | default("h2") %}
-        {% for item in params.items_timeline %}
+        {% for item in params.timelineItems %}
             <div class="ons-timeline__item">
                 <{{ titleTag }} class="ons-timeline__heading">{{ item.heading }}</{{ titleTag }}>
                 {% if item.itemsList %}
