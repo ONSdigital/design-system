@@ -16,5 +16,5 @@ indent_size = 2
 [*.{coffee,js,ts}]
 indent_size = 2
 # Templates
-[*.{pug,jade,njk}]
+[*.{pug,jade,njk,html}]
 indent_size = 4
