@@ -4,17 +4,17 @@ root = true
 [*]
 end_of_line = lf
 charset = utf-8
-trim_trailing_whitespace = false
+trim_trailing_whitespace = true
 insert_final_newline = true
 indent_style = space
-[{*.yml,*.json}]
+[*.{yml,yaml,json}]
 indent_size = 2
 # Sass
-[{*.scss, *.sass}]
+[*.{scss,sass}]
 indent_size = 2
 # Javascript + derivatives
-[{*.coffee,*.js,*.ts}]
+[*.{coffee,js,ts}]
 indent_size = 2
 # Templates
-[*.pug,*.jade,*.njk]
+[*.{pug,jade,njk}]
 indent_size = 4
