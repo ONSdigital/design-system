@@ -139,7 +139,7 @@ const EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG = {
     },
     subNavigation: {
       id: 'sub-nav',
-      overviewURL: '#overview',
+      overviewUrl: '#overview',
       overviewText: 'Overview',
       ariaLabel: 'Section menu',
       currentPath: '#1',
@@ -344,7 +344,7 @@ describe('macro: header', () => {
               multipleLogos: {
                 logo1: {
                   logoImage: '<img src="a-logo.svg">',
-                  logoURL: '#0',
+                  logoUrl: '#0',
                 },
               },
             },

@@ -28,18 +28,18 @@
 
 ## MultipleLogos
 
-| Name  | Type                 | Required | Description |
-| ----- | -------------------- | -------- | ----------- |
-| logo1 | object`<LogoObject>` | true     | First Logo  |
-| logo2 | object`<LogoObject>` | false    | Second Logo |
-| logo3 | object`<LogoObject>` | false    | Third Logo  |
+| Name  | Type           | Required | Description |
+| ----- | -------------- | -------- | ----------- |
+| logo1 | object`<Logo>` | true     | First Logo  |
+| logo2 | object`<Logo>` | false    | Second Logo |
+| logo3 | object`<Logo>` | false    | Third Logo  |
 
-## LogoObject
+## Logo
 
 | Name      | Type           | Required | Description                                                                                                   |
 | --------- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
 | logoImage | HTML or string | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`. Use 'ONS Logo' for the default ONS icon. |
-| logoURL   | string         | false    | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                    |
+| logoUrl   | string         | false    | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                    |
 
 ## TitleLogo
 

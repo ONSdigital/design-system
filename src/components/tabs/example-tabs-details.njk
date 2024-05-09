@@ -1,22 +1,22 @@
 <style>
-  .example-video-block {
-    border: solid 1px #707071;
-  }
+    .example-video-block {
+        border: solid 1px #707071;
+    }
 </style>
 
 <div class="example-video-block">
     {% from "components/video/_macro.njk" import onsVideo %}
     {{
         onsVideo({
-        "videoEmbedUrl": 'https://www.youtube.com/embed/OwYVwPPxPj4',
-        "videoLinkURL": 'https://www.youtube.com/watch?v=OwYVwPPxPj4',
-        "image": {
-            "largeSrc": '/patternlib-img/youtube-example-cover.png',
-            "smallSrc": '/patternlib-img/youtube-example-cover.png',
-            "alt": "Youtube video"
-        },
-        "title": 'Transforming the way we produce statistics | Explaining the Dynamic Population Model | BSL',
-        "linkText": 'Watch “Transforming the way we produce statistics | Explaining the Dynamic Population Model | BSL“ on Youtube'
+            "videoEmbedUrl": 'https://www.youtube.com/embed/OwYVwPPxPj4',
+            "videoLinkUrl": 'https://www.youtube.com/watch?v=OwYVwPPxPj4',
+            "image": {
+                "largeSrc": '/patternlib-img/youtube-example-cover.png',
+                "smallSrc": '/patternlib-img/youtube-example-cover.png',
+                "alt": "Youtube video"
+            },
+            "title": 'Transforming the way we produce statistics | Explaining the Dynamic Population Model | BSL',
+            "linkText": 'Watch “Transforming the way we produce statistics | Explaining the Dynamic Population Model | BSL“ on Youtube'
         })
     }}
 

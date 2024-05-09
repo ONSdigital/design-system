@@ -71,8 +71,8 @@
                             <div class="ons-header__org-logo ons-header__org-logo--multi">
                                 {% set logos = [params.mastheadLogo.multipleLogos.logo1, params.mastheadLogo.multipleLogos.logo2, params.mastheadLogo.multipleLogos.logo3] %}
                                 {% for logo in logos %}
-                                    {% if logo.logoURL %}
-                                        <a class="ons-header__org-logo-link" href="{{ logo.logoURL }}">
+                                    {% if logo.logoUrl %}
+                                        <a class="ons-header__org-logo-link" href="{{ logo.logoUrl }}">
                                     {% endif %}
                                     {% if logo.logoImage != "ONS Logo" %}
                                         {{ logo.logoImage | safe }}
@@ -84,7 +84,7 @@
                                             })
                                         -}}
                                     {% endif %}
-                                    {% if logo.logoURL %}
+                                    {% if logo.logoUrl %}
                                         </a>
                                     {% endif %}
                                 {% endfor %}

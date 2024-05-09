@@ -49,7 +49,7 @@ const EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION = {
     ],
     subNavigation: {
       id: 'sub-nav',
-      overviewURL: '#overview',
+      overviewUrl: '#overview',
       overviewText: 'Overview',
       ariaLabel: 'Section menu',
       currentPath: '#1',
@@ -108,7 +108,7 @@ const EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION_REMOVED = {
     ],
     subNavigation: {
       id: 'sub-nav-hidden',
-      overviewURL: '#overview',
+      overviewUrl: '#overview',
       overviewText: 'Overview',
       ariaLabel: 'Section menu',
       currentPath: '#1',
