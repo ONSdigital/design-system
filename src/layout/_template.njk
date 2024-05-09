@@ -13,17 +13,15 @@
 {% if pageConfig.cdn or release_version or designSystemVersion %}
     {# Production #}
     {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
-    {%
-        set slash = "" if cdn_url | last == "/" else
-        "/"
-    %}
-    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version if pageConfig.cdn and pageConfig.cdn.version) or release_version or designSystemVersion) %}
-{% elif pageConfig.assetsURL %}
+    {% set slash = "" if cdn_url | last == "/" else
+        "/" %}
+    {% set assetsUrl = cdn_url + slash + ((pageConfig.cdn.version if pageConfig.cdn and pageConfig.cdn.version) or release_version or designSystemVersion) %}
+{% elif pageConfig.assetsUrl %}
     {# Runner Dev #}
-    {% set assetsURL = pageConfig.assetsURL %}
+    {% set assetsUrl = pageConfig.assetsUrl %}
 {% else %}
     {# Development #}
-    {% set assetsURL = "" %}
+    {% set assetsUrl = "" %}
 {% endif %}
 
 {% if pageConfig and pageConfig.title %}
@@ -45,6 +43,7 @@
 
 {# Page columns #}
 {% set pageColNumber = pageConfig.pageColNumber | default("12") %}
+<<<<<<< HEAD
 {%
     set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else
     ''
@@ -57,6 +56,14 @@
     set themeColor = pageConfig.themeColor if pageConfig.themeColor else
     "#206095"
 %}
+=======
+{% set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else
+    '' %}
+{% set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else
+    '' %}
+{% set themeColor = pageConfig.themeColor if pageConfig.themeColor else
+    "#206095" %}
+>>>>>>> b9e4830d (update url param names to camel case param naming standard)
 <!doctype html>
 <html lang="{{ currentLanguageISOCode }}">
     <head>
@@ -64,9 +71,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{{ page_title }}</title>
+<<<<<<< HEAD
         <link rel="stylesheet" href="{{ assetsURL }}/css/main.css" />
         <link rel="stylesheet" media="print" href="{{ assetsURL }}/css/print.css" />
         <meta name="theme-color" content="{{ themeColor }}" />
+=======
+        <link rel="stylesheet" href="{{ assetsUrl }}/css/main.css">
+        <link rel="stylesheet" media="print" href="{{ assetsUrl }}/css/print.css">
+        <meta name="theme-color" content="{{ themeColor }}"/>
+>>>>>>> b9e4830d (update url param names to camel case param naming standard)
         {% block meta %}
             {% if pageConfig.meta %}
                 {% if pageConfig.meta.description or pageConfig.description %}
@@ -86,6 +99,7 @@
 
         {% block social %}
             <!-- Open Graph -->
+<<<<<<< HEAD
             <meta property="og:type" content="website" />
             <meta property="og:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}" />
             <meta property="og:title" content="{{ pageConfig.title }}" />
@@ -96,16 +110,33 @@
             <meta property="og:description" content="{{ pageConfig.meta.description | default(pageConfig.description) }}" />
             <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}" />
             <meta property="og:locale" content="{{ currentLanguageISOCode }}" />
+=======
+            <meta property="og:type" content="website">
+            <meta property="og:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
+            <meta property="og:title" content="{{ pageConfig.title }}">
+            <meta property="og:image" content="{{ assetsUrl }}/favicons/opengraph.png">
+            <meta property="og:image:type" content="image/png">
+            <meta property="og:image:width" content="1200">
+            <meta property="og:image:height" content="630">
+            <meta property="og:description" content="{{ pageConfig.meta.description | default(pageConfig.description) }}">
+            <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}">
+            <meta property="og:locale" content="{{ currentLanguageISOCode }}">
+>>>>>>> b9e4830d (update url param names to camel case param naming standard)
 
             {% if otherLanguageISOCode %}
                 <meta property="og:locale:alternate" content="{{ otherLanguageISOCode }}" />
             {% endif %}
 
             {% if pageConfig.social %}
+<<<<<<< HEAD
                 {%
                     set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else
                     assetsURL + '/favicons/twitter.png'
                 %}
+=======
+                {% set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else
+                    assetsUrl + '/favicons/twitter.png' %}
+>>>>>>> b9e4830d (update url param names to camel case param naming standard)
                 <!-- Twitter -->
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:site" content="{{ pageConfig.social.twitterSite }}" />
@@ -118,12 +149,21 @@
 
         {% block favicons %}
             <!-- Favicons -->
+<<<<<<< HEAD
             <link rel="icon" type="image/x-icon" href="{{ assetsURL }}/favicons/favicon.ico" />
             <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/favicon-32x32.png" sizes="32x32" />
             <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/favicon-16x16.png" sizes="16x16" />
             <link rel="mask-icon" href="{{ assetsURL }}/favicons/safari-pinned-tab.svg" color="#000000" />
             <link rel="apple-touch-icon" type="image/png" href="{{ assetsURL }}/favicons/apple-touch-icon.png" sizes="180x180" />
             <link rel="manifest" href="{{ assetsURL }}/favicons/manifest.json" />
+=======
+            <link rel="icon" type="image/x-icon" href="{{ assetsUrl }}/favicons/favicon.ico">
+            <link rel="icon" type="image/png" href="{{ assetsUrl }}/favicons/favicon-32x32.png" sizes="32x32">
+            <link rel="icon" type="image/png" href="{{ assetsUrl }}/favicons/favicon-16x16.png" sizes="16x16">
+            <link rel="mask-icon" href="{{ assetsUrl }}/favicons/safari-pinned-tab.svg" color="#000000">
+            <link rel="apple-touch-icon" type="image/png" href="{{ assetsUrl }}/favicons/apple-touch-icon.png" sizes="180x180">
+            <link rel="manifest" href="{{ assetsUrl }}/favicons/manifest.json">
+>>>>>>> b9e4830d (update url param names to camel case param naming standard)
         {% endblock %}
 
         {% block head %}
@@ -158,6 +198,10 @@
                                 "siteSearchAutosuggest": pageConfig.header.siteSearchAutosuggest,
                                 "browserBanner": pageConfig.header.browserBanner,
                                 "phase": pageConfig.header.phase,
+<<<<<<< HEAD
+=======
+                                "assetsUrl": assetsUrl,
+>>>>>>> b9e4830d (update url param names to camel case param naming standard)
                                 "serviceLinks": pageConfig.header.serviceLinks,
                                 "variants": pageConfig.header.variants,
                                 "classes": pageConfig.header.classes,
@@ -200,6 +244,10 @@
                     {% if pageConfig.footer %}
                         {{
                             onsFooter({
+<<<<<<< HEAD
+=======
+                                "assetsUrl": assetsUrl,
+>>>>>>> b9e4830d (update url param names to camel case param naming standard)
                                 "wide": pageConfig.wide,
                                 "fullWidth": pageConfig.fullWidth,
                                 "classes": "ons-page__footer",
@@ -225,7 +273,7 @@
         <!-- prettier-ignore-start -->
         <script {% if pageConfig.cspNonce %}nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %}nonce="{{ csp_nonce() }}"{% endif %}>
             (function() {
-                var s = [ '{{ assetsURL }}/scripts/main.js' ],
+                var s = [ '{{ assetsUrl }}/scripts/main.js' ],
                 c = document.createElement('script');
 
                 if (!('noModule' in c)) {

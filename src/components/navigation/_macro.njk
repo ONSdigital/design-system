@@ -133,12 +133,8 @@
                     class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.navigation.fullWidth }}{{ ' ons-container--wide' if params.navigation.wide }}"
                 >
                     <ul class="ons-navigation__list ons-navigation__list--parent">
-                        <li
-                            class="ons-navigation__item{{ ' ons-navigation__item--active' if (params.navigation.subNavigation.overviewURL == params.navigation.subNavigation.currentPath) }}"
-                        >
-                            <a class="ons-navigation__link" href="{{ params.navigation.subNavigation.overviewURL }}"
-                                >{{ params.navigation.subNavigation.overviewText | default('Overview') }}</a
-                            >
+                        <li class="ons-navigation__item{{ ' ons-navigation__item--active' if (params.navigation.subNavigation.overviewUrl == params.navigation.subNavigation.currentPath)}}">
+                            <a class="ons-navigation__link" href="{{ params.navigation.subNavigation.overviewUrl }}">{{ params.navigation.subNavigation.overviewText | default('Overview') }}</a>
                         </li>
                         {% for item in params.navigation.subNavigation.itemsList %}
                             <li

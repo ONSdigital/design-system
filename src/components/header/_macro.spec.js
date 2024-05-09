@@ -242,7 +242,7 @@ describe('FOR: Macro: Header', () => {
                 expect($('.ons-header__title')[0].tagName).toBe('h1');
             });
         });
-        describe('WHEN: titleURL param is provided', () => {
+        describe('WHEN: titleUrl param is provided', () => {
             const $ = cheerio.load(
                 renderComponent('header', {
                     ...EXAMPLE_HEADER_BASIC,

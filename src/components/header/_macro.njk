@@ -42,19 +42,45 @@
                     class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center{{ ' '+ params.mastheadLogo.classes if params.mastheadLogo.classes }}{{ ' ons-grid-flex--no-wrap ons-grid--gutterless' if not params.mastheadLogo.multipleLogos }}"
                 >
                     <div class="ons-grid__col ons-col-auto">
-                        {%- if not params.mastheadLogo.multipleLogos -%}
-
-                            {% set mastheadLogo %}
-                                <div class="ons-header__org-logo ons-header__org-logo--large">
-                                    {% if params.mastheadLogo.large %}
-                                        {{ params.mastheadLogo.large | safe }}
-                                    {% else %}
-                                        {{-
-                                            onsIcon({
-                                                "iconType": 'ons-logo-' + currentLanguageISOCode,
-                                                "altText": 'Office for National Statistics homepage'
-                                            })
-                                        -}}
+                        {%- if not params.mastheadLogo.multipleLogos %}
+                            {%-if params.mastheadLogoUrl %}
+                                <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoUrl }}">
+                            {% endif -%}
+                            <div class="ons-header__org-logo ons-header__org-logo--large">
+                                {% if params.mastheadLogo.large %}
+                                    {{ params.mastheadLogo.large | safe }}
+                                {% else %}
+                                    {{-
+                                        onsIcon({
+                                            "iconType": 'ons-logo-' + currentLanguageISOCode,
+                                            "altText": 'Office for National Statistics homepage'
+                                        })
+                                    -}}
+                                {% endif %}
+                            </div>
+                            <div class="ons-header__org-logo ons-header__org-logo--small">
+                                {% if params.mastheadLogo.small %}
+                                    {{ params.mastheadLogo.small | safe }}
+                                {% elif params.mastheadLogo.large %}
+                                    {{ params.mastheadLogo.large | safe }}
+                                {% else %}
+                                    {{-
+                                        onsIcon({
+                                         "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                            "altText": 'Office for National Statistics logo'
+                                        })
+                                    -}}
+                                {% endif %}
+                            </div>
+                            {% if params.mastheadLogoUrl %}
+                                </a>
+                            {% endif %}
+                        {% else %}
+                            <div class="ons-header__org-logo ons-header__org-logo--multi">
+                                {% set logos = [params.mastheadLogo.multipleLogos.logo1, params.mastheadLogo.multipleLogos.logo2, params.mastheadLogo.multipleLogos.logo3] %}
+                                {% for logo in logos %}
+                                    {% if logo.logoUrl %}
+                                        <a class="ons-header__org-logo-link" href="{{ logo.logoUrl }}">
                                     {% endif %}
                                 </div>
                                 <div class="ons-header__org-logo ons-header__org-logo--small">
@@ -70,34 +96,8 @@
                                             })
                                         -}}
                                     {% endif %}
-                                </div>
-                            {% endset %}
-
-                            {%- if params.mastheadLogoUrl -%}
-                                <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoUrl }}">{{ mastheadLogo | safe }}</a>
-                            {% else %}
-                                {{ mastheadLogo | safe }}
-                            {% endif %}
-                        {% else %}
-                            <div class="ons-header__org-logo ons-header__org-logo--multi">
-                                {% set logos = [params.mastheadLogo.multipleLogos.logo1, params.mastheadLogo.multipleLogos.logo2, params.mastheadLogo.multipleLogos.logo3] %}
-                                {% for logo in logos %}
-                                    {% set mastheadLogo %}
-                                        {% if logo.image != "ONS Logo" %}
-                                            {{ logo.image | safe }}
-                                        {% else %}
-                                            {{-
-                                                onsIcon({
-                                                    "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
-                                                    "altText": 'Office for National Statistics logo'
-                                                })
-                                            -}}
-                                        {% endif %}
-                                    {% endset %}
-                                    {% if logo.url %}
-                                        <a class="ons-header__org-logo-link" href="{{ logo.url }}">{{ mastheadLogo | safe }}</a>
-                                    {% else %}
-                                        {{ mastheadLogo | safe }}
+                                    {% if logo.logoUrl %}
+                                        </a>
                                     {% endif %}
                                 {% endfor %}
                             </div>

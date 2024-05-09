@@ -32,7 +32,7 @@ const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE = {
 const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH = {
     ...EXAMPLE_CARD_WITHOUT_IMAGE,
     image: {
-        placeholderURL: '/placeholder-image-url',
+        placeholderUrl: '/placeholder-image-url',
     },
 };
 
