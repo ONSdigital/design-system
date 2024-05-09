@@ -19,6 +19,7 @@ changelog:
     - title: Documentation
       labels:
         - Documentation
+        - Example
     - title: Dependency updates
       labels:
         - Dependencies
