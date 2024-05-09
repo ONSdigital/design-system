@@ -28,13 +28,13 @@
 
 ## MultipleLogos
 
-| Name  | Type           | Required | Description |
-| ----- | -------------- | -------- | ----------- |
-| logo1 | object`<Logo>` | true     | First Logo  |
-| logo2 | object`<Logo>` | false    | Second Logo |
-| logo3 | object`<Logo>` | false    | Third Logo  |
+| Name  | Type                 | Required | Description |
+| ----- | -------------------- | -------- | ----------- |
+| logo1 | object`<LogoObject>` | true     | First Logo  |
+| logo2 | object`<LogoObject>` | false    | Second Logo |
+| logo3 | object`<LogoObject>` | false    | Third Logo  |
 
-## Logo
+## LogoObject
 
 | Name      | Type           | Required | Description                                                                                                   |
 | --------- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
