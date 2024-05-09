@@ -144,7 +144,7 @@ Generate a build into `./build`.
 yarn build
 ```
 
-## Recommended Visual Studio Code plugins for this project
+## Recommended Visual Studio Code Extensions for this project
 
 - [axe Accessibility Linter](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter)
 - [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
