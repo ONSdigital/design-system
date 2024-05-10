@@ -33,7 +33,7 @@
                                 {%- if document.metadata and document.metadata.file %}
                                 <span class="ons-u-vh">
                                     {% set fileMetadataItems = [
-                                        document.metadata.file.fileType + ' document download' if document.metadata.file.fileType, 
+                                        document.metadata.file.fileType + ' document download' if document.metadata.file.fileType,
                                         document.metadata.file.fileSize if document.metadata.file.fileSize,
                                         document.metadata.file.filePages if document.metadata.file.filePages ]
                                     %}
