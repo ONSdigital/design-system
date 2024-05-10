@@ -1,6 +1,8 @@
 name: Checklist Checker
 on:
   pull_request:
+    branches-ignore:
+        - dependabot/*
     types:
       - opened
       - edited
@@ -9,7 +11,6 @@ on:
 
 jobs:
   check-tasks:
-    if: github.actor != 'dependabot[bot]' # ignore pull requests that come from dependabot.
     name: Check tasks
     runs-on: ubuntu-latest
     steps:
