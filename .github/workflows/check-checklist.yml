@@ -9,7 +9,7 @@ on:
 
 jobs:
   check-tasks:
-    if: github.actor != 'dependabot[bot]' # ignore pull requests that come from dependabot.
+    if: github.actor == 'dependabot[bot]' # ignore pull requests that come from dependabot.
     steps:
       - name: Check tasks
         runs-on: ubuntu-latest
