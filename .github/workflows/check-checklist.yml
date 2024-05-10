@@ -10,7 +10,7 @@ on:
 jobs:
   check-tasks:
     runs-on: ubuntu-latest
-    if: github.actor = 'dependabot[bot]' # ignore pull requests that come from dependabot.
+    if: github.actor != 'dependabot[bot]' # ignore pull requests that come from dependabot.
     steps:
       - name: Check tasks
         uses: mheap/require-checklist-action@v2
