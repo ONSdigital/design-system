@@ -29,8 +29,7 @@
                 onsIcon({
                     "iconType": 'ons-logo-stacked-cy' if extraPoweredByLogo else 'ons-logo-cy',
                     "altText": 'Swyddfa Ystadegau Gwladol',
-                    "altTextId": 'ons-logo-cy-footer-alt',
-                    "classes": 'ons-u-mr-l' if extraPoweredByLogo else ''
+                    "altTextId": 'ons-logo-cy-footer-alt'
                 })
             -}}
         {% else %}
@@ -38,8 +37,7 @@
                 onsIcon({
                     "iconType": 'ons-logo-stacked-en' if extraPoweredByLogo else 'ons-logo-en' ,
                     "altText": 'Office for National Statistics',
-                    "altTextId": 'ons-logo-en-footer-alt',
-                    "classes": 'ons-u-mr-l' if extraPoweredByLogo else ''
+                    "altTextId": 'ons-logo-en-footer-alt'
                 })
             -}}
         {% endif %}
@@ -174,7 +172,7 @@
                         {% endif %}
                         {% if not params.poweredBy %}
                                 <div class="ons-footer__poweredby ons-u-mb-m{% if extraPoweredByLogo %} ons-footer__extra-poweredby ons-grid--flex{% endif %}">
-                                    <a class="ons-footer__poweredBy-link"{% if lang == "cy" %} href="https://cy.ons.gov.uk/"{% else %} href="https://www.ons.gov.uk/"{% endif %}>
+                                    <a class="ons-footer__poweredBy-link{% if extraPoweredByLogo %} ons-u-mr-l{% endif %}" {% if lang == "cy" %} href="https://cy.ons.gov.uk/"{% else %} href="https://www.ons.gov.uk/"{% endif %}>
                                         {{ onsLogo | safe }}
                                     </a>
                                     {{ extraPoweredByLogo | safe }}

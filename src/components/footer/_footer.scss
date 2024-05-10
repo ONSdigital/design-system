@@ -32,8 +32,8 @@
 
   &__extra-poweredby svg,
   img {
-    height: 30px;
-    width: fit-content;
+    max-height: 30px;
+    max-width: fit-content;
   }
 
   .ons-icon--logo,
