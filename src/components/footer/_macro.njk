@@ -176,7 +176,14 @@
                     {% endif %}
                 </div>
                 {% if params.poweredBy %}
-                    {{ params.poweredBy | safe }}
+                    {% if params.poweredBy.logoUrl %}
+                          <a class="ons-footer__poweredBy-link" href="{{ params.poweredBy.logoUrl }}">
+                    {% endif %}
+                        {{ params.poweredBy.logoImage | safe }}
+                    {% if params.poweredBy.logoUrl %}
+                          </a>
+                    {% endif %}
+
                 {% endif %}
                 {% if params.copyrightDeclaration %}
                     <!-- Copyright -->

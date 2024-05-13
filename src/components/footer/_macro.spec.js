@@ -428,28 +428,40 @@ describe('macro: footer', () => {
         [
           'the `poweredBy` and `OGLLink` parameters are provided',
           {
-            poweredBy: '<img src="logo.svg" class="custom-logo" alt="logo">',
+            poweredBy: {
+              logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">',
+              logoUrl: '#0',
+            },
             OGLLink: EXAMPLE_OGL_LINK_PARAM,
           },
         ],
         [
           'the `poweredBy` and `legal` parameters are provided',
           {
-            poweredBy: '<img src="logo.svg" class="custom-logo" alt="logo">',
+            poweredBy: {
+              logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">',
+              logoUrl: '#0',
+            },
             legal: EXAMPLE_LEGAL_PARAM,
           },
         ],
         [
           'the `poweredBy` and `crest` parameters are provided',
           {
-            poweredBy: '<img src="logo.svg" class="custom-logo" alt="logo">',
+            poweredBy: {
+              logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">',
+              logoUrl: '#0',
+            },
             crest: true,
           },
         ],
         [
           'the `poweredBy`, `legal` and `crest` parameters are provided',
           {
-            poweredBy: '<img src="logo.svg" class="custom-logo" alt="logo">',
+            poweredBy: {
+              logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">',
+              logoUrl: '#0',
+            },
             legal: EXAMPLE_LEGAL_PARAM,
             crest: true,
           },
@@ -457,7 +469,10 @@ describe('macro: footer', () => {
         [
           'the `poweredBy` parameter is provided but the `legal` and `crest` parameters are not provided',
           {
-            poweredBy: '<img src="logo.svg" class="custom-logo" alt="logo">',
+            poweredBy: {
+              logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">',
+              logoUrl: '#0',
+            },
           },
         ],
       ])('where %s', (_, poweredByParams) => {
