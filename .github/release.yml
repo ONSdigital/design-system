@@ -13,12 +13,14 @@ changelog:
     - title: Enhancements
       labels:
         - Enhancement
+        - CI/CD
     - title: Fixes
       labels:
         - Bug
     - title: Documentation
       labels:
         - Documentation
+        - Example
     - title: Dependency updates
       labels:
         - Dependencies
