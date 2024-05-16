@@ -1,73 +1,71 @@
 %ons-input-focus {
-  box-shadow: 0 0 0 $input-border-width var(--ons-color-input-border),
-    0 0 0 4px var(--ons-color-focus);
+    box-shadow: 0 0 0 $input-border-width var(--ons-color-input-border),
+        0 0 0 4px var(--ons-color-focus);
 
-  // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
-  outline: 3px solid transparent;
-  outline-offset: 1px;
+    // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+    outline: 3px solid transparent;
+    outline-offset: 1px;
 
-  @media screen and (forced-colors: active) {
-    // To better match the focus states of native controls
-    outline-color: Highlight;
-  }
+    @media screen and (forced-colors: active) {
+        // To better match the focus states of native controls
+        outline-color: Highlight;
+    }
 }
 
 .ons-input {
-  border: $input-border-width solid var(--ons-color-input-border);
-  border-radius: $input-radius;
-  color: inherit;
-  display: block;
-  font-family: inherit;
-  font-size: 1rem;
-  line-height: 1rem;
-  padding: $input-padding-vertical $input-padding-horizontal;
-  position: relative;
-  width: 100%;
-  z-index: 3;
-
-  &::-ms-clear {
-    display: none;
-  }
-
-  @include mq(s) {
-    &--text,
-    &--select {
-      &:not(.ons-input--block, [class*='input--w-']) {
-        width: $input-width;
-      }
-    }
-  }
-
-  &--text,
-  &--textarea {
-    // Prevent inner shadow on iOS
-    appearance: none;
-  }
-
-  &:focus {
-    @extend %ons-input-focus;
-  }
-
-  &:disabled {
-    border-color: var(--ons-color-grey-75);
-    cursor: not-allowed;
-  }
-
-  &--error:not(:focus) {
-    border: $input-border-width solid var(--ons-color-errors);
-    box-shadow: 0 0 0 $input-border-width var(--ons-color-errors);
-    outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
-  }
-
-  &--with-description {
-    margin-bottom: 0.55rem;
-  }
-
-  &--with-text-description {
+    border: $input-border-width solid var(--ons-color-input-border);
+    border-radius: $input-radius;
+    color: inherit;
+    display: block;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1rem;
+    padding: $input-padding-vertical $input-padding-horizontal;
     position: relative;
+    width: 100%;
+    z-index: 3;
 
-  }
+    &::-ms-clear {
+        display: none;
+    }
 
+    @include mq(s) {
+        &--text,
+        &--select {
+            &:not(.ons-input--block, [class*='input--w-']) {
+                width: $input-width;
+            }
+        }
+    }
+
+    &--text,
+    &--textarea {
+        // Prevent inner shadow on iOS
+        appearance: none;
+    }
+
+    &:focus {
+        @extend %ons-input-focus;
+    }
+
+    &:disabled {
+        border-color: var(--ons-color-grey-75);
+        cursor: not-allowed;
+    }
+
+    &--error:not(:focus) {
+        border: $input-border-width solid var(--ons-color-errors);
+        box-shadow: 0 0 0 $input-border-width var(--ons-color-errors);
+        outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+    }
+
+    &--with-description {
+        margin-bottom: 0.55rem;
+    }
+
+    &--with-text-description {
+        position: relative;
+    }
 }
 
 // Text input widths
@@ -77,108 +75,108 @@
 @include input-width('ons-input-number--w-{x}', 0.54rem);
 
 .ons-input--postcode {
-  max-width: input-width-calc($chars: 5, $num-chars: 2, $spaces: 1);
-  width: 100%;
+    max-width: input-width-calc($chars: 5, $num-chars: 2, $spaces: 1);
+    width: 100%;
 }
 
 .ons-input__helper {
-  font-size: 0.8rem;
-  font-weight: $font-weight-bold;
-  margin-top: 0.2rem;
+    font-size: 0.8rem;
+    font-weight: $font-weight-bold;
+    margin-top: 0.2rem;
 }
 
 .ons-input--select {
-  appearance: none;
-  background: var(--ons-color-input-bg)
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11.75 7.7'%3E%3Cpath fill='currentColor' d='m1.37.15 4.5 5.1 4.5-5.1a.37.37 0 0 1 .6 0l.7.7a.45.45 0 0 1 0 .5l-5.5 6.2a.37.37 0 0 1-.6 0l-5.5-6.1a.64.64 0 0 1 0-.6l.7-.7a.64.64 0 0 1 .6 0Z'/%3E%3C/svg%3E")
-    no-repeat center right 10px;
-  background-size: 1rem;
-  line-height: 1.3rem;
-  padding: 0.39rem 2rem 0.39rem $input-padding-horizontal;
+    appearance: none;
+    background: var(--ons-color-input-bg)
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11.75 7.7'%3E%3Cpath fill='currentColor' d='m1.37.15 4.5 5.1 4.5-5.1a.37.37 0 0 1 .6 0l.7.7a.45.45 0 0 1 0 .5l-5.5 6.2a.37.37 0 0 1-.6 0l-5.5-6.1a.64.64 0 0 1 0-.6l.7-.7a.64.64 0 0 1 .6 0Z'/%3E%3C/svg%3E")
+        no-repeat center right 10px;
+    background-size: 1rem;
+    line-height: 1.3rem;
+    padding: 0.39rem 2rem 0.39rem $input-padding-horizontal;
 
-  &::-ms-expand {
-    display: none;
-  }
+    &::-ms-expand {
+        display: none;
+    }
 }
 
 .ons-input--textarea {
-  line-height: normal;
-  resize: vertical;
-  width: 100%;
+    line-height: normal;
+    resize: vertical;
+    width: 100%;
 }
 
 .ons-input--block {
-  display: block;
-  width: 100%;
+    display: block;
+    width: 100%;
 }
 
 .ons-input--placeholder {
-  background: transparent;
-  &::placeholder {
-    color: transparent;
-  }
-  &:valid:not(:placeholder-shown) {
-    background-color: var(--ons-color-input-bg);
-  }
-  &:focus {
-    background-color: var(--ons-color-input-bg);
-  }
+    background: transparent;
+    &::placeholder {
+        color: transparent;
+    }
+    &:valid:not(:placeholder-shown) {
+        background-color: var(--ons-color-input-bg);
+    }
+    &:focus {
+        background-color: var(--ons-color-input-bg);
+    }
 }
 
 .ons-input--limit-reached:not(:focus) {
-  border: $input-border-width solid var(--ons-color-ruby-red);
+    border: $input-border-width solid var(--ons-color-ruby-red);
 }
 
 .ons-input__limit {
-  display: block;
+    display: block;
 
-  &--reached {
-    color: var(--ons-color-ruby-red);
-  }
+    &--reached {
+        color: var(--ons-color-ruby-red);
+    }
 }
 
 .ons-input--ghost {
-  border: 2px solid rgb(255 255 255 / 60%);
-  &:focus {
-    border: 2px solid var(--ons-color-input-border);
-  }
+    border: 2px solid rgb(255 255 255 / 60%);
+    &:focus {
+        border: 2px solid var(--ons-color-input-border);
+    }
 }
 
 .ons-input_search-button {
-  display: flex;
-  flex-flow: row nowrap !important;
-  gap: 0.5rem;
+    display: flex;
+    flex-flow: row nowrap !important;
+    gap: 0.5rem;
 }
 
 .ons-input-search {
-  @extend .ons-input--block;
-  @extend .ons-input--ghost;
+    @extend .ons-input--block;
+    @extend .ons-input--ghost;
 
-  &--icon {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%23ffffff'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z'/%3E%3C/svg%3E");
-    background-position: 12px 10px;
-    background-repeat: no-repeat;
-    background-size: 18px 18px;
-    padding-left: 2.4rem;
+    &--icon {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%23ffffff'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z'/%3E%3C/svg%3E");
+        background-position: 12px 10px;
+        background-repeat: no-repeat;
+        background-size: 18px 18px;
+        padding-left: 2.4rem;
 
-    &:focus,
-    &:active,
-    &:valid:not(:placeholder-shown) {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z'/%3E%3C/svg%3E");
+        &:focus,
+        &:active,
+        &:valid:not(:placeholder-shown) {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z'/%3E%3C/svg%3E");
+        }
+        &:focus,
+        &:active {
+            background-position: 12px 10px;
+            box-shadow: 0 0 0 3px var(--ons-color-focus);
+        }
     }
-    &:focus,
-    &:active {
-      background-position: 12px 10px;
-      box-shadow: 0 0 0 3px var(--ons-color-focus);
-    }
-  }
 
-  &--dark {
-    border: 2px solid var(--ons-color-black);
-    &.ons-input-search--icon {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z'/%3E%3C/svg%3E");
+    &--dark {
+        border: 2px solid var(--ons-color-black);
+        &.ons-input-search--icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z'/%3E%3C/svg%3E");
+        }
     }
-  }
 }
 
 // Search type inputs - removes the 'X' clear button from webkit browsers
@@ -186,5 +184,5 @@ input[type='search']::-webkit-search-decoration,
 input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
-  display: none;
+    display: none;
 }

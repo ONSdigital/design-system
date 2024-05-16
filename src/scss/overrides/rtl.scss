@@ -1,131 +1,131 @@
 @use 'sass:math';
 
 .ons-rtl .ons-page__container > .ons-grid {
-  direction: rtl;
+    direction: rtl;
 
-  ul {
-    padding-left: 0;
-    padding-right: 1.5rem;
-  }
-
-  // List
-  .ons-list {
-    padding: 0 1.5rem 0 0;
-
-    &__link {
-      margin-left: 1rem;
-      margin-right: 0;
+    ul {
+        padding-left: 0;
+        padding-right: 1.5rem;
     }
 
-    &--bare {
-      padding-right: 0;
-    }
+    // List
+    .ons-list {
+        padding: 0 1.5rem 0 0;
 
-    &--dashed {
-      padding-right: 0;
-
-      .ons-list__item {
-        margin-left: 0;
-        margin-right: 25px;
-
-        &::before {
-          left: auto;
-          margin-left: 0;
-          margin-right: -25px;
-          right: 0;
-        }
-      }
-    }
-  }
-
-  // Panel
-  .ons-panel {
-    border-left: 0;
-    border-right: 8px solid transparent;
-
-    &--info {
-      border-color: var(--ons-color-info);
-    }
-
-    &--warn,
-    &--warn-branded {
-      .ons-panel__body {
-        padding: 0.222rem 2.8rem 0.222rem 0;
-      }
-    }
-
-    &--bare {
-      .ons-panel__body {
-        padding: 0.1rem 1.5rem 0 0;
-      }
-    }
-  }
-
-  // Buttons
-  .ons-btn {
-    .ons-icon {
-      margin: 0 0.5rem 0.1rem 0;
-      transform: rotate(180deg);
-    }
-  }
-
-  // Content pagination
-  .ons-content-pagination {
-    &__list {
-      padding: 0;
-    }
-
-    &__link-text {
-      margin: 0 0.5rem 0 0;
-    }
-
-    &__link-label {
-      margin: 0 2rem 0 0;
-    }
-
-    .ons-icon {
-      transform: rotate(180deg);
-    }
-  }
-
-  // Download
-  .ons-download {
-    &__image {
-      margin-left: 1.5rem;
-      margin-right: 0;
-    }
-  }
-
-  // Flip push and pull
-  @each $breakpoint-min, $size in $grid-bp {
-    @for $column from 1 through $grid-cols {
-      $width: percentage(math.div($column, $grid-cols));
-
-      @include mq($breakpoint-min) {
-        .ons-push-#{$column}\@#{$breakpoint-min} {
-          left: -$width;
+        &__link {
+            margin-left: 1rem;
+            margin-right: 0;
         }
 
-        .ons-pull-#{$column}\@#{$breakpoint-min} {
-          left: $width;
+        &--bare {
+            padding-right: 0;
         }
-      }
+
+        &--dashed {
+            padding-right: 0;
+
+            .ons-list__item {
+                margin-left: 0;
+                margin-right: 25px;
+
+                &::before {
+                    left: auto;
+                    margin-left: 0;
+                    margin-right: -25px;
+                    right: 0;
+                }
+            }
+        }
     }
 
-    @each $breakpoint-max, $size in $grid-bp {
-      @for $column from 1 through $grid-cols {
-        $width: percentage(math.div($column, $grid-cols));
+    // Panel
+    .ons-panel {
+        border-left: 0;
+        border-right: 8px solid transparent;
 
-        @include mq($breakpoint-min, $breakpoint-max) {
-          .ons-push-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
-            left: -$width;
-          }
-
-          .ons-pull-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
-            left: $width;
-          }
+        &--info {
+            border-color: var(--ons-color-info);
         }
-      }
+
+        &--warn,
+        &--warn-branded {
+            .ons-panel__body {
+                padding: 0.222rem 2.8rem 0.222rem 0;
+            }
+        }
+
+        &--bare {
+            .ons-panel__body {
+                padding: 0.1rem 1.5rem 0 0;
+            }
+        }
     }
-  }
+
+    // Buttons
+    .ons-btn {
+        .ons-icon {
+            margin: 0 0.5rem 0.1rem 0;
+            transform: rotate(180deg);
+        }
+    }
+
+    // Content pagination
+    .ons-content-pagination {
+        &__list {
+            padding: 0;
+        }
+
+        &__link-text {
+            margin: 0 0.5rem 0 0;
+        }
+
+        &__link-label {
+            margin: 0 2rem 0 0;
+        }
+
+        .ons-icon {
+            transform: rotate(180deg);
+        }
+    }
+
+    // Download
+    .ons-download {
+        &__image {
+            margin-left: 1.5rem;
+            margin-right: 0;
+        }
+    }
+
+    // Flip push and pull
+    @each $breakpoint-min, $size in $grid-bp {
+        @for $column from 1 through $grid-cols {
+            $width: percentage(math.div($column, $grid-cols));
+
+            @include mq($breakpoint-min) {
+                .ons-push-#{$column}\@#{$breakpoint-min} {
+                    left: -$width;
+                }
+
+                .ons-pull-#{$column}\@#{$breakpoint-min} {
+                    left: $width;
+                }
+            }
+        }
+
+        @each $breakpoint-max, $size in $grid-bp {
+            @for $column from 1 through $grid-cols {
+                $width: percentage(math.div($column, $grid-cols));
+
+                @include mq($breakpoint-min, $breakpoint-max) {
+                    .ons-push-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+                        left: -$width;
+                    }
+
+                    .ons-pull-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+                        left: $width;
+                    }
+                }
+            }
+        }
+    }
 }

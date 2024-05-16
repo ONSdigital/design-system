@@ -1,142 +1,142 @@
 .ons-adv-filter {
-  &__gallery {
-    border-top: 1px solid var(--ons-color-borders-light);
-    margin-left: 0;
-    padding-left: 0;
-    padding-top: 1.5rem;
-  }
-
-  &__item {
-    margin-top: 1.5rem;
-
-    &:first-of-type {
-      margin-top: 1.5rem;
+    &__gallery {
+        border-top: 1px solid var(--ons-color-borders-light);
+        margin-left: 0;
+        padding-left: 0;
+        padding-top: 1.5rem;
     }
 
-    .ons-checkboxes__item {
-      min-width: auto;
-    }
-  }
+    &__item {
+        margin-top: 1.5rem;
 
-  &__selection {
-    color: var(--ons-color-grey-100);
-    margin-bottom: 0.5rem;
-  }
+        &:first-of-type {
+            margin-top: 1.5rem;
+        }
 
-  &__results-options {
-    margin-bottom: 1.5rem;
-  }
-
-  &__results-sort {
-    align-items: center;
-    display: flex;
-    margin-top: 0.5rem;
-
-    .ons-label {
-      font-weight: $font-weight-regular;
-      margin-bottom: 0;
-      margin-right: 0.5rem;
+        .ons-checkboxes__item {
+            min-width: auto;
+        }
     }
 
-    .ons-input--select {
-      width: auto !important;
-    }
-  }
-
-  &__panel {
-    display: none;
-  }
-
-  &__panel--is-visible {
-    background-color: var(--ons-color-white);
-    inset: 0;
-    display: block;
-    height: calc(100% - 76px); // Height of action buttons
-    overflow-y: scroll;
-    padding: 1rem;
-    position: fixed;
-    z-index: 10;
-  }
-
-  &__actions {
-    background-color: var(--ons-color-white);
-    bottom: 0;
-    box-shadow: 0 0 5px 0 rgb(34 34 34 / 50%),
-      0 -1px 0 0 rgb(65 64 66 / 50%);
-    display: flex;
-    left: 0;
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    z-index: 11;
-
-    .ons-btn:first-of-type {
-      flex-grow: 1;
+    &__selection {
+        color: var(--ons-color-grey-100);
+        margin-bottom: 0.5rem;
     }
 
-    .ons-btn + .ons-btn {
-      margin-left: 1rem;
-    }
-  }
-
-  @include mq(s) {
     &__results-options {
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     &__results-sort {
-      margin-top: 0; // Reset
-    }
-  }
+        align-items: center;
+        display: flex;
+        margin-top: 0.5rem;
 
-  @include mq(m) {
-    &__actions {
-      display: none;
-    }
+        .ons-label {
+            font-weight: $font-weight-regular;
+            margin-bottom: 0;
+            margin-right: 0.5rem;
+        }
 
-    &__trigger {
-      display: none;
+        .ons-input--select {
+            width: auto !important;
+        }
     }
 
     &__panel {
-      display: block;
+        display: none;
     }
 
-    .ons-no-scroll {
-      overflow: auto;
+    &__panel--is-visible {
+        background-color: var(--ons-color-white);
+        inset: 0;
+        display: block;
+        height: calc(100% - 76px); // Height of action buttons
+        overflow-y: scroll;
+        padding: 1rem;
+        position: fixed;
+        z-index: 10;
     }
-  }
+
+    &__actions {
+        background-color: var(--ons-color-white);
+        bottom: 0;
+        box-shadow: 0 0 5px 0 rgb(34 34 34 / 50%),
+            0 -1px 0 0 rgb(65 64 66 / 50%);
+        display: flex;
+        left: 0;
+        padding: 1rem;
+        position: fixed;
+        width: 100%;
+        z-index: 11;
+
+        .ons-btn:first-of-type {
+            flex-grow: 1;
+        }
+
+        .ons-btn + .ons-btn {
+            margin-left: 1rem;
+        }
+    }
+
+    @include mq(s) {
+        &__results-options {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        &__results-sort {
+            margin-top: 0; // Reset
+        }
+    }
+
+    @include mq(m) {
+        &__actions {
+            display: none;
+        }
+
+        &__trigger {
+            display: none;
+        }
+
+        &__panel {
+            display: block;
+        }
+
+        .ons-no-scroll {
+            overflow: auto;
+        }
+    }
 }
 
 // No JavaScript
 body:not(.ons-js-enabled) {
-  .ons-adv-filter {
-    &__actions {
-      display: none;
-    }
+    .ons-adv-filter {
+        &__actions {
+            display: none;
+        }
 
-    &__panel {
-      display: block;
-    }
+        &__panel {
+            display: block;
+        }
 
-    &__trigger {
-      display: none;
-    }
+        &__trigger {
+            display: none;
+        }
 
-    &__no-results {
-      display: none;
-    }
+        &__no-results {
+            display: none;
+        }
 
-    &__selection {
-      display: none;
+        &__selection {
+            display: none;
+        }
     }
-  }
 }
 
 // Prevent scrollbars on body
 .ons-no-scroll {
-  overflow-y: hidden;
+    overflow-y: hidden;
 }

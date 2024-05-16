@@ -1,40 +1,40 @@
 {
-  "parser": "@babel/eslint-parser",
-  "plugins": ["prettier", "unused-imports"],
-  "extends": ["prettier"],
-  "env": {
-    "es6": true,
-    "browser": true
-  },
-  "globals": {
-    "$": true,
-    "jQuery": true,
-    "browser": true,
-    "ga": true
-  },
-  "rules": {
-    "prettier/prettier": "error",
-    "no-unused-vars": [1],
-    "no-alert": 0,
-    "strict": [2, "never"],
-    "new-cap": [0],
-    "consistent-return": 0,
-    "no-underscore-dangle": 0,
-    "no-var": [1],
-    "one-var": [0],
-    "max-len": [0, { "code": 140, "ignoreUrls": true }],
-    "comma-dangle": ["error", "always-multiline"],
-    "arrow-parens": 1,
-    "indent": ["error", 4, { "SwitchCase": 1 }],
-    "unused-imports/no-unused-imports": "error",
-    "unused-imports/no-unused-vars": [
-      "error",
-      {
-        "vars": "all",
-        "varsIgnorePattern": "^_",
-        "args": "after-used",
-        "argsIgnorePattern": "^_"
-      }
-    ]
-  }
+    "parser": "@babel/eslint-parser",
+    "plugins": ["prettier", "unused-imports"],
+    "extends": ["prettier"],
+    "env": {
+        "es6": true,
+        "browser": true
+    },
+    "globals": {
+        "$": true,
+        "jQuery": true,
+        "browser": true,
+        "ga": true
+    },
+    "rules": {
+        "prettier/prettier": "error",
+        "no-unused-vars": [1],
+        "no-alert": 0,
+        "strict": [2, "never"],
+        "new-cap": [0],
+        "consistent-return": 0,
+        "no-underscore-dangle": 0,
+        "no-var": [1],
+        "one-var": [0],
+        "max-len": [0, { "code": 140, "ignoreUrls": true }],
+        "comma-dangle": ["error", "always-multiline"],
+        "arrow-parens": 1,
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+            "error",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "^_",
+                "args": "after-used",
+                "argsIgnorePattern": "^_"
+            }
+        ]
+    }
 }

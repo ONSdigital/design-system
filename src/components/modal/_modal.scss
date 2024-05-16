@@ -1,47 +1,47 @@
 $backdrop-colour: rgb(0 0 0 / 80%);
 
 .ons-modal {
-  border: none;
-  border-radius: 0.4rem;
-  box-shadow: 0 0 7px 0 #000;
-  display: none;
-  left: 0;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
-  padding: 2rem;
-  position: fixed;
-  top: 0;
-
-  @media screen and (width >= 600px) {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 500px;
-  }
-
-  &-ie11 & {
-    background: var(--ons-color-white);
-    inset: 50% 0 0;
-    height: 350px;
-    position: fixed;
-    transform: translate(0, -50%);
-  }
-
-  &::backdrop {
-    backdrop-filter: blur(3px);
-    background: $backdrop-colour;
-  }
-
-  & + .backdrop {
-    background: $backdrop-colour;
-    height: 100%;
+    border: none;
+    border-radius: 0.4rem;
+    box-shadow: 0 0 7px 0 #000;
+    display: none;
     left: 0;
-    position: absolute;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+    padding: 2rem;
+    position: fixed;
     top: 0;
-    width: 100%;
-  }
+
+    @media screen and (width >= 600px) {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 500px;
+    }
+
+    &-ie11 & {
+        background: var(--ons-color-white);
+        inset: 50% 0 0;
+        height: 350px;
+        position: fixed;
+        transform: translate(0, -50%);
+    }
+
+    &::backdrop {
+        backdrop-filter: blur(3px);
+        background: $backdrop-colour;
+    }
+
+    & + .backdrop {
+        background: $backdrop-colour;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
 }
 
 .ons-modal-overlay {
-  overflow: hidden;
+    overflow: hidden;
 }

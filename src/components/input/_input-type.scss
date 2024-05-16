@@ -1,109 +1,109 @@
 .ons-input-type {
-  display: block;
-
-  // Keep the entire component display block, but use inline-flex on inner to prevent the orange focus from going full width
-  &__inner {
-    display: inline-flex;
-    position: relative;
-  }
-
-  // Double ampersand is needed to solve specificity issues
-  & &__input {
-    flex: 1 1 auto;
-    position: relative;
-    z-index: 1;
-
-    &:focus {
-      // Override default input focus so it can wrap prefix/suffix too
-      box-shadow: none;
-      outline: none;
-    }
-
-    // Override default input error style so it can wrap prefix/suffix too
-    &.ons-input--error:not(:focus) {
-      border-right: $input-border-width solid var(--ons-color-input-border);
-      box-shadow: none;
-      outline: none;
-    }
-  }
-
-  &__type {
-    background-color: var(--ons-color-button-secondary);
     display: block;
-    flex: 0 0 auto;
-    font-size: 1rem;
-    font-weight: $font-weight-bold;
-    line-height: normal;
-    padding: $input-padding-vertical $input-padding-horizontal * 2;
-    text-align: center;
-    white-space: nowrap;
 
-    &[title] {
-      text-decoration: none;
+    // Keep the entire component display block, but use inline-flex on inner to prevent the orange focus from going full width
+    &__inner {
+        display: inline-flex;
+        position: relative;
     }
-  }
 
-  &__type,
-  &__type[title] {
-    border: 1px solid var(--ons-color-input-border);
-  }
+    // Double ampersand is needed to solve specificity issues
+    & &__input {
+        flex: 1 1 auto;
+        position: relative;
+        z-index: 1;
 
-  &__type[title] {
-    cursor: help;
-  }
+        &:focus {
+            // Override default input focus so it can wrap prefix/suffix too
+            box-shadow: none;
+            outline: none;
+        }
 
-  &__input:focus + &__type::after {
-    // Style input + prefix/suffix on focus
-    @extend %ons-input-focus;
+        // Override default input error style so it can wrap prefix/suffix too
+        &.ons-input--error:not(:focus) {
+            border-right: $input-border-width solid var(--ons-color-input-border);
+            box-shadow: none;
+            outline: none;
+        }
+    }
 
-    border-radius: $input-radius;
-    inset: 0;
-    content: '';
-    display: block;
-    position: absolute;
-  }
-
-  &:not(&--prefix) & {
     &__type {
-      border-left: 0;
-      border-radius: 0 $input-radius $input-radius 0;
+        background-color: var(--ons-color-button-secondary);
+        display: block;
+        flex: 0 0 auto;
+        font-size: 1rem;
+        font-weight: $font-weight-bold;
+        line-height: normal;
+        padding: $input-padding-vertical $input-padding-horizontal * 2;
+        text-align: center;
+        white-space: nowrap;
+
+        &[title] {
+            text-decoration: none;
+        }
     }
 
-    &__input {
-      border-radius: $input-radius 0 0 $input-radius;
-    }
-  }
-
-  &--prefix & {
+    &__type,
     &__type[title] {
-      border-radius: $input-radius 0 0 $input-radius;
-      border-right: 0;
-      order: 0;
+        border: 1px solid var(--ons-color-input-border);
     }
 
-    &__input {
-      border-radius: 0 $input-radius $input-radius 0;
-      order: 1;
+    &__type[title] {
+        cursor: help;
     }
-  }
+
+    &__input:focus + &__type::after {
+        // Style input + prefix/suffix on focus
+        @extend %ons-input-focus;
+
+        border-radius: $input-radius;
+        inset: 0;
+        content: '';
+        display: block;
+        position: absolute;
+    }
+
+    &:not(&--prefix) & {
+        &__type {
+            border-left: 0;
+            border-radius: 0 $input-radius $input-radius 0;
+        }
+
+        &__input {
+            border-radius: $input-radius 0 0 $input-radius;
+        }
+    }
+
+    &--prefix & {
+        &__type[title] {
+            border-radius: $input-radius 0 0 $input-radius;
+            border-right: 0;
+            order: 0;
+        }
+
+        &__input {
+            border-radius: 0 $input-radius $input-radius 0;
+            order: 1;
+        }
+    }
 }
 
 // Errors
 .ons-input--error:not(:focus) {
-  & + .ons-input-type__type,
-  & + .ons-input-type__type[title] {
-    border-color: var(--ons-color-errors);
-  }
+    & + .ons-input-type__type,
+    & + .ons-input-type__type[title] {
+        border-color: var(--ons-color-errors);
+    }
 
-  & + .ons-input-type__type::after {
-    border-radius: $input-radius;
-    inset: 0;
+    & + .ons-input-type__type::after {
+        border-radius: $input-radius;
+        inset: 0;
 
-    // Style input + prefix/suffix for errors
-    box-shadow: 0 0 0 1px var(--ons-color-errors);
-    content: '';
-    display: block;
-    outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
-    position: absolute;
-  }
+        // Style input + prefix/suffix for errors
+        box-shadow: 0 0 0 1px var(--ons-color-errors);
+        content: '';
+        display: block;
+        outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+        position: absolute;
+    }
 }

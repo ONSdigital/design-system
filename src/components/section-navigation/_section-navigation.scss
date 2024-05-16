@@ -1,92 +1,92 @@
 .ons-section-nav {
-  &:not(&--vertical) {
-    border-bottom: 1px solid var(--ons-color-borders);
-  }
-
-  &__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  &__sub {
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
-  }
-
-  &__link {
-    text-decoration: none;
-    &:hover {
-      color: var(--ons-color-text-link-hover);
-      text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
+    &:not(&--vertical) {
+        border-bottom: 1px solid var(--ons-color-borders);
     }
-  }
 
-  &__item {
-    font-size: 1rem;
-    padding: 0;
-    &--active {
-      border-left: 4px solid var(--ons-color-text-link-active);
-      font-weight: $font-weight-bold;
-      margin-left: -18px;
-      padding-left: 14px;
-      a,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        color: var(--ons-color-text-link-active);
-      }
-    }
-    & & {
-      margin-bottom: 0.3rem;
-    }
-  }
-
-  &__item-header {
-    @extend .ons-u-mb-no;
-
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.6;
-  }
-
-  &__sub-items {
-    a {
-      color: var(--ons-color-text-link);
-      font-weight: $font-weight-regular;
-    }
-  }
-
-  &:not(&--vertical) & {
-    &__item {
-      border: none;
-      border-bottom: 4px solid transparent;
-      display: inline-block;
-      margin: 0 1rem 0 0;
-      text-align: center;
-      &--active,
-      &:hover {
-        border-color: var(--ons-color-text-link-active);
-        margin: 0 1rem 0 0;
+    &__list {
+        list-style: none;
+        margin: 0;
         padding: 0;
-        a,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-          color: var(--ons-color-text-link-active);
-        }
-      }
+    }
+
+    &__sub {
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
     }
 
     &__link {
-      text-decoration: none;
-      &:hover {
         text-decoration: none;
-      }
+        &:hover {
+            color: var(--ons-color-text-link-hover);
+            text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
+        }
     }
-  }
+
+    &__item {
+        font-size: 1rem;
+        padding: 0;
+        &--active {
+            border-left: 4px solid var(--ons-color-text-link-active);
+            font-weight: $font-weight-bold;
+            margin-left: -18px;
+            padding-left: 14px;
+            a,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: var(--ons-color-text-link-active);
+            }
+        }
+        & & {
+            margin-bottom: 0.3rem;
+        }
+    }
+
+    &__item-header {
+        @extend .ons-u-mb-no;
+
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.6;
+    }
+
+    &__sub-items {
+        a {
+            color: var(--ons-color-text-link);
+            font-weight: $font-weight-regular;
+        }
+    }
+
+    &:not(&--vertical) & {
+        &__item {
+            border: none;
+            border-bottom: 4px solid transparent;
+            display: inline-block;
+            margin: 0 1rem 0 0;
+            text-align: center;
+            &--active,
+            &:hover {
+                border-color: var(--ons-color-text-link-active);
+                margin: 0 1rem 0 0;
+                padding: 0;
+                a,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6 {
+                    color: var(--ons-color-text-link-active);
+                }
+            }
+        }
+
+        &__link {
+            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
 }

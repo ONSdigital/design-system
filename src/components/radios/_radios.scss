@@ -1,28 +1,28 @@
 .ons-radios {
-  &__items {
-    @extend .ons-checkboxes__items;
+    &__items {
+        @extend .ons-checkboxes__items;
 
-    @include mq(s) {
-      max-width: max-content;
+        @include mq(s) {
+            max-width: max-content;
+        }
     }
-  }
 
-  &__item {
-    @extend .ons-checkboxes__item;
+    &__item {
+        @extend .ons-checkboxes__item;
 
-    width: 100%;
+        width: 100%;
 
-    &--no-border {
-      @extend .ons-checkboxes__item--no-border;
+        &--no-border {
+            @extend .ons-checkboxes__item--no-border;
 
-      margin-bottom: 0.8rem;
-      &:last-child {
-        margin-bottom: 0;
-      }
+            margin-bottom: 0.8rem;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
-  }
 
-  &__label {
-    @extend .ons-checkboxes__label;
-  }
+    &__label {
+        @extend .ons-checkboxes__label;
+    }
 }

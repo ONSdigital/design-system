@@ -1,253 +1,253 @@
 @mixin panel-variant($name, $color, $color-bg) {
-  .ons-panel {
-    &--#{$name} {
-      background: $color-bg;
-      border-color: $color;
-      outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
-    }
+    .ons-panel {
+        &--#{$name} {
+            background: $color-bg;
+            border-color: $color;
+            outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
+        }
 
-    &--#{$name} & {
-      &__header {
-        background: $color;
-      }
+        &--#{$name} & {
+            &__header {
+                background: $color;
+            }
+        }
     }
-  }
 }
 
 .ons-branded-warning {
-  background: var(--ons-color-branded-tertiary);
+    background: var(--ons-color-branded-tertiary);
 }
 
 .ons-announcement {
-  background-color: var(--ons-color-black);
+    background-color: var(--ons-color-black);
 }
 
 .ons-branded-warning,
 .ons-announcement {
-  outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
+    outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
 }
 
 .ons-panel {
-  border-radius: 0;
-  position: relative;
-
-  // Removes inherited bottom margin to make whitespace inside panel equal
-  > *:last-child {
-    margin-bottom: 0;
-  }
-
-  .ons-field {
-    margin-bottom: 0;
-  }
-
-  &:focus {
-    box-shadow: none;
-    outline: 4px solid var(--ons-color-focus) !important;
-  }
-
-  &__header {
     border-radius: 0;
-    color: var(--ons-color-text-inverse);
-    margin: 0;
-    padding: 0.75rem 1rem;
-  }
-
-  &__timer {
-    white-space: nowrap;
-  }
-
-  &__title {
-    margin: 0;
-  }
-
-  &__body {
-    padding: 1rem;
+    position: relative;
 
     // Removes inherited bottom margin to make whitespace inside panel equal
-    > *:last-child,
-    strong > *:last-child {
-      margin-bottom: 0;
+    > *:last-child {
+        margin-bottom: 0;
     }
 
-    &.ons-icon-margin--xxxl {
-      padding-left: 2.7rem !important;
-
-      @include mq(m) {
-        padding-left: 3.5rem !important;
-      }
+    .ons-field {
+        margin-bottom: 0;
     }
-    &.ons-icon-margin--xxl {
-      padding-left: 2.45rem !important;
 
-      @include mq(m) {
-        padding-left: 2.9rem !important;
-      }
+    &:focus {
+        box-shadow: none;
+        outline: 4px solid var(--ons-color-focus) !important;
     }
-    &.ons-icon-margin--xl {
-      padding-left: 2.35rem !important;
 
-      @include mq(m) {
-        padding-left: 2.55rem !important;
-      }
+    &__header {
+        border-radius: 0;
+        color: var(--ons-color-text-inverse);
+        margin: 0;
+        padding: 0.75rem 1rem;
     }
-    &.ons-icon-margin--l {
-      padding-left: 2.25rem !important;
 
-      @include mq(m) {
-        padding-left: 2.35rem !important;
-      }
+    &__timer {
+        white-space: nowrap;
     }
-    &.ons-icon-margin--m {
-      padding-left: 2.05rem !important;
 
-      @include mq(m) {
-        padding-left: 2.2rem !important;
-      }
+    &__title {
+        margin: 0;
     }
-    &.ons-icon-margin--s {
-      padding-left: 1.7rem !important;
-    }
-  }
 
-  &__error {
-    color: var(--ons-color-errors);
-  }
-
-  &--warn {
-    border: 0 !important;
-    margin-bottom: 1rem;
-    outline: none !important;
-    padding: 0;
-
-    &--footer {
-      background-color: var(--ons-color-grey-15) !important;
-      margin-bottom: 0;
-      padding: 1rem 0 !important;
-    }
-  }
-
-  &--warn-branded,
-  &--announcement {
-    border: 0 !important;
-    color: var(--ons-color-white);
-    margin-bottom: 0;
-    outline: none !important;
-    padding: 1rem 0 !important;
-    a {
-      color: inherit;
-      text-decoration: underline solid var(--ons-color-white) 1px;
-    }
-    a:hover {
-      text-decoration-thickness: 2px;
-    }
-  }
-
-  &--announcement {
-    a:focus {
-      box-shadow: 0 -2px var(--ons-color-focus),
-        0 4px (--ons-color-text-inverse-link) !important; // Override focus style because the black border is not visible on a black background
-    }
-  }
-
-  &--no-title {
-    border-left: 8px solid transparent;
-    padding: 1rem;
-    .ons-panel__body {
-      background: none;
-      padding: 0;
-    }
-    &.ons-panel--warn {
-      padding: 0;
-    }
-  }
-
-  &--spacious {
-    padding: 1rem;
-
-    @include mq(m) {
-      padding: 2rem;
-    }
-  }
-
-  &--warn &,
-  &--warn-branded &,
-  &--announcement & {
     &__body {
-      font-weight: $font-weight-bold;
-      min-height: 2rem; // Height of icon
-      padding: 0.222rem 0 0.222rem 2.8rem; // Alignment tweak
-    }
-    &__icon {
-      background: var(--ons-color-black);
-      border-radius: 50%;
-      color: var(--ons-color-white);
-      font-size: 1.5rem;
-      font-weight: $font-weight-bold;
-      line-height: 2rem;
-      min-height: 2rem;
-      min-width: 2rem;
-      outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
-      text-align: center;
-    }
-  }
+        padding: 1rem;
 
-  &--announcement & {
-    &__body div > *:last-child {
-      margin-bottom: 0;
+        // Removes inherited bottom margin to make whitespace inside panel equal
+        > *:last-child,
+        strong > *:last-child {
+            margin-bottom: 0;
+        }
+
+        &.ons-icon-margin--xxxl {
+            padding-left: 2.7rem !important;
+
+            @include mq(m) {
+                padding-left: 3.5rem !important;
+            }
+        }
+        &.ons-icon-margin--xxl {
+            padding-left: 2.45rem !important;
+
+            @include mq(m) {
+                padding-left: 2.9rem !important;
+            }
+        }
+        &.ons-icon-margin--xl {
+            padding-left: 2.35rem !important;
+
+            @include mq(m) {
+                padding-left: 2.55rem !important;
+            }
+        }
+        &.ons-icon-margin--l {
+            padding-left: 2.25rem !important;
+
+            @include mq(m) {
+                padding-left: 2.35rem !important;
+            }
+        }
+        &.ons-icon-margin--m {
+            padding-left: 2.05rem !important;
+
+            @include mq(m) {
+                padding-left: 2.2rem !important;
+            }
+        }
+        &.ons-icon-margin--s {
+            padding-left: 1.7rem !important;
+        }
     }
 
-    &__icon {
-      background-color: var(--ons-color-white);
-      color: var(--ons-color-black);
-      display: flex;
-      svg {
-        margin: auto;
-      }
+    &__error {
+        color: var(--ons-color-errors);
     }
-  }
 
-  &--warn-branded & {
-    &__icon {
-      background-color: var(--ons-color-white);
-      color: var(--ons-color-branded-tertiary);
-    }
-  }
+    &--warn {
+        border: 0 !important;
+        margin-bottom: 1rem;
+        outline: none !important;
+        padding: 0;
 
-  &--success & {
-    &__icon {
-      left: 0;
-      padding-left: 1rem;
-      .ons-icon {
-        fill: var(--ons-color-success) !important;
-        margin-top: -15% !important;
-      }
+        &--footer {
+            background-color: var(--ons-color-grey-15) !important;
+            margin-bottom: 0;
+            padding: 1rem 0 !important;
+        }
     }
-  }
 
-  &__icon + &__body {
-    padding-left: 2rem;
-  }
+    &--warn-branded,
+    &--announcement {
+        border: 0 !important;
+        color: var(--ons-color-white);
+        margin-bottom: 0;
+        outline: none !important;
+        padding: 1rem 0 !important;
+        a {
+            color: inherit;
+            text-decoration: underline solid var(--ons-color-white) 1px;
+        }
+        a:hover {
+            text-decoration-thickness: 2px;
+        }
+    }
 
-  &--bare & {
-    &__icon {
-      height: 1.3rem;
-      width: 1.3rem;
+    &--announcement {
+        a:focus {
+            box-shadow: 0 -2px var(--ons-color-focus),
+                0 4px (--ons-color-text-inverse-link) !important; // Override focus style because the black border is not visible on a black background
+        }
     }
-    &__body {
-      padding: 0 0 0 1.5rem;
-    }
-  }
 
-  &--info,
-  &--bare,
-  &--success,
-  &--warn,
-  &--warn-branded,
-  &--announcement {
-    .ons-panel__icon {
-      position: absolute;
+    &--no-title {
+        border-left: 8px solid transparent;
+        padding: 1rem;
+        .ons-panel__body {
+            background: none;
+            padding: 0;
+        }
+        &.ons-panel--warn {
+            padding: 0;
+        }
     }
-  }
+
+    &--spacious {
+        padding: 1rem;
+
+        @include mq(m) {
+            padding: 2rem;
+        }
+    }
+
+    &--warn &,
+    &--warn-branded &,
+    &--announcement & {
+        &__body {
+            font-weight: $font-weight-bold;
+            min-height: 2rem; // Height of icon
+            padding: 0.222rem 0 0.222rem 2.8rem; // Alignment tweak
+        }
+        &__icon {
+            background: var(--ons-color-black);
+            border-radius: 50%;
+            color: var(--ons-color-white);
+            font-size: 1.5rem;
+            font-weight: $font-weight-bold;
+            line-height: 2rem;
+            min-height: 2rem;
+            min-width: 2rem;
+            outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
+            text-align: center;
+        }
+    }
+
+    &--announcement & {
+        &__body div > *:last-child {
+            margin-bottom: 0;
+        }
+
+        &__icon {
+            background-color: var(--ons-color-white);
+            color: var(--ons-color-black);
+            display: flex;
+            svg {
+                margin: auto;
+            }
+        }
+    }
+
+    &--warn-branded & {
+        &__icon {
+            background-color: var(--ons-color-white);
+            color: var(--ons-color-branded-tertiary);
+        }
+    }
+
+    &--success & {
+        &__icon {
+            left: 0;
+            padding-left: 1rem;
+            .ons-icon {
+                fill: var(--ons-color-success) !important;
+                margin-top: -15% !important;
+            }
+        }
+    }
+
+    &__icon + &__body {
+        padding-left: 2rem;
+    }
+
+    &--bare & {
+        &__icon {
+            height: 1.3rem;
+            width: 1.3rem;
+        }
+        &__body {
+            padding: 0 0 0 1.5rem;
+        }
+    }
+
+    &--info,
+    &--bare,
+    &--success,
+    &--warn,
+    &--warn-branded,
+    &--announcement {
+        .ons-panel__icon {
+            position: absolute;
+        }
+    }
 }
 
 @include panel-variant(error, var(--ons-color-errors), var(--ons-color-errors-tint));
