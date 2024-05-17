@@ -1,7 +1,7 @@
 defaultSeverity: warning
 extends:
     - stylelint-config-standard
-    - stylelint-config-recommended
+    - stylelint-config-recommended-scss
     - stylelint-config-sass-guidelines
 plugins:
     - stylelint-scss
