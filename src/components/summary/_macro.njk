@@ -12,7 +12,7 @@
     {% if params.classes %}
          {% set className = className + " " + params.classes %}
     {% endif %}
-    
+
     <div class="{{ className }}">
         {% for summary in params.summaries %}
             {% if summary.summaryTitle %}
@@ -51,6 +51,9 @@
                                                                 "iconType": rowItem.iconType
                                                             })
                                                         -}}
+                                                        {% if rowItem.iconVisuallyHiddenText %}
+                                                            <span class="ons-u-vh">{{ rowItem.iconVisuallyHiddenText }}</span>
+                                                        {% endif %}
                                                     </span>
                                                 {% endif %}
 

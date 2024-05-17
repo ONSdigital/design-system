@@ -1,0 +1,75 @@
+{% from "components/summary/_macro.njk" import onsSummary %}
+
+{{ onsSummary({
+    "variant": "hub",
+    "summaries": [
+            {
+                "groups": [
+                    {
+                    "rows": [
+                        {
+                            "rowTitle": "People who live here",
+                            "rowItems": [
+                                {
+                                    "iconType": "check",
+                                    "iconVisuallyHiddenText": "Section complete",
+                                    "actions": [
+                                        {
+                                            "text": "View answers",
+                                            "visuallyHiddenText": "View answers for People who live here",
+                                            "url": "#0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "rowTitle": "Mary Smith (You)",
+                            "rowItems": [
+                                {
+                                    "iconType": "check",
+                                    "iconVisuallyHiddenText": "Section complete",
+                                    "actions": [
+                                        {
+                                            "text": "View answers",
+                                            "visuallyHiddenText": "View answers for Mary Smith",
+                                            "url": "#0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "rowTitle": "John Smith",
+                            "rowItems": [
+                                {
+                                    "actions": [
+                                        {
+                                            "text": "Continue with section",
+                                            "visuallyHiddenText": "Continue with John Smith's section",
+                                            "url": "#0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "rowTitle": "Billy Smith",
+                            "rowItems": [
+                                {
+                                    "actions": [
+                                        {
+                                            "text": "Start section",
+                                            "visuallyHiddenText": "Start Billy Smith's section",
+                                            "url": "#0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}) }}
