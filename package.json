@@ -46,7 +46,6 @@
         "*.{yml,yaml}": [
             "prettier --write"
         ]
-
     },
     "browserslist": [
         "last 2 versions",
