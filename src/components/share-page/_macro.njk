@@ -6,7 +6,6 @@
         <{{ titleTag }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</{{ titleTag }}>
     {% endif %}
 
-    {% set list = [] %}
     {% if params.facebook and params.facebook == true %}
         {% set facebook =
             {
@@ -17,8 +16,6 @@
                 "target": '_blank'
             }
          %}
-
-        {% set list = (list.push(facebook), list) %}
     {% endif %}
     {% if params.twitter and params.twitter == true %}
         {% set twitter =
@@ -30,17 +27,13 @@
                 "target": '_blank'
             }
          %}
-
-        {% set list = (list.push(twitter), list) %}
-
     {% endif %}
-
     {{
         onsList({
             "variants": 'inline',
             "iconPosition": 'before',
             "iconSize": params.iconSize | default("xxl"),
-            "itemsList": list
+            "itemsList": [facebook, twitter]
         })
     }}
 {% endmacro %}
