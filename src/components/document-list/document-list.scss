@@ -17,6 +17,72 @@
             border-bottom: 0;
             margin: 0;
         }
+
+        // Featured document
+        &--featured {
+            background-color: var(--ons-color-banner-bg);
+            border-bottom: none;
+            display: block;
+            outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
+            outline-offset: -2px;
+            padding: 2rem;
+
+            @include mq(m) {
+                align-items: flex-start;
+                display: flex;
+
+                .ons-container {
+                    display: flex;
+                }
+            }
+
+            // Increase thumbnail image size
+            .ons-document-list__item-image {
+                width: 248px;
+
+                & &__image-link {
+                    &--placeholder {
+                        height: 96px;
+                    }
+                }
+
+                @include mq(m) {
+                    margin-right: 2.5rem;
+                    width: 379px;
+
+                    & &__image-link {
+                        &--placeholder {
+                            height: 248px;
+                        }
+                    }
+                }
+            }
+
+            // Show metadata above title
+            .ons-document-list__item-header {
+                &--reverse {
+                    display: flex;
+                    flex-direction: column-reverse;
+                    margin-bottom: 0.5rem;
+                }
+            }
+
+            // Increase font size
+            .ons-document-list__item-title {
+                @extend .ons-u-fs-l;
+            }
+
+            // If featured item is first in same list
+            + .ons-document-list__item {
+                border-top: none;
+                margin-top: 0;
+            }
+        }
+
+        // If featured item is full width
+        &--full-width {
+            padding: 2rem 0;
+        }
     }
 
     &__item-image {
@@ -109,76 +175,6 @@
 
         p:last-of-type {
             margin-bottom: 0;
-        }
-    }
-}
-
-// Featured document
-.ons-document-list {
-    &__item {
-        &--featured {
-            background-color: var(--ons-color-banner-bg);
-            border-bottom: none;
-            display: block;
-            outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
-            outline-offset: -2px;
-            padding: 2rem;
-
-            @include mq(m) {
-                align-items: flex-start;
-                display: flex;
-
-                .ons-container {
-                    display: flex;
-                }
-            }
-
-            // Increase thumbnail image size
-            .ons-document-list__item-image {
-                width: 248px;
-
-                & &__image-link {
-                    &--placeholder {
-                        height: 96px;
-                    }
-                }
-
-                @include mq(m) {
-                    margin-right: 2.5rem;
-                    width: 379px;
-
-                    & &__image-link {
-                        &--placeholder {
-                            height: 248px;
-                        }
-                    }
-                }
-            }
-
-            // Show metadata above title
-            .ons-document-list__item-header {
-                &--reverse {
-                    display: flex;
-                    flex-direction: column-reverse;
-                    margin-bottom: 0.5rem;
-                }
-            }
-
-            // Increase font size
-            .ons-document-list__item-title {
-                @extend .ons-u-fs-l;
-            }
-
-            // If featured item is first in same list
-            & + .ons-document-list__item {
-                border-top: none;
-                margin-top: 0;
-            }
-        }
-
-        // If featured item is full width
-        &--full-width {
-            padding: 2rem 0;
         }
     }
 }

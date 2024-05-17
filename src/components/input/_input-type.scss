@@ -40,16 +40,13 @@
 
         &[title] {
             text-decoration: none;
+            cursor: help;
         }
     }
 
     &__type,
     &__type[title] {
         border: 1px solid var(--ons-color-input-border);
-    }
-
-    &__type[title] {
-        cursor: help;
     }
 
     &__input:focus + &__type::after {
@@ -90,12 +87,12 @@
 
 // Errors
 .ons-input--error:not(:focus) {
-    & + .ons-input-type__type,
-    & + .ons-input-type__type[title] {
+    + .ons-input-type__type,
+    + .ons-input-type__type[title] {
         border-color: var(--ons-color-errors);
     }
 
-    & + .ons-input-type__type::after {
+    + .ons-input-type__type::after {
         border-radius: $input-radius;
         inset: 0;
 

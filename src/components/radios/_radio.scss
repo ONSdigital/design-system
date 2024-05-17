@@ -19,11 +19,11 @@
     &.ons-radio--no-border {
         @extend .ons-checkbox--no-border;
 
-        & > .ons-radio__input {
+        > .ons-radio__input {
             @extend .ons-radio__input;
             &:focus,
             &:checked {
-                & + .ons-radio__label::before {
+                + .ons-radio__label::before {
                     background: none;
                     border: none;
                     box-shadow: none;

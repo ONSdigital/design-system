@@ -32,7 +32,7 @@ $backdrop-colour: rgb(0 0 0 / 80%);
         background: $backdrop-colour;
     }
 
-    & + .backdrop {
+    + .backdrop {
         background: $backdrop-colour;
         height: 100%;
         left: 0;

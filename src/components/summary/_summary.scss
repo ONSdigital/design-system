@@ -39,6 +39,8 @@ $hub-row-spacing: 1.3rem;
 
             .ons-summary__values {
                 padding-top: 23px;
+
+                @extend .ons-u-fs-m;
             }
         }
 
@@ -100,12 +102,6 @@ $hub-row-spacing: 1.3rem;
     }
 
     // Item Modifiers
-    &__item--total & {
-        &__values {
-            @extend .ons-u-fs-m;
-        }
-    }
-
     &__item--error & {
         &__row-title--error {
             color: var(--ons-color-errors);

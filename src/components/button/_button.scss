@@ -524,8 +524,8 @@ $button-shadow-size: 3px;
     display: flex;
     flex-flow: row wrap;
 
-    & .ons-btn,
-    & a {
+    .ons-btn,
+    a {
         margin: 0 1rem 1rem 0;
     }
 }

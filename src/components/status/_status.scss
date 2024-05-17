@@ -22,7 +22,7 @@
 
     /* Small status indicators for information dense situations */
     &.ons-status--small::before {
-        @include status-size(0.555555rem, $status-mb: 0.055556rem);
+        @include status-size(0.5556rem, $status-mb: 0.0556rem);
     }
 
     &.ons-status--success::before {

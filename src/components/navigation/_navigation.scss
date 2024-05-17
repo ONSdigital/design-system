@@ -1,8 +1,22 @@
 .ons-navigation {
     position: relative;
+
     &-wrapper {
         background: var(--ons-color-header);
         margin-top: -0.03rem;
+
+        &--neutral {
+            background: var(--ons-color-header-neutral);
+            .ons-navigation__item {
+                &--active,
+                &:hover {
+                    border-color: var(--ons-color-links);
+                }
+                .ons-navigation__link {
+                    color: var(--ons-color-header-navigation-links);
+                }
+            }
+        }
     }
 
     &--sub {
@@ -126,20 +140,5 @@
 
     &__item--active > &__link {
         font-weight: $font-weight-bold;
-    }
-
-    &-wrapper {
-        &--neutral {
-            background: var(--ons-color-header-neutral);
-            .ons-navigation__item {
-                &--active,
-                &:hover {
-                    border-color: var(--ons-color-links);
-                }
-                .ons-navigation__link {
-                    color: var(--ons-color-header-navigation-links);
-                }
-            }
-        }
     }
 }

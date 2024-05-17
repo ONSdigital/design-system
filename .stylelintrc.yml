@@ -61,6 +61,3 @@ rules:
 
     # Inner Spacing
     function-calc-no-unspaced-operator: true
-
-    # Final Items
-    scss/at-import-partial-extension-blacklist: [/css/]

@@ -53,7 +53,7 @@
     .ons-btn__inner,
     .ons-external-link,
     .ons-list--icons {
-        & .ons-icon {
+        .ons-icon {
             fill: currentcolor !important;
             forced-color-adjust: auto;
         }
@@ -63,7 +63,7 @@
     .ons-header__org-logo,
     .ons-header__title-logo,
     .ons-footer {
-        & .ons-icon--logo {
+        .ons-icon--logo {
             fill: currentcolor !important;
             forced-color-adjust: auto;
         }
@@ -211,7 +211,7 @@
         border-color: mark;
         outline-color: mark;
 
-        & .ons-panel__header {
+        .ons-panel__header {
             border-bottom: 1px solid mark;
         }
     }
@@ -221,12 +221,12 @@
             border-color: mark;
             outline-color: mark;
 
-            & + .ons-input-type__type,
-            & + .ons-input-type__type[title] {
+            + .ons-input-type__type,
+            + .ons-input-type__type[title] {
                 border-color: mark;
             }
 
-            & + .ons-input-type__type::after {
+            + .ons-input-type__type::after {
                 outline-color: mark;
             }
         }

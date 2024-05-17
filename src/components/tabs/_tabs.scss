@@ -77,7 +77,7 @@
     // Tab when selected
     &[aria-selected='true'] {
         background-color: var(--ons-color-page-light);
-        border-bottom: 2px white;
+        border-bottom: 2px var(--ons-color-white);
         border-color: var(--ons-color-borders);
         border-radius: 3px 3px 0 0;
         position: relative;

@@ -73,7 +73,7 @@ $checkbox-padding: 11px;
     }
 
     &--no-border {
-        & > .ons-checkbox__label {
+        > .ons-checkbox__label {
             padding: 0 0 0 1.85rem;
 
             &::before {
@@ -82,18 +82,18 @@ $checkbox-padding: 11px;
                 box-shadow: none !important;
             }
 
-            & > .ons-checkbox__label--with-description {
+            > .ons-checkbox__label--with-description {
                 padding: 0;
             }
         }
 
-        & > .ons-checkbox__input {
+        > .ons-checkbox__input {
             left: 0.05rem;
             top: 0.15rem;
 
             &:checked,
             &:focus {
-                & + .ons-checkbox__label::before {
+                + .ons-checkbox__label::before {
                     background: none;
                     border: none;
                     box-shadow: none;
@@ -106,13 +106,13 @@ $checkbox-padding: 11px;
             }
         }
 
-        & .ons-checkbox__other {
+        .ons-checkbox__other {
             margin: 0.5rem 0 0.5rem 0.5rem;
         }
     }
 
     &--no-label {
-        & > .ons-checkbox__input {
+        > .ons-checkbox__input {
             left: auto;
             position: relative;
             top: auto;
@@ -120,7 +120,7 @@ $checkbox-padding: 11px;
 
             &:checked,
             &:focus {
-                & + .ons-checkbox__label::before {
+                + .ons-checkbox__label::before {
                     background: none;
                     border: none;
                     box-shadow: none;
@@ -131,7 +131,7 @@ $checkbox-padding: 11px;
                 @extend %ons-input-focus;
             }
 
-            & + .ons-checkbox__label {
+            + .ons-checkbox__label {
                 @extend .ons-u-vh;
             }
         }
