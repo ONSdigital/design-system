@@ -247,7 +247,8 @@ $button-shadow-size: 3px;
     &--text-link.active:focus & {
         &__inner {
             background-color: var(--ons-color-focus);
-            box-shadow: 0 -2px var(--ons-color-focus),
+            box-shadow:
+                0 -2px var(--ons-color-focus),
                 0 4px var(--ons-color-text-link-focus) !important;
             color: var(--ons-color-text-link-focus);
             .ons-icon {

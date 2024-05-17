@@ -1,17 +1,17 @@
 name: Checklist Checker
 on:
-  pull_request:
-    types:
-      - opened
-      - edited
-      - synchronize
-      - reopened
+    pull_request:
+        types:
+            - opened
+            - edited
+            - synchronize
+            - reopened
 
 jobs:
-  check-tasks:
-    name: Check tasks
-    runs-on: ubuntu-latest
-    steps:
-      - uses: mheap/require-checklist-action@v2
-        with:
-          requireChecklist: true
+    check-tasks:
+        name: Check tasks
+        runs-on: ubuntu-latest
+        steps:
+            - uses: mheap/require-checklist-action@v2
+              with:
+                  requireChecklist: true

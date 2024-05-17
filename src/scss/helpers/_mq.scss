@@ -11,7 +11,7 @@
         @content;
     }
 
-    @else if $from == none or $from <= nth(nth($grid-bp, 1), 2) {
+ @else if $from == none or $from <= nth(nth($grid-bp, 1), 2) {
         @if $to-operator != none and $to-operator == '<' {
             $to: $to - 1;
         }
@@ -21,7 +21,7 @@
         }
     }
 
-    @else if $to == none {
+ @else if $to == none {
         @if $from-operator != none and $from-operator == '<' {
             $from: $from + 1;
         }
@@ -31,7 +31,7 @@
         }
     }
 
-    @else {
+ @else {
         @if $from-operator != none and $from-operator == '<' {
             $from: $from + 1;
         }
@@ -51,7 +51,7 @@
         @return map-get($breakpoints, $name);
     }
 
-    @else {
+ @else {
         @warn 'Breakpoint #{$name} wasn\'t found in $breakpoints.';
     }
 }

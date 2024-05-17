@@ -144,7 +144,8 @@
 
     &--announcement {
         a:focus {
-            box-shadow: 0 -2px var(--ons-color-focus),
+            box-shadow:
+                0 -2px var(--ons-color-focus),
                 0 4px (--ons-color-text-inverse-link) !important; // Override focus style because the black border is not visible on a black background
         }
     }

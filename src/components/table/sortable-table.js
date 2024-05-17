@@ -3,154 +3,154 @@ export const classTableBody = 'ons-table__body';
 export let status;
 
 export default class TableSort {
-  constructor(table, index) {
-    this.table = table;
-    this.options = {};
-    this.options.statusMessage = table.getAttribute('data-aria-sort');
-    this.options.ascendingText = table.getAttribute('data-aria-asc');
-    this.options.descendingText = table.getAttribute('data-aria-desc');
-    this.index = index;
-    this.init();
-  }
-
-  init() {
-    this.registerHeadings();
-    this.createStatusBox();
-  }
-
-  registerHeadings() {
-    this.sortableHeadings = this.table.querySelectorAll(jsSortableHeadings);
-    const sortableHeadings = [...this.sortableHeadings];
-    sortableHeadings.forEach((heading, i) => {
-      this.createHeadingButtons(heading, i);
-    });
-  }
-
-  createHeadingButtons(heading, i) {
-    const text = heading.textContent.trim();
-    heading.querySelector('.ons-table__header-text').remove();
-    heading.querySelector('.ons-icon').classList.remove('ons-u-d-no');
-    const button = document.createElement('button');
-    button.setAttribute('aria-label', this.table.getAttribute('data-aria-sort') + ' ' + text);
-    button.setAttribute('type', 'button');
-    button.setAttribute('data-index', i);
-    button.setAttribute('class', 'ons-table__sort-button');
-    button.textContent = text;
-    const sortSpriteIdText = text.replace(/\s+/g, '-').toLowerCase();
-    const sortSprite = document.getElementById('sort-sprite-' + sortSpriteIdText);
-    sortSprite.id = 'sort-sprite-' + sortSpriteIdText + '-' + this.index;
-    const sortSpriteParent = sortSprite.parentNode;
-    sortSpriteParent.replaceChild(button, sortSprite);
-    button.appendChild(sortSprite);
-    button.addEventListener('click', this.sortButtonClicked.bind(this));
-  }
-
-  sortButtonClicked(event) {
-    const columnNumber = event.target.closest('[data-index]').getAttribute('data-index');
-    const sortDirection = event.target.closest('[aria-sort]').getAttribute('aria-sort');
-    let newSortDirection;
-
-    if (sortDirection === 'none' || sortDirection === 'ascending') {
-      newSortDirection = this.options.descendingText;
-    } else {
-      newSortDirection = this.options.ascendingText;
+    constructor(table, index) {
+        this.table = table;
+        this.options = {};
+        this.options.statusMessage = table.getAttribute('data-aria-sort');
+        this.options.ascendingText = table.getAttribute('data-aria-asc');
+        this.options.descendingText = table.getAttribute('data-aria-desc');
+        this.index = index;
+        this.init();
     }
 
-    this.tableBody = this.table.getElementsByClassName(classTableBody);
-    const tableBody = [...this.tableBody];
-
-    tableBody.forEach((tbody) => {
-      const rows = this.getTableRowsArray(tbody);
-      const sortedRows = this.sort(rows, columnNumber, newSortDirection);
-      this.addRows(tbody, sortedRows);
-    });
-
-    this.removeButtonStates();
-    this.updateButtonState(event.target.closest('[aria-sort]'), newSortDirection);
-  }
-
-  getTableRowsArray(tbody) {
-    let rows = [];
-    this.trs = tbody.querySelectorAll('tr');
-    const trs = [...this.trs];
-
-    trs.forEach((tr) => {
-      rows.push(tr);
-    });
-
-    return rows;
-  }
-
-  sort(rows, columnNumber, sortDirection) {
-    const newRows = rows.sort((rowA, rowB) => {
-      const tdA = rowA.querySelectorAll('td, th')[columnNumber];
-      const tdB = rowB.querySelectorAll('td, th')[columnNumber];
-
-      const valueA = this.getCellValue(tdA);
-      const valueB = this.getCellValue(tdB);
-
-      if (sortDirection === 'ascending') {
-        if (valueA < valueB) {
-          return -1;
-        }
-        if (valueA > valueB) {
-          return 1;
-        }
-        return 0;
-      } else {
-        if (valueB < valueA) {
-          return -1;
-        }
-        if (valueB > valueA) {
-          return 1;
-        }
-        return 0;
-      }
-    });
-
-    return newRows;
-  }
-
-  getCellValue(cell) {
-    if (!cell) {
-      return undefined;
+    init() {
+        this.registerHeadings();
+        this.createStatusBox();
     }
 
-    let cellValue = cell.getAttribute('data-sort-value') || cell.textContent;
-    cellValue = parseFloat(cellValue) || cellValue;
+    registerHeadings() {
+        this.sortableHeadings = this.table.querySelectorAll(jsSortableHeadings);
+        const sortableHeadings = [...this.sortableHeadings];
+        sortableHeadings.forEach((heading, i) => {
+            this.createHeadingButtons(heading, i);
+        });
+    }
 
-    return cellValue;
-  }
+    createHeadingButtons(heading, i) {
+        const text = heading.textContent.trim();
+        heading.querySelector('.ons-table__header-text').remove();
+        heading.querySelector('.ons-icon').classList.remove('ons-u-d-no');
+        const button = document.createElement('button');
+        button.setAttribute('aria-label', this.table.getAttribute('data-aria-sort') + ' ' + text);
+        button.setAttribute('type', 'button');
+        button.setAttribute('data-index', i);
+        button.setAttribute('class', 'ons-table__sort-button');
+        button.textContent = text;
+        const sortSpriteIdText = text.replace(/\s+/g, '-').toLowerCase();
+        const sortSprite = document.getElementById('sort-sprite-' + sortSpriteIdText);
+        sortSprite.id = 'sort-sprite-' + sortSpriteIdText + '-' + this.index;
+        const sortSpriteParent = sortSprite.parentNode;
+        sortSpriteParent.replaceChild(button, sortSprite);
+        button.appendChild(sortSprite);
+        button.addEventListener('click', this.sortButtonClicked.bind(this));
+    }
 
-  addRows(body, rows) {
-    rows.forEach((row) => {
-      body.append(row);
-    });
-  }
+    sortButtonClicked(event) {
+        const columnNumber = event.target.closest('[data-index]').getAttribute('data-index');
+        const sortDirection = event.target.closest('[aria-sort]').getAttribute('aria-sort');
+        let newSortDirection;
 
-  removeButtonStates() {
-    this.sortableHeadings = this.table.querySelectorAll(jsSortableHeadings);
-    const sortableHeadings = [...this.sortableHeadings];
-    sortableHeadings.forEach((heading) => {
-      heading.setAttribute('aria-sort', 'none');
-    });
-  }
+        if (sortDirection === 'none' || sortDirection === 'ascending') {
+            newSortDirection = this.options.descendingText;
+        } else {
+            newSortDirection = this.options.ascendingText;
+        }
 
-  updateButtonState(button, direction) {
-    button.setAttribute('aria-sort', direction);
-    let message = this.options.statusMessage;
-    message = message + ' ' + button.textContent.replace(/^\s+|\s+$/g, '');
-    message = message + ' (' + direction + ')';
-    status.textContent = message;
-  }
+        this.tableBody = this.table.getElementsByClassName(classTableBody);
+        const tableBody = [...this.tableBody];
 
-  createStatusBox() {
-    status = document.createElement('div');
-    status.setAttribute('aria-live', 'polite');
-    status.setAttribute('role', 'status');
-    status.setAttribute('aria-atomic', 'true');
-    status.setAttribute('class', 'ons-sortable-table-status ons-u-vh');
+        tableBody.forEach((tbody) => {
+            const rows = this.getTableRowsArray(tbody);
+            const sortedRows = this.sort(rows, columnNumber, newSortDirection);
+            this.addRows(tbody, sortedRows);
+        });
 
-    this.table.parentElement.insertBefore(status, this.table.nextSibling);
-  }
+        this.removeButtonStates();
+        this.updateButtonState(event.target.closest('[aria-sort]'), newSortDirection);
+    }
+
+    getTableRowsArray(tbody) {
+        let rows = [];
+        this.trs = tbody.querySelectorAll('tr');
+        const trs = [...this.trs];
+
+        trs.forEach((tr) => {
+            rows.push(tr);
+        });
+
+        return rows;
+    }
+
+    sort(rows, columnNumber, sortDirection) {
+        const newRows = rows.sort((rowA, rowB) => {
+            const tdA = rowA.querySelectorAll('td, th')[columnNumber];
+            const tdB = rowB.querySelectorAll('td, th')[columnNumber];
+
+            const valueA = this.getCellValue(tdA);
+            const valueB = this.getCellValue(tdB);
+
+            if (sortDirection === 'ascending') {
+                if (valueA < valueB) {
+                    return -1;
+                }
+                if (valueA > valueB) {
+                    return 1;
+                }
+                return 0;
+            } else {
+                if (valueB < valueA) {
+                    return -1;
+                }
+                if (valueB > valueA) {
+                    return 1;
+                }
+                return 0;
+            }
+        });
+
+        return newRows;
+    }
+
+    getCellValue(cell) {
+        if (!cell) {
+            return undefined;
+        }
+
+        let cellValue = cell.getAttribute('data-sort-value') || cell.textContent;
+        cellValue = parseFloat(cellValue) || cellValue;
+
+        return cellValue;
+    }
+
+    addRows(body, rows) {
+        rows.forEach((row) => {
+            body.append(row);
+        });
+    }
+
+    removeButtonStates() {
+        this.sortableHeadings = this.table.querySelectorAll(jsSortableHeadings);
+        const sortableHeadings = [...this.sortableHeadings];
+        sortableHeadings.forEach((heading) => {
+            heading.setAttribute('aria-sort', 'none');
+        });
+    }
+
+    updateButtonState(button, direction) {
+        button.setAttribute('aria-sort', direction);
+        let message = this.options.statusMessage;
+        message = message + ' ' + button.textContent.replace(/^\s+|\s+$/g, '');
+        message = message + ' (' + direction + ')';
+        status.textContent = message;
+    }
+
+    createStatusBox() {
+        status = document.createElement('div');
+        status.setAttribute('aria-live', 'polite');
+        status.setAttribute('role', 'status');
+        status.setAttribute('aria-atomic', 'true');
+        status.setAttribute('class', 'ons-sortable-table-status ons-u-vh');
+
+        this.table.parentElement.insertBefore(status, this.table.nextSibling);
+    }
 }

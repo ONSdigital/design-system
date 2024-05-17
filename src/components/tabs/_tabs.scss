@@ -61,7 +61,8 @@
     &:focus {
         background-color: var(--ons-color-focus);
         border-bottom: 1px solid var(--ons-color-borders);
-        box-shadow: inset 0 0 0 9px var(--ons-color-button-secondary),
+        box-shadow:
+            inset 0 0 0 9px var(--ons-color-button-secondary),
             inset 17px 0 0 0 var(--ons-color-button-secondary),
             inset -17px 0 0 0 var(--ons-color-button-secondary),
             inset 0 -13px 0 0 var(--ons-color-text-link-focus);
@@ -86,7 +87,8 @@
 
         &:focus {
             background-color: var(--ons-color-focus);
-            box-shadow: inset 0 0 0 9px var(--ons-color-page-light),
+            box-shadow:
+                inset 0 0 0 9px var(--ons-color-page-light),
                 inset 17px 0 0 0 var(--ons-color-page-light),
                 inset -17px 0 0 0 var(--ons-color-page-light),
                 inset 0 -13px 0 0 var(--ons-color-text-link-focus);
@@ -106,7 +108,8 @@
     }
 
     &:focus {
-        box-shadow: 0 0 0 0 var(--ons-color-page-light),
+        box-shadow:
+            0 0 0 0 var(--ons-color-page-light),
             0 0 0 2px var(--ons-color-text-link-focus),
             0 0 0 6px var(--ons-color-focus);
         outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows

@@ -25,7 +25,7 @@
         "max-len": [0, { "code": 140, "ignoreUrls": true }],
         "comma-dangle": ["error", "always-multiline"],
         "arrow-parens": 1,
-        "indent": ["error", 4, { "SwitchCase": 1 }],
+        // "indent": ["error", 4, { "SwitchCase": 1 }],
         "unused-imports/no-unused-imports": "error",
         "unused-imports/no-unused-vars": [
             "error",

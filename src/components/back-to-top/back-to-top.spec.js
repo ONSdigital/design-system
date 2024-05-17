@@ -1,10 +1,10 @@
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
 describe('script: back-to-top', () => {
-  beforeEach(async () => {
-    await setTestPage(
-      '/test',
-      `
+    beforeEach(async () => {
+        await setTestPage(
+            '/test',
+            `
         <div class="ons-back-to-top-track ons-container">
           <div class="ons-grid">
             <div class="ons-grid__col ons-col-6@m">
@@ -69,49 +69,49 @@ describe('script: back-to-top', () => {
           ${renderComponent('back-to-top', {})}
         </div>
       `,
-    );
-  });
+        );
+    });
 
-  it('is enabled on page when the page is rendered', async () => {
-    const backToTop = await page.$('.ons-back-to-top');
-    expect(backToTop).not.toBeNull();
-  });
+    it('is enabled on page when the page is rendered', async () => {
+        const backToTop = await page.$('.ons-back-to-top');
+        expect(backToTop).not.toBeNull();
+    });
 
-  it('is sticky when scrolled past 2 times the window height', async () => {
-    await page.evaluate(() => {
-      window.scrollTo(0, window.innerHeight * 2 + 10);
+    it('is sticky when scrolled past 2 times the window height', async () => {
+        await page.evaluate(() => {
+            window.scrollTo(0, window.innerHeight * 2 + 10);
+        });
+        const backToTopSticky = await page.$eval('.ons-back-to-top', (node) => node.classList.contains('ons-back-to-top__sticky'));
+        expect(backToTopSticky).toBe(true);
     });
-    const backToTopSticky = await page.$eval('.ons-back-to-top', (node) => node.classList.contains('ons-back-to-top__sticky'));
-    expect(backToTopSticky).toBe(true);
-  });
 
-  it('is enabled when the page is scrolled to the bottom', async () => {
-    await page.evaluate(() => {
-      window.scrollTo(0, document.body.scrollHeight);
+    it('is enabled when the page is scrolled to the bottom', async () => {
+        await page.evaluate(() => {
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+        const backToTopEnabled = await page.$eval('.ons-back-to-top', (node) => node.classList.contains('ons-back-to-top__enabled'));
+        expect(backToTopEnabled).toBe(true);
     });
-    const backToTopEnabled = await page.$eval('.ons-back-to-top', (node) => node.classList.contains('ons-back-to-top__enabled'));
-    expect(backToTopEnabled).toBe(true);
-  });
 
-  it('changes left margin when the window is resized', async () => {
-    await page.setViewport({ width: 1300, height: 800 });
-    await page.evaluate(() => {
-      window.scrollTo(0, window.innerHeight * 2);
+    it('changes left margin when the window is resized', async () => {
+        await page.setViewport({ width: 1300, height: 800 });
+        await page.evaluate(() => {
+            window.scrollTo(0, window.innerHeight * 2);
+        });
+        await new Promise((r) => setTimeout(r, 250));
+        const previousWidth = await page.evaluate(() => {
+            const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link').children[0];
+            return window.getComputedStyle(node).marginLeft;
+        });
+        await page.setViewport({ width: 2000, height: 800 });
+        await page.evaluate(() => {
+            window.scrollTo(0, window.innerHeight * 2);
+        });
+        await new Promise((r) => setTimeout(r, 250));
+        const newWidth = await page.evaluate(() => {
+            const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link').children[0];
+            return window.getComputedStyle(node).marginLeft;
+        });
+        expect(previousWidth).not.toEqual(newWidth);
     });
-    await new Promise((r) => setTimeout(r, 250));
-    const previousWidth = await page.evaluate(() => {
-      const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link').children[0];
-      return window.getComputedStyle(node).marginLeft;
-    });
-    await page.setViewport({ width: 2000, height: 800 });
-    await page.evaluate(() => {
-      window.scrollTo(0, window.innerHeight * 2);
-    });
-    await new Promise((r) => setTimeout(r, 250));
-    const newWidth = await page.evaluate(() => {
-      const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link').children[0];
-      return window.getComputedStyle(node).marginLeft;
-    });
-    expect(previousWidth).not.toEqual(newWidth);
-  });
 });

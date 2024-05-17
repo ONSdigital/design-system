@@ -106,9 +106,9 @@ _Note_: This command is of limited use since JavaScript and SCSS files will only
 
 It is sometimes useful to adjust the following settings when writing tests or diagnosing issues:
 
-- `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `await page.waitForTimeout(100000)` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
+-   `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `await page.waitForTimeout(100000)` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
 
-- `testTimeout` in 'jest.config.js' - set to a high value such as `1000000` to prevent tests from timing out when doing the above.
+-   `testTimeout` in 'jest.config.js' - set to a high value such as `1000000` to prevent tests from timing out when doing the above.
 
 ## Testing - Visual regression tests
 
@@ -146,12 +146,12 @@ yarn build
 
 ## Recommended Visual Studio Code Extensions for this project
 
-- [axe Accessibility Linter](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter)
-- [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [Nunjucks](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
-- [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [remark](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-remark)
-- [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
-- [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
-- [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+-   [axe Accessibility Linter](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter)
+-   [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+-   [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+-   [Nunjucks](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
+-   [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+-   [remark](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-remark)
+-   [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
+-   [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
+-   [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
