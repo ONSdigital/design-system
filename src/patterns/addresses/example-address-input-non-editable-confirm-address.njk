@@ -38,41 +38,41 @@ layout: ~
         }
     }) %}
 
-    <form action="#0">
-        {{-
-            onsAddressOutput({
-                "classes": 'ons-u-mb-m',
-                "unit": 'Unit 5',
-                "organisation": 'Trescos',
-                "line1": 'Abingdon Road',
-                "line2": 'Goathill',
-                "town": 'Barry',
-                "postcode": 'AB12 6UH'
-            })
-        }}
+        <form action="#0">
+            {{-
+                onsAddressOutput({
+                    "classes": 'ons-u-mb-m',
+                    "unit": 'Unit 5',
+                    "organisation": 'Trescos',
+                    "line1": 'Abingdon Road',
+                    "line2": 'Goathill',
+                    "town": 'Barry',
+                    "postcode": 'AB12 6UH'
+                })
+            }}
 
-        {{
-            onsRadios({
-                "name": 'confirm-address',
-                "dontWrap": true,
-                "radios": [
-                    {
-                        "id": 'yes',
-                        "label": {
-                            "text": 'Yes, this is the correct address'
+            {{
+                onsRadios({
+                    "name": 'confirm-address',
+                    "dontWrap": true,
+                    "radios": [
+                        {
+                            "id": 'yes',
+                            "label": {
+                                "text": 'Yes, this is the correct address'
+                            },
+                            "value": 'Yes, this is the correct address'
                         },
-                        "value": 'Yes, this is the correct address'
-                    },
-                    {
-                        "id": 'no',
-                        "label": {
-                            "text": 'No, search for address again'
-                        },
-                        "value": 'No, search for address again'
-                    }
-                ]
-            })
-        }}
-    </form>
+                        {
+                            "id": 'no',
+                            "label": {
+                                "text": 'No, search for address again'
+                            },
+                            "value": 'No, search for address again'
+                        }
+                    ]
+                })
+            }}
+        </form>
     {% endcall %}
 {% endblock %}
