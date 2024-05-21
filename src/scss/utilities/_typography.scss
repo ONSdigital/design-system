@@ -1,10 +1,12 @@
+@use 'sass:map';
+
 @mixin font-size($props, $base) {
-    $small-size: map-get($props, small);
-    $large-size: map-get($props, large);
+    $small-size: map.get($props, small);
+    $large-size: map.get($props, large);
 
     font-size: rems($small-size, $base);
-    font-weight: map-get($props, weight);
-    line-height: map-get($props, line-height);
+    font-weight: map.get($props, weight);
+    line-height: map.get($props, line-height);
 
     @if $small-size != $large-size {
         @include mq(m) {

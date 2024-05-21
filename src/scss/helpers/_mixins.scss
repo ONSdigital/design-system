@@ -1,10 +1,14 @@
+@use 'sass:math';
+@use 'sass:string';
+@use 'sass:list';
+
 @mixin rem($property, $values...) {
-    $max: length($values);
+    $max: list.length($values);
     $px-values: '';
     $rem-values: '';
 
     @for $i from 1 through $max {
-        $value: strip-unit(nth($values, $i));
+        $value: strip-unit(list.nth($values, $i));
         $px-values: #{$px-values + $value * 16}px;
 
         @if $i < $max {
@@ -13,7 +17,7 @@
     }
 
     @for $i from 1 through $max {
-        $value: strip-unit(nth($values, $i));
+        $value: strip-unit(list.nth($values, $i));
         $rem-values: #{$rem-values + $value}rem;
 
         @if $i < $max {
@@ -33,7 +37,7 @@
 // String Replace
 // =============================================================================
 @function str-replace($string, $search, $replace: '') {
-    $index: str-index($string, $search);
+    $index: string.index($string, $search);
 
     @if $index {
         @return str-slice($string, 1, $index - 1) + $replace +
@@ -57,13 +61,13 @@
     );
 
     @each $ext in $exts {
-        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-        $src: append($src, url('#{$path}.#{$extmod}') format(quote($format)), comma);
+        $extmod: if(map.has-key($extmods, $ext), $ext + map.get($extmods, $ext), $ext);
+        $format: if(map.has-key($formats, $ext), map.get($formats, $ext), $ext);
+        $src: list.append($src, url('#{$path}.#{$extmod}') format(string.quote($format)), comma);
     }
 
     @font-face {
-        font-family: quote($name);
+        font-family: string.quote($name);
         font-style: $style;
         font-weight: $weight;
         src: $src;
@@ -71,6 +75,7 @@
 }
 
 @mixin clearfix() {
+    /* stylelint-disable-line */
     // no-op
 }
 

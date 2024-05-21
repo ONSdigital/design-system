@@ -159,7 +159,7 @@
 
 @each $breakpoint-min, $size in $grid-bp {
     @for $column from 1 through $grid-cols {
-        $width: percentage(math.div($column, $grid-cols));
+        $width: math.percentage(math.div($column, $grid-cols));
 
         @include mq($breakpoint-min) {
             .ons-col-#{$column}\@#{$breakpoint-min} {
@@ -181,7 +181,7 @@
 
     @each $breakpoint-max, $size in $grid-bp {
         @for $column from 1 through $grid-cols {
-            $width: percentage(math.div($column, $grid-cols));
+            $width: math.percentage(math.div($column, $grid-cols));
 
             @include mq($breakpoint-min, $breakpoint-max) {
                 .ons-col-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {

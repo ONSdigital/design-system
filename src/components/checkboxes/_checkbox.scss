@@ -78,7 +78,7 @@ $checkbox-padding: 11px;
 
             &::before {
                 background: none !important;
-                border: none !important;
+                border: 0 !important;
                 box-shadow: none !important;
             }
 
@@ -95,7 +95,7 @@ $checkbox-padding: 11px;
             &:focus {
                 + .ons-checkbox__label::before {
                     background: none;
-                    border: none;
+                    border: 0;
                     box-shadow: none;
                     outline: none;
                 }
@@ -122,7 +122,7 @@ $checkbox-padding: 11px;
             &:focus {
                 + .ons-checkbox__label::before {
                     background: none;
-                    border: none;
+                    border: 0;
                     box-shadow: none;
                 }
             }

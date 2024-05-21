@@ -21,7 +21,7 @@
         // Featured document
         &--featured {
             background-color: var(--ons-color-banner-bg);
-            border-bottom: none;
+            border-bottom: 0;
             display: block;
             outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
             outline-offset: -2px;
@@ -74,7 +74,7 @@
 
             // If featured item is first in same list
             + .ons-document-list__item {
-                border-top: none;
+                border-top: 0;
                 margin-top: 0;
             }
         }

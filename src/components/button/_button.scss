@@ -192,7 +192,7 @@ $button-shadow-size: 3px;
     &--text-link & {
         &__inner {
             background: transparent;
-            border: none;
+            border: 0;
             border-radius: 0;
             box-shadow: none;
             color: var(--ons-color-text-link);
@@ -475,7 +475,7 @@ $button-shadow-size: 3px;
 
         &__inner {
             background: var(--ons-color-branded-tint);
-            border: none;
+            border: 0;
             border-radius: 0;
             box-shadow: none;
             color: var(--ons-color-branded-text);

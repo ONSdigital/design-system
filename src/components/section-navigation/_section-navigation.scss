@@ -61,7 +61,7 @@
 
     &:not(&--vertical) & {
         &__item {
-            border: none;
+            border: 0;
             border-bottom: 4px solid transparent;
             display: inline-block;
             margin: 0 1rem 0 0;

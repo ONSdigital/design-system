@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use 'sass:string';
 
 @function ems($pxval, $base: $base) {
     $em-size: math.div($pxval, $base);
@@ -26,7 +27,7 @@
 
 @function str-replace($string, $search, $replace: '') {
     $string: to-string($string);
-    $index: str-index($string, $search);
+    $index: string.index($string, $search);
 
     @if $index {
         @return str-slice($string, 1, $index - 1) + $replace +

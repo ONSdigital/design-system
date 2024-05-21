@@ -123,11 +123,11 @@
 
     .ons-tab {
         border-radius: 0;
-        border-top: none;
+        border-top: 0;
     }
 
     .ons-tab__list-item:first-child .ons-tab {
-        border-left: none;
+        border-left: 0;
     }
 
     .ons-tabs__title {

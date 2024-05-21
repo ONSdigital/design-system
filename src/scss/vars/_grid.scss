@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 $grid-bp: (
     xxs: 300px,
     xs: 400px,
@@ -13,5 +15,5 @@ $grid-max-1280: 71.1111rem !default;
 $grid-cols: 12 !default;
 $grid-cols-mobile: 4 !default;
 $grid-gutters: 1rem !default;
-$grid-bp-fixed: map-get($grid-bp, m) !default;
+$grid-bp-fixed: map.get($grid-bp, m) !default;
 $grid-baseline: 16px;

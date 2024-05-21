@@ -42,7 +42,7 @@ rules:
     import-notation: 'string'
     # Nesting
     max-nesting-depth:
-        - 5
+        - 6
         - ignore: ['blockless-at-rules', 'pseudo-classes']
 
     # Name Formats
@@ -61,3 +61,6 @@ rules:
 
     # Inner Spacing
     function-calc-no-unspaced-operator: true
+
+    # Ignores
+    scss/operator-no-newline-after: null
