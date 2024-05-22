@@ -456,7 +456,7 @@ describe('FOR: Header', () => {
           ],
         },
       });
-      test('THEN: renders button with coresponding variants', () => {
+      test('THEN: renders button with corresponding variants', () => {
         expect(buttonSpy.occurrences[0]).toHaveProperty('variants', ['mobile', 'text-link', 'text-link-inverse']);
       });
     });
