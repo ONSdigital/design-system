@@ -24,7 +24,7 @@ describe('FOR: Header', () => {
           ...EXAMPLE_HEADER_BASIC,
         }),
       );
-      test('THEN: Jest-Axe tests pass', async () => {
+      test('THEN: jest-axe tests pass', async () => {
         const results = await axe($.html());
         expect(results).toHaveNoViolations();
       });
