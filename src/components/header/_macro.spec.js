@@ -201,7 +201,7 @@ describe('FOR: Header', () => {
         expect($('.ons-header__org-logo--multi img:nth-of-type(3)').attr('src')).toBe('a-third-logo.svg');
       });
     });
-    describe('WHEN: multilpleLogos & mastheadLogo:Large parameters are both provided', () => {
+    describe('WHEN: multipleLogos & mastheadLogo:Large parameters are both provided', () => {
       const $ = cheerio.load(
         renderComponent('header', {
           ...EXAMPLE_HEADER_BASIC,
