@@ -144,15 +144,17 @@ Generate a build into `./build`.
 yarn build
 ```
 
-## Recommended Visual Studio Code plugins for this project
+## Recommended Visual Studio Code Extensions for this project
 
+- [axe Accessibility Linter](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter)
 - [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Nunjucks](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
 - [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [Sass](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented)
+- [remark](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-remark)
+- [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
+- [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
 - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-- [vscode-remark-lint](https://marketplace.visualstudio.com/items?itemName=drewbourne.vscode-remark-lint)
 
 ## Recommended Visual Studio Code settings for this project
 
