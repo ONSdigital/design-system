@@ -1,20 +1,22 @@
 {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
 {% from "components/header/_macro.njk" import onsHeader %}
 {% from "components/footer/_macro.njk" import onsFooter %}
-{% set currentLanguageISOCode = "en" %}
+{% set currentLanguageIsoCode = "en" %}
 
 {% if pageConfig and pageConfig.header.language and pageConfig.header.language.languages %}
     {% set currentLanguage = pageConfig.header.language.languages | selectattr("current") | first %}
-    {% set currentLanguageISOCode = currentLanguage.ISOCode %}
+    {% set currentLanguageIsoCode = currentLanguage.isoCode %}
     {% set otherLanguage = pageConfig.header.language.languages | rejectattr("current") | first %}
-    {% set otherLanguageISOCode = otherLanguage.ISOCode %}
+    {% set otherLanguageIsoCode = otherLanguage.isoCode %}
 {% endif %}
 
 {% if pageConfig.cdn or release_version or designSystemVersion %}
     {# Production #}
     {% set cdnUrl = (pageConfig.cdn.url if pageConfig.cdn and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
-    {% set slash = "" if cdnUrl | last == "/" else
-        "/" %}
+    {%
+        set slash = "" if cdnUrl | last == "/" else
+        "/"
+    %}
     {% set assetsUrl = cdnUrl + slash + ((pageConfig.cdn.version if pageConfig.cdn and pageConfig.cdn.version) or release_version or designSystemVersion) %}
 {% elif pageConfig.assetsUrl %}
     {# Runner Dev #}
@@ -25,11 +27,11 @@
 {% endif %}
 
 {% if pageConfig and pageConfig.title %}
-    {% set page_title = pageConfig.title %}
+    {% set pageTitle = pageConfig.title %}
 {% elif page and page.title %}
-    {% set page_title = page.title %}
+    {% set pageTitle = page.title %}
 {% else %}
-    {% set page_title = "ONS Design System" %}
+    {% set pageTitle = "ONS Design System" %}
 {% endif %}
 
 {# Page container #}
@@ -43,7 +45,6 @@
 
 {# Page columns #}
 {% set pageColNumber = pageConfig.pageColNumber | default("12") %}
-<<<<<<< HEAD
 {%
     set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else
     ''
@@ -56,30 +57,16 @@
     set themeColor = pageConfig.themeColor if pageConfig.themeColor else
     "#206095"
 %}
-=======
-{% set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else
-    '' %}
-{% set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else
-    '' %}
-{% set themeColor = pageConfig.themeColor if pageConfig.themeColor else
-    "#206095" %}
->>>>>>> b9e4830d (update url param names to camel case param naming standard)
 <!doctype html>
-<html lang="{{ currentLanguageISOCode }}">
+<html lang="{{ currentLanguageIsoCode }}">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>{{ page_title }}</title>
-<<<<<<< HEAD
-        <link rel="stylesheet" href="{{ assetsURL }}/css/main.css" />
-        <link rel="stylesheet" media="print" href="{{ assetsURL }}/css/print.css" />
+        <title>{{ pageTitle }}</title>
+        <link rel="stylesheet" href="{{ assetsUrl }}/css/main.css" />
+        <link rel="stylesheet" media="print" href="{{ assetsUrl }}/css/print.css" />
         <meta name="theme-color" content="{{ themeColor }}" />
-=======
-        <link rel="stylesheet" href="{{ assetsUrl }}/css/main.css">
-        <link rel="stylesheet" media="print" href="{{ assetsUrl }}/css/print.css">
-        <meta name="theme-color" content="{{ themeColor }}"/>
->>>>>>> b9e4830d (update url param names to camel case param naming standard)
         {% block meta %}
             {% if pageConfig.meta %}
                 {% if pageConfig.meta.description or pageConfig.description %}
@@ -99,44 +86,26 @@
 
         {% block social %}
             <!-- Open Graph -->
-<<<<<<< HEAD
             <meta property="og:type" content="website" />
             <meta property="og:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}" />
             <meta property="og:title" content="{{ pageConfig.title }}" />
-            <meta property="og:image" content="{{ assetsURL }}/favicons/opengraph.png" />
+            <meta property="og:image" content="{{ assetsUrl }}/favicons/opengraph.png" />
             <meta property="og:image:type" content="image/png" />
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
             <meta property="og:description" content="{{ pageConfig.meta.description | default(pageConfig.description) }}" />
             <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}" />
-            <meta property="og:locale" content="{{ currentLanguageISOCode }}" />
-=======
-            <meta property="og:type" content="website">
-            <meta property="og:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
-            <meta property="og:title" content="{{ pageConfig.title }}">
-            <meta property="og:image" content="{{ assetsUrl }}/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
-            <meta property="og:description" content="{{ pageConfig.meta.description | default(pageConfig.description) }}">
-            <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}">
-            <meta property="og:locale" content="{{ currentLanguageISOCode }}">
->>>>>>> b9e4830d (update url param names to camel case param naming standard)
+            <meta property="og:locale" content="{{ currentLanguageIsoCode }}" />
 
-            {% if otherLanguageISOCode %}
-                <meta property="og:locale:alternate" content="{{ otherLanguageISOCode }}" />
+            {% if otherLanguageIsoCode %}
+                <meta property="og:locale:alternate" content="{{ otherLanguageIsoCode }}" />
             {% endif %}
 
             {% if pageConfig.social %}
-<<<<<<< HEAD
                 {%
                     set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else
-                    assetsURL + '/favicons/twitter.png'
+                    assetsUrl + '/favicons/twitter.png'
                 %}
-=======
-                {% set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else
-                    assetsUrl + '/favicons/twitter.png' %}
->>>>>>> b9e4830d (update url param names to camel case param naming standard)
                 <!-- Twitter -->
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:site" content="{{ pageConfig.social.twitterSite }}" />
@@ -149,21 +118,12 @@
 
         {% block favicons %}
             <!-- Favicons -->
-<<<<<<< HEAD
-            <link rel="icon" type="image/x-icon" href="{{ assetsURL }}/favicons/favicon.ico" />
-            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/favicon-32x32.png" sizes="32x32" />
-            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/favicon-16x16.png" sizes="16x16" />
-            <link rel="mask-icon" href="{{ assetsURL }}/favicons/safari-pinned-tab.svg" color="#000000" />
-            <link rel="apple-touch-icon" type="image/png" href="{{ assetsURL }}/favicons/apple-touch-icon.png" sizes="180x180" />
-            <link rel="manifest" href="{{ assetsURL }}/favicons/manifest.json" />
-=======
-            <link rel="icon" type="image/x-icon" href="{{ assetsUrl }}/favicons/favicon.ico">
-            <link rel="icon" type="image/png" href="{{ assetsUrl }}/favicons/favicon-32x32.png" sizes="32x32">
-            <link rel="icon" type="image/png" href="{{ assetsUrl }}/favicons/favicon-16x16.png" sizes="16x16">
-            <link rel="mask-icon" href="{{ assetsUrl }}/favicons/safari-pinned-tab.svg" color="#000000">
-            <link rel="apple-touch-icon" type="image/png" href="{{ assetsUrl }}/favicons/apple-touch-icon.png" sizes="180x180">
-            <link rel="manifest" href="{{ assetsUrl }}/favicons/manifest.json">
->>>>>>> b9e4830d (update url param names to camel case param naming standard)
+            <link rel="icon" type="image/x-icon" href="{{ assetsUrl }}/favicons/favicon.ico" />
+            <link rel="icon" type="image/png" href="{{ assetsUrl }}/favicons/favicon-32x32.png" sizes="32x32" />
+            <link rel="icon" type="image/png" href="{{ assetsUrl }}/favicons/favicon-16x16.png" sizes="16x16" />
+            <link rel="mask-icon" href="{{ assetsUrl }}/favicons/safari-pinned-tab.svg" color="#000000" />
+            <link rel="apple-touch-icon" type="image/png" href="{{ assetsUrl }}/favicons/apple-touch-icon.png" sizes="180x180" />
+            <link rel="manifest" href="{{ assetsUrl }}/favicons/manifest.json" />
         {% endblock %}
 
         {% block head %}
@@ -198,10 +158,6 @@
                                 "siteSearchAutosuggest": pageConfig.header.siteSearchAutosuggest,
                                 "browserBanner": pageConfig.header.browserBanner,
                                 "phase": pageConfig.header.phase,
-<<<<<<< HEAD
-=======
-                                "assetsUrl": assetsUrl,
->>>>>>> b9e4830d (update url param names to camel case param naming standard)
                                 "serviceLinks": pageConfig.header.serviceLinks,
                                 "variants": pageConfig.header.variants,
                                 "classes": pageConfig.header.classes,
@@ -244,17 +200,13 @@
                     {% if pageConfig.footer %}
                         {{
                             onsFooter({
-<<<<<<< HEAD
-=======
-                                "assetsUrl": assetsUrl,
->>>>>>> b9e4830d (update url param names to camel case param naming standard)
                                 "wide": pageConfig.wide,
                                 "fullWidth": pageConfig.fullWidth,
                                 "classes": "ons-page__footer",
-                                "lang": currentLanguageISOCode,
+                                "lang": currentLanguageIsoCode,
                                 "rows": pageConfig.footer.rows,
                                 "cols": pageConfig.footer.cols,
-                                "footerLogo": pageConfig.footer.footerLogo,
+                                "poweredBy": pageConfig.footer.poweredBy,
                                 "crest": pageConfig.footer.crest,
                                 "oglLink": pageConfig.footer.oglLink,
                                 "button": pageConfig.header.signoutButton,

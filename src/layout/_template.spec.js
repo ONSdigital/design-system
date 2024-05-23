@@ -46,13 +46,13 @@ const FULL_EXAMPLE = `
             "languages": [
                 {
                     "url": "#0",
-                    "ISOCode": "en",
+                    "isoCode": "en",
                     "text": "English",
                     "current": true
                 },
                 {
                     "url": "#0",
-                    "ISOCode": "cy",
+                    "isoCode": "cy",
                     "text": "Cymraeg",
                     "current": false
                 }
