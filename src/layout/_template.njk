@@ -26,11 +26,11 @@
 {% endif %}
 
 {% if pageConfig and pageConfig.title %}
-    {% set page_title = pageConfig.title %}
+    {% set pageTitle = pageConfig.title %}
 {% elif page and page.title %}
-    {% set page_title = page.title %}
+    {% set pageTitle = page.title %}
 {% else %}
-    {% set page_title = "ONS Design System" %}
+    {% set pageTitle = "ONS Design System" %}
 {% endif %}
 
 {# Page container #}
@@ -56,7 +56,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ page_title }}</title>
+        <title>{{ pageTitle }}</title>
         <link rel="stylesheet" href="{{ assetsUrl }}/css/main.css">
         <link rel="stylesheet" media="print" href="{{ assetsUrl }}/css/print.css">
         <meta name="theme-color" content="{{ themeColor }}"/>
