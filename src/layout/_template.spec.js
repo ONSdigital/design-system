@@ -288,7 +288,7 @@ const FULL_EXAMPLE = `
                 ]
             }
         ],
-        "OGLLink": true
+        "oglLink": true
     }
 } %}
 
