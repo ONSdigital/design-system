@@ -8,11 +8,11 @@ on:
             - reopened
 
 jobs:
-  check-tasks:
-    runs-on: ubuntu-latest
-    if: github.event.pull_request.user.login != 'dependabot[bot]' # ignore pull requests raised by dependabot
-    steps:
-      - name: Check tasks
-        uses: mheap/require-checklist-action@v2
-        with:
-          requireChecklist: true
+    check-tasks:
+        runs-on: ubuntu-latest
+        if: github.event.pull_request.user.login != 'dependabot[bot]' # ignore pull requests raised by dependabot
+        steps:
+            - name: Check tasks
+              uses: mheap/require-checklist-action@v2
+              with:
+                  requireChecklist: true
