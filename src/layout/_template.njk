@@ -2,13 +2,13 @@
 {% from "components/header/_macro.njk" import onsHeader %}
 {% from "components/footer/_macro.njk" import onsFooter %}
 
-{% set currentLanguageISOCode = "en" %}
+{% set currentLanguageIsoCode = "en" %}
 
 {% if pageConfig and pageConfig.header.language and pageConfig.header.language.languages %}
     {% set currentLanguage = pageConfig.header.language.languages | selectattr("current") | first %}
-    {% set currentLanguageISOCode = currentLanguage.ISOCode %}
+    {% set currentLanguageIsoCode = currentLanguage.isoCode %}
     {% set otherLanguage = pageConfig.header.language.languages | rejectattr("current") | first %}
-    {% set otherLanguageISOCode = otherLanguage.ISOCode %}
+    {% set otherLanguageIsoCode = otherLanguage.isoCode %}
 {% endif %}
 
 {% if pageConfig.cdn or release_version or designSystemVersion %}
@@ -51,7 +51,7 @@
 {% set themeColor = pageConfig.themeColor if pageConfig.themeColor else
     "#206095" %}
 <!doctype html>
-<html lang="{{ currentLanguageISOCode }}">
+<html lang="{{ currentLanguageIsoCode }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -88,10 +88,10 @@
             <meta property="og:image:height" content="630">
             <meta property="og:description" content="{{ pageConfig.meta.description | default(pageConfig.description) }}">
             <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}">
-            <meta property="og:locale" content="{{ currentLanguageISOCode }}">
+            <meta property="og:locale" content="{{ currentLanguageIsoCode }}">
 
-            {% if otherLanguageISOCode %}
-                <meta property="og:locale:alternate" content="{{ otherLanguageISOCode }}">
+            {% if otherLanguageIsoCode %}
+                <meta property="og:locale:alternate" content="{{ otherLanguageIsoCode }}">
             {% endif %}
 
             {% if pageConfig.social %}
@@ -194,7 +194,7 @@
                                 "wide": pageConfig.wide,
                                 "fullWidth": pageConfig.fullWidth,
                                 "classes": "ons-page__footer",
-                                "lang": currentLanguageISOCode,
+                                "lang": currentLanguageIsoCode,
                                 "rows": pageConfig.footer.rows,
                                 "cols": pageConfig.footer.cols,
                                 "poweredBy": pageConfig.footer.poweredBy,

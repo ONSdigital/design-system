@@ -77,7 +77,7 @@ const EXAMPLE_HEADER_LANGUAGE_CONFIG = {
     languages: [
       {
         url: '#0',
-        ISOCode: 'en',
+        isoCode: 'en',
         text: 'English',
         buttonAriaLabel: 'Language selector. Current language: English',
         chooseLanguage: 'Choose language',
@@ -85,7 +85,7 @@ const EXAMPLE_HEADER_LANGUAGE_CONFIG = {
       },
       {
         url: '#0',
-        ISOCode: 'cy',
+        isoCode: 'cy',
         text: 'Cymraeg',
         buttonAriaLabel: 'Dewisydd iaith. Iaith gyfredol: Cymraeg',
         chooseLanguage: 'Dewiswch iaith',
@@ -733,7 +733,7 @@ describe('macro: header', () => {
         languages: [
           {
             url: '#0',
-            ISOCode: 'en',
+            isoCode: 'en',
             text: 'English',
             buttonAriaLabel: 'Language selector. Current language: English',
             chooseLanguage: 'Choose language',
@@ -741,7 +741,7 @@ describe('macro: header', () => {
           },
           {
             url: '#0',
-            ISOCode: 'cy',
+            isoCode: 'cy',
             text: 'Cymraeg',
             buttonAriaLabel: 'Dewisydd iaith. Iaith gyfredol: Cymraeg',
             chooseLanguage: 'Dewiswch iaith',

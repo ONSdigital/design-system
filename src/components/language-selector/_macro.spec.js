@@ -9,14 +9,14 @@ const EXAMPLE_WITH_TWO_LANGUAGES = {
   languages: [
     {
       url: '/english',
-      ISOCode: 'en',
+      isoCode: 'en',
       text: 'English',
       abbrText: 'EN',
       current: true,
     },
     {
       url: '/cymraeg',
-      ISOCode: 'cy',
+      isoCode: 'cy',
       text: 'Cymraeg',
       abbrText: 'CY',
       current: false,
@@ -32,19 +32,19 @@ const EXAMPLE_WITH_THREE_LANGUAGES = {
   languages: [
     {
       url: '/english',
-      ISOCode: 'en',
+      isoCode: 'en',
       text: 'English',
       current: false,
     },
     {
       url: '/cymraeg',
-      ISOCode: 'cy',
+      isoCode: 'cy',
       text: 'Cymraeg',
       current: true,
     },
     {
       url: '/polski',
-      ISOCode: 'pl',
+      isoCode: 'pl',
       text: 'Polski',
       current: false,
     },
