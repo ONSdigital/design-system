@@ -22,7 +22,7 @@ export default class AddressError {
 
     showErrorPanel() {
         if (!this.errorPanel) {
-            //error panel
+            // Error panel
             const page = document.querySelector('.ons-question');
             const errorElement = document.createElement('div');
             const errorElementHeader = document.createElement('div');
@@ -49,11 +49,11 @@ export default class AddressError {
 
             page.insertBefore(errorElement, page.firstChild);
 
-            // fire the inpagelink function
+            // Fire the inpagelink function
             const links = [...document.getElementsByClassName('ons-js-inpagelink')];
             inPageLinks(links);
 
-            //input error
+            // Input error
             const inputErrorPanel = document.createElement('div');
             const inputErrorPanelBody = document.createElement('div');
             const inputErrorPanelP = document.createElement('p');

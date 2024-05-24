@@ -52,7 +52,7 @@ export default class MutuallyExclusive {
         input.hasValue = this.inputHasValue(input.element);
 
         if (input.hasValue) {
-            // if not self deselect
+            // If not self deselect
             if (input.exclusive) {
                 adjective = this.groupAdjective;
 

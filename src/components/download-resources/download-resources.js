@@ -784,7 +784,6 @@ Math.easeInOutQuad = function (t, b, c, d) {
 // ADVANCED FILTERS
 (function () {
     // The Adv Filter object is used to handle:
-
     // - number of results
     // - form reset
     // - filtering sections label (to show a preview of the option selected by the users)

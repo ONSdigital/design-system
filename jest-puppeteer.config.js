@@ -4,7 +4,7 @@ module.exports = {
     launch: {
         args: [
             // Workaround for the 'No usable sandbox! Update your kernel' error
-            // see more https://github.com/Googlechrome/puppeteer/issues/290
+            // See more https://github.com/Googlechrome/puppeteer/issues/290
             '--no-sandbox',
             '--disable-setuid-sandbox',
             // Workaround for 'ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer'
