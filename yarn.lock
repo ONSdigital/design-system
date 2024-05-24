@@ -9294,6 +9294,11 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
+prettier-plugin-jinja-template@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-jinja-template/-/prettier-plugin-jinja-template-1.4.0.tgz#ae42e026813391072d42ccca2c7c127319b9163d"
+  integrity sha512-9i7HwTAryhOTtY1ENyZBZA+KNaPphSaI/sXbQno5a6/DgiP6ZAnUiax4cOKiutEwiSDhVfLbTXEfHS5QAUVWBg==
+
 prettier@^3.0.0:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.0.3.tgz#432a51f7ba422d1469096c0fdc28e235db8f9643"
