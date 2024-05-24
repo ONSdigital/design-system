@@ -88,16 +88,16 @@ describe('FOR: Header', () => {
       const iconsSpy = faker.spy('icon');
       faker.renderComponent('header', EXAMPLE_HEADER_BASIC);
 
-      test('THEN: renders default large logo on desktop', () => {
+      test('THEN: renders default large logo on large screen', () => {
         expect(iconsSpy.occurrences[0].iconType).toBe('ons-logo-en');
       });
-      test('THEN: renders logo with correct default alt-text on desktop', () => {
+      test('THEN: renders logo with correct default alt-text on large screen', () => {
         expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics homepage');
       });
-      test('THEN: renders default small logo on mobile', () => {
+      test('THEN: renders default small logo on small screen', () => {
         expect(iconsSpy.occurrences[1].iconType).toBe('ons-logo-stacked-en');
       });
-      test('THEN: renders logo with correct default alt-text on mobile', () => {
+      test('THEN: renders logo with correct default alt-text on small screen', () => {
         expect(iconsSpy.occurrences[1].altText).toBe('Office for National Statistics logo');
       });
     });
@@ -108,10 +108,10 @@ describe('FOR: Header', () => {
           mastheadLogo: { large: '<img src="another-logo.svg">', small: '<img src="another-logo-small.svg">' },
         }),
       );
-      test('THEN: renders provided large logo on desktop', () => {
+      test('THEN: renders provided large logo on large screen', () => {
         expect($('.ons-header__org-logo--large img').attr('src')).toBe('another-logo.svg');
       });
-      test('THEN: renders provided small logo on mobile', () => {
+      test('THEN: renders provided small logo on small screen', () => {
         expect($('.ons-header__org-logo--small img').attr('src')).toBe('another-logo-small.svg');
       });
     });
@@ -260,10 +260,10 @@ describe('FOR: Header', () => {
           titleLogo: { large: '<img src="another-logo.svg">', small: '<img src="another-logo-small.svg">' },
         }),
       );
-      test('THEN: renders provided large title logo on desktop', () => {
+      test('THEN: renders provided large title logo on large screen', () => {
         expect($('.ons-header__title-logo--large img').attr('src')).toBe('another-logo.svg');
       });
-      test('THEN: renders provided small title logo on mobile', () => {
+      test('THEN: renders provided small title logo on small screen', () => {
         expect($('.ons-header__title-logo--small img').attr('src')).toBe('another-logo-small.svg');
       });
     });
@@ -406,10 +406,10 @@ describe('FOR: Header', () => {
       const buttonSpy = faker.spy('button', { suppressOutput: true });
       faker.renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE);
 
-      test('THEN: renders with correct display class on desktop', () => {
+      test('THEN: renders with correct display class on large screen', () => {
         expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@m')).toBe(true);
       });
-      test('THEN: renders button on mobile', () => {
+      test('THEN: renders button on small screen', () => {
         expect(buttonSpy.occurrences).toContainEqual({
           text: 'Menu',
           classes: 'ons-u-d-no ons-js-toggle-services',
@@ -425,13 +425,13 @@ describe('FOR: Header', () => {
     });
     describe('WHEN: one item is provided to the itemsList parameter', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_SINGLE));
-      test('THEN: renders without multilink display class on desktop', () => {
+      test('THEN: renders without multiple link display class on large screen', () => {
         expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@')).toBe(false);
       });
-      test('THEN: does not render button on mobile', () => {
+      test('THEN: does not render button on small screen', () => {
         expect($('.ons-js-toggle-services').length).toBe(0);
       });
-      test('THEN: renders with provided ariaLabel on mobile', () => {
+      test('THEN: renders with provided ariaLabel on small screen', () => {
         expect($('.ons-header-service-nav--mobile').attr('aria-label')).toBe('Services menu');
       });
     });
@@ -469,19 +469,19 @@ describe('FOR: Header', () => {
     describe('WHEN: item title and url parameters are provided', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE));
 
-      test('THEN: renders item with provided title on desktop', () => {
+      test('THEN: renders item with provided title on large screen', () => {
         const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__link'), (node) => node.text().trim());
         expect(values).toEqual(['Title 1', 'Title 2', 'Title 3']);
       });
-      test('THEN: renders item with provided title on mobile', () => {
+      test('THEN: renders item with provided title on small screen', () => {
         const values = mapAll($('.ons-header-service-nav--mobile .ons-header-service-nav__link'), (node) => node.text().trim());
         expect(values).toEqual(['Title 1', 'Title 2', 'Title 3']);
       });
-      test('THEN: renders item with provided url on desktop', () => {
+      test('THEN: renders item with provided url on large screen', () => {
         const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__link'), (node) => node.attr('href'));
         expect(values).toEqual(['#1', '#2', '#3']);
       });
-      test('THEN: renders item with provided url on mobile', () => {
+      test('THEN: renders item with provided url on small screen', () => {
         const values = mapAll($('.ons-header-service-nav--mobile .ons-header-service-nav__link'), (node) => node.attr('href'));
         expect(values).toEqual(['#1', '#2', '#3']);
       });
@@ -570,7 +570,7 @@ describe('FOR: Header', () => {
           title: 'Header title',
         });
       });
-      test('THEN: renders button to toggle menu on mobile', () => {
+      test('THEN: renders button to toggle menu on small screen', () => {
         expect(buttonSpy.occurrences[0]).toEqual({
           text: 'Menu',
           classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
@@ -643,7 +643,7 @@ describe('FOR: Header', () => {
         },
         siteSearchAutosuggest: {},
       });
-      test('THEN: renders button to toggle search on mobile', () => {
+      test('THEN: renders button to toggle search on small screen', () => {
         expect(buttonSpy.occurrences[0]).toEqual({
           text: 'Search',
           classes: 'ons-btn--search ons-u-ml-xs ons-u-d-no ons-js-toggle-search',
@@ -689,6 +689,15 @@ describe('FOR: Header', () => {
     });
   });
   describe('GIVEN: Params: siteSearchAutosuggest', () => {
+    const mockData = [
+      { en: 'England' },
+      { en: 'Wales' },
+      { en: 'Scotland' },
+      { en: 'United States of America' },
+      { en: 'United States Virgin Islands' },
+      { en: 'Åland Islands' },
+    ];
+
     describe('WHEN: autosuggest parameters are provided', () => {
       const faker = templateFaker();
       const buttonSpy = faker.spy('autosuggest');
@@ -726,14 +735,6 @@ describe('FOR: Header', () => {
       });
     });
     describe('WHEN: language is set', () => {
-      const mockData = [
-        { en: 'England' },
-        { en: 'Wales' },
-        { en: 'Scotland' },
-        { en: 'United States of America' },
-        { en: 'United States Virgin Islands' },
-        { en: 'Åland Islands' },
-      ];
       const $ = cheerio.load(
         renderComponent('header', {
           ...EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST,
@@ -748,15 +749,6 @@ describe('FOR: Header', () => {
     });
     describe('WHEN: user enters text', () => {
       let $; // Initialize a Cheerio instance
-
-      const mockData = [
-        { en: 'England' },
-        { en: 'Wales' },
-        { en: 'Scotland' },
-        { en: 'United States of America' },
-        { en: 'United States Virgin Islands' },
-        { en: 'Åland Islands' },
-      ];
 
       beforeEach(() => {
         $ = cheerio.load(
