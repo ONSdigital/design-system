@@ -40,8 +40,8 @@
             "remark"
         ],
         "*.scss": [
-            "prettier --write",
-            "yarn run stylelint-fix"
+            "yarn run stylelint-fix",
+            "prettier --write"
         ],
         "*.{yml,yaml}": [
             "prettier --write"
