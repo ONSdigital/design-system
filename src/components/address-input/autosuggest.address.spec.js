@@ -498,13 +498,13 @@ describe('script: address-input', () => {
                     await setTestPage(
                         '/test',
                         `
-              <div class="ons-question">
-                <form action="/test/fake/form-handler" method="post">
-                  ${renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API)}
-                  <button type="submit">Submit</button>
-                </form>
-              </div>
-            `,
+                            <div class="ons-question">
+                                <form action="/test/fake/form-handler" method="post">
+                                    ${renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API)}
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
+                        `,
                     );
 
                     await page.$eval('form', (node) =>
@@ -633,13 +633,13 @@ describe('script: address-input', () => {
                     await setTestPage(
                         '/test',
                         `
-              <div class="ons-question">
-                <form action="/test/fake/form-handler" method="post">
-                  ${renderComponent('address-input', { ...EXAMPLE_ADDRESS_INPUT_WITH_API, isEditable: false })}
-                  <button type="submit">Submit</button>
-                </form>
-              </div>
-            `,
+                            <div class="ons-question">
+                                <form action="/test/fake/form-handler" method="post">
+                                    ${renderComponent('address-input', { ...EXAMPLE_ADDRESS_INPUT_WITH_API, isEditable: false })}
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
+                        `,
                     );
 
                     await page.click('button[type=submit]');
