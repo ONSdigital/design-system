@@ -8,24 +8,34 @@
     {% set prevPageIndex = currentPageIndex - 1 %}
     {% set nextPageIndex = currentPageIndex + 1 %}
 
-    <nav class="ons-pagination {{ params.classes }}{% if params.hideRangeIndicator %} ons-pagination--no-indicator{% endif %}" aria-label="Pagination ({{ position }})">
+    <nav
+        class="ons-pagination {{ params.classes }}{% if params.hideRangeIndicator %}ons-pagination--no-indicator{% endif %}"
+        aria-label="Pagination ({{ position }})"
+    >
         <div class="ons-pagination__position">{{ position }}</div>
         <ul class="ons-pagination__items">
             {% if currentPageIndex != 1 %}
                 {% set prevPageIndex = currentPageIndex - 2 %}
                 <li class="ons-pagination__item ons-pagination__item--previous">
-                    <a href="{{ params.pages[prevPageIndex].url }}" class="ons-pagination__link ons-pagination__link--no-underline" rel="prev" aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})">
-                        {{- onsIcon({
-                            "iconType": 'arrow-previous',
-                            "classes": 'ons-u-mr-xs',
-                            "iconSize": 'm'
-                        }) -}}
+                    <a
+                        href="{{ params.pages[prevPageIndex].url }}"
+                        class="ons-pagination__link ons-pagination__link--no-underline"
+                        rel="prev"
+                        aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})"
+                    >
+                        {{-
+                            onsIcon({
+                                "iconType": 'arrow-previous',
+                                "classes": 'ons-u-mr-xs',
+                                "iconSize": 'm'
+                            })
+                        -}}
                         <span class="ons-pagination__link-text">{{ params.previous | default("Previous") }}</span>
                     </a>
                 </li>
             {% endif %}
             {% if currentPageIndex > 2 %}
-                <li class="ons-pagination__item{% if (currentPageIndex == 1) %} ons-pagination__item--current{% endif %}">
+                <li class="ons-pagination__item{% if (currentPageIndex == 1) %}ons-pagination__item--current{% endif %}">
                     <a href="{{ firstPage.url }}" class="ons-pagination__link" aria-label="Go to the first page (Page 1)">1</a>
                 </li>
             {% endif %}
@@ -41,8 +51,10 @@
                     {% set showPage = true %}
                 {% endif %}
                 {% if showPage == true %}
-                    <li class="ons-pagination__item{% if loop.index == currentPageIndex %} ons-pagination__item--current{% endif %}">
-                        <a href="{{ page.url }}" class="ons-pagination__link"
+                    <li class="ons-pagination__item{% if loop.index == currentPageIndex %}ons-pagination__item--current{% endif %}">
+                        <a
+                            href="{{ page.url }}"
+                            class="ons-pagination__link"
                             {%- if loop.index == currentPageIndex -%}
                                 aria-current="true" aria-label="Current page ({{ position }})"
                             {%- else -%}
@@ -54,7 +66,8 @@
                             {%- if loop.index == currentPageIndex + 1 -%}
                                 rel="next"
                             {%- endif -%}
-                        >{{ loop.index }}</a>
+                            >{{ loop.index }}</a
+                        >
                     </li>
                 {% endif %}
             {% endfor %}
@@ -62,19 +75,28 @@
                 <li class="ons-pagination__item ons-pagination__item--gap">&hellip;</li>
             {% endif %}
             {% if currentPageIndex < totalPages - 1 %}
-                <li class="ons-pagination__item{% if currentPageIndex == totalPages %} ons-pagination__item--current{% endif %}">
-                    <a href="{{ lastPage.url }}" class="ons-pagination__link" aria-label="Go to the last page (Page {{ totalPages }})">{{ totalPages }}</a>
+                <li class="ons-pagination__item{% if currentPageIndex == totalPages %}ons-pagination__item--current{% endif %}">
+                    <a href="{{ lastPage.url }}" class="ons-pagination__link" aria-label="Go to the last page (Page {{ totalPages }})"
+                        >{{ totalPages }}</a
+                    >
                 </li>
             {% endif %}
             {% if totalPages > 1 and totalPages != currentPageIndex %}
                 <li class="ons-pagination__item ons-pagination__item--next">
-                    <a href="{{ params.pages[currentPageIndex].url }}" class="ons-pagination__link ons-pagination__link--no-underline" rel="next" aria-label="Go to the next page (Page {{ currentPageIndex + 1 }})">
+                    <a
+                        href="{{ params.pages[currentPageIndex].url }}"
+                        class="ons-pagination__link ons-pagination__link--no-underline"
+                        rel="next"
+                        aria-label="Go to the next page (Page {{ currentPageIndex + 1 }})"
+                    >
                         <span class="ons-pagination__link-text">{{ params.next | default("Next") }}</span>
-                        {{- onsIcon({
-                            "iconType": 'arrow-next',
-                            "classes": 'ons-u-ml-xs',
-                            "iconSize": 'm'
-                        }) -}}
+                        {{-
+                            onsIcon({
+                                "iconType": 'arrow-next',
+                                "classes": 'ons-u-ml-xs',
+                                "iconSize": 'm'
+                            })
+                        -}}
                     </a>
                 </li>
             {% endif %}

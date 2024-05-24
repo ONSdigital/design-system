@@ -15,64 +15,70 @@
 
     {% set fields %}
         {% if params.field1 %}
-            {{ onsInput({
-                "id": params.field1.id,
-                "type": "number",
-                "name": params.field1.name,
-                "classes": (" ons-input--error" if (params.error and params.field1.error) or (numberOfFields > 1 and params.error and not params.field1.error and not params.field2.error) else "") + exclusiveClass | default(""),
-                "width": "2",
-                "attributes": params.field1.attributes,
-                "value": params.field1.value,
-                "suffix": {
-                    "text": params.field1.suffix.text,
-                    "title": params.field1.suffix.title,
-                    "id": params.field1.suffix.id
-                },
-                "label": {
-                    "text": params.legendOrLabel if numberOfFields < 2,
-                    "description": params.description if numberOfFields < 2
-                },
-                "fieldId": params.id if numberOfFields < 2,
-                "error": params.error if numberOfFields < 2
-            }) }}
+            {{
+                onsInput({
+                    "id": params.field1.id,
+                    "type": "number",
+                    "name": params.field1.name,
+                    "classes": (" ons-input--error" if (params.error and params.field1.error) or (numberOfFields > 1 and params.error and not params.field1.error and not params.field2.error) else "") + exclusiveClass | default(""),
+                    "width": "2",
+                    "attributes": params.field1.attributes,
+                    "value": params.field1.value,
+                    "suffix": {
+                        "text": params.field1.suffix.text,
+                        "title": params.field1.suffix.title,
+                        "id": params.field1.suffix.id
+                    },
+                    "label": {
+                        "text": params.legendOrLabel if numberOfFields < 2,
+                        "description": params.description if numberOfFields < 2
+                    },
+                    "fieldId": params.id if numberOfFields < 2,
+                    "error": params.error if numberOfFields < 2
+                })
+            }}
         {% endif %}
 
         {% if params.field2 %}
-            {{ onsInput({
-                "id": params.field2.id,
-                "type": "number",
-                "name": params.field2.name,
-                "classes": (" ons-input--error" if (params.error and params.field2.error) or (numberOfFields > 1 and params.error and not params.field1.error and not params.field2.error) else "") + exclusiveClass | default(""),
-                "width": "2",
-                "attributes": params.field2.attributes,
-                "value": params.field2.value,
-                "suffix": {
-                    "text": params.field2.suffix.text,
-                    "title": params.field2.suffix.title,
-                    "id": params.field2.suffix.id
-                },
-                "label": {
-                    "text": params.legendOrLabel if numberOfFields < 2,
-                    "description": params.description if numberOfFields < 2
-                },
-                "fieldId": params.id if numberOfFields < 2,
-                "error": params.error if numberOfFields < 2
-            }) }}
+            {{
+                onsInput({
+                    "id": params.field2.id,
+                    "type": "number",
+                    "name": params.field2.name,
+                    "classes": (" ons-input--error" if (params.error and params.field2.error) or (numberOfFields > 1 and params.error and not params.field1.error and not params.field2.error) else "") + exclusiveClass | default(""),
+                    "width": "2",
+                    "attributes": params.field2.attributes,
+                    "value": params.field2.value,
+                    "suffix": {
+                        "text": params.field2.suffix.text,
+                        "title": params.field2.suffix.title,
+                        "id": params.field2.suffix.id
+                    },
+                    "label": {
+                        "text": params.legendOrLabel if numberOfFields < 2,
+                        "description": params.description if numberOfFields < 2
+                    },
+                    "fieldId": params.id if numberOfFields < 2,
+                    "error": params.error if numberOfFields < 2
+                })
+            }}
         {% endif %}
     {% endset %}
 
-    {{ onsMultipleInputFields({
-        "id": params.id,
-        "legendOrLabel": params.legendOrLabel,
-        "description": params.description,
-        "mutuallyExclusive": params.mutuallyExclusive,
-        "numberOfFields": numberOfFields,
-        "fields": fields,
-        "error": params.error,
-        "legend": params.legendOrLabel,
-        "dontWrap": params.dontWrap,
-        "classes": params.classes,
-        "legendClasses": params.legendClasses,
-        "legendIsQuestionTitle": params.legendIsQuestionTitle
-    }) }}
+    {{
+        onsMultipleInputFields({
+            "id": params.id,
+            "legendOrLabel": params.legendOrLabel,
+            "description": params.description,
+            "mutuallyExclusive": params.mutuallyExclusive,
+            "numberOfFields": numberOfFields,
+            "fields": fields,
+            "error": params.error,
+            "legend": params.legendOrLabel,
+            "dontWrap": params.dontWrap,
+            "classes": params.classes,
+            "legendClasses": params.legendClasses,
+            "legendIsQuestionTitle": params.legendIsQuestionTitle
+        })
+    }}
 {% endmacro %}

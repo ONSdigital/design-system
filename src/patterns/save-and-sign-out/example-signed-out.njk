@@ -1,52 +1,58 @@
 ---
-title: "Example: Save and sign out confirmation"
+title: 'Example: Save and sign out confirmation'
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-
-{% set pageConfig = {
-    "header": {
-        "title": "Service name"
-    },
-    "footer": {
-        "rows": [
-            {
-                "itemsList": [
-                    {
-                        "text": 'Contact us',
-                        "url": '#0'
-                    },
-                    {
-                        "text": 'Cookies and privacy',
-                        "url": '#0'
-                    }
-                ]
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Service name"
+        },
+        "footer": {
+            "rows": [
+                {
+                    "itemsList": [
+                        {
+                            "text": 'Contact us',
+                            "url": '#0'
+                        },
+                        {
+                            "text": 'Cookies and privacy',
+                            "url": '#0'
+                        }
+                    ]
+                }
+            ],
+            "oglLink": {
+                "pre": 'All content is available under the',
+                "link": 'Open Government Licence v3.0',
+                "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+                "post": ', except where otherwise stated'
             }
-        ],
-        "OGLLink": {
-            "pre": 'All content is available under the',
-            "link": 'Open Government Licence v3.0',
-            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-            "post": ', except where otherwise stated'
         }
     }
-} %}
+%}
 
 {% block main %}
-    {% call onsPanel({
-        "variant": "success",
-        "classes": "ons-u-mb-m",
-        "iconType": "check",
-        "iconSize": "xl"
-    }) %}
+    {%
+        call onsPanel({
+            "variant": "success",
+            "classes": "ons-u-mb-m",
+            "iconType": "check",
+            "iconSize": "xl"
+        })
+    %}
         <h1>Your progress has been saved</h1>
     {% endcall %}
 
-    {% call onsPanel({
-        "variant": "warn",
-        "classes": "ons-u-mb-m"
-    }) %}
+    {%
+        call onsPanel({
+            "variant": "warn",
+            "classes": "ons-u-mb-m"
+        })
+    %}
         <p>Keep your 16-character access code safe. You will need to enter it again to <a href="#0">access your survey</a>.</p>
     {% endcall %}
 {% endblock %}

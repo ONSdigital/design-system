@@ -1,28 +1,32 @@
 {% macro onsCheckbox(params) %}
     {% from "components/label/_macro.njk" import onsLabel %}
 
-    <span class="ons-checkbox{% if params.hideLabel == true %} ons-checkbox--no-label{% endif %}{{ ' ' + params.classes if params.classes else '' }}">
+    <span
+        class="ons-checkbox{% if params.hideLabel == true %}ons-checkbox--no-label{% endif %}{{ ' ' + params.classes if params.classes else '' }}"
+    >
         <input
             type="checkbox"
             id="{{ params.id }}"
             class="ons-checkbox__input ons-js-checkbox{{ ' ' + params.inputClasses if params.inputClasses else '' }}"
             value="{{ params.value }}"
             {% if params.disabled == true %}disabled aria-disabled="true"{% endif %}
-            {% if params.name %} name="{{ params.name }}"{% endif %}
-            {% if params.checked %} checked{% endif %}
-            {% if params.other and not params.other.open %} aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}
-            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-            {% if params.deselectMessage %} data-deselect-message="{{ params.deselectMessage }}"{% endif %}
-        >
+            {% if params.name %}name="{{ params.name }}"{% endif %}
+            {% if params.checked %}checked{% endif %}
+            {% if params.other and not params.other.open %}aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
+            {% if params.deselectMessage %}data-deselect-message="{{ params.deselectMessage }}"{% endif %}
+        />
 
-        {{ onsLabel({
-            "id": params.id + "-label",
-            "for": params.id,
-            "inputType": "checkbox",
-            "text": params.label.text,
-            "classes": "ons-checkbox__label " + params.label.classes | default(''),
-            "description": params.label.description
-        }) }}
+        {{
+            onsLabel({
+                "id": params.id + "-label",
+                "for": params.id,
+                "inputType": "checkbox",
+                "text": params.label.text,
+                "classes": "ons-checkbox__label " + params.label.classes | default(''),
+                "description": params.label.description
+            })
+        }}
 
         {% if params.other %}
             {% set otherType = params.other.otherType | default('input') %}

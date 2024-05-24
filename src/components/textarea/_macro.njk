@@ -3,75 +3,84 @@
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/label/_macro.njk" import onsLabel %}
     {% from "components/char-check-limit/_macro.njk" import onsCharLimit %}
-
-
     {% set field %}
-        {% set textareaExclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
+    {% set textareaExclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
 
         {% if params.label %}
-            {{ onsLabel({
-                "for": params.id,
-                "text": params.label.text,
-                "description": params.label.description,
-                "classes": params.label.classes
-            }) }}
+            {{
+                onsLabel({
+                    "for": params.id,
+                    "text": params.label.text,
+                    "description": params.label.description,
+                    "classes": params.label.classes
+                })
+            }}
         {% endif %}
 
         <textarea
             id="{{ params.id }}"
-            class="ons-input ons-input--textarea {% if params.error %} ons-input--error {% endif %}{% if params.charCheckLimit and params.charCheckLimit.limit %} ons-js-char-limit-input{% endif %}{{ textareaExclusiveClass }} {{ params.classes if params.classes }} {% if params.width %}ons-input--w-{{ params.width }}{% endif %}"
+            class="ons-input ons-input--textarea {% if params.error %}ons-input--error{% endif %}{% if params.charCheckLimit and params.charCheckLimit.limit %}ons-js-char-limit-input{% endif %}{{ textareaExclusiveClass }} {{ params.classes if params.classes }} {% if params.width %}ons-input--w-{{ params.width }}{% endif %}"
             {% if params.name %}
-             name="{{ params.name }}"
+                name="{{ params.name }}"
             {% endif %}
             rows="{{ params.rows | default(8) }}"
             {% if params.charCheckLimit and params.charCheckLimit.limit %}
-                maxlength="{{ params.charCheckLimit.limit }}"
-                data-char-limit-ref="{{ params.id }}-lim"
+                maxlength="{{ params.charCheckLimit.limit }}" data-char-limit-ref="{{ params.id }}-lim"
                 aria-describedby="{{ params.id }}-lim"
             {% endif %}
-            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-        >{{ params.value if params.value }}</textarea>
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
+        >
+{{ params.value if params.value }}</textarea
+        >
 
         {% if params.charCheckLimit and params.charCheckLimit.limit %}
-            {% call onsCharLimit({
-                "id": params.id ~ "-lim",
-                "limit": params.charCheckLimit.limit,
-                "charCountSingular": params.charCheckLimit.charCountSingular,
-                "charCountPlural": params.charCheckLimit.charCountPlural
-            }) %}
+            {%
+                call onsCharLimit({
+                    "id": params.id ~ "-lim",
+                    "limit": params.charCheckLimit.limit,
+                    "charCountSingular": params.charCheckLimit.charCountSingular,
+                    "charCountPlural": params.charCheckLimit.charCountPlural
+                })
+            %}
             {% endcall %}
         {% endif %}
     {% endset %}
 
     {% if params.mutuallyExclusive %}
-        {% call onsMutuallyExclusive({
-            "id": params.fieldId,
-            "classes": params.fieldClasses,
-            "legend": params.legend,
-            "legendClasses": params.legendClasses,
-            "description": params.description,
-            "dontWrap": params.dontWrap,
-            "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
-            "or": params.mutuallyExclusive.or,
-            "deselectMessage": params.mutuallyExclusive.deselectMessage,
-            "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-            "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
-            "error": params.error
-        }) %}
-            {% call onsField({
+        {%
+            call onsMutuallyExclusive({
+                "id": params.fieldId,
+                "classes": params.fieldClasses,
+                "legend": params.legend,
+                "legendClasses": params.legendClasses,
+                "description": params.description,
+                "dontWrap": params.dontWrap,
+                "legendIsQuestionTitle": params.legendIsQuestionTitle,
+                "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
+                "or": params.mutuallyExclusive.or,
+                "deselectMessage": params.mutuallyExclusive.deselectMessage,
+                "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
+                "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
                 "error": params.error
-            }) %}
+            })
+        %}
+            {%
+                call onsField({
+                    "error": params.error
+                })
+            %}
                 {{ field | safe }}
             {% endcall %}
         {% endcall %}
     {% else %}
-        {% call onsField({
-            "id": params.fieldId,
-            "classes": params.fieldClasses,
-            "dontWrap": params.dontWrap,
-            "error": params.error
-        }) %}
+        {%
+            call onsField({
+                "id": params.fieldId,
+                "classes": params.fieldClasses,
+                "dontWrap": params.dontWrap,
+                "error": params.error
+            })
+        %}
             {{ field | safe }}
         {% endcall %}
     {% endif %}

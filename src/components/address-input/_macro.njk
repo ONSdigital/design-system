@@ -3,10 +3,13 @@
 {% from "components/input/_macro.njk" import onsInput %}
 
 {% macro onsAddressInput(params) %}
-   {% set fields %}
-        <div id="address" class="ons-field ons-address-input {% if not params.manualEntry %}ons-address-input--search ons-js-address-autosuggest{% endif %}">
+    {% set fields %}
+        <div
+            id="address"
+            class="ons-field ons-address-input {% if not params.manualEntry %}ons-address-input--search ons-js-address-autosuggest{% endif %}"
+        >
             {% if params.isEditable == true or params.manualEntry %}
-                {% if not params.manualEntry %}<div class="ons-js-address-input__manual ons-u-db-no-js_enabled">{% endif %}
+                {% set addressInputs %}
                     {% if params.organisation %}
                         {{
                             onsInput({
@@ -81,11 +84,16 @@
                             })
                         }}
                     {% endif %}
+                {% endset %}
                 {% if not params.manualEntry %}
+                    <div class="ons-js-address-input__manual ons-u-db-no-js_enabled">
+                        {{ addressInputs }}
                         <div class="ons-u-mt-s">
                             <a href="#0" class="ons-js-address-search-btn ons-u-db-no-js_disabled">{{ params.searchButton }}</a>
                         </div>
                     </div>
+                {% else %}
+                    {{ addressInputs }}
                 {% endif %}
             {% endif %}
 
@@ -105,7 +113,7 @@
                 })
             }}
             {% if not params.manualEntry %}
-                <div class="ons-js-address-input__search{% if params.isEditable == true %} ons-u-db-no-js_disabled{% endif %}">
+                <div class="ons-js-address-input__search{% if params.isEditable == true %}ons-u-db-no-js_disabled{% endif %}">
                     {{
                         onsAutosuggest({
                             "id": params.id + "-autosuggest",
@@ -157,7 +165,9 @@
                         })
                     }}
                     {% if params.manualLinkText %}
-                        <a href="{{ params.manualLink | default('#0') }}" class="ons-js-address-manual-btn ons-u-mt-s ons-u-dib">{{ params.manualLinkText }}</a>
+                        <a href="{{ params.manualLink | default('#0') }}" class="ons-js-address-manual-btn ons-u-mt-s ons-u-dib"
+                            >{{ params.manualLinkText }}</a
+                        >
                     {% endif %}
                 </div>
             {% endif %}
@@ -167,12 +177,14 @@
     {% if params.dontWrap %}
         {{ fields | safe }}
     {% else %}
-        {% call onsFieldset({
-            "id": params.id,
-            "classes": params.classes,
-            "legend": params.legend,
-            "legendClasses": params.legendClasses
-        }) %}
+        {%
+            call onsFieldset({
+                "id": params.id,
+                "classes": params.classes,
+                "legend": params.legend,
+                "legendClasses": params.legendClasses
+            })
+        %}
             {{ fields | safe }}
         {% endcall %}
     {% endif %}

@@ -19,7 +19,9 @@
                             {{- params.legend | safe -}}
                         </h1>
                     {%- else -%}
-                        <span class="ons-fieldset__legend-title ons-u-pb-no">{{- params.legend | safe -}}</span>
+                        <span class="ons-fieldset__legend-title ons-u-pb-no">
+                            {{- params.legend | safe -}}
+                        </span>
                     {%- endif -%}
                 </legend>
                 {%- if params.description -%}

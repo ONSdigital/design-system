@@ -46,16 +46,19 @@
             {% if params.label and params.label.description %}{% if params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
         />
         {% if params.listeners %}
+            <!-- prettier-ignore-start -->
             <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
-            {% for listener, value in (params.listeners.items() if params.listeners is mapping and params.listeners.items else params.listeners) %}
-                document.getElementById("{{ params.id }}").addEventListener('{{ listener }}', function(){ {{ value }} });
-            {% endfor %}
+                {% for listener, value in (params.listeners.items() if params.listeners is mapping and params.listeners.items else params.listeners) %}
+                    document.getElementById("{{ params.id }}").addEventListener('{{ listener }}', function(){ {{ value }} });
+                {% endfor %}
             </script>
+            <!-- prettier-ignore-end -->
         {% endif %}
         {% if params.postTextboxLinkText %}
             <a class="ons-u-fs-s ons-input__post-link" href="{{ params.postTextboxLinkUrl }}">{{ params.postTextboxLinkText }}</a>
         {% endif %}
     {% endset %}
+
     {% set field %}
         {% if (not params.accessiblePlaceholder or params.label.description) and (params.label and params.label.text)%}
             {{ onsLabel({
@@ -87,6 +90,7 @@
                             {% set tag = 'span' %}
                         {% endif %}
 
+                        <!-- prettier-ignore-start -->
                         <{{ tag }}
                             id="{{ abbr.id }}"
                             class="ons-input-type__type ons-js-input-abbr"
@@ -96,11 +100,12 @@
                             {% endif %}
                             {% if abbr.title %}title="{{ abbr.title }}"{% endif %}
                             >{{ abbr.text }}</{{ tag }}>
+                        <!-- prettier-ignore-end -->
                     </span>
                 </span>
             {% endif %}
         {% elif params.searchButton %}
-            <span class="ons-grid--flex  ons-input_search-button{% if params.label.description %} ons-input--with-text-description{% endif %}"> 
+            <span class="ons-grid--flex  ons-input_search-button{% if params.label.description %} ons-input--with-text-description{% endif %}">
                 {% if params.accessiblePlaceholder %}
                     {{ onsLabel({
                         "for": params.id,
@@ -114,6 +119,7 @@
                 {% endif %}
 
                 {{ input | safe }}
+
                 {%- set buttonLabel -%}
                     {%- if params.searchButton.visuallyHideButtonText == true -%}
                         <span class="ons-u-vh">{{ params.searchButton.text }}</span>
@@ -121,6 +127,7 @@
                         {{ params.searchButton.text }}
                     {%- endif -%}
                 {%- endset -%}
+
                 {{
                     onsButton({
                         "type": params.searchButton.type,
@@ -138,7 +145,6 @@
         {% else %}
             {% if params.accessiblePlaceholder %}
                 <span class="ons-grid--flex {% if params.label.description %} ons-input--with-text-description{% endif %}">
-                {% if params.accessiblePlaceholder %}
                     {{ onsLabel({
                         "for": params.id,
                         "id": params.label.id,
@@ -148,11 +154,10 @@
                         "accessiblePlaceholder": params.accessiblePlaceholder,
                         "inline": params.label.inline
                     }) }}
-                {% endif %}
-            {% endif %}
-            {{ input | safe }}
-            {% if params.accessiblePlaceholder %}
+                    {{ input | safe }}
                 </span>
+            {% else %}
+                {{ input | safe }}
             {% endif %}
         {% endif %}
     {% endset %}

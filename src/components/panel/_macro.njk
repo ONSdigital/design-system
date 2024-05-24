@@ -26,11 +26,7 @@
         {% set spaciousClass = ' ons-panel--spacious' %}
     {% endif %}
 
-    {% if params.variant == "warn-branded" or params.variant == "announcement" %}
-        <div class="{{containerClass}}">
-            <div class="ons-container">
-    {% endif %}
-
+    {% set panel %}
         <div {% if (params.variant == 'error' and params.title) or params.variant == 'success' %}aria-labelledby="alert" role="alert" tabindex="-1" {% if not isDesignSystemExample %}autofocus="autofocus" {% endif %}{% endif %}class="ons-panel{{ variantClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"{% if params and params.attributes %}{% for attribute, value in (params.attributes.items() if params and params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params and params.id %} id="{{params.id}}"{% endif %}>
 
             {% if params.variant == "warn" or params.variant == "warn-branded" %}
@@ -58,12 +54,14 @@
                 {% endif %}
                 {% set titleTag = params.titleTag | default(defaultTitleTag) %}
                 <div class="ons-panel__header">
+                    <!-- prettier-ignore-start -->
                     <{{ titleTag }} id="alert"{% if params.variant %} data-qa="{{ params.variant }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
+                    <!-- prettier-ignore-end -->
                 </div>
             {% else %}
                 {% if not params.variant or params.variant == "branded" or params.variant == "info" or params.variant == "bare" %}
                     <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Important information: ") }}</span>
-                {% elif params.variant == 'error' or params.variant == 'success' %} 
+                {% elif params.variant == 'error' or params.variant == 'success' %}
                     {% set defaultText = "Completed" if params.variant == "success" else "Error" %}
                     <span{% if params.variant == "success" %} id="alert"{% endif %} class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default(defaultText ~ ": ") }}</span>
                 {% endif %}
@@ -85,10 +83,16 @@
                 {{ caller() if caller }}
             </div>
         </div>
+    {% endset %}
 
-    {% if params.variant == "warn-branded" or params.variant == "announcement"  %}
+    {% if params.variant == "warn-branded" or params.variant == "announcement" %}
+        <div class="{{containerClass}}">
+            <div class="ons-container">
+                {{ panel | safe }}
             </div>
         </div>
+    {% else %}
+        {{ panel | safe }}
     {% endif %}
 
 {% endmacro %}

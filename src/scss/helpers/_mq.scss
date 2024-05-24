@@ -26,22 +26,42 @@
       $from: $from + 1;
     }
 
-    @media (min-width: $from) {
+    @if ($from == none or $from <= nth(nth($grid-bp, 1), 2)) and $to == none {
       @content;
     }
-  }
 
-  @else {
-    @if $from-operator != none and $from-operator == '<' {
-      $from: $from + 1;
+    @else if $from == none or $from <= nth(nth($grid-bp, 1), 2) {
+      @if $to-operator != none and $to-operator == '<' {
+        $to: $to - 1;
+      }
+
+      @media (max-width: $to) {
+        @content;
+      }
     }
 
-    @if $to-operator != none and $to-operator == '<' {
-      $to: $to - 1;
+    @else if $to == none {
+      @if $from-operator != none and $from-operator == '<' {
+        $from: $from + 1;
+      }
+
+      @media (min-width: $from) {
+        @content;
+      }
     }
 
-    @media (min-width: $from) and (max-width: $to) {
-      @content;
+    @else {
+      @if $from-operator != none and $from-operator == '<' {
+        $from: $from + 1;
+      }
+
+      @if $to-operator != none and $to-operator == '<' {
+        $to: $to - 1;
+      }
+
+      @media (min-width: $from) and (max-width: $to) {
+        @content;
+      }
     }
   }
 }

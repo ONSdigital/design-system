@@ -1,16 +1,23 @@
 {% macro onsQuestion(params) %}
 
-    {%- set titleHtml -%}{% if params.readDescriptionFirst == true and params.description %}
-            <div class="ons-question__description ons-u-vh">{{ params.description | safe }} </div>{% endif %}{{- params.title | safe -}}
+    {%- set titleHtml -%}
+        {% if params.readDescriptionFirst == true and params.description %}
+            <div class="ons-question__description ons-u-vh">{{ params.description | safe }}</div>
+        {% endif %}{{- params.title | safe -}}
     {%- endset -%}
 
     {%- set descHtml -%}{% if params.readDescriptionFirst == true %}
-            <div aria-hidden="true" {% if params.legendIsQuestionTitle is not defined %}class="ons-question__description ons-question__description--aria-hidden"{% endif %}>{{- params.description | safe -}}</div>
-        {% elif params.legendIsQuestionTitle is not defined %}
-            <div class="ons-question__description ons-u-mb-m">{{- params.description | safe -}}</div>
-        {% else %}
+        <div
+            aria-hidden="true"
+            {% if params.legendIsQuestionTitle is not defined %}class="ons-question__description ons-question__description--aria-hidden"{% endif %}
+        >
             {{- params.description | safe -}}
-        {% endif %}{%- endset -%}
+        </div>
+    {% elif params.legendIsQuestionTitle is not defined %}
+        <div class="ons-question__description ons-u-mb-m">{{- params.description | safe -}}</div>
+    {% else %}
+        {{- params.description | safe -}}
+    {% endif %}{%- endset -%}
 
     {% set instHtml %}
         <div class="ons-question__instruction ons-u-mb-m">{{ params.instruction | safe }}</div>
@@ -19,13 +26,15 @@
     {% if params.definition %}
         {% set questionDefinition %}
             {% from "components/details/_macro.njk" import onsDetails %}
-            {% call onsDetails({
-                "id": params.definition.id,
-                "classes": 'ons-u-mb-m',
-                "title": params.definition.title,
-                "headingAttributes": params.definition.headingAttributes,
-                "contentAttributes": params.definition.contentAttributes
-            }) %}
+            {%
+                call onsDetails({
+                    "id": params.definition.id,
+                    "classes": 'ons-u-mb-m',
+                    "title": params.definition.title,
+                    "headingAttributes": params.definition.headingAttributes,
+                    "contentAttributes": params.definition.contentAttributes
+                })
+            %}
                 {% if params.definition.content %}
                     {{ params.definition.content | safe }}
                 {% endif %}
@@ -36,11 +45,13 @@
     {% if params.guidance %}
         {% set questionGuidance %}
             {% from "components/panel/_macro.njk" import onsPanel %}
-            {% call onsPanel({
-                "id": params.guidance.id,
-                "classes": "ons-question-guidance ons-u-mb-m",
-                "attributes": params.guidance.attributes
-            }) %}
+            {%
+                call onsPanel({
+                    "id": params.guidance.id,
+                    "classes": "ons-question-guidance ons-u-mb-m",
+                    "attributes": params.guidance.attributes
+                })
+            %}
                 {% if params.guidance.content %}
                     {{ params.guidance.content | safe }}
                 {% endif %}
@@ -58,24 +69,26 @@
                                 "itemsList": item.itemsList
                             })
                         }}
-                    {% endfor -%}
-                {% endif -%}
+                    {%- endfor -%}
+                {%- endif -%}
             {% endcall %}
         {% endset %}
     {% endif %}
 
     <div
-        {% if params.id %} id="{{ params.id }}"{% endif %}
-        class="ons-question ons-u-mb-l{% if params.classes %} {{ params.classes }}{% endif %}"
-        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+        {% if params.id %}id="{{ params.id }}"{% endif %}
+        class="ons-question ons-u-mb-l{% if params.classes %}{{ params.classes }}{% endif %}"
+        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
     >
         {% set additionalContent %}
             {% if params.warning %}
                 {% from "components/panel/_macro.njk" import onsPanel %}
-                {% call onsPanel({
-                    "id": params.warning.id,
-                    "variant": "warn"
-                }) %}
+                {%
+                    call onsPanel({
+                        "id": params.warning.id,
+                        "variant": "warn"
+                    })
+                %}
                     <p>{{ params.warning.body }}</p>
                 {% endcall %}
             {% endif %}
@@ -99,22 +112,21 @@
             {# Resolves caller issue in Jinja: https://github.com/pallets/jinja/issues/371 #}
             {% set content = caller() if caller %}
             <div class="ons-question__answer ons-u-mb-m">
-                {% call onsFieldset({
-                    "legendIsQuestionTitle": params.legendIsQuestionTitle,
-                    "legend": titleHtml,
-                    "description": descHtml if params.description else '',
-                    "legendClasses": params.legendClasses,
-                    "legendTitleClasses": params.legendTitleClasses
-                }) %}
+                {%
+                    call onsFieldset({
+                        "legendIsQuestionTitle": params.legendIsQuestionTitle,
+                        "legend": titleHtml,
+                        "description": descHtml if params.description else '',
+                        "legendClasses": params.legendClasses,
+                        "legendTitleClasses": params.legendTitleClasses
+                    })
+                %}
                     {{- additionalContent | safe -}}
                     {{ content }}
                 {% endcall %}
             </div>
-
         {% else %}
-            <h1 id="question-title" class="ons-question__title">
-                {{- titleHtml | safe -}}
-            </h1>
+            <h1 id="question-title" class="ons-question__title">{{- titleHtml | safe -}}</h1>
 
             {% if params.description %}
                 {{- descHtml | safe -}}
@@ -122,20 +134,20 @@
 
             {{- additionalContent | safe -}}
 
-            <div class="ons-question__answer ons-u-mb-m">
-                {{ caller() if caller }}
-            </div>
+            <div class="ons-question__answer ons-u-mb-m">{{ caller() if caller }}</div>
         {% endif %}
 
         {% if params.justification %}
             {% from "components/details/_macro.njk" import onsDetails %}
-            {% call onsDetails({
-                "id": params.justification.id,
-                "classes": 'ons-u-mb-m',
-                "title": params.justification.title | default('Why we ask this question'),
-                "headingAttributes": params.justification.headingAttributes,
-                "contentAttributes": params.justification.contentAttributes
-            }) %}
+            {%
+                call onsDetails({
+                    "id": params.justification.id,
+                    "classes": 'ons-u-mb-m',
+                    "title": params.justification.title | default('Why we ask this question'),
+                    "headingAttributes": params.justification.headingAttributes,
+                    "contentAttributes": params.justification.contentAttributes
+                })
+            %}
                 {{ params.justification.content | safe }}
             {% endcall %}
         {% endif %}

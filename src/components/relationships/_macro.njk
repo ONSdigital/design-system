@@ -3,15 +3,17 @@
 {% macro onsRelationships(params) %}
     <div
         {% if params.id %}id="{{ params.id }}"{% endif %}
-        class="ons-relationships ons-js-relationships{% if params.classes %} {{ params.classes }}{% endif %}"
+        class="ons-relationships ons-js-relationships{% if params.classes %}{{ params.classes }}{% endif %}"
     >
-        {{ onsRadios({
-            "name": params.name,
-            "dontWrap": params.dontWrap,
-            "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "radios": params.radios,
-            "error": params.error
-        }) }}
+        {{
+            onsRadios({
+                "name": params.name,
+                "dontWrap": params.dontWrap,
+                "legendIsQuestionTitle": params.legendIsQuestionTitle,
+                "radios": params.radios,
+                "error": params.error
+            })
+        }}
         <p class="ons-relationships__playback ons-js-relationships-playback ons-u-d-no" aria-live="polite">{{ params.playback | safe }}</p>
     </div>
 {% endmacro %}

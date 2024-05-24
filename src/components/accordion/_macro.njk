@@ -1,15 +1,16 @@
 {% macro onsAccordion(params) %}
     {% from "components/details/_macro.njk" import onsDetails %}
 
-    <div id="{{params.id}}" class="ons-accordion{{ ' ' + params.classes if params.classes }}">
+    <div id="{{ params.id }}" class="ons-accordion{{ ' ' + params.classes if params.classes }}">
         {% if params.allButton %}
             {% from "components/button/_macro.njk" import onsButton %}
             {% set attributes = params.allButton.attributes | default({}) %}
-
-            {% set attributes = attributes | setAttributes({
-                "data-close-all": params.allButton.close,
-                "data-group": params.id
-            }) %}
+            {%
+                set attributes = attributes | setAttributes({
+                    "data-close-all": params.allButton.close,
+                    "data-group": params.id
+                })
+            %}
 
             {{
                 onsButton({

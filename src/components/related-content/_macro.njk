@@ -9,10 +9,12 @@
             {% from "components/related-content/_section-macro.njk" import onsRelatedContentSection %}
             {% from "components/list/_macro.njk" import onsList %}
             {% for row in params.rows %}
-                {% call onsRelatedContentSection({
-                    "title": row.title,
-                    "id": row.id
-                }) %}
+                {%
+                    call onsRelatedContentSection({
+                        "title": row.title,
+                        "id": row.id
+                    })
+                %}
                     <nav class="ons-related-content__navigation" aria-labelledby="{{ row.id }}">
                         {{
                             onsList({
@@ -30,5 +32,4 @@
             {{ caller() if caller }}
         {% endif %}
     </aside>
-
 {% endmacro %}

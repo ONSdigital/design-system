@@ -1,15 +1,14 @@
 ---
-title: "Example: Guide for right-to-left languages"
+title: 'Example: Guide for right-to-left languages'
 layout: ~
 ---
 
 {% extends "layout/_template.njk" %}
-
 {% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
 {% from "components/content-pagination/_macro.njk" import onsContentPagination %}
 {% from "components/list/_macro.njk" import onsList %}
-
-{% set pageConfig = {
+{%
+    set pageConfig = {
     "bodyClasses": "ons-rtl",
     "header": {
         "mastheadLogoUrl": "#0",
@@ -105,117 +104,154 @@ layout: ~
                 ]
             }
         ]
-    }
-} %}
+                            }
+                        ]
+                    }
+                ],
+                "legal": [
+                    {
+                        "itemsList": [
+                            {
+                                "text": 'Cookies',
+                                "url": '#0'
+                            },
+                            {
+                                "text": 'Accessibility statement',
+                                "url": '#0'
+                            },
+                            {
+                                "text": 'Privacy and data protection',
+                                "url": '#0'
+                            }
+                        ]
+                    }
+                ]
+            }
+    >>>>>>> Stashed changes
+        }
+%}
 {% block preMain %}
     {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
 
-{{
-    onsBreadcrumbs({
-        "ariaLabel": 'Breadcrumbs',
-        "itemsList": [
-            {
-                "url": '#0',
-                "text": 'Home'
-            },
-            {
-                "url": '#0',
-                "text": 'Help with the census'
-            },
-            {
-                "url": '#0',
-                "text": 'Languages'
-            }
-        ]
-    })
-}}
+    {{
+        onsBreadcrumbs({
+            "ariaLabel": 'Breadcrumbs',
+            "itemsList": [
+                {
+                    "url": '#0',
+                    "text": 'Home'
+                },
+                {
+                    "url": '#0',
+                    "text": 'Help with the census'
+                },
+                {
+                    "url": '#0',
+                    "text": 'Languages'
+                }
+            ]
+        })
+    }}
 {% endblock %}
 {% block main %}
-
     <h1 class="ons-u-mb-l">
         <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">اللغة العربية (Arabic)</span>
         <span class="ons-u-vh">: </span>
         <span class="ons-u-fs-xxl ons-u-db">نظرة عامة</span>
     </h1>
 
-    {{ onsTableOfContents({
-        "title": 'محتويات',
-        "ariaLabel": 'Pages in this guide',
-        "skipLink": {
-            "url": "#section-content",
-            "text": "Skip to guide content"
-        },
-        "itemsList": [
-            {
-                "url": '#0',
-                "text": 'نظرة عامة',
-                "current": true
+    {{
+        onsTableOfContents({
+            "title": 'محتويات',
+            "ariaLabel": 'Pages in this guide',
+            "skipLink": {
+                "url": "#section-content",
+                "text": "Skip to guide content"
             },
-            {
-                "url": '#0',
-                "text": 'استكمال التعداد الخاص بك عبر الإنترنت'
-            },
-            {
-                "url": '#0',
-                "text": 'استكمال التعداد الخاص بك عبر النسخة الورقية'
-            }
-        ]
-    }) }}
+            "itemsList": [
+                {
+                    "url": '#0',
+                    "text": 'نظرة عامة',
+                    "current": true
+                },
+                {
+                    "url": '#0',
+                    "text": 'استكمال التعداد الخاص بك عبر الإنترنت'
+                },
+                {
+                    "url": '#0',
+                    "text": 'استكمال التعداد الخاص بك عبر النسخة الورقية'
+                }
+            ]
+        })
+    }}
 
     <div id="section-content" class="ons-page__body">
-
         <h2>ما هو التعداد السكاني؟</h2>
 
         <p>التعداد السكاني هو مسح يتم كل 10 سنوات ويعطينا صورة عن جميع الأشخاص والأُسر في أيرلندا الشمالية</p>
         <p>يطرح التعداد نفس الأسئلة على الجميع في نفس اليوم - <strong>يوم التعداد: الأحد 21 مارس 2021</strong></p>
 
         <h2>لماذا يجب المشاركة</h2>
-        <p>تُستخدم المعلومات التي تم جمعها في التعداد للمساعدة في اتخاذ قرارات حول كيفية تخطيط وتمويل الخدمات الحيوية مثل التعليم والنقل والصحة</p>
-        <p>يجب إكمال التعداد بموجب القانون. إذا لم تقم بذلك ، أو قدمت معلومات خاطئة ، فقد يتم مقاضاتك وتغريمك ما يصل إلى 1000 جنيه إسترليني</p>
+        <p>
+            تُستخدم المعلومات التي تم جمعها في التعداد للمساعدة في اتخاذ قرارات حول كيفية تخطيط وتمويل الخدمات الحيوية مثل التعليم والنقل
+            والصحة
+        </p>
+        <p>
+            يجب إكمال التعداد بموجب القانون. إذا لم تقم بذلك ، أو قدمت معلومات خاطئة ، فقد يتم مقاضاتك وتغريمك ما يصل إلى 1000 جنيه إسترليني
+        </p>
 
-        <h2>متى يجب أن تكمل التعداد الخاص بك </h2>
-        <p>يجب الانتهاء من ملء الاستبيان الخاص بك بحلول <strong>يوم ا</strong><strong>لأحد 21 مارس</strong><strong> 2021</strong>، أو في أقرب فرصة بعد ذلك<strong>.</strong> يجب أن تكون إجاباتك حول أسرتك في هذا التاريخ</p>
+        <h2>متى يجب أن تكمل التعداد الخاص بك</h2>
+        <p>
+            يجب الانتهاء من ملء الاستبيان الخاص بك بحلول <strong>يوم ا</strong><strong>لأحد 21 مارس</strong><strong> 2021</strong>، أو في
+            أقرب فرصة بعد ذلك<strong>.</strong> يجب أن تكون إجاباتك حول أسرتك في هذا التاريخ
+        </p>
         <p>إذا لم تكمل التعداد الخاص بك ، فقد يقوم أحد موظفي التعداد الميدانيين بزيارتك بعد يوم التعداد بفترة وجيزة</p>
 
         <h2>من الذين يتعين عليهم الإجابة على أسئلة التعداد</h2>
         <p>يجب على رب الأسرة ملء استبيان التعداد للأسرة.</p>
-        <p>رب الأسرة هو الشخص الذي يمتلك أو يستأجر العقار ، إما كليًا أو مشتركًا ، أو هو شخص مسؤول كليًا أو مشتركًا عن دفع فواتير ونفقات الأسرة</p>
-        
+        <p>
+            رب الأسرة هو الشخص الذي يمتلك أو يستأجر العقار ، إما كليًا أو مشتركًا ، أو هو شخص مسؤول كليًا أو مشتركًا عن دفع فواتير ونفقات
+            الأسرة
+        </p>
+
         <h2>كيف يجب أن تكمل التعداد الخاص بك</h2>
         <p>يمكنك اختيار إما</p>
 
-        {{ onsList({
-            "itemsList": [
-                {
-                    "text": 'استكمال التعداد الخاص بك عبر الإنترنت',
-                    "url": '#0'
-                },
-                {
-                    "text": 'ستكمال التعداد الخاص بك عبر النسخة الورقية',
-                    "url": '#0'
-                }
-            ]
-        }) }}
-
-        <div class="ons-u-mt-xl">
-            {{ onsContentPagination({
-                "contentPaginationItems": [
+        {{
+            onsList({
+                "itemsList": [
                     {
-                        "rel": 'prev',
-                        "text": 'السابق',
-                        "url": '#0',
-                        "label": 'استكمال التعداد الخاص بك عبر الإنترنت'
+                        "text": 'استكمال التعداد الخاص بك عبر الإنترنت',
+                        "url": '#0'
                     },
                     {
-                        "rel": 'next',
-                        "text": 'التالى',
-                        "url": '#0',
-                        "label": 'ستكمال التعداد الخاص بك عبر النسخة الورقية'
+                        "text": 'ستكمال التعداد الخاص بك عبر النسخة الورقية',
+                        "url": '#0'
                     }
                 ]
-            }) }}
+            })
+        }}
+
+        <div class="ons-u-mt-xl">
+            {{
+                onsContentPagination({
+                    "contentPaginationItems": [
+                        {
+                            "rel": 'prev',
+                            "text": 'السابق',
+                            "url": '#0',
+                            "label": 'استكمال التعداد الخاص بك عبر الإنترنت'
+                        },
+                        {
+                            "rel": 'next',
+                            "text": 'التالى',
+                            "url": '#0',
+                            "label": 'ستكمال التعداد الخاص بك عبر النسخة الورقية'
+                        }
+                    ]
+                })
+            }}
         </div>
-
     </div>
-
 {% endblock %}

@@ -1,9 +1,11 @@
 {% macro onsFeedback(params) %}
     {% set headingLevel = params.headingLevel | default(2) %}
-    <div {% if params.id %} id="{{ params.id }}"{% endif %} class="ons-feedback{% if params.classes %} {{ params.classes }}{% endif %}">
+    <div {% if params.id %}id="{{ params.id }}"{% endif %} class="ons-feedback{% if params.classes %}{{ params.classes }}{% endif %}">
+        <!-- prettier-ignore-start -->
         <h{{ headingLevel }} class="ons-feedback__heading{{ ' ' + params.headingClasses if params.headingClasses }}">
             {{ params.heading }}
         </h{{ headingLevel }}>
+        <!-- prettier-ignore-end -->
         <p class="ons-feedback__content">{{- params.content | safe -}}</p>
         <a href="{{ params.url }}" class="ons-feedback__link">{{- params.linkText -}}</a>
     </div>

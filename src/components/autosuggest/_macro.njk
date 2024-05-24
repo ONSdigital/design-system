@@ -3,7 +3,7 @@
 {% macro onsAutosuggest(params) %}
     <div
         id="{{ params.id }}-container"
-        class="{% if not params.externalInitialiser %}ons-js-autosuggest {% endif %}{% if params.isEditable == false %}ons-js-address-not-editable{% endif %}{% if params.mandatory == true %} ons-js-address-mandatory{% endif %} {% if params.containerClasses %} {{ params.containerClasses }}{% endif %} ons-autosuggest"
+        class="{% if not params.externalInitialiser %}ons-js-autosuggest{% endif %}{% if params.isEditable == false %}ons-js-address-not-editable{% endif %}{% if params.mandatory == true %}ons-js-address-mandatory{% endif %} {% if params.containerClasses %}{{ params.containerClasses }}{% endif %} ons-autosuggest"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
         data-min-chars="{{ params.minChars }}"
@@ -35,50 +35,70 @@
             {% if params.options.addressType %}data-options-address-type="{{ params.options.addressType }}"{% endif %}
         {% endif %}
     >
-
         {% set autosuggestResults %}
-            <div class="ons-autosuggest__results ons-js-autosuggest-results{% if params.input.width %} ons-input--w-{{ params.input.width }}{% else %} ons-input--w-20{% endif %}">
+            <div
+                class="ons-autosuggest__results ons-js-autosuggest-results{% if params.input.width %}ons-input--w-{{ params.input.width }}{% else %}ons-input--w-20{% endif %}"
+            >
                 <div id="{{ params.resultsTitleId }}" class="ons-autosuggest__results-title ons-u-fs-s">{{ params.resultsTitle }}</div>
-                <ul class="ons-autosuggest__listbox ons-js-autosuggest-listbox" title="{{ params.resultsTitle }}" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
+                <ul
+                    class="ons-autosuggest__listbox ons-js-autosuggest-listbox"
+                    title="{{ params.resultsTitle }}"
+                    role="listbox"
+                    id="{{ params.id }}-listbox"
+                    tabindex="-1"
+                ></ul>
             </div>
-            <div class="ons-autosuggest__instructions ons-u-vh ons-js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
-            <div class="ons-autosuggest__status ons-u-vh ons-js-autosuggest-aria-status" aria-live="assertive" aria-atomic="true" role="status" tabindex="-1"></div>
+            <div
+                class="ons-autosuggest__instructions ons-u-vh ons-js-autosuggest-instructions"
+                id="{{ params.id }}-instructions"
+                tabindex="-1"
+            >
+                {{ params.instructions }}
+            </div>
+            <div
+                class="ons-autosuggest__status ons-u-vh ons-js-autosuggest-aria-status"
+                aria-live="assertive"
+                aria-atomic="true"
+                role="status"
+                tabindex="-1"
+            ></div>
         {% endset %}
 
-        {{ onsInput({
-            "id": params.id,
-            "type": params.input.type,
-            "classes": "ons-js-autosuggest-input " + (params.input.classes if params.input.classes else ''),
-            "width": params.input.width,
-            "label": params.input.label,
-            "autocomplete": params.input.autocomplete,
-            "legend": params.input.legend,
-            "legendClasses": params.input.legendClasses,
-            "legendIsQuestionTitle": params.input.legendIsQuestionTitle,
-            "value": params.input.value,
-            "attributes": params.input.attributes,
-            "error": params.input.error,
-            "mutuallyExclusive": params.input.mutuallyExclusive,
-            "accessiblePlaceholder": params.input.accessiblePlaceholder,
-            "name": params.input.name,
-            "autosuggestResults": autosuggestResults,
-            "minLength": params.input.minLength,
-            "maxLength": params.input.maxLength,
-            "prefix": params.input.prefix,
-            "suffix": params.input.suffix,
-            "fieldId": params.input.fieldId,
-            "fieldClasses": params.input.fieldClasses,
-            "dontWrap": params.input.dontWrap,
-            "charCheckLimit": params.input.charCheckLimit,
-            "searchButton": params.input.searchButton,
-            "postTextboxLinkText": params.input.postTextboxLinkText,
-            "postTextboxLinkUrl": params.input.postTextboxLinkUrl,
-            "listeners": params.input.listeners
-        }) }}
+        {{
+            onsInput({
+                "id": params.id,
+                "type": params.input.type,
+                "classes": "ons-js-autosuggest-input " + (params.input.classes if params.input.classes else ''),
+                "width": params.input.width,
+                "label": params.input.label,
+                "autocomplete": params.input.autocomplete,
+                "legend": params.input.legend,
+                "legendClasses": params.input.legendClasses,
+                "legendIsQuestionTitle": params.input.legendIsQuestionTitle,
+                "value": params.input.value,
+                "attributes": params.input.attributes,
+                "error": params.input.error,
+                "mutuallyExclusive": params.input.mutuallyExclusive,
+                "accessiblePlaceholder": params.input.accessiblePlaceholder,
+                "name": params.input.name,
+                "autosuggestResults": autosuggestResults,
+                "minLength": params.input.minLength,
+                "maxLength": params.input.maxLength,
+                "prefix": params.input.prefix,
+                "suffix": params.input.suffix,
+                "fieldId": params.input.fieldId,
+                "fieldClasses": params.input.fieldClasses,
+                "dontWrap": params.input.dontWrap,
+                "charCheckLimit": params.input.charCheckLimit,
+                "searchButton": params.input.searchButton,
+                "postTextboxLinkText": params.input.postTextboxLinkText,
+                "postTextboxLinkUrl": params.input.postTextboxLinkUrl,
+                "listeners": params.input.listeners
+            })
+        }}
 
         {% if not params.mutuallyExclusive %}
             {{ autosuggestResults | safe }}
         {% endif %}
-
     </div>
 {% endmacro %}

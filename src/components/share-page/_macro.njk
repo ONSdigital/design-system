@@ -3,11 +3,14 @@
 
     {% if params.title %}
         {% set titleTag = params.titleTag | default("h2") %}
+        <!-- prettier-ignore-start -->
         <{{ titleTag }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</{{ titleTag }}>
+        <!-- prettier-ignore-end -->
     {% endif %}
 
     {% if params.facebook and params.facebook == true %}
-        {% set facebook =
+        {%
+            set facebook =
             {
                 "url": 'https://www.facebook.com/sharer/sharer.php?u=' ~ params.pageURL|urlencode,
                 "text": 'Facebook',
@@ -15,10 +18,11 @@
                 "rel": 'noreferrer external',
                 "target": '_blank'
             }
-         %}
+        %}
     {% endif %}
     {% if params.twitter and params.twitter == true %}
-        {% set twitter =
+        {%
+            set twitter =
             {
                 "url": 'https://twitter.com/intent/tweet?original_referer&text=' ~ params.pageTitle|urlencode ~ '&url=' ~ params.pageURL|urlencode,
                 "text": 'Twitter',
@@ -26,7 +30,7 @@
                 "rel": 'noreferrer external',
                 "target": '_blank'
             }
-         %}
+        %}
     {% endif %}
     {{
         onsList({

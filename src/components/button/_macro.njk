@@ -13,11 +13,11 @@
         {% endif %}
     {% elif params.iconType is not defined and params.noIcon is not defined %}
         {% if params.url and params.newWindow %}
-        {# CTA link opening in new tab #}
+            {# CTA link opening in new tab #}
             {% set iconType = "external-link" %}
             {% set iconPosition = "after" %}
         {% elif params.url %}
-        {# CTA link #}
+            {# CTA link #}
             {% set iconType = "arrow-next" %}
             {% set iconPosition = "after" %}
         {% endif %}
@@ -63,10 +63,10 @@
             {% set variantClasses = "ons-btn--loader ons-js-loader ons-js-submit-btn" %}
         {% endif %}
     {% endif %}
-
     {% set tag = "a" if params.url else "button" %}
-
+    <!-- prettier-ignore-start -->
     <{{ tag }}
+    <!-- prettier-ignore-end -->
         {% if params.url %}
             href="{{ params.url }}"
             role="button"
@@ -124,5 +124,7 @@
                 {% endfor %}
             </script>
         {% endif %}
+    <!-- prettier-ignore-start -->
     </{{ tag }}>
+    <!-- prettier-ignore-end -->
 {% endmacro %}

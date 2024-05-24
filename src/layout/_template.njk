@@ -14,7 +14,7 @@
 {% if pageConfig.cdn or release_version or designSystemVersion %}
     {# Production #}
     {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
-    {% set slash = "" if cdn_url | last == "/" else 
+    {% set slash = "" if cdn_url | last == "/" else
         "/" %}
     {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version if pageConfig.cdn and pageConfig.cdn.version) or release_version or designSystemVersion) %}
 {% elif pageConfig.assetsURL %}
@@ -44,11 +44,11 @@
 
 {# Page columns #}
 {% set pageColNumber = pageConfig.pageColNumber | default("12") %}
-{% set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else 
+{% set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else
     '' %}
-{% set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else 
+{% set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else
     '' %}
-{% set themeColor = pageConfig.themeColor if pageConfig.themeColor else 
+{% set themeColor = pageConfig.themeColor if pageConfig.themeColor else
     "#206095" %}
 <!doctype html>
 <html lang="{{ currentLanguageISOCode }}">
@@ -95,7 +95,7 @@
             {% endif %}
 
             {% if pageConfig.social %}
-                {% set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else 
+                {% set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else
                     assetsURL + '/favicons/twitter.png' %}
                 <!-- Twitter -->
                 <meta name="twitter:card" content="summary">
@@ -121,7 +121,9 @@
 
     </head>
     <body{% if pageConfig.bodyClasses %} class="{{ pageConfig.bodyClasses }}"{% endif %}>
+        <!-- prettier-ignore-start -->
         <script{% if pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
+        <!-- prettier-ignore-end -->
         {% block bodyStart %}{% endblock %}
         {% block body %}
             <div class="ons-page">
@@ -213,6 +215,7 @@
         {% endblock %}
         {% block bodyEnd %}{% endblock %}
 
+        <!-- prettier-ignore-start -->
         <script{% if pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
             (function() {
                 var s = [ '{{ assetsURL }}/scripts/main.js' ],
@@ -233,6 +236,7 @@
                 }
             })();
         </script>
+        <!-- prettier-ignore-end -->
 
         {% block scripts %}{% endblock %}
     </body>

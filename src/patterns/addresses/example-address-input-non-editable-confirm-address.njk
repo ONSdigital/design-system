@@ -1,20 +1,21 @@
 ---
-"title": "Example: Non-editable address input confirmation"
+'title': 'Example: Non-editable address input confirmation'
 layout: ~
 ---
-{% extends "layout/_template.njk" %}
 
+{% extends "layout/_template.njk" %}
 {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/address-output/_macro.njk" import onsAddressOutput %}
-
-{% set pageConfig = {
-    "header": {
-        "title": 'Non-editable address confirmation example'
+{%
+    set pageConfig = {
+        "header": {
+            "title": 'Non-editable address confirmation example'
+        }
     }
-} %}
+%}
 {% block preMain %}
     {{
         onsBreadcrumbs({

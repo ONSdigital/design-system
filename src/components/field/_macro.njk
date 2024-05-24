@@ -11,8 +11,8 @@
         {% else %}
             <div
                 {% if params.id %}id="{{ params.id }}"{% endif %}
-                class="ons-field{% if params.inline %} ons-field--inline{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}"
-                {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+                class="ons-field{% if params.inline %}ons-field--inline{% endif %}{% if params.classes %}{{ params.classes }}{% endif %}"
+                {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
             >
                 {{- caller() if caller -}}
             </div>
