@@ -16,7 +16,7 @@ $breadcrumb-chevron-height: 0.65rem;
         white-space: nowrap; // Stop items from wrapping, break on chevron only
 
         &:not(:nth-last-child(1)) {
-            //small screen not last child
+            // Small screen not last child
             display: none;
         }
 
@@ -28,7 +28,7 @@ $breadcrumb-chevron-height: 0.65rem;
         }
 
         &:nth-last-child(1) {
-            // small screen last child
+            // Small screen last child
             direction: rtl;
             .ons-icon {
                 margin-left: -0.13rem;
@@ -37,14 +37,14 @@ $breadcrumb-chevron-height: 0.65rem;
         }
 
         @include mq(s) {
-            //big screen
+            // Big screen
             &:not(:nth-last-child(1)) {
-                //not last child
+                // not last child
                 display: inline-block;
             }
 
             &:nth-last-child(1) {
-                // last child
+                // Last child
                 direction: ltr;
                 .ons-icon {
                     display: none;
@@ -52,7 +52,7 @@ $breadcrumb-chevron-height: 0.65rem;
             }
 
             &:first-child:nth-last-child(1) {
-                //first and last child
+                // First and last child
                 direction: rtl;
                 .ons-icon {
                     display: inline-block;
@@ -61,7 +61,7 @@ $breadcrumb-chevron-height: 0.65rem;
             }
 
             &:not(:last-child).ons-icon {
-                //not last child
+                // Not last child
                 margin: 0;
 
                 // We have to override the icon settings so it renders correctly in ie11
