@@ -75,10 +75,11 @@
     }
 }
 
+/* stylelint-disable block-no-empty */
 @mixin clearfix() {
-    /* stylelint-disable-line */
     // no-op
 }
+/* stylelint-enable block-no-empty */
 
 // =============================================================================
 // Remove nth-Child Padding
