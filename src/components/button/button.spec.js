@@ -25,10 +25,10 @@ describe('script: button', () => {
             await setTestPage(
                 '/test',
                 `
-        <form>
-          ${renderComponent('button', { id: 'test-button' })}
-        </form>
-        `,
+                    <form>
+                        ${renderComponent('button', { id: 'test-button' })}
+                    </form>
+                `,
             );
 
             await page.evaluate(() => {
@@ -102,10 +102,10 @@ describe('script: button', () => {
             await setTestPage(
                 '/test',
                 `
-        <form onsubmit="return false;">
-          ${renderComponent('button', { id: 'test-button', text: 'Submit', variants: 'loader' })}
-        </form>
-        `,
+                    <form onsubmit="return false;">
+                        ${renderComponent('button', { id: 'test-button', text: 'Submit', variants: 'loader' })}
+                    </form>
+                `,
             );
 
             await page.click('#test-button');
@@ -118,10 +118,10 @@ describe('script: button', () => {
             await setTestPage(
                 '/test',
                 `
-        <form>
-          ${renderComponent('button', { id: 'test-button', text: 'Submit', variants: 'loader' })}
-        </form>
-        `,
+                    <form>
+                        ${renderComponent('button', { id: 'test-button', text: 'Submit', variants: 'loader' })}
+                    </form>
+                `,
             );
 
             const hasIsLoadingClass = await page.evaluate(() =>
@@ -134,10 +134,10 @@ describe('script: button', () => {
             await setTestPage(
                 '/test',
                 `
-        <form onsubmit="return false;">
-          ${renderComponent('button', { id: 'test-button', text: 'Submit', variants: 'loader' })}
-        </form>
-        `,
+                    <form onsubmit="return false;">
+                        ${renderComponent('button', { id: 'test-button', text: 'Submit', variants: 'loader' })}
+                    </form>
+                `,
             );
 
             await page.click('#test-button');
@@ -204,10 +204,10 @@ describe('script: button', () => {
             await setTestPage(
                 '/test',
                 `
-        <form>
-          ${renderComponent('button', { id: 'test-button', variants: 'timer', text: 'Submit' })}
-        </form>
-        `,
+                    <form>
+                        ${renderComponent('button', { id: 'test-button', variants: 'timer', text: 'Submit' })}
+                    </form>
+                `,
             );
 
             await page.evaluate(() => {
@@ -229,10 +229,10 @@ describe('script: button', () => {
             await setTestPage(
                 '/test',
                 `
-        <form>
-          ${renderComponent('button', { id: 'test-button', variants: 'timer', text: 'Submit' })}
-        </form>
-        `,
+                    <form>
+                        ${renderComponent('button', { id: 'test-button', variants: 'timer', text: 'Submit' })}
+                    </form>
+                `,
             );
 
             await page.evaluate(() => {

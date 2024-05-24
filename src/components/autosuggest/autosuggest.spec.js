@@ -401,9 +401,9 @@ describe('script: autosuggest', () => {
             await setTestPage(
                 '/test',
                 `
-        ${renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST)}
-        <a id="dummy">Dummy</a>
-      `,
+                    ${renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST)}
+                    <a id="dummy">Dummy</a>
+                `,
             );
 
             await page.type('.ons-js-autosuggest-input', 'state', { delay: 20 });

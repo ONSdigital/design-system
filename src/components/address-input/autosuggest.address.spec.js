@@ -462,11 +462,11 @@ describe('script: address-input', () => {
                     await setTestPage(
                         '/test',
                         `
-              <form action="/test/fake/form-handler" method="post">
-                ${renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API)}
-                <button type="submit">Submit</button>
-              </form>
-            `,
+                            <form action="/test/fake/form-handler" method="post">
+                                ${renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API)}
+                                <button type="submit">Submit</button>
+                            </form>
+                        `,
                     );
 
                     await page.$eval('form', (node) =>
