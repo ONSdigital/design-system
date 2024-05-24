@@ -538,7 +538,7 @@ describe('macro: header', () => {
 
             expect(phaseSpy.occurrences).toContainEqual({
                 badge: 'Example',
-                html: 'Example content with a <a href="#">link/a>',
+                html: 'Example content with a <a href="#">link</a>',
             });
         });
 
