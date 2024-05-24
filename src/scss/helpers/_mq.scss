@@ -1,17 +1,22 @@
+@use 'sass:math';
+@use 'sass:meta';
+@use 'sass:map';
+@use 'sass:list';
+
 @mixin mq($from: none, $to: none, $from-operator: none, $to-operator: none) {
-    @if $from != none and type-of($from) == 'string' {
+    @if $from != none and meta.type-of($from) == 'string' {
         $from: get-bp-width($from);
     }
 
-    @if $to != none and type-of($to) == 'string' {
+    @if $to != none and meta.type-of($to) == 'string' {
         $to: get-bp-width($to);
     }
 
-    @if ($from == none or $from <= nth(nth($grid-bp, 1), 2)) and $to == none {
+    @if ($from == none or $from <= list.nth(list.nth($grid-bp, 1), 2)) and $to == none {
         @content;
     }
 
- @else if $from == none or $from <= nth(nth($grid-bp, 1), 2) {
+ @else if $from == none or $from <= list.nth(list.nth($grid-bp, 1), 2) {
         @if $to-operator != none and $to-operator == '<' {
             $to: $to - 1;
         }
@@ -47,8 +52,8 @@
 }
 
 @function get-bp-width($name, $breakpoints: $grid-bp) {
-    @if map-has-key($breakpoints, $name) {
-        @return map-get($breakpoints, $name);
+    @if map.has-key($breakpoints, $name) {
+        @return map.get($breakpoints, $name);
     }
 
  @else {
@@ -59,7 +64,7 @@
 /// @param {Number} $number - Number to remove unit from
 /// @return {Number} - Unitless number
 @function strip-unit($number) {
-    @if type-of($number) == 'number' and not unitless($number) {
+    @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
         @return $number / ($number * 0 + 1);
     }
 
