@@ -2,7 +2,7 @@
 function Util() {}
 
 /*
-  Class manipulation functions
+    Class manipulation functions
 */
 
 Util.hasClass = function (el, className) {
@@ -39,7 +39,7 @@ Util.setAttributes = function (el, attrs) {
 };
 
 /*
-  DOM manipulation
+    DOM manipulation
 */
 
 Util.getChildrenByClassName = function (el, className) {
@@ -114,7 +114,7 @@ Util.scrollTo = function (final, duration, cb, scrollEl) {
 };
 
 /*
-  Focus utility classes
+    Focus utility classes
 */
 
 // Move focus to an element
@@ -191,7 +191,7 @@ Util.osHasReducedMotion = function () {
 };
 
 /*
-  Polyfills
+    Polyfills
 */
 
 // Closest() method
@@ -226,7 +226,7 @@ if (typeof window.CustomEvent !== 'function') {
 }
 
 /*
-  Animation curves
+    Animation curves
 */
 
 Math.easeInOutQuad = function (t, b, c, d) {
