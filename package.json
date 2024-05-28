@@ -42,6 +42,9 @@
     "*.scss": [
       "prettier --print-width 140 --single-quote --parser scss --write",
       "yarn run stylelint-fix"
+    ],
+    "*.{njk,html}": [
+      "prettier --write"
     ]
   },
   "browserslist": [
