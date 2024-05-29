@@ -133,7 +133,8 @@
       background: var(--ons-color-header-neutral);
       .ons-navigation__item {
         &--active,
-        &:hover {
+        &:hover,
+        &:focus-within {
           border-color: var(--ons-color-links);
         }
         .ons-navigation__link {
