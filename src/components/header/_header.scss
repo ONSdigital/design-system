@@ -113,11 +113,20 @@
       background: var(--ons-color-header-masthead-neutral);
     }
 
+    &__org-logo-link:focus {
+      outline: none;
+      padding: 3px;
+      background-color: var(--ons-color-focus);
+    }
+
     &__grid-top {
       a {
         color: var(--ons-color-service-links);
         &:hover {
           text-decoration: underline solid var(--ons-color-service-links) 3px;
+        }
+        &:focus {
+          color: var(--ons-color-black);
         }
       }
     }

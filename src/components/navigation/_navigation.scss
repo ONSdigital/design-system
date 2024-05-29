@@ -138,6 +138,11 @@
         }
         .ons-navigation__link {
           color: var(--ons-color-header-navigation-links);
+          &:focus {
+            background-color: var(--ons-color-focus);
+            box-shadow: 0 5px var(--ons-color-focus);
+            color: var(--ons-color-text-link-focus);
+          }
         }
       }
     }
