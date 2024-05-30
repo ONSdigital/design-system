@@ -26,7 +26,6 @@ rules:
     no-descending-specificity: null
     color-no-invalid-hex: true
     length-zero-no-unit: true
-    scss/at-extend-no-missing-placeholder: null
     selector-no-qualifying-type:
         - true
         - ignore:
@@ -38,8 +37,10 @@ rules:
         - ignoreProperties:
               - 'box-orient'
         - ignoreAtRules: ['each', 'else', 'extend', 'for', 'function', 'if', 'include', 'mixin', 'return', 'while']
+
     # Imports
     import-notation: 'string'
+
     # Nesting
     max-nesting-depth:
         - 6
@@ -62,5 +63,6 @@ rules:
     # Inner Spacing
     function-calc-no-unspaced-operator: true
 
-    # Ignores
+    # SCSS
+    scss/at-extend-no-missing-placeholder: null
     scss/operator-no-newline-after: null
