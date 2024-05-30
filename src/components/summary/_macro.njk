@@ -15,14 +15,14 @@
 
     <div class="{{ className }}">
         {% for summary in params.summaries %}
-            {% if summary.summaryTitle %}
-                <h2 class="ons-summary__title ons-u-mb-m{{ " ons-u-mt-m" if loop.index > 1 else "" }}">{{ summary.summaryTitle }}</h2>
+            {% if summary.title %}
+                <h2 class="ons-summary__title ons-u-mb-m{{ " ons-u-mt-m" if loop.index > 1 else "" }}">{{ summary.title }}</h2>
                 {% set headingLevel = 3 %}
             {% endif %}
             {% for group in summary.groups %}
                 <div {% if group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__group{{ variantClasses }}">
-                    {% if group.groupTitle %}
-                        <h{{ headingLevel }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ headingLevel }}>
+                    {% if group.title %}
+                        <h{{ headingLevel }} class="ons-summary__group-title">{{ group.title }}</h{{ headingLevel }}>
                     {% endif %}
                     {% if group.rows %}
                         <dl class="ons-summary__items">
@@ -34,14 +34,14 @@
                                     {% if row.errorMessage %}
                                         <div class="ons-summary__row-title--error ons-u-fs-r">{{ row.errorMessage }}</div>
                                     {% endif %}
-                                    {% if row.rowItems | length > 1 and row.rowTitle %}
-                                        <div class="ons-summary__row-title ons-summary__row-title--no-group-title ons-u-fs-r">{{ row.rowTitle }}</div>
+                                    {% if row.rowItems | length > 1 and row.title %}
+                                        <div class="ons-summary__row-title ons-summary__row-title--no-group-title ons-u-fs-r">{{ row.title }}</div>
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
                                         <div class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}"{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>
                                             <dt class="ons-summary__item-title"
-                                                {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                                {% if rowItem.titleAttributes %}{% for attribute, value in (rowItem.titleAttributes.items() if rowItem.titleAttributes is mapping and rowItem.titleAttributes.items else rowItem.titleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
                                                 {% if rowItem.iconType %}
                                                     {% from "components/icon/_macro.njk" import onsIcon %}
@@ -58,7 +58,7 @@
                                                 {% endif %}
 
                                                 <div class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType else "" }}">
-                                                    {{- rowItem.rowTitle | default(row.rowTitle) | safe -}}
+                                                    {{- rowItem.title | default(row.title) | safe -}}
                                                 </div>
 
                                                 {# Render section status for mobile if is hub #}
