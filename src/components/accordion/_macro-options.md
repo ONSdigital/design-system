@@ -9,14 +9,14 @@
 
 ## AccordionItem
 
-| Name              | Type   | Required | Description                                                                                                                   |
-| ----------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| title             | string | true     | The title of the accordion item                                                                                               |
-| titleTag          | string | false    | The HTML heading tag for the title. Use to ensure the title has a correct semantic order on the page. Will default to an `h2` |
-| content           | string | true     | The content of the accordion item                                                                                             |
-| attributes        | object | false    | HTML attributes (for example, data attributes) to add to the details element                                                  |
-| headingAttributes | object | false    | HTML attributes (for example, data attributes) to add to the details header element                                           |
-| contentAttributes | object | false    | HTML attributes (for example, data attributes) to add to the details content element                                          |
+| Name              | Type   | Required | Description                                                                                                                                |
+| ----------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| title             | string | true     | The title of the accordion item                                                                                                            |
+| headingLevel      | int    | false    | Number used to determine the heading level of the title. Use to ensure the title has a correct semantic order on the page. Defaults to `2` |
+| content           | string | true     | The content of the accordion item                                                                                                          |
+| attributes        | object | false    | HTML attributes (for example, data attributes) to add to the details element                                                               |
+| headingAttributes | object | false    | HTML attributes (for example, data attributes) to add to the details header element                                                        |
+| contentAttributes | object | false    | HTML attributes (for example, data attributes) to add to the details content element                                                       |
 
 ## AccordionButton
 
