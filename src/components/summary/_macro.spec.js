@@ -10,10 +10,10 @@ const EXAMPLE_SUMMARY_ROWS = {
     {
       // Contains - row with icon, attributes and rowTitleAttributes, other value, no action
       id: 'row-id-1',
-      rowTitle: 'row title 1',
+      title: 'row title 1',
       rowItems: [
         {
-          rowTitleAttributes: {
+          titleAttributes: {
             a: 123,
             b: 456,
           },
@@ -36,7 +36,7 @@ const EXAMPLE_SUMMARY_ROWS = {
     {
       // Contains - row with error and multiple actions
       id: 'row-id-2',
-      rowTitle: 'row title 2',
+      title: 'row title 2',
       error: true,
       errorMessage: 'there are errors',
       rowItems: [
@@ -69,7 +69,7 @@ const EXAMPLE_SUMMARY_ROWS = {
     {
       // Contains - row with multiple rows and multiple values
       id: 'row-id-3',
-      rowTitle: 'row title 3',
+      title: 'row title 3',
       rowItems: [
         {
           id: 'item-id-3',
@@ -95,7 +95,7 @@ const EXAMPLE_SUMMARY_ROWS = {
     {
       // Contains - row with total
       id: 'row-id-4',
-      rowTitle: 'row title 4',
+      title: 'row title 4',
       total: true,
       rowItems: [
         {
@@ -115,7 +115,7 @@ const EXAMPLE_SUMMARY_GROUPS = {
   groups: [
     {
       id: 'group-id-1',
-      groupTitle: 'group title',
+      title: 'group title',
       ...EXAMPLE_SUMMARY_ROWS,
     },
   ],
@@ -141,7 +141,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
     {
       rowItems: [
         {
-          rowTitle: 'row item 1',
+          title: 'row item 1',
           valueList: [
             {
               text: 'list item 1',
@@ -161,7 +161,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           ],
         },
         {
-          rowTitle: 'row item 2',
+          title: 'row item 2',
           valueList: [
             {
               text: 'list item 2',
@@ -176,7 +176,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           ],
         },
         {
-          rowTitle: 'row item 3',
+          title: 'row item 3',
           valueList: [
             {
               text: 'list item 3',
@@ -195,7 +195,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
     {
       rowItems: [
         {
-          rowTitle: 'row item 4',
+          title: 'row item 4',
           valueList: [
             {
               text: 'list item 4',
@@ -215,7 +215,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           ],
         },
         {
-          rowTitle: 'row item 5',
+          title: 'row item 5',
           valueList: [
             {
               text: 'list item 5',
@@ -230,7 +230,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
           ],
         },
         {
-          rowTitle: 'row item 6',
+          title: 'row item 6',
           valueList: [
             {
               text: 'list item 6',
@@ -264,7 +264,7 @@ const EXAMPLE_SUMMARY_BASIC = {
 const EXAMPLE_SUMMARY_WITH_TITLE = {
   summaries: [
     {
-      summaryTitle: 'summary title',
+      title: 'summary title',
       ...EXAMPLE_SUMMARY_GROUPS,
     },
   ],
@@ -273,7 +273,7 @@ const EXAMPLE_SUMMARY_WITH_TITLE = {
 const EXAMPLE_SUMMARY_WITH_NO_ROWS = {
   summaries: [
     {
-      summaryTitle: 'summary title',
+      title: 'summary title',
       ...EXAMPLE_SUMMARY_GROUPS_NO_ROWS,
     },
   ],
@@ -282,21 +282,21 @@ const EXAMPLE_SUMMARY_WITH_NO_ROWS = {
 const EXAMPLE_SUMMARY_MULTIPLE_GROUPS = {
   summaries: [
     {
-      summaryTitle: 'summary title',
+      title: 'summary title',
       groups: [
         {
           id: 'group-id-1',
-          groupTitle: 'group title',
+          title: 'group title',
           ...EXAMPLE_SUMMARY_ROWS,
         },
         {
           id: 'group-id-2',
-          groupTitle: 'group title',
+          title: 'group title',
           ...EXAMPLE_SUMMARY_HOUSEHOLD_GROUP,
         },
         {
           id: 'group-id-3',
-          groupTitle: 'group title',
+          title: 'group title',
           ...EXAMPLE_SUMMARY_ROWS,
         },
       ],
