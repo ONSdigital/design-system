@@ -66,7 +66,6 @@
     {% set tag = "a" if params.url else "button" %}
     <!-- prettier-ignore-start -->
     <{{ tag }}
-    <!-- prettier-ignore-end -->
         {% if params.url %}
             href="{{ params.url }}"
             role="button"
@@ -81,6 +80,7 @@
         {{ variantAttributes }}
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}
         >
+    <!-- prettier-ignore-end -->
         <span class="ons-btn__inner{% if params.innerClasses %} {{ params.innerClasses }}{% endif %}">
             {%- if iconPosition == "before" or iconPosition == "after" %}
                 {%- if iconPosition == "before" %}
