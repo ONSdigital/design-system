@@ -19,6 +19,7 @@ rules:
     selector-max-id: 2
     comment-no-empty: true
     declaration-block-no-duplicate-properties: true
+    at-rule-empty-line-before: null
     block-no-empty:
         - true
         - ignore:
