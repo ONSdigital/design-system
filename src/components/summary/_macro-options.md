@@ -26,7 +26,7 @@
 | Name         | Type                    | Required | Description                                                         |
 | ------------ | ----------------------- | -------- | ------------------------------------------------------------------- |
 | id           | string                  | false    | The HTML `id` of the row                                            |
-| items        | Array`<SummaryRowItem>` | true     | An array of [items for the row](#summaryrowitem)                    |
+| rowItems     | Array`<SummaryRowItem>` | true     | An array of [items for the row](#summaryrowitem)                    |
 | title        | string                  | false    | The title for the row                                               |
 | error        | boolean                 | false    | Set to “true” display an [error](/components/error) on a row        |
 | errorMessage | string                  | false    | The error message for the row                                       |
