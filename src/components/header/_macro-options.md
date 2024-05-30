@@ -88,7 +88,7 @@
 | currentPath            | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
 | toggleNavigationButton | array`<ToggleButton>`     | true     | Settings for the navigation [menu toggle button](#togglebutton) displayed on small viewports                                   |
 | removeHorizontalSubNav | boolean                   | false    | Set to “true” to remove the sub navigation                                                                                     |
-| subNavigation          | array`<Navigation>`       | false    | Settings for the [sub navigation menu links](#subNavigation)                                                                   |
+| subNavigation          | array`<subNavigation>`    | false    | Settings for the [sub navigation menu links](#subNavigation)                                                                   |
 
 ## ToggleButton
 
