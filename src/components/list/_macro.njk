@@ -101,10 +101,10 @@
 
             {% if listLength > 1 or listEl == 'ul' %}
                 <li class="ons-list__item{% if item.listClasses %} {{ item.listClasses }}{% endif %}"{% if item.current %} aria-current="true"{% endif %}>
-                    {{ listItem }}
+                    {{ listItem | safe }}
                 </li>
             {% else %}
-                {{ listItem }}
+                {{ listItem | safe }}
             {% endif %}
         {%- endfor -%}
     <!-- prettier-ignore-start -->
