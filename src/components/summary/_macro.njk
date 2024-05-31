@@ -16,7 +16,7 @@
     <div class="{{ className }}">
         {% for summary in params.summaries %}
             {% if summary.summaryTitle %}
-                <h2 class="ons-summary__title ons-u-mb-m{{ " ons-u-mt-m" if loop.index > 1 else "" }}">{{ summary.summaryTitle }}</h2>
+                <h2 class="ons-summary__title ons-u-mb-m{{ ' ons-u-mt-m' if loop.index > 1 else '' }}">{{ summary.summaryTitle }}</h2>
                 {% set headingLevel = 3 %}
             {% endif %}
             {% for group in summary.groups %}
@@ -44,7 +44,7 @@
 
                                     {% for rowItem in row.rowItems %}
                                         <div
-                                            class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}"
+                                            class="ons-summary__row{{ ' ons-summary__row--has-values' if rowItem.valueList else '' }}"
                                             {% if rowItem.id %}id="{{ rowItem.id }}"{% endif %}
                                         >
                                             <dt
@@ -54,7 +54,7 @@
                                                 {% if rowItem.iconType %}
                                                     {% from "components/icon/_macro.njk" import onsIcon %}
                                                     <span
-                                                        class="ons-summary__item-title-icon{% if rowItem.iconType == 'check' %}ons-summary__item-title-icon--check{% endif %}"
+                                                        class="ons-summary__item-title-icon{{ ' ons-summary__item-title-icon--check' if rowItem.iconType == 'check' else '' }}"
                                                     >
                                                         {{-
                                                             onsIcon({
@@ -114,10 +114,12 @@
                                                             href="{{ action.url }}"
                                                             class="ons-summary__button"
                                                             {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
-                                                            ><span class="ons-summary__button-text" aria-hidden="true"
-                                                                >{{ action.text }}</span
-                                                            ><span class="ons-u-vh">{{ action.visuallyHiddenText }}</span></a
                                                         >
+                                                            <span class="ons-summary__button-text" aria-hidden="true">
+                                                                {{ action.text }}
+                                                            </span>
+                                                            <span class="ons-u-vh">{{ action.visuallyHiddenText }}</span>
+                                                        </a>
                                                     {% endfor %}
                                                 </dd>
                                             {% endif %}
@@ -132,14 +134,15 @@
 
                     {% if group.summaryLink %}
                         <div
-                            class="ons-summary__link{% if group.placeholderText or group.rows %}ons-u-pt-s{% endif %}{% if group.placeholderText is not defined and group.rows | length > 1 and params.variant != 'card' %}ons-u-bt{% endif %}{% if not group.last %}ons-u-mb-xl{% endif %}"
+                            class="ons-summary__link{{ ' ons-u-pt-s' if group.placeholderText or group.rows else '' }}{{ ' ons-u-bt' if group.placeholderText is not defined and group.rows | length > 1 and params.variant != 'card' else '' }}{{ ' ons-u-mb-xl' if not group.last else '' }}"
                         >
                             {% set link %}
                                 <a
                                     {% if group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                     href="{{ group.summaryLink.url }}"
-                                    >{{ group.summaryLink.text }}</a
                                 >
+                                    {{ group.summaryLink.text }}
+                                </a>
                             {% endset %}
                             {% if params.variant == 'card' %}
                                 <div>{{ link | safe }}</div>
