@@ -6,7 +6,7 @@
     {% set fields %}
         <div
             id="address"
-            class="ons-field ons-address-input {% if not params.manualEntry %}ons-address-input--search ons-js-address-autosuggest{% endif %}"
+            class="ons-field ons-address-input{% if not params.manualEntry %}ons-address-input--search ons-js-address-autosuggest{% endif %}"
         >
             {% if params.isEditable == true or params.manualEntry %}
                 {% set addressInputs %}
