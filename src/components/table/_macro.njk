@@ -6,7 +6,7 @@
     {% set table %}
         <table
             {% if params.id %}id="{{ params.id }}"{% endif %}
-            class="ons-table{% if params.tableClasses %}{{ params.tableClasses }}{% endif %}{% if variants %}{% if variants is not string %}{% for variant in variants %}ons-table--{{ variant }}{% endfor %}{% else %}ons-table--{{ variants }}{% endif %}{% endif %}"
+            class="ons-table{% if params.tableClasses %}{{ ' ' + params.tableClasses }}{% endif %}{% if variants %}{% if variants is not string %}{% for variant in variants %}ons-table--{{ variant }}{% endfor %}{% else %}ons-table--{{ variants }}{% endif %}{% endif %}"
             {% if params.sortBy and 'sortable' in variants %}
                 data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"
             {% endif %}
