@@ -14,7 +14,7 @@
 {% if pageConfig.cdn or release_version or designSystemVersion %}
     {# Production #}
     {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
-    {% set slash = "" if cdn_url | last == "/" else 
+    {% set slash = "" if cdn_url | last == "/" else
         "/" %}
     {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version if pageConfig.cdn and pageConfig.cdn.version) or release_version or designSystemVersion) %}
 {% elif pageConfig.assetsURL %}
@@ -44,11 +44,11 @@
 
 {# Page columns #}
 {% set pageColNumber = pageConfig.pageColNumber | default("12") %}
-{% set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else 
+{% set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else
     '' %}
-{% set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else 
+{% set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else
     '' %}
-{% set themeColor = pageConfig.themeColor if pageConfig.themeColor else 
+{% set themeColor = pageConfig.themeColor if pageConfig.themeColor else
     "#206095" %}
 <!doctype html>
 <html lang="{{ currentLanguageISOCode }}">
@@ -95,7 +95,7 @@
             {% endif %}
 
             {% if pageConfig.social %}
-                {% set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else 
+                {% set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else
                     assetsURL + '/favicons/twitter.png' %}
                 <!-- Twitter -->
                 <meta name="twitter:card" content="summary">
@@ -147,7 +147,6 @@
                                 "siteSearchAutosuggest": pageConfig.header.siteSearchAutosuggest,
                                 "browserBanner": pageConfig.header.browserBanner,
                                 "phase": pageConfig.header.phase,
-                                "assetsURL": assetsURL,
                                 "serviceLinks": pageConfig.header.serviceLinks,
                                 "variants": pageConfig.header.variants,
                                 "classes": pageConfig.header.classes,
@@ -190,7 +189,6 @@
                     {% if pageConfig.footer %}
                         {{
                             onsFooter({
-                                "assetsURL": assetsURL,
                                 "wide": pageConfig.wide,
                                 "fullWidth": pageConfig.fullWidth,
                                 "classes": "ons-page__footer",
