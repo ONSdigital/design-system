@@ -33,7 +33,7 @@
   &__poweredBy-link {
     &:focus {
       .ons-icon--logo {
-        @extend %a-focus;
+        background-color: var(--ons-color-focus);
       }
     }
   }
