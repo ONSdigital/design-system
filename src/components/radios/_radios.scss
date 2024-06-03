@@ -1,16 +1,10 @@
 .ons-radios {
   &__items {
     @extend .ons-checkboxes__items;
-
-    @include mq(s) {
-      max-width: max-content;
-    }
   }
 
   &__item {
     @extend .ons-checkboxes__item;
-
-    width: 100%;
 
     &--no-border {
       @extend .ons-checkboxes__item--no-border;
