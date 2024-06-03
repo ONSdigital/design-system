@@ -5,7 +5,7 @@
 | cols                 | array`<FooterCol>`             | false    | An array of objects for each of the 3 allowed [footer columns](#footercol)                                                                           |
 | rows                 | array`<FooterRow>`             | false    | An array for the first [footer row](#footerrow)                                                                                                      |
 | legal                | array`<LegalRow>`              | false    | An array of for the [row of legal links](#legalrow)                                                                                                  |
-| poweredBy            | object<PoweredByLogo>          | false    | Any object to render an image to override the default ONS logo                                                                                       |
+| poweredBy            | object<PoweredByLogo>          | false    | An object with the params for the poweredBy logo. If not provided will default to the ONS logo                                                       |
 | lang                 | string                         | false    | Set the ISO language code for current page to display the correct language ONS logo. Defaults to “en”.                                               |
 | newTabWarning        | string                         | false    | Leading line of text to warn users that all footer links will open a new tab                                                                         |
 | OGLLink              | object`<OGLLink>`              | false    | An object containing settings for the [Open Government Licence content](#ogllink). Set to “true” to display the default values for English and Welsh |
@@ -53,7 +53,7 @@
 
 ## PoweredByLogo
 
-| Name      | Type           | Required | Description                                                                             |
-| --------- | -------------- | -------- | --------------------------------------------------------------------------------------- |
-| logoImage | HTML or string | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`.                    |
-| logoUrl   | string         | false    | Wraps the extra logo in a link. Set the URL for the HTML `href` attribute for the link. |
+| Name      | Type   | Required | Description                                                                             |
+| --------- | ------ | -------- | --------------------------------------------------------------------------------------- |
+| logoImage | HTML   | false    | HTML to render an image for example embedded `<svg>` or `<img>`.                        |
+| logoUrl   | string | false    | Wraps the extra logo in a link. Set the URL for the HTML `href` attribute for the link. |
