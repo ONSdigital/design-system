@@ -9,15 +9,15 @@
         {% set lang = 'en' %}
     {% endif %}
 
-    {% if params.extraPoweredByLogo%}
+    {% if params.poweredBy.extraPoweredByLogo%}
         {% set extraPoweredByLogo %}
-            {% if params.extraPoweredByLogo.logoUrl %}
-                <a class="ons-footer__poweredBy-extra-link" href="{{ params.extraPoweredByLogo.logoUrl }}">
+            {% if params.poweredBy.extraPoweredByLogo.logoUrl %}
+                <a class="ons-footer__poweredBy-extra-link" href="{{ params.poweredBy.extraPoweredByLogo.logoUrl }}">
             {% endif %}
-            {% if params.extraPoweredByLogo.logoImage != "ONS Logo" %}
-                {{ params.extraPoweredByLogo.logoImage | safe }}
+            {% if params.poweredBy.extraPoweredByLogo.logoImage != "ONS Logo" %}
+                {{ params.poweredBy.extraPoweredByLogo.logoImage | safe }}
             {% endif %}
-            {% if params.extraPoweredByLogo.logoUrl %}
+            {% if params.poweredBy.extraPoweredByLogo.logoUrl %}
                 </a>
             {% endif %}
         {% endset %}
@@ -170,12 +170,29 @@
                                 {% endif %}
                             </div>
                         {% endif %}
-                        {% if not params.poweredBy %}
+                        {% if params.poweredBy.logo %}
+                            <div class="ons-footer__poweredby ons-u-mb-m{% if extraPoweredByLogo %} ons-footer__extra-poweredby ons-grid--flex{% endif %}">
+                                {%-if params.poweredBy.logo.logoUrl %}
+                                    <a class="ons-footer__poweredBy-link{% if extraPoweredByLogo %} ons-u-mr-l{% endif %}" href="{{ params.poweredBy.logo.logoUrl }}">
+                                {% endif -%}
+
+                                {{ params.poweredBy.logo.logoImage | safe }}
+
+                                {%-if params.poweredBy.logo.logoUrl %}
+                                    </a>
+                                {% endif -%}
+                                {%-if extraPoweredByLogo%}
+                                    {{ extraPoweredByLogo | safe }}
+                                {% endif -%}
+                            </div>
+                        {% else %}
                                 <div class="ons-footer__poweredby ons-u-mb-m{% if extraPoweredByLogo %} ons-footer__extra-poweredby ons-grid--flex{% endif %}">
                                     <a class="ons-footer__poweredBy-link{% if extraPoweredByLogo %} ons-u-mr-l{% endif %}" {% if lang == "cy" %} href="https://cy.ons.gov.uk/"{% else %} href="https://www.ons.gov.uk/"{% endif %}>
                                         {{ onsLogo | safe }}
                                     </a>
-                                    {{ extraPoweredByLogo | safe }}
+                                    {%-if extraPoweredByLogo%}
+                                        {{ extraPoweredByLogo | safe }}
+                                    {% endif -%}
                                 </div>
                         {% endif %}
                     </div>
@@ -190,9 +207,6 @@
                         </div>
                     {% endif %}
                 </div>
-                {% if params.poweredBy %}
-                    {{ params.poweredBy | safe }}
-                {% endif %}
                 {% if params.copyrightDeclaration %}
                     <!-- Copyright -->
                     <div class="ons-grid ons-grid--flex ons-grid--vertical-bottom ons-grid--between">

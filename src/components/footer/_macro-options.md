@@ -5,8 +5,7 @@
 | cols                 | array`<FooterCol>`             | false    | An array of objects for each of the 3 allowed [footer columns](#footercol)                                                                           |
 | rows                 | array`<FooterRow>`             | false    | An array for the first [footer row](#footerrow)                                                                                                      |
 | legal                | array`<LegalRow>`              | false    | An array of for the [row of legal links](#legalrow)                                                                                                  |
-| poweredBy            | HTML                           | false    | Any HTML to render an image for example embedded `<svg>` or `<img>` to override the default ONS logo                                                 |
-| extraPoweredByLogo   | object`<extraPoweredByLogo>`   | false    | Extra logo to go alongside the ONS logo in the footer                                                                                                |
+| poweredBy            | object`<PoweredBy>`            | false    | Settings for a [poweredby logo](#poweredby) in the footer to override the default ONS logo.logo.                                                     |
 | lang                 | string                         | false    | Set the ISO language code for current page to display the correct language ONS logo. Defaults to “en”.                                               |
 | newTabWarning        | string                         | false    | Leading line of text to warn users that all footer links will open a new tab                                                                         |
 | OGLLink              | object`<OGLLink>`              | false    | An object containing settings for the [Open Government Licence content](#ogllink). Set to “true” to display the default values for English and Welsh |
@@ -52,7 +51,15 @@
 | --------- | ----------------------------------------------------------- | -------- | --------------------------- |
 | itemsList | array`<ListItem>` [_(ref)_](/foundations/typography/#lists) | true     | A list of links for the row |
 
-## ExtraPoweredByLogo
+## PoweredBy
+
+| Name               | Type                 | Required | Description                                                                    |
+| ------------------ | -------------------- | -------- | ------------------------------------------------------------------------------ |
+| classes            | string               | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
+| logo               | object`<LogoObject>` | false    | Logo object to render the poweredby logo                                       |
+| extraPoweredByLogo | object`<LogoObject>` | false    | Extra logo to go alongside the ONS logo in the footer                          |
+
+## LogoObject
 
 | Name      | Type           | Required | Description                                                                             |
 | --------- | -------------- | -------- | --------------------------------------------------------------------------------------- |
