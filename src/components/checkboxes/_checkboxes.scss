@@ -1,45 +1,45 @@
 .ons-checkboxes {
-  &__label {
-    display: block;
-    margin: 0 0 1rem;
-  }
-
-  &__items {
-    display: block;
-
-    @include mq(s) {
-      max-width: max-content;
-    }
-  }
-
-  &__item {
-    display: inline-block;
-    margin: 0 0 0.5rem;
-    width: 100%;
-
-    &:last-child {
-      margin-bottom: 0;
+    &__label {
+        display: block;
+        margin: 0 0 1rem;
     }
 
-    @include mq(s) {
-      min-width: 20rem;
-      :has(select):first-child {
-        min-width: 25rem;
-      }
+    &__items {
+        display: block;
 
-      &--no-border {
-        min-width: 0;
-      }
+        @include mq(s) {
+            max-width: max-content;
+        }
     }
-  }
 
-  &--mutually-exclusive__item {
-    @extend .ons-checkboxes__item;
+    &__item {
+        display: inline-block;
+        margin: 0 0 0.5rem;
+        width: 100%;
 
-    margin-bottom: 0;
+        &:last-child {
+            margin-bottom: 0;
+        }
 
-    @include mq(s) {
-      max-width: max-content;
+        @include mq(s) {
+            min-width: 20rem;
+            :has(select):first-child {
+                min-width: 25rem;
+            }
+
+            &--no-border {
+                min-width: 0;
+            }
+        }
     }
-  }
+
+    &--mutually-exclusive__item {
+        @extend .ons-checkboxes__item;
+
+        margin-bottom: 0;
+
+        @include mq(s) {
+            max-width: max-content;
+        }
+    }
 }

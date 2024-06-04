@@ -1,8 +1,8 @@
 @each $label, $color in (blue: blue, green: green) {
-  .ons-u-#{'' + $label} {
-    color: $color;
-  }
-  .ons-u-bg-#{'' + $label} {
-    background-color: $color;
-  }
+    .ons-u-#{'' + $label} {
+        color: $color;
+    }
+    .ons-u-bg-#{'' + $label} {
+        background-color: $color;
+    }
 }

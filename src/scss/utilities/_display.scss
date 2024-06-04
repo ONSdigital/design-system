@@ -1,19 +1,19 @@
 @include bp-suffix('ons-u-d-no', $create-between-breakpoints: true) {
-  display: none !important;
+    display: none !important;
 }
 
 @include bp-suffix('ons-u-d-b', $create-between-breakpoints: true) {
-  display: block !important;
+    display: block !important;
 }
 
 .ons-u-db-no-js_enabled {
-  body.ons-js-enabled & {
-    display: none !important;
-  }
+    body.ons-js-enabled & {
+        display: none !important;
+    }
 }
 
 .ons-u-db-no-js_disabled {
-  body:not(.ons-js-enabled) & {
-    display: none !important;
-  }
+    body:not(.ons-js-enabled) & {
+        display: none !important;
+    }
 }
