@@ -492,6 +492,13 @@ describe('macro: footer', () => {
 
           expect($('.custom-logo').length).toBe(1);
         });
+
+        it('has the logo image and link', () => {
+          const $ = cheerio.load(renderComponent('footer', params));
+
+          expect($('.ons-footer__poweredBy-link').attr('href')).toBe('#0');
+          expect($('.ons-footer__poweredBy-link > img').attr('src')).toBe('logo.svg');
+        });
       });
     });
   });
