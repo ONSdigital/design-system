@@ -4,64 +4,64 @@ const attrExpanded = 'aria-expanded';
 const attrHidden = 'aria-hidden';
 
 export default class NavigationToggle {
-  constructor(toggle, navigation, hideClass) {
-    this.toggle = toggle;
-    this.navigation = navigation;
-    this.hideClass = hideClass;
-    this.toggle.classList.remove('ons-u-d-no');
-    this.setAria();
-    onViewportChange(this.setAria.bind(this));
-  }
-
-  registerEvents() {
-    this.toggle.addEventListener('click', this.toggleNav.bind(this));
-  }
-
-  toggleNav() {
-    const isHidden = this.navigation.getAttribute(attrHidden);
-    isHidden === 'false' ? this.closeNav() : this.openNav();
-  }
-
-  openNav() {
-    const input = [...this.navigation.getElementsByTagName('INPUT')][0];
-
-    this.toggle.setAttribute(attrExpanded, 'true');
-    this.toggle.classList.add('active');
-    this.navigation.setAttribute(attrHidden, 'false');
-    this.navigation.classList.remove(this.hideClass);
-
-    if (input) {
-      input.focus();
+    constructor(toggle, navigation, hideClass) {
+        this.toggle = toggle;
+        this.navigation = navigation;
+        this.hideClass = hideClass;
+        this.toggle.classList.remove('ons-u-d-no');
+        this.setAria();
+        onViewportChange(this.setAria.bind(this));
     }
-  }
 
-  closeNav() {
-    this.toggle.setAttribute(attrExpanded, 'false');
-    this.toggle.classList.remove('active');
-    this.navigation.setAttribute(attrHidden, 'true');
-    this.navigation.classList.add(this.hideClass);
-  }
+    registerEvents() {
+        this.toggle.addEventListener('click', this.toggleNav.bind(this));
+    }
 
-  isHidden(el) {
-    return el.offsetParent === null;
-  }
+    toggleNav() {
+        const isHidden = this.navigation.getAttribute(attrHidden);
+        isHidden === 'false' ? this.closeNav() : this.openNav();
+    }
 
-  setAria() {
-    const isToggleHidden = this.isHidden(this.toggle);
-    const hasAria = this.navigation.hasAttribute(attrHidden);
+    openNav() {
+        const input = [...this.navigation.getElementsByTagName('INPUT')][0];
 
-    if (!isToggleHidden) {
-      if (!hasAria) {
-        this.closeNav();
-      }
-    } else if (hasAria) {
-      this.toggle.removeAttribute(attrExpanded);
-      this.navigation.removeAttribute(attrHidden);
-      if (this.hideClass !== 'ons-u-d-no') {
+        this.toggle.setAttribute(attrExpanded, 'true');
+        this.toggle.classList.add('active');
+        this.navigation.setAttribute(attrHidden, 'false');
         this.navigation.classList.remove(this.hideClass);
-      } else {
-        this.closeNav();
-      }
+
+        if (input) {
+            input.focus();
+        }
     }
-  }
+
+    closeNav() {
+        this.toggle.setAttribute(attrExpanded, 'false');
+        this.toggle.classList.remove('active');
+        this.navigation.setAttribute(attrHidden, 'true');
+        this.navigation.classList.add(this.hideClass);
+    }
+
+    isHidden(el) {
+        return el.offsetParent === null;
+    }
+
+    setAria() {
+        const isToggleHidden = this.isHidden(this.toggle);
+        const hasAria = this.navigation.hasAttribute(attrHidden);
+
+        if (!isToggleHidden) {
+            if (!hasAria) {
+                this.closeNav();
+            }
+        } else if (hasAria) {
+            this.toggle.removeAttribute(attrExpanded);
+            this.navigation.removeAttribute(attrHidden);
+            if (this.hideClass !== 'ons-u-d-no') {
+                this.navigation.classList.remove(this.hideClass);
+            } else {
+                this.closeNav();
+            }
+        }
+    }
 }

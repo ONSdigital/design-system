@@ -1,247 +1,247 @@
 // High Contrast Mode
 @media screen and (-ms-high-contrast: active), (forced-colors: active) {
-  // Brightness makes all images black, except transparent parts, which remain transparent
-  // Then, invert(1) makes the black parts white
-  .ons-footer__ogl-img,
-  .ons-quote .ons-icon,
-  .ons-footer img {
-    filter: brightness(0) invert(1);
-  }
-
-  // Panels – add border to replace backgrounds
-  .ons-panel {
-    border-color: currentcolor;
-    border-left-width: 8px !important;
-  }
-
-  // Adds some style adjustments to the focused item to make it obvious something is selected
-  .ons-autosuggest {
-    &__results {
-      border: 1px solid Highlight !important;
+    // Brightness makes all images black, except transparent parts, which remain transparent
+    // Then, invert(1) makes the black parts white
+    .ons-footer__ogl-img,
+    .ons-quote .ons-icon,
+    .ons-footer img {
+        filter: brightness(0) invert(1);
     }
 
-    .ons-autosuggest__option {
-      &:focus,
-      &:hover,
-      &:hover .ons-autosuggest__category,
-      &--focused,
-      &--focused .ons-autosuggest__category {
-        background: Highlight !important;
-        color: HighlightText !important;
+    // Panels – add border to replace backgrounds
+    .ons-panel {
+        border-color: currentcolor;
+        border-left-width: 8px !important;
+    }
+
+    // Adds some style adjustments to the focused item to make it obvious something is selected
+    .ons-autosuggest {
+        &__results {
+            border: 1px solid Highlight !important;
+        }
+
+        .ons-autosuggest__option {
+            &:focus,
+            &:hover,
+            &:hover .ons-autosuggest__category,
+            &--focused,
+            &--focused .ons-autosuggest__category {
+                background: Highlight !important;
+                color: HighlightText !important;
+                forced-color-adjust: none;
+            }
+        }
+    }
+
+    // Select - Overrides custom background image icon
+    .ons-input--select {
+        background: var(--ons-color-input-bg)
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ons-icon' viewBox='0 0 12 8'%3E%3Cpath fill='%23fff' d='M1.5.3 6 5.4 10.5.3c.2-.2.4-.2.6 0l.7.7c.1.2.1.4 0 .5L6.3 7.7c-.2.2-.4.2-.6 0L.2 1.6C.1 1.4.1 1.2.2 1L.9.3c.2-.1.4-.1.6 0z'/%3E%3C/svg%3E")
+            no-repeat center right 10px;
+        background-size: 1rem;
+    }
+
+    // I would have approached the mark differently, but without changing the existing approach this fixes it
+    .ons-timeline__item::before {
+        border: 2px solid currentcolor;
+    }
+
+    // Element icons – matches icon with the link colour
+    .ons-details,
+    .ons-breadcrumbs__item,
+    .ons-panel,
+    .ons-btn__inner,
+    .ons-external-link,
+    .ons-list--icons {
+        .ons-icon {
+            fill: currentcolor !important;
+            forced-color-adjust: auto;
+        }
+    }
+
+    // Logos
+    .ons-header__org-logo,
+    .ons-header__title-logo,
+    .ons-footer {
+        .ons-icon--logo {
+            fill: currentcolor !important;
+            forced-color-adjust: auto;
+        }
+    }
+
+    // Hero pre title
+    .ons-hero__pre-title {
+        filter: brightness(0) invert(1);
+    }
+
+    // Buttons - Overrides adjustment to make button shadow selectable
+    .ons-btn {
+        &::after {
+            bottom: 0 !important;
+        }
+    }
+
+    .ons-input,
+    .ons-btn .ons-btn__inner,
+    .ons-tab--row {
+        &:focus,
+        &:focus-visible {
+            // Focus states – To better match the focus states of native controls
+            outline-color: Highlight;
+        }
+    }
+
+    // Tabs – prevent tab border colour change
+    .ons-tabs__list--row::after {
+        bottom: 1px;
         forced-color-adjust: none;
-      }
-    }
-  }
-
-  // Select - Overrides custom background image icon
-  .ons-input--select {
-    background: var(--ons-color-input-bg)
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ons-icon' viewBox='0 0 12 8'%3E%3Cpath fill='%23fff' d='M1.5.3 6 5.4 10.5.3c.2-.2.4-.2.6 0l.7.7c.1.2.1.4 0 .5L6.3 7.7c-.2.2-.4.2-.6 0L.2 1.6C.1 1.4.1 1.2.2 1L.9.3c.2-.1.4-.1.6 0z'/%3E%3C/svg%3E")
-      no-repeat center right 10px;
-    background-size: 1rem;
-  }
-
-  // I would have approached the mark differently, but without changing the existing approach this fixes it
-  .ons-timeline__item::before {
-    border: 2px solid currentcolor;
-  }
-
-  // Element icons – matches icon with the link colour
-  .ons-details,
-  .ons-breadcrumbs__item,
-  .ons-panel,
-  .ons-btn__inner,
-  .ons-external-link,
-  .ons-list--icons {
-    & .ons-icon {
-      fill: currentcolor !important;
-      forced-color-adjust: auto;
-    }
-  }
-
-  // Logos
-  .ons-header__org-logo,
-  .ons-header__title-logo,
-  .ons-footer {
-    & .ons-icon--logo {
-      fill: currentcolor !important;
-      forced-color-adjust: auto;
-    }
-  }
-
-  // Hero pre title
-  .ons-hero__pre-title {
-    filter: brightness(0) invert(1);
-  }
-
-  // Buttons - Overrides adjustment to make button shadow selectable
-  .ons-btn {
-    &::after {
-      bottom: 0 !important;
-    }
-  }
-
-  .ons-input,
-  .ons-btn .ons-btn__inner,
-  .ons-tab--row {
-    &:focus,
-    &:focus-visible {
-      // Focus states – To better match the focus states of native controls
-      outline-color: Highlight;
-    }
-  }
-
-  // Tabs – prevent tab border colour change
-  .ons-tabs__list--row::after {
-    bottom: 1px;
-    forced-color-adjust: none;
-  }
-
-  .ons-tab--row[aria-selected='true'] {
-    border-color: ButtonText !important;
-    color: ButtonText;
-  }
-
-  // Navigation and section nav – item border
-  .ons-section-nav:not(.ons-section-nav--vertical) .ons-section-nav__item,
-  .ons-navigation__item {
-    border-color: canvas;
-  }
-
-  .ons-section-nav:not(.ons-section-nav--vertical) .ons-section-nav__item--active,
-  .ons-navigation__item--active {
-    border-color: ButtonText !important;
-    color: ButtonText;
-  }
-
-  // Add borders to separate banners with no backgrounds
-  .ons-skip-to-content,
-  .ons-browser-banner,
-  .ons-cookies-banner,
-  .ons-header,
-  .ons-header__top,
-  .ons-hero,
-  .ons-phase-banner {
-    border-bottom: 1px solid currentcolor;
-  }
-
-  .ons-footer {
-    border-top: 1px solid currentcolor;
-  }
-
-  @include mq(m) {
-    .ons-header__main {
-      border-bottom: 1px solid currentcolor;
-    }
-  }
-
-  .ons-navigation--sub {
-    border-top: 1px solid currentcolor;
-  }
-
-  // Search – override focus state background image
-  .ons-input-search--icon:focus,
-  .ons-input-search--icon:active,
-  .ons-input-search--icon:valid:not(:placeholder-shown) {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%23ffffff'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z'/%3E%3C/svg%3E");
-  }
-
-  // Pagination – current page state
-  .ons-pagination {
-    &__item--current &__link {
-      color: ButtonText;
-      outline-color: ButtonText !important;
-    }
-  }
-
-  // Radios and Checkboxes – disabled and checked
-  .ons-checkbox__input {
-    border-color: canvastext;
-
-    &:disabled {
-      border-color: grayText;
-    }
-    &:disabled:checked::after {
-      border-color: grayText;
-    }
-    &:disabled + .ons-checkbox__label,
-    &:disabled:checked + .ons-checkbox__label {
-      color: grayText;
-
-      &::before {
-        border-color: grayText;
-        outline-color: grayText;
-      }
     }
 
-    &:checked:not(:disabled, :visited),
-    &:checked:not(:disabled, :visited)::after {
-      border-color: Highlight;
+    .ons-tab--row[aria-selected='true'] {
+        border-color: ButtonText !important;
+        color: ButtonText;
     }
 
-    &:checked + .ons-checkbox__label {
-      &::before {
-        border-color: Highlight;
-        outline-color: Highlight;
-      }
+    // Navigation and section nav – item border
+    .ons-section-nav:not(.ons-section-nav--vertical) .ons-section-nav__item,
+    .ons-navigation__item {
+        border-color: canvas;
     }
-  }
 
-  // Colour swatch – prevent colour adjustment
-  .ons-patternlib-swatch__color {
-    forced-color-adjust: none;
-  }
-
-  // Highlighting
-  h1 strong,
-  h2 strong,
-  h3 strong,
-  h4 strong,
-  h5 strong,
-  h6 strong,
-  mark,
-  .ons-fieldset__legend-title strong,
-  .ons-highlight {
-    background-color: mark;
-    color: marktext;
-  }
-
-  // Errors
-  .ons-panel--error {
-    border-color: mark;
-    outline-color: mark;
-
-    & .ons-panel__header {
-      border-bottom: 1px solid mark;
+    .ons-section-nav:not(.ons-section-nav--vertical) .ons-section-nav__item--active,
+    .ons-navigation__item--active {
+        border-color: ButtonText !important;
+        color: ButtonText;
     }
-  }
 
-  .ons-input {
-    &--error:not(:focus) {
-      border-color: mark;
-      outline-color: mark;
+    // Add borders to separate banners with no backgrounds
+    .ons-skip-to-content,
+    .ons-browser-banner,
+    .ons-cookies-banner,
+    .ons-header,
+    .ons-header__top,
+    .ons-hero,
+    .ons-phase-banner {
+        border-bottom: 1px solid currentcolor;
+    }
 
-      & + .ons-input-type__type,
-      & + .ons-input-type__type[title] {
+    .ons-footer {
+        border-top: 1px solid currentcolor;
+    }
+
+    @include mq(m) {
+        .ons-header__main {
+            border-bottom: 1px solid currentcolor;
+        }
+    }
+
+    .ons-navigation--sub {
+        border-top: 1px solid currentcolor;
+    }
+
+    // Search – override focus state background image
+    .ons-input-search--icon:focus,
+    .ons-input-search--icon:active,
+    .ons-input-search--icon:valid:not(:placeholder-shown) {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%23ffffff'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z'/%3E%3C/svg%3E");
+    }
+
+    // Pagination – current page state
+    .ons-pagination {
+        &__item--current &__link {
+            color: ButtonText;
+            outline-color: ButtonText !important;
+        }
+    }
+
+    // Radios and Checkboxes – disabled and checked
+    .ons-checkbox__input {
+        border-color: canvastext;
+
+        &:disabled {
+            border-color: grayText;
+        }
+        &:disabled:checked::after {
+            border-color: grayText;
+        }
+        &:disabled + .ons-checkbox__label,
+        &:disabled:checked + .ons-checkbox__label {
+            color: grayText;
+
+            &::before {
+                border-color: grayText;
+                outline-color: grayText;
+            }
+        }
+
+        &:checked:not(:disabled, :visited),
+        &:checked:not(:disabled, :visited)::after {
+            border-color: Highlight;
+        }
+
+        &:checked + .ons-checkbox__label {
+            &::before {
+                border-color: Highlight;
+                outline-color: Highlight;
+            }
+        }
+    }
+
+    // Colour swatch – prevent colour adjustment
+    .ons-patternlib-swatch__color {
+        forced-color-adjust: none;
+    }
+
+    // Highlighting
+    h1 strong,
+    h2 strong,
+    h3 strong,
+    h4 strong,
+    h5 strong,
+    h6 strong,
+    mark,
+    .ons-fieldset__legend-title strong,
+    .ons-highlight {
+        background-color: mark;
+        color: marktext;
+    }
+
+    // Errors
+    .ons-panel--error {
         border-color: mark;
-      }
-
-      & + .ons-input-type__type::after {
         outline-color: mark;
-      }
-    }
-  }
 
-  // Feedback – Remove speech bubble border because hcm doesn't support transparent borders
-  .ons-feedback::before,
-  .ons-feedback::after {
-    content: none;
-  }
-
-  // Message – indicate sent vs received
-  .ons-message {
-    &--sent {
-      outline-color: mark;
+        .ons-panel__header {
+            border-bottom: 1px solid mark;
+        }
     }
-  }
+
+    .ons-input {
+        &--error:not(:focus) {
+            border-color: mark;
+            outline-color: mark;
+
+            + .ons-input-type__type,
+            + .ons-input-type__type[title] {
+                border-color: mark;
+            }
+
+            + .ons-input-type__type::after {
+                outline-color: mark;
+            }
+        }
+    }
+
+    // Feedback – Remove speech bubble border because hcm doesn't support transparent borders
+    .ons-feedback::before,
+    .ons-feedback::after {
+        content: none;
+    }
+
+    // Message – indicate sent vs received
+    .ons-message {
+        &--sent {
+            outline-color: mark;
+        }
+    }
 }

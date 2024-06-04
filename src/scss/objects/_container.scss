@@ -1,34 +1,34 @@
 .ons-container {
-  box-sizing: border-box;
-  margin: 0 auto;
-  max-width: $grid-max-width;
-  padding: 0 $grid-gutters;
-  position: relative;
-  width: 100%;
-
-  @include mq(s) {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: $grid-max-width;
     padding: 0 $grid-gutters;
-  }
+    position: relative;
+    width: 100%;
 
-  &--wide {
-    max-width: $grid-max-1280;
-  }
+    @include mq(s) {
+        padding: 0 $grid-gutters;
+    }
 
-  &--full-width {
-    max-width: 100%;
-  }
+    &--wide {
+        max-width: $grid-max-1280;
+    }
+
+    &--full-width {
+        max-width: 100%;
+    }
 }
 
 .ons-grid--align-bottom {
-  .ons-grid__col {
-    vertical-align: bottom;
-  }
+    .ons-grid__col {
+        vertical-align: bottom;
+    }
 }
 
 .ons-grid__col {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 @include bp-suffix('ons-container--gutterless', $create-between-breakpoints: true) {
-  padding: 0;
+    padding: 0;
 }

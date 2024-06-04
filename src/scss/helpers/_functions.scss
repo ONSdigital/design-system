@@ -1,36 +1,39 @@
 @use 'sass:math';
+@use 'sass:string';
+@use 'sass:map';
 
 @function ems($pxval, $base: $base) {
-  $em-size: math.div($pxval, $base);
+    $em-size: math.div($pxval, $base);
 
-  @return #{$em-size}em;
+    @return #{$em-size}em;
 }
 
 @function rems($pxval, $base: $base) {
-  $rem-size: math.div($pxval, $base);
+    $rem-size: math.div($pxval, $base);
 
-  @return #{$rem-size}rem;
+    @return #{$rem-size}rem;
 }
 
 @function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
+    @return $num / ($num * 0 + 1);
 }
 
 @function map-set($map, $key, $value) {
-  $new: (
-    $key: $value,
-  );
+    $new: (
+        $key: $value,
+    );
 
-  @return map-merge($map, $new);
+    @return map.merge($map, $new);
 }
 
 @function str-replace($string, $search, $replace: '') {
-  $string: to-string($string);
-  $index: str-index($string, $search);
+    $string: to-string($string);
+    $index: string.index($string, $search);
 
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-  }
+    @if $index {
+        @return string.slice($string, 1, $index - 1) + $replace +
+            str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
+    }
 
-  @return $string;
+    @return $string;
 }

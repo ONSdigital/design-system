@@ -1,28 +1,28 @@
 name: Release
 on:
-  release:
-    types: [published]
+    release:
+        types: [published]
 
 jobs:
-  add-templates-to-release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-      - name: Install dependencies
-        run: yarn install
-      - name: Build templates
-        run: |
-          cd src
-          RELEASE_VERSION=${{ github.event.release.tag_name }} yarn cdn-bundle
-      - name: Zip templates
-        run: zip -r templates.zip templates/*
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: templates.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    add-templates-to-release:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Install Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: '.nvmrc'
+            - name: Install dependencies
+              run: yarn install
+            - name: Build templates
+              run: |
+                  cd src
+                  RELEASE_VERSION=${{ github.event.release.tag_name }} yarn cdn-bundle
+            - name: Zip templates
+              run: zip -r templates.zip templates/*
+            - name: Release
+              uses: softprops/action-gh-release@v1
+              with:
+                  files: templates.zip
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

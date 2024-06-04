@@ -1,68 +1,69 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  word-wrap: break-word;
+    box-sizing: border-box;
+    word-wrap: break-word;
 }
 
 html {
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
 }
 
 body {
-  height: 100%;
-  margin: 0;
-  position: relative;
+    height: 100%;
+    margin: 0;
+    position: relative;
 }
 
 img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
 }
 
 hr {
-  border: 0;
-  border-top: 1px solid var(--ons-color-borders);
-  margin: 2rem 0 0;
+    border: 0;
+    border-top: 1px solid var(--ons-color-borders);
+    margin: 2rem 0 0;
 }
 
 %a-focus {
-  background-color: var(--ons-color-focus);
-  box-decoration-break: clone;
-  box-shadow: 0 -2px var(--ons-color-focus),
-    0 4px var(--ons-color-text-link-focus);
-  color: var(--ons-color-text-link-focus);
-  outline: 3px solid transparent;
-  outline-offset: 1px;
-  text-decoration: none;
+    background-color: var(--ons-color-focus);
+    box-decoration-break: clone;
+    box-shadow:
+        0 -2px var(--ons-color-focus),
+        0 4px var(--ons-color-text-link-focus);
+    color: var(--ons-color-text-link-focus);
+    outline: 3px solid transparent;
+    outline-offset: 1px;
+    text-decoration: none;
 }
 
 a {
-  color: var(--ons-color-text-link);
-  text-decoration-thickness: 1px;
-  text-underline-position: under;
-  &:not(.ons-u-fs-r--b):hover {
-    .ons-u-fs-l &,
-    h2:not(.ons-u-fs-m) & {
-      text-decoration-thickness: 3px;
-    }
+    color: var(--ons-color-text-link);
+    text-decoration-thickness: 1px;
+    text-underline-position: under;
+    &:not(.ons-u-fs-r--b):hover {
+        .ons-u-fs-l &,
+        h2:not(.ons-u-fs-m) & {
+            text-decoration-thickness: 3px;
+        }
 
-    @include mq(m) {
-      .ons-u-fs-m &,
-      h2 &,
-      h3 & {
-        text-decoration-thickness: 3px;
-      }
+        @include mq(m) {
+            .ons-u-fs-m &,
+            h2 &,
+            h3 & {
+                text-decoration-thickness: 3px;
+            }
+        }
     }
-  }
-  &:hover {
-    color: var(--ons-color-text-link-hover);
-    text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
-  }
-  &:focus:not(.ons-btn--link, .ons-btn--ghost, .ons-js-clear-btn, .ons-download__thumbnail--link, .ons-tab--row, .ons-skip-to-content) {
-    @extend %a-focus;
-  }
+    &:hover {
+        color: var(--ons-color-text-link-hover);
+        text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
+    }
+    &:focus:not(.ons-btn--link, .ons-btn--ghost, .ons-js-clear-btn, .ons-download__thumbnail--link, .ons-tab--row, .ons-skip-to-content) {
+        @extend %a-focus;
+    }
 }

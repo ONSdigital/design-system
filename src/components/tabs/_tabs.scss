@@ -1,144 +1,149 @@
 .ons-tabs {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 
-  &__title {
-    @extend .ons-u-fs-r--b;
-  }
-
-  // Anchor links list
-  &__list {
-    border-bottom: 0;
-    margin: 0 0 1rem;
-    overflow: visible;
-    padding: 0;
-    width: max-content;
-    // Tabs
-    &--row {
-      margin: 0;
-      position: relative;
+    &__title {
+        @extend .ons-u-fs-r--b;
     }
-  }
-  &__container {
-    border-bottom: 1px solid var(--ons-color-borders);
-    margin: 0;
-    padding: 0;
-    z-index: -2;
-  }
+
+    // Anchor links list
+    &__list {
+        border-bottom: 0;
+        margin: 0 0 1rem;
+        overflow: visible;
+        padding: 0;
+        width: max-content;
+        // Tabs
+        &--row {
+            margin: 0;
+            position: relative;
+        }
+    }
+    &__container {
+        border-bottom: 1px solid var(--ons-color-borders);
+        margin: 0;
+        padding: 0;
+        z-index: -2;
+    }
 }
 
 .ons-tab__list-item {
-  box-sizing: border-box;
-  display: list-item;
-  list-style: none;
-  margin: 0 0 0.3rem;
+    box-sizing: border-box;
+    display: list-item;
+    list-style: none;
+    margin: 0 0 0.3rem;
 
-  &--row {
-    display: inline;
-  }
+    &--row {
+        display: inline;
+    }
 }
 
 .ons-tab--row {
-  background: var(--ons-color-button-secondary);
-  border: 1px solid var(--ons-color-button-secondary);
-  border-radius: 3px 3px 0 0;
-  color: var(--ons-color-text);
-  display: inline-block;
-  height: 2.55rem;
-  line-height: 2.3rem;
-  margin: 0 0.4rem 0 0;
-  overflow: visible;
-  padding: 0 1rem;
-  position: relative;
-  text-decoration: underline;
-
-  &:hover:not(:focus) {
-    background-color: var(--ons-color-button-secondary-hover);
-    border-color: var(--ons-color-button-secondary-hover);
-    color: var(--ons-color-text);
-    text-decoration: underline solid var(--ons-color-text) 2px;
-  }
-
-  &:focus {
-    background-color: var(--ons-color-focus);
-    border-bottom: 1px solid var(--ons-color-borders);
-    box-shadow: inset 0 0 0 9px var(--ons-color-button-secondary),
-      inset 17px 0 0 0 var(--ons-color-button-secondary),
-      inset -17px 0 0 0 var(--ons-color-button-secondary),
-      inset 0 -13px 0 0 var(--ons-color-text-link-focus);
-    color: var(--ons-color-text-link-focus);
-
-    // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
-    outline: 3px solid transparent;
-    outline-offset: 1px;
-    text-decoration: underline solid var(--ons-color-text) 2px;
-  }
-
-  // Tab when selected
-  &[aria-selected='true'] {
-    background-color: var(--ons-color-page-light);
-    border-bottom: 2px white;
-    border-color: var(--ons-color-borders);
+    background: var(--ons-color-button-secondary);
+    border: 1px solid var(--ons-color-button-secondary);
     border-radius: 3px 3px 0 0;
+    color: var(--ons-color-text);
+    display: inline-block;
+    height: 2.55rem;
+    line-height: 2.3rem;
+    margin: 0 0.4rem 0 0;
+    overflow: visible;
+    padding: 0 1rem;
     position: relative;
-    text-decoration: none;
-    top: 1px;
-    z-index: 1;
+    text-decoration: underline;
+
+    &:hover:not(:focus) {
+        background-color: var(--ons-color-button-secondary-hover);
+        border-color: var(--ons-color-button-secondary-hover);
+        color: var(--ons-color-text);
+        text-decoration: underline solid var(--ons-color-text) 2px;
+    }
 
     &:focus {
-      background-color: var(--ons-color-focus);
-      box-shadow: inset 0 0 0 9px var(--ons-color-page-light),
-        inset 17px 0 0 0 var(--ons-color-page-light),
-        inset -17px 0 0 0 var(--ons-color-page-light),
-        inset 0 -13px 0 0 var(--ons-color-text-link-focus);
-      text-decoration: none;
+        background-color: var(--ons-color-focus);
+        border-bottom: 1px solid var(--ons-color-borders);
+        box-shadow:
+            inset 0 0 0 9px var(--ons-color-button-secondary),
+            inset 17px 0 0 0 var(--ons-color-button-secondary),
+            inset -17px 0 0 0 var(--ons-color-button-secondary),
+            inset 0 -13px 0 0 var(--ons-color-text-link-focus);
+        color: var(--ons-color-text-link-focus);
+
+        // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+        outline: 3px solid transparent;
+        outline-offset: 1px;
+        text-decoration: underline solid var(--ons-color-text) 2px;
     }
-  }
+
+    // Tab when selected
+    &[aria-selected='true'] {
+        background-color: var(--ons-color-page-light);
+        border-bottom: 2px var(--ons-color-white);
+        border-color: var(--ons-color-borders);
+        border-radius: 3px 3px 0 0;
+        position: relative;
+        text-decoration: none;
+        top: 1px;
+        z-index: 1;
+
+        &:focus {
+            background-color: var(--ons-color-focus);
+            box-shadow:
+                inset 0 0 0 9px var(--ons-color-page-light),
+                inset 17px 0 0 0 var(--ons-color-page-light),
+                inset -17px 0 0 0 var(--ons-color-page-light),
+                inset 0 -13px 0 0 var(--ons-color-text-link-focus);
+            text-decoration: none;
+        }
+    }
 }
 
 // Tabs - Panels
 .ons-tabs__panel {
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-  position: relative;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    position: relative;
 
-  &--hidden {
-    display: none;
-  }
+    &--hidden {
+        display: none;
+    }
 
-  &:focus {
-    box-shadow: 0 0 0 0 var(--ons-color-page-light), 0 0 0 2px var(--ons-color-text-link-focus), 0 0 0 6px var(--ons-color-focus);
-    outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
-    z-index: 1;
-  }
+    &:focus {
+        box-shadow:
+            0 0 0 0 var(--ons-color-page-light),
+            0 0 0 2px var(--ons-color-text-link-focus),
+            0 0 0 6px var(--ons-color-focus);
+        outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+        z-index: 1;
+    }
 }
 
 .ons-tabs--details {
-  border-top: 1px solid var(--ons-color-borders);
-  margin: 0;
+    border-top: 1px solid var(--ons-color-borders);
+    margin: 0;
 
-  .ons-tab {
-    border-radius: 0;
-    border-top: none;
-  }
+    .ons-tab {
+        border-radius: 0;
+        border-top: 0;
+    }
 
-  .ons-tab__list-item:first-child .ons-tab {
-    border-left: none;
-  }
+    .ons-tab__list-item:first-child .ons-tab {
+        border-left: 0;
+    }
 
-  .ons-tabs__title {
-    padding: 1rem 1rem 0;
-  }
+    .ons-tabs__title {
+        padding: 1rem 1rem 0;
+    }
 
-  .ons-tabs__list {
-    padding: 0 1rem;
-  }
+    .ons-tabs__list {
+        padding: 0 1rem;
+    }
 
-  .ons-tabs__list--row {
-    padding: 0;
-  }
+    .ons-tabs__list--row {
+        padding: 0;
+    }
 
-  .ons-tabs__panel {
-    margin-top: 1px;
-    padding: 1rem;
-  }
+    .ons-tabs__panel {
+        margin-top: 1px;
+        padding: 1rem;
+    }
 }

@@ -1,245 +1,245 @@
 @use 'sass:math';
 
 .ons-grid {
-  box-sizing: border-box;
-  font-size: 0;
-  margin-left: -$grid-gutters;
+    box-sizing: border-box;
+    font-size: 0;
+    margin-left: -$grid-gutters;
 }
 
 .ons-grid--float {
-  letter-spacing: 0;
+    letter-spacing: 0;
 }
 
 .ons-grid--center {
-  text-align: center;
-  .ons-grid__col {
-    text-align: left;
-  }
+    text-align: center;
+    .ons-grid__col {
+        text-align: left;
+    }
 }
 
 .ons-grid--center-all {
-  text-align: center;
+    text-align: center;
 }
 
 .ons-grid--reverse {
-  direction: rtl;
-  .ons-grid__col {
-    direction: ltr;
-  }
+    direction: rtl;
+    .ons-grid__col {
+        direction: ltr;
+    }
 }
 
 .ons-grid--spaced {
-  .ons-grid__col {
-    margin-bottom: $grid-gutters;
-  }
-  &.ons-grid--tight {
     .ons-grid__col {
-      margin-bottom: math.div($grid-gutters, 2);
+        margin-bottom: $grid-gutters;
     }
-  }
+    &.ons-grid--tight {
+        .ons-grid__col {
+            margin-bottom: math.div($grid-gutters, 2);
+        }
+    }
 }
 
 .ons-grid--align-mid {
-  .ons-grid__col {
-    vertical-align: middle;
-  }
+    .ons-grid__col {
+        vertical-align: middle;
+    }
 }
 
 .ons-grid--stagger-align {
-  .ons-grid__col:nth-of-type(1n) {
-    text-align: right;
-  }
-  .ons-grid__col:nth-of-type(2n) {
-    text-align: left;
-  }
+    .ons-grid__col:nth-of-type(1n) {
+        text-align: right;
+    }
+    .ons-grid__col:nth-of-type(2n) {
+        text-align: left;
+    }
 }
 
 .ons-grid--tight {
-  margin-left: math.div(-$grid-gutters, 2);
-  .ons-grid__col {
-    padding-left: math.div($grid-gutters, 2);
-  }
+    margin-left: math.div(-$grid-gutters, 2);
+    .ons-grid__col {
+        padding-left: math.div($grid-gutters, 2);
+    }
 }
 
 .ons-grid--loose {
-  margin-left: -$grid-gutters * 2;
+    margin-left: -$grid-gutters * 2;
 }
 
 .ons-grid--gutterless {
-  margin-left: 0;
-  .ons-grid__col {
-    padding-left: 0;
-  }
+    margin-left: 0;
+    .ons-grid__col {
+        padding-left: 0;
+    }
 }
 
 .ons-grid--pixelgutter {
-  margin-left: 1px;
-  .ons-grid__col {
-    margin-bottom: 1px;
-    padding-left: 1px;
-  }
+    margin-left: 1px;
+    .ons-grid__col {
+        margin-bottom: 1px;
+        padding-left: 1px;
+    }
 }
 
 .ons-grid--flex {
-  display: flex;
-  flex-flow: row wrap;
+    display: flex;
+    flex-flow: row wrap;
 
-  &.ons-grid--center {
-    justify-content: center;
-  }
+    &.ons-grid--center {
+        justify-content: center;
+    }
 
-  &.ons-grid--between {
-    justify-content: space-between;
-  }
+    &.ons-grid--between {
+        justify-content: space-between;
+    }
 
-  &.ons-grid--vertical-top {
-    align-items: start;
-  }
+    &.ons-grid--vertical-top {
+        align-items: start;
+    }
 
-  &.ons-grid--vertical-center {
-    align-items: center;
-  }
+    &.ons-grid--vertical-center {
+        align-items: center;
+    }
 }
 
 @include bp-suffix(ons-grid--no-wrap) {
-  flex-wrap: nowrap;
+    flex-wrap: nowrap;
 }
 
 @include bp-suffix(ons-grid--column, $create-between-breakpoints: true) {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 @include bp-suffix(ons-grid--bordered, false) {
-  margin-left: 0;
-  .ons-grid__col {
-    border-bottom: 1px solid var(--ons-color-borders);
-    border-top: 1px solid var(--ons-color-borders);
-    flex: 1 1 auto;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    &:first-of-type {
-      border-right: 1px solid var(--ons-color-borders);
-      padding-left: 0;
+    margin-left: 0;
+    .ons-grid__col {
+        border-bottom: 1px solid var(--ons-color-borders);
+        border-top: 1px solid var(--ons-color-borders);
+        flex: 1 1 auto;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        &:first-of-type {
+            border-right: 1px solid var(--ons-color-borders);
+            padding-left: 0;
+        }
     }
-  }
 }
 
 .ons-grid__col {
-  background-clip: content-box;
-  box-sizing: border-box;
-  display: inline-block;
-  // Fixes text overflow issues
-  min-width: 0;
-  padding-left: $grid-gutters;
-  vertical-align: top;
-  width: 100%;
+    background-clip: content-box;
+    box-sizing: border-box;
+    display: inline-block;
+    // Fixes text overflow issues
+    min-width: 0;
+    padding-left: $grid-gutters;
+    vertical-align: top;
+    width: 100%;
 
-  .ons-grid--float & {
-    display: block;
-    float: left;
-  }
+    .ons-grid--float & {
+        display: block;
+        float: left;
+    }
 
-  &--loose {
-    padding-left: $grid-gutters * 2;
-  }
+    &--loose {
+        padding-left: $grid-gutters * 2;
+    }
 
-  .ons-grid--flex & {
-    width: auto;
-  }
+    .ons-grid--flex & {
+        width: auto;
+    }
 }
 
 .ons-grid__col--flex {
-  display: flex;
+    display: flex;
 }
 
 @include bp-suffix(ons-grid__col--sticky) {
-  position: sticky;
-  top: 2rem;
+    position: sticky;
+    top: 2rem;
 }
 
 @each $breakpoint-min, $size in $grid-bp {
-  @for $column from 1 through $grid-cols {
-    $width: percentage(math.div($column, $grid-cols));
-
-    @include mq($breakpoint-min) {
-      .ons-col-#{$column}\@#{$breakpoint-min} {
-        max-width: $width;
-        width: $width;
-      }
-
-      .ons-push-#{$column}\@#{$breakpoint-min} {
-        left: $width;
-        position: relative;
-      }
-
-      .ons-pull-#{$column}\@#{$breakpoint-min} {
-        left: -$width;
-        position: relative;
-      }
-    }
-  }
-
-  @each $breakpoint-max, $size in $grid-bp {
     @for $column from 1 through $grid-cols {
-      $width: percentage(math.div($column, $grid-cols));
+        $width: math.percentage(math.div($column, $grid-cols));
 
-      @include mq($breakpoint-min, $breakpoint-max) {
-        .ons-col-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
-          max-width: $width;
-          width: $width;
-        }
+        @include mq($breakpoint-min) {
+            .ons-col-#{$column}\@#{$breakpoint-min} {
+                max-width: $width;
+                width: $width;
+            }
 
-        .ons-push-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
-          left: $width;
-          position: relative;
-        }
+            .ons-push-#{$column}\@#{$breakpoint-min} {
+                left: $width;
+                position: relative;
+            }
 
-        .ons-pull-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
-          left: -$width;
-          position: relative;
+            .ons-pull-#{$column}\@#{$breakpoint-min} {
+                left: -$width;
+                position: relative;
+            }
         }
-      }
     }
-  }
+
+    @each $breakpoint-max, $size in $grid-bp {
+        @for $column from 1 through $grid-cols {
+            $width: math.percentage(math.div($column, $grid-cols));
+
+            @include mq($breakpoint-min, $breakpoint-max) {
+                .ons-col-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+                    max-width: $width;
+                    width: $width;
+                }
+
+                .ons-push-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+                    left: $width;
+                    position: relative;
+                }
+
+                .ons-pull-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+                    left: -$width;
+                    position: relative;
+                }
+            }
+        }
+    }
 }
 
 @include bp-suffix(ons-col-auto) {
-  width: auto;
+    width: auto;
 
-  .ons-grid--flex & {
-    flex-basis: auto;
-    max-width: 100%;
-  }
+    .ons-grid--flex & {
+        flex-basis: auto;
+        max-width: 100%;
+    }
 }
 
 @include bp-suffix(ons-u-flex-shrink) {
-  flex-shrink: 1;
+    flex-shrink: 1;
 }
 
 @include bp-suffix(ons-u-flex-no-shrink) {
-  flex-shrink: 0;
+    flex-shrink: 0;
 }
 
 @include bp-suffix(ons-u-flex-grow) {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 @include bp-suffix(ons-u-flex-no-grow) {
-  flex-grow: 0;
+    flex-grow: 0;
 }
 
 @include bp-suffix(ons-u-flex-no-basis) {
-  flex-basis: 0;
+    flex-basis: 0;
 }
 
 @include bp-suffix(ons-u-flex-align-bottom) {
-  align-self: flex-end;
+    align-self: flex-end;
 }
 
 @include bp-suffix('ons-nopull-', false) {
-  left: 0;
+    left: 0;
 }
 
 @include bp-suffix('ons-nopush-', false) {
-  left: 0;
+    left: 0;
 }
