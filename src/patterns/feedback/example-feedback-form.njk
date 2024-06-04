@@ -10,25 +10,12 @@ layout: ~
 
 {% set pageConfig = {
     "header": {
-        "title": "Survey title",
-        "mastheadLogoUrl": "#0"
-    },
-    "breadcrumbs": {
-        "ariaLabel": 'Back',
-        "itemsList": [
-            {
-                "url": '/',
-                "id": "back-example-feedback-form",
-                "text": 'Back',
-                "attributes": {
-                    "data-attribute": "Example attribute"
-                }
-            }
-        ]
+        "title": "Survey title"
     },
     "footer": {
     }
 } %}
+
 {% block main %}
     {{
         onsPanel({
@@ -128,7 +115,6 @@ layout: ~
                 onsTextarea({
                     "id": "feedback-textarea-example-feedback-form",
                     "name": "feedback-text",
-                    "width": "30",
                     "label": {
                         "text": "Enter your feedback",
                         "description": "Do not include confidential information, such as your contact details"
