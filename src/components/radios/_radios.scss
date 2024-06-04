@@ -1,22 +1,22 @@
 .ons-radios {
-  &__items {
-    @extend .ons-checkboxes__items;
-  }
-
-  &__item {
-    @extend .ons-checkboxes__item;
-
-    &--no-border {
-      @extend .ons-checkboxes__item--no-border;
-
-      margin-bottom: 0.8rem;
-      &:last-child {
-        margin-bottom: 0;
-      }
+    &__items {
+        @extend .ons-checkboxes__items;
     }
-  }
 
-  &__label {
-    @extend .ons-checkboxes__label;
-  }
+    &__item {
+        @extend .ons-checkboxes__item;
+
+        &--no-border {
+            @extend .ons-checkboxes__item--no-border;
+
+            margin-bottom: 0.8rem;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__label {
+        @extend .ons-checkboxes__label;
+    }
 }

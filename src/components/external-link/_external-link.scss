@@ -1,24 +1,24 @@
 .ons-external-link {
-  &__icon {
-    visibility: hidden;
-    white-space: nowrap;
-  }
-  .ons-icon {
-    fill: var(--ons-color-grey-100);
-    padding-bottom: 0.1rem;
-    visibility: visible;
-  }
-  &:focus {
-    .ons-icon {
-      fill: var(--ons-color-black);
+    &__icon {
+        visibility: hidden;
+        white-space: nowrap;
     }
-  }
-  &:hover {
     .ons-icon {
-      fill: var(--ons-color-text-link-hover);
-      .ons-footer & {
-        fill: var(--ons-color-black);
-      }
+        fill: var(--ons-color-grey-100);
+        padding-bottom: 0.1rem;
+        visibility: visible;
     }
-  }
+    &:focus {
+        .ons-icon {
+            fill: var(--ons-color-black);
+        }
+    }
+    &:hover {
+        .ons-icon {
+            fill: var(--ons-color-text-link-hover);
+            .ons-footer & {
+                fill: var(--ons-color-black);
+            }
+        }
+    }
 }

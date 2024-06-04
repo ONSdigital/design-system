@@ -1,21 +1,21 @@
 .ons-video {
-  @extend .ons-u-mb-m;
+    @extend .ons-u-mb-m;
 
-  &--hasIframe {
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 */
-    position: relative;
-  }
+    &--hasIframe {
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 */
+        position: relative;
+    }
 
-  &__iframe {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
+    &__iframe {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
 
-  &__img {
-    width: 100%;
-  }
+    &__img {
+        width: 100%;
+    }
 }

@@ -2,224 +2,224 @@ $checkbox-input-width: 22px;
 $checkbox-padding: 11px;
 
 .ons-checkbox {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  z-index: 1;
-
-  &__input {
-    appearance: none;
-    background-color: var(--ons-color-input-bg);
-    border: 2px solid var(--ons-color-input-border);
-    border-radius: 0.2rem;
-    box-sizing: border-box;
-    cursor: pointer;
-    height: $checkbox-input-width;
-    left: $checkbox-padding;
-    position: absolute;
-    top: $checkbox-padding + 3px;
-    width: $checkbox-input-width;
+    display: inline-block;
+    position: relative;
+    width: 100%;
     z-index: 1;
 
-    // Check icon
-    &::after {
-      border: solid var(--ons-color-input-border);
-      border-top-color: var(--ons-color-input-bg);
-      border-width: 0 0 3px 3px;
-      box-sizing: border-box;
-      content: '';
-      height: 7px;
-      left: 2px;
-      opacity: 0;
-      position: absolute;
-      top: 4px;
-      transform: rotate(-45deg);
-      width: 14px;
-    }
-
-    &:focus,
-    &:checked {
-      outline: none;
-    }
-
-    &:checked::after {
-      opacity: 1;
-    }
-
-    &:disabled {
-      border: 2px solid var(--ons-color-border-disabled);
-      cursor: not-allowed;
-    }
-
-    &:disabled:checked::after {
-      border-color: var(--ons-color-border-disabled);
-    }
-
-    &:disabled + .ons-checkbox__label,
-    &:disabled:checked + .ons-checkbox__label {
-      color: var(--ons-color-border-disabled);
-      cursor: not-allowed;
-
-      &::before {
-        border: 1px solid var(--ons-color-border-disabled);
-      }
-    }
-
-    &:disabled:checked + .ons-checkbox__label {
-      &::before {
-        box-shadow: 0 0 0 1px var(--ons-color-border-disabled);
-      }
-    }
-  }
-
-  &--no-border {
-    & > .ons-checkbox__label {
-      padding: 0 0 0 1.85rem;
-
-      &::before {
-        background: none !important;
-        border: none !important;
-        box-shadow: none !important;
-      }
-
-      & > .ons-checkbox__label--with-description {
-        padding: 0;
-      }
-    }
-
-    & > .ons-checkbox__input {
-      left: 0.05rem;
-      top: 0.15rem;
-
-      &:checked,
-      &:focus {
-        & + .ons-checkbox__label::before {
-          background: none;
-          border: none;
-          box-shadow: none;
-          outline: none;
-        }
-      }
-
-      &:focus {
-        @extend %ons-input-focus;
-      }
-    }
-
-    & .ons-checkbox__other {
-      margin: 0.5rem 0 0.5rem 0.5rem;
-    }
-  }
-
-  &--no-label {
-    & > .ons-checkbox__input {
-      left: auto;
-      position: relative;
-      top: auto;
-      vertical-align: middle;
-
-      &:checked,
-      &:focus {
-        & + .ons-checkbox__label::before {
-          background: none;
-          border: none;
-          box-shadow: none;
-        }
-      }
-
-      &:focus {
-        @extend %ons-input-focus;
-      }
-
-      & + .ons-checkbox__label {
-        @extend .ons-u-vh;
-      }
-    }
-  }
-
-  &__label {
-    cursor: pointer;
-    display: block;
-    padding: $checkbox-padding 1rem $checkbox-padding ($checkbox-padding * 2 + $checkbox-input-width);
-    width: 100%;
-
-    &--with-description {
-      padding: 0 1rem $checkbox-padding 0;
-    }
-
-    &::before {
-      background: var(--ons-color-white);
-      border: 1px solid var(--ons-color-input-border);
-      border-radius: 3px;
-      inset: 0;
-      content: '';
-      position: absolute;
-      z-index: -1;
-    }
-
-    * {
-      pointer-events: none;
-    }
-  }
-
-  &__description {
-    display: block;
-    margin-top: 0.25rem;
-  }
-
-  &__other {
-    border-left: 4px solid var(--ons-color-borders-indent);
-    display: block;
-    margin: 0 1rem 0.5rem 1.1rem;
-    padding: 0 $checkbox-padding $checkbox-padding $checkbox-padding * 2 - 1;
-  }
-
-  &__input:checked + &__label::before {
-    background: var(--ons-color-grey-5);
-    box-shadow: 0 0 0 1px var(--ons-color-input-border);
-    outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
-  }
-
-  &__input:focus + &__label::before {
-    @extend %ons-input-focus;
-  }
-
-  &__input:not(:checked) ~ &__other {
-    display: none;
-  }
-
-  &__input:not(:checked) ~ &__other--open {
-    display: block;
-  }
-
-  &--toggle & {
     &__input {
-      left: 0;
-      top: 0.2rem;
+        appearance: none;
+        background-color: var(--ons-color-input-bg);
+        border: 2px solid var(--ons-color-input-border);
+        border-radius: 0.2rem;
+        box-sizing: border-box;
+        cursor: pointer;
+        height: $checkbox-input-width;
+        left: $checkbox-padding;
+        position: absolute;
+        top: $checkbox-padding + 3px;
+        width: $checkbox-input-width;
+        z-index: 1;
 
-      &:focus {
-        @extend %ons-input-focus;
-      }
+        // Check icon
+        &::after {
+            border: solid var(--ons-color-input-border);
+            border-top-color: var(--ons-color-input-bg);
+            border-width: 0 0 3px 3px;
+            box-sizing: border-box;
+            content: '';
+            height: 7px;
+            left: 2px;
+            opacity: 0;
+            position: absolute;
+            top: 4px;
+            transform: rotate(-45deg);
+            width: 14px;
+        }
+
+        &:focus,
+        &:checked {
+            outline: none;
+        }
+
+        &:checked::after {
+            opacity: 1;
+        }
+
+        &:disabled {
+            border: 2px solid var(--ons-color-border-disabled);
+            cursor: not-allowed;
+        }
+
+        &:disabled:checked::after {
+            border-color: var(--ons-color-border-disabled);
+        }
+
+        &:disabled + .ons-checkbox__label,
+        &:disabled:checked + .ons-checkbox__label {
+            color: var(--ons-color-border-disabled);
+            cursor: not-allowed;
+
+            &::before {
+                border: 1px solid var(--ons-color-border-disabled);
+            }
+        }
+
+        &:disabled:checked + .ons-checkbox__label {
+            &::before {
+                box-shadow: 0 0 0 1px var(--ons-color-border-disabled);
+            }
+        }
+    }
+
+    &--no-border {
+        > .ons-checkbox__label {
+            padding: 0 0 0 1.85rem;
+
+            &::before {
+                background: none !important;
+                border: 0 !important;
+                box-shadow: none !important;
+            }
+
+            > .ons-checkbox__label--with-description {
+                padding: 0;
+            }
+        }
+
+        > .ons-checkbox__input {
+            left: 0.05rem;
+            top: 0.15rem;
+
+            &:checked,
+            &:focus {
+                + .ons-checkbox__label::before {
+                    background: none;
+                    border: 0;
+                    box-shadow: none;
+                    outline: none;
+                }
+            }
+
+            &:focus {
+                @extend %ons-input-focus;
+            }
+        }
+
+        .ons-checkbox__other {
+            margin: 0.5rem 0 0.5rem 0.5rem;
+        }
+    }
+
+    &--no-label {
+        > .ons-checkbox__input {
+            left: auto;
+            position: relative;
+            top: auto;
+            vertical-align: middle;
+
+            &:checked,
+            &:focus {
+                + .ons-checkbox__label::before {
+                    background: none;
+                    border: 0;
+                    box-shadow: none;
+                }
+            }
+
+            &:focus {
+                @extend %ons-input-focus;
+            }
+
+            + .ons-checkbox__label {
+                @extend .ons-u-vh;
+            }
+        }
     }
 
     &__label {
-      padding: 0 0 0 ($checkbox-input-width + $checkbox-padding);
+        cursor: pointer;
+        display: block;
+        padding: $checkbox-padding 1rem $checkbox-padding ($checkbox-padding * 2 + $checkbox-input-width);
+        width: 100%;
 
-      &::before {
-        background: none;
-        border: 0;
-      }
+        &--with-description {
+            padding: 0 1rem $checkbox-padding 0;
+        }
+
+        &::before {
+            background: var(--ons-color-white);
+            border: 1px solid var(--ons-color-input-border);
+            border-radius: 3px;
+            inset: 0;
+            content: '';
+            position: absolute;
+            z-index: -1;
+        }
+
+        * {
+            pointer-events: none;
+        }
     }
 
-    &__input:checked + .ons-checkbox__label::before,
-    &__input:focus + .ons-checkbox__label::before {
-      background: transparent;
-      box-shadow: none;
+    &__description {
+        display: block;
+        margin-top: 0.25rem;
     }
 
-    &__input:focus + .ons-checkbox__label::before {
-      border: 0;
-      outline: none;
+    &__other {
+        border-left: 4px solid var(--ons-color-borders-indent);
+        display: block;
+        margin: 0 1rem 0.5rem 1.1rem;
+        padding: 0 $checkbox-padding $checkbox-padding $checkbox-padding * 2 - 1;
     }
-  }
+
+    &__input:checked + &__label::before {
+        background: var(--ons-color-grey-5);
+        box-shadow: 0 0 0 1px var(--ons-color-input-border);
+        outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+    }
+
+    &__input:focus + &__label::before {
+        @extend %ons-input-focus;
+    }
+
+    &__input:not(:checked) ~ &__other {
+        display: none;
+    }
+
+    &__input:not(:checked) ~ &__other--open {
+        display: block;
+    }
+
+    &--toggle & {
+        &__input {
+            left: 0;
+            top: 0.2rem;
+
+            &:focus {
+                @extend %ons-input-focus;
+            }
+        }
+
+        &__label {
+            padding: 0 0 0 ($checkbox-input-width + $checkbox-padding);
+
+            &::before {
+                background: none;
+                border: 0;
+            }
+        }
+
+        &__input:checked + .ons-checkbox__label::before,
+        &__input:focus + .ons-checkbox__label::before {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        &__input:focus + .ons-checkbox__label::before {
+            border: 0;
+            outline: none;
+        }
+    }
 }
