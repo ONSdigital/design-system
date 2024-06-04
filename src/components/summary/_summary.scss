@@ -5,239 +5,235 @@ $summary-col-spacing: 1rem;
 $hub-row-spacing: 1.3rem;
 
 .ons-summary {
-  &__items {
-    border-collapse: collapse;
-    border-spacing: 0;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    width: 100%;
+    &__items {
+        border-collapse: collapse;
+        border-spacing: 0;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        width: 100%;
 
-    + .ons-summary__group-title {
-      margin-top: 1.5rem;
-    }
-  }
-
-  &__row {
-    display: flex;
-    margin: 0;
-  }
-
-  &__item {
-    line-height: 1.4;
-
-    &:not(:last-child),
-    &:not(.ons-summary__group--card .ons-summary__item):nth-of-type(1) {
-      border-bottom: 1px solid var(--ons-color-borders);
-    }
-
-    &--total {
-      @extend .ons-u-fs-m;
-
-      border-width: 2px;
-      font-weight: $font-weight-bold;
-
-      .ons-summary__values {
-        padding-top: 23px;
-      }
-    }
-
-    &--error {
-      background: var(--ons-color-errors-tint);
-      border-left: 8px solid var(--ons-color-errors);
-    }
-  }
-
-  &__row-title {
-    padding: $summary-row-spacing 0;
-    text-align: left;
-  }
-  // reduces the gap between row title and summary title when there is no group title
-  &__title + &__group &__row-title--no-group-title {
-    padding-top: 0.5rem;
-  }
-
-  &__item-title,
-  &__values,
-  &__actions {
-    hyphens: manual;
-    margin: 0;
-    overflow-wrap: break-word;
-    padding: 0 0 $summary-row-spacing;
-    vertical-align: top;
-    word-wrap: break-word;
-  }
-
-  &__item-title {
-    padding-top: $summary-row-spacing;
-    position: relative;
-    &--text {
-      display: block;
-      overflow: hidden;
-      padding-left: 2rem;
-    }
-    &-icon {
-      left: 0;
-      position: absolute;
-      text-align: center;
-      &--check .ons-icon {
-        fill: var(--ons-color-leaf-green) !important;
-      }
-    }
-  }
-
-  &__actions {
-    white-space: nowrap;
-  }
-
-  &__spacer {
-    background: var(--ons-color-black);
-    display: inline-block;
-    height: 1.15rem;
-    margin: 0.18rem 0.25rem 0;
-    vertical-align: middle;
-    width: 1px;
-  }
-
-  // Item Modifiers
-  &__item--total & {
-    &__values {
-      @extend .ons-u-fs-m;
-    }
-  }
-
-  &__item--error & {
-    &__row-title--error {
-      color: var(--ons-color-errors);
-      font-weight: $font-weight-bold;
-      padding: $summary-row-spacing $summary-col-spacing;
-    }
-
-    &__row-title,
-    &__item-title,
-    &__values,
-    &__actions {
-      padding-left: $summary-col-spacing;
-      padding-right: $summary-col-spacing;
-
-      @include mq('s') {
-        padding-left: math.div($summary-col-spacing, 2);
-        padding-right: math.div($summary-col-spacing, 2);
-
-        &:first-child,
-        & {
-          padding-left: $summary-col-spacing;
+        + .ons-summary__group-title {
+            margin-top: 1.5rem;
         }
-
-        &:last-child {
-          padding-right: $summary-col-spacing;
-        }
-      }
-    }
-  }
-
-  // Modifiers
-  &--hub & {
-    &__actions {
-      padding: 0 0 $hub-row-spacing;
-    }
-
-    &__item-title {
-      @extend .ons-u-fs-r--b;
-
-      padding-top: $hub-row-spacing;
-    }
-  }
-
-  &:not(&--hub) & {
-    &__values {
-      @extend .ons-u-fs-r--b;
-    }
-  }
-
-  // Breakpoints
-  @include mq(xxs, m, none, '<') {
-    &__item-title,
-    &__values,
-    &__actions {
-      display: block;
-    }
-
-    &--hub & {
-      &__values {
-        display: none;
-      }
     }
 
     &__row {
-      flex-direction: column;
+        display: flex;
+        margin: 0;
     }
-  }
 
-  @include mq(m) {
+    &__item {
+        line-height: 1.4;
+
+        &:not(:last-child),
+        &:not(.ons-summary__group--card .ons-summary__item):nth-of-type(1) {
+            border-bottom: 1px solid var(--ons-color-borders);
+        }
+
+        &--total {
+            @extend .ons-u-fs-m;
+
+            border-width: 2px;
+            font-weight: $font-weight-bold;
+
+            .ons-summary__values {
+                padding-top: 23px;
+
+                @extend .ons-u-fs-m;
+            }
+        }
+
+        &--error {
+            background: var(--ons-color-errors-tint);
+            border-left: 8px solid var(--ons-color-errors);
+        }
+    }
+
+    &__row-title {
+        padding: $summary-row-spacing 0;
+        text-align: left;
+    }
+    // reduces the gap between row title and summary title when there is no group title
+    &__title + &__group &__row-title--no-group-title {
+        padding-top: 0.5rem;
+    }
+
     &__item-title,
     &__values,
     &__actions {
-      overflow: auto;
-      flex: 5 1 33%;
-      padding-top: $summary-row-spacing;
-      vertical-align: top;
-      &:not(:last-child) {
-        padding-right: $summary-col-spacing;
-      }
+        hyphens: manual;
+        margin: 0;
+        overflow-wrap: break-word;
+        padding: 0 0 $summary-row-spacing;
+        vertical-align: top;
+        word-wrap: break-word;
+    }
+
+    &__item-title {
+        padding-top: $summary-row-spacing;
+        position: relative;
+        &--text {
+            display: block;
+            overflow: hidden;
+            padding-left: 2rem;
+        }
+        &-icon {
+            left: 0;
+            position: absolute;
+            text-align: center;
+            &--check .ons-icon {
+                fill: var(--ons-color-leaf-green) !important;
+            }
+        }
     }
 
     &__actions {
-      display: flex;
-      justify-content: right;
+        white-space: nowrap;
     }
 
-    &__button {
-      align-self: flex-start;
+    &__spacer {
+        background: var(--ons-color-black);
+        display: inline-block;
+        height: 1.15rem;
+        margin: 0.18rem 0.25rem 0;
+        vertical-align: middle;
+        width: 1px;
     }
 
-    &__values--2 {
-      flex: 10.5 1 66%;
+    // Item Modifiers
+    &__item--error & {
+        &__row-title--error {
+            color: var(--ons-color-errors);
+            font-weight: $font-weight-bold;
+            padding: $summary-row-spacing $summary-col-spacing;
+        }
+
+        &__row-title,
+        &__item-title,
+        &__values,
+        &__actions {
+            padding-left: $summary-col-spacing;
+            padding-right: $summary-col-spacing;
+
+            @include mq('s') {
+                padding-left: math.div($summary-col-spacing, 2);
+                padding-right: math.div($summary-col-spacing, 2);
+
+                &:first-child,
+                & {
+                    padding-left: $summary-col-spacing;
+                }
+
+                &:last-child {
+                    padding-right: $summary-col-spacing;
+                }
+            }
+        }
     }
 
+    // Modifiers
     &--hub & {
-      &__item-title,
-      &__values,
-      &__actions {
-        padding-top: $hub-row-spacing;
-      }
-    }
-  }
+        &__actions {
+            padding: 0 0 $hub-row-spacing;
+        }
 
-  &__group {
-    &--card {
-      border: 1px solid var(--ons-color-borders-light);
-      .ons-summary__items {
-        padding: 0 1.25rem;
-        .ons-summary__item:not(:last-child) {
-          border-bottom: 1px solid var(--ons-color-borders-light);
+        &__item-title {
+            @extend .ons-u-fs-r--b;
+
+            padding-top: $hub-row-spacing;
         }
-      }
-      .ons-summary__group-title {
-        background-color: var(--ons-color-grey-5);
-        padding: 1rem 1.25rem;
-      }
-      .ons-summary__link {
-        padding: 0 1.25rem;
-        div {
-          padding: 1rem 0;
-          border-top: 1px solid var(--ons-color-borders-light);
-        }
-      }
-      .ons-summary__placeholder {
-        display: block;
-        padding: 0.5rem 1.25rem 0;
-      }
-      .ons-summary__placeholder + .ons-summary__link {
-        div {
-          border-top: none;
-        }
-      }
     }
-  }
+
+    &:not(&--hub) & {
+        &__values {
+            @extend .ons-u-fs-r--b;
+        }
+    }
+
+    // Breakpoints
+    @include mq(xxs, m, none, '<') {
+        &__item-title,
+        &__values,
+        &__actions {
+            display: block;
+        }
+
+        &--hub & {
+            &__values {
+                display: none;
+            }
+        }
+
+        &__row {
+            flex-direction: column;
+        }
+    }
+
+    @include mq(m) {
+        &__item-title,
+        &__values,
+        &__actions {
+            overflow: auto;
+            flex: 5 1 33%;
+            padding-top: $summary-row-spacing;
+            vertical-align: top;
+            &:not(:last-child) {
+                padding-right: $summary-col-spacing;
+            }
+        }
+
+        &__actions {
+            display: flex;
+            justify-content: right;
+        }
+
+        &__button {
+            align-self: flex-start;
+        }
+
+        &__values--2 {
+            flex: 10.5 1 66%;
+        }
+
+        &--hub & {
+            &__item-title,
+            &__values,
+            &__actions {
+                padding-top: $hub-row-spacing;
+            }
+        }
+    }
+
+    &__group {
+        &--card {
+            border: 1px solid var(--ons-color-borders-light);
+            .ons-summary__items {
+                padding: 0 1.25rem;
+                .ons-summary__item:not(:last-child) {
+                    border-bottom: 1px solid var(--ons-color-borders-light);
+                }
+            }
+            .ons-summary__group-title {
+                background-color: var(--ons-color-grey-5);
+                padding: 1rem 1.25rem;
+            }
+            .ons-summary__link {
+                padding: 0 1.25rem;
+                div {
+                    padding: 1rem 0;
+                    border-top: 1px solid var(--ons-color-borders-light);
+                }
+            }
+            .ons-summary__placeholder {
+                display: block;
+                padding: 0.5rem 1.25rem 0;
+            }
+            .ons-summary__placeholder + .ons-summary__link {
+                div {
+                    border-top: 0;
+                }
+            }
+        }
+    }
 }
