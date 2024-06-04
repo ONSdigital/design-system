@@ -11,7 +11,7 @@ const EXAMPLE_SUMMARY_ROWS = {
       // Contains - row with icon, attributes and rowTitleAttributes, other value, no action
       id: 'row-id-1',
       title: 'row title 1',
-      rowItems: [
+      items: [
         {
           titleAttributes: {
             a: 123,
@@ -39,7 +39,7 @@ const EXAMPLE_SUMMARY_ROWS = {
       title: 'row title 2',
       error: true,
       errorMessage: 'there are errors',
-      rowItems: [
+      items: [
         {
           id: 'item-id-2',
           valueList: [
@@ -70,7 +70,7 @@ const EXAMPLE_SUMMARY_ROWS = {
       // Contains - row with multiple rows and multiple values
       id: 'row-id-3',
       title: 'row title 3',
-      rowItems: [
+      items: [
         {
           id: 'item-id-3',
           valueList: [
@@ -97,7 +97,7 @@ const EXAMPLE_SUMMARY_ROWS = {
       id: 'row-id-4',
       title: 'row title 4',
       total: true,
-      rowItems: [
+      items: [
         {
           id: 'item-id-5',
           valueList: [
@@ -139,7 +139,7 @@ const EXAMPLE_SUMMARY_GROUPS_NO_ROWS = {
 const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
   rows: [
     {
-      rowItems: [
+      items: [
         {
           title: 'row item 1',
           valueList: [
@@ -193,7 +193,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
       ],
     },
     {
-      rowItems: [
+      items: [
         {
           title: 'row item 4',
           valueList: [
