@@ -6,6 +6,10 @@
 
   &__items {
     display: block;
+
+    @include mq(s) {
+      max-width: max-content;
+    }
   }
 
   &__item {
@@ -19,7 +23,9 @@
 
     @include mq(s) {
       min-width: 20rem;
-      width: auto;
+      :has(select):first-child {
+        min-width: 25rem;
+      }
 
       &--no-border {
         min-width: 0;
@@ -31,5 +37,9 @@
     @extend .ons-checkboxes__item;
 
     margin-bottom: 0;
+
+    @include mq(s) {
+      max-width: max-content;
+    }
   }
 }
