@@ -6,6 +6,7 @@ layout: ~
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/textarea/_macro.njk" import onsTextarea %}
 {% from "components/button/_macro.njk" import onsButton %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 {% set pageConfig = {
     "header": {
@@ -29,107 +30,122 @@ layout: ~
     }
 } %}
 {% block main %}
-    <h1>Give feedback about this service</h1>
+    {{
+        onsPanel({
+            "variant": "success",
+            "id": "survey-success",
+            "iconType": "check",
+            "iconSize": "xl",
+            "classes": "ons-u-mb-m",
+            "body": "<h1>Thank you for completing the survey</h1>
+            Your answers have been submitted"
+        })
+    }}
+    <div class="ons-feedback">
+        <h2>Give feedback about this service</h2>
 
-    {{
-        onsRadios({
-            "legend": "Select what your feedback is about",
-            "name": "feedback-type",
-            "radios": [
-                {
-                    "id": "questions-example-feedback-form",
-                    "label": {
-                        "text": "The questions",
-                        "description": "For example, questions not clear, answer options not relevant"
-                    },
-                    "value": "questions",
-                    "other": {
-                        "otherType": "select",
-                        "id": "other-select-feedback-form",
-                        "classes": "ons-input--block",
-                        "name": "topic",
-                        "label": {
-                        "text": "Question topic"
-                        },
-                        "options": [
-                            {
-                                "value": "",
-                                "text": "Select an option",
-                                "disabled": true,
-                                "selected": true
+        <form action="#0">
+            {{
+                onsRadios({
+                    "legend": "Select what your feedback is about",
+                    "name": "feedback-type",
+                    "radios": [
+                        {
+                            "id": "questions-example-feedback-form",
+                            "label": {
+                                "text": "The questions",
+                                "description": "For example, questions not clear, answer options not relevant"
                             },
-                            {
-                                "value": "general",
-                                "text": "General"
-                            },
-                            {
-                                "value": "people-who-live-here",
-                                "text": "People who live here"
-                            },
-                            {
-                                "value": "visitors",
-                                "text": "Visitors"
-                            },
-                            {
-                                "value": "household-accommodation",
-                                "text": "Household and accommodation"
-                            },
-                            {
-                                "value": "personal-details",
-                                "text": "Personal details"
-                            },
-                            {
-                                "value": "health",
-                                "text": "Health"
-                            },
-                            {
-                                "value": "qualifications",
-                                "text": "Qualifications"
-                            },
-                            {
-                                "value": "employment",
-                                "text": "Employment"
+                            "value": "questions",
+                            "other": {
+                                "otherType": "select",
+                                "id": "other-select-feedback-form",
+                                "classes": "ons-input--block",
+                                "name": "topic",
+                                "label": {
+                                "text": "Question topic"
+                                },
+                                "options": [
+                                    {
+                                        "value": "",
+                                        "text": "Select an option",
+                                        "disabled": true,
+                                        "selected": true
+                                    },
+                                    {
+                                        "value": "general",
+                                        "text": "General"
+                                    },
+                                    {
+                                        "value": "people-who-live-here",
+                                        "text": "People who live here"
+                                    },
+                                    {
+                                        "value": "visitors",
+                                        "text": "Visitors"
+                                    },
+                                    {
+                                        "value": "household-accommodation",
+                                        "text": "Household and accommodation"
+                                    },
+                                    {
+                                        "value": "personal-details",
+                                        "text": "Personal details"
+                                    },
+                                    {
+                                        "value": "health",
+                                        "text": "Health"
+                                    },
+                                    {
+                                        "value": "qualifications",
+                                        "text": "Qualifications"
+                                    },
+                                    {
+                                        "value": "employment",
+                                        "text": "Employment"
+                                    }
+                                ]
                             }
-                        ]
+                        },
+                        {
+                            "id": "design-example-feedback-form",
+                            "label": {
+                                "text": "Page design and structure"
+                            },
+                            "value": "design"
+                        },
+                        {
+                            "id": "general-example-feedback-form",
+                            "label": {
+                                "text": "General feedback about this service"
+                            },
+                            "value": "general"
+                        }
+                    ]
+                })
+            }}
+            {{
+                onsTextarea({
+                    "id": "feedback-textarea-example-feedback-form",
+                    "name": "feedback-text",
+                    "width": "30",
+                    "label": {
+                        "text": "Enter your feedback",
+                        "description": "Do not include confidential information, such as your contact details"
+                    },
+                    "charCheckLimit": {
+                        "limit": 1000,
+                        "charCountSingular": "You have {x} character remaining",
+                        "charCountPlural": "You have {x} characters remaining"
                     }
-                },
-                {
-                    "id": "design-example-feedback-form",
-                    "label": {
-                        "text": "Page design and structure"
-                    },
-                    "value": "design"
-                },
-                {
-                    "id": "general-example-feedback-form",
-                    "label": {
-                        "text": "General feedback about this service"
-                    },
-                    "value": "general"
-                }
-            ]
-        })
-    }}
-    {{
-        onsTextarea({
-            "id": "feedback-textarea-example-feedback-form",
-            "name": "feedback-text",
-            "width": "30",
-            "label": {
-                "text": "Enter your feedback",
-                "description": "Do not include confidential information, such as your contact details"
-            },
-            "charCheckLimit": {
-                "limit": 1000,
-                "charCountSingular": "You have {x} character remaining",
-                "charCountPlural": "You have {x} characters remaining"
-            }
-        })
-    }}
-    {{
-        onsButton({
-            "text": "Send feedback",
-            "classes": "ons-u-mt-m"
-        })
-    }}
+                })
+            }}
+            {{
+                onsButton({
+                    "text": "Send feedback",
+                    "classes": "ons-u-mt-m"
+                })
+            }}
+        </form>
+    </div>
 {% endblock %}
