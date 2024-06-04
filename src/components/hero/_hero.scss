@@ -1,67 +1,67 @@
 // Default
 .ons-hero {
-  background-color: var(--ons-color-hero-bg);
-  display: flex;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-
-  &--dark {
-    background-color: var(--ons-color-hero-bg-dark);
-  }
-
-  &__container {
-    align-items: center;
+    background-color: var(--ons-color-hero-bg);
     display: flex;
-    min-height: 300px;
+    overflow: hidden;
+    padding: 0;
     position: relative;
 
-    &--has-details {
-      align-items: flex-start; // Prevents undesired shift if not enough content
+    &--dark {
+        background-color: var(--ons-color-hero-bg-dark);
     }
-  }
 
-  &__content {
-    height: 100%;
-  }
+    &__container {
+        align-items: center;
+        display: flex;
+        min-height: 300px;
+        position: relative;
 
-  &__pre-title {
-    margin-bottom: 0.5rem;
-
-    @include mq(xxs, m) {
-      max-width: 145px;
+        &--has-details {
+            align-items: flex-start; // Prevents undesired shift if not enough content
+        }
     }
-  }
 
-  &__title {
-    font-size: 2.3rem;
-    line-height: 1.2;
-  }
+    &__content {
+        height: 100%;
+    }
 
-  &__details {
-    padding-bottom: 3rem;
-    padding-top: 2rem;
-    position: relative;
-    z-index: 5;
-  }
+    &__pre-title {
+        margin-bottom: 0.5rem;
 
-  &--dark & {
+        @include mq(xxs, m) {
+            max-width: 145px;
+        }
+    }
+
+    &__title {
+        font-size: 2.3rem;
+        line-height: 1.2;
+    }
+
     &__details {
-      color: var(--ons-color-text-inverse) !important;
-
-      a {
-        color: inherit;
-        text-decoration: underline solid var(--ons-color-text-inverse-link) 1px;
-      }
-
-      a:hover {
-        color: var(--ons-color-text-inverse-link-hover);
-        text-decoration-thickness: 2px;
-      }
-
-      .ons-details__heading {
-        color: inherit;
-      }
+        padding-bottom: 3rem;
+        padding-top: 2rem;
+        position: relative;
+        z-index: 5;
     }
-  }
+
+    &--dark & {
+        &__details {
+            color: var(--ons-color-text-inverse) !important;
+
+            a {
+                color: inherit;
+                text-decoration: underline solid var(--ons-color-text-inverse-link) 1px;
+            }
+
+            a:hover {
+                color: var(--ons-color-text-inverse-link-hover);
+                text-decoration-thickness: 2px;
+            }
+
+            .ons-details__heading {
+                color: inherit;
+            }
+        }
+    }
 }

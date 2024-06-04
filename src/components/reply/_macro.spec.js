@@ -6,70 +6,70 @@ import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_TEXTAREA = {
-  id: 'reply-textarea',
-  name: 'reply',
-  label: {
-    text: 'Reply',
-    description: 'Reply description',
-  },
-  charCheckLimit: {
-    limit: 300,
-    charCountSingular: '{x} more character needed',
-    charCountPlural: '{x} more characters needed',
-  },
-  rows: 5,
+    id: 'reply-textarea',
+    name: 'reply',
+    label: {
+        text: 'Reply',
+        description: 'Reply description',
+    },
+    charCheckLimit: {
+        limit: 300,
+        charCountSingular: '{x} more character needed',
+        charCountPlural: '{x} more characters needed',
+    },
+    rows: 5,
 };
 
 const EXAMPLE_BUTTON = {
-  id: 'reply-button',
-  type: 'button',
-  text: 'Send message',
-  classes: 'u-mb-xs',
+    id: 'reply-button',
+    type: 'button',
+    text: 'Send message',
+    classes: 'u-mb-xs',
 };
 
 const EXAMPLE_REPLY = {
-  textarea: EXAMPLE_TEXTAREA,
-  button: EXAMPLE_BUTTON,
-  closeLinkText: 'Close conversation',
-  closeLinkUrl: '/close-conversation',
+    textarea: EXAMPLE_TEXTAREA,
+    button: EXAMPLE_BUTTON,
+    closeLinkText: 'Close conversation',
+    closeLinkUrl: '/close-conversation',
 };
 
 describe('macro: reply', () => {
-  it('passes jest-axe checks', async () => {
-    const $ = cheerio.load(renderComponent('reply', EXAMPLE_REPLY));
+    it('passes jest-axe checks', async () => {
+        const $ = cheerio.load(renderComponent('reply', EXAMPLE_REPLY));
 
-    const results = await axe($.html());
-    expect(results).toHaveNoViolations();
-  });
+        const results = await axe($.html());
+        expect(results).toHaveNoViolations();
+    });
 
-  it('renders the provided `textarea` using the `textarea` component', () => {
-    const faker = templateFaker();
-    const textareaSpy = faker.spy('textarea');
+    it('renders the provided `textarea` using the `textarea` component', () => {
+        const faker = templateFaker();
+        const textareaSpy = faker.spy('textarea');
 
-    cheerio.load(faker.renderComponent('reply', EXAMPLE_REPLY));
-    expect(textareaSpy.occurrences[0]).toEqual(EXAMPLE_TEXTAREA);
-  });
+        cheerio.load(faker.renderComponent('reply', EXAMPLE_REPLY));
+        expect(textareaSpy.occurrences[0]).toEqual(EXAMPLE_TEXTAREA);
+    });
 
-  it('renders the provided `button` using the `button` component', () => {
-    const faker = templateFaker();
-    const buttonSpy = faker.spy('button');
+    it('renders the provided `button` using the `button` component', () => {
+        const faker = templateFaker();
+        const buttonSpy = faker.spy('button');
 
-    cheerio.load(faker.renderComponent('reply', EXAMPLE_REPLY));
+        cheerio.load(faker.renderComponent('reply', EXAMPLE_REPLY));
 
-    expect(buttonSpy.occurrences[0]).toEqual(EXAMPLE_BUTTON);
-  });
+        expect(buttonSpy.occurrences[0]).toEqual(EXAMPLE_BUTTON);
+    });
 
-  it('has the expected hyperlink URL', async () => {
-    const $ = cheerio.load(renderComponent('reply', EXAMPLE_REPLY));
+    it('has the expected hyperlink URL', async () => {
+        const $ = cheerio.load(renderComponent('reply', EXAMPLE_REPLY));
 
-    const $el = $('.ons-reply__link');
-    expect($el.attr('href')).toBe(EXAMPLE_REPLY.closeLinkUrl);
-  });
+        const $el = $('.ons-reply__link');
+        expect($el.attr('href')).toBe(EXAMPLE_REPLY.closeLinkUrl);
+    });
 
-  it('has the expected link text', async () => {
-    const $ = cheerio.load(renderComponent('reply', EXAMPLE_REPLY));
+    it('has the expected link text', async () => {
+        const $ = cheerio.load(renderComponent('reply', EXAMPLE_REPLY));
 
-    const $el = $('.ons-reply__link');
-    expect($el.text()).toBe(EXAMPLE_REPLY.closeLinkText);
-  });
+        const $el = $('.ons-reply__link');
+        expect($el.text()).toBe(EXAMPLE_REPLY.closeLinkText);
+    });
 });
