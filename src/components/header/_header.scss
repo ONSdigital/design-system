@@ -132,7 +132,7 @@
     }
 
     &__main {
-      background: var(--ons-color-header-neutral);
+      background: var(--ons-color-grey-75);
 
       &--border {
         border-bottom: 3px solid var(--ons-color-header-neutral);
@@ -141,7 +141,7 @@
     }
 
     &__title {
-      color: var(--ons-color-header-title);
+      color: var(--ons-color-white);
       &-link {
         &:hover {
           text-decoration: underline solid var(--ons-color-branded-text) 2px;
