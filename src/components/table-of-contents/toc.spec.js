@@ -1,31 +1,31 @@
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
 describe('script: table-of-contents', () => {
-  beforeEach(async () => {
-    await setTestPage(
-      '/test',
-      /* eslint-disable indent */
-      `
+    beforeEach(async () => {
+        await setTestPage(
+            '/test',
+            /* eslint-disable indent */
+            `
       <div class="ons-page__container ons-container">
         <div class="ons-grid ons-js-toc-container">
           <div class="ons-grid__col ons-grid__col--sticky@m ons-col-4@m">
             ${renderComponent('table-of-contents', {
-              title: 'Contents',
-              ariaLabel: 'Sections in this page',
-              itemsList: [
-                {
-                  url: '#section1',
-                  text: 'First section',
-                },
-                {
-                  url: '#section2',
-                  text: 'Second section',
-                },
-                {
-                  url: '#section3',
-                  text: 'Third section',
-                },
-              ],
+                title: 'Contents',
+                ariaLabel: 'Sections in this page',
+                itemsList: [
+                    {
+                        url: '#section1',
+                        text: 'First section',
+                    },
+                    {
+                        url: '#section2',
+                        text: 'Second section',
+                    },
+                    {
+                        url: '#section3',
+                        text: 'Third section',
+                    },
+                ],
             })}
           </div>
           <div class="ons-grid__col ons-col-7@m ons-push-1@m">
@@ -45,57 +45,57 @@ describe('script: table-of-contents', () => {
         </div>
       </div>
       `,
-      /* eslint-enable indent */
-    );
-  });
+            /* eslint-enable indent */
+        );
+    });
 
-  it.each([
-    ['section1', 'First section'],
-    ['section2', 'Second section'],
-    ['section3', 'Third section'],
-  ])('marks "%s" as the current section', async (sectionId, sectionTitle) => {
-    await page.$eval(`#${sectionId}`, (node) => node.scrollIntoView());
-    await page.waitForTimeout(250);
+    it.each([
+        ['section1', 'First section'],
+        ['section2', 'Second section'],
+        ['section3', 'Third section'],
+    ])('marks "%s" as the current section', async (sectionId, sectionTitle) => {
+        await page.$eval(`#${sectionId}`, (node) => node.scrollIntoView());
+        await page.waitForTimeout(250);
 
-    const activeSection = await page.$eval('.ons-toc__link-active', (node) => node.innerText.trim());
-    expect(activeSection).toBe(sectionTitle);
-  });
+        const activeSection = await page.$eval('.ons-toc__link-active', (node) => node.innerText.trim());
+        expect(activeSection).toBe(sectionTitle);
+    });
 });
 
 describe('script: table-of-contents-fixed-position', () => {
-  beforeEach(async () => {
-    await setTestPage(
-      '/test',
-      /* eslint-disable indent */
-      `
+    beforeEach(async () => {
+        await setTestPage(
+            '/test',
+            /* eslint-disable indent */
+            `
         <div class="ons-page__container ons-container">
           <div class="ons-grid ons-js-toc-container">
             <div id="sticky-container" class="ons-grid__col ons-grid__col--sticky@m ons-col-4@m">
               ${renderComponent('table-of-contents', {
-                title: 'Contents',
-                ariaLabel: 'Sections in this page',
-                itemsList: [
-                  {
-                    url: '#section1',
-                    text: 'What is the census?',
-                  },
-                  {
-                    url: '#section2',
-                    text: 'The online census has now closed',
-                  },
-                  {
-                    url: '#section3',
-                    text: 'What happens after Census Day',
-                  },
-                  {
-                    url: '#section4',
-                    text: 'The census in Northern Ireland and Scotland',
-                  },
-                  {
-                    url: '#section5',
-                    text: 'The last census',
-                  },
-                ],
+                  title: 'Contents',
+                  ariaLabel: 'Sections in this page',
+                  itemsList: [
+                      {
+                          url: '#section1',
+                          text: 'What is the census?',
+                      },
+                      {
+                          url: '#section2',
+                          text: 'The online census has now closed',
+                      },
+                      {
+                          url: '#section3',
+                          text: 'What happens after Census Day',
+                      },
+                      {
+                          url: '#section4',
+                          text: 'The census in Northern Ireland and Scotland',
+                      },
+                      {
+                          url: '#section5',
+                          text: 'The last census',
+                      },
+                  ],
               })}
             </div>
             <div class="ons-grid__col ons-col-7@m ons-push-1@m">
@@ -144,32 +144,32 @@ describe('script: table-of-contents-fixed-position', () => {
           </div>
         </div>
       `,
-      /* eslint-enable indent */
-      'main',
-    );
-  });
-
-  it('when the "ons-grid__col--sticky" class is used, then the ToC stays in a fixed position while scrolling', async () => {
-    await page.evaluate(() => {
-      window.scrollTo(0, 1000);
+            /* eslint-enable indent */
+            'main',
+        );
     });
 
-    await page.waitForTimeout(250);
-    const leftColumn = await page.$('#sticky-container');
-    const boundingBox = await leftColumn.boundingBox();
+    it('when the "ons-grid__col--sticky" class is used, then the ToC stays in a fixed position while scrolling', async () => {
+        await page.evaluate(() => {
+            window.scrollTo(0, 1000);
+        });
 
-    const viewport = await page.evaluate(() => ({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    }));
+        await page.waitForTimeout(250);
+        const leftColumn = await page.$('#sticky-container');
+        const boundingBox = await leftColumn.boundingBox();
 
-    const isInViewport =
-      boundingBox &&
-      boundingBox.x < viewport.width &&
-      boundingBox.y < viewport.height &&
-      boundingBox.x + boundingBox.width > 0 &&
-      boundingBox.y + boundingBox.height > 0;
+        const viewport = await page.evaluate(() => ({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        }));
 
-    expect(isInViewport).toBeTruthy();
-  });
+        const isInViewport =
+            boundingBox &&
+            boundingBox.x < viewport.width &&
+            boundingBox.y < viewport.height &&
+            boundingBox.x + boundingBox.width > 0 &&
+            boundingBox.y + boundingBox.height > 0;
+
+        expect(isInViewport).toBeTruthy();
+    });
 });

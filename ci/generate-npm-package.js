@@ -13,55 +13,55 @@ const builtAssetsFolders = assetFolders.map((folder) => `${cwd}/build/${folder}`
 const newSassPath = `${cwd}/scss`;
 
 async function removeExistingFolders() {
-  const folders = [newComponentsPath, newTemplatesPath, 'fonts', ...assetFolders];
-  for (let folder of folders) {
-    await fs.remove(folder);
-  }
+    const folders = [newComponentsPath, newTemplatesPath, 'fonts', ...assetFolders];
+    for (let folder of folders) {
+        await fs.remove(folder);
+    }
 }
 
 async function copyAssets() {
-  for (let assetFolderIndex = 0; assetFolderIndex < assetFolders.length; ++assetFolderIndex) {
-    const folder = assetFolders[assetFolderIndex];
-    const builtPath = builtAssetsFolders[assetFolderIndex];
+    for (let assetFolderIndex = 0; assetFolderIndex < assetFolders.length; ++assetFolderIndex) {
+        const folder = assetFolders[assetFolderIndex];
+        const builtPath = builtAssetsFolders[assetFolderIndex];
 
-    await fs.ensureDir(folder);
+        await fs.ensureDir(folder);
 
-    try {
-      const files = (await fs.readdir(builtPath)).filter((path) => !path.includes('patternlib'));
+        try {
+            const files = (await fs.readdir(builtPath)).filter((path) => !path.includes('patternlib'));
 
-      for (let file of files) {
-        if (file.match(/(\.\w+)$/)) {
-          await fs.copy(`${builtPath}/${file}`, `${folder}/${file}`);
-        } else {
-          const newFolderPath = `${folder}/${file}`;
-          const nestedBuiltPath = `${builtPath}/${file}`;
-          await fs.ensureDir(newFolderPath);
+            for (let file of files) {
+                if (file.match(/(\.\w+)$/)) {
+                    await fs.copy(`${builtPath}/${file}`, `${folder}/${file}`);
+                } else {
+                    const newFolderPath = `${folder}/${file}`;
+                    const nestedBuiltPath = `${builtPath}/${file}`;
+                    await fs.ensureDir(newFolderPath);
 
-          const nestedFiles = (await fs.readdir(nestedBuiltPath)).filter((path) => !path.includes('patternlib'));
+                    const nestedFiles = (await fs.readdir(nestedBuiltPath)).filter((path) => !path.includes('patternlib'));
 
-          for (let nestedFile of nestedFiles) {
-            await fs.copy(`${nestedBuiltPath}/${nestedFile}`, `${newFolderPath}/${nestedFile}`);
-          }
+                    for (let nestedFile of nestedFiles) {
+                        await fs.copy(`${nestedBuiltPath}/${nestedFile}`, `${newFolderPath}/${nestedFile}`);
+                    }
+                }
+            }
+        } catch (error) {
+            throw new Error(error);
         }
-      }
-    } catch (error) {
-      throw new Error(error);
     }
-  }
 }
 
 async function copyBaseSassAndFonts() {
-  await fs.ensureDir(newSassPath);
-  await fs.copy(`${sourcePath}/scss`, `${newSassPath}`);
-  await fs.copy(`${sourcePath}/static/fonts`, `${cwd}/fonts`);
+    await fs.ensureDir(newSassPath);
+    await fs.copy(`${sourcePath}/scss`, `${newSassPath}`);
+    await fs.copy(`${sourcePath}/static/fonts`, `${cwd}/fonts`);
 }
 
 async function run() {
-  await removeExistingFolders();
-  await copyComponents(componentsPath, newComponentsPath);
-  await copyTemplates(templatesPath, newTemplatesPath);
-  await copyAssets();
-  await copyBaseSassAndFonts();
+    await removeExistingFolders();
+    await copyComponents(componentsPath, newComponentsPath);
+    await copyTemplates(templatesPath, newTemplatesPath);
+    await copyAssets();
+    await copyBaseSassAndFonts();
 }
 
 run();

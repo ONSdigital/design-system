@@ -1,33 +1,33 @@
 .ons-skip-to-content {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  display: block;
-  font-size: 1.1rem;
-  font-weight: $font-weight-bold;
-  height: 1px;
-  margin: 0;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  white-space: nowrap;
-  width: 1px;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    display: block;
+    font-size: 1.1rem;
+    font-weight: $font-weight-bold;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 1px;
 
-  &:focus {
-    background-color: var(--ons-color-focus);
-    box-shadow: 0;
-    clip: auto;
-    clip-path: none;
-    color: var(--ons-color-text-link-focus);
-    height: auto;
-    margin: inherit;
-    max-height: 20em;
-    outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
-    outline-offset: -4px;
-    overflow: visible;
-    padding: 1rem;
-    position: static;
-    text-decoration: underline solid var(--ons-color-text-link-focus) 4px;
-    white-space: inherit;
-    width: auto;
-  }
+    &:focus {
+        background-color: var(--ons-color-focus);
+        box-shadow: 0;
+        clip: auto;
+        clip-path: none;
+        color: var(--ons-color-text-link-focus);
+        height: auto;
+        margin: inherit;
+        max-height: 20em;
+        outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+        outline-offset: -4px;
+        overflow: visible;
+        padding: 1rem;
+        position: static;
+        text-decoration: underline solid var(--ons-color-text-link-focus) 4px;
+        white-space: inherit;
+        width: auto;
+    }
 }
