@@ -2,80 +2,80 @@ $pagination-item-padding: 0.5rem;
 $pagination-item-width: 2.5rem;
 
 .ons-pagination {
-  &__position {
-    margin: 0 0 0.4rem;
-  }
-
-  &__items {
-    margin: 0 $pagination-item-padding * -1;
-    padding: 0;
-  }
-
-  &__item {
-    display: none;
-    text-align: center;
-
-    &--previous,
-    &--next {
-      display: inline-block;
-    }
-
-    @include mq(m) {
-      &:not(&--previous) {
-        display: inline-block;
-      }
-    }
-  }
-
-  &__items > & {
-    &__item--current {
-      margin: 0 0 0 $pagination-item-padding;
-    }
-  }
-
-  &__item,
-  &__link {
-    height: $pagination-item-width;
-    min-width: $pagination-item-width;
-  }
-
-  &__link--no-underline {
-    text-decoration: none;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  &__link {
-    border-radius: 3px;
-    box-shadow: none;
-    display: block;
-    padding: $pagination-item-padding;
-
-    &-text {
-      @extend .ons-u-fs-r--b;
-
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    &:focus {
-      border-radius: 0;
-    }
-  }
-
-  &__item--current &__link {
-    background: var(--ons-color-text-link-active);
-    color: var(--ons-color-white);
-    outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show backgrounds
-    text-decoration: none;
-  }
-
-  &--no-indicator & {
     &__position {
-      @include mq(m) {
-        display: none;
-      }
+        margin: 0 0 0.4rem;
     }
-  }
+
+    &__items {
+        margin: 0 $pagination-item-padding * -1;
+        padding: 0;
+    }
+
+    &__item {
+        display: none;
+        text-align: center;
+
+        &--previous,
+        &--next {
+            display: inline-block;
+        }
+
+        @include mq(m) {
+            &:not(&--previous) {
+                display: inline-block;
+            }
+        }
+    }
+
+    &__items > & {
+        &__item--current {
+            margin: 0 0 0 $pagination-item-padding;
+        }
+    }
+
+    &__item,
+    &__link {
+        height: $pagination-item-width;
+        min-width: $pagination-item-width;
+    }
+
+    &__link--no-underline {
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__link {
+        border-radius: 3px;
+        box-shadow: none;
+        display: block;
+        padding: $pagination-item-padding;
+
+        &-text {
+            @extend .ons-u-fs-r--b;
+
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &:focus {
+            border-radius: 0;
+        }
+    }
+
+    &__item--current &__link {
+        background: var(--ons-color-text-link-active);
+        color: var(--ons-color-white);
+        outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show backgrounds
+        text-decoration: none;
+    }
+
+    &--no-indicator & {
+        &__position {
+            @include mq(m) {
+                display: none;
+            }
+        }
+    }
 }

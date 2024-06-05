@@ -14,5 +14,5 @@ This needs to be completed by the person raising the PR.
 
 <!-- ignore-task-list-end -->
 
-- [ ] I have selected the correct Assignee
-- [ ] I have linked the correct Issue
+-   [ ] I have selected the correct Assignee
+-   [ ] I have linked the correct Issue

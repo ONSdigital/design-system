@@ -1,54 +1,54 @@
 .ons-page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  overflow-x: clip;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow-x: clip;
+    width: 100%;
 }
 
 .ons-page__content {
-  flex: 1 0 auto;
-  // NOTE: padding-bottom: 1px fixes safari scroll issue
-  // Issue number #862
-  padding-bottom: 1px;
-  position: relative;
+    flex: 1 0 auto;
+    // NOTE: padding-bottom: 1px fixes safari scroll issue
+    // Issue number #862
+    padding-bottom: 1px;
+    position: relative;
 }
 
 .ons-page__main {
-  margin-bottom: 4.5rem;
-  margin-top: 2.5rem;
+    margin-bottom: 4.5rem;
+    margin-top: 2.5rem;
 
-  @include mq(xxs, m) {
-    margin-top: 1.5rem;
-  }
+    @include mq(xxs, m) {
+        margin-top: 1.5rem;
+    }
 }
 
 // Adjust margin-top when .ons-page__main contains .ons-panel--error
 .ons-breadcrumbs ~ .ons-grid .ons-grid__col .ons-page__main:has(.ons-panel--error) {
-  margin-top: 1rem;
+    margin-top: 1rem;
 }
 
 .ons-page__body {
-  h2:not(.ons-document-list__item-title) {
-    @extend .ons-u-fs-xl;
-  }
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: 2rem;
-  }
-  .ons-panel__body,
-  .ons-details {
-    h2,
+    h2:not(.ons-document-list__item-title) {
+        @extend .ons-u-fs-xl;
+    }
     h3,
     h4,
     h5,
     h6 {
-      margin-top: 0;
+        margin-top: 2rem;
     }
-  }
-  h2:not(:first-child) {
-    margin-top: 2.5rem;
-  }
+    .ons-panel__body,
+    .ons-details {
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-top: 0;
+        }
+    }
+    h2:not(:first-child) {
+        margin-top: 2.5rem;
+    }
 }

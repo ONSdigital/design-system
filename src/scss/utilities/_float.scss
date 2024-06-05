@@ -9,26 +9,26 @@
  */
 .ons-u-cf::before,
 .ons-u-cf::after {
-  content: ' '; /* 1 */
-  display: table; /* 2 */
+    content: ' '; /* 1 */
+    display: table; /* 2 */
 }
 
 .ons-u-cf::after {
-  clear: both;
+    clear: both;
 }
 
 .ons-u-fl {
-  float: left;
+    float: left;
 }
 
 .ons-u-fr {
-  float: right;
+    float: right;
 }
 
 .ons-u-f-no {
-  float: none;
+    float: none;
 }
 
 @include bp-suffix(ons-u-fr) {
-  float: right;
+    float: right;
 }

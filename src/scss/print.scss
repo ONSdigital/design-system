@@ -6,51 +6,51 @@
 .ons-language-links,
 .ons-breadcrumbs,
 .ons-u-ph {
-  display: none !important;
+    display: none !important;
 }
 
 a::after {
-  content: ' (' attr(href) ') ';
+    content: ' (' attr(href) ') ';
 }
 
 .ons-header {
-  &__main,
-  &__bottom {
-    background: transparent;
-  }
+    &__main,
+    &__bottom {
+        background: transparent;
+    }
 
-  &__title {
-    color: var(--ons-color-black);
-  }
+    &__title {
+        color: var(--ons-color-black);
+    }
 
-  & &__svg-logo {
-    fill: var(--ons-color-black);
-  }
+    & &__svg-logo {
+        fill: var(--ons-color-black);
+    }
 }
 
 .ons-navigation--main,
 .ons-navigation--sub {
-  border-top: 1px solid var(--ons-color-text-link);
-  display: block !important;
-  padding: 1rem 0 0.5rem;
-  .ons-navigation__item {
-    display: inline-block;
-  }
-  .ons-navigation__item--active {
-    border: 0;
-  }
-  .ons-navigation__link,
-  .ons-navigation__link:hover {
-    color: var(--ons-color-text-link);
-  }
+    border-top: 1px solid var(--ons-color-text-link);
+    display: block !important;
+    padding: 1rem 0 0.5rem;
+    .ons-navigation__item {
+        display: inline-block;
+    }
+    .ons-navigation__item--active {
+        border: 0;
+    }
+    .ons-navigation__link,
+    .ons-navigation__link:hover {
+        color: var(--ons-color-text-link);
+    }
 }
 
 .ons-hero {
-  print-color-adjust: exact;
+    print-color-adjust: exact;
 }
 
 .ons-grid__col {
-  display: block; // Prevents page breaking before grid col when printing from Chrome see: https://github.com/ONSdigital/design-system/issues/2584
+    display: block; // Prevents page breaking before grid col when printing from Chrome see: https://github.com/ONSdigital/design-system/issues/2584
 }
 
 .ons-panel,
@@ -61,33 +61,33 @@ h4,
 h5,
 h6,
 p {
-  break-inside: avoid;
+    break-inside: avoid;
 }
 
 .ons-details {
-  &--initialised & {
-    &__heading {
-      padding: 0;
-      margin: 0 0 1rem;
+    &--initialised & {
+        &__heading {
+            padding: 0;
+            margin: 0 0 1rem;
+        }
+
+        &__title {
+            color: var(--ons-color-black);
+            font-size: 24px;
+        }
+
+        &__icon {
+            display: none;
+        }
+
+        &__content {
+            display: block;
+        }
     }
 
-    &__title {
-      color: var(--ons-color-black);
-      font-size: 24px;
+    &--accordion & {
+        &__heading {
+            padding-top: 1rem;
+        }
     }
-
-    &__icon {
-      display: none;
-    }
-
-    &__content {
-      display: block;
-    }
-  }
-
-  &--accordion & {
-    &__heading {
-      padding-top: 1rem;
-    }
-  }
 }
