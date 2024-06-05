@@ -11292,6 +11292,11 @@ through2@^4.0.2:
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==
 
+tick-manager@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/tick-manager/-/tick-manager-1.0.3.tgz#843aee30f3ab53a42c67f4194faa21b03a5eb52a"
+  integrity sha512-FKrEUXderMdEymx2gznxzON5eecsg8YYxrHVMvpYFRl9TLuqX9M9iwO8aGevC+0wxAtIRGKNsEjhywBxdJEbrg==
+
 time-stamp@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/time-stamp/-/time-stamp-1.1.0.tgz#764a5a11af50561921b133f3b44e618687e0f5c3"
@@ -11945,7 +11950,7 @@ util@^0.10.3, util@^0.10.4:
   dependencies:
     inherits "2.0.3"
 
-util@~0.12.0:
+util@^0.12.3, util@~0.12.0:
   version "0.12.5"
   resolved "https://registry.yarnpkg.com/util/-/util-0.12.5.tgz#5f17a6059b73db61a875668781a1c2b136bd6fbc"
   integrity sha512-kZf/K6hEIrWHI6XqOFUiiMa+79wE/D8Q+NCNAWclkyg3b4d2k7s0QGepNjiABc+aR3N1PAyHL7p6UcLY6LmrnA==
