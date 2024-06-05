@@ -1,234 +1,234 @@
 export default class Timeout {
-  constructor(context, sessionExpiryEndpoint, initialExpiryTime, enableTimeoutReset, startOnLoad) {
-    this.context = context;
-    this.sessionExpiryEndpoint = sessionExpiryEndpoint;
-    this.initialExpiryTime = initialExpiryTime;
-    this.enableTimeoutReset = enableTimeoutReset || false;
-    this.startOnLoad = startOnLoad || false;
-    this.countdown = context.querySelector('.ons-js-timeout-timer');
-    this.accessibleCountdown = context.querySelector('.ons-js-timeout-timer-acc');
-    this.timeOutRedirectUrl = context.getAttribute('data-redirect-url');
+    constructor(context, sessionExpiryEndpoint, initialExpiryTime, enableTimeoutReset, startOnLoad) {
+        this.context = context;
+        this.sessionExpiryEndpoint = sessionExpiryEndpoint;
+        this.initialExpiryTime = initialExpiryTime;
+        this.enableTimeoutReset = enableTimeoutReset || false;
+        this.startOnLoad = startOnLoad || false;
+        this.countdown = context.querySelector('.ons-js-timeout-timer');
+        this.accessibleCountdown = context.querySelector('.ons-js-timeout-timer-acc');
+        this.timeOutRedirectUrl = context.getAttribute('data-redirect-url');
 
-    // Language dependent text strings
-    this.minutesTextSingular = context.getAttribute('data-minutes-text-singular');
-    this.minutesTextPlural = context.getAttribute('data-minutes-text-plural');
-    this.secondsTextSingular = context.getAttribute('data-seconds-text-singular');
-    this.secondsTextPlural = context.getAttribute('data-seconds-text-plural');
-    this.countdownText = context.getAttribute('data-countdown-text');
-    this.countdownExpiredText = context.getAttribute('data-countdown-expired-text');
-    this.endWithFullStop = context.getAttribute('data-full-stop');
+        // Language dependent text strings
+        this.minutesTextSingular = context.getAttribute('data-minutes-text-singular');
+        this.minutesTextPlural = context.getAttribute('data-minutes-text-plural');
+        this.secondsTextSingular = context.getAttribute('data-seconds-text-singular');
+        this.secondsTextPlural = context.getAttribute('data-seconds-text-plural');
+        this.countdownText = context.getAttribute('data-countdown-text');
+        this.countdownExpiredText = context.getAttribute('data-countdown-expired-text');
+        this.endWithFullStop = context.getAttribute('data-full-stop');
 
-    // Settings
-    this.expiryTime = '';
-    this.expiryTimeInMilliseconds = 0;
-    this.timers = [];
-    this.timerRunOnce = false;
-    this.countdownStarted = false;
+        // Settings
+        this.expiryTime = '';
+        this.expiryTimeInMilliseconds = 0;
+        this.timers = [];
+        this.timerRunOnce = false;
+        this.countdownStarted = false;
 
-    // Start module
-    this.initialise();
-  }
-
-  async initialise() {
-    if (this.initialExpiryTime) {
-      this.expiryTime = this.initialExpiryTime;
-    } else {
-      this.expiryTime = await this.setNewExpiryTime();
-    }
-    this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(this.expiryTime);
-
-    if (this.enableTimeoutReset) {
-      this.addThrottledResetEvents();
+        // Start module
+        this.initialise();
     }
 
-    if (this.startOnLoad) {
-      this.startUiCountdown();
-    }
+    async initialise() {
+        if (this.initialExpiryTime) {
+            this.expiryTime = this.initialExpiryTime;
+        } else {
+            this.expiryTime = await this.setNewExpiryTime();
+        }
+        this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(this.expiryTime);
 
-    window.addEventListener('focus', this.handleWindowFocus.bind(this));
-  }
-
-  async startUiCountdown() {
-    this.clearTimers();
-    this.countdownStarted = true;
-    let milliseconds = this.convertTimeToMilliSeconds(this.expiryTime);
-
-    let seconds = milliseconds / 1000;
-    let timers = this.timers;
-    let $this = this;
-
-    (async function runTimer() {
-      const minutesLeft = parseInt(seconds / 60, 10);
-      const secondsLeft = parseInt(seconds % 60, 10);
-      const timerExpired = minutesLeft < 1 && secondsLeft < 1;
-
-      const minutesText =
-        minutesLeft + ' ' + (minutesLeft >= 2 ? $this.minutesTextPlural : minutesLeft === 1 ? $this.minutesTextSingular : '');
-      const secondsText =
-        secondsLeft + ' ' + (secondsLeft >= 2 ? $this.secondsTextPlural : secondsLeft === 1 ? $this.secondsTextSingular : '');
-
-      let timeLeftText =
-        $this.countdownText +
-        ' <span class="ons-u-fw-b">' +
-        (minutesLeft > 0 ? minutesText : '') +
-        (minutesLeft > 0 && secondsLeft > 0 ? ' ' : '') +
-        (secondsLeft > 0 ? secondsText : '') +
-        '</span>' +
-        ($this.endWithFullStop ? '.' : '');
-
-      if (timerExpired) {
-        $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
-        $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
-        setTimeout($this.redirect.bind($this), 2000);
-      } else {
-        seconds--;
-        $this.expiryTimeInMilliseconds = seconds * 1000;
-        $this.countdown.innerHTML = timeLeftText;
-
-        if (minutesLeft < 1 && secondsLeft < 20) {
-          $this.accessibleCountdown.setAttribute('aria-live', 'assertive');
+        if (this.enableTimeoutReset) {
+            this.addThrottledResetEvents();
         }
 
-        if (!$this.timerRunOnce) {
-          $this.accessibleCountdown.innerHTML = timeLeftText;
-          $this.timerRunOnce = true;
-        } else if (secondsLeft % 15 === 0) {
-          $this.accessibleCountdown.innerHTML = timeLeftText;
+        if (this.startOnLoad) {
+            this.startUiCountdown();
         }
 
-        timers.push(setTimeout(runTimer.bind($this), 1000));
-      }
-    })();
-  }
-
-  async restartTimeout(timeInMilliSeconds) {
-    this.clearTimers();
-    this.countdownStarted = false;
-    if (timeInMilliSeconds !== false) {
-      this.expiryTimeInMilliseconds = timeInMilliSeconds;
-    } else {
-      const createNewExpiryTime = await this.setNewExpiryTime();
-      this.expiryTime = createNewExpiryTime;
-      this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(createNewExpiryTime);
-    }
-  }
-
-  async handleWindowFocus() {
-    this.clearTimers();
-    if (this.countdownStarted) {
-      this.startUiCountdown();
-    }
-  }
-
-  async setNewExpiryTime() {
-    let newExpiryTime;
-    if (!this.sessionExpiryEndpoint) {
-      // For demo purposes
-      const demoTime = new Date(Date.now() + 60 * 1000);
-      newExpiryTime = new Date(demoTime).toISOString();
-    } else {
-      newExpiryTime = await this.fetchExpiryTime('PATCH');
-    }
-    return newExpiryTime;
-  }
-
-  async getExpiryTime() {
-    if (this.sessionExpiryEndpoint) {
-      const currentExpiryTime = await this.fetchExpiryTime('GET');
-      return currentExpiryTime;
-    } else {
-      // For demo purposes
-      return this.expiryTime;
-    }
-  }
-
-  async fetchExpiryTime(fetchMethod) {
-    let response = await fetch(this.sessionExpiryEndpoint, {
-      method: fetchMethod,
-      headers: { 'Cache-Control': 'no-cache', 'Content-type': 'application/json; charset=UTF-8' },
-    });
-    if (response.status === 401) {
-      this.redirect();
-      return false;
+        window.addEventListener('focus', this.handleWindowFocus.bind(this));
     }
 
-    let json = await response.json();
+    async startUiCountdown() {
+        this.clearTimers();
+        this.countdownStarted = true;
+        let milliseconds = this.convertTimeToMilliSeconds(this.expiryTime);
 
-    return json.expires_at;
-  }
+        let seconds = milliseconds / 1000;
+        let timers = this.timers;
+        let $this = this;
 
-  convertTimeToMilliSeconds(expiryTime) {
-    const time = new Date(expiryTime);
-    const calculateTimeInMilliSeconds = Math.abs(time - new Date());
+        (async function runTimer() {
+            const minutesLeft = parseInt(seconds / 60, 10);
+            const secondsLeft = parseInt(seconds % 60, 10);
+            const timerExpired = minutesLeft < 1 && secondsLeft < 1;
 
-    return calculateTimeInMilliSeconds;
-  }
+            const minutesText =
+                minutesLeft + ' ' + (minutesLeft >= 2 ? $this.minutesTextPlural : minutesLeft === 1 ? $this.minutesTextSingular : '');
+            const secondsText =
+                secondsLeft + ' ' + (secondsLeft >= 2 ? $this.secondsTextPlural : secondsLeft === 1 ? $this.secondsTextSingular : '');
 
-  redirect() {
-    window.location.replace(this.timeOutRedirectUrl);
-  }
+            let timeLeftText =
+                $this.countdownText +
+                ' <span class="ons-u-fw-b">' +
+                (minutesLeft > 0 ? minutesText : '') +
+                (minutesLeft > 0 && secondsLeft > 0 ? ' ' : '') +
+                (secondsLeft > 0 ? secondsText : '') +
+                '</span>' +
+                ($this.endWithFullStop ? '.' : '');
 
-  clearTimers() {
-    for (let i = 0; i < this.timers.length; i++) {
-      clearTimeout(this.timers[i]);
+            if (timerExpired) {
+                $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
+                $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
+                setTimeout($this.redirect.bind($this), 2000);
+            } else {
+                seconds--;
+                $this.expiryTimeInMilliseconds = seconds * 1000;
+                $this.countdown.innerHTML = timeLeftText;
+
+                if (minutesLeft < 1 && secondsLeft < 20) {
+                    $this.accessibleCountdown.setAttribute('aria-live', 'assertive');
+                }
+
+                if (!$this.timerRunOnce) {
+                    $this.accessibleCountdown.innerHTML = timeLeftText;
+                    $this.timerRunOnce = true;
+                } else if (secondsLeft % 15 === 0) {
+                    $this.accessibleCountdown.innerHTML = timeLeftText;
+                }
+
+                timers.push(setTimeout(runTimer.bind($this), 1000));
+            }
+        })();
     }
-  }
 
-  addThrottledResetEvents() {
-    window.onclick = this.throttle(() => {
-      /* istanbul ignore next */
-      if (!this.countdownStarted) {
-        this.restartTimeout();
-      }
-    }, 61000);
+    async restartTimeout(timeInMilliSeconds) {
+        this.clearTimers();
+        this.countdownStarted = false;
+        if (timeInMilliSeconds !== false) {
+            this.expiryTimeInMilliseconds = timeInMilliSeconds;
+        } else {
+            const createNewExpiryTime = await this.setNewExpiryTime();
+            this.expiryTime = createNewExpiryTime;
+            this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(createNewExpiryTime);
+        }
+    }
 
-    window.onmousemove = this.throttle(() => {
-      /* istanbul ignore next */
-      if (!this.countdownStarted) {
-        this.restartTimeout();
-      }
-    }, 61000);
+    async handleWindowFocus() {
+        this.clearTimers();
+        if (this.countdownStarted) {
+            this.startUiCountdown();
+        }
+    }
 
-    window.onmousedown = this.throttle(() => {
-      /* istanbul ignore next */
-      if (!this.countdownStarted) {
-        this.restartTimeout();
-      }
-    }, 61000);
+    async setNewExpiryTime() {
+        let newExpiryTime;
+        if (!this.sessionExpiryEndpoint) {
+            // For demo purposes
+            const demoTime = new Date(Date.now() + 60 * 1000);
+            newExpiryTime = new Date(demoTime).toISOString();
+        } else {
+            newExpiryTime = await this.fetchExpiryTime('PATCH');
+        }
+        return newExpiryTime;
+    }
 
-    window.onscroll = this.throttle(() => {
-      /* istanbul ignore next */
-      if (!this.countdownStarted) {
-        this.restartTimeout();
-      }
-    }, 61000);
+    async getExpiryTime() {
+        if (this.sessionExpiryEndpoint) {
+            const currentExpiryTime = await this.fetchExpiryTime('GET');
+            return currentExpiryTime;
+        } else {
+            // For demo purposes
+            return this.expiryTime;
+        }
+    }
 
-    window.onkeypress = this.throttle(() => {
-      /* istanbul ignore next */
-      if (!this.countdownStarted) {
-        this.restartTimeout();
-      }
-    }, 61000);
+    async fetchExpiryTime(fetchMethod) {
+        let response = await fetch(this.sessionExpiryEndpoint, {
+            method: fetchMethod,
+            headers: { 'Cache-Control': 'no-cache', 'Content-type': 'application/json; charset=UTF-8' },
+        });
+        if (response.status === 401) {
+            this.redirect();
+            return false;
+        }
 
-    window.onkeyup = this.throttle(() => {
-      /* istanbul ignore next */
-      if (!this.countdownStarted) {
-        this.restartTimeout();
-      }
-    }, 61000);
-  }
+        let json = await response.json();
 
-  throttle(func, wait) {
-    let waiting = false;
-    return function () {
-      if (waiting) {
-        return;
-      }
-      waiting = true;
-      setTimeout(async () => {
-        func.apply(this, arguments);
-        waiting = false;
-      }, wait);
-    };
-  }
+        return json.expires_at;
+    }
+
+    convertTimeToMilliSeconds(expiryTime) {
+        const time = new Date(expiryTime);
+        const calculateTimeInMilliSeconds = Math.abs(time - new Date());
+
+        return calculateTimeInMilliSeconds;
+    }
+
+    redirect() {
+        window.location.replace(this.timeOutRedirectUrl);
+    }
+
+    clearTimers() {
+        for (let i = 0; i < this.timers.length; i++) {
+            clearTimeout(this.timers[i]);
+        }
+    }
+
+    addThrottledResetEvents() {
+        window.onclick = this.throttle(() => {
+            /* istanbul ignore next */
+            if (!this.countdownStarted) {
+                this.restartTimeout();
+            }
+        }, 61000);
+
+        window.onmousemove = this.throttle(() => {
+            /* istanbul ignore next */
+            if (!this.countdownStarted) {
+                this.restartTimeout();
+            }
+        }, 61000);
+
+        window.onmousedown = this.throttle(() => {
+            /* istanbul ignore next */
+            if (!this.countdownStarted) {
+                this.restartTimeout();
+            }
+        }, 61000);
+
+        window.onscroll = this.throttle(() => {
+            /* istanbul ignore next */
+            if (!this.countdownStarted) {
+                this.restartTimeout();
+            }
+        }, 61000);
+
+        window.onkeypress = this.throttle(() => {
+            /* istanbul ignore next */
+            if (!this.countdownStarted) {
+                this.restartTimeout();
+            }
+        }, 61000);
+
+        window.onkeyup = this.throttle(() => {
+            /* istanbul ignore next */
+            if (!this.countdownStarted) {
+                this.restartTimeout();
+            }
+        }, 61000);
+    }
+
+    throttle(func, wait) {
+        let waiting = false;
+        return function () {
+            if (waiting) {
+                return;
+            }
+            waiting = true;
+            setTimeout(async () => {
+                func.apply(this, arguments);
+                waiting = false;
+            }, wait);
+        };
+    }
 }

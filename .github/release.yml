@@ -1,30 +1,30 @@
 changelog:
-  categories:
-    - title: ⚠️ Breaking changes
-      labels:
-        - Breaking changes
-    - title: New features
-      labels:
-        - Component
-        - Pattern
-    - title: Accessibility improvements
-      labels:
-        - Accessibility
-    - title: Enhancements
-      labels:
-        - Enhancement
-        - CI/CD
-        - Tech improvements
-    - title: Fixes
-      labels:
-        - Bug
-    - title: Documentation
-      labels:
-        - Documentation
-        - Example
-    - title: Dependency updates
-      labels:
-        - Dependencies
-    - title: Other changes
-      labels:
-        - "*"
+    categories:
+        - title: ⚠️ Breaking changes
+          labels:
+              - Breaking changes
+        - title: New features
+          labels:
+              - Component
+              - Pattern
+        - title: Accessibility improvements
+          labels:
+              - Accessibility
+        - title: Enhancements
+          labels:
+              - Enhancement
+              - CI/CD
+              - Tech improvements
+        - title: Fixes
+          labels:
+              - Bug
+        - title: Documentation
+          labels:
+              - Documentation
+              - Example
+        - title: Dependency updates
+          labels:
+              - Dependencies
+        - title: Other changes
+          labels:
+              - '*'

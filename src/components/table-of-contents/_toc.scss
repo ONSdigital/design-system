@@ -1,12 +1,12 @@
 .ons-toc {
-  &-container {
-    border-bottom: 1px solid var(--ons-color-grey-15);
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-  }
+    &-container {
+        border-bottom: 1px solid var(--ons-color-grey-15);
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+    }
 
-  &__link-active {
-    color: var(--ons-color-text-link-hover);
-    text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
-  }
+    &__link-active {
+        color: var(--ons-color-text-link-hover);
+        text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
+    }
 }

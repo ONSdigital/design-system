@@ -349,28 +349,28 @@ const NO_FAVICONS_EXAMPLE = `
 `;
 
 describe('base page template', () => {
-  it('passes jest-axe checks', async () => {
-    const $ = cheerio.load(renderBaseTemplate(FULL_EXAMPLE));
-    const results = await axe($.html(), {
-      rules: {
-        // aria-label is duplicated for the desktop and mobile navigation
-        // The duplication is not an issue as display and aria-hidden are used
-        'landmark-unique': { enabled: false },
-      },
+    it('passes jest-axe checks', async () => {
+        const $ = cheerio.load(renderBaseTemplate(FULL_EXAMPLE));
+        const results = await axe($.html(), {
+            rules: {
+                // aria-label is duplicated for the desktop and mobile navigation
+                // The duplication is not an issue as display and aria-hidden are used
+                'landmark-unique': { enabled: false },
+            },
+        });
+        expect(results).toHaveNoViolations();
     });
-    expect(results).toHaveNoViolations();
-  });
 
-  it.each([
-    ['full configuration', FULL_EXAMPLE],
-    ['body block override', BODY_OVERRIDE_EXAMPLE],
-    ['footer block override', NO_FOOTER_EXAMPLE],
-    ['social block override', NO_SOCIAL_EXAMPLE],
-    ['meta block override', NO_META_EXAMPLE],
-    ['favicons block override', NO_FAVICONS_EXAMPLE],
-  ])('matches the %s snapshot', (_, params) => {
-    const $ = cheerio.load(renderBaseTemplate(params));
+    it.each([
+        ['full configuration', FULL_EXAMPLE],
+        ['body block override', BODY_OVERRIDE_EXAMPLE],
+        ['footer block override', NO_FOOTER_EXAMPLE],
+        ['social block override', NO_SOCIAL_EXAMPLE],
+        ['meta block override', NO_META_EXAMPLE],
+        ['favicons block override', NO_FAVICONS_EXAMPLE],
+    ])('matches the %s snapshot', (_, params) => {
+        const $ = cheerio.load(renderBaseTemplate(params));
 
-    expect($.html()).toMatchSnapshot();
-  });
+        expect($.html()).toMatchSnapshot();
+    });
 });

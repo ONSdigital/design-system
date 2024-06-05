@@ -1,32 +1,32 @@
 .ons-card {
-  margin: 0 0 2rem;
-  width: 100%;
+    margin: 0 0 2rem;
+    width: 100%;
 
-  &__link {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    width: fit-content;
+    &__link {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        width: fit-content;
 
-    & > .ons-card__title {
-      margin-bottom: 0;
+        > .ons-card__title {
+            margin-bottom: 0;
+        }
     }
-  }
 
-  &__link:hover {
-    text-decoration-thickness: 3px;
-  }
-
-  &__title {
-    // This is to allow the focus state for multi lined title links to render the focus style correctly.
-    // This should be corrected when the typography scale is improved.
-    line-height: 1.65 !important;
-  }
-
-  @include mq(m) {
-    margin: 0;
-    .ons-grid__col & {
-      padding-right: 1rem;
+    &__link:hover {
+        text-decoration-thickness: 3px;
     }
-  }
+
+    &__title {
+        // This is to allow the focus state for multi lined title links to render the focus style correctly.
+        // This should be corrected when the typography scale is improved.
+        line-height: 1.65 !important;
+    }
+
+    @include mq(m) {
+        margin: 0;
+        .ons-grid__col & {
+            padding-right: 1rem;
+        }
+    }
 }
