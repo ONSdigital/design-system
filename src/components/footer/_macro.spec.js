@@ -428,28 +428,28 @@ describe('macro: footer', () => {
                 [
                     'the `poweredBy` and `OGLLink` parameters are provided',
                     {
-                        poweredBy: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                        poweredBy: { logo: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' } },
                         OGLLink: EXAMPLE_OGL_LINK_PARAM,
                     },
                 ],
                 [
                     'the `poweredBy` and `legal` parameters are provided',
                     {
-                        poweredBy: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                        poweredBy: { logo: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' } },
                         legal: EXAMPLE_LEGAL_PARAM,
                     },
                 ],
                 [
                     'the `poweredBy` and `crest` parameters are provided',
                     {
-                        poweredBy: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                        poweredBy: { logo: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' } },
                         crest: true,
                     },
                 ],
                 [
                     'the `poweredBy`, `legal` and `crest` parameters are provided',
                     {
-                        poweredBy: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                        poweredBy: { logo: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' } },
                         legal: EXAMPLE_LEGAL_PARAM,
                         crest: true,
                     },
@@ -457,7 +457,7 @@ describe('macro: footer', () => {
                 [
                     'the `poweredBy` parameter is provided but the `legal` and `crest` parameters are not provided',
                     {
-                        poweredBy: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                        poweredBy: { logo: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' } },
                     },
                 ],
             ])('where %s', (_, poweredByParams) => {
@@ -482,12 +482,15 @@ describe('macro: footer', () => {
             it('has the extra powered by logo image and link', () => {
                 const $ = cheerio.load(
                     renderComponent('footer', {
+                        poweredBy: {
+                            logo: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                            extraPoweredByLogo: {
+                                logoUrl: '#0',
+                                logoImage: '<img src="a-logo.svg">',
+                            },
+                        },
                         legal: EXAMPLE_LEGAL_PARAM,
                         crest: true,
-                        extraPoweredByLogo: {
-                            logoUrl: '#0',
-                            logoImage: '<img src="a-logo.svg">',
-                        },
                     }),
                 );
 

@@ -125,7 +125,7 @@
                     {% endif %}
                 </div>
 
-                <div class="ons-grid ons-grid--vertical-top ons-grid--between">
+                <div class="ons-grid{% if params.crest %} ons-grid--flex{% endif %} ons-grid--vertical-top ons-grid--between">
                     <div class="ons-grid__col">
                         {% if params.legal %}
                             <!-- Legal -->
@@ -171,7 +171,7 @@
                             </div>
                         {% endif %}
                         {% if params.poweredBy.logo %}
-                            <div class="ons-footer__poweredby ons-u-mb-m{% if extraPoweredByLogo %} ons-footer__extra-poweredby ons-grid--flex{% if params.poweredBy.oppositeDisplay == true %} ons-grid--between{% endif %}{% endif %}">
+                            <div class="ons-footer__poweredby ons-u-mb-m{% if extraPoweredByLogo %} ons-footer__extra-poweredby ons-grid--flex ons-grid--vertical-center{% if params.poweredBy.oppositeDisplay == true %} ons-grid--between{% endif %}{% endif %}">
                                 {%-if params.poweredBy.logo.logoUrl %}
                                     <a class="ons-footer__poweredBy-link{% if extraPoweredByLogo %} ons-u-mr-l{% endif %}" href="{{ params.poweredBy.logo.logoUrl }}">
                                 {% endif -%}
@@ -186,7 +186,7 @@
                                 {% endif -%}
                             </div>
                         {% else %}
-                                <div class="ons-footer__poweredby ons-u-mb-m{% if extraPoweredByLogo %} ons-footer__extra-poweredby ons-grid--flex{% if params.poweredBy.oppositeDisplay == true %} ons-grid--between{% endif %}{% endif %}">
+                                <div class="ons-footer__poweredby ons-u-mb-m {% if extraPoweredByLogo %} ons-footer__extra-poweredby ons-grid--flex ons-grid--vertical-center{% if params.poweredBy.oppositeDisplay == true %} ons-grid--between{% endif %}{% endif %}">
                                     <a class="ons-footer__poweredBy-link{% if extraPoweredByLogo %} ons-u-mr-l{% endif %}" {% if lang == "cy" %} href="https://cy.ons.gov.uk/"{% else %} href="https://www.ons.gov.uk/"{% endif %}>
                                         {{ onsLogo | safe }}
                                     </a>
