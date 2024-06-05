@@ -47,7 +47,7 @@
         />
         {% if params.listeners %}
             <!-- prettier-ignore-start -->
-            <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
+            <script {% if csp_nonce %}nonce="{{ csp_nonce() }}"{% endif %}>
                 {% for listener, value in (params.listeners.items() if params.listeners is mapping and params.listeners.items else params.listeners) %}
                     document.getElementById("{{ params.id }}").addEventListener('{{ listener }}', function(){ {{ value }} });
                 {% endfor %}
