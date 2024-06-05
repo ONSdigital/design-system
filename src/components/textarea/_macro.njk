@@ -3,8 +3,9 @@
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/label/_macro.njk" import onsLabel %}
     {% from "components/char-check-limit/_macro.njk" import onsCharLimit %}
-    {% set field %}
     {% set textareaExclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
+
+    {% set field %}
 
         {% if params.label %}
             {{
@@ -30,7 +31,7 @@
             {% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
         >
-{{ params.value if params.value }}</textarea
+            {{ params.value if params.value }}</textarea
         >
 
         {% if params.charCheckLimit and params.charCheckLimit.limit %}
