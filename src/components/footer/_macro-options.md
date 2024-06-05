@@ -53,11 +53,12 @@
 
 ## PoweredBy
 
-| Name               | Type                 | Required | Description                                                                    |
-| ------------------ | -------------------- | -------- | ------------------------------------------------------------------------------ |
-| classes            | string               | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
-| logo               | object`<LogoObject>` | false    | Logo object to render the poweredby logo                                       |
-| extraPoweredByLogo | object`<LogoObject>` | false    | Extra logo to go alongside the ONS logo in the footer                          |
+| Name               | Type                 | Required | Description                                                                             |
+| ------------------ | -------------------- | -------- | --------------------------------------------------------------------------------------- |
+| classes            | string               | false    | Classes to be added. Helpful to add a margin utility class to control spacing.          |
+| logo               | object`<LogoObject>` | false    | Logo object to render the poweredby logo                                                |
+| extraPoweredByLogo | object`<LogoObject>` | false    | Extra logo to go alongside the ONS logo in the footer                                   |
+| oppositeDisplay    | boolean              | false    | Enables an alternative display of the additional logo on the opposite side of the page. |
 
 ## LogoObject
 
