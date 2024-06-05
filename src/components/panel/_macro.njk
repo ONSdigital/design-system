@@ -86,7 +86,7 @@
     {% endset %}
 
     {% if params.variant == "warn-branded" or params.variant == "announcement" %}
-        <div class="{{containerClass}}">
+        <div class="{{ containerClass }}">
             <div class="ons-container">
                 {{ panel | safe }}
             </div>
