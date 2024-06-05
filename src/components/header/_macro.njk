@@ -74,7 +74,7 @@
                             {% endset %}
 
                             {%- if params.mastheadLogoUrl -%}
-                                <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoUrl }}"> {{ mastheadLogo | safe }} </a>
+                                <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoUrl }}">{{ mastheadLogo | safe }}</a>
                             {% else %}
                                 {{ mastheadLogo | safe }}
                             {% endif %}
@@ -95,7 +95,7 @@
                                         {% endif %}
                                     {% endset %}
                                     {% if logo.logoURL %}
-                                        <a class="ons-header__org-logo-link" href="{{ logo.logoURL }}"> {{ mastheadLogo | safe }} </a>
+                                        <a class="ons-header__org-logo-link" href="{{ logo.logoURL }}">{{ mastheadLogo | safe }}</a>
                                     {% else %}
                                         {{ mastheadLogo | safe }}
                                     {% endif %}
