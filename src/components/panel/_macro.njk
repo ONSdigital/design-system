@@ -28,8 +28,9 @@
 
     {% set panel %}
         <div
-            {% if (params.variant == 'error' and params.title) or params.variant == 'success' %}aria-labelledby="alert" role="alert"
-            tabindex="-1" {% if not isDesignSystemExample %}autofocus="autofocus"{% endif %}{% endif %}class="ons-panel{{ variantClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"
+            {% if (params.variant == 'error' and params.title) or params.variant == 'success' %}
+                aria-labelledby="alert" role="alert" tabindex="-1" {% if not isDesignSystemExample %}autofocus="autofocus"{% endif %}
+            {% endif %}class="ons-panel{{ variantClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"
             {% if params and params.attributes %}{% for attribute, value in (params.attributes.items() if params and params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}{% if params and params.id %}id="{{ params.id }}"{% endif %}
         >
             {% if params.variant == "warn" or params.variant == "warn-branded" %}

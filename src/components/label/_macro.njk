@@ -12,7 +12,7 @@
     {% endif %}
 
     {% set description -%}
-        <span{% if isCheckboxOrRadio == false %} id="{{ descriptionID }}"{% endif %} class="ons-label__description {% if params.inputType %}ons-{{ params.inputType }}__label--with-description{% else %} ons-input--with-description{% endif %}">
+        <span {% if isCheckboxOrRadio == false %} id="{{ descriptionID }}"{% endif %} class="ons-label__description {% if params.inputType %}ons-{{ params.inputType }}__label--with-description{% else %} ons-input--with-description{% endif %}">
               {{- params.description -}}
         </span>
     {%- endset %}
