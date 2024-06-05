@@ -31,14 +31,15 @@ layout: ~
     }}
 {% endblock %}
 {% block main %}
-    {% call onsQuestion({
-        "title": "Is this the correct address?",
-        "legendIsQuestionTitle": true,
-        "submitButton": {
-            "text": 'Continue'
-        }
-    }) %}
-
+    {%
+        call onsQuestion({
+            "title": "Is this the correct address?",
+            "legendIsQuestionTitle": true,
+            "submitButton": {
+                "text": 'Continue'
+            }
+        })
+    %}
         <form action="#0">
             {{-
                 onsAddressOutput({
@@ -50,7 +51,7 @@ layout: ~
                     "town": 'Barry',
                     "postcode": 'AB12 6UH'
                 })
-            }}
+            -}}
 
             {{
                 onsRadios({
