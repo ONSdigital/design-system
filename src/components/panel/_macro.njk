@@ -69,7 +69,7 @@
                     >
                 {% elif params.variant == 'error' or params.variant == 'success' %}
                     {% set defaultText = "Completed" if params.variant == "success" else "Error" %}
-                    <span {% if params.variant == "success" %}id="alert"{% endif %} class="ons-panel__assistive-text ons-u-vh"
+                    <span {% if params.variant == "success" %}id="alert" {% endif %}class="ons-panel__assistive-text ons-u-vh"
                         >{{ params.assistiveTextPrefix | default(defaultText ~ ": ") }}</span
                     >
                 {% endif %}

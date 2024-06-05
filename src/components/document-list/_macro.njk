@@ -1,6 +1,6 @@
 {% macro onsDocumentList(params) %}
 
-    <ul{% if params.id %} id="{{ params.id }}"{% endif %} class="ons-document-list{{ ' ' + params.classes if params.classes else '' }}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
+    <ul {% if params.id %}id="{{ params.id }}" {% endif %}class="ons-document-list{{ ' ' + params.classes if params.classes else '' }}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
 
         {% for document in params.documents %}
             {% set document %}
