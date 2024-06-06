@@ -13,4 +13,4 @@
 | unreadLinkText | string | false    | Text for the the “Mark unread” link element                            |
 | unreadLinkUrl  | string | false    | The URL for the “Mark unread” link element’s `href` attribute          |
 | unreadLinkId   | string | false    | The HTML `id` of the “Mark unread” link element                        |
-| messageID      | string | false    | The HTML `id` of the message body                                      |
+| messageId      | string | false    | The HTML `id` of the message body                                      |

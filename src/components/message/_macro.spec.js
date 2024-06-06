@@ -15,13 +15,13 @@ const EXAMPLE_MESSAGE_MINIMAL = {
 
 const EXAMPLE_MESSAGE = {
     ...EXAMPLE_MESSAGE_MINIMAL,
-    unreadLinkUrl: 'https://example.com/message/1',
+    unreadLink: 'https://example.com/message/1',
     unreadLinkText: 'Unread message',
     id: 'message1',
     fromId: 'from1',
     sentId: 'sent1',
     unreadLinkId: 'unreadLink1',
-    messageID: 'messageBody1',
+    messageId: 'messageBody1',
 };
 
 describe('macro: message', () => {

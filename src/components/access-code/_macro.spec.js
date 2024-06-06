@@ -102,23 +102,23 @@ describe('FOR: Macro: Access-code', () => {
             });
         });
     });
-    describe('GIVEN: Params: maxlength & groupSize', () => {
+    describe('GIVEN: Params: maxLength & groupSize', () => {
         describe('WHEN: params are at default state', () => {
             const $ = cheerio.load(renderComponent('access-code'));
-            test('THEN: renders input with total maxlength of 19', () => {
+            test('THEN: renders input with total max length of 19', () => {
                 expect($('input').attr('maxlength')).toBe('19');
             });
             test('THEN: renders input with groupSize of 4', () => {
                 expect($('input').attr('data-group-size')).toBe('4');
             });
         });
-        describe('WHEN: maxlength param is provided', () => {
+        describe('WHEN: maxLength param is provided', () => {
             const $ = cheerio.load(
                 renderComponent('access-code', {
                     maxlength: 8,
                 }),
             );
-            test('THEN: renders input with provided maxlength', () => {
+            test('THEN: renders input with provided max length', () => {
                 expect($('input').attr('maxlength')).toBe('9');
             });
         });
@@ -132,14 +132,14 @@ describe('FOR: Macro: Access-code', () => {
                 expect($('input').attr('data-group-size')).toBe('2');
             });
         });
-        describe('WHEN: maxlength and groupSize params are provided', () => {
+        describe('WHEN: maxLength and groupSize params are provided', () => {
             const $ = cheerio.load(
                 renderComponent('access-code', {
                     maxlength: 6,
                     groupSize: 3,
                 }),
             );
-            test('THEN: renders input with provided maxlength accounting for provided groupSize', () => {
+            test('THEN: renders input with provided max length accounting for provided groupSize', () => {
                 expect($('input').attr('maxlength')).toBe('7');
             });
         });
