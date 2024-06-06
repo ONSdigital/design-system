@@ -1,23 +1,37 @@
 {% macro onsDocumentList(params) %}
-
-    <ul {% if params.id %}id="{{ params.id }}" {% endif %}class="ons-document-list{{ ' ' + params.classes if params.classes else '' }}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
-
+    <ul
+        {% if params.id %}id="{{ params.id }}"{% endif %}class="ons-document-list{{ ' ' + params.classes if params.classes else '' }}"
+        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+    >
         {% for document in params.documents %}
+            {% set titleTag = params.titleTag | default("h2") %}
             {% set document %}
                 {% if document.thumbnail %}
-                    <div class="ons-document-list__item-image{%- if document.metadata.file %} ons-document-list__item-image--file{% endif %}" aria-hidden="true">
-                        <a class="ons-document-list__image-link{{ ' ons-document-list__image-link--placeholder' if not document.thumbnail.smallSrc }}" href="{{ document.url }}" tabindex="-1">
+                    <div
+                        class="ons-document-list__item-image{%- if document.metadata.file -%}ons-document-list__item-image--file{% endif %}"
+                        aria-hidden="true"
+                    >
+                        <a
+                            class="ons-document-list__image-link{{ ' ons-document-list__image-link--placeholder' if not document.thumbnail.smallSrc }}"
+                            href="{{ document.url }}"
+                            tabindex="-1"
+                        >
                             {% if document.thumbnail.smallSrc and document.thumbnail.largeSrc %}
-                                <img srcset="{{ document.thumbnail.smallSrc }} 1x, {{ document.thumbnail.largeSrc }} 2x" src="{{ document.thumbnail.smallSrc }}" alt="" loading="lazy">
+                                <img
+                                    srcset="{{ document.thumbnail.smallSrc }} 1x, {{ document.thumbnail.largeSrc }} 2x"
+                                    src="{{ document.thumbnail.smallSrc }}"
+                                    alt=""
+                                    loading="lazy"
+                                />
                             {% endif %}
                         </a>
                     </div>
                 {% endif %}
 
                 <div class="ons-document-list__item-content">
-                    <div class="ons-document-list__item-header{{ ' ons-document-list__item-header--reverse' if document.showMetadataFirst == true }}">
-
-                        {% set titleTag = params.titleTag | default("h2") %}
+                    <div
+                        class="ons-document-list__item-header{{ ' ons-document-list__item-header--reverse' if document.showMetadataFirst == true }}"
+                    >
                         <!-- prettier-ignore-start -->
                         <{{ titleTag }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
                         <!-- prettier-ignore-end -->
@@ -37,48 +51,55 @@
                         </{{ titleTag }}>
                         <!-- prettier-ignore-end -->
 
-                        {%- if document.metadata %}
-                            <ul class="ons-document-list__item-metadata{% if document.description %} ons-u-mb-xs{% else %} ons-u-mb-no{% endif %}">
-                                {%- if document.metadata.date %}
+                        {%- if document.metadata -%}
+                            <ul
+                                class="ons-document-list__item-metadata{% if document.description %}ons-u-mb-xs{% else %}ons-u-mb-no{% endif %}"
+                            >
+                                {%- if document.metadata.date -%}
                                     <li class="ons-document-list__item-attribute">
                                         {% set prefixClasses = "ons-u-fw-b" if document.metadata.date.showPrefix == true else "ons-u-vh" %}
-                                        <span class="{{ prefixClasses }}">{{ document.metadata.date.prefix | default("Published") }}: </span>
-                                        {% if document.metadata.date.iso -%}
+                                        <span class="{{ prefixClasses }}"
+                                            >{{ document.metadata.date.prefix | default("Published") }}:
+                                        </span>
+                                        {%- if document.metadata.date.iso -%}
                                             <time datetime="{{ document.metadata.date.iso }}">{{ document.metadata.date.short }}</time>
-                                        {%- endif %}
+                                        {%- endif -%}
                                     </li>
                                 {% endif %}
 
-                                {%- if document.metadata.type and document.metadata.type.text %}
-                                    <li class="ons-document-list__item-attribute{%- if document.metadata.file %} ons-u-mr-no{% endif %}">
+                                {%- if document.metadata.type and document.metadata.type.text -%}
+                                    <li class="ons-document-list__item-attribute{%- if document.metadata.file -%}ons-u-mr-no{% endif %}">
                                         {% set metadataType %}
-                                            <span {% if not document.metadata.file and not document.metadata.type.url %}class="ons-u-fw-b"{% endif %}>{{ document.metadata.type.text }}{%- if document.metadata.type.ref %}: {% elif document.metadata.file %},{% endif %}</span>
+                                            <span
+                                                {% if not document.metadata.file and not document.metadata.type.url %}class="ons-u-fw-b"{% endif %}
+                                                >{{ document.metadata.type.text }}{%- if document.metadata.type.ref -%}:{% elif document.metadata.file %},{% endif %}</span
+                                            >
                                         {% endset %}
-                                        {%- if document.metadata.type.url %}
+                                        {%- if document.metadata.type.url -%}
                                             <a class="ons-document-list__attribute-link" href="{{ document.metadata.type.url }}">
                                                 {{ metadataType | safe }}
                                             </a>
                                         {% else %}
                                             {{ metadataType | safe }}
                                         {% endif %}
-                                        {%- if document.metadata.type.ref %}
+                                        {%- if document.metadata.type.ref -%}
                                             <span>{{ document.metadata.type.ref }}</span>
                                         {% endif %}
                                     </li>
                                 {% endif %}
 
-                                {%- if document.metadata.file and document.metadata.file.fileType %}
+                                {%- if document.metadata.file and document.metadata.file.fileType -%}
                                     <li class="ons-document-list__item-attribute" aria-hidden="true">
-                                        {% set fileMetadataItems = [
+                                        {%
+                                            set fileMetadataItems = [
                                             document.metadata.file.fileType if document.metadata.file.fileType,
                                             document.metadata.file.fileSize if document.metadata.file.fileSize,
                                             document.metadata.file.filePages if document.metadata.file.filePages ]
-                                            %}
+                                        %}
                                         {{ fileMetadataItems | join(', ') }}
                                     </li>
-                                {% endif -%}
+                                {%- endif -%}
                             </ul>
-
                         {% endif %}
                     </div>
                     {% if document.description %}
@@ -87,17 +108,16 @@
                 </div>
             {% endset %}
 
-            <li class="ons-document-list__item{{ ' ons-document-list__item--featured' if document.featured }}{{ ' ons-document-list__item--full-width' if document.featured and document.fullWidth == true }}{{ ' ' + document.classes if document.classes else '' }}"{% if document.attributes %}{% for attribute, value in (document.attributes.items() if document.attributes is mapping and document.attributes.items else document.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
+            <li
+                class="ons-document-list__item{{ ' ons-document-list__item--featured' if document.featured }}{{ ' ons-document-list__item--full-width' if document.featured and document.fullWidth == true }}{{ ' ' + document.classes if document.classes else '' }}"
+                {% if document.attributes %}{% for attribute, value in (document.attributes.items() if document.attributes is mapping and document.attributes.items else document.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+            >
                 {% if document.featured and document.fullWidth == true %}
-                    <div class="ons-container{{ ' ons-container--wide' if document.wide == true }}">
-                        {{ document | safe }}
-                    </div>
+                    <div class="ons-container{{ ' ons-container--wide' if document.wide == true }}">{{ document | safe }}</div>
                 {% else %}
                     {{ document | safe }}
                 {% endif %}
             </li>
-
         {% endfor %}
     </ul>
-
 {% endmacro %}
