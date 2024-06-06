@@ -13,7 +13,7 @@
 
     {%- set description -%}
         <span
-            {% if isCheckboxOrRadio == false %}id="{{ descriptionID }}"{% endif %}class="ons-label__description{% if params.inputType %}ons-{{ params.inputType }}__label--with-description{% else %}ons-input--with-description{% endif %}"
+            {% if isCheckboxOrRadio == false %}id="{{ descriptionID }}"{% endif %}class="ons-label__description{% if params.inputType %}{{ ' ' }}ons-{{ params.inputType }}__label--with-description{% else %}{{ ' ' }}ons-input--with-description{% endif %}"
         >
             {{- params.description -}}
         </span>
@@ -30,11 +30,12 @@
 
             {%- set description -%}
                 <span class="ons-label__visually-hidden-description ons-u-vh" id="{{ descriptionID }}">{{- params.description -}}</span>
+                {{ ' ons-label--with-description' if params.description }}
             {%- endset -%}
         {%- endif -%}
 
         <label
-            class="{%- if params.inputType is not defined -%}ons-label{%- endif -%}{{- ' ' + params.classes if params.classes else '' -}}{%- if params.description -%}ons-label--with-description{%- endif -%}{{- ' ons-label--placeholder' if params.accessiblePlaceholder else '' -}}"
+            class="{{ ' ons-label' if params.inputType is not defined }}{{ ' ' + params.classes if params.classes }}{{ ' ons-label--with-description' if params.description }}{{ ' ons-label--placeholder' if params.accessiblePlaceholder }}"
             for="{{ params.for }}"
             {% if params.description %}aria-describedby="{{ descriptionID }}"{% endif %}
             {% if params.id %}id="{{ params.id }}"{% endif %}
