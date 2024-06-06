@@ -11,37 +11,43 @@
         {% set isCheckboxOrRadio = false %}
     {% endif %}
 
-    {% set description -%}
-        <span {% if isCheckboxOrRadio == false %}id="{{ descriptionID }}" {% endif %}class="ons-label__description {% if params.inputType %}ons-{{ params.inputType }}__label--with-description{% else %} ons-input--with-description{% endif %}">
-              {{- params.description -}}
+    {%- set description -%}
+        <span
+            {% if isCheckboxOrRadio == false %}id="{{ descriptionID }}"{% endif %}class="ons-label__description{% if params.inputType %}ons-{{ params.inputType }}__label--with-description{% else %}ons-input--with-description{% endif %}"
+        >
+            {{- params.description -}}
         </span>
-    {%- endset %}
+    {%- endset -%}
 
     {%- if params.description and params.accessiblePlaceholder -%}
         {{- description | safe -}}
     {%- else -%}
+
+        {%- if isCheckboxOrRadio == true -%}
+            {%- set ariaHiddenDescription -%}
+                <span class="ons-label__aria-hidden-description" aria-hidden="true">{{- description | safe -}}</span>
+            {%- endset -%}
+
+            {%- set description -%}
+                <span class="ons-label__visually-hidden-description ons-u-vh" id="{{ descriptionID }}">{{- params.description -}}</span>
+            {%- endset -%}
+        {%- endif -%}
+
         <label
-            class="{% if params.inputType is not defined -%}ons-label{%- endif %}{{- ' ' + params.classes if params.classes else "" -}}{%- if params.description %} ons-label--with-description{%- endif %} {{- ' ons-label--placeholder' if params.accessiblePlaceholder else "" -}}"
+            class="{%- if params.inputType is not defined -%}ons-label{%- endif -%}{{- ' ' + params.classes if params.classes else '' -}}{%- if params.description -%}ons-label--with-description{%- endif -%}{{- ' ons-label--placeholder' if params.accessiblePlaceholder else '' -}}"
             for="{{ params.for }}"
             {% if params.description %}aria-describedby="{{ descriptionID }}"{% endif %}
-            {% if params.id %} id="{{ params.id }}"{% endif %}
+            {% if params.id %}id="{{ params.id }}"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
         >
             {{- params.text | safe -}}
 
-        {%- if isCheckboxOrRadio == true -%}
-            {%- if params.description -%}
-                <span class="ons-label__aria-hidden-description" aria-hidden="true">{{- description | safe -}}</span>
+            {%- if isCheckboxOrRadio == true and params.description -%}
+                {{- ariaHiddenDescription | safe -}}
             {%- endif -%}
-            </label>
-            {% if params.description -%}
-                <span class="ons-label__visually-hidden-description ons-u-vh" id="{{ descriptionID }}">{{- params.description -}}</span>
-            {%- endif -%}
-        {%- else -%}
-            </label>
-            {%- if params.description -%}
-                {{- description | safe -}}
-            {%- endif -%}
-        {%- endif %}
+        </label>
+        {%- if params.description -%}
+            {{- description | safe -}}
+        {%- endif -%}
     {%- endif -%}
 {% endmacro %}
