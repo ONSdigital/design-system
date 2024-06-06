@@ -25,7 +25,7 @@
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="ons-input ons-input--text ons-input-type__input{% if params.error %}ons-input--error{% endif %}{% if params.searchButton %}ons-search__input{% endif %}{% if params.classes %}{{ params.classes }}{% endif %}{% if params.width %}ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            class="ons-input ons-input--text ons-input-type__input{{ ' ons-input--error' if params.error }}{{ ' ons-search__input' if params.searchButton }}{% if params.classes %}{{ ' ' + params.classes }}{% endif %}{% if params.width %}{{ ' ' }}ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix and params.prefix.id and not params.prefix.title %}aria-labelledby="{{ params.prefix.id }}"{% elif params.suffix and params.suffix.id and not params.suffix.title %}aria-labelledby="{{ params.suffix.id }}"{% endif %}
             {% if params.prefix and params.prefix.id %}
                 aria-labelledby="{{ params.id }} {{ params.prefix.id }}"
@@ -84,11 +84,9 @@
 
         {% if params.prefix or params.suffix %}
             {% if (params.prefix and params.prefix.id) or (params.suffix and params.suffix.id) %}
-                {% if params.prefix %}
-                    {% set prefixClass = " ons-input-type--prefix" %}
-                {% endif %}
-
-                <span class="ons-input-type{{ prefixClass }}{% if params.prefix or params.suffix %}ons-js-input-container-abbr{% endif %}">
+                <span
+                    class="ons-input-type{{ ' ons-input-type--prefix' if params.prefix }}{{ ' ons-js-input-container-abbr' if params.prefix or params.suffix }}"
+                >
                     <span class="ons-input-type__inner">
                         {{ input | safe }}
                         {% set abbr = params.prefix or params.suffix %}
@@ -112,9 +110,7 @@
                 </span>
             {% endif %}
         {% elif params.searchButton %}
-            <span
-                class="ons-grid--flex ons-input_search-button{% if params.label.description %}ons-input--with-text-description{% endif %}"
-            >
+            <span class="ons-grid--flex ons-input_search-button{{ ' ons-input--with-text-description' if params.label.description }}">
                 {% if params.accessiblePlaceholder %}
                     {{
                         onsLabel({
@@ -155,7 +151,7 @@
             </span>
         {% else %}
             {% if params.accessiblePlaceholder %}
-                <span class="ons-grid--flex{% if params.label.description %}ons-input--with-text-description{% endif %}">
+                <span class="ons-grid--flex{{ ' ons-input--with-text-description' if params.label.description }}">
                     {{
                         onsLabel({
                             "for": params.id,
