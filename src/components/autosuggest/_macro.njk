@@ -3,7 +3,7 @@
 {% macro onsAutosuggest(params) %}
     <div
         id="{{ params.id }}-container"
-        class="{% if not params.externalInitialiser %}ons-js-autosuggest{% endif %}{% if params.isEditable == false %}ons-js-address-not-editable{% endif %}{% if params.mandatory == true %}ons-js-address-mandatory{% endif %} {% if params.containerClasses %}{{ params.containerClasses }}{% endif %} ons-autosuggest"
+        class="ons-autosuggest{{ ' ons-js-autosuggest' if not params.externalInitialiser }}{{ ' ons-js-address-not-editable' if params.isEditable == false }}{{ ' ons-js-address-mandatory' if params.mandatory == true }}{{ ' ' + params.containerClasses if params.containerClasses }}"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
         data-min-chars="{{ params.minChars }}"
@@ -37,7 +37,7 @@
     >
         {% set autosuggestResults %}
             <div
-                class="ons-autosuggest__results ons-js-autosuggest-results{% if params.input.width %}ons-input--w-{{ params.input.width }}{% else %}ons-input--w-20{% endif %}"
+                class="ons-autosuggest__results ons-js-autosuggest-results{% if params.input.width %}{{ ' ' }}ons-input--w-{{ params.input.width }}{% else %}ons-input--w-20{% endif %}"
             >
                 <div id="{{ params.resultsTitleId }}" class="ons-autosuggest__results-title ons-u-fs-s">{{ params.resultsTitle }}</div>
                 <ul
