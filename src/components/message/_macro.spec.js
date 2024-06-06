@@ -21,7 +21,7 @@ const EXAMPLE_MESSAGE = {
   fromId: 'from1',
   sentId: 'sent1',
   unreadLinkId: 'unreadLink1',
-  messageID: 'messageBody1',
+  messageId: 'messageBody1',
 };
 
 describe('macro: message', () => {

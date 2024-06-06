@@ -15,7 +15,7 @@
                 <a class="ons-message__unread-link" {% if params.unreadLinkId %}id="{{ params.unreadLinkId }}"{% endif %} href="{{ params.unreadLink }}">{{ params.unreadLinkText }}</a>
             {% endif %}
         </div>
-        <div class="ons-message__body" {% if params.messageID %} id="{{ params.messageID }}"{% endif %}>
+        <div class="ons-message__body" {% if params.messageId %} id="{{ params.messageId }}"{% endif %}>
             {{ caller() }}
         </div>
     </div>

@@ -87,7 +87,7 @@ describe('macro: access-code', () => {
   it('has provided maximum length attribute including spaces required for groupSize', () => {
     const $ = cheerio.load(
       renderComponent('access-code', {
-        maxlength: 6,
+        maxLength: 6,
         groupSize: 3,
       }),
     );
