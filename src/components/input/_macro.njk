@@ -18,7 +18,6 @@
     {% else %}
         {% set type = "text" %}
     {% endif %}
-
     {% set exclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
     {% set inputPlaceholder = " ons-input--placeholder" if params.accessiblePlaceholder else "" %}
 
@@ -26,9 +25,10 @@
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="ons-input ons-input--text ons-input-type__input{% if params.error %} ons-input--error{% endif %}{% if params.searchButton %} ons-search__input{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}{% if params.width %} ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            class="ons-input ons-input--text ons-input-type__input{% if params.error %}ons-input--error{% endif %}{% if params.searchButton %}ons-search__input{% endif %}{% if params.classes %}{{ params.classes }}{% endif %}{% if params.width %}ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix and params.prefix.id and not params.prefix.title %}aria-labelledby="{{ params.prefix.id }}"{% elif params.suffix and params.suffix.id and not params.suffix.title %}aria-labelledby="{{ params.suffix.id }}"{% endif %}
-            {% if params.prefix and params.prefix.id %}aria-labelledby="{{ params.id }} {{ params.prefix.id }}"{% elif params.suffix and params.suffix.id %}aria-labelledby="{{ params.id }} {{ params.suffix.id }}"{% endif %}
+            {% if params.prefix and params.prefix.id %}aria-labelledby="{{ params.id }} {{ params.prefix.id }}"{% elif params.suffix and params.suffix.id %}aria-labelledby="{{ params.id }}
+            {{ params.suffix.id }}"{% endif %}
             {% if params.name %}name="{{ params.name }}"{% endif %}
             {% if params.value %}value="{{ params.value }}"{% endif %}
             {% if params.accept %}accept="{{ params.accept }}"{% endif %}
@@ -40,9 +40,10 @@
             {% if inputmode %}inputmode="{{ inputmode }}"{% endif %}
             {% if params.autocomplete %}autocomplete="{{ params.autocomplete }}"{% endif %}
             {% if params.accessiblePlaceholder %}placeholder="{{ params.label.text }}"{% endif %}
-            {% if params.charCheckLimit %}data-char-check-ref="{{ params.id }}-check" data-char-check-num="{{ params.charCheckLimit.limit }}" aria-describedby="{{ params.id }}-check"{% endif %}
+            {% if params.charCheckLimit %}data-char-check-ref="{{ params.id }}-check"
+            data-char-check-num="{{ params.charCheckLimit.limit }}" aria-describedby="{{ params.id }}-check"{% endif %}
             {% if params.charCheckLimit and params.charCheckLimit.charcheckCountdown %}data-char-check-countdown="true"{% endif %}
-            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
             {% if params.label and params.label.description %}{% if params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
         />
         {% if params.listeners %}
@@ -60,17 +61,19 @@
     {% endset %}
 
     {% set field %}
-        {% if (not params.accessiblePlaceholder or params.label.description) and (params.label and params.label.text)%}
-            {{ onsLabel({
-                "for": params.id,
-                "id": params.label.id,
-                "text": params.label.text,
-                "classes": params.label.classes,
-                "description": params.label.description,
-                "attributes": params.label.attributes,
-                "accessiblePlaceholder": params.accessiblePlaceholder,
-                "inline": params.label.inline
-            }) }}
+        {% if (not params.accessiblePlaceholder or params.label.description) and (params.label and params.label.text) %}
+            {{
+                onsLabel({
+                    "for": params.id,
+                    "id": params.label.id,
+                    "text": params.label.text,
+                    "classes": params.label.classes,
+                    "description": params.label.description,
+                    "attributes": params.label.attributes,
+                    "accessiblePlaceholder": params.accessiblePlaceholder,
+                    "inline": params.label.inline
+                })
+            }}
         {% endif %}
 
         {% if params.prefix or params.suffix %}
@@ -79,43 +82,45 @@
                     {% set prefixClass = " ons-input-type--prefix" %}
                 {% endif %}
 
-                <span class="ons-input-type{{ prefixClass }}{% if params.prefix or params.suffix %} ons-js-input-container-abbr{% endif %}">
+                <span class="ons-input-type{{ prefixClass }}{% if params.prefix or params.suffix %}ons-js-input-container-abbr{% endif %}">
                     <span class="ons-input-type__inner">
                         {{ input | safe }}
-
                         {% set abbr = params.prefix or params.suffix %}
                         {% if params.prefix.title or params.suffix.title %}
-                            {% set tag = 'abbr' %}
+                            {% set tag = '<abbr' %}
+                            {% set endTag = '</abbr>' %}
                         {% else %}
-                            {% set tag = 'span' %}
+                            {% set tag = '<span' %}
+                            {% set endTag = '</span>' %}
                         {% endif %}
 
-                        <!-- prettier-ignore-start -->
-                        <{{ tag }}
-                            id="{{ abbr.id }}"
-                            class="ons-input-type__type ons-js-input-abbr"
-                            {% if params.prefix or params.suffix %}
-                            aria-label="{{ abbr.title }}"
-                            role="figure"
-                            {% endif %}
-                            {% if abbr.title %}title="{{ abbr.title }}"{% endif %}
-                            >{{ abbr.text }}</{{ tag }}>
-                        <!-- prettier-ignore-end -->
+                        {{ tag }}
+                        id="{{ abbr.id }}" class="ons-input-type__type ons-js-input-abbr"
+                        {% if params.prefix or params.suffix %}
+                            aria-label="{{ abbr.title }}" role="figure"
+                        {% endif %}
+                        {% if abbr.title %}title="{{ abbr.title }}"{% endif %}
+                        >{{ abbr.text }}
+                        {{ endTag }}
                     </span>
                 </span>
             {% endif %}
         {% elif params.searchButton %}
-            <span class="ons-grid--flex ons-input_search-button{% if params.label.description %} ons-input--with-text-description{% endif %}">
+            <span
+                class="ons-grid--flex ons-input_search-button{% if params.label.description %}ons-input--with-text-description{% endif %}"
+            >
                 {% if params.accessiblePlaceholder %}
-                    {{ onsLabel({
-                        "for": params.id,
-                        "id": params.label.id,
-                        "text": params.label.text,
-                        "classes": params.label.classes,
-                        "attributes": params.label.attributes,
-                        "accessiblePlaceholder": params.accessiblePlaceholder,
-                        "inline": params.label.inline
-                    }) }}
+                    {{
+                        onsLabel({
+                            "for": params.id,
+                            "id": params.label.id,
+                            "text": params.label.text,
+                            "classes": params.label.classes,
+                            "attributes": params.label.attributes,
+                            "accessiblePlaceholder": params.accessiblePlaceholder,
+                            "inline": params.label.inline
+                        })
+                    }}
                 {% endif %}
 
                 {{ input | safe }}
@@ -144,16 +149,18 @@
             </span>
         {% else %}
             {% if params.accessiblePlaceholder %}
-                <span class="ons-grid--flex{% if params.label.description %} ons-input--with-text-description{% endif %}">
-                    {{ onsLabel({
-                        "for": params.id,
-                        "id": params.label.id,
-                        "text": params.label.text,
-                        "classes": params.label.classes,
-                        "attributes": params.label.attributes,
-                        "accessiblePlaceholder": params.accessiblePlaceholder,
-                        "inline": params.label.inline
-                    }) }}
+                <span class="ons-grid--flex{% if params.label.description %}ons-input--with-text-description{% endif %}">
+                    {{
+                        onsLabel({
+                            "for": params.id,
+                            "id": params.label.id,
+                            "text": params.label.text,
+                            "classes": params.label.classes,
+                            "attributes": params.label.attributes,
+                            "accessiblePlaceholder": params.accessiblePlaceholder,
+                            "inline": params.label.inline
+                        })
+                    }}
                     {{ input | safe }}
                 </span>
             {% else %}
@@ -164,36 +171,40 @@
 
     {% if params.charCheckLimit and params.charCheckLimit.limit %}
         {% set charCheckField %}
-            {% call onsCharLimit({
-                "id": params.id ~ "-check",
-                "limit": params.charCheckLimit.limit,
-                "variant": "check",
-                "charCountSingular": params.charCheckLimit.charCountSingular,
-                "charCountPlural": params.charCheckLimit.charCountPlural,
-                "charCountOverLimitSingular": params.charCheckLimit.charCountOverLimitSingular,
-                "charCountOverLimitPlural": params.charCheckLimit.charCountOverLimitPlural
-            }) %}
+            {%
+                call onsCharLimit({
+                    "id": params.id ~ "-check",
+                    "limit": params.charCheckLimit.limit,
+                    "variant": "check",
+                    "charCountSingular": params.charCheckLimit.charCountSingular,
+                    "charCountPlural": params.charCheckLimit.charCountPlural,
+                    "charCountOverLimitSingular": params.charCheckLimit.charCountOverLimitSingular,
+                    "charCountOverLimitPlural": params.charCheckLimit.charCountOverLimitPlural
+                })
+            %}
                 {{ field | safe }}
             {% endcall %}
         {% endset %}
     {% endif %}
 
     {% if params.mutuallyExclusive %}
-        {% call onsMutuallyExclusive({
-            "id": params.fieldId,
-            "legend": params.legend,
-            "legendClasses": params.legendClasses ~ " ons-js-input-legend",
-            "description": params.description,
-            "dontWrap": params.dontWrap,
-            "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
-            "or": params.mutuallyExclusive.or,
-            "deselectMessage": params.mutuallyExclusive.deselectMessage,
-            "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-            "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
-            "error": params.error,
-            "autosuggestResults": params.autosuggestResults
-        }) %}
+        {%
+            call onsMutuallyExclusive({
+                "id": params.fieldId,
+                "legend": params.legend,
+                "legendClasses": params.legendClasses ~ " ons-js-input-legend",
+                "description": params.description,
+                "dontWrap": params.dontWrap,
+                "legendIsQuestionTitle": params.legendIsQuestionTitle,
+                "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
+                "or": params.mutuallyExclusive.or,
+                "deselectMessage": params.mutuallyExclusive.deselectMessage,
+                "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
+                "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
+                "error": params.error,
+                "autosuggestResults": params.autosuggestResults
+            })
+        %}
             {% if charCheckField %}
                 {{ charCheckField | safe }}
             {% else %}
@@ -203,13 +214,15 @@
     {% elif type == "hidden" %}
         {{ field | safe }}
     {% else %}
-        {% call onsField({
-            "id": params.fieldId,
-            "classes": params.fieldClasses,
-            "dontWrap": params.dontWrap,
-            "error": params.error,
-            "inline": params.label.inline if params.label else ''
-        }) %}
+        {%
+            call onsField({
+                "id": params.fieldId,
+                "classes": params.fieldClasses,
+                "dontWrap": params.dontWrap,
+                "error": params.error,
+                "inline": params.label.inline if params.label else ''
+            })
+        %}
             {% if charCheckField %}
                 {{ charCheckField | safe }}
             {% else %}

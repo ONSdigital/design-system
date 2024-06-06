@@ -2,7 +2,7 @@
     {% set headingLevel = params.headingLevel | default(2) %}
     {% set sectionTitleHeadingLevel = headingLevel + 1 %}
 
-    <nav class="ons-section-nav{% if params.variants == 'vertical' %} ons-section-nav--vertical{% endif %} {% if params.classes %} {{ params.classes }} {% endif %}"{% if params.id %} id="{{ params.id }}"{% endif %} aria-labelledby="{{ params.hiddenTitleId | default("section-menu-nav-title")}}">
+    <nav class="ons-section-nav{% if params.variants == 'vertical' %} ons-section-nav--vertical{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}"{% if params.id %} id="{{ params.id }}"{% endif %} aria-labelledby="{{ params.hiddenTitleId | default('section-menu-nav-title')}}">
         <!-- prettier-ignore-start -->
         <h{{ headingLevel }} class="ons-u-vh" id="{{ params.hiddenTitleId | default('section-menu-nav-title') }}">{{ params.hiddenTitle | default("Pages in this section") }}</h{{ headingLevel }}>
         <!-- prettier-ignore-end -->
@@ -10,26 +10,26 @@
             {% for section in params.sections %}
                 {% set sectionItemHeadingLevel = headingLevel + 2 if section.title else headingLevel + 1 %}
                 <div class="ons-section-nav__sub">
+                    <!-- prettier-ignore-start -->
                     {% if section.title %}
-                        <!-- prettier-ignore-start -->
                         <h{{ sectionTitleHeadingLevel }} class="ons-u-fs-r--b ons-u-mb-s">{{ section.title }}</h{{ sectionTitleHeadingLevel }}>
-                        <!-- prettier-ignore-end -->
                     {% endif %}
+                    <!-- prettier-ignore-end -->
                     <ul class="ons-section-nav__list">
                         {% for item in section.itemsList %}
-                            {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title|lower) %}
+                            {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title | lower) %}
                                 {% set isCurrent = true %}
                             {% else %}
                                 {% set isCurrent = false %}
                             {% endif %}
                             <li class="ons-section-nav__item{% if item.classes %}{{ ' ' + item.classes }}{% endif %}{% if isCurrent == true %} ons-section-nav__item--active{% endif %}">
+                                <!-- prettier-ignore-start -->
                                 {% if isCurrent == true %}
-                                    <!-- prettier-ignore-start -->
                                     <h{{ sectionItemHeadingLevel }} class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}" aria-current="location">{{ item.title }}</h{{ sectionItemHeadingLevel }}>
-                                    <!-- prettier-ignore-end -->
                                 {% else %}
                                     <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
                                 {% endif %}
+                                <!-- prettier-ignore-end -->
                                 {% if item.anchors and isCurrent == true %}
                                     <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs">
                                         {% for anchor in item.anchors %}
@@ -45,27 +45,27 @@
                 </div>
             {% endfor %}
         {% else %}
+            <!-- prettier-ignore-start -->
             {% if params.title %}
-                <!-- prettier-ignore-start -->
                 <h{{ sectionTitleHeadingLevel }} class="ons-u-fs-r--b ons-u-mb-s">{{ params.title }}</h{{ sectionTitleHeadingLevel }}>
-                <!-- prettier-ignore-end -->
             {% endif %}
+            <!-- prettier-ignore-end -->
             <ul class="ons-section-nav__list">
                 {% for item in params.itemsList %}
                     {% set sectionItemHeadingLevel = headingLevel + 2 if params.title else headingLevel + 1 %}
-                    {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title|lower) %}
+                    {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title | lower) %}
                         {% set isCurrent = true %}
                     {% else %}
                         {% set isCurrent = false %}
                     {% endif %}
                     <li class="ons-section-nav__item{% if item.classes %}{{ ' ' + item.classes }}{% endif %}{% if isCurrent == true %} ons-section-nav__item--active{% endif %}">
+                        <!-- prettier-ignore-start -->
                         {% if isCurrent == true %}
-                            <!-- prettier-ignore-start -->
                             <h{{ sectionItemHeadingLevel }} class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}" aria-current="location">{{ item.title }}</h{{ sectionItemHeadingLevel }}>
-                            <!-- prettier-ignore-end -->
                         {% else %}
                             <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
                         {% endif %}
+                        <!-- prettier-ignore-end -->
                         {% if item.anchors %}
                             <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs">
                                 {% for anchor in item.anchors %}
