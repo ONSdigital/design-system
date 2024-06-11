@@ -136,8 +136,10 @@
                                     </nav>
                                 </div>
                                 {% if params.serviceLinks.itemsList | length > 1 or params.language %}
-                                    {% if params.variants == 'internal' or params.variants == 'neutral' %}
+                                    {% if params.variants == 'internal' %}
                                         {% set buttonVariant = ["mobile", "text-link", "text-link-inverse"] %}
+                                    {% elif params.variants == 'neutral' %}
+                                        {% set buttonVariant = ["mobile", "ghost-dark"] %}
                                     {% else %}
                                         {% set buttonVariant = ["mobile", "text-link"] %}
                                     {% endif %}
