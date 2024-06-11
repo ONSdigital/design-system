@@ -267,11 +267,7 @@
                                 </span>
                             {% endif %}
                             {% if params.navigation.toggleNavigationButton %}
-                                {% if params.variants == 'neutral' %}
-                                    {% set buttonVariant = ["mobile", "ghost-dark"] %}
-                                {% else %}
-                                    {% set buttonVariant = ["mobile", "ghost"] %}
-                                {% endif %}
+                                {% set buttonVariant = ["mobile", "ghost"] %}
                                 {{ onsButton({
                                     "text": params.navigation.toggleNavigationButton.text,
                                     "classes": "ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l",
