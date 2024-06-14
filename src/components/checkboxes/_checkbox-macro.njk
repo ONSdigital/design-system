@@ -2,7 +2,7 @@
     {% from "components/label/_macro.njk" import onsLabel %}
 
     <span
-        class="ons-checkbox{% if params.hideLabel == true %}ons-checkbox--no-label{% endif %}{{ ' ' + params.classes if params.classes else '' }}"
+        class="ons-checkbox{{ ' ons-checkbox--no-label' if params.hideLabel == true }}{{ ' ' + params.classes if params.classes else '' }}"
     >
         <input
             type="checkbox"
