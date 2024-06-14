@@ -2,7 +2,7 @@
     {% set alternativeLanguages = params.languages | rejectattr("current") %}
     {% set languageNumber = params.languages | length %}
 
-    <ul class="ons-language-links{% if languageNumber and languageNumber != 2 %}ons-u-d-no@xxs@m{% endif %}">
+    <ul class="ons-language-links{{ ' ons-u-d-no@xxs@m' if languageNumber and languageNumber != 2 }}">
         {% for language in alternativeLanguages %}
             <li class="ons-language-links__item">
                 <a
