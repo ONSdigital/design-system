@@ -4,7 +4,7 @@
 {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
 
 <style>
-    .ons-pattern-lib-block {
+    .ons-ds-block {
         border: 2px dashed var(--ons-color-grey-100);
         margin: 0 0 1rem;
         min-width: 200px;
@@ -14,7 +14,7 @@
         width: 100%;
     }
 
-    .ons-pattern-lib-block .ons-pattern-lib-block__label {
+    .ons-ds-block .ons-ds-block__label {
         border-bottom: 2px dashed var(--ons-color-grey-100);
         border-right: 2px dashed var(--ons-color-grey-100);
         left: 0;
@@ -24,35 +24,35 @@
     }
 </style>
 
-<div class="ons-pattern-lib-block">
-    <div class="ons-pattern-lib-block__label">block: meta</div>
+<div class="ons-ds-block">
+    <div class="ons-ds-block__label">block: meta</div>
 </div>
 
-<div class="ons-pattern-lib-block">
-    <div class="ons-pattern-lib-block__label">block: social</div>
+<div class="ons-ds-block">
+    <div class="ons-ds-block__label">block: social</div>
 </div>
 
-<div class="ons-pattern-lib-block">
-    <div class="ons-pattern-lib-block__label">block: favicons</div>
+<div class="ons-ds-block">
+    <div class="ons-ds-block__label">block: favicons</div>
 </div>
 
-<div class="ons-pattern-lib-block">
-    <div class="ons-pattern-lib-block__label">block: head</div>
+<div class="ons-ds-block">
+    <div class="ons-ds-block__label">block: head</div>
 </div>
 
-<div class="ons-pattern-lib-block">
-    <div class="ons-pattern-lib-block__label">block: bodyStart</div>
+<div class="ons-ds-block">
+    <div class="ons-ds-block__label">block: bodyStart</div>
 </div>
 
-<div class="ons-pattern-lib-block">
-    <div class="ons-pattern-lib-block__label">block: body</div>
+<div class="ons-ds-block">
+    <div class="ons-ds-block__label">block: body</div>
 
-    <div class="ons-pattern-lib-block">
-        <div class="ons-pattern-lib-block__label">block: preHeader</div>
+    <div class="ons-ds-block">
+        <div class="ons-ds-block__label">block: preHeader</div>
     </div>
 
-    <div class="ons-pattern-lib-block">
-        <div class="ons-pattern-lib-block__label">block: skipLink</div>
+    <div class="ons-ds-block">
+        <div class="ons-ds-block__label">block: skipLink</div>
         {{
             onsSkipToContent({
                 "text": "Skip to content"
@@ -60,8 +60,8 @@
         }}
     </div>
 
-    <div class="ons-pattern-lib-block">
-        <div class="ons-pattern-lib-block__label">block: header</div>
+    <div class="ons-ds-block">
+        <div class="ons-ds-block__label">block: header</div>
         {{
             onsHeader({
                 "title": "Design system",
@@ -104,10 +104,10 @@
         }}
     </div>
 
-    <div class="ons-pattern-lib-block">
-        <div class="ons-pattern-lib-block__label">block: pageContent</div>
-        <div class="ons-pattern-lib-block">
-            <div class="ons-pattern-lib-block__label">block: preMain</div>
+    <div class="ons-ds-block">
+        <div class="ons-ds-block__label">block: pageContent</div>
+        <div class="ons-ds-block">
+            <div class="ons-ds-block__label">block: preMain</div>
             {{
                 onsBreadcrumbs({
                     "ariaLabel": 'Breadcrumbs',
@@ -127,16 +127,16 @@
 
         <div class="ons-grid ons-grid--flex ons-grid--column@xxs@m">
             <div class="ons-grid__col ons-grid__col--flex ons-u-flex-grow">
-                <div class="ons-pattern-lib-block">
-                    <div class="ons-pattern-lib-block__label">block: main</div>
+                <div class="ons-ds-block">
+                    <div class="ons-ds-block__label">block: main</div>
                     <h1>Page content</h1>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="ons-pattern-lib-block">
-        <div class="ons-pattern-lib-block__label">block: footer</div>
+    <div class="ons-ds-block">
+        <div class="ons-ds-block__label">block: footer</div>
         {{
             onsFooter({
                 "rows": [
@@ -164,10 +164,10 @@
     </div>
 </div>
 
-<div class="ons-pattern-lib-block">
-    <div class="ons-pattern-lib-block__label">block: bodyEnd</div>
+<div class="ons-ds-block">
+    <div class="ons-ds-block__label">block: bodyEnd</div>
 </div>
 
-<div class="ons-pattern-lib-block">
-    <div class="ons-pattern-lib-block__label">block: scripts</div>
+<div class="ons-ds-block">
+    <div class="ons-ds-block__label">block: scripts</div>
 </div>
