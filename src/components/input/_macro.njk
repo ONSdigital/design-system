@@ -98,14 +98,14 @@
                             {% set endTag = '</span>' %}
                         {% endif %}
 
-                        {{ tag }}
+                        {{ tag | safe }}
                         id="{{ abbr.id }}" class="ons-input-type__type ons-js-input-abbr"
                         {% if params.prefix or params.suffix %}
                             aria-label="{{ abbr.title }}" role="figure"
                         {% endif %}
                         {% if abbr.title %}title="{{ abbr.title }}"{% endif %}
                         >{{ abbr.text }}
-                        {{ endTag }}
+                        {{ endTag | safe }}
                     </span>
                 </span>
             {% endif %}
