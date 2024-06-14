@@ -20,7 +20,7 @@
 
         <textarea
             id="{{ params.id }}"
-            class="ons-input ons-input--textarea {% if params.error %}ons-input--error{% endif %}{% if params.charCheckLimit and params.charCheckLimit.limit %}ons-js-char-limit-input{% endif %}{{ textareaExclusiveClass }} {{ params.classes if params.classes }} {% if params.width %}ons-input--w-{{ params.width }}{% endif %}"
+            class="ons-input ons-input--textarea{{ ' ons-input--error' if params.error }}{{ ' ons-js-char-limit-input' if params.charCheckLimit and params.charCheckLimit.limit }}{{ textareaExclusiveClass }}{{ ' ' + params.classes if params.classes }}{% if params.width %}{{ ' ' }}ons-input--w-{{ params.width }}{% endif %}"
             {% if params.name %}
                 name="{{ params.name }}"
             {% endif %}
@@ -31,7 +31,7 @@
             {% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
         >
-            {{ params.value if params.value }}</textarea
+            {{- params.value if params.value -}}</textarea
         >
 
         {% if params.charCheckLimit and params.charCheckLimit.limit %}
@@ -65,11 +65,7 @@
                 "error": params.error
             })
         %}
-            {%
-                call onsField({
-                    "error": params.error
-                })
-            %}
+            {% call onsField({}) %}
                 {{ field | safe }}
             {% endcall %}
         {% endcall %}
