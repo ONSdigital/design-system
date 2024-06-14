@@ -1,21 +1,22 @@
-| Name            | Type                                              | Required                         | Description                                                                                                                           |
-| --------------- | ------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| phase           | `PhaseBanner` [_(ref)_](/components/phase-banner) | false                            | Settings to set the Phase banner component within the HTML `<header>` element                                                         |
-| wide            | boolean                                           | false                            | Set to “true” to increase the maximum width of the layout container to 1280px                                                         |
-| fullWidth       | boolean                                           | false                            | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                 |
-| classes         | string                                            | false                            | Classes to add to the wrapping `header`                                                                                               |
-| variants        | array or string                                   | false                            | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral" and “description” |
-| mastheadLogoUrl | string                                            | false                            | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                                            |
-| mastheadLogo    | object`<MastheadLogo>`                            | false                            | Settings for a [custom organisation logo](#mastheadlogo) in the masthead. Defaults to the ONS logo.                                   |
-| language        | object`<Language>`                                | false                            | Settings for the [language selector](#language)                                                                                       |
-| serviceLinks    | object`<ServiceLinks>`                            | false                            | Settings for the [service links](#servicelinks) in the masthead                                                                       |
-| title           | string                                            | true (unless `titleLogo` is set) | The title for the service                                                                                                             |
-| description     | string                                            | false                            | Tagline or description for the service                                                                                                |
-| titleAsH1       | boolean                                           | false                            | Override to wrap the header `title` in an `<h1>` heading                                                                              |
-| titleLogo       | object`<TitleLogo>`                               | false                            | Settings for a [custom title logo](#titlelogo) in the header.                                                                         |
-| titleUrl        | string                                            | false                            | Wraps the title logo in a link. Set the URL for the HTML `href` attribute for the link.                                               |
-| button          | object`<SignOutButton>`                           | false                            | Settings for the [sign out button](#signoutbutton) in the header used to exit a transactional service                                 |
-| navigation      | array`<Navigation>`                               | false                            | Settings for the [main menu links](#navigation)                                                                                       |
+| Name                  | Type                                              | Required                         | Description                                                                                                                           |
+| --------------------- | ------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| phase                 | `PhaseBanner` [_(ref)_](/components/phase-banner) | false                            | Settings to set the Phase banner component within the HTML `<header>` element                                                         |
+| wide                  | boolean                                           | false                            | Set to “true” to increase the maximum width of the layout container to 1280px                                                         |
+| fullWidth             | boolean                                           | false                            | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                 |
+| classes               | string                                            | false                            | Classes to add to the wrapping `header`                                                                                               |
+| variants              | array or string                                   | false                            | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral" and “description” |
+| mastheadLogoUrl       | string                                            | false                            | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                                            |
+| mastheadLogo          | object`<MastheadLogo>`                            | false                            | Settings for a [custom organisation logo](#mastheadlogo) in the masthead. Defaults to the ONS logo.                                   |
+| language              | object`<Language>`                                | false                            | Settings for the [language selector](#language)                                                                                       |
+| serviceLinks          | object`<ServiceLinks>`                            | false                            | Settings for the [service links](#servicelinks) in the masthead                                                                       |
+| title                 | string                                            | true (unless `titleLogo` is set) | The title for the service                                                                                                             |
+| description           | string                                            | false                            | Tagline or description for the service                                                                                                |
+| titleAsH1             | boolean                                           | false                            | Override to wrap the header `title` in an `<h1>` heading                                                                              |
+| titleLogo             | object`<TitleLogo>`                               | false                            | Settings for a [custom title logo](#titlelogo) in the header.                                                                         |
+| titleUrl              | string                                            | false                            | Wraps the title logo in a link. Set the URL for the HTML `href` attribute for the link.                                               |
+| button                | object`<SignOutButton>`                           | false                            | Settings for the [sign out button](#signoutbutton) in the header used to exit a transactional service                                 |
+| navigation            | array`<Navigation>`                               | false                            | Settings for the [main menu links](#navigation)                                                                                       |
+| siteSearchAutosuggest | `Autosuggest` [_(ref)_](/components/autosuggest)  | false                            | Sets the autosuggest functionality in the header                                                                                      |
 
 ## MastheadLogo
 
@@ -85,8 +86,9 @@
 | ariaLabel              | string                    | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Main menu”.                                              |
 | itemsList              | array`<Item>`             | true     | Settings for an array of [list items](#item) for each navigation link                                                          |
 | currentPath            | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
-| toggleButton           | array`<ToggleButton>`     | true     | Settings for the navigation [menu toggle button](#togglebutton) displayed on small viewports                                   |
+| toggleNavigationButton | array`<ToggleButton>`     | true     | Settings for the navigation [menu toggle button](#togglebutton) displayed on small viewports                                   |
 | removeHorizontalSubNav | boolean                   | false    | Set to “true” to remove the sub navigation                                                                                     |
+| subNavigation          | array`<subNavigation>`    | false    | Settings for the [sub navigation menu links](#subNavigation)                                                                   |
 
 ## ToggleButton
 
@@ -115,3 +117,13 @@
 | name       | string | false    | Sets the HTML `name` attribute for the `<button>`. Not valid if `url` is set.    |
 | url        | string | false    | If set, will create an HTML anchor link with the required classes and attributes |
 | attributes | object | false    | HTML attributes (for example, data attributes) to add to the button              |
+
+## SubNavigation
+
+| Name                   | Type                      | Required | Description                                                                                                                    |
+| ---------------------- | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| id                     | string                    | true     | The HTML `id` of the `<nav>` element. Used for the `aria-controls` attribute for the menu button displayed on small viewports. |
+| ariaLabel              | string                    | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Section menu”.                                           |
+| itemsList              | array`<Item>`             | true     | Settings for an array of [list items](#item) for each navigation link                                                          |
+| currentPath            | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
+| removeHorizontalSubNav | boolean                   | false    | Set to “true” to remove the sub navigation                                                                                     |

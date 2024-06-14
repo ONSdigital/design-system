@@ -1,88 +1,90 @@
+@use 'sass:map';
+
 @mixin font-size($props, $base) {
-  $small-size: map-get($props, small);
-  $large-size: map-get($props, large);
+    $small-size: map.get($props, small);
+    $large-size: map.get($props, large);
 
-  font-size: rems($small-size, $base);
-  font-weight: map-get($props, weight);
-  line-height: map-get($props, line-height);
+    font-size: rems($small-size, $base);
+    font-weight: map.get($props, weight);
+    line-height: map.get($props, line-height);
 
-  @if $small-size != $large-size {
-    @include mq(m) {
-      font-size: rems($large-size, $base);
+    @if $small-size != $large-size {
+        @include mq(m) {
+            font-size: rems($large-size, $base);
+        }
     }
-  }
 }
 
 @each $name, $props in $type-matrix {
-  .#{$name} {
-    @include font-size($props, $base);
-  }
+    .#{$name} {
+        @include font-size($props, $base);
+    }
 }
 
 @each $breakpoint, $size in $grid-bp {
-  @each $name, $props in $type-matrix {
-    @include mq($breakpoint) {
-      .#{$name}\@#{$breakpoint} {
-        @include font-size($props, $base);
-      }
+    @each $name, $props in $type-matrix {
+        @include mq($breakpoint) {
+            .#{$name}\@#{$breakpoint} {
+                @include font-size($props, $base);
+            }
+        }
     }
-  }
 }
 
 h1 {
-  @extend .ons-u-fs-xl;
+    @extend .ons-u-fs-xl;
 }
 
 h2 {
-  @extend .ons-u-fs-l;
+    @extend .ons-u-fs-l;
 }
 
 h3 {
-  @extend .ons-u-fs-m;
+    @extend .ons-u-fs-m;
 }
 
 h4 {
-  @extend .ons-u-fs-r--b;
+    @extend .ons-u-fs-r--b;
 }
 
 .ons-u-fw-b {
-  font-weight: $font-weight-bold;
+    font-weight: $font-weight-bold;
 }
 
 .ons-u-fw-n {
-  font-weight: $font-weight-regular;
+    font-weight: $font-weight-regular;
 }
 
 .ons-u-fs-i {
-  font-style: italic;
+    font-style: italic;
 }
 
 .ons-u-tt-u {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .ons-u-td-no,
 .ons-u-td-no:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .ons-u-lighter {
-  color: var(--ons-color-text-light);
+    color: var(--ons-color-text-light);
 }
 
 .ons-u-f-mono {
-  font-family: $font-mono;
-  letter-spacing: 0.1em;
+    font-family: $font-mono;
+    letter-spacing: 0.1em;
 }
 
 .ons-u-ta-right {
-  text-align: right;
+    text-align: right;
 }
 
 .ons-u-ta-left {
-  text-align: left;
+    text-align: left;
 }
 
 .ons-u-ta-center {
-  text-align: center;
+    text-align: center;
 }

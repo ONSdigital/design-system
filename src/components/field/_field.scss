@@ -1,26 +1,26 @@
 .ons-field {
-  position: relative;
+    position: relative;
 
-  &__other {
-    background-color: var(--ons-color-grey-5);
-    clear: both;
-    display: none;
-    padding: 0 0.5rem 0.5rem;
+    &__other {
+        background-color: var(--ons-color-grey-5);
+        clear: both;
+        display: none;
+        padding: 0 0.5rem 0.5rem;
 
-    input:checked ~ & {
-      display: block;
+        input:checked ~ & {
+            display: block;
+        }
     }
-  }
 
-  &--inline {
-    align-items: center;
-    display: flex;
+    &--inline {
+        align-items: center;
+        display: flex;
 
-    .ons-label {
-      margin-bottom: 0;
-      margin-right: 0.5rem;
+        .ons-label {
+            margin-bottom: 0;
+            margin-right: 0.5rem;
+        }
     }
-  }
 }
 
 @include input-width('ons-field__item--w-{x}');

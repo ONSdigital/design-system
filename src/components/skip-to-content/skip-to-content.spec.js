@@ -12,33 +12,33 @@ const EXAMPLE_SKIP_TO_LINK_TEMPLATE = `
 `;
 
 describe('script: skip-to-content', () => {
-  it('sets `tabIndex` of target element to -1', async () => {
-    await setTestPage('/test', EXAMPLE_SKIP_TO_LINK_TEMPLATE);
+    it('sets `tabIndex` of target element to -1', async () => {
+        await setTestPage('/test', EXAMPLE_SKIP_TO_LINK_TEMPLATE);
 
-    await page.focus('.ons-skip-to-content');
-    await page.keyboard.press('Enter');
+        await page.focus('.ons-skip-to-content');
+        await page.keyboard.press('Enter');
 
-    const targetTabIndex = await page.$eval('#target-element', (el) => el.tabIndex);
-    expect(targetTabIndex).toBe(-1);
-  });
+        const targetTabIndex = await page.$eval('#target-element', (el) => el.tabIndex);
+        expect(targetTabIndex).toBe(-1);
+    });
 
-  it('removes outline from target element on navigate', async () => {
-    await setTestPage('/test', EXAMPLE_SKIP_TO_LINK_TEMPLATE);
+    it('removes outline from target element on navigate', async () => {
+        await setTestPage('/test', EXAMPLE_SKIP_TO_LINK_TEMPLATE);
 
-    await page.focus('.ons-skip-to-content');
-    await page.keyboard.press('Enter');
+        await page.focus('.ons-skip-to-content');
+        await page.keyboard.press('Enter');
 
-    const targetOutline = await page.$eval('#target-element', (el) => el.style.outline);
-    expect(targetOutline).toBe('none');
-  });
+        const targetOutline = await page.$eval('#target-element', (el) => el.style.outline);
+        expect(targetOutline).toBe('none');
+    });
 
-  it('focuses target element on navigate', async () => {
-    await setTestPage('/test', EXAMPLE_SKIP_TO_LINK_TEMPLATE);
+    it('focuses target element on navigate', async () => {
+        await setTestPage('/test', EXAMPLE_SKIP_TO_LINK_TEMPLATE);
 
-    await page.focus('.ons-skip-to-content');
-    await page.keyboard.press('Enter');
+        await page.focus('.ons-skip-to-content');
+        await page.keyboard.press('Enter');
 
-    const focusedElementId = await page.evaluate(() => document.activeElement.id);
-    expect(focusedElementId).toBe('target-element');
-  });
+        const focusedElementId = await page.evaluate(() => document.activeElement.id);
+        expect(focusedElementId).toBe('target-element');
+    });
 });

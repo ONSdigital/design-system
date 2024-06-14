@@ -1,19 +1,19 @@
 import domready from '../../js/domready';
 
 async function initialiseAccordions() {
-  const toggleAllButtons = [...document.querySelectorAll('.ons-accordion__toggle-all')];
+    const toggleAllButtons = [...document.querySelectorAll('.ons-accordion__toggle-all')];
 
-  if (toggleAllButtons.length) {
-    const detailsComponents = [...document.querySelectorAll('.ons-js-details')];
+    if (toggleAllButtons.length) {
+        const detailsComponents = [...document.querySelectorAll('.ons-js-details')];
 
-    const Details = (await import('../details/details')).default;
-    const Accordion = (await import('./accordion')).default;
-    const detailsEls = detailsComponents.map((element) => new Details(element));
+        const Details = (await import('../details/details')).default;
+        const Accordion = (await import('./accordion')).default;
+        const detailsEls = detailsComponents.map((element) => new Details(element));
 
-    toggleAllButtons.forEach((button) => {
-      new Accordion(button, detailsEls);
-    });
-  }
+        toggleAllButtons.forEach((button) => {
+            new Accordion(button, detailsEls);
+        });
+    }
 }
 
 domready(initialiseAccordions);

@@ -1,45 +1,45 @@
 .ons-u-hidden {
-  display: none !important;
-  visibility: hidden;
+    display: none !important;
+    visibility: hidden;
 }
 
 @include bp-suffix('ons-u-vh', $create-between-breakpoints: true) {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  user-select: none;
-  width: 1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    user-select: none;
+    width: 1px;
 }
 
 .ons-u-visuallyhidden.ons-u-focusable:active,
 .ons-u-vh.ons-u-focusable:active,
 .ons-u-visuallyhidden.ons-u-focusable:focus,
 .ons-u-vh.ons-u-focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
 }
 
 .ons-u-invisible {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .ons-u-ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
 }
 
 .ons-u-ir::before {
-  content: '';
-  display: block;
-  height: 150%;
-  width: 0;
+    content: '';
+    display: block;
+    height: 150%;
+    width: 0;
 }
