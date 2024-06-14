@@ -16,7 +16,7 @@
     <div class="{{ className }}">
         {% for summary in params.summaries %}
             {% if summary.summaryTitle %}
-                <h2 class="ons-summary__title ons-u-mb-m{{ ' ons-u-mt-m' if loop.index > 1 else '' }}">{{ summary.summaryTitle }}</h2>
+                <h2 class="ons-summary__title ons-u-mb-m{{ ' ons-u-mt-m' if loop.index > 1 }}">{{ summary.summaryTitle }}</h2>
                 {% set headingLevel = 3 %}
             {% endif %}
             {% for group in summary.groups %}
@@ -44,7 +44,7 @@
 
                                     {% for rowItem in row.rowItems %}
                                         <div
-                                            class="ons-summary__row{{ ' ons-summary__row--has-values' if rowItem.valueList else '' }}"
+                                            class="ons-summary__row{{ ' ons-summary__row--has-values' if rowItem.valueList }}"
                                             {% if rowItem.id %}id="{{ rowItem.id }}"{% endif %}
                                         >
                                             <dt
@@ -54,7 +54,7 @@
                                                 {% if rowItem.iconType %}
                                                     {% from "components/icon/_macro.njk" import onsIcon %}
                                                     <span
-                                                        class="ons-summary__item-title-icon{{ ' ons-summary__item-title-icon--check' if rowItem.iconType == 'check' else '' }}"
+                                                        class="ons-summary__item-title-icon{{ ' ons-summary__item-title-icon--check' if rowItem.iconType == 'check' }}"
                                                     >
                                                         {{-
                                                             onsIcon({
@@ -134,7 +134,7 @@
 
                     {% if group.summaryLink %}
                         <div
-                            class="ons-summary__link{{ ' ons-u-pt-s' if group.placeholderText or group.rows else '' }}{{ ' ons-u-bt' if group.placeholderText is not defined and group.rows | length > 1 and params.variant != 'card' else '' }}{{ ' ons-u-mb-xl' if not group.last else '' }}"
+                            class="ons-summary__link{{ ' ons-u-pt-s' if group.placeholderText or group.rows }}{{ ' ons-u-bt' if group.placeholderText is not defined and group.rows | length > 1 and params.variant != 'card' }}{{ ' ons-u-mb-xl' if not group.last }}"
                         >
                             {% set link %}
                                 <a

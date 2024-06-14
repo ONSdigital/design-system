@@ -4,7 +4,7 @@
             <img
                 class="ons-image__img"
                 {% if params.image.largeSrc %}srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x"{% endif %}src="{{ params.image.smallSrc }}"
-                alt="{{ params.alt if params.alt else '' }}"
+                alt="{{ params.alt if params.alt }}"
             />
         {% else %}
             <img class="ons-image__img" src="{{ params.url }}" alt="{{ params.alt }}" />

@@ -1,7 +1,7 @@
 {% macro onsModal(params) %}
     {% set modalId = params.id | default('dialog') %}
     <dialog
-        class="ons-modal ons-js-modal {{ params.classes if params.classes else '' }}"
+        class="ons-modal ons-js-modal {{ params.classes if params.classes }}"
         id="{{ modalId }}"
         role="dialog"
         aria-labelledby="ons-modal-title"
@@ -9,7 +9,7 @@
     >
         <div class="ons-modal__content">
             <h2 id="ons-modal-title" class="ons-modal__title">{{ params.title }}</h2>
-            <div class="ons-modal__body">{{ (params.body if params.body else "") | safe }}{{ caller() if caller }}</div>
+            <div class="ons-modal__body">{{ (params.body if params.body) | safe }}{{ caller() if caller }}</div>
             {% if params.btnText %}
                 {% from "components/button/_macro.njk" import onsButton %}
                 {{

@@ -1,7 +1,7 @@
 {% macro onsTable(params) %}
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/icon/_macro.njk" import onsIcon %}
-    {% set variants = params.variants if params.variants else '' %}
+    {% set variants = params.variants if params.variants %}
 
     {% set table %}
         <table

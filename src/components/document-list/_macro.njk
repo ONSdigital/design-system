@@ -1,6 +1,6 @@
 {% macro onsDocumentList(params) %}
     <ul
-        {% if params.id %}id="{{ params.id }}"{% endif %}class="ons-document-list{{ ' ' + params.classes if params.classes else '' }}"
+        {% if params.id %}id="{{ params.id }}"{% endif %}class="ons-document-list{{ ' ' + params.classes if params.classes }}"
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
     >
         {% for document in params.documents %}
@@ -8,7 +8,7 @@
             {% set document %}
                 {% if document.thumbnail %}
                     <div
-                        class="ons-document-list__item-image{%- if document.metadata.file -%}ons-document-list__item-image--file{% endif %}"
+                        class="ons-document-list__item-image{{ ' ons-document-list__item-image--file' if document.metadata.file }}"
                         aria-hidden="true"
                     >
                         <a
@@ -52,15 +52,11 @@
                         <!-- prettier-ignore-end -->
 
                         {%- if document.metadata -%}
-                            <ul
-                                class="ons-document-list__item-metadata{% if document.description %}ons-u-mb-xs{% else %}ons-u-mb-no{% endif %}"
-                            >
+                            <ul class="ons-document-list__item-metadata{{ ' ons-u-mb-xs' if document.description else ' ons-u-mb-no' }}">
                                 {%- if document.metadata.date -%}
                                     <li class="ons-document-list__item-attribute">
-                                        {% set prefixClasses = "ons-u-fw-b" if document.metadata.date.showPrefix == true else "ons-u-vh" %}
-                                        <span class="{{ prefixClasses }}"
-                                            >{{ document.metadata.date.prefix | default("Published") }}:
-                                        </span>
+                                        {% set prefixClass = "ons-u-fw-b" if document.metadata.date.showPrefix == true else "ons-u-vh" %}
+                                        <span class="{{ prefixClass }}">{{ document.metadata.date.prefix | default("Published") }}: </span>
                                         {%- if document.metadata.date.iso -%}
                                             <time datetime="{{ document.metadata.date.iso }}">{{ document.metadata.date.short }}</time>
                                         {%- endif -%}
@@ -68,7 +64,7 @@
                                 {% endif %}
 
                                 {%- if document.metadata.type and document.metadata.type.text -%}
-                                    <li class="ons-document-list__item-attribute{%- if document.metadata.file -%}ons-u-mr-no{% endif %}">
+                                    <li class="ons-document-list__item-attribute{{ ' ons-u-mr-no' if document.metadata.file }}">
                                         {% set metadataType %}
                                             <span
                                                 {% if not document.metadata.file and not document.metadata.type.url %}class="ons-u-fw-b"{% endif %}
@@ -109,7 +105,7 @@
             {% endset %}
 
             <li
-                class="ons-document-list__item{{ ' ons-document-list__item--featured' if document.featured }}{{ ' ons-document-list__item--full-width' if document.featured and document.fullWidth == true }}{{ ' ' + document.classes if document.classes else '' }}"
+                class="ons-document-list__item{{ ' ons-document-list__item--featured' if document.featured }}{{ ' ons-document-list__item--full-width' if document.featured and document.fullWidth == true }}{{ ' ' + document.classes if document.classes }}"
                 {% if document.attributes %}{% for attribute, value in (document.attributes.items() if document.attributes is mapping and document.attributes.items else document.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
             >
                 {% if document.featured and document.fullWidth == true %}

@@ -30,7 +30,7 @@
                         <input
                             type="radio"
                             id="{{ radio.id }}"
-                            class="ons-radio__input ons-js-radio{{ ' ' + params.inputClasses if params.inputClasses else '' }}{{ ' ' + radio.classes if radio.classes else '' }}{{ ' ons-js-other' if radio.other else '' }}{{ selectAllClass }}"
+                            class="ons-radio__input ons-js-radio{{ ' ' + params.inputClasses if params.inputClasses else '' }}{{ ' ' + radio.classes if radio.classes else '' }}{{ ' ons-js-other' if radio.other }}{{ selectAllClass }}"
                             value="{{ radio.value }}"
                             name="{{ params.name }}"
                             {% if radio.checked or (params.value is defined and params.value == radio.value) %}checked{% endif %}
