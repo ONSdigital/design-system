@@ -9,7 +9,7 @@
     {% set nextPageIndex = currentPageIndex + 1 %}
 
     <nav
-        class="ons-pagination {{ params.classes }}{% if params.hideRangeIndicator %}ons-pagination--no-indicator{% endif %}"
+        class="ons-pagination{{ ' ' + params.classes if params.classes }}{{ ' ons-pagination--no-indicator' if params.hideRangeIndicator }}"
         aria-label="Pagination ({{ position }})"
     >
         <div class="ons-pagination__position">{{ position }}</div>
@@ -35,7 +35,7 @@
                 </li>
             {% endif %}
             {% if currentPageIndex > 2 %}
-                <li class="ons-pagination__item{% if (currentPageIndex == 1) %}ons-pagination__item--current{% endif %}">
+                <li class="ons-pagination__item{{ ' ons-pagination__item--current' if currentPageIndex == 1 }}">
                     <a href="{{ firstPage.url }}" class="ons-pagination__link" aria-label="Go to the first page (Page 1)">1</a>
                 </li>
             {% endif %}
@@ -46,12 +46,12 @@
                 {% set showPage = false %}
                 {# Show the current, next and previous page
                 Show page 2 if the current page index is within the first 4 pages
-                Show the penultimate page if the current page index is within the last 4 pages  #}
+                Show the penultimate page if the current page index is within the last 4 pages #}
                 {% if (loop.index == currentPageIndex) or (loop.index == currentPageIndex + 1) or (loop.index == currentPageIndex - 1) or (loop.index == 2 and currentPageIndex <= 4) or ((loop.index == totalPages - 1) and (currentPageIndex > totalPages - 4)) %}
                     {% set showPage = true %}
                 {% endif %}
                 {% if showPage == true %}
-                    <li class="ons-pagination__item{% if loop.index == currentPageIndex %}ons-pagination__item--current{% endif %}">
+                    <li class="ons-pagination__item{{ ' ons-pagination__item--current' if loop.index == currentPageIndex }}">
                         <a
                             href="{{ page.url }}"
                             class="ons-pagination__link"
@@ -75,7 +75,7 @@
                 <li class="ons-pagination__item ons-pagination__item--gap">&hellip;</li>
             {% endif %}
             {% if currentPageIndex < totalPages - 1 %}
-                <li class="ons-pagination__item{% if currentPageIndex == totalPages %}ons-pagination__item--current{% endif %}">
+                <li class="ons-pagination__item{{ ' ons-pagination__item--current' if currentPageIndex == totalPages }}">
                     <a href="{{ lastPage.url }}" class="ons-pagination__link" aria-label="Go to the last page (Page {{ totalPages }})"
                         >{{ totalPages }}</a
                     >
