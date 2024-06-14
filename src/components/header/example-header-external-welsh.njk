@@ -1,30 +1,29 @@
 ---
 fullWidth: true
-layout: ~
 ---
 
-{%
-    set pageConfig = {
-        "header": {
-            "mastheadLogoUrl": '#0',
-            "title": 'Gwasanaeth Cymraeg',
-            "titleUrl": '#0',
-            "language": {
-                "languages": [
-                    {
-                        "url": '#0',
-                        "ISOCode": 'en',
-                        "text": 'English',
-                        "current": false
-                    },
-                    {
-                        "url": '#0',
-                        "ISOCode": 'cy',
-                        "text": 'Cymraeg',
-                        "current": true
-                    }
-                ]
-            }
+{% from "components/header/_macro.njk" import onsHeader %}
+
+{{
+    onsHeader({
+        "title": 'Gwasanaeth Cymraeg',
+        "mastheadLogoUrl": '#0',
+        "titleUrl": '#0',
+        "language": {
+            "languages": [
+                {
+                    "url": '#0',
+                    "ISOCode": 'en',
+                    "text": 'English',
+                    "current": false
+                },
+                {
+                    "url": '#0',
+                    "ISOCode": 'cy',
+                    "text": 'Cymraeg',
+                    "current": true
+                }
+            ]
         }
-    }
-%}
+    })
+}}
