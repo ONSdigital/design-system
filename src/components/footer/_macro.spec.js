@@ -402,6 +402,25 @@ describe('poweredBy logo', () => {
 
                 expect(iconsSpy.occurrences).toContainEqual(expect.objectContaining(defaultIcon));
             });
+
+            it('has the correct class applied for opposite display of logos', () => {
+                const $ = cheerio.load(
+                    renderComponent('footer', {
+                        poweredBy: {
+                            logo: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                            oppositeDisplay: true,
+                            extraPoweredByLogo: {
+                                logoUrl: '#0',
+                                logoImage: '<img src="a-logo.svg">',
+                            },
+                        },
+                        legal: EXAMPLE_LEGAL_PARAM,
+                        crest: true,
+                    }),
+                );
+
+                expect($('.ons-footer__poweredby').attr('class')).toContain('ons-grid--between');
+            });
         });
     });
     describe('provided poweredBy logo', () => {
