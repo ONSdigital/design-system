@@ -21,7 +21,7 @@
         {% set listEl = 'ul' %}
     {% endif %}
     <!-- prettier-ignore-start -->
-    <{{ listEl }}{% if params.id %} id="{{ params.id }}"{% endif %} class="ons-list{% if listEl == 'p' %} ons-list--p{% endif %}{% if params.classes %} {{ params.classes -}}{% endif %}{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-list--{{ variant }}{% endfor %}{% else %} ons-list--{{ params.variants }}{% endif %}{% endif %}{% if otherClasses %} {{ otherClasses -}}{% endif %}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
+    <{{ listEl }}{% if params.id %} id="{{ params.id }}"{% endif %} class="ons-list{{ ' ons-list--p' if listEl == 'p' }}{{ ' ' + params.classes if params.classes -}}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-list--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-list--{{ params.variants }}{% endif %}{{ otherClasses if otherClasses -}}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
     <!-- prettier-ignore-end -->
         {%- for item in params.itemsList -%}
             {% set sublistClasses = item.listClasses if item.listClasses %}
@@ -69,7 +69,7 @@
                             })
                         }}
                     {%- else -%}
-                        <a href="{{ item.url }}" class="ons-list__link{% if item.variants == 'inPageLink' %} ons-js-inpagelink{% endif %}{% if item.classes %} {{ item.classes }}{% endif %}"{% if item.target %} target="{{ item.target }}"{% endif %}{% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %} {{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
+                        <a href="{{ item.url }}" class="ons-list__link{{ ' ons-js-inpagelink' if item.variants == 'inPageLink' }}{{ ' ' + item.classes if item.classes }}"{% if item.target %} target="{{ item.target }}"{% endif %}{% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %} {{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
                             {%- if item.prefix -%}<span class="ons-u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- itemText | safe -}}
                             {%- if item.target == "_blank" -%}<span class="ons-u-vh"> ({{- item.screenreaderMessage | default("opens in a new tab") -}})</span>{%- endif -%}
                         </a>
