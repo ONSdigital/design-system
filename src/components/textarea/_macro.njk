@@ -65,9 +65,7 @@
                 "error": params.error
             })
         %}
-            {% call onsField({}) %}
-                {{ field | safe }}
-            {% endcall %}
+            {{ field | safe }}
         {% endcall %}
     {% else %}
         {%
