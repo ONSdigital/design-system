@@ -12,7 +12,7 @@
     {% endif %}
 
     <header
-        class="ons-header{% if params.classes %}{{ params.classes }}{% endif %}{% if params.variants is not string %}{% for variant in params.variants %}ons-header--{{ variant }}{% endfor %}{% else %}ons-header--{{ params.variants }}{% endif %}"
+        class="ons-header{{ ' '+ params.classes if params.classes }}{% if params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-header--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-header--{{ params.variants }}{% endif %}"
         role="banner"
     >
         {{
@@ -37,9 +37,7 @@
         <div class="ons-header__top">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div
-                    class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center{% if params.mastheadLogo.classes %}{{ params.mastheadLogo.classes }}{% endif %}{% if not params.mastheadLogo.multipleLogos %}
-                        ons-grid--no-wrap ons-grid--gutterless
-                    {% endif %}"
+                    class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center{{ ' '+ params.mastheadLogo.classes if params.mastheadLogo.classes }}{{ ' ons-grid--no-wrap ons-grid--gutterless' if not params.mastheadLogo.multipleLogos }}"
                 >
                     <div class="ons-grid__col ons-col-auto">
                         {%- if not params.mastheadLogo.multipleLogos -%}
@@ -65,7 +63,7 @@
                                     {% else %}
                                         {{-
                                             onsIcon({
-                                            "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                                "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
                                                 "altText": 'Office for National Statistics logo'
                                             })
                                         -}}
@@ -122,10 +120,10 @@
                                     {% set controlVisibility = false %}
                                 {% endif %}
                                 <div
-                                    class="ons-grid__col ons-col-auto{% if controlVisibility == true %}ons-u-d-no@xxs@{{ breakpoint }}{% endif %}"
+                                    class="ons-grid__col ons-col-auto{% if controlVisibility == true %}{{ ' ' }}ons-u-d-no@xxs@{{ breakpoint }}{% endif %}"
                                 >
                                     <nav
-                                        class="ons-header-service-nav ons-header-service-nav--main {{ params.serviceLinks.classes }}"
+                                        class="ons-header-service-nav ons-header-service-nav--main{{ ' ' + params.serviceLinks.classes if params.serviceLinks.classes }}"
                                         aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}"
                                     >
                                         <ul class="ons-header-service-nav__list">
@@ -219,20 +217,20 @@
         <div class="ons-header__main">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div
-                    class="ons-grid{{ ' ons-grid--gutterless' if not params.button }} ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap"
+                    class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{{ ' ons-grid--gutterless' if not params.button }}"
                 >
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         {% if params.titleLogo.large %}
 
                             {% set title %}
                                 <div
-                                    class="ons-header__title-logo ons-header__title-logo--large {% if params.titleLogo.classes %}{{ params.titleLogo.classes }}{% endif %}{% if params.titleLogo.small %}ons-u-d-no@xxs@s{% endif %}"
+                                    class="ons-header__title-logo ons-header__title-logo--large{{ ' ' + params.titleLogo.classes if params.titleLogo.classes }}{{ ' ons-u-d-no@xxs@s' if params.titleLogo.small }}"
                                 >
                                     {{ params.titleLogo.large | safe }}
                                 </div>
                                 {% if params.titleLogo.small %}
                                     <div
-                                        class="ons-header__title-logo ons-header__title-logo--small ons-u-d-no@s{% if params.titleLogo.classes %}{{ params.titleLogo.classes }}{% endif %}"
+                                        class="ons-header__title-logo ons-header__title-logo--small ons-u-d-no@s{{ ' ' + params.titleLogo.classes if params.titleLogo.classes }}"
                                     >
                                         {{ params.titleLogo.small | safe }}
                                     </div>
