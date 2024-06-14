@@ -43,7 +43,7 @@
                                 "for": radio.id,
                                 "inputType": "radio",
                                 "text": radio.label.text,
-                                "classes": "ons-radio__label " + radio.label.classes | default(''),
+                                "classes": "ons-radio__label" + (" " + radio.label.classes if radio.label.classes),
                                 "description": radio.label.description
                             })
                         }}

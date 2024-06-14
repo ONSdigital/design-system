@@ -20,7 +20,7 @@
                 {% set headingLevel = 3 %}
             {% endif %}
             {% for group in summary.groups %}
-                <div {% if group.id %}id="{{ group.id }}"{% endif %} class="ons-summary__group{{ variantClasses }}">
+                <div {% if group.id %}id="{{ group.id }}"{{ ' ' }}{% endif %}class="ons-summary__group{{ variantClasses }}">
                     {% if group.groupTitle %}
                         <!-- prettier-ignore-start -->
                         <h{{ headingLevel }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ headingLevel }}>

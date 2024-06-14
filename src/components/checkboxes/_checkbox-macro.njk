@@ -21,7 +21,7 @@
                 "for": params.id,
                 "inputType": "checkbox",
                 "text": params.label.text,
-                "classes": "ons-checkbox__label " + params.label.classes | default(''),
+                "classes": "ons-checkbox__label" + ( ' ' + params.label.classes if params.label.classes ),
                 "description": params.label.description
             })
         }}
