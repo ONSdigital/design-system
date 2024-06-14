@@ -68,7 +68,7 @@
                                                 {% endif %}
 
                                                 <div
-                                                    class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType else "" }}"
+                                                    class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType }}"
                                                 >
                                                     {{- rowItem.rowTitle | default(row.rowTitle) | safe -}}
                                                 </div>

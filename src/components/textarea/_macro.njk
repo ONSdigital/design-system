@@ -3,7 +3,7 @@
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/label/_macro.njk" import onsLabel %}
     {% from "components/char-check-limit/_macro.njk" import onsCharLimit %}
-    {% set textareaExclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
+    {% set textareaExclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive %}
 
     {% set field %}
 

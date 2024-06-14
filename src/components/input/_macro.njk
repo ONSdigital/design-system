@@ -18,8 +18,8 @@
     {% else %}
         {% set type = "text" %}
     {% endif %}
-    {% set exclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
-    {% set inputPlaceholder = " ons-input--placeholder" if params.accessiblePlaceholder else "" %}
+    {% set exclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive %}
+    {% set inputPlaceholder = " ons-input--placeholder" if params.accessiblePlaceholder %}
 
     {% set input %}
         <input
@@ -142,7 +142,7 @@
                         "text": params.searchButton.text,
                         "id": params.searchButton.id,
                         "variants": 'small',
-                        "classes": 'ons-search__btn' + (" " + params.searchButton.classes if params.searchButton.classes else ""),
+                        "classes": 'ons-search__btn' + (" " + params.searchButton.classes if params.searchButton.classes),
                         "attributes": params.searchButton.attributes,
                         "iconType": params.searchButton.iconType,
                         "iconPosition": 'only' if params.searchButton.visuallyHideButtonText == true else 'before'

@@ -1,7 +1,7 @@
 {% from "components/error/_macro.njk" import onsError %}
 
 {% macro onsFieldset(params) %}
-    {% set descriptionID = (params.id ~ "-" if params.id else "") ~ "legend-description" %}
+    {% set descriptionID = (params.id ~ "-" if params.id) ~ "legend-description" %}
     {%- set fieldset -%}
         {%- if params.dontWrap -%}
             <div class="ons-input-items">{{- caller() if caller -}}</div>

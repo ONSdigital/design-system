@@ -88,7 +88,7 @@
             {% endif %}
 
             <div class="ons-panel__body{% if params.iconSize %}{{ ' ' }}ons-icon-margin--{{ params.iconSize }}{% endif %}">
-                {{ (params.body if params else "") | safe }}
+                {{ (params.body if params) | safe }}
                 {{ caller() if caller }}
             </div>
         </div>

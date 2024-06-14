@@ -51,7 +51,7 @@
                 {{
                     onsButton({
                         "id": params.button.id,
-                        "classes": params.button.classes if params.button.classes else "",
+                        "classes": params.button.classes if params.button.classes,
                         "variants": "ghost",
                         "text": params.button.text,
                         "name": params.button.name,
@@ -65,7 +65,7 @@
         {% endif %}
 
         <div
-            class="ons-footer__body{{ ' ' + params.classes if params.classes else '' }}"
+            class="ons-footer__body{{ ' ' + params.classes if params.classes }}"
             data-analytics="footer"
             {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
         >

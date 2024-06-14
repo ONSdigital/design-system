@@ -7,7 +7,7 @@
     {%
         call onsField({
             "id": params.fieldId,
-            "classes": "ons-js-password" + (" " + params.fieldClasses if params.fieldClasses else ""),
+            "classes": "ons-js-password" + (" " + params.fieldClasses if params.fieldClasses),
             "error": params.error
         })
     %}
@@ -35,7 +35,7 @@
                 "id": params.id,
                 "name": params.name,
                 "type": "password",
-                "classes": "ons-u-mt-xs ons-js-password-input" + (" ons-input--error" if params.error else ""),
+                "classes": "ons-u-mt-xs ons-js-password-input" + (" ons-input--error" if params.error),
                 "dontWrap": true
             })
         }}
