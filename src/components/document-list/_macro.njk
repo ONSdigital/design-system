@@ -5,7 +5,7 @@
     >
         {% for document in params.documents %}
             {% set titleTag = params.titleTag | default("h2") %}
-            {% set document %}
+            {% set documentItem %}
                 {% if document.thumbnail %}
                     <div
                         class="ons-document-list__item-image{{ ' ons-document-list__item-image--file' if document.metadata.file }}"
@@ -109,9 +109,9 @@
                 {% if document.attributes %}{% for attribute, value in (document.attributes.items() if document.attributes is mapping and document.attributes.items else document.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
             >
                 {% if document.featured and document.fullWidth == true %}
-                    <div class="ons-container{{ ' ons-container--wide' if document.wide == true }}">{{ document | safe }}</div>
+                    <div class="ons-container{{ ' ons-container--wide' if document.wide == true }}">{{ documentItem | safe }}</div>
                 {% else %}
-                    {{ document | safe }}
+                    {{ documentItem | safe }}
                 {% endif %}
             </li>
         {% endfor %}
