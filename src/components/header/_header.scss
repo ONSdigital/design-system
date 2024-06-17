@@ -77,85 +77,84 @@
     }
 
     &--internal & {
-      &__top {
-          background: var(--ons-color-header-masthead-internal);
-          .ons-icon--logo {
-              display: block;
-              .ons-icon--logo__group--text,
-              .ons-icon--logo__group--primary {
-                  fill: var(--ons-color-white);
-              }
-          }
-      }
-      &__org-logo-link:focus {
-          background-color: transparent;
-          box-shadow: none;
-          outline: 3px solid var(--ons-color-focus);
-          .ons-icon--logo {
-              fill: var(--ons-color-text-link-focus);
-          }
-      }
-      &__grid-top {
-          color: var(--ons-color-text-inverse);
-          min-height: 36px;
-          a {
-              color: var(--ons-color-text-inverse);
-              &:hover {
-                  text-decoration: underline solid var(--ons-color-text-inverse-link-hover) 3px;
-              }
-          }
-      }
-    }
-
-  &--neutral & {
-    &__top {
-      .ons-icon--logo {
-        display: block;
-        .ons-icon--logo__group--text,
-        .ons-icon--logo__group--primary {
-            fill: var(--ons-color-black);
+        &__top {
+            background: var(--ons-color-header-masthead-internal);
+            .ons-icon--logo {
+                display: block;
+                .ons-icon--logo__group--text,
+                .ons-icon--logo__group--primary {
+                    fill: var(--ons-color-white);
+                }
+            }
+        }
+        &__org-logo-link:focus {
+            background-color: transparent;
+            box-shadow: none;
+            outline: 3px solid var(--ons-color-focus);
+            .ons-icon--logo {
+                fill: var(--ons-color-text-link-focus);
+            }
+        }
+        &__grid-top {
+            color: var(--ons-color-text-inverse);
+            min-height: 36px;
+            a {
+                color: var(--ons-color-text-inverse);
+                &:hover {
+                    text-decoration: underline solid var(--ons-color-text-inverse-link-hover) 3px;
+                }
+            }
         }
     }
-    }
 
-    &__org-logo-link:focus {
-      outline: none;
-      background-color: var(--ons-color-focus);
-      .ons-icon--logo {
-        color: var(--ons-color-text-link-focus);
-    }
-   }
-
-    &__grid-top {
-      a {
-        color: var(--ons-color-black);
-        &:hover {
-          text-decoration: underline solid var(--ons-color-header-masthead-neutral) 3px;
+    &--neutral & {
+        &__top {
+            .ons-icon--logo {
+                display: block;
+                .ons-icon--logo__group--text,
+                .ons-icon--logo__group--primary {
+                    fill: var(--ons-color-black);
+                }
+            }
         }
-        &:focus {
-          color: var(--ons-color-black);
+
+        &__org-logo-link:focus {
+            outline: none;
+            background-color: var(--ons-color-focus);
+            .ons-icon--logo {
+                color: var(--ons-color-text-link-focus);
+            }
         }
-      }
-    }
 
-    &__main {
-      background: var(--ons-color-grey-75);
+        &__grid-top {
+            a {
+                color: var(--ons-color-black);
+                &:hover {
+                    text-decoration: underline solid var(--ons-color-header-masthead-neutral) 3px;
+                }
+                &:focus {
+                    color: var(--ons-color-black);
+                }
+            }
+        }
 
+        &__main {
+            background: var(--ons-color-grey-75);
             &--border {
                 border-bottom: 3px solid var(--ons-color-header-neutral);
                 border-top: 3px solid var(--ons-color-header-neutral);
             }
         }
 
-    &__title {
-      color: var(--ons-color-white);
-      &-link {
-        &:hover {
-          text-decoration: underline solid var(--ons-color-branded-text) 2px;
+        &__title {
+            color: var(--ons-color-white);
+            &-link {
+                &:hover {
+                    text-decoration: underline solid var(--ons-color-branded-text) 2px;
+                }
+            }
         }
-      }
     }
-  }
 
     .ons-icon--logo {
         display: block;
