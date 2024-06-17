@@ -20,12 +20,12 @@
 
 ## MastheadLogo
 
-| Name          | Type                    | Required | Description                                                                    |
-| ------------- | ----------------------- | -------- | ------------------------------------------------------------------------------ |
-| classes       | string                  | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
-| large         | HTML                    | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`            |
-| small         | HTML                    | false    | Optionally provide a version of the logo more suited to mobile viewports       |
-| multipleLogos | object`<MultipleLogos>` | false    | Allows for up to three logos to be used in the masthead.                       |
+| Name          | Type                    | Required | Description                                                              |
+| ------------- | ----------------------- | -------- | ------------------------------------------------------------------------ |
+| classes       | string                  | false    | Classes to be added to the masthead logo                                 |
+| large         | HTML                    | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`      |
+| small         | HTML                    | false    | Optionally provide a version of the logo more suited to mobile viewports |
+| multipleLogos | object`<MultipleLogos>` | false    | Allows for up to three logos to be used in the masthead                  |
 
 ## MultipleLogos
 
@@ -44,11 +44,11 @@
 
 ## TitleLogo
 
-| Name    | Type   | Required | Description                                                                    |
-| ------- | ------ | -------- | ------------------------------------------------------------------------------ |
-| classes | string | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
-| large   | HTML   | true     | Any HTML to render an image for example embedded `<svg>` or `<img>`            |
-| small   | HTML   | false    | Optionally provide a version of the logo more suited to mobile viewports       |
+| Name    | Type   | Required | Description                                                              |
+| ------- | ------ | -------- | ------------------------------------------------------------------------ |
+| classes | string | false    | Classes to be added to the masthead logo                                 |
+| large   | HTML   | true     | Any HTML to render an image for example embedded `<svg>` or `<img>`      |
+| small   | HTML   | false    | Optionally provide a version of the logo more suited to mobile viewports |
 
 ## ServiceLinks
 
@@ -92,10 +92,10 @@
 
 ## ToggleButton
 
-| Name      | Type   | Required | Description                                                                  |
-| --------- | ------ | -------- | ---------------------------------------------------------------------------- |
-| text      | string | false    | The text for the toggle button label. Defaults to “Menu”.                    |
-| ariaLabel | string | false    | The `aria-label` attribute for the toggle button. Defaults to “Toggle menu”. |
+| Name      | Type   | Required | Description                                                                 |
+| --------- | ------ | -------- | --------------------------------------------------------------------------- |
+| text      | string | false    | The text for the toggle button label. Defaults to “Menu”                    |
+| ariaLabel | string | false    | The `aria-label` attribute for the toggle button. Defaults to “Toggle menu” |
 
 ## Item
 
