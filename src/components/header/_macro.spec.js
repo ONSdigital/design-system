@@ -426,7 +426,7 @@ describe('FOR: Header', () => {
     describe('WHEN: one item is provided to the itemsList parameter', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_SINGLE));
       test('THEN: renders without multiple link display class on large screen', () => {
-        expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@')).toBe(false);
+        expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@m')).toBe(false);
       });
       test('THEN: does not render button on small screen', () => {
         expect($('.ons-js-toggle-services').length).toBe(0);
