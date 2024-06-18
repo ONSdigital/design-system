@@ -4,8 +4,8 @@
     {% from "components/navigation/_macro.njk" import onsNavigation %}
     {% from "components/browser-banner/_macro.njk" import onsBrowserBanner %}
     {% set titleTag = "h1" if params.titleAsH1 else "div" %}
-    {% set openingTag = "<" + tag %}
-    {% set closingTag = "</" + tag + ">" %}
+    {% set openingTag = "<" + titleTag %}
+    {% set closingTag = "</" + titleTag + ">" %}
     {% set currentLanguageISOCode = "en" %}
 
     {% if params.language and params.language.languages %}
