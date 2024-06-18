@@ -345,13 +345,13 @@ describe('macro: summary', () => {
                 expect($('#group-id-1').length).toBe(1);
             });
 
-            it('has the correct `groupTitle` tag', () => {
+            it('has the correct group `title` tag', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect($('.ons-summary__group-title')[0].tagName).toBe('h2');
             });
 
-            it('has the `groupTitle` text', () => {
+            it('has the group `title` text', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect($('.ons-summary__group-title').text()).toBe('group title');
@@ -377,13 +377,13 @@ describe('macro: summary', () => {
                 expect($('.ons-summary__items .ons-summary__item:nth-of-type(4)').hasClass('ons-summary__item--total')).toBe(true);
             });
 
-            it('displays the `rowTitle` text', () => {
+            it('displays the row `title` text', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect($('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__row-title').text()).toBe('row title 3');
             });
 
-            it('overrides the `rowTitle` with the `errorMessage` if provided', () => {
+            it('overrides the row `title` with the `errorMessage` if provided', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_WITH_TITLE));
 
                 expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__row-title--error').text()).toBe(
@@ -405,7 +405,7 @@ describe('macro: summary', () => {
                 expect($('.ons-summary__row--has-values').length).toBe(5);
             });
 
-            it('has custom `rowTitleAttributes`', () => {
+            it('has custom row `titleAttributes`', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect($('.ons-summary__item-title').attr('a')).toBe('123');
@@ -414,7 +414,7 @@ describe('macro: summary', () => {
         });
 
         describe('part: item title', () => {
-            it('displays the `rowTitle` text', () => {
+            it('displays the row `title` text', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect($('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__item--text').text().trim()).toBe(
@@ -562,7 +562,7 @@ describe('macro: summary', () => {
             expect(results).toHaveNoViolations();
         });
 
-        it('displays the `summaryTitle`', () => {
+        it('displays the summary `title`', () => {
             const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_WITH_TITLE));
 
             expect($('.ons-summary__title').text()).toBe('summary title');
@@ -593,7 +593,7 @@ describe('macro: summary', () => {
             expect($('.ons-summary').hasClass('ons-summary--hub')).toBe(true);
         });
 
-        it('has the value rendered after the `rowTitle` that shows on mobile', () => {
+        it('has the value rendered after the row `title` that shows on mobile', () => {
             const $ = cheerio.load(
                 renderComponent('summary', {
                     ...EXAMPLE_SUMMARY_BASIC,
