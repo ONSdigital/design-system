@@ -5,7 +5,7 @@
 | cols                 | array`<FooterCol>`             | false    | An array of objects for each of the 3 allowed [footer columns](#footercol)                                                                           |
 | rows                 | array`<FooterRow>`             | false    | An array for the first [footer row](#footerrow)                                                                                                      |
 | legal                | array`<LegalRow>`              | false    | An array of for the [row of legal links](#legalrow)                                                                                                  |
-| poweredBy            | object`<PoweredBy>`            | false    | Settings for a [poweredby logo](#poweredby) in the footer to override the default ONS logo.logo.                                                     |
+| footerLogo           | object`<FooterLogo>`           | false    | Settings for a [footer logo](#footerLogo) in the footer to override the default ONS logo.                                                            |
 | lang                 | string                         | false    | Set the ISO language code for current page to display the correct language ONS logo. Defaults to “en”.                                               |
 | newTabWarning        | string                         | false    | Leading line of text to warn users that all footer links will open a new tab                                                                         |
 | OGLLink              | object`<OGLLink>`              | false    | An object containing settings for the [Open Government Licence content](#ogllink). Set to “true” to display the default values for English and Welsh |
@@ -51,16 +51,23 @@
 | --------- | ----------------------------------------------------------- | -------- | --------------------------- |
 | itemsList | array`<ListItem>` [_(ref)_](/foundations/typography/#lists) | true     | A list of links for the row |
 
-## PoweredBy
+## FooterLogo
 
-| Name               | Type                 | Required | Description                                                                             |
-| ------------------ | -------------------- | -------- | --------------------------------------------------------------------------------------- |
-| classes            | string               | false    | Classes to be added. Helpful to add a margin utility class to control spacing.          |
-| logo               | object`<LogoObject>` | false    | Logo object to render the poweredby logo                                                |
-| extraPoweredByLogo | object`<LogoObject>` | false    | Extra logo to go alongside the ONS logo in the footer                                   |
-| oppositeDisplay    | boolean              | false    | Enables an alternative display of the additional logo on the opposite side of the page. |
+| Name    | Type          | Required | Description                                                                                                                                                                                   |
+| ------- | ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| classes | string        | false    | Classes to be added.                                                                                                                                                                          |
+| logos   | Array`<Logo>` | false    | Allows for up to two logos to be used in the footer.                                                                                                                                          |
+| display | string        | false    | Allowed values are 'split' or 'default'. The 'split' display positions the additional logo on the opposite side of the page, while the 'default' display places the logos next to each other. |
 
-## LogoObject
+## Logos
+
+| Name    | Type           | Required | Description                       |
+| ------- | -------------- | -------- | --------------------------------- |
+| classes | string         | false    | Classes to be added.              |
+| logo1   | object`<Logo>` | false    | First Logo. Defaults to ONS logo. |
+| logo2   | object`<Logo`  | false    | Second Logo                       |
+
+## Logo
 
 | Name      | Type           | Required | Description                                                                             |
 | --------- | -------------- | -------- | --------------------------------------------------------------------------------------- |

@@ -9,25 +9,12 @@
         {% set lang = 'en' %}
     {% endif %}
 
-    {% if params.poweredBy.extraPoweredByLogo%}
-        {% set extraPoweredByLogo %}
-            {% if params.poweredBy.extraPoweredByLogo.logoUrl %}
-                <a class="ons-footer__poweredBy-extra-link" href="{{ params.poweredBy.extraPoweredByLogo.logoUrl }}">
-            {% endif %}
-            {% if params.poweredBy.extraPoweredByLogo.logoImage != "ONS Logo" %}
-                {{ params.poweredBy.extraPoweredByLogo.logoImage | safe }}
-            {% endif %}
-            {% if params.poweredBy.extraPoweredByLogo.logoUrl %}
-                </a>
-            {% endif %}
-        {% endset %}
-    {% endif %}
-
+    {% set extraLogo = params.footerLogo.logos.logo2 %}
     {% set onsLogo %}
         {% if params.lang == 'cy' %}
             {{-
                 onsIcon({
-                    "iconType": 'ons-logo-stacked-cy' if extraPoweredByLogo else 'ons-logo-cy',
+                    "iconType": 'ons-logo-stacked-cy' if extraLogo else 'ons-logo-cy',
                     "altText": 'Swyddfa Ystadegau Gwladol',
                     "altTextId": 'ons-logo-cy-footer-alt'
                 })
@@ -35,7 +22,7 @@
         {% else %}
             {{-
                 onsIcon({
-                    "iconType": 'ons-logo-stacked-en' if extraPoweredByLogo else 'ons-logo-en' ,
+                    "iconType": 'ons-logo-stacked-en' if extraLogo else 'ons-logo-en' ,
                     "altText": 'Office for National Statistics',
                     "altTextId": 'ons-logo-en-footer-alt'
                 })
@@ -170,31 +157,30 @@
                                 {% endif %}
                             </div>
                         {% endif %}
-                        {% if params.poweredBy.logo %}
-                            <div class="ons-footer__poweredby ons-u-mb-m{% if extraPoweredByLogo %} ons-footer__extra-poweredby ons-grid--flex ons-grid--vertical-center{% if params.poweredBy.oppositeDisplay == true %} ons-grid--between{% endif %}{% endif %}">
-                                {%-if params.poweredBy.logo.logoUrl %}
-                                    <a class="ons-footer__poweredBy-link{% if extraPoweredByLogo %} ons-u-mr-l{% endif %}" href="{{ params.poweredBy.logo.logoUrl }}">
-                                {% endif -%}
 
-                                {{ params.poweredBy.logo.logoImage | safe }}
-
-                                {%-if params.poweredBy.logo.logoUrl %}
-                                    </a>
-                                {% endif -%}
-                                {%-if extraPoweredByLogo%}
-                                    {{ extraPoweredByLogo | safe }}
-                                {% endif -%}
-                            </div>
+                        {% if not params.footerLogo.logos.logo1 %}
+                            {% set logo1 = {
+                                'logoUrl': 'https://cy.ons.gov.uk/' if lang == 'cy' else 'https://www.ons.gov.uk/',
+                                'logoImage': onsLogo | safe
+                            } %}
+                            {% set logos = [logo1, params.footerLogo.logos.logo2] %}
                         {% else %}
-                                <div class="ons-footer__poweredby ons-u-mb-m {% if extraPoweredByLogo %} ons-footer__extra-poweredby ons-grid--flex ons-grid--vertical-center{% if params.poweredBy.oppositeDisplay == true %} ons-grid--between{% endif %}{% endif %}">
-                                    <a class="ons-footer__poweredBy-link{% if extraPoweredByLogo %} ons-u-mr-l{% endif %}" {% if lang == "cy" %} href="https://cy.ons.gov.uk/"{% else %} href="https://www.ons.gov.uk/"{% endif %}>
-                                        {{ onsLogo | safe }}
-                                    </a>
-                                    {%-if extraPoweredByLogo%}
-                                        {{ extraPoweredByLogo | safe }}
-                                    {% endif -%}
-                                </div>
+                            {% set logos = [params.footerLogo.logos.logo1, params.footerLogo.logos.logo2] %}
                         {% endif %}
+
+                        <div class="ons-footer__logo ons-u-mb-m{% if extraLogo %} ons-footer__extra-logo ons-grid--flex ons-grid--vertical-center{% if params.footerLogo.display == 'split' %} ons-grid--between{% endif %}{% endif %}">
+                                {% for logo in logos %}
+                                    {%-if logo.logoUrl %}
+                                        <a class="ons-footer__logo-link{% if extraLogo %} ons-u-mr-l{% endif %}" href="{{ logo.logoUrl }}">
+                                    {% endif -%}
+
+                                    {{ logo.logoImage | safe }}
+
+                                    {%-if logo.logoUrl %}
+                                        </a>
+                                    {% endif -%}
+                                {% endfor %}
+                        </div>
                     </div>
                     {% if params.crest %}
                         <!-- Crest -->

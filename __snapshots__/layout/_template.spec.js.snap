@@ -1254,7 +1254,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
 
     
-
     
 
     <footer class="ons-footer">
@@ -1596,10 +1595,16 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                 
                             </div>
                         
+
                         
-                                <div class="ons-footer__poweredby ons-u-mb-m ">
-                                    <a class="ons-footer__poweredBy-link" href="https://www.ons.gov.uk/">
-                                        
+                            
+                            
+                        
+
+                        <div class="ons-footer__logo ons-u-mb-m">
+                                
+                                        <a class="ons-footer__logo-link" href="https://www.ons.gov.uk/">
+                                    
         <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-footer-alt" role="img">
             <title id="ons-logo-en-footer-alt">Office for National Statistics</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
@@ -1639,8 +1644,9 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             </g>
         </svg>
     
-                                    </a></div>
-                        
+                                        </a>
+                                    
+                        </div>
                     </div>
                     
                 </div>
