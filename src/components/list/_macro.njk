@@ -23,7 +23,7 @@
     {% set openingTag = "<" + listEl %}
     {% set closingTag = "</" + listEl + ">" %}
 
-    {{ openingTag }}{% if params.id %}id="{{ params.id }}"{% endif %}
+    {{ openingTag | safe }}{% if params.id %}id="{{ params.id }}"{% endif %}
     class="ons-list{{ ' ons-list--p' if listEl == 'p' }}{{- ' ' + params.classes if params.classes -}}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-list--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-list--{{ params.variants }}{% endif %}{{- otherClasses if otherClasses -}}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
     {%- for item in params.itemsList -%}
         {% set sublistClasses = item.listClasses if item.listClasses %}
@@ -120,5 +120,5 @@
             {{ listItem | safe }}
         {% endif %}
     {%- endfor -%}
-    {{ closingTag }}
+    {{ closingTag | safe }}
 {% endmacro %}

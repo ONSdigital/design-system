@@ -15,8 +15,8 @@
             {% set titleTag = params.titleTag | default("h2") %}
             {% set openingTag = "<" + titleTag %}
             {% set closingTag = "</" + titleTag + ">" %}
-            {{ openingTag }}
-            class="ons-details__title">{{ params.title }}{{ closingTag }}
+            {{ openingTag | safe }}
+            class="ons-details__title">{{ params.title }}{{ closingTag | safe }}
             <span class="ons-details__icon">
                 {% from "components/icon/_macro.njk" import onsIcon %}
                 {{-

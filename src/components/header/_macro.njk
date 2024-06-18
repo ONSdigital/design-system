@@ -247,8 +247,8 @@
                         {% else %}
 
                             {% set title %}
-                                {{ openingTag }}
-                                class="ons-header__title">{{ params.title }}{{ closingTag }}
+                                {{ openingTag | safe }}
+                                class="ons-header__title">{{ params.title }}{{ closingTag | safe }}
                             {% endset %}
 
                             {% if params.titleUrl %}

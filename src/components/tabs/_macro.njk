@@ -11,9 +11,9 @@
         {% set titleTag = params.titleTag | default("h2") %}
         {% set openingTag = "<" + titleTag %}
         {% set closingTag = "</" + titleTag + ">" %}
-        {{ openingTag }}
+        {{ openingTag | safe }}
         class="ons-tabs__title ons-u-fs-r--b
-        ons-u-mt-no{% if params.titleClasses %}{{ params.titleClasses }}{% endif %}">{{ params.title }}{{ closingTag }}
+        ons-u-mt-no{% if params.titleClasses %}{{ params.titleClasses }}{% endif %}">{{ params.title }}{{ closingTag | safe }}
         <div>
             <ul class="ons-tabs__list">
                 {%- for tab in params.tabs -%}

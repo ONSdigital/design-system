@@ -66,7 +66,7 @@
     {% set tag = "a" if params.url else "button" %}
     {% set openingTag = "<" + tag %}
     {% set closingTag = "</" + tag + ">" %}
-    {{ openingTag }}
+    {{ openingTag | safe }}
     {% if params.url %}
         href="{{ params.url }}" role="button"
     {% else %}
@@ -125,5 +125,5 @@
         </script>
         <!-- prettier-ignore-end -->
     {% endif %}
-    {{ closingTag }}
+    {{ closingTag | safe }}
 {% endmacro %}

@@ -34,7 +34,7 @@
                     <div
                         class="ons-document-list__item-header{{ ' ons-document-list__item-header--reverse' if document.showMetadataFirst == true }}"
                     >
-                        {{ openingTag }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
+                        {{ openingTag | safe }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
                         <a href="{{ document.url }}"
                             >{{ document.title }}
                             {%- if document.metadata and document.metadata.file -%}
@@ -49,7 +49,7 @@
                                 </span>
                             {% endif %}
                         </a>
-                        {{ closingTag }}
+                        {{ closingTag | safe }}
 
                         {%- if document.metadata -%}
                             <ul class="ons-document-list__item-metadata{{ ' ons-u-mb-xs' if document.description else ' ons-u-mb-no' }}">

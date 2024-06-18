@@ -31,9 +31,9 @@
                     />
                 {% endif %}
             {%- endif -%}
-            {{ openingHeadingTag }}
+            {{ openingHeadingTag | safe }}
             class="ons-card__title {{ params.titleClasses | default('ons-u-fs-m') }}" id="{{ params.id }}"> {{ params.title }}
-            {{ closingHeadingTag }}
+            {{ closingHeadingTag | safe }}
         </a>
 
         <p id="{{ params.textId }}">{{ params.text }}</p>

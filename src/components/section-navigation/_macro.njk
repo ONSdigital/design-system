@@ -9,16 +9,16 @@
         {% if params.id %}id="{{ params.id }}"{% endif %}
         aria-labelledby="{{ params.hiddenTitleId | default('section-menu-nav-title') }}"
     >
-        {{ openingHeadingTag }} class="ons-u-vh"
-        id="{{ params.hiddenTitleId | default('section-menu-nav-title') }}">{{ params.hiddenTitle | default("Pages in this section") }}{{ closingHeadingTag }}
+        {{ openingHeadingTag | safe }} class="ons-u-vh"
+        id="{{ params.hiddenTitleId | default('section-menu-nav-title') }}">{{ params.hiddenTitle | default("Pages in this section") }}{{ closingHeadingTag | safe }}
         {% if params.sections %}
             {% for section in params.sections %}
                 {% set sectionItemHeadingLevel = headingLevel + 2 if section.title else headingLevel + 1 %}
                 <div class="ons-section-nav__sub">
                     {% if section.title %}
-                        {{ openingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel) }}
+                        {{ openingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel) | safe }}
                         class="ons-u-fs-r--b
-                        ons-u-mb-s">{{ section.title }}{{ closingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel) }}
+                        ons-u-mb-s">{{ section.title }}{{ closingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel) | safe }}
                     {% endif %}
                     <ul class="ons-section-nav__list">
                         {% for item in section.itemsList %}
@@ -31,9 +31,9 @@
                                 class="ons-section-nav__item{{ ' ' + item.classes if item.classes }}{{ ' ons-section-nav__item--active' if isCurrent == true }}"
                             >
                                 {% if isCurrent == true %}
-                                    {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) }}
+                                    {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) | safe }}
                                     class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}"
-                                    aria-current="location">{{ item.title }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) }}
+                                    aria-current="location">{{ item.title }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) | safe }}
                                 {% else %}
                                     <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
                                 {% endif %}
@@ -55,7 +55,7 @@
             {% endfor %}
         {% else %}
             {% if params.title %}
-                {{ openingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel) }}
+                {{ openingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel) | safe }}
                 class="ons-u-fs-r--b ons-u-mb-s">{{ params.title }}{{ closingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel) }}
             {% endif %}
             <ul class="ons-section-nav__list">
@@ -70,9 +70,9 @@
                         class="ons-section-nav__item{% if item.classes %}{{ ' ' + item.classes }}{% endif %}{% if isCurrent == true %}ons-section-nav__item--active{% endif %}"
                     >
                         {% if isCurrent == true %}
-                            {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) }}
+                            {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) | safe }}
                             class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}"
-                            aria-current="location">{{ item.title }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) }}
+                            aria-current="location">{{ item.title }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) | safe }}
                         {% else %}
                             <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
                         {% endif %}

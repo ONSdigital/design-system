@@ -60,8 +60,8 @@
                 {% set openingTag = "<" + titleTag %}
                 {% set closingTag = "</" + titleTag + ">" %}
                 <div class="ons-panel__header">
-                    {{ openingTag }} id="alert"{% if params.variant %}data-qa="{{ params.variant }}-header"{% endif %}
-                    class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}{{ closingTag }}
+                    {{ openingTag | safe }} id="alert"{% if params.variant %}data-qa="{{ params.variant }}-header"{% endif %}
+                    class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}{{ closingTag | safe }}
                 </div>
             {% else %}
                 {% if not params.variant or params.variant == "branded" or params.variant == "info" or params.variant == "bare" %}

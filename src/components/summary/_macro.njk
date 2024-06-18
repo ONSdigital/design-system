@@ -24,8 +24,8 @@
                     {% if group.groupTitle %}
                         {% set openingHeadingTag = "<h" + headingLevel %}
                         {% set closingHeadingTag = "</h" + headingLevel + ">" %}
-                        {{ openingHeadingTag }}
-                        class="ons-summary__group-title">{{ group.groupTitle }}{{ closingHeadingTag }}
+                        {{ openingHeadingTag | safe }}
+                        class="ons-summary__group-title">{{ group.groupTitle }}{{ closingHeadingTag | safe }}
                     {% endif %}
                     {% if group.rows %}
                         <dl class="ons-summary__items">
