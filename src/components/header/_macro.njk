@@ -4,6 +4,8 @@
     {% from "components/navigation/_macro.njk" import onsNavigation %}
     {% from "components/browser-banner/_macro.njk" import onsBrowserBanner %}
     {% set titleTag = "h1" if params.titleAsH1 else "div" %}
+    {% set openingTag = "<" + tag %}
+    {% set closingTag = "</" + tag + ">" %}
     {% set currentLanguageISOCode = "en" %}
 
     {% if params.language and params.language.languages %}
@@ -245,9 +247,8 @@
                         {% else %}
 
                             {% set title %}
-                                <!-- prettier-ignore-start -->
-                                <{{ titleTag }} class="ons-header__title">{{ params.title }}</{{ titleTag }}>
-                                <!-- prettier-ignore-end -->
+                                {{ openingTag }}
+                                class="ons-header__title">{{ params.title }}{{ closingTag }}
                             {% endset %}
 
                             {% if params.titleUrl %}

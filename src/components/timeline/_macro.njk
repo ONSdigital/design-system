@@ -3,11 +3,11 @@
 
     <div class="ons-timeline{{ ' ' + params.classes if params.classes }}">
         {% set titleTag = params.titleTag | default("h2") %}
+        {% set openingTag = "<" + titleTag %}
+        {% set closingTag = "</" + titleTag + ">" %}
         {% for item in params.items %}
             <div class="ons-timeline__item">
-                <!-- prettier-ignore-start -->
-                <{{ titleTag }} class="ons-timeline__heading">{{ item.heading }}</{{ titleTag }}>
-                <!-- prettier-ignore-end -->
+                {{ openingTag }} class="ons-timeline__heading">{{ item.heading }}{{ closingTag }}
                 {% if item.itemsList %}
                     <div class="ons-timeline__content">
                         {{

@@ -3,9 +3,10 @@
 
     {% if params.title %}
         {% set titleTag = params.titleTag | default("h2") %}
-        <!-- prettier-ignore-start -->
-        <{{ titleTag }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</{{ titleTag }}>
-        <!-- prettier-ignore-end -->
+        {% set openingTag = "<" + titleTag %}
+        {% set closingTag = "</" + titleTag + ">" %}
+        {{ openingTag }}
+        class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}{{ closingTag }}
     {% endif %}
 
     {% if params.facebook and params.facebook == true %}

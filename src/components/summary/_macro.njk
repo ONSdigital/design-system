@@ -22,9 +22,10 @@
             {% for group in summary.groups %}
                 <div {% if group.id %}id="{{ group.id }}"{{ ' ' }}{% endif %}class="ons-summary__group{{ variantClasses }}">
                     {% if group.groupTitle %}
-                        <!-- prettier-ignore-start -->
-                        <h{{ headingLevel }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ headingLevel }}>
-                        <!-- prettier-ignore-end -->
+                        {% set openingHeadingTag = "<h" + headingLevel %}
+                        {% set closingHeadingTag = "</h" + headingLevel + ">" %}
+                        {{ openingHeadingTag }}
+                        class="ons-summary__group-title">{{ group.groupTitle }}{{ closingHeadingTag }}
                     {% endif %}
                     {% if group.rows %}
                         <dl class="ons-summary__items">

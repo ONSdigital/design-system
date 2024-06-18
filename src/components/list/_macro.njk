@@ -20,94 +20,105 @@
     {% else %}
         {% set listEl = 'ul' %}
     {% endif %}
-    <!-- prettier-ignore-start -->
-    <{{ listEl }}{% if params.id %} id="{{ params.id }}"{% endif %} class="ons-list{{ ' ons-list--p' if listEl == 'p' }}{{ ' ' + params.classes if params.classes -}}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-list--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-list--{{ params.variants }}{% endif %}{{ otherClasses if otherClasses -}}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
-    <!-- prettier-ignore-end -->
-        {%- for item in params.itemsList -%}
-            {% set sublistClasses = item.listClasses if item.listClasses %}
-            {% set sublistParams = {
+    {% set openingTag = "<" + listEl %}
+    {% set closingTag = "</" + listEl + ">" %}
+
+    {{ openingTag }}{% if params.id %}id="{{ params.id }}"{% endif %}
+    class="ons-list{{ ' ons-list--p' if listEl == 'p' }}{{- ' ' + params.classes if params.classes -}}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-list--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-list--{{ params.variants }}{% endif %}{{- otherClasses if otherClasses -}}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
+    {%- for item in params.itemsList -%}
+        {% set sublistClasses = item.listClasses if item.listClasses %}
+        {%
+            set sublistParams = {
                 'variants': variants,
                 'itemsList': item.itemsList,
                 'classes': sublistClasses
-            } %}
-
-            {% set listItem %}
-                {% set itemText = item.text %}
-                {% if item.text %}
-                    {% set itemIconType = item.iconType if item.iconType else iconType %}
-                {% endif %}
-
-                {# For Craft support we also support title and navigation title #}
-                {% if item.navigationTitle %}
-                    {% set itemText = item.navigationTitle %}
-                {% elif item.title %}
-                    {% set itemText = item.title %}
-                {% endif %}
-
-                {%- if item.prefix or (params.iconPosition == 'before') -%}
-                    <span class="ons-list__prefix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
-                        {%- if item.prefix -%}
-                            {{- item.prefix -}}.
-                        {% elif params.iconPosition == 'before' %}
-                            {% from "components/icon/_macro.njk" import onsIcon %}
-                            {{-
-                                onsIcon({
-                                    "iconType": itemIconType,
-                                    "iconSize": params.iconSize
-                                })
-                            -}}
-                        {%- endif -%}
-                    </span>
-                {%- endif -%}
-                {%- if item.url and item.current != true -%}
-                    {%- if item.external -%}
-                        {% from "components/external-link/_macro.njk" import onsExternalLink %}
-                        {{
-                            onsExternalLink({
-                                "url": item.url,
-                                "linkText": itemText
-                            })
-                        }}
-                    {%- else -%}
-                        <a href="{{ item.url }}" class="ons-list__link{{ ' ons-js-inpagelink' if item.variants == 'inPageLink' }}{{ ' ' + item.classes if item.classes }}"{% if item.target %} target="{{ item.target }}"{% endif %}{% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %} {{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
-                            {%- if item.prefix -%}<span class="ons-u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- itemText | safe -}}
-                            {%- if item.target == "_blank" -%}<span class="ons-u-vh"> ({{- item.screenreaderMessage | default("opens in a new tab") -}})</span>{%- endif -%}
-                        </a>
-                    {%- endif -%}
-                {%- else -%}
-                    {{- itemText | safe -}}
-                {%- endif -%}
-                {%- if item.suffix or (params.iconPosition == 'after') -%}
-                    <span class="ons-list__suffix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
-                        {%- if item.suffix -%}
-                            {{- item.suffix -}}
-                        {%- elif (item.index and listEl != 'ol') or (item.index and listEl == 'ol' and 'bare' in variants) -%}
-                            {{- loop.index -}}
-                        {% elif params.iconPosition == 'after' %}
-                            {% from "components/icon/_macro.njk" import onsIcon %}
-                            {{-
-                                onsIcon({
-                                    "iconType": itemIconType,
-                                    "iconSize": params.iconSize
-                                })
-                            -}}
-                        {%- endif -%}</span>
-                    {%- endif -%}
-                {% if item.itemsList %}
-                    {# Handle nested lists with recursive call for sub layer #}
-                    {{ onsList(sublistParams) }}
-                {% endif %}
-            {% endset %}
-
-            {% if listLength > 1 or listEl == 'ul' %}
-                <li class="ons-list__item{% if item.listClasses %} {{ item.listClasses }}{% endif %}"{% if item.current %} aria-current="true"{% endif %}>
-                    {{ listItem | safe }}
-                </li>
-            {% else %}
-                {{ listItem | safe }}
+            }
+        %}
+        {% set listItem %}
+        {% set itemText = item.text %}
+            {% if item.text %}
+                {% set itemIconType = item.iconType if item.iconType else iconType %}
             {% endif %}
-        {%- endfor -%}
-    <!-- prettier-ignore-start -->
-    </{{ listEl }}>
-    <!-- prettier-ignore-end -->
+
+            {# For Craft support we also support title and navigation title #}
+            {% if item.navigationTitle %}
+                {% set itemText = item.navigationTitle %}
+            {% elif item.title %}
+                {% set itemText = item.title %}
+            {% endif %}
+
+            {%- if item.prefix or (params.iconPosition == 'before') -%}
+                <span class="ons-list__prefix" {% if listEl != 'ol' %}aria-hidden="true"{% endif %}>
+                    {%- if item.prefix -%}
+                        {{- item.prefix -}}.
+                    {% elif params.iconPosition == 'before' %}
+                        {% from "components/icon/_macro.njk" import onsIcon %}
+                        {{-
+                            onsIcon({
+                                "iconType": itemIconType,
+                                "iconSize": params.iconSize
+                            })
+                        -}}
+                    {%- endif -%}
+                </span>
+            {%- endif -%}
+            {%- if item.url and item.current != true -%}
+                {%- if item.external -%}
+                    {% from "components/external-link/_macro.njk" import onsExternalLink %}
+                    {{
+                        onsExternalLink({
+                            "url": item.url,
+                            "linkText": itemText
+                        })
+                    }}
+                {%- else -%}
+                    <a
+                        href="{{ item.url }}"
+                        class="ons-list__link{{ ' ons-js-inpagelink' if item.variants == 'inPageLink' }}{{ ' ' + item.classes if item.classes }}"
+                        {% if item.target %}target="{{ item.target }}"{% endif %}{% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
+                    >
+                        {%- if item.prefix -%}<span class="ons-u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- itemText | safe -}}
+                        {%- if item.target == "_blank" -%}
+                            <span class="ons-u-vh"> ({{- item.screenreaderMessage | default("opens in a new tab") -}})</span>
+                        {%- endif -%}
+                    </a>
+                {%- endif -%}
+            {%- else -%}
+                {{- itemText | safe -}}
+            {%- endif -%}
+            {%- if item.suffix or (params.iconPosition == 'after') -%}
+                <span class="ons-list__suffix" {% if listEl != 'ol' %}aria-hidden="true"{% endif %}>
+                    {%- if item.suffix -%}
+                        {{- item.suffix -}}
+                    {%- elif (item.index and listEl != 'ol') or (item.index and listEl == 'ol' and 'bare' in variants) -%}
+                        {{- loop.index -}}
+                    {% elif params.iconPosition == 'after' %}
+                        {% from "components/icon/_macro.njk" import onsIcon %}
+                        {{-
+                            onsIcon({
+                                "iconType": itemIconType,
+                                "iconSize": params.iconSize
+                            })
+                        -}}
+                    {%- endif -%}</span
+                >
+            {%- endif -%}
+            {% if item.itemsList %}
+                {# Handle nested lists with recursive call for sub layer #}
+                {{ onsList(sublistParams) }}
+            {% endif %}
+        {% endset %}
+
+        {% if listLength > 1 or listEl == 'ul' %}
+            <li
+                class="ons-list__item{% if item.listClasses %}{{ item.listClasses }}{% endif %}"
+                {% if item.current %}aria-current="true"{% endif %}
+            >
+                {{ listItem | safe }}
+            </li>
+        {% else %}
+            {{ listItem | safe }}
+        {% endif %}
+    {%- endfor -%}
+    {{ closingTag }}
 {% endmacro %}

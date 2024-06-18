@@ -57,10 +57,11 @@
                     {% set defaultTitleTag = "div" %}
                 {% endif %}
                 {% set titleTag = params.titleTag | default(defaultTitleTag) %}
+                {% set openingTag = "<" + titleTag %}
+                {% set closingTag = "</" + titleTag + ">" %}
                 <div class="ons-panel__header">
-                    <!-- prettier-ignore-start -->
-                    <{{ titleTag }} id="alert"{% if params.variant %} data-qa="{{ params.variant }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
-                    <!-- prettier-ignore-end -->
+                    {{ openingTag }} id="alert"{% if params.variant %}data-qa="{{ params.variant }}-header"{% endif %}
+                    class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}{{ closingTag }}
                 </div>
             {% else %}
                 {% if not params.variant or params.variant == "branded" or params.variant == "info" or params.variant == "bare" %}

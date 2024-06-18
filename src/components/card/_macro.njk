@@ -1,5 +1,7 @@
 {%- macro onsCard(params) -%}
     {% set headingLevel = params.headingLevel | default(2) %}
+    {% set openingHeadingTag = "<h" + headingLevel %}
+    {% set closingHeadingTag = "</h" + headingLevel + ">" %}
 
     <div class="ons-card">
         <a href="{{ params.url }}" class="ons-card__link">
@@ -29,11 +31,9 @@
                     />
                 {% endif %}
             {%- endif -%}
-            <!-- prettier-ignore-start -->
-            <h{{ headingLevel }} class="ons-card__title {{ params.titleClasses | default('ons-u-fs-m')}}" id="{{ params.id }}">
-                {{ params.title }}
-            </h{{ headingLevel }}>
-            <!-- prettier-ignore-end -->
+            {{ openingHeadingTag }}
+            class="ons-card__title {{ params.titleClasses | default('ons-u-fs-m') }}" id="{{ params.id }}"> {{ params.title }}
+            {{ closingHeadingTag }}
         </a>
 
         <p id="{{ params.textId }}">{{ params.text }}</p>

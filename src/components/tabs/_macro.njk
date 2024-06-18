@@ -9,9 +9,11 @@
 
     <section class="{{ classes }}" {% if params.noInitialActiveTab %}data-no-initial-active-tab="true"{% endif %}>
         {% set titleTag = params.titleTag | default("h2") %}
-        <!-- prettier-ignore-start -->
-        <{{ titleTag }} class="ons-tabs__title ons-u-fs-r--b ons-u-mt-no{% if params.titleClasses %} {{ params.titleClasses }}{% endif %}">{{ params.title }}</{{ titleTag }}>
-        <!-- prettier-ignore-end -->
+        {% set openingTag = "<" + titleTag %}
+        {% set closingTag = "</" + titleTag + ">" %}
+        {{ openingTag }}
+        class="ons-tabs__title ons-u-fs-r--b
+        ons-u-mt-no{% if params.titleClasses %}{{ params.titleClasses }}{% endif %}">{{ params.title }}{{ closingTag }}
         <div>
             <ul class="ons-tabs__list">
                 {%- for tab in params.tabs -%}

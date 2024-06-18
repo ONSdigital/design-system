@@ -5,6 +5,8 @@
     >
         {% for document in params.documents %}
             {% set titleTag = params.titleTag | default("h2") %}
+            {% set openingTag = "<" + titleTag %}
+            {% set closingTag = "</" + titleTag + ">" %}
             {% set documentItem %}
                 {% if document.thumbnail %}
                     <div
@@ -32,24 +34,22 @@
                     <div
                         class="ons-document-list__item-header{{ ' ons-document-list__item-header--reverse' if document.showMetadataFirst == true }}"
                     >
-                        <!-- prettier-ignore-start -->
-                        <{{ titleTag }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
-                        <!-- prettier-ignore-end -->
-                            <a href="{{ document.url }}">{{ document.title }}
-                                {%- if document.metadata and document.metadata.file %}
-                                    <span class="ons-u-vh">
-                                        {% set fileMetadataItems = [
-                                            document.metadata.file.fileType + ' document download' if document.metadata.file.fileType,
-                                            document.metadata.file.fileSize if document.metadata.file.fileSize,
-                                            document.metadata.file.filePages if document.metadata.file.filePages ]
-                                        %}
-                                        , {{ fileMetadataItems | join(', ') }}
-                                    </span>
-                                {% endif %}
-                            </a>
-                        <!-- prettier-ignore-start -->
-                        </{{ titleTag }}>
-                        <!-- prettier-ignore-end -->
+                        {{ openingTag }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
+                        <a href="{{ document.url }}"
+                            >{{ document.title }}
+                            {%- if document.metadata and document.metadata.file -%}
+                                <span class="ons-u-vh">
+                                    {%
+                                        set fileMetadataItems = [
+                                        document.metadata.file.fileType + ' document download' if document.metadata.file.fileType,
+                                        document.metadata.file.fileSize if document.metadata.file.fileSize,
+                                        document.metadata.file.filePages if document.metadata.file.filePages ]
+                                    %}
+                                    , {{ fileMetadataItems | join(', ') }}
+                                </span>
+                            {% endif %}
+                        </a>
+                        {{ closingTag }}
 
                         {%- if document.metadata -%}
                             <ul class="ons-document-list__item-metadata{{ ' ons-u-mb-xs' if document.description else ' ons-u-mb-no' }}">
