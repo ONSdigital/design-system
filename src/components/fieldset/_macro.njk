@@ -13,7 +13,7 @@
             >
                 <legend
                     {% if params.description %}aria-describedBy="{{ descriptionID }}"{% endif %}
-                    class="ons-fieldset__legend{{ ' ons-u-mb-no' if params.legendIsQuestionTitle }}{{ ' ' + params.legendTitleClasses if params.legendTitleClasses }}{{ ' ons-fieldset__legend--with-description' if params.description }}"
+                    class="ons-fieldset__legend{{ ' ons-u-mb-no' if params.legendIsQuestionTitle }}{{ ' ' + params.legendClasses if params.legendClasses }}{{ ' ons-fieldset__legend--with-description' if params.description }}"
                 >
                     {%- if params.legendIsQuestionTitle -%}
                         <h1

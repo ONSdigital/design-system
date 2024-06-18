@@ -67,7 +67,7 @@
                         {% set isCurrent = false %}
                     {% endif %}
                     <li
-                        class="ons-section-nav__item{% if item.classes %}{{ ' ' + item.classes }}{% endif %}{% if isCurrent == true %}ons-section-nav__item--active{% endif %}"
+                        class="ons-section-nav__item{{ ' ' + item.classes if item.classes }}{% if isCurrent == true %}{{ ' ' }}ons-section-nav__item--active{% endif %}"
                     >
                         {% if isCurrent == true %}
                             {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) | safe }}

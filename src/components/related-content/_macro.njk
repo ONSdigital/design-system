@@ -1,10 +1,8 @@
 {% macro onsRelatedContent(params) %}
-
-    {% if params.classes %}
-        {% set classes = ' ' + params.classes %}
-    {% endif %}
-
-    <aside class="ons-related-content{{ classes }}" aria-label="{{ params.ariaLabel | default("Related content") }}">
+    <aside
+        class="ons-related-content{{ ' ' + params.classes if params.classes }}"
+        aria-label="{{ params.ariaLabel | default('Related content') }}"
+    >
         {% if params.rows %}
             {% from "components/related-content/_section-macro.njk" import onsRelatedContentSection %}
             {% from "components/list/_macro.njk" import onsList %}
@@ -18,7 +16,6 @@
                     <nav class="ons-related-content__navigation" aria-labelledby="{{ row.id }}">
                         {{
                             onsList({
-                                "variants": 'bare',
                                 "iconType": row.iconType,
                                 "iconPosition": row.iconPosition,
                                 "iconSize": row.iconSize,
