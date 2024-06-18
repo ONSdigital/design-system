@@ -65,7 +65,7 @@
 | ------- | -------------- | -------- | --------------------------------- |
 | classes | string         | false    | Classes to be added.              |
 | logo1   | object`<Logo>` | false    | First Logo. Defaults to ONS logo. |
-| logo2   | object`<Logo`  | false    | Second Logo                       |
+| logo2   | object`<Logo>` | false    | Second Logo                       |
 
 ## Logo
 
