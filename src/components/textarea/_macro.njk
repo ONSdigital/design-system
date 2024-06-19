@@ -6,7 +6,6 @@
     {% set textareaExclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive %}
 
     {% set field %}
-
         {% if params.label %}
             {{
                 onsLabel({
@@ -65,7 +64,13 @@
                 "error": params.error
             })
         %}
-            {{ field | safe }}
+            {%
+                call onsField({
+                    "error": params.error
+                })
+            %}
+                {{ field | safe }}
+            {% endcall %}
         {% endcall %}
     {% else %}
         {%
