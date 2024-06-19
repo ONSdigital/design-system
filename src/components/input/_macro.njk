@@ -30,8 +30,7 @@
             {% if params.prefix and params.prefix.id %}
                 aria-labelledby="{{ params.id }} {{ params.prefix.id }}"
             {% elif params.suffix and params.suffix.id %}
-                aria-labelledby="{{ params.id }}
-                {{ params.suffix.id }}"
+                aria-labelledby="{{ params.id }} {{ params.suffix.id }}"
             {% endif %}
             {% if params.name %}name="{{ params.name }}"{% endif %}
             {% if params.value %}value="{{ params.value }}"{% endif %}
