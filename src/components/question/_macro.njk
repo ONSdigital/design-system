@@ -1,23 +1,25 @@
 {% macro onsQuestion(params) %}
 
     {%- set titleHtml -%}
-        {% if params.readDescriptionFirst == true and params.description %}
-            <div class="ons-question__description ons-u-vh">{{ params.description | safe }}</div>
-        {% endif %}{{- params.title | safe -}}
+        {%- if params.readDescriptionFirst == true and params.description -%}
+            <div class="ons-question__description ons-u-vh">{{- params.description | safe -}}</div>
+        {%- endif -%}{{- params.title | safe -}}
     {%- endset -%}
 
-    {%- set descHtml -%}{% if params.readDescriptionFirst == true %}
-        <div
-            aria-hidden="true"
-            {% if params.legendIsQuestionTitle is not defined %}class="ons-question__description ons-question__description--aria-hidden"{% endif %}
-        >
+    {%- set descHtml -%}
+        {% if params.readDescriptionFirst == true %}
+            <div
+                aria-hidden="true"
+                {% if params.legendIsQuestionTitle is not defined %}class="ons-question__description ons-question__description--aria-hidden"{% endif %}
+            >
+                {{- params.description | safe -}}
+            </div>
+        {% elif params.legendIsQuestionTitle is not defined %}
+            <div class="ons-question__description ons-u-mb-m">{{- params.description | safe -}}</div>
+        {% else %}
             {{- params.description | safe -}}
-        </div>
-    {% elif params.legendIsQuestionTitle is not defined %}
-        <div class="ons-question__description ons-u-mb-m">{{- params.description | safe -}}</div>
-    {% else %}
-        {{- params.description | safe -}}
-    {% endif %}{%- endset -%}
+        {% endif %}
+    {%- endset -%}
 
     {% set instHtml %}
         <div class="ons-question__instruction ons-u-mb-m">{{ params.instruction | safe }}</div>

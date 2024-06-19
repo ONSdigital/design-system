@@ -13,7 +13,7 @@
         {% set closingTag = "</" + titleTag + ">" %}
         {{ openingTag | safe }}
         class="ons-tabs__title ons-u-fs-r--b
-        ons-u-mt-no{% if params.titleClasses %}{{ params.titleClasses }}{% endif %}">{{ params.title }}{{ closingTag | safe }}
+        ons-u-mt-no{{ ' ' + params.titleClasses if params.titleClasses }}">{{ params.title }}{{ closingTag | safe }}
         <div>
             <ul class="ons-tabs__list">
                 <!-- prettier-ignore-start -->
