@@ -190,7 +190,7 @@ describe('macro: card', () => {
             it('outputs an `img` element with the expected `srcset`', () => {
                 const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
 
-                expect($('.ons-card__image').attr('srcset')).toBe('/img/small/placeholder-card.png 1x,/img/large/placeholder-card.png 2x');
+                expect($('.ons-card__image').attr('srcset')).toBe('/img/small/placeholder-card.png 1x, /img/large/placeholder-card.png 2x');
             });
 
             it('outputs an `img` element with the expected `src`', () => {
@@ -217,7 +217,7 @@ describe('macro: card', () => {
                 const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH));
 
                 expect($('.ons-card__image').attr('srcset')).toBe(
-                    '/placeholder-image-url/img/small/placeholder-card.png 1x,/placeholder-image-url/img/large/placeholder-card.png 2x',
+                    '/placeholder-image-url/img/small/placeholder-card.png 1x, /placeholder-image-url/img/large/placeholder-card.png 2x',
                 );
             });
 
