@@ -10,9 +10,9 @@
                     lang="{{ language.ISOCode }}"
                     {% if language.attributes %}{% for attribute, value in (language.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                     >{% if language.abbrText %}
-                        <span class="ons-u-d-no@s">{{ language.abbrText }}</span><span class="ons-u-d-no@xxs@s">{{ language.text }}</span>
+                        <span class="ons-u-d-no@s">{{ language.abbrText }}</span><span class="ons-u-d-no@xxs@s">{{- language.text -}}</span>
                     {% else %}
-                        {{ language.text }}
+                        {{- language.text -}}
                     {% endif %}</a
                 >
             </li>
