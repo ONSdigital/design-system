@@ -39,7 +39,7 @@
                                     {% endif %}
                                     {% if row.rowItems | length > 1 and row.rowTitle %}
                                         <div class="ons-summary__row-title ons-summary__row-title--no-group-title ons-u-fs-r">
-                                            {{ row.rowTitle }}
+                                            {{- row.rowTitle -}}
                                         </div>
                                     {% endif %}
 
@@ -117,7 +117,7 @@
                                                             {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                                         >
                                                             <span class="ons-summary__button-text" aria-hidden="true">
-                                                                {{ action.text }}
+                                                                {{- action.text -}}
                                                             </span>
                                                             <span class="ons-u-vh">{{ action.visuallyHiddenText }}</span>
                                                         </a>
