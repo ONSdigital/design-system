@@ -7,7 +7,7 @@
     {% elif params.itemsList[0].suffix %}
         {% set otherClasses = 'ons-list--bare ons-list--suffix' %}
     {% elif params.iconPosition %}
-        {% set otherClasses = 'ons-list--icons' %}
+        {% set otherClasses = 'ons-list--bare ons-list--icons' %}
         {% set iconType = params.iconType if params.iconType %}
     {% else %}
         {% set otherClasses = '' %}
@@ -109,12 +109,19 @@
             {% endif %}
         {% endset %}
 
+        {% if itemIconType in ['facebook', 'twitter', 'instagram', 'linkedin'] %}
+            {% set socialClass = ' ons-list__item--social' %}
+        {% endif %}
+
         {% if listLength > 1 or listEl == 'ul' %}
-            <li class="ons-list__item{{ ' ' + item.listClasses if item.listClasses }}" {% if item.current %}aria-current="true"{% endif %}>
-                {{ listItem | safe }}
+            <li
+                class="ons-list__item{{ ' ' + item.listClasses if item.listClasses }}{{ socialClass }}"
+                {% if item.current %}aria-current="true"{% endif %}
+            >
+                {{- listItem | safe -}}
             </li>
         {% else %}
-            {{ listItem | safe }}
+            {{- listItem | safe -}}
         {% endif %}
     {%- endfor -%}
     {{ closingTag | safe }}

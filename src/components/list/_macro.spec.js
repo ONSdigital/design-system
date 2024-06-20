@@ -613,6 +613,23 @@ describe('macro: list', () => {
 
             expect($('#first + .ons-list__suffix').length).toBe(1);
         });
+
+        it('has the social class added when social icons are used', () => {
+            const $ = cheerio.load(
+                renderComponent('list', {
+                    iconPosition: 'before',
+                    iconSize: 'xxl',
+                    itemsList: [
+                        { text: 'Facebook', iconType: 'facebook' },
+                        { text: 'Twitter', iconType: 'twitter' },
+                        { text: 'Instagram', iconType: 'instagram' },
+                        { text: 'LinkedIn', iconType: 'linkedin' },
+                    ],
+                }),
+            );
+
+            expect($('.ons-list__item--social').length).toBe(4);
+        });
     });
 
     describe('nested list element', () => {
