@@ -15,9 +15,9 @@
         data-results-title="{{ params.resultsTitle }}"
         data-no-results="{{ params.noResults }}"
         data-type-more="{{ params.typeMore }}"
-        {% if params.APIDomain %}data-api-domain="{{ params.APIDomain }}"{% endif %}
-        {% if params.APIDomainBearerToken %}data-authorization-token="{{ params.APIDomainBearerToken }}"{% endif %}
-        {% if params.APIManualQueryParams == true %}data-query-params=""{% endif %}
+        {% if params.apiDomain %}data-api-domain="{{ params.apiDomain }}"{% endif %}
+        {% if params.apiDomainBearerToken %}data-authorization-token="{{ params.apiDomainBearerToken }}"{% endif %}
+        {% if params.apiManualQueryParams == true %}data-query-params=""{% endif %}
         {% if params.allowMultiple == true %}data-allow-multiple="true"{% endif %}
         {% if params.autosuggestData %}data-autosuggest-data="{{ params.autosuggestData }}"{% endif %}
         {% if params.errorTitle %}data-error-title="{{ params.errorTitle }}"{% endif %}

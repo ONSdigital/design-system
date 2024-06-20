@@ -90,8 +90,8 @@
             <nav class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-xs" id="{{ params.navigation.subNavigation.id }}--mobile" aria-hidden="true" aria-label="{{ params.navigation.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
                 <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.navigation.fullWidth }}{{ ' ons-container--wide' if params.navigation.wide }}">
                     <ul class="ons-navigation__list ons-navigation__list--parent">
-                        <li class="ons-navigation__item{{ ' ons-navigation__item--active' if (params.navigation.subNavigation.overviewURL == params.navigation.subNavigation.currentPath)}}">
-                            <a class="ons-navigation__link" href="{{ params.navigation.subNavigation.overviewURL }}">{{ params.navigation.subNavigation.overviewText | default('Overview') }}</a>
+                        <li class="ons-navigation__item{{ ' ons-navigation__item--active' if (params.navigation.subNavigation.overviewUrl == params.navigation.subNavigation.currentPath)}}">
+                            <a class="ons-navigation__link" href="{{ params.navigation.subNavigation.overviewUrl }}">{{ params.navigation.subNavigation.overviewText | default('Overview') }}</a>
                         </li>
                         {% for item in params.navigation.subNavigation.itemsList %}
                             <li class="ons-navigation__item {{ ' ons-navigation__item--active' if (item.url == params.navigation.subNavigation.currentPath) or (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}">

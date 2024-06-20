@@ -3,9 +3,9 @@ const util = require('util');
 const { glob } = require('glob');
 const readdir = util.promisify(fs.readdir);
 
-async function createURLsFile() {
+async function createUrlsFile() {
     try {
-        const urls = await getURLs();
+        const urls = await getUrls();
         fs.writeFileSync('./lighthouse/urls.json', urls);
     } catch (e) {
         console.error(e);
@@ -13,7 +13,7 @@ async function createURLsFile() {
     }
 }
 
-async function getURLs() {
+async function getUrls() {
     let data = {};
     data.urls = [];
     const directories = [
@@ -39,4 +39,4 @@ async function getURLs() {
     return JSON.stringify(data);
 }
 
-createURLsFile();
+createUrlsFile();

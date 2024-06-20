@@ -3,8 +3,8 @@
 
 {% macro onsAccessCode(params) %}
     {% set groupSize = params.groupSize | default(4) %}
-    {% set extraSpaces = (params.maxlength | default(16) / groupSize) - 1 %}
-    {% set maxlength = params.maxlength | default(16) + extraSpaces %}
+    {% set extraSpaces = (params.maxLength | default(16) / groupSize) - 1 %}
+    {% set maxLength = params.maxLength | default(16) + extraSpaces %}
 
     {% set content %}
         {{ onsInput({
@@ -14,7 +14,7 @@
             "classes": "ons-access-code__input ons-js-access-code" + (" ons-u-mb-xs" if params.postTextboxLinkText else ""),
             "label": params.label,
             "attributes": {
-                "maxlength": maxlength,
+                "maxlength": maxLength,
                 "data-group-size": groupSize,
                 "autocomplete": "off",
                 "autocapitalize": "characters"
