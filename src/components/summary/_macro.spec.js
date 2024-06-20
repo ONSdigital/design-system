@@ -8,7 +8,7 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 const EXAMPLE_SUMMARY_ROWS = {
     rows: [
         {
-            // Contains - row with icon, attributes and rowTitleAttributes, other value, no action
+            // Contains - row with icon, attributes and titleAttributes, other value, no action
             id: 'row-id-1',
             title: 'row title 1',
             items: [
