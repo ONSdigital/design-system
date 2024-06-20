@@ -139,10 +139,10 @@
         }
 
         &__main {
-            background: var(--ons-color-grey-75);
+            background: var(--ons-color-header-neutral);
             &--border {
-                border-bottom: 3px solid var(--ons-color-header-neutral);
-                border-top: 3px solid var(--ons-color-header-neutral);
+                border-bottom: 3px solid var(--ons-color-header-masthead);
+                border-top: 3px solid var(--ons-color-header-masthead);
             }
         }
 
