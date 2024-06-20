@@ -7,7 +7,6 @@ layout: ~
 {% from "components/list/_macro.njk" import onsList %}
 {% from "components/image/_macro.njk" import onsImage %}
 {% from "components/related-content/_macro.njk" import onsRelatedContent %}
-{% from "components/share-page/_macro.njk" import onsSharePage %}
 {% from "components/content-pagination/_macro.njk" import onsContentPagination %}
 {%
     set pageConfig = {
@@ -180,7 +179,6 @@ layout: ~
                         {
                             "id": 'share-this-article',
                             "title": 'Share this article',
-                            "variants": 'social',
                             "iconPosition": 'before',
                             "iconSize": 'xxl',
                             "itemsList": [

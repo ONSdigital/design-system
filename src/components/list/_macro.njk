@@ -7,7 +7,7 @@
     {% elif params.itemsList[0].suffix %}
         {% set otherClasses = 'ons-list--bare ons-list--suffix' %}
     {% elif params.iconPosition %}
-        {% set otherClasses = 'ons-list--bare ons-list--icons' %}
+        {% set otherClasses = 'ons-list--icons' %}
         {% set iconType = params.iconType if params.iconType %}
     {% else %}
         {% set otherClasses = '' %}
