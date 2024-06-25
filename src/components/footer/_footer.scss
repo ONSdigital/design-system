@@ -21,6 +21,10 @@
         width: fit-content;
     }
 
+    &__logo {
+        gap: 1rem;
+    }
+
     .ons-icon--logo,
     .ons-icon--logo__group {
         fill: var(--ons-color-black) !important;
