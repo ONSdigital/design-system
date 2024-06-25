@@ -177,13 +177,17 @@
                         <div class="ons-footer__logo ons-u-mb-m{% if extraLogo %} ons-footer__extra-logo ons-grid--flex ons-grid--vertical-center{% if params.footerLogo.display == 'split' %} ons-grid--between{% endif %}{% endif %}">
                                 {% for logo in logos %}
                                     {%-if logo.logoUrl %}
-                                        <a class="ons-footer__logo-link{% if extraLogo %} ons-u-mr-l{% endif %}" href="{{ logo.logoUrl }}">
+                                        <a class="ons-footer__logo-link{% if extraLogo %} ons-u-mr-l{% endif %}{% if loop.index == 2 %} ons-u-mt-s@xxs@xs{% endif %}" href="{{ logo.logoUrl }}">
+                                    {% else -%}
+                                        <div class="{% if loop.index == 2 %}ons-u-mt-s@xxs@xs{% endif %}">
                                     {% endif -%}
 
                                     {{ logo.logoImage | safe }}
 
                                     {%-if logo.logoUrl %}
                                         </a>
+                                    {% else -%}
+                                        </div>
                                     {% endif -%}
                                 {% endfor %}
                         </div>
