@@ -1645,6 +1645,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </svg>
     
                                         </a>
+                                    <div class="ons-u-mt-s@xxs@xs">
+                                    </div>
                                     
                         </div>
                     </div>
