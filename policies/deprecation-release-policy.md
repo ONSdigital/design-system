@@ -29,7 +29,7 @@ We follow [Semantic Versioning](https://semver.org/) to manage releases:
 2. **Release**:
 
     - **Release Notes**: Detailed release notes are published with each release, documenting new features, bug fixes, deprecations, and breaking changes.
-    - **Versioning**: The new version is tagged in the repository, and the library is published to the package manager (e.g., npm).
+    - **Versioning**: The new version is tagged in the repository, and the library is published to the package manager (e.g. npm).
     - **Change Log**: Our change log is available on [GitHub](https://github.com/ONSdigital/design-system/releases). All releases are tagged and made through the release option of GitHub.
 
 3. **Post-release**:
