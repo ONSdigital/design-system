@@ -109,15 +109,8 @@
             {% endif %}
         {% endset %}
 
-        {% if itemIconType in ['facebook', 'twitter', 'instagram', 'linkedin'] %}
-            {% set socialClass = ' ons-list__item--social' %}
-        {% endif %}
-
         {% if listLength > 1 or listEl == 'ul' %}
-            <li
-                class="ons-list__item{{ ' ' + item.listClasses if item.listClasses }}{{ socialClass }}"
-                {% if item.current %}aria-current="true"{% endif %}
-            >
+            <li class="ons-list__item{{ ' ' + item.listClasses if item.listClasses }}" {% if item.current %}aria-current="true"{% endif %}>
                 {{- listItem | safe -}}
             </li>
         {% else %}

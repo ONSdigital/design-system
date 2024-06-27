@@ -9,9 +9,6 @@
         &:last-child {
             margin-bottom: -0.5;
         }
-        &--social {
-            align-items: center !important;
-        }
     }
 
     &--spacious {
@@ -68,6 +65,12 @@
         &__item {
             align-items: flex-start;
             display: flex;
+        }
+    }
+
+    &--social & {
+        &__item {
+            align-items: center;
         }
     }
 

@@ -4,7 +4,7 @@
 | id           | string            | false    | The HTML `id` for the wrapping element                                                                                                                 |
 | classes      | string            | false    | Classes to be added to the wrapping element                                                                                                            |
 | itemsList    | `Array<ListItem>` | true     | Settings for each [list item](#listitem)                                                                                                               |
-| variants     | array or string   | false    | An array of values or single value (string) to adjust the component using available variants: “bare”, “dashed”, “inline”, and “languages”              |
+| variants     | array or string   | false    | An array of values or single value (string) to adjust the component using available variants: “bare”, “dashed”, “inline”, “social”, and “languages”    |
 | iconPosition | string            | false    | Sets position of icon to “before” or “after” each list item                                                                                            |
 | iconType     | string            | false    | Adds an icon to all the list items when set to the name of one of the [available icons](/foundations/icons#a-to-z). Requires `iconPosition` to be set. |
 | iconSize     | string            | false    | Icon size can be set to match the size of the list item text as detailed in the [typography type scale](/foundations/typography/#type-scale).          |
