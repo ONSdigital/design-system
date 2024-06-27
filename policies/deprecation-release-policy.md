@@ -2,37 +2,7 @@
 
 ## Overview
 
-This policy outlines the procedures and timelines for deprecating components, utilities, and other features in the design system library. It also details the release process to ensure smooth transitions and maintain the stability and reliability of the library.
-
-## Deprecation Policy
-
-### Definition of Deprecation
-
-Deprecation is the process by which a component, utility, or feature is marked as obsolete and is scheduled for removal in a future release. Deprecation serves as a warning to users that they should transition to the recommended alternatives.
-
-### Deprecation Guidelines
-
-1. **Announcement**: Deprecation of a component, utility, or feature will be announced in the release notes of the version in which the deprecation first occurs. It will include:
-
-    - The rationale for deprecation.
-    - Suggested alternatives or migration paths.
-    - The timeline for removal.
-
-2. **Documentation**:
-
-    - All deprecated items will be clearly marked in the documentation with a "Deprecated" label.
-    - Documentation will include information on the deprecation and guidance on transitioning to alternatives.
-    - Our documentation about the component is displayed on the [Service Manual](https://service-manual.ons.gov.uk/).
-
-3. **Codebase**:
-    - Deprecated items will include a deprecation warning in the console, if applicable, to alert developers during development.
-    - Deprecated code will be maintained and supported (excluding new features) until its removal.
-
-### Deprecation Timeline
-
-1. **Initial Announcement**: Deprecated items will be announced and documented in a minor release.
-2. **Grace Period**: There will be at least two subsequent minor releases or a minimum of six months (whichever is longer) before the deprecated item is removed.
-3. **Removal**: Deprecated items will be removed in the next major release following the grace period.
+This policy outlines release process to ensure smooth transitions and maintain the stability and reliability of the library. It also details the the procedures and timelines for deprecating components, utilities, and other features in the design system library.
 
 ## Release Policy
 
@@ -66,6 +36,36 @@ We follow [Semantic Versioning](https://semver.org/) to manage releases:
     - **Monitoring**: Monitor for any critical issues or bugs that need immediate attention.
     - **Support**: Provide support for users transitioning from deprecated features and resolving any upgrade-related issues.
 
+## Deprecation Policy
+
+### Definition of Deprecation
+
+Deprecation is the process by which a component, utility, or feature is marked as obsolete and is scheduled for removal in a future release. Deprecation serves as a warning to users that they should transition to the recommended alternatives. Reasoning and instructions for how to migrate from the deprecated to the new functionality (the migration path) will be provided alongside the notice of deprecation, where functionality is removed entirely, alternative implementations will be recommended.
+
+### Deprecation Guidelines
+
+1. **Announcement**: Deprecation of a component, utility, or feature will be announced in the release notes of the version in which the deprecation first occurs. It will include:
+
+    - The rationale for deprecation.
+    - Migration paths or suggested alternatives.
+    - The timeline for removal.
+
+2. **Documentation**:
+
+    - All deprecated items will be clearly marked in the documentation with a "Deprecated" label.
+    - Documentation will include information on the deprecation and guidance on transitioning to alternatives.
+    - Our documentation about the component is displayed on the [Service Manual](https://service-manual.ons.gov.uk/).
+
+3. **Codebase**:
+    - Deprecated items will include a deprecation warning in the console, if applicable, to alert developers during development.
+    - Deprecated code will be maintained and supported (excluding new features) until its removal.
+
+### Deprecation Timeline
+
+1. **Initial Announcement**: Deprecated items will be announced and documented in a minor release.
+2. **Grace Period**: There will be at least two subsequent minor releases or a minimum of six months (whichever is longer) before the deprecated item is removed.
+3. **Removal**: Deprecated items will be removed in the next major release following the grace period.
+
 ## Communication
 
 -   **Changelog**: Maintain a changelog with detailed release notes for every release.
@@ -74,4 +74,4 @@ We follow [Semantic Versioning](https://semver.org/) to manage releases:
 
 ## Review and Update
 
-This policy will be reviewed and updated periodically to ensure it remains effective and meets the needs of the design system library users.
+This policy will be reviewed and updated periodically to ensure it remains effective and meets the needs of the design system library users. If you have any feedback or suggestions you can get in touch with us by following the instructions on this page of the [Service Manual](https://service-manual.ons.gov.uk/community/our-community/get-in-touch)
