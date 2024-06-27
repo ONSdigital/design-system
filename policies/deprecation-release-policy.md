@@ -29,8 +29,8 @@ We follow [Semantic Versioning](https://semver.org/) to manage releases:
 2. **Release**:
 
     - **Release Notes**: Detailed release notes are published with each release, documenting new features, bug fixes, deprecations, and breaking changes.
-    - **Versioning**: The new version is tagged in the repository, and the library is published to the package manager (e.g. npm).
-    - **Change Log**: Our change log is available on [GitHub](https://github.com/ONSdigital/design-system/releases). All releases are tagged and made through the release option of GitHub.
+    - **Versioning**: The new version is tagged in the repository and published, and the library is published to the package manager (e.g. npm).
+    - **Change Log**: Our change log is available on [GitHub](https://github.com/ONSdigital/design-system/releases). All releases are tagged and released on GitHub.
 
 3. **Post-release**:
     - **Monitoring**: Monitor for any critical issues or bugs that need immediate attention.
@@ -57,18 +57,17 @@ Deprecation is the process by which a component, utility, or feature is marked a
     - Our documentation about the component is displayed on the [Service Manual](https://service-manual.ons.gov.uk/).
 
 3. **Codebase**:
-    - Deprecated items will include a deprecation warning in the console, if applicable, to alert developers during development.
     - Deprecated code will be maintained and supported (excluding new features) until its removal.
 
 ### Deprecation Timeline
 
 1. **Initial Announcement**: Deprecated items will be announced and documented in a minor release.
-2. **Grace Period**: There will be at least two subsequent minor releases or a minimum of six months (whichever is longer) before the deprecated item is removed.
+2. **Grace Period**: There will be a minimum of six months before the deprecated item is removed.
 3. **Removal**: Deprecated items will be removed in the next major release following the grace period.
 
 ## Communication
 
--   **Changelog**: Maintain a changelog with detailed release notes for every release.
+-   **Changelog**: Our change log is available on [GitHub](https://github.com/ONSdigital/design-system/releases).
 -   **Deprecation Notices**: Send deprecation notices via appropriate channels (e.g., mailing lists, Slack, documentation site) to ensure all users are informed.
 -   **Migration Guides**: Provide detailed migration guides and tools to assist users in transitioning from deprecated items to new alternatives.
 
