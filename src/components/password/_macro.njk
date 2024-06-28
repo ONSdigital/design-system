@@ -35,7 +35,7 @@
                 "id": params.id,
                 "name": params.name,
                 "type": "password",
-                "classes": "ons-u-mt-xs ons-js-password-input" + (" ons-input--error" if params.error),
+                "classes": "ons-u-mt-xs ons-js-password-input" + (" ons-input--error" if params.error else ""),
                 "dontWrap": true
             })
         }}

@@ -60,7 +60,7 @@
                                             "id": radio.other.id,
                                             "name": radio.other.name,
                                             "type": radio.other.type,
-                                            "classes": ("ons-input--error " if params.error and radio.checked) + radio.other.classes | default(''),
+                                            "classes": ("ons-input--error " if params.error and radio.checked else "") + radio.other.classes | default(''),
                                             "width": radio.other.width | default('auto'),
                                             "attributes": radio.other.attributes,
                                             "label": {
@@ -79,7 +79,7 @@
                                             "id": radio.other.id,
                                             "name": radio.other.name,
                                             "options": radio.other.options,
-                                            "classes": ("ons-input--error " if params.error and radio.checked) + radio.other.classes | default(''),
+                                            "classes": ("ons-input--error " if params.error and radio.checked else "") + radio.other.classes | default(''),
                                             "label": {
                                                 "id": radio.other.id + "-label",
                                                 "text": radio.other.label.text,
