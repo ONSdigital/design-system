@@ -5,7 +5,7 @@
     {% from "components/button/_macro.njk" import onsButton %}
     {% set fields %}
     {% if params.checkboxesLabel is defined %}
-        <p class="ons-checkboxes__label{{ ' ' + params.checkboxesLabelClasses if params.checkboxesLabelClasses }}">
+        <p class="ons-checkboxes__label{{ ' ' + params.checkboxesLabelClasses if params.checkboxesLabelClasses else '' }}">
             {{ params.checkboxesLabel }}
         </p>
     {% endif %}

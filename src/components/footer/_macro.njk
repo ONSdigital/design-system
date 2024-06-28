@@ -65,7 +65,7 @@
         {% endif %}
 
         <div
-            class="ons-footer__body{{ ' ' + params.classes if params.classes }}"
+            class="ons-footer__body{{ ' ' + params.classes if params.classes else '' }}"
             data-analytics="footer"
             {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
         >

@@ -1,11 +1,13 @@
 {% macro onsCheckbox(params) %}
     {% from "components/label/_macro.njk" import onsLabel %}
 
-    <span class="ons-checkbox{{ ' ons-checkbox--no-label' if params.hideLabel == true }}{{ ' ' + params.classes if params.classes }}">
+    <span
+        class="ons-checkbox{{ ' ons-checkbox--no-label' if params.hideLabel == true }}{{ ' ' + params.classes if params.classes else '' }}"
+    >
         <input
             type="checkbox"
             id="{{ params.id }}"
-            class="ons-checkbox__input ons-js-checkbox{{ ' ' + params.inputClasses if params.inputClasses }}"
+            class="ons-checkbox__input ons-js-checkbox{{ ' ' + params.inputClasses if params.inputClasses else '' }}"
             value="{{ params.value }}"
             {% if params.disabled == true %}disabled aria-disabled="true"{% endif %}
             {% if params.name %}name="{{ params.name }}"{% endif %}
@@ -21,7 +23,7 @@
                 "for": params.id,
                 "inputType": "checkbox",
                 "text": params.label.text,
-                "classes": "ons-checkbox__label" + ( ' ' + params.label.classes if params.label.classes ),
+                "classes": "ons-checkbox__label" + (' ' + params.label.classes if params.label.classes else ''),
                 "description": params.label.description
             })
         }}

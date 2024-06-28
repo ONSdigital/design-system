@@ -6,7 +6,7 @@
     {% set table %}
         <table
             {% if params.id %}id="{{ params.id }}"{% endif %}
-            class="ons-table{{ ' ' + params.tableClasses if params.tableClasses }}{% if variants and variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}"
+            class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{% if variants and variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}"
             {% if params.sortBy and 'sortable' in variants %}
                 data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"
             {% endif %}
@@ -21,7 +21,7 @@
                     {% for th in params.ths %}
                         <th
                             scope="col"
-                            class="ons-table__header{{ ' ' + th.thClasses if th.thClasses }}{{ ' ons-table__header--numeric'if th.numeric }}"
+                            class="ons-table__header{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric'if th.numeric }}"
                             {% if 'sortable' in variants %}aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}{% if th.widthPercentage %}width="{{ th.widthPercentage }}%"{% endif %}
                         >
                             <span class="ons-table__header-text">{{- th.value -}}</span>
@@ -43,7 +43,7 @@
                     <tr class="ons-table__row{{ ' ons-table__row--highlight' if tr.highlight }}" {% if tr.id %}id="{{ tr.id }}"{% endif %}>
                         {% for td in tr.tds %}
                             <td
-                                class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses }}{{ ' ons-table__cell--numeric' if td.numeric }}"
+                                class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses else '' }}{{ ' ons-table__cell--numeric' if td.numeric }}"
                                 {% if td.id %}id="{{ td.id }}"{% endif %}
                                 {% if td.data %}data-th="{{ td.data }}"{% endif %}
                                 {% if td.dataSort %}data-sort-value="{{ td.dataSort }}"{% endif %}

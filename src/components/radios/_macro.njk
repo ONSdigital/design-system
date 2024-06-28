@@ -30,7 +30,7 @@
                         <input
                             type="radio"
                             id="{{ radio.id }}"
-                            class="ons-radio__input ons-js-radio{{ ' ' + params.inputClasses if params.inputClasses }}{{ ' ' + radio.classes if radio.classes }}{{ ' ons-js-other' if radio.other }}{{ selectAllClass }}"
+                            class="ons-radio__input ons-js-radio{{ ' ' + params.inputClasses if params.inputClasses else '' }}{{ ' ' + radio.classes if radio.classes else '' }}{{ ' ons-js-other' if radio.other }}{{ selectAllClass }}"
                             value="{{ radio.value }}"
                             name="{{ params.name }}"
                             {% if radio.checked or (params.value is defined and params.value == radio.value) %}checked{% endif %}
@@ -43,14 +43,14 @@
                                 "for": radio.id,
                                 "inputType": "radio",
                                 "text": radio.label.text,
-                                "classes": "ons-radio__label" + (" " + radio.label.classes if radio.label.classes),
+                                "classes": "ons-radio__label" + (" " + radio.label.classes if radio.label.classes else ""),
                                 "description": radio.label.description
                             })
                         }}
                         {% if radio.other %}
                             {% set otherType = radio.other.otherType | default('input') %}
                             <span
-                                class="ons-radio__other{{ ' ' + 'ons-radio__other--open' if radio.other.open }}"
+                                class="ons-radio__other{{ ' ' + 'ons-radio__other--open' if radio.other.open else '' }}"
                                 id="{{ radio.id }}-other-wrap"
                             >
                                 {% if otherType == "input" %}

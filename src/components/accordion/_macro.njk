@@ -1,7 +1,7 @@
 {% macro onsAccordion(params) %}
     {% from "components/details/_macro.njk" import onsDetails %}
 
-    <div id="{{ params.id }}" class="ons-accordion{{ ' ' + params.classes if params.classes }}">
+    <div id="{{ params.id }}" class="ons-accordion{{ ' ' + params.classes if params.classes else '' }}">
         {% if params.allButton %}
             {% from "components/button/_macro.njk" import onsButton %}
             {% set attributes = params.allButton.attributes | default({}) %}

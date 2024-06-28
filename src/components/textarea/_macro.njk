@@ -19,7 +19,7 @@
 
         <textarea
             id="{{ params.id }}"
-            class="ons-input ons-input--textarea{{ ' ons-input--error' if params.error }}{{ ' ons-js-char-limit-input' if params.charCheckLimit and params.charCheckLimit.limit }}{{ textareaExclusiveClass }}{{ ' ' + params.classes if params.classes }}{% if params.width %}{{ ' ' }}ons-input--w-{{ params.width }}{% endif %}"
+            class="ons-input ons-input--textarea{{ ' ons-input--error' if params.error }}{{ ' ons-js-char-limit-input' if params.charCheckLimit and params.charCheckLimit.limit }}{{ textareaExclusiveClass }}{{ ' ' + params.classes if params.classes else '' }}{% if params.width %}{{ ' ' }}ons-input--w-{{ params.width }}{% endif %}"
             {% if params.name %}
                 name="{{ params.name }}"
             {% endif %}

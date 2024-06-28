@@ -7,7 +7,7 @@
     {%
         call onsField({
             "id": params.fieldId,
-            "classes": "ons-js-password" + (" " + params.fieldClasses if params.fieldClasses),
+            "classes": "ons-js-password" + (" " + params.fieldClasses if params.fieldClasses else ""),
             "error": params.error
         })
     %}

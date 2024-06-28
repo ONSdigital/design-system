@@ -125,7 +125,7 @@
                                     class="ons-grid__col ons-col-auto{% if controlVisibility == true %}{{ ' ' }}ons-u-d-no@xxs@{{ breakpoint }}{% endif %}"
                                 >
                                     <nav
-                                        class="ons-header-service-nav ons-header-service-nav--main{{ ' ' + params.serviceLinks.classes if params.serviceLinks.classes }}"
+                                        class="ons-header-service-nav ons-header-service-nav--main{{ ' ' + params.serviceLinks.classes if params.serviceLinks.classes else '' }}"
                                         aria-label="{{ params.serviceLinks.ariaLabel | default('Service links navigation') }}"
                                     >
                                         <ul class="ons-header-service-nav__list">
@@ -226,13 +226,13 @@
 
                             {% set title %}
                                 <div
-                                    class="ons-header__title-logo ons-header__title-logo--large{{ ' ' + params.titleLogo.classes if params.titleLogo.classes }}{{ ' ons-u-d-no@xxs@s' if params.titleLogo.small }}"
+                                    class="ons-header__title-logo ons-header__title-logo--large{{ ' ' + params.titleLogo.classes if params.titleLogo.classes else '' }}{{ ' ons-u-d-no@xxs@s' if params.titleLogo.small }}"
                                 >
                                     {{ params.titleLogo.large | safe }}
                                 </div>
                                 {% if params.titleLogo.small %}
                                     <div
-                                        class="ons-header__title-logo ons-header__title-logo--small ons-u-d-no@s{{ ' ' + params.titleLogo.classes if params.titleLogo.classes }}"
+                                        class="ons-header__title-logo ons-header__title-logo--small ons-u-d-no@s{{ ' ' + params.titleLogo.classes if params.titleLogo.classes else '' }}"
                                     >
                                         {{ params.titleLogo.small | safe }}
                                     </div>

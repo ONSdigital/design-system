@@ -77,7 +77,7 @@
     {% if params.navigation.subNavigation %}
         {% if not params.navigation.subNavigation.removeHorizontalSubNav %}
             <nav
-                class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes }}"
+                class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes else '' }}"
                 id="{{ params.navigation.subNavigation.id }}"
                 aria-label="{{ params.navigation.subNavigation.ariaLabel | default('Section menu') }}"
                 data-analytics="header-section-navigation"
@@ -88,7 +88,7 @@
                     <ul class="ons-navigation__list ons-navigation__list">
                         {% for item in params.navigation.subNavigation.itemsList %}
                             <li
-                                class="ons-navigation__item{{ ' ' + item.classes if item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}"
+                                class="ons-navigation__item{{ ' ' + item.classes if item.classes else '' }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}"
                             >
                                 <a
                                     class="ons-navigation__link ons-navigation__link"
@@ -108,7 +108,7 @@
                 </div>
             </nav>
         {% endif %}
-        <div class="ons-u-d-no@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes }}">
+        <div class="ons-u-d-no@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes else '' }}">
             {{
                 onsButton({
                     "text": params.navigation.currentPageTitle,

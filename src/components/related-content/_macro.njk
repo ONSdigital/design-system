@@ -1,6 +1,6 @@
 {% macro onsRelatedContent(params) %}
     <aside
-        class="ons-related-content{{ ' ' + params.classes if params.classes }}"
+        class="ons-related-content{{ ' ' + params.classes if params.classes else '' }}"
         aria-label="{{ params.ariaLabel | default('Related content') }}"
     >
         {% if params.rows %}

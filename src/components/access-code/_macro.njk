@@ -31,7 +31,7 @@
     {% if not params.error %}
         {%
             call onsPanel({
-                "classes": "ons-u-mb-s" + (' ' + params.classes if params.classes)
+                "classes": "ons-u-mb-s" + (" " + params.classes if params.classes else "")
             })
         %}
             {{ content | safe }}

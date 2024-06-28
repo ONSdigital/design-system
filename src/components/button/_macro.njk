@@ -72,7 +72,7 @@
     {% else %}
         type="{{ buttonType }}"
     {% endif %}
-    class="ons-btn{{ ' ' + params.classes if params.classes }}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-btn--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-btn--{{ params.variants }}{% endif %}{{ ' ons-btn--link ons-js-submit-btn' if params.url }}{{ variantClasses }}"
+    class="ons-btn{{ ' ' + params.classes if params.classes else '' }}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-btn--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-btn--{{ params.variants }}{% endif %}{{ ' ons-btn--link ons-js-submit-btn' if params.url }}{{ variantClasses }}"
     {% if params.id %}id="{{ params.id }}"{% endif %}
     {% if params.value and tag != "a" %}value="{{ params.value }}"{% endif %}
     {% if params.name and tag != "a" %}name="{{ params.name }}"{% endif %}
@@ -80,7 +80,7 @@
     {{ variantAttributes }}
     {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
     >
-    <span class="ons-btn__inner{{ ' ' + params.innerClasses if params.innerClasses }}">
+    <span class="ons-btn__inner{{ ' ' + params.innerClasses if params.innerClasses else '' }}">
         {%- if iconPosition == "before" or iconPosition == "after" -%}
             {%- if iconPosition == "before" -%}
                 {{-

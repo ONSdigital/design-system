@@ -1,6 +1,6 @@
 {% macro onsDescriptionList(params) %}
     <dl
-        class="ons-description-list ons-description-list__items ons-grid ons-grid--gutterless ons-u-cf{{ (' ' + params.classes) if params.classes }}"
+        class="ons-description-list ons-description-list__items ons-grid ons-grid--gutterless ons-u-cf{{ " " + params.classes if params.classes else "" }}"
         {% if params.id %}id="{{ params.id }}"{% endif %}{% if params.descriptionListLabel %}
             title="{{ params.descriptionListLabel }}" aria-label="{{ params.descriptionListLabel }}"
         {% endif %}

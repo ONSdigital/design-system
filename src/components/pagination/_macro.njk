@@ -9,7 +9,7 @@
     {% set nextPageIndex = currentPageIndex + 1 %}
 
     <nav
-        class="ons-pagination{{ ' ' + params.classes if params.classes }}{{ ' ons-pagination--no-indicator' if params.hideRangeIndicator }}"
+        class="ons-pagination{{ ' ' + params.classes if params.classes else '' }}{{ ' ons-pagination--no-indicator' if params.hideRangeIndicator }}"
         aria-label="Pagination ({{ position }})"
     >
         <div class="ons-pagination__position">{{ position }}</div>

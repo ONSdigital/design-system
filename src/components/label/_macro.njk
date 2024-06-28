@@ -34,7 +34,7 @@
         {%- endif -%}
 
         <label
-            class="{{ 'ons-label' if params.inputType is not defined }}{{ ' ' + params.classes if params.classes }}{{ ' ons-label--with-description' if params.description }}{{ ' ons-label--placeholder' if params.accessiblePlaceholder }}"
+            class="{{ 'ons-label' if params.inputType is not defined }}{{ ' ' + params.classes if params.classes else '' }}{{ ' ons-label--with-description' if params.description }}{{ ' ons-label--placeholder' if params.accessiblePlaceholder }}"
             for="{{ params.for }}"
             {% if params.description %}aria-describedby="{{ descriptionID }}"{% endif %}
             {% if params.id %}id="{{ params.id }}"{% endif %}

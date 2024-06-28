@@ -1,5 +1,5 @@
 {% macro onsAddressOutput(params) %}
-    <div class="ons-address-output{{ ' ' + params.classes if params.classes }}">
+    <div class="ons-address-output{{ ' ' + params.classes if params.classes else '' }}">
         <p class="ons-address-output__lines">
             {% if params.unit %}
                 <span class="ons-address-output__unit">{{ params.unit }}</span><br />
