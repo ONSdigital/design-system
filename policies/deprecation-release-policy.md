@@ -67,7 +67,6 @@ Deprecation is the process by which a component, utility, or feature is marked a
 
 ## Communication
 
--   **Changelog**: Our change log is available on [GitHub](https://github.com/ONSdigital/design-system/releases).
 -   **Deprecation Notices**: Send deprecation notices via appropriate channels (e.g., mailing lists, Slack, documentation site) to ensure all users are informed.
 -   **Migration Guides**: Provide detailed migration guides and tools to assist users in transitioning from deprecated items to new alternatives.
 
