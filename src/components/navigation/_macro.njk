@@ -60,7 +60,7 @@
                             <a
                                 class="ons-navigation__link"
                                 href="{{ item.url }}"
-                                {% if item.id %}id="{{ item.id }}"{% endif %}{% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}"{% endif %}
+                                {% if item.id %}id="{{ item.id }}"{% endif %}{% if item.ariaLabel %}{{ ' ' }}aria-label="{{ item.ariaLabel }}"{% endif %}
                             >
                                 {% if item.title %}
                                     {{ item.title }}

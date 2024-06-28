@@ -45,8 +45,8 @@
                             <td
                                 class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses else '' }}{{ ' ons-table__cell--numeric' if td.numeric }}"
                                 {% if td.id %}id="{{ td.id }}"{% endif %}
-                                {% if td.data %}data-th="{{ td.data }}"{% endif %}
-                                {% if td.dataSort %}data-sort-value="{{ td.dataSort }}"{% endif %}
+                                {% if td.data %}{{ ' ' }}data-th="{{ td.data }}"{% endif %}
+                                {% if td.dataSort %}{{ ' ' }}data-sort-value="{{ td.dataSort }}"{% endif %}
                             >
                                 {% if td.form %}
                                     <form action="{{ td.form.action }}" method="{{ td.form.method | default('POST') }}">

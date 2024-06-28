@@ -24,7 +24,7 @@
     {% set closingTag = "</" + listEl + ">" %}
 
     {{ openingTag | safe }}{% if params.id %}{{ ' ' }}id="{{ params.id }}"{% endif %}
-    class="ons-list{{ ' ons-list--p' if listEl == 'p' }}{{ ' ' + params.classes if params.classes else '' }}{% if params.variants %}{% if params.variants is not string %}{% for variant in variants %}{{ ' ' }}ons-list--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-list--{{ variants }}{% endif %}{% endif %}{{ ' ' + otherClasses if otherClasses else '' }}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
+    class="ons-list{{ ' ons-list--p' if listEl == 'p' }}{{ ' ' + params.classes if params.classes else '' }}{% if params.variants %}{% if params.variants is not string %}{% for variant in variants %}{{ ' ' }}ons-list--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-list--{{ variants }}{% endif %}{% endif %}{{ ' ' + otherClasses if otherClasses else '' }}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
     {%- for item in params.itemsList -%}
         {% set sublistClasses = item.listClasses if item.listClasses %}
         {%
@@ -75,7 +75,7 @@
                     <a
                         href="{{ item.url }}"
                         class="ons-list__link{{ ' ons-js-inpagelink' if item.variants == 'inPageLink' }}{{ ' ' + item.classes if item.classes else '' }}"
-                        {% if item.target %}target="{{ item.target }}"{% endif %}{% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
+                        {% if item.target %}target="{{ item.target }}"{% endif %}{% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
                     >
                         {%- if item.prefix -%}<span class="ons-u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- itemText | safe -}}
                         {%- if item.target == "_blank" -%}

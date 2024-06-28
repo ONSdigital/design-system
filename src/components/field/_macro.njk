@@ -12,7 +12,7 @@
             <div
                 {% if params.id %}id="{{ params.id }}"{% endif %}
                 class="ons-field{{ ' ons-field--inline' if params.inline }}{{ ' ' + params.classes if params.classes else '' }}"
-                {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
+                {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
             >
                 {{- caller() if caller -}}
             </div>

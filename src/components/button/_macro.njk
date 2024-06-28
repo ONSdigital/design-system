@@ -78,7 +78,7 @@
     {% if params.name and tag != "a" %}name="{{ params.name }}"{% endif %}
     {% if params.url and params.newWindow %}target="_blank" rel="noopener"{% endif %}
     {{ variantAttributes }}
-    {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+    {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
     >
     <span class="ons-btn__inner{{ ' ' + params.innerClasses if params.innerClasses else '' }}">
         {%- if iconPosition == "before" or iconPosition == "after" -%}

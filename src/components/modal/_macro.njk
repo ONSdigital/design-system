@@ -5,7 +5,7 @@
         id="{{ modalId }}"
         role="dialog"
         aria-labelledby="ons-modal-title"
-        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
     >
         <div class="ons-modal__content">
             <h2 id="ons-modal-title" class="ons-modal__title">{{ params.title }}</h2>

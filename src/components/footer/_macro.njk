@@ -67,7 +67,7 @@
         <div
             class="ons-footer__body{{ ' ' + params.classes if params.classes else '' }}"
             data-analytics="footer"
-            {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+            {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
         >
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div class="ons-grid">

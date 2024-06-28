@@ -50,7 +50,7 @@
                                         >
                                             <dt
                                                 class="ons-summary__item-title"
-                                                {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                                                {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                             >
                                                 {% if rowItem.iconType %}
                                                     {% from "components/icon/_macro.njk" import onsIcon %}
@@ -82,7 +82,7 @@
                                             {% if rowItem.valueList %}
                                                 <dd
                                                     class="ons-summary__values{{ ' ons-summary__values--2' if not rowItem.actions }}"
-                                                    {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                                                    {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                                 >
                                                     {% if rowItem.valueList | length == 1 %}
                                                         <span class="ons-summary__text">{{ rowItem.valueList[0].text | safe }}</span>
@@ -114,7 +114,7 @@
                                                         <a
                                                             href="{{ action.url }}"
                                                             class="ons-summary__button"
-                                                            {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                                                            {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                                         >
                                                             <span class="ons-summary__button-text" aria-hidden="true">
                                                                 {{- action.text -}}
@@ -139,7 +139,7 @@
                         >
                             {% set link %}
                                 <a
-                                    {% if group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                                    {% if group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                     href="{{ group.summaryLink.url }}"
                                 >
                                     {{ group.summaryLink.text }}

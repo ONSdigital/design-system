@@ -6,7 +6,7 @@
                     <dt class="ons-message__term ons-u-fw-b">{{ params.fromLabel }}:</dt>
                     <dd
                         class="ons-message__value ons-u-fw-b"
-                        {% if params.fromId %}id="{{ params.fromId }}"{% endif %}{% if params.fromName %}name="{{ params.fromName }}"{% endif %}
+                        {% if params.fromId %}id="{{ params.fromId }}"{% endif %}{% if params.fromName %}{{ ' ' }}name="{{ params.fromName }}"{% endif %}
                     >
                         {{ params.fromValue }}
                     </dd>
@@ -15,7 +15,7 @@
                     <dt class="ons-message__term ons-u-fs-s">{{ params.sentLabel }}:</dt>
                     <dd
                         class="ons-message__value ons-u-fs-s"
-                        {% if params.sentId %}id="{{ params.sentId }}"{% endif %}{% if params.sentName %}name="{{ params.sentName }}"{% endif %}
+                        {% if params.sentId %}id="{{ params.sentId }}"{% endif %}{% if params.sentName %}{{ ' ' }}name="{{ params.sentName }}"{% endif %}
                     >
                         {{ params.sentValue }}
                     </dd>
