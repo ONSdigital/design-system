@@ -2,7 +2,7 @@
     {% set headingLevel = params.headingLevel | default(2) %}
     {% set openingHeadingTag = "<h" + headingLevel %}
     {% set closingHeadingTag = "</h" + headingLevel + ">" %}
-    {% set placeholderSrcset = (params.image.placeholderURL if params.image.placeholderURL) + "/img/small/placeholder-card.png 1x, " + (params.image.placeholderURL if params.image.placeholderURL) + "/img/large/placeholder-card.png 2x" %}
+    {% set placeholderSrcset = (params.image.placeholderURL if params.image.placeholderURL) + "/img/small/placeholder-card.png 1x, " + (params.image.placeholderURL if params.image.placeholderURL else "") + "/img/large/placeholder-card.png 2x" %}
 
     <div class="ons-card">
         <a href="{{ params.url }}" class="ons-card__link">
