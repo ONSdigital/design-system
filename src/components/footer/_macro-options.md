@@ -56,7 +56,7 @@
 | Name    | Type          | Required | Description                                                                                                                                                                                   |
 | ------- | ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | classes | string        | false    | Classes to be added.                                                                                                                                                                          |
-| logos   | Array`<Logo>` | false    | Allows for up to two logos to be used in the footer.                                                                                                                                          |
+| logos   | Object`<Logos>` | false    | Allows for up to two logos to be used in the footer.                                                                                                                                          |
 | display | string        | false    | Allowed values are 'split' or 'default'. The 'split' display positions the additional logo on the opposite side of the page, while the 'default' display places the logos next to each other. |
 
 ## Logos
