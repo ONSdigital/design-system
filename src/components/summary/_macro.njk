@@ -1,6 +1,6 @@
 {% macro onsSummary(params) %}
     {% set className = "ons-summary" %}
-    {% set headingLevel = 2 %}
+    {% set headingLevel = "2" %}
 
     {% if params.variant == "hub" %}
         {% set variantHub = true %}
@@ -17,7 +17,7 @@
         {% for summary in params.summaries %}
             {% if summary.summaryTitle %}
                 <h2 class="ons-summary__title ons-u-mb-m{{ ' ons-u-mt-m' if loop.index > 1 }}">{{ summary.summaryTitle }}</h2>
-                {% set headingLevel = 3 %}
+                {% set headingLevel = "3" %}
             {% endif %}
             {% for group in summary.groups %}
                 <div {% if group.id %}id="{{ group.id }}"{{ ' ' }}{% endif %}class="ons-summary__group{{ variantClasses }}">
