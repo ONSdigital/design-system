@@ -10,11 +10,11 @@
             class="ons-checkbox__input ons-js-checkbox{{ ' ' + params.inputClasses if params.inputClasses else '' }}"
             value="{{ params.value }}"
             {% if params.disabled == true %}disabled aria-disabled="true"{% endif %}
-            {% if params.name %}name="{{ params.name }}"{% endif %}
-            {% if params.checked %}checked{% endif %}
-            {% if params.other and not params.other.open %}aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}
-            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
-            {% if params.deselectMessage %}data-deselect-message="{{ params.deselectMessage }}"{% endif %}
+            {% if params.name %}{{ ' ' }}name="{{ params.name }}"{% endif %}
+            {% if params.checked %}{{ ' ' }}checked{% endif %}
+            {% if params.other and not params.other.open %}{{ ' ' }}aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
+            {% if params.deselectMessage %}{{ ' ' }}data-deselect-message="{{ params.deselectMessage }}"{% endif %}
         />
 
         {{
