@@ -1,8 +1,8 @@
 {% macro onsSectionNavigation(params) %}
     {% set headingLevel = params.headingLevel | default(2) %}
     {% set sectionTitleHeadingLevel = headingLevel + 1 %}
-    {% set openingHeadingTag = "<h" + headingLevel %}
-    {% set closingHeadingTag = "</h" + headingLevel + ">" %}
+    {% set openingHeadingTag = "<h" + headingLevel | string %}
+    {% set closingHeadingTag = "</h" + headingLevel | string + ">" %}
 
     <nav
         class="ons-section-nav{{ ' ons-section-nav--vertical' if params.variants == 'vertical' }}{{ ' ' + params.classes if params.classes else '' }}"
@@ -16,9 +16,9 @@
                 {% set sectionItemHeadingLevel = headingLevel + 2 if section.title else headingLevel + 1 %}
                 <div class="ons-section-nav__sub">
                     {% if section.title %}
-                        {{ openingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel) | safe }}
+                        {{ openingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel | string) | safe }}
                         class="ons-u-fs-r--b
-                        ons-u-mb-s">{{ section.title }}{{ closingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel) | safe }}
+                        ons-u-mb-s">{{ section.title }}{{ closingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel | string) | safe }}
                     {% endif %}
                     <ul class="ons-section-nav__list">
                         {% for item in section.itemsList %}
@@ -31,9 +31,9 @@
                                 class="ons-section-nav__item{{ ' ' + item.classes if item.classes else '' }}{{ ' ons-section-nav__item--active' if isCurrent == true }}"
                             >
                                 {% if isCurrent == true %}
-                                    {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) | safe }}
+                                    {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
                                     class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}"
-                                    aria-current="location">{{ item.title }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) | safe }}
+                                    aria-current="location">{{ item.title }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
                                 {% else %}
                                     <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
                                 {% endif %}
@@ -55,8 +55,9 @@
             {% endfor %}
         {% else %}
             {% if params.title %}
-                {{ openingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel) | safe }}
-                class="ons-u-fs-r--b ons-u-mb-s">{{ params.title }}{{ closingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel) }}
+                {{ openingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel | string) | safe }}
+                class="ons-u-fs-r--b
+                ons-u-mb-s">{{ params.title }}{{ closingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel | string) }}
             {% endif %}
             <ul class="ons-section-nav__list">
                 {% for item in params.itemsList %}
@@ -70,9 +71,9 @@
                         class="ons-section-nav__item{{ ' ' + item.classes if item.classes else '' }}{% if isCurrent == true %}{{ ' ' }}ons-section-nav__item--active{% endif %}"
                     >
                         {% if isCurrent == true %}
-                            {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) | safe }}
+                            {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
                             class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}"
-                            aria-current="location">{{ item.title }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel) | safe }}
+                            aria-current="location">{{ item.title }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
                         {% else %}
                             <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
                         {% endif %}
