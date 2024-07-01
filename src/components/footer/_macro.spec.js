@@ -538,7 +538,7 @@ describe('macro: footer', () => {
                     }),
                 );
 
-                expect($('.ons-footer__logo').attr('class')).toContain('ons-grid--between');
+                expect($('.ons-footer__logo-container').attr('class')).toContain('ons-grid--between');
             });
         });
     });

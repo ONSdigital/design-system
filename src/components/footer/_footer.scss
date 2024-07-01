@@ -30,14 +30,14 @@
         vertical-align: middle;
     }
 
-    &__extra-logo svg,
-    img {
-        max-height: 30px;
-        width: auto;
-    }
-
-    &__logo {
+    &__logo-container {
         gap: 1rem;
+
+        svg,
+        img {
+            max-height: 30px;
+            width: auto;
+        }
     }
 
     .ons-icon--logo,
