@@ -23,6 +23,12 @@
 
     &__logo {
         gap: 1rem;
+
+        svg,
+        img {
+            max-height: 30px;
+            width: auto;
+        }
     }
 
     .ons-icon--logo,
