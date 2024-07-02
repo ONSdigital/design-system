@@ -775,7 +775,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
     
 
-    <button type="button" class="ons-btn ons-u-d-no ons-js-toggle-services ons-btn--mobile ons-btn--text-link ons-btn--text-link-inverse" aria-label="Toggle services menu" aria-controls="service-links" aria-expanded="false">
+    <button type="button" class="ons-btn ons-u-d-no ons-js-toggle-services ons-btn--mobile ons-btn--ghost-dark" aria-label="Toggle services menu" aria-controls="service-links" aria-expanded="false">
         <span class="ons-btn__inner"><span class="ons-btn__text">Account</span><svg class="ons-icon ons-u-ml-xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-chevron">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg></span>
@@ -891,8 +891,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             
                             
                                 
-                                    
-                                
                                 
 
     
@@ -916,7 +914,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
     
 
-    <button type="submit" class="ons-btn ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l ons-btn--mobile ons-btn--ghost-dark" aria-label="Toggle main menu" aria-controls="main-nav" aria-expanded="false">
+    <button type="submit" class="ons-btn ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l ons-btn--mobile ons-btn--ghost" aria-label="Toggle main menu" aria-controls="main-nav" aria-expanded="false">
         <span class="ons-btn__inner"><span class="ons-btn__text">Menu</span><svg class="ons-icon ons-u-ml-xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-chevron">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg></span>
