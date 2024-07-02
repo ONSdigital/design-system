@@ -2,7 +2,7 @@
 
 ## Overview
 
-This policy outlines release process to ensure smooth transitions and maintain the stability and reliability of the library. It also details the the procedures and timelines for deprecating components, utilities, and other features in the design system library.
+This policy outlines release process to ensure smooth transitions and maintain the stability and reliability of the library. It also details the procedures and timelines for deprecating components, utilities, and other features in the design system library.
 
 ## Release Policy
 
