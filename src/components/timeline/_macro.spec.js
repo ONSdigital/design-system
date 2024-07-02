@@ -6,7 +6,7 @@ import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_TIMELINE = {
-    items: [
+    timelineItems: [
         {
             heading: 'January 2020',
             content: 'Timeline entry 1',
