@@ -1,14 +1,23 @@
 {% macro onsDescriptionList(params) %}
-  <dl class="ons-description-list ons-description-list__items ons-grid ons-grid--gutterless ons-u-cf{{ (' ' + params.classes) if params.classes }}"{% if params.id %} id="{{ params.id }}" {% endif %}{% if params.descriptionListLabel %} title="{{ params.descriptionListLabel }}" aria-label="{{ params.descriptionListLabel }}"{% endif %}>
-    {% for item in params.itemsList %}
-      {% if item.term | length %}
-          <dt class="ons-description-list__term ons-grid__col ons-col-{{ params.termCol }}@m">{{ item.term }}</dt>
-      {% endif %}
-        {% for descriptionItem in item.descriptions %}
-          {% if descriptionItem.description | length %}
-            <dd {% if descriptionItem.id %}id="{{ descriptionItem.id }}" {% endif %}class="ons-description-list__value ons-grid__col ons-col-{{ params.descriptionCol }}@m">{{ descriptionItem.description }}</dd>
-          {% endif %}
+    <dl
+        class="ons-description-list ons-description-list__items ons-grid ons-grid--gutterless ons-u-cf{{ " " + params.classes if params.classes else "" }}"
+        {% if params.id %}id="{{ params.id }}"{% endif %}{% if params.descriptionListLabel %}
+            title="{{ params.descriptionListLabel }}" aria-label="{{ params.descriptionListLabel }}"
+        {% endif %}
+    >
+        {% for item in params.itemsList %}
+            {% if item.term | length %}
+                <dt class="ons-description-list__term ons-grid__col ons-col-{{ params.termCol }}@m">{{ item.term }}</dt>
+            {% endif %}
+            {% for descriptionItem in item.descriptions %}
+                {% if descriptionItem.description | length %}
+                    <dd
+                        {% if descriptionItem.id %}id="{{ descriptionItem.id }}"{% endif %}class="ons-description-list__value ons-grid__col ons-col-{{ params.descriptionCol }}@m"
+                    >
+                        {{- descriptionItem.description -}}
+                    </dd>
+                {% endif %}
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
-  </dl>
+    </dl>
 {% endmacro %}

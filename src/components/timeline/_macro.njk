@@ -1,12 +1,13 @@
 {% macro onsTimeline(params) %}
-
     {% from "components/list/_macro.njk" import onsList %}
 
     <div class="ons-timeline{{ ' ' + params.classes if params.classes else '' }}">
         {% set titleTag = params.titleTag | default("h2") %}
+        {% set openingTag = "<" + titleTag %}
+        {% set closingTag = "</" + titleTag + ">" %}
         {% for item in params.items %}
             <div class="ons-timeline__item">
-                <{{ titleTag }} class="ons-timeline__heading">{{ item.heading }}</{{ titleTag }}>
+                {{ openingTag | safe }} class="ons-timeline__heading">{{ item.heading }}{{ closingTag | safe }}
                 {% if item.itemsList %}
                     <div class="ons-timeline__content">
                         {{
@@ -17,12 +18,9 @@
                         }}
                     </div>
                 {% elif item.content %}
-                    <div class="ons-timeline__content">
-                        {{ item.content | safe }}
-                    </div>
+                    <div class="ons-timeline__content">{{ item.content | safe }}</div>
                 {% endif %}
             </div>
         {% endfor %}
     </div>
-
 {% endmacro %}

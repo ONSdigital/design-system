@@ -1,25 +1,28 @@
 ---
-"title": "Example: Manual address entry error"
+'title': 'Example: Manual address entry error'
 layout: ~
 ---
-{% extends "layout/_template.njk" %}
 
+{% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/address-input/_macro.njk" import onsAddressInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/list/_macro.njk" import onsList %}
-
-{% set pageConfig = {
-    "header": {
-        "title": "Manual address input example"
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Manual address input example"
+        }
     }
-} %}
+%}
 {% block main %}
-    {% call onsPanel({
-        "title": "There are 2 problems with your answer",
-        "variant": "error"
-    }) %}
+    {%
+        call onsPanel({
+            "title": "There are 2 problems with your answer",
+            "variant": "error"
+        })
+    %}
         {{
             onsList({
                 "element": "ol",
@@ -39,44 +42,47 @@ layout: ~
         }}
     {% endcall %}
 
-    {% call onsQuestion({
-        "title": "What is your address?",
-        "legendIsQuestionTitle": true,
-        "submitButton": true
-    }) %}
-
-    <form action="#0">
-        {{ onsAddressInput({
-            "id": "address-input-manual-error-example",
-            "dontWrap": true,
-            "manualEntry": true,
-            "label": {
-                "text": "Enter address or postcode and select from results",
-                "id": "address-label-input-manual-error"
-            },
-            "line1": {
-                "label": "Address line 1",
-                "error": {
-                    "id": "line1-error",
-                    "text": "Enter the first line of your address"
-                }
-            },
-            "line2": {
-                "label": "Address line 2"
-            },
-            "town": {
-                "label": "Town or city",
-                "value": "Goathill"
-            },
-            "postcode": {
-                "label": "Postcode",
-                "value": "A12",
-                "error": {
-                    "id": "postcode-error",
-                    "text": "Enter a valid UK postcode"
-                }
-            }
-        }) }}
-    </form>
+    {%
+        call onsQuestion({
+            "title": "What is your address?",
+            "legendIsQuestionTitle": true,
+            "submitButton": true
+        })
+    %}
+        <form action="#0">
+            {{
+                onsAddressInput({
+                    "id": "address-input-manual-error-example",
+                    "dontWrap": true,
+                    "manualEntry": true,
+                    "label": {
+                        "text": "Enter address or postcode and select from results",
+                        "id": "address-label-input-manual-error"
+                    },
+                    "line1": {
+                        "label": "Address line 1",
+                        "error": {
+                            "id": "line1-error",
+                            "text": "Enter the first line of your address"
+                        }
+                    },
+                    "line2": {
+                        "label": "Address line 2"
+                    },
+                    "town": {
+                        "label": "Town or city",
+                        "value": "Goathill"
+                    },
+                    "postcode": {
+                        "label": "Postcode",
+                        "value": "A12",
+                        "error": {
+                            "id": "postcode-error",
+                            "text": "Enter a valid UK postcode"
+                        }
+                    }
+                })
+            }}
+        </form>
     {% endcall %}
 {% endblock %}

@@ -1,9 +1,7 @@
 {% macro onsCharLimit(params) %}
     {% if params.variant == "check" %}
         {% set content = caller() %}
-        <span class="ons-js-char-check-input">
-            {{ content | safe }}
-        </span>
+        <span class="ons-js-char-check-input">{{ content | safe }}</span>
     {% endif %}
     <span
         id="{{ params.id }}"

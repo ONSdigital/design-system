@@ -1,19 +1,21 @@
 ---
-title: "Example: Feedback form sent confirmation"
+title: 'Example: Feedback form sent confirmation'
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/button/_macro.njk" import onsButton %}
-
-{% set pageConfig = {
-    "header": {
-        "title": "Survey title",
-        "mastheadLogoUrl": "#0"
-    },
-    "footer": {
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Survey title",
+            "mastheadLogoUrl": "#0"
+        },
+        "footer": {
+        }
     }
-} %}
+%}
 {% block main %}
     {{
         onsPanel({

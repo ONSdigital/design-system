@@ -1,5 +1,3 @@
 {% macro onsTextIndent(params) %}
-    <div class="ons-text-indent">
-        {{ caller() if caller else params.text | safe }}
-    </div>
+    <div class="ons-text-indent">{{ caller() if caller else params.text | safe }}</div>
 {% endmacro %}

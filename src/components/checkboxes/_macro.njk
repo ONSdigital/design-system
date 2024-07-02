@@ -3,12 +3,13 @@
     {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
     {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
     {% from "components/button/_macro.njk" import onsButton %}
-
     {% set fields %}
     {% if params.checkboxesLabel is defined %}
-        <p class="ons-checkboxes__label{{ " " + params.checkboxesLabelClasses if params.checkboxesLabelClasses }}">{{ params.checkboxesLabel }}</p>
+        <p class="ons-checkboxes__label{{ ' ' + params.checkboxesLabelClasses if params.checkboxesLabelClasses else '' }}">
+            {{ params.checkboxesLabel }}
+        </p>
     {% endif %}
-        {% set hasOther = false %}
+    {% set hasOther = false %}
         {% for checkbox in params.checkboxes %}
             {% if checkbox.other %}
                 {% set hasOther = true %}
@@ -52,90 +53,98 @@
                         {% endif %}
                     {% endfor %}
                 {% endif %}
-                <span class="ons-checkboxes__item{{ " ons-checkboxes__item--no-border" if params.borderless }}">
-                    {% set config = {
-                        "id": checkbox.id,
-                        "name": checkbox.name,
-                        "value": checkbox.value,
-                        "checked": childIsChecked if childIsChecked == true else checkbox.checked,
-                        "disabled": checkbox.disabled,
-                        "borderless": params.borderless,
-                        "classes": checkbox.classes | default('') + borderless | default(''),
-                        "inputClasses": exclusiveClass | default('') + otherClass | default(''),
-                        "label": {
-                            "for": checkbox.id,
-                            "text": labelHTML,
-                            "description": checkbox.label.description,
-                            "classes": checkbox.label.classes | default('')
-                        },
-                        "attributes": checkbox.attributes
-                    } %}
+                <span class="ons-checkboxes__item{{ ' ons-checkboxes__item--no-border' if params.borderless }}">
+                    {%
+                        set config = {
+                            "id": checkbox.id,
+                            "name": checkbox.name,
+                            "value": checkbox.value,
+                            "checked": childIsChecked if childIsChecked == true else checkbox.checked,
+                            "disabled": checkbox.disabled,
+                            "borderless": params.borderless,
+                            "classes": checkbox.classes | default('') + borderless | default(''),
+                            "inputClasses": exclusiveClass | default('') + otherClass | default(''),
+                            "label": {
+                                "for": checkbox.id,
+                                "text": labelHTML,
+                                "description": checkbox.label.description,
+                                "classes": checkbox.label.classes | default('')
+                            },
+                            "attributes": checkbox.attributes
+                        }
+                    %}
 
                     {% if checkbox.other %}
-                        {% set config = config | setAttributes({
-                            "other": {
-                                "open": checkbox.other.open | default(false),
-                                "id": checkbox.other.id,
-                                "name": checkbox.other.name,
-                                "type": checkbox.other.type,
-                                "otherType": checkbox.other.otherType,
-                                "options": checkbox.other.options,
-                                "width": checkbox.other.width,
-                                "classes": ("ons-input--error" if params.error and checkbox.checked else "") + checkbox.other.classes | default('') + exclusiveClass | default(''),
-                                "attributes": checkbox.other.attributes,
-                                "label": {
-                                    "text": checkbox.other.label.text
-                                },
-                                "legend": checkbox.other.legend,
-                                "legendClasses": checkbox.other.legendClasses,
-                                "value": checkbox.other.value,
-                                "autoSelect": checkbox.other.autoSelect,
-                                "selectAllChildren": checkbox.other.selectAllChildren,
-                                "checkboxes": checkbox.other.checkboxes,
-                                "radios": checkbox.other.radios
-                            }
-                        }) %}
+                        {%
+                            set config = config | setAttributes({
+                                "other": {
+                                    "open": checkbox.other.open | default(false),
+                                    "id": checkbox.other.id,
+                                    "name": checkbox.other.name,
+                                    "type": checkbox.other.type,
+                                    "otherType": checkbox.other.otherType,
+                                    "options": checkbox.other.options,
+                                    "width": checkbox.other.width,
+                                    "classes": ("ons-input--error" if params.error and checkbox.checked else "") + checkbox.other.classes | default('') + exclusiveClass | default(''),
+                                    "attributes": checkbox.other.attributes,
+                                    "label": {
+                                        "text": checkbox.other.label.text
+                                    },
+                                    "legend": checkbox.other.legend,
+                                    "legendClasses": checkbox.other.legendClasses,
+                                    "value": checkbox.other.value,
+                                    "autoSelect": checkbox.other.autoSelect,
+                                    "selectAllChildren": checkbox.other.selectAllChildren,
+                                    "checkboxes": checkbox.other.checkboxes,
+                                    "radios": checkbox.other.radios
+                                }
+                            })
+                        %}
                     {% endif %}
                     {{ onsCheckbox(config) }}
                 </span>
                 {% if not loop.last %}
-                    <br>
+                    <br />
                 {% endif %}
             {% endfor %}
         </div>
     {% endset %}
 
     {% if params.mutuallyExclusive %}
-        {% call onsMutuallyExclusive({
-            "id": params.id,
-            "classes": params.classes,
-            "legend": params.legend,
-            "legendClasses": params.legendClasses,
-            "description": params.description,
-            "attributes": params.attributes,
-            "dontWrap": params.dontWrap,
-            "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
-            "or": params.mutuallyExclusive.or,
-            "deselectMessage": params.mutuallyExclusive.deselectMessage,
-            "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-            "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
-            "error": params.error
-        }) %}
+        {%
+            call onsMutuallyExclusive({
+                "id": params.id,
+                "classes": params.classes,
+                "legend": params.legend,
+                "legendClasses": params.legendClasses,
+                "description": params.description,
+                "attributes": params.attributes,
+                "dontWrap": params.dontWrap,
+                "legendIsQuestionTitle": params.legendIsQuestionTitle,
+                "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
+                "or": params.mutuallyExclusive.or,
+                "deselectMessage": params.mutuallyExclusive.deselectMessage,
+                "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
+                "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
+                "error": params.error
+            })
+        %}
             {{ fields | safe }}
         {% endcall %}
     {% else %}
-        {% call onsFieldset({
-            "id": params.id,
-            "classes": params.classes,
-            "legend": params.legend,
-            "legendClasses": params.legendClasses,
-            "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "description": params.description,
-            "attributes": params.attributes,
-            "dontWrap": params.dontWrap,
-            "error": params.error
-        }) %}
+        {%
+            call onsFieldset({
+                "id": params.id,
+                "classes": params.classes,
+                "legend": params.legend,
+                "legendClasses": params.legendClasses,
+                "legendIsQuestionTitle": params.legendIsQuestionTitle,
+                "description": params.description,
+                "attributes": params.attributes,
+                "dontWrap": params.dontWrap,
+                "error": params.error
+            })
+        %}
             {{ fields | safe }}
         {% endcall %}
     {% endif %}

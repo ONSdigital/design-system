@@ -39,7 +39,8 @@
                     ]
                 })
             }}
-            {% call onsMessage({
+            {%
+                call onsMessage({
                     "variant": 'sent',
                     "fromLabel": 'From',
                     "fromValue": 'ONS surveys',
@@ -48,23 +49,24 @@
                 })
             %}
                 <p>
-                    Dear Jacky<br>
-                    <br>
-                    Thanks for returning the BRES 2017 spreadsheet for Bolts &amp; Ratchets. I wonder if I could clarify employee figures for two of the sites, as they’re very different to last year’s figures.
-                    The sites are:<br>
-                    Macclesfield<br>
-                    2015: 45 - 2017: 1<br>
-                    and Skipton<br>
-                    2015: 11 - 2017: 183<br>
-                    Are these figures correct?<br>
-                    <br>
-                    Many thanks<br>
-                    David Cleere<br>
+                    Dear Jacky<br />
+                    <br />
+                    Thanks for returning the BRES 2017 spreadsheet for Bolts &amp; Ratchets. I wonder if I could clarify employee figures
+                    for two of the sites, as they’re very different to last year’s figures. The sites are:<br />
+                    Macclesfield<br />
+                    2015: 45 - 2017: 1<br />
+                    and Skipton<br />
+                    2015: 11 - 2017: 183<br />
+                    Are these figures correct?<br />
+                    <br />
+                    Many thanks<br />
+                    David Cleere<br />
                     BRES Survey Team
                 </p>
             {% endcall %}
 
-            {% call onsMessage({
+            {%
+                call onsMessage({
                     "variant": 'received',
                     "fromLabel": 'From',
                     "fromValue": 'Jackie Turner',
@@ -73,14 +75,16 @@
                 })
             %}
                 <p>
-                    Hi Dave<br>
-                    Thanks for your message. Yes, the figures are right - we had a big expansion last year when we bought The Widgets Group and moved staff to Skipton.<br>
-                    <br>
+                    Hi Dave<br />
+                    Thanks for your message. Yes, the figures are right - we had a big expansion last year when we bought The Widgets Group
+                    and moved staff to Skipton.<br />
+                    <br />
                     Thanks, Jacky
                 </p>
             {% endcall %}
 
-            {% call onsMessage({
+            {%
+                call onsMessage({
                     "variant": 'sent',
                     "fromLabel": 'From',
                     "fromValue": 'ONS surveys',
@@ -89,17 +93,18 @@
                 })
             %}
                 <p>
-                    Dear Jacky<br>
-                    <br>
-                    Thank you for clarifying. I will now process your data.<br>
-                    <br>
-                    Many thanks<br>
-                    David Cleere<br>
+                    Dear Jacky<br />
+                    <br />
+                    Thank you for clarifying. I will now process your data.<br />
+                    <br />
+                    Many thanks<br />
+                    David Cleere<br />
                     BRES Survey Team
                 </p>
             {% endcall %}
 
-            {% call onsMessage({
+            {%
+                call onsMessage({
                     "variant": 'received',
                     "fromLabel": 'From',
                     "fromValue": 'Jackie Turner',
@@ -110,9 +115,9 @@
                 })
             %}
                 <p>
-                    Hi Dave<br>
-                    Brilliant.<br>
-                    <br>
+                    Hi Dave<br />
+                    Brilliant.<br />
+                    <br />
                     Thanks, Jacky
                 </p>
             {% endcall %}

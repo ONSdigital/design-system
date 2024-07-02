@@ -1,5 +1,4 @@
 {% macro onsFooter(params) %}
-
     {% from "components/list/_macro.njk" import onsList %}
     {% from "components/icon/_macro.njk" import onsIcon %}
 
@@ -30,15 +29,16 @@
     {% endset %}
 
     <footer class="ons-footer">
-
         {% if params.footerWarning %}
             {% from "components/panel/_macro.njk" import onsPanel %}
             <div class="ons-footer__warning">
                 <div class="ons-container">
-                    {% call onsPanel({
-                        "variant": "warn",
-                        "classes": "ons-panel--warn--footer"
-                    }) %}
+                    {%
+                        call onsPanel({
+                            "variant": "warn",
+                            "classes": "ons-panel--warn--footer"
+                        })
+                    %}
                         {{ params.footerWarning | safe }}
                     {% endcall %}
                 </div>
@@ -51,7 +51,7 @@
                 {{
                     onsButton({
                         "id": params.button.id,
-                        "classes": params.button.classes if params.button.classes else "",
+                        "classes": params.button.classes if params.button.classes,
                         "variants": "ghost",
                         "text": params.button.text,
                         "name": params.button.name,
@@ -64,7 +64,11 @@
             </div>
         {% endif %}
 
-        <div class="ons-footer__body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
+        <div
+            class="ons-footer__body{{ ' ' + params.classes if params.classes else '' }}"
+            data-analytics="footer"
+            {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+        >
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div class="ons-grid">
                     {% if params.newTabWarning %}
@@ -106,7 +110,7 @@
 
                     {% if (params.cols) or (params.rows) %}
                         <div class="ons-grid__col ons-u-mb-m">
-                            <hr class="ons-footer__hr">
+                            <hr class="ons-footer__hr" />
                         </div>
                     {% endif %}
                 </div>
@@ -139,14 +143,16 @@
                                 {% elif params.OGLLink %}
                                     {% from "components/external-link/_macro.njk" import onsExternalLink %}
                                     {% if params.lang == 'cy' %}
-                                        {{ params.OGLLink.pre | default('Mae’r holl gynnwys ar gael o dan y') }} {{
-                                        onsExternalLink({
-                                            "url": params.OGLLink.url | default('https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'),
-                                            "linkText": params.OGLLink.link | default('Drwydded Llywodraeth Leol v3.0')
-                                        })
+                                        {{ params.OGLLink.pre | default('Mae’r holl gynnwys ar gael o dan y') }}
+                                        {{
+                                            onsExternalLink({
+                                                "url": params.OGLLink.url | default('https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'),
+                                                "linkText": params.OGLLink.link | default('Drwydded Llywodraeth Leol v3.0')
+                                            })
                                         }}{{ params.OGLLink.post | default(', oni bai y nodir fel arall') }}
                                     {% else %}
-                                        {{ params.OGLLink.pre | default('All content is available under the') }} {{
+                                        {{ params.OGLLink.pre | default('All content is available under the') }}
+                                        {{
                                             onsExternalLink({
                                                 "url": params.OGLLink.url | default('https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'),
                                                 "linkText": params.OGLLink.link | default('Open Government Licence v3.0')
@@ -157,10 +163,11 @@
                             </div>
                         {% endif %}
                         {% if not params.poweredBy %}
-                            <a class="ons-footer__poweredBy-link" {% if lang == "cy" %}href="https://cy.ons.gov.uk/"{% else %}href="https://www.ons.gov.uk/"{% endif %}>
-                                <div class="ons-footer__poweredby-logo ons-u-mb-m">
-                                    {{ onsLogo | safe }}
-                                </div>
+                            <a
+                                class="ons-footer__poweredBy-link"
+                                {% if lang == "cy" %}href="https://cy.ons.gov.uk/"{% else %}href="https://www.ons.gov.uk/"{% endif %}
+                            >
+                                <div class="ons-footer__poweredby-logo ons-u-mb-m">{{ onsLogo | safe }}</div>
                             </a>
                         {% endif %}
                     </div>
@@ -180,14 +187,14 @@
                 {% endif %}
                 {% if params.copyrightDeclaration %}
                     <!-- Copyright -->
+                    {% set copyrightDeclaration = '&copy; ' + params.copyrightDeclaration.copyright + '<br /> ' + params.copyrightDeclaration.text %}
                     <div class="ons-grid ons-grid--flex ons-grid--vertical-bottom ons-grid--between">
                         <div class="ons-grid__col">
-                            <p class="ons-u-fs-s ons-u-mb-no ons-footer__copyright">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }}</p>
+                            <p class="ons-u-fs-s ons-u-mb-no ons-footer__copyright">{{- copyrightDeclaration | safe -}}</p>
                         </div>
                     </div>
                 {% endif %}
             </div>
         </div>
     </footer>
-
 {% endmacro %}

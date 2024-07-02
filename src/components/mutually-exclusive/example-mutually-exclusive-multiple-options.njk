@@ -1,10 +1,12 @@
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 
-{% call onsQuestion({
-    "title": "What type of central heating do you have?",
-    "legendIsQuestionTitle": true
-}) %}
+{%
+    call onsQuestion({
+        "title": "What type of central heating do you have?",
+        "legendIsQuestionTitle": true
+    })
+%}
     {{
         onsCheckboxes({
             "id": "central-heating-answers",

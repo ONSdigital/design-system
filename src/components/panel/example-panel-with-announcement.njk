@@ -1,11 +1,14 @@
 ---
-"fullWidth": true
+'fullWidth': true
 ---
+
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-{% call onsPanel({
-    "variant": 'announcement'
-}) %}
+{%
+    call onsPanel({
+        "variant": 'announcement'
+    })
+%}
     <p class="ons-u-mb-no">National lockdown: stay at home</p>
 
     <div class="ons-u-fs-r">

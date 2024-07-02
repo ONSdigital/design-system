@@ -1,6 +1,6 @@
 {% macro onsSummary(params) %}
     {% set className = "ons-summary" %}
-    {% set headingLevel = 2 %}
+    {% set headingLevel = "2" %}
 
     {% if params.variant == "hub" %}
         {% set variantHub = true %}
@@ -10,42 +10,53 @@
     {% endif %}
 
     {% if params.classes %}
-         {% set className = className + " " + params.classes %}
+        {% set className = className + " " + params.classes %}
     {% endif %}
 
     <div class="{{ className }}">
         {% for summary in params.summaries %}
             {% if summary.summaryTitle %}
-                <h2 class="ons-summary__title ons-u-mb-m{{ " ons-u-mt-m" if loop.index > 1 else "" }}">{{ summary.summaryTitle }}</h2>
-                {% set headingLevel = 3 %}
+                <h2 class="ons-summary__title ons-u-mb-m{{ ' ons-u-mt-m' if loop.index > 1 }}">{{ summary.summaryTitle }}</h2>
+                {% set headingLevel = "3" %}
             {% endif %}
             {% for group in summary.groups %}
-                <div {% if group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__group{{ variantClasses }}">
+                <div {% if group.id %}id="{{ group.id }}"{{ ' ' }}{% endif %}class="ons-summary__group{{ variantClasses }}">
                     {% if group.groupTitle %}
-                        <h{{ headingLevel }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ headingLevel }}>
+                        {% set openingHeadingTag = "<h" + headingLevel %}
+                        {% set closingHeadingTag = "</h" + headingLevel + ">" %}
+                        {{ openingHeadingTag | safe }}
+                        class="ons-summary__group-title">{{ group.groupTitle }}{{ closingHeadingTag | safe }}
                     {% endif %}
                     {% if group.rows %}
                         <dl class="ons-summary__items">
                             {% for row in group.rows %}
                                 {% set itemClass = "" %}
-                                {% if row.error %} {% set itemClass = " ons-summary__item--error" %}{% endif %}
-                                {% if row.total %} {% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
-                                <div {% if row.id %}id="{{ row.id }}" {% endif %}class="ons-summary__item{{ itemClass }}">
+                                {% if row.error %}{% set itemClass = " ons-summary__item--error" %}{% endif %}
+                                {% if row.total %}{% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
+                                <div {% if row.id %}id="{{ row.id }}"{% endif %}class="ons-summary__item{{ itemClass }}">
                                     {% if row.errorMessage %}
                                         <div class="ons-summary__row-title--error ons-u-fs-r">{{ row.errorMessage }}</div>
                                     {% endif %}
                                     {% if row.rowItems | length > 1 and row.rowTitle %}
-                                        <div class="ons-summary__row-title ons-summary__row-title--no-group-title ons-u-fs-r">{{ row.rowTitle }}</div>
+                                        <div class="ons-summary__row-title ons-summary__row-title--no-group-title ons-u-fs-r">
+                                            {{- row.rowTitle -}}
+                                        </div>
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
-                                        <div class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}"{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>
-                                            <dt class="ons-summary__item-title"
-                                                {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                        <div
+                                            class="ons-summary__row{{ ' ons-summary__row--has-values' if rowItem.valueList }}"
+                                            {% if rowItem.id %}id="{{ rowItem.id }}"{% endif %}
+                                        >
+                                            <dt
+                                                class="ons-summary__item-title"
+                                                {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                             >
                                                 {% if rowItem.iconType %}
                                                     {% from "components/icon/_macro.njk" import onsIcon %}
-                                                    <span class="ons-summary__item-title-icon{% if rowItem.iconType == 'check' %} ons-summary__item-title-icon--check{% endif %}">
+                                                    <span
+                                                        class="ons-summary__item-title-icon{{ ' ons-summary__item-title-icon--check' if rowItem.iconType == 'check' }}"
+                                                    >
                                                         {{-
                                                             onsIcon({
                                                                 "iconType": rowItem.iconType
@@ -57,7 +68,9 @@
                                                     </span>
                                                 {% endif %}
 
-                                                <div class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType else "" }}">
+                                                <div
+                                                    class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType }}"
+                                                >
                                                     {{- rowItem.rowTitle | default(row.rowTitle) | safe -}}
                                                 </div>
 
@@ -68,8 +81,8 @@
                                             </dt>
                                             {% if rowItem.valueList %}
                                                 <dd
-                                                    class="ons-summary__values{% if not rowItem.actions %} ons-summary__values--2{% endif %}"
-                                                    {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                                    class="ons-summary__values{{ ' ons-summary__values--2' if not rowItem.actions }}"
+                                                    {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                                 >
                                                     {% if rowItem.valueList | length == 1 %}
                                                         <span class="ons-summary__text">{{ rowItem.valueList[0].text | safe }}</span>
@@ -101,8 +114,13 @@
                                                         <a
                                                             href="{{ action.url }}"
                                                             class="ons-summary__button"
-                                                            {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}
-                                                        ><span class="ons-summary__button-text" aria-hidden="true">{{ action.text }}</span><span class="ons-u-vh">{{ action.visuallyHiddenText }}</span></a>
+                                                            {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                                                        >
+                                                            <span class="ons-summary__button-text" aria-hidden="true">
+                                                                {{- action.text -}}
+                                                            </span>
+                                                            <span class="ons-u-vh">{{ action.visuallyHiddenText }}</span>
+                                                        </a>
                                                     {% endfor %}
                                                 </dd>
                                             {% endif %}
@@ -116,10 +134,22 @@
                     {% endif %}
 
                     {% if group.summaryLink %}
-                        <div class="ons-summary__link{% if group.placeholderText or group.rows %} ons-u-pt-s{% endif %}{% if group.placeholderText is not defined and group.rows | length > 1 and params.variant != 'card' %} ons-u-bt{% endif %}{% if not group.last %} ons-u-mb-xl{% endif %}">
-                            {% if params.variant == 'card' %}<div>{% endif %}
-                                <a {% if group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %} href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
-                            {% if params.variant == 'card' %}</div>{% endif %}
+                        <div
+                            class="ons-summary__link{{ ' ons-u-pt-s' if group.placeholderText or group.rows }}{{ ' ons-u-bt' if group.placeholderText is not defined and group.rows | length > 1 and params.variant != 'card' }}{{ ' ons-u-mb-xl' if not group.last }}"
+                        >
+                            {% set link %}
+                                <a
+                                    {% if group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                                    href="{{ group.summaryLink.url }}"
+                                >
+                                    {{ group.summaryLink.text }}
+                                </a>
+                            {% endset %}
+                            {% if params.variant == 'card' %}
+                                <div>{{ link | safe }}</div>
+                            {% else %}
+                                {{ link | safe }}
+                            {% endif %}
                         </div>
                     {% endif %}
                 </div>

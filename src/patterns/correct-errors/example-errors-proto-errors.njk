@@ -1,8 +1,8 @@
 ---
 layout: ~
 ---
-{% extends "layout/_template.njk" %}
 
+{% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/list/_macro.njk" import onsList %}
@@ -14,10 +14,11 @@ layout: ~
 {% from "components/password/_macro.njk" import onsPassword %}
 {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
 {% from "components/duration/_macro.njk" import onsDuration %}
-
-{% set pageConfig = {
-    "title": "Error: Errors Prototype"
-} %}
+{%
+    set pageConfig = {
+        "title": "Error: Errors Prototype"
+    }
+%}
 
 {% block preMain %}
     {{
@@ -42,7 +43,8 @@ layout: ~
 {% endblock %}
 
 {% block main %}
-    {% call onsPanel({
+    {%
+        call onsPanel({
             "title": "There are 9 problems with this page",
             "variant": "error",
             "classes": "ons-question__error"
@@ -102,10 +104,12 @@ layout: ~
         }}
     {% endcall %}
 
-    {% call onsQuestion ({
-        "title": "Input errors examples",
-        "submitButton": true
-    }) %}
+    {%
+        call onsQuestion ({
+            "title": "Input errors examples",
+            "submitButton": true
+        })
+    %}
         {{
             onsInput({
                 "type": "number",
