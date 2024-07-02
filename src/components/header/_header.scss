@@ -207,6 +207,9 @@
         .ons-header--neutral & {
             &--mobile {
                 background: var(--ons-color-grey-5);
+                .ons-header-service-nav__link {
+                    color: var(--ons-color-black);
+                }
             }
         }
 
@@ -222,11 +225,6 @@
             &--mobile {
                 display: block;
                 margin: 0 0 0.5rem;
-                .ons-header--neutral & {
-                    a {
-                        color: var(--ons-color-black);
-                    }
-                }
             }
             &:first-child {
                 margin-left: 0;
