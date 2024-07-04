@@ -285,6 +285,7 @@ $button-shadow-size: 3px;
     &--ghost-dark,
     &--dropdown,
     &--text-link,
+    &--neutral,
     &--disabled,
     &--loader.ons-is-loading {
         &:active,
@@ -302,7 +303,8 @@ $button-shadow-size: 3px;
     &--ghost:focus:hover,
     &--ghost-dark:focus:hover,
     &--dropdown:focus:hover,
-    &--text-link:focus:hover {
+    &--text-link:focus:hover,
+    &--neutral:focus:hover {
         outline: none;
     }
 
@@ -512,6 +514,54 @@ $button-shadow-size: 3px;
             color: var(--ons-color-white);
             .ons-icon {
                 fill: var(--ons-color-white);
+            }
+        }
+    }
+
+    &--neutral & {
+        &__inner {
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            color: var(--ons-color-black);
+            font-weight: $font-weight-regular;
+            padding: 2px;
+            .ons-icon {
+                fill: var(--ons-color-black);
+            }
+        }
+    }
+
+    &--neutral:hover &,
+    &--neutral:active &,
+    &--neutral.active & {
+        &__inner {
+            background: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+
+    &--neutral:focus:hover & {
+        &__inner {
+            color: var(--ons-color-black);
+        }
+    }
+
+    &--neutral:focus &,
+    &--neutral:active:focus &,
+    &--neutral.active:focus & {
+        &__inner {
+            background-color: var(--ons-color-focus);
+            box-shadow:
+                0 -2px var(--ons-color-focus),
+                0 4px var(--ons-color-text-link-focus) !important;
+            color: var(--ons-color-text-link-focus);
+            .ons-icon {
+                fill: var(--ons-color-text-link-focus);
             }
         }
     }
