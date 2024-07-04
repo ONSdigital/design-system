@@ -1,8 +1,8 @@
 {% macro onsLabel(params) %}
     {% if params.id %}
-        {% set descriptionID = params.id ~ "-description-hint" %}
+        {% set descriptionId = params.id ~ "-description-hint" %}
     {% else %}
-        {% set descriptionID = "description-hint" %}
+        {% set descriptionId = "description-hint" %}
     {% endif %}
 
     {% if params.inputType == "checkbox" or params.inputType == "radio" %}
@@ -13,7 +13,7 @@
 
     {%- set description -%}
         <span
-            {% if isCheckboxOrRadio == false %}id="{{ descriptionID }}"{% endif %}class="ons-label__description{% if params.inputType %}{{ ' ' }}ons-{{ params.inputType }}__label--with-description{% else %}{{ ' ' }}ons-input--with-description{% endif %}"
+            {% if isCheckboxOrRadio == false %}id="{{ descriptionId }}"{% endif %}class="ons-label__description{% if params.inputType %}{{ ' ' }}ons-{{ params.inputType }}__label--with-description{% else %}{{ ' ' }}ons-input--with-description{% endif %}"
         >
             {{- params.description -}}
         </span>
@@ -29,14 +29,14 @@
             {%- endset -%}
 
             {%- set description -%}
-                <span class="ons-label__visually-hidden-description ons-u-vh" id="{{ descriptionID }}">{{- params.description -}}</span>
+                <span class="ons-label__visually-hidden-description ons-u-vh" id="{{ descriptionId }}">{{- params.description -}}</span>
             {%- endset -%}
         {%- endif -%}
 
         <label
             class="{{ 'ons-label' if params.inputType is not defined }}{{ ' ' + params.classes if params.classes else '' }}{{ ' ons-label--with-description' if params.description }}{{ ' ons-label--placeholder' if params.accessiblePlaceholder }}"
             for="{{ params.for }}"
-            {% if params.description %}aria-describedby="{{ descriptionID }}"{% endif %}
+            {% if params.description %}aria-describedby="{{ descriptionId }}"{% endif %}
             {% if params.id %}id="{{ params.id }}"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
         >

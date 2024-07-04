@@ -1,7 +1,7 @@
 {% from "components/error/_macro.njk" import onsError %}
 
 {% macro onsFieldset(params) %}
-    {% set descriptionID = (params.id ~ "-" if params.id) ~ "legend-description" %}
+    {% set descriptionId = (params.id ~ "-" if params.id) ~ "legend-description" %}
     {%- set fieldset -%}
         {%- if params.dontWrap -%}
             <div class="ons-input-items">{{- caller() if caller -}}</div>
@@ -12,7 +12,7 @@
                 {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
             >
                 <legend
-                    {% if params.description %}aria-describedBy="{{ descriptionID }}"{% endif %}
+                    {% if params.description %}aria-describedBy="{{ descriptionId }}"{% endif %}
                     class="ons-fieldset__legend{{ ' ons-u-mb-no' if params.legendIsQuestionTitle }}{{ ' ' + params.legendClasses if params.legendClasses else '' }}{{ ' ons-fieldset__legend--with-description' if params.description }}"
                 >
                     {%- if params.legendIsQuestionTitle -%}
@@ -28,7 +28,7 @@
                 </legend>
                 {%- if params.description -%}
                     <div
-                        id="{{ descriptionID }}"
+                        id="{{ descriptionId }}"
                         class="ons-fieldset__description{{ ' ons-fieldset__description--title ons-u-mb-m' if params.legendIsQuestionTitle }}"
                     >
                         {{- params.description | safe -}}
