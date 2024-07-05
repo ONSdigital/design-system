@@ -168,7 +168,7 @@
                             {% set logos = [params.footerLogo.logos.logo1, params.footerLogo.logos.logo2] %}
                         {% endif %}
 
-                        <div class="ons-footer__logo-container ons-u-mb-m{% if extraLogo %} ons-grid--flex ons-grid--vertical-center{% if params.footerLogo.display == 'split' %} ons-grid--between{% endif %}{% endif %}">
+                        <div class="ons-footer__logo-container ons-u-mb-m ons-grid--flex ons-grid--vertical-center{% if params.footerLogo.display == 'split' %} ons-grid--between{% endif %}">
                                 {% for logo in logos %}
                                     {%-if logo.logoUrl %}
                                         <a class="ons-footer__logo-link{% if extraLogo and loop.index == 1 %} ons-u-mr-s{% endif %}" href="{{ logo.logoUrl }}">
