@@ -1734,7 +1734,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
 
 
-                        <div class="ons-footer__logo-container ons-u-mb-m">
+                        <div class="ons-footer__logo-container ons-u-mb-m ons-grid--flex ons-grid--vertical-center">
 
                                         <a class="ons-footer__logo-link" href="https://www.ons.gov.uk/">
 
