@@ -249,7 +249,7 @@ describe('macro: radios', () => {
             expect($('.ons-radio__input').attr('name')).toBe('example-radios-name');
         });
 
-        it('has the provided `checkboxes` attribute', () => {
+        it('has the provided `value` attribute', () => {
             const $ = cheerio.load(
                 renderComponent('radios', {
                     ...EXAMPLE_RADIOS_MINIMAL,
