@@ -2,7 +2,7 @@
     {% from "components/fieldset/_macro.njk" import onsFieldset %}
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/label/_macro.njk" import onsLabel %}
-    
+
     {% call onsFieldset({
         "id": params.id,
         "classes": params.classes,
@@ -119,6 +119,7 @@
                                         onsTextarea({
                                             "id": radio.other.id,
                                             "name": radio.other.name,
+                                            "value": radio.other.value,
                                             "label": {
                                                 "id": radio.other.id + "-label",
                                                 "text": radio.other.label.text,
