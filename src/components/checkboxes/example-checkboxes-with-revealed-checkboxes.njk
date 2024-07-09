@@ -1,86 +1,86 @@
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 
-    {{
-        onsCheckboxes({
-            "legend": "Content type",
-            "checkboxesLabel": "Show only:",
-            "borderless": true,
-            "name": "dietary",
-            "checkboxes": [
-                {
-                    "id": "data-example-with-revealed-checkboxes",
-                    "label": {
-                        "text": "Data (309)"
-                    },
-                    "value": "data",
-                    "other": {
-                        "otherType": "checkboxes",
-                        "selectAllChildren": true,
-                        "legend": "Data type",
-                        "legendClasses": "ons-u-vh",
-                        "name": "name",
-                        "checkboxes": [
-                            {
-                                "id": "datasets-example-with-revealed-checkboxes",
-                                "label": {
-                                    "text": "Datasets (100)"
-                                },
-                                "value": "datasets"
-                            },
-                            {
-                                "id": "timeseries-example-with-revealed-checkboxes",
-                                "label": {
-                                    "text": "Timeseries (20)"
-                                },
-                                "value": "timeseries"
-                            },
-                            {
-                                "id": "requested-example-with-revealed-checkboxes",
-                                "label": {
-                                    "text": "User requested data (17)"
-                                },
-                                "value": "requested"
-                            }
-                        ]
-                    }
+{{
+    onsCheckboxes({
+        "legend": "Content type",
+        "checkboxesLabel": "Show only:",
+        "borderless": true,
+        "name": "dietary",
+        "checkboxes": [
+            {
+                "id": "data-example-with-revealed-checkboxes",
+                "label": {
+                    "text": "Data (309)"
                 },
-                {
-                    "id": "publications-example-with-revealed-checkboxes",
-                    "label": {
-                        "text": "Publications (137)"
-                    },
-                    "value": "publications",
-                    "other": {
-                        "otherType": "checkboxes",
-                        "selectAllChildren": true,
-                        "legend": "Publication type",
-                        "legendClasses": "ons-u-vh",
-                        "name": "name",
-                        "checkboxes": [
-                            {
-                                "id": "press-release-example-with-revealed-checkboxes",
-                                "label": {
-                                    "text": "Press release (100)"
-                                },
-                                "value": "pressrelease"
+                "value": "data",
+                "other": {
+                    "otherType": "checkboxes",
+                    "selectAllChildren": true,
+                    "legend": "Data type",
+                    "legendClasses": "ons-u-vh",
+                    "name": "name",
+                    "checkboxes": [
+                        {
+                            "id": "datasets-example-with-revealed-checkboxes",
+                            "label": {
+                                "text": "Datasets (100)"
                             },
-                            {
-                                "id": "bulletin-example-with-revealed-checkboxes",
-                                "label": {
-                                    "text": "Bulletin (20)"
-                                },
-                                "value": "bulletin"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "id": "areas-example-with-revealed-checkboxes",
-                    "label": {
-                        "text": "Areas (0)"
-                    },
-                    "value": "areas"
+                            "value": "datasets"
+                        },
+                        {
+                            "id": "timeseries-example-with-revealed-checkboxes",
+                            "label": {
+                                "text": "Timeseries (20)"
+                            },
+                            "value": "timeseries"
+                        },
+                        {
+                            "id": "requested-example-with-revealed-checkboxes",
+                            "label": {
+                                "text": "User requested data (17)"
+                            },
+                            "value": "requested"
+                        }
+                    ]
                 }
-            ]
-        })
-    }}
+            },
+            {
+                "id": "publications-example-with-revealed-checkboxes",
+                "label": {
+                    "text": "Publications (137)"
+                },
+                "value": "publications",
+                "other": {
+                    "otherType": "checkboxes",
+                    "selectAllChildren": true,
+                    "legend": "Publication type",
+                    "legendClasses": "ons-u-vh",
+                    "name": "name",
+                    "checkboxes": [
+                        {
+                            "id": "press-release-example-with-revealed-checkboxes",
+                            "label": {
+                                "text": "Press release (100)"
+                            },
+                            "value": "pressrelease"
+                        },
+                        {
+                            "id": "bulletin-example-with-revealed-checkboxes",
+                            "label": {
+                                "text": "Bulletin (20)"
+                            },
+                            "value": "bulletin"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "areas-example-with-revealed-checkboxes",
+                "label": {
+                    "text": "Areas (0)"
+                },
+                "value": "areas"
+            }
+        ]
+    })
+}}

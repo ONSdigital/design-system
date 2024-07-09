@@ -1,10 +1,12 @@
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/list/_macro.njk" import onsList %}
 
-{% call onsPanel({
-    "title": 'There are 2 problems with your answer',
-    "variant": 'error'
-}) %}
+{%
+    call onsPanel({
+        "title": 'There are 2 problems with your answer',
+        "variant": 'error'
+    })
+%}
     {{
         onsList({
             "element": 'ol',

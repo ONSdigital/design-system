@@ -1,12 +1,13 @@
 ---
-title: "Example: Conformation page"
+title: 'Example: Conformation page'
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/feedback/_macro.njk" import onsFeedback %}
-
-{% set pageConfig = {
+{%
+    set pageConfig = {
         "header": {
             "title": "Online Household Study"
         },
@@ -31,20 +32,24 @@ layout: ~
 
 {% block main %}
     <div class="ons-page__body">
-        {% call onsPanel({
-            "variant": 'success',
-            "id": 'success-id',
-            "iconType": 'check',
-            "iconSize": "l"
-        }) %}
+        {%
+            call onsPanel({
+                "variant": 'success',
+                "id": 'success-id',
+                "iconType": 'check',
+                "iconSize": "l"
+            })
+        %}
             <h2>Thank you for completing the Online Household Study</h2>
             <p>Your answers have been submitted</p>
         {% endcall %}
 
-        {% call onsPanel({
-            "variant": 'bare',
-            "iconType": 'lock'
-        }) %}
+        {%
+            call onsPanel({
+                "variant": 'bare',
+                "iconType": 'lock'
+            })
+        %}
             <p>Your personal information is protected by law and will be kept confidential</p>
         {% endcall %}
 
