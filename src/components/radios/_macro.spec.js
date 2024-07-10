@@ -552,11 +552,11 @@ describe('macro: radios', () => {
             const $ = cheerio.load(
                 renderComponent('radios', {
                     ...EXAMPLE_RADIOS_MINIMAL,
-                    radios: [EXAMPLE_RADIO_ITEM_WITH_PRESET_TEXTAREA],
+                    radios: [EXAMPLE_RADIO_ITEM_TEXTAREA_WITH_PRESET_VALUE],
                 }),
             );
 
-            expect($('.ons-input--textarea').text()).toBe('other-answer');
+            expect($('.ons-input--textarea').text()).toBe('other answer');
         });
     });
 
