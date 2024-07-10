@@ -1,8 +1,10 @@
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-{% call onsPanel({
-    "variant": 'bare',
-    "iconType": 'lock'
-}) %}
+{%
+    call onsPanel({
+        "variant": 'bare',
+        "iconType": 'lock'
+    })
+%}
     Here is some text with an icon
 {% endcall %}

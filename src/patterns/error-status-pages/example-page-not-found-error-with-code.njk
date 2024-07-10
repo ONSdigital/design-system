@@ -1,17 +1,19 @@
 ---
-title: "Example: Page not found error with reference code"
+title: 'Example: Page not found error with reference code'
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-
-{% set pageConfig = {
-    "header": {
-        "title": "Service name"
-    },
-    "footer": {
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Service name"
+        },
+        "footer": {
+        }
     }
-} %}
+%}
 
 {% block main %}
     <h1>Page not found</h1>
@@ -20,8 +22,9 @@ layout: ~
     <p>If the web address is correct, or you selected a link or button, <a href="#0">contact us</a>.</p>
 
     {% call onsPanel() %}
-        <p>You will need the following reference code when you contact us:
-            <br>
+        <p>
+            You will need the following reference code when you contact us:
+            <br />
             <strong class="ons-u-f-mono ons-u-fs-l ons-u-mt-s ons-u-d-b">Q018 45T0 PR09 SOFG</strong>
         </p>
     {% endcall %}

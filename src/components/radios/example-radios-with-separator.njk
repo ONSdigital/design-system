@@ -1,10 +1,12 @@
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 
-{% call onsQuestion({
-    "title": "How satisfied are you with this service?",
-    "legendIsQuestionTitle": true
-}) %}
+{%
+    call onsQuestion({
+        "title": "How satisfied are you with this service?",
+        "legendIsQuestionTitle": true
+    })
+%}
     {{
         onsRadios({
             "dontWrap": true,
