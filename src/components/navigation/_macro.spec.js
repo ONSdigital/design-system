@@ -29,7 +29,7 @@ const PARAMS = {
     ],
     subNavigation: {
         id: 'sub-nav',
-        overviewURL: '#overview',
+        overviewUrl: '#overview',
         overviewText: 'Overview',
         ariaLabel: 'Section menu',
         itemsList: [

@@ -77,7 +77,7 @@ const EXAMPLE_HEADER_LANGUAGE_CONFIG = {
         languages: [
             {
                 url: '#0',
-                ISOCode: 'en',
+                isoCode: 'en',
                 text: 'English',
                 buttonAriaLabel: 'Language selector. Current language: English',
                 chooseLanguage: 'Choose language',
@@ -85,7 +85,7 @@ const EXAMPLE_HEADER_LANGUAGE_CONFIG = {
             },
             {
                 url: '#0',
-                ISOCode: 'cy',
+                isoCode: 'cy',
                 text: 'Cymraeg',
                 buttonAriaLabel: 'Dewisydd iaith. Iaith gyfredol: Cymraeg',
                 chooseLanguage: 'Dewiswch iaith',
@@ -139,7 +139,7 @@ const EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG = {
         },
         subNavigation: {
             id: 'sub-nav',
-            overviewURL: '#overview',
+            overviewUrl: '#overview',
             overviewText: 'Overview',
             ariaLabel: 'Section menu',
             currentPath: '#1',
@@ -344,7 +344,7 @@ describe('macro: header', () => {
                             multipleLogos: {
                                 logo1: {
                                     logoImage: '<img src="a-logo.svg">',
-                                    logoURL: '#0',
+                                    logoUrl: '#0',
                                 },
                             },
                         },
@@ -737,7 +737,7 @@ describe('macro: header', () => {
                 languages: [
                     {
                         url: '#0',
-                        ISOCode: 'en',
+                        isoCode: 'en',
                         text: 'English',
                         buttonAriaLabel: 'Language selector. Current language: English',
                         chooseLanguage: 'Choose language',
@@ -745,7 +745,7 @@ describe('macro: header', () => {
                     },
                     {
                         url: '#0',
-                        ISOCode: 'cy',
+                        isoCode: 'cy',
                         text: 'Cymraeg',
                         buttonAriaLabel: 'Dewisydd iaith. Iaith gyfredol: Cymraeg',
                         chooseLanguage: 'Dewiswch iaith',

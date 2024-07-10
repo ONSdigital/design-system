@@ -13,7 +13,7 @@
         {%
             set facebook =
             {
-                "url": 'https://www.facebook.com/sharer/sharer.php?u=' ~ params.pageURL|urlencode,
+                "url": 'https://www.facebook.com/sharer/sharer.php?u=' ~ params.pageUrl|urlencode,
                 "text": 'Facebook',
                 "iconType": 'facebook',
                 "rel": 'noreferrer external',
@@ -25,7 +25,7 @@
         {%
             set twitter =
             {
-                "url": 'https://twitter.com/intent/tweet?original_referer&text=' ~ params.pageTitle|urlencode ~ '&url=' ~ params.pageURL|urlencode,
+                "url": 'https://twitter.com/intent/tweet?original_referer&text=' ~ params.pageTitle|urlencode ~ '&url=' ~ params.pageUrl|urlencode,
                 "text": 'Twitter',
                 "iconType": 'twitter',
                 "rel": 'noreferrer external',

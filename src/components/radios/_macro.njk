@@ -34,8 +34,9 @@
                             value="{{ radio.value }}"
                             name="{{ params.name }}"
                             {% if radio.checked or (params.value is defined and params.value == radio.value) %}{{ ' ' }}checked{% endif %}
-                            {% if radio.other and not radio.other.open %}{{ ' ' }}aria-controls="{{ radio.id }}-other-wrap"
-                            aria-haspopup="true"{% endif %}
+                            {% if radio.other and not radio.other.open %}
+                                {{ ' ' }}aria-controls="{{ radio.id }}-other-wrap" aria-haspopup="true"
+                            {% endif %}
                             {% if radio.attributes %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
                         />
                         {{
