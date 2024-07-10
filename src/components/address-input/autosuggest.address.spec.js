@@ -30,8 +30,8 @@ const EXAMPLE_ADDRESS_INPUT = {
     errorTitle: 'There is a problem with your answer',
     errorMessageEnter: 'Enter an address',
     errorMessageSelect: 'Select an address',
-    errorMessageAPI: 'Sorry, there is a problem loading addresses',
-    errorMessageAPILinkText: 'Enter address manually',
+    errorMessageApi: 'Sorry, there is a problem loading addresses',
+    errorMessageApiLinkText: 'Enter address manually',
     options: {
         regionCode: 'gb-eng',
         addressType: 'residential',
