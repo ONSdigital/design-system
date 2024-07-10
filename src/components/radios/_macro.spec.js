@@ -122,7 +122,7 @@ const EXAMPLE_RADIO_ITEM_RADIOS = {
     },
 };
 
-const EXAMPLE_RADIO_ITEM_WITH_PRESET_TEXTAREA = {
+const EXAMPLE_RADIO_ITEM_TEXTAREA_WITH_PRESET_VALUE = {
     other: {
         otherType: 'textarea',
         checked: true,
