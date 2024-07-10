@@ -7,29 +7,33 @@
     {% set maxlength = params.maxlength | default(16) + extraSpaces %}
 
     {% set content %}
-        {{ onsInput({
-            "id": params.id,
-            "type": params.type,
-            "name": params.name,
-            "classes": "ons-access-code__input ons-js-access-code" + (" ons-u-mb-xs" if params.postTextboxLinkText else ""),
-            "label": params.label,
-            "attributes": {
-                "maxlength": maxlength,
-                "data-group-size": groupSize,
-                "autocomplete": "off",
-                "autocapitalize": "characters"
-            },
-            "fieldClasses": "ons-question__answer",
-            "error": params.error,
-            "postTextboxLinkText": params.postTextboxLinkText,
-            "postTextboxLinkUrl": params.postTextboxLinkUrl
-        }) }}
+        {{
+            onsInput({
+                "id": params.id,
+                "type": params.type,
+                "name": params.name,
+                "classes": "ons-access-code__input ons-js-access-code" + (" ons-u-mb-xs" if params.postTextboxLinkText else ""),
+                "label": params.label,
+                "attributes": {
+                    "maxlength": maxlength,
+                    "data-group-size": groupSize,
+                    "autocomplete": "off",
+                    "autocapitalize": "characters"
+                },
+                "fieldClasses": "ons-question__answer",
+                "error": params.error,
+                "postTextboxLinkText": params.postTextboxLinkText,
+                "postTextboxLinkUrl": params.postTextboxLinkUrl
+            })
+        }}
     {% endset %}
 
     {% if not params.error %}
-        {% call onsPanel({
-            "classes": "ons-u-mb-s" + (' ' + params.classes if params.classes else '')
-        }) %}
+        {%
+            call onsPanel({
+                "classes": "ons-u-mb-s" + (" " + params.classes if params.classes else "")
+            })
+        %}
             {{ content | safe }}
         {% endcall %}
     {% else %}
@@ -37,11 +41,13 @@
     {% endif %}
 
     {% if params.securityMessage %}
-        {% call onsPanel({
-            "variant": "bare",
-            "iconType": "lock",
-            "classes": "ons-u-mb-s"
-        }) %}
+        {%
+            call onsPanel({
+                "variant": "bare",
+                "iconType": "lock",
+                "classes": "ons-u-mb-s"
+            })
+        %}
             {{ params.securityMessage }}
         {% endcall %}
     {% endif %}

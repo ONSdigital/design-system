@@ -3,10 +3,12 @@
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-{% call onsQuestion({
-    "title": "What is your religion?",
-    "legendIsQuestionTitle": true
-}) %}
+{%
+    call onsQuestion({
+        "title": "What is your religion?",
+        "legendIsQuestionTitle": true
+    })
+%}
     {{
         onsPanel({
             "body": '<p>This question is <strong>voluntary</strong></p>',

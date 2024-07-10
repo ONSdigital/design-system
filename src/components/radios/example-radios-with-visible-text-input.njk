@@ -1,11 +1,13 @@
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 
-{% call onsQuestion({
-    "title": "Is the gender you identify with the same as your sex registered at birth?",
-    "classes": "ons-u-mt-no",
-    "legendIsQuestionTitle": true
-}) %}
+{%
+    call onsQuestion({
+        "title": "Is the gender you identify with the same as your sex registered at birth?",
+        "classes": "ons-u-mt-no",
+        "legendIsQuestionTitle": true
+    })
+%}
     {{
         onsRadios({
             "dontWrap": true,
