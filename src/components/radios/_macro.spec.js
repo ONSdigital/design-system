@@ -126,7 +126,7 @@ const EXAMPLE_RADIO_ITEM_TEXTAREA_WITH_PRESET_VALUE = {
     other: {
         otherType: 'textarea',
         checked: true,
-        id: 'other-textbox-radio-with-text-input',
+        id: 'other-textarea-input',
         name: 'other-answer',
         value: 'other-answer',
     },
