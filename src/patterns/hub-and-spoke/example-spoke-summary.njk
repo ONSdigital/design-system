@@ -1,28 +1,29 @@
 ---
-title: "Example: Spoke – view answers summary"
+title: 'Example: Spoke – view answers summary'
 layout: ~
 ---
-{% extends "layout/_template.njk" %}
 
+{% extends "layout/_template.njk" %}
 {% from "components/summary/_macro.njk" import onsSummary %}
 {% from "components/button/_macro.njk" import onsButton %}
-
-{% set pageConfig = {
-    "header": {
-        "title": "Spoke example",
-        "signoutButton": {
-            "text": "Save and sign out"
-        }
-    },
-    "breadcrumbs": {
-        "itemsList": [
-            {
-                "url": '/patterns/hub-and-spoke/examples/hub/',
-                "text": 'Back'
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Spoke example",
+            "signoutButton": {
+                "text": "Save and sign out"
             }
-        ]
+        },
+        "breadcrumbs": {
+            "itemsList": [
+                {
+                    "url": '/patterns/hub-and-spoke/examples/hub/',
+                    "text": 'Back'
+                }
+            ]
+        }
     }
-} %}
+%}
 
 {% block main %}
     <h1 class="ons-u-mt-m">Household accommodation</h1>
