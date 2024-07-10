@@ -1,11 +1,13 @@
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 
-{% call onsQuestion({
-    "title": "What type of accommodation do you live in?",
-    "classes": "ons-u-mt-no",
-    "legendIsQuestionTitle": true
-}) %}
+{%
+    call onsQuestion({
+        "title": "What type of accommodation do you live in?",
+        "classes": "ons-u-mt-no",
+        "legendIsQuestionTitle": true
+    })
+%}
     {{
         onsRadios({
             "name": "property-type",

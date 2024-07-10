@@ -1,15 +1,18 @@
 ---
-title: "Example: Service unavailable error"
+title: 'Example: Service unavailable error'
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
-{% set pageConfig = {
-    "header": {
-        "title": "Service name"
-    },
-    "footer": {
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Service name"
+        },
+        "footer": {
+        }
     }
-} %}
+%}
 {% block main %}
     <h1>Sorry, there is a problem with the service</h1>
     <p>Try again later.</p>
