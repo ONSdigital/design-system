@@ -1,37 +1,40 @@
 ---
-title: "Example: Feedback form errors"
+title: 'Example: Feedback form errors'
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/textarea/_macro.njk" import onsTextarea %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-
-{% set pageConfig = {
-    "header": {
-        "title": "Survey title",
-        "mastheadLogoUrl": "#0"
-    },
-    "breadcrumbs": {
-        "ariaLabel": 'Back',
-        "itemsList": [
-            {
-                "url": '/',
-                "id": "back-example-feedback-form-error",
-                "text": 'Back',
-                "attributes": {
-                    "data-attribute": "Example attribute"
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Survey title",
+            "mastheadLogoUrl": "#0"
+        },
+        "breadcrumbs": {
+            "ariaLabel": 'Back',
+            "itemsList": [
+                {
+                    "url": '/',
+                    "id": "back-example-feedback-form-error",
+                    "text": 'Back',
+                    "attributes": {
+                        "data-attribute": "Example attribute"
+                    }
                 }
-            }
-        ]
-    },
-    "footer": {
+            ]
+        },
+        "footer": {
+        }
     }
-} %}
+%}
 {% block main %}
-    {% call
+    {%
+        call
         onsPanel({
             "title": "There are 2 problems with this page",
             "variant": "error"
@@ -57,12 +60,14 @@ layout: ~
         }}
     {% endcall %}
 
-    {% call onsQuestion ({
-        "title": "Give feedback about this service",
-        "submitButton": {
-            "text": "Send feedback"
-        }
-    }) %}
+    {%
+        call onsQuestion ({
+            "title": "Give feedback about this service",
+            "submitButton": {
+                "text": "Send feedback"
+            }
+        })
+    %}
 
         {{
             onsRadios({

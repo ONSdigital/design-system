@@ -1,17 +1,19 @@
 ---
-title: "Example: Send a web form confirmation"
+title: 'Example: Send a web form confirmation'
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/button/_macro.njk" import onsButton %}
-
-{% set pageConfig = {
-    "header": {
-        "title": 'Service name'
-    },
-    "footer": {}
-} %}
+{%
+    set pageConfig = {
+        "header": {
+            "title": 'Service name'
+        },
+        "footer": {}
+    }
+%}
 {% block main %}
     {{
         onsPanel({

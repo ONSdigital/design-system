@@ -2,11 +2,13 @@
 {% from "components/question/_macro.njk" import onsQuestion %}
 
 {% block main %}
-    {% call onsQuestion({
-        "title": "What is your name?",
-        "legendIsQuestionTitle": true,
-        "submitButton": true
-    }) %}
+    {%
+        call onsQuestion({
+            "title": "What is your name?",
+            "legendIsQuestionTitle": true,
+            "submitButton": true
+        })
+    %}
         <form action="#0">
             {{
                 onsInput({

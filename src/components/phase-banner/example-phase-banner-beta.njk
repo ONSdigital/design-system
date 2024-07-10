@@ -1,6 +1,7 @@
 ---
-"fullWidth": true
+'fullWidth': true
 ---
+
 {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 
@@ -15,6 +16,6 @@
 
 {{
     onsPhaseBanner({
-        "html": "This is a new service. To help us improve it, " + feedbackLink
-  })
+          "html": "This is a new service. To help us improve it, " + feedbackLink
+    })
 }}

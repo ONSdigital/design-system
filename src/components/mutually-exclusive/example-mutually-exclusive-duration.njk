@@ -1,45 +1,49 @@
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/duration/_macro.njk" import onsDuration %}
 
-{% call onsQuestion({
-    "title": "How long have you lived at this address?",
-    "description": "<p>Enter “0” into the years field if you have lived at this address for less than a year</p>",
-    "legendIsQuestionTitle": true
-}) %}
-    {{ onsDuration({
-        "id": "address-duration",
-        "dontWrap": true,
-        "field1": {
-            "id": "address-duration-years",
-            "name": "address-duration-years",
-            "suffix": {
-                "text": "Years",
-                "id": "address-duration-years-suffix"
-            }
-        },
-        "field2": {
-            "id": "address-duration-months",
-            "name": "address-duration-months",
-            "suffix": {
-                "text": "Months",
-                "id": "address-duration-months-suffix"
-            }
-        },
-        "mutuallyExclusive": {
-            "or": "Or",
-            "deselectMessage": "Selecting this will clear the date if one has been inputted",
-            "deselectGroupAdjective": "cleared",
-            "deselectExclusiveOptionAdjective": "deselected",
-            "exclusiveOptions": [
-                {
-                    "id": "duration-exclusive-checkbox",
-                    "name": "no-duration",
-                    "value": "no-duration",
-                    "label": {
-                        "text": "I have not moved in to this address yet"
-                    }
+{%
+    call onsQuestion({
+        "title": "How long have you lived at this address?",
+        "description": "<p>Enter “0” into the years field if you have lived at this address for less than a year</p>",
+        "legendIsQuestionTitle": true
+    })
+%}
+    {{
+        onsDuration({
+            "id": "address-duration",
+            "dontWrap": true,
+            "field1": {
+                "id": "address-duration-years",
+                "name": "address-duration-years",
+                "suffix": {
+                    "text": "Years",
+                    "id": "address-duration-years-suffix"
                 }
-            ]
-        }
-    }) }}
+            },
+            "field2": {
+                "id": "address-duration-months",
+                "name": "address-duration-months",
+                "suffix": {
+                    "text": "Months",
+                    "id": "address-duration-months-suffix"
+                }
+            },
+            "mutuallyExclusive": {
+                "or": "Or",
+                "deselectMessage": "Selecting this will clear the date if one has been inputted",
+                "deselectGroupAdjective": "cleared",
+                "deselectExclusiveOptionAdjective": "deselected",
+                "exclusiveOptions": [
+                    {
+                        "id": "duration-exclusive-checkbox",
+                        "name": "no-duration",
+                        "value": "no-duration",
+                        "label": {
+                            "text": "I have not moved in to this address yet"
+                        }
+                    }
+                ]
+            }
+        })
+    }}
 {% endcall %}
