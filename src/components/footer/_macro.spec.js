@@ -252,7 +252,7 @@ describe('macro: footer', () => {
 
             const text = $('.ons-footer__copyright').text();
             expect(text).toBe(
-                '© Crown copyright and database rights 2020 OS 100019153.  Use of address data is subject to the terms and conditions.',
+                '© Crown copyright and database rights 2020 OS 100019153. Use of address data is subject to the terms and conditions.',
             );
         });
 

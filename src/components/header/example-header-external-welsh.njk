@@ -2,28 +2,30 @@
 fullWidth: true
 layout: ~
 ---
-{% extends "layout/_template.njk" %}
 
-{% set pageConfig = {
-    "header": {
-        "mastheadLogoUrl": '#0',
-        "title": 'Gwasanaeth Cymraeg',
-        "titleUrl": '#0',
-        "language": {
-            "languages": [
-                {
-                    "url": '#0',
-                    "isoCode": 'en',
-                    "text": 'English',
-                    "current": false
-                },
-                {
-                    "url": '#0',
-                    "isoCode": 'cy',
-                    "text": 'Cymraeg',
-                    "current": true
-                }
-            ]
+{% extends "layout/_template.njk" %}
+{%
+    set pageConfig = {
+        "header": {
+            "mastheadLogoUrl": '#0',
+            "title": 'Gwasanaeth Cymraeg',
+            "titleUrl": '#0',
+            "language": {
+                "languages": [
+                    {
+                        "url": '#0',
+                        "isoCode": 'en',
+                        "text": 'English',
+                        "current": false
+                    },
+                    {
+                        "url": '#0',
+                        "isoCode": 'cy',
+                        "text": 'Cymraeg',
+                        "current": true
+                    }
+                ]
+            }
         }
     }
-} %}
+%}

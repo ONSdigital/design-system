@@ -1,28 +1,24 @@
 ---
-title: "Example: Non-editable address input"
+title: 'Example: Non-editable address input'
 layout: ~
 ---
-{% extends "layout/_template.njk" %}
 
+{% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/address-input/_macro.njk" import onsAddressInput %}
 {% from "components/button/_macro.njk" import onsButton %}
+{%
+    set pageConfig = {
+            "header": {
+                "title": "Non-editable address input example"
+            }
+    <<<<<<< HEAD
+        })
+%}
 
-{% set pageConfig = {
-    "header": {
-        "title": "Non-editable address input example"
-    }
-} %}
-{% block main %}
-    {% call onsQuestion({
-        "title": "What is your address?",
-        "submitButton": {
-            "text": 'Continue'
-        }
-    }) %}
-
-    <form action="#0">
-        {{ onsAddressInput({
+<form action="#0">
+    {{
+        onsAddressInput({
             "id": "address-input-non-editable",
             "dontWrap": true,
             "label": {
@@ -61,7 +57,63 @@ layout: ~
             },
             "manualLink": "example-address-input-non-editable-register-address",
             "manualLinkText": "I can’t find my address"
-        }) }}
-    </form>
+        })
+    }}
+</form>
+======= } %}
+{% block main %}
+    {%
+        call onsQuestion({
+            "title": "What is your address?",
+            "submitButton": {
+                "text": 'Continue'
+            }
+        })
+    %}
+        <form action="#0">
+            {{
+                onsAddressInput({
+                    "id": "address-input-non-editable",
+                    "dontWrap": true,
+                    "label": {
+                        "text": "Enter address or postcode and select from results",
+                        "id": "address-label-input-non-editable"
+                    },
+                    "isEditable": false,
+                    "mandatory": true,
+                    "externalInitialiser": true,
+                    "APIDomain": "https://mock-address-api.gcp.onsdigital.uk",
+                    'APIDomainBearerToken': "some_token",
+                    "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+                    "ariaYouHaveSelected": "You have selected",
+                    "ariaMinChars": "Enter 3 or more characters for suggestions.",
+                    "ariaOneResult": "There is one suggestion available.",
+                    "ariaNResults": "There are {n} suggestions available.",
+                    "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
+                    "ariaGroupedResults": "There are {n} for {x}",
+                    "groupCount": "{n} addresses",
+                    "moreResults": "Enter more of the address to improve results",
+                    "resultsTitle": "Select an address",
+                    "resultsTitleId": "address-results",
+                    "noResults": "No results found. Try entering a different part of the address",
+                    "tooManyResults": "{n} results found. Enter more of the address to improve results",
+                    "typeMore": "Enter more of the address to get results",
+                    "autocomplete": "off",
+                    "errorTitle": "There is a problem with your answer",
+                    "errorMessageEnter": "Enter an address",
+                    "errorMessageSelect": "Select an address",
+                    "errorMessageAPI": "Sorry, there is a problem. We are working to fix it. Please try again later or",
+                    "errorMessageAPILinkText": "contact us for more help",
+                    "errorMessageAPILink": "#0",
+                    "options": {
+                        "regionCode": "gb-eng",
+                        "addressType": "residential"
+                    },
+                    "manualLink": "example-address-input-non-editable-register-address",
+                    "manualLinkText": "I can’t find my address"
+                })
+            }}
+        </form>
+        >>>>>>> origin/main
     {% endcall %}
 {% endblock %}

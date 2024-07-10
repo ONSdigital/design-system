@@ -1,5 +1,4 @@
 import abortableFetch from '../../js/abortable-fetch';
-import { sanitiseAutosuggestText } from '../autosuggest/autosuggest.helpers';
 import AutosuggestUI from '../autosuggest/autosuggest.ui';
 import AddressError from './autosuggest.address.error';
 import AddressSetter from './autosuggest.address.setter';
@@ -180,10 +179,8 @@ export default class AutosuggestAddress {
             }
 
             results = updatedResults.map(({ uprn, address, type }) => {
-                const sanitisedText = sanitiseAutosuggestText(address, this.addressReplaceChars);
                 return {
                     [this.lang]: address,
-                    sanitisedText,
                     uprn,
                     type,
                 };
@@ -235,10 +232,8 @@ export default class AutosuggestAddress {
         const data = await this.retrieveAddress(id);
         const address = data.response.address.formattedAddress;
         const uprn = data.response.address.uprn;
-        const sanitisedText = sanitiseAutosuggestText(address, this.addressReplaceChars);
         return {
             [this.lang]: address,
-            sanitisedText,
             uprn,
         };
     }
