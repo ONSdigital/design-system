@@ -7,23 +7,25 @@
     {% set maxLength = params.maxLength | default(16) + extraSpaces %}
 
     {% set content %}
-        {{ onsInput({
-            "id": params.id,
-            "type": params.type,
-            "name": params.name,
-            "classes": "ons-access-code__input ons-js-access-code" + (" ons-u-mb-xs" if params.postTextboxLinkText else ""),
-            "label": params.label,
-            "attributes": {
-                "maxlength": maxLength,
-                "data-group-size": groupSize,
-                "autocomplete": "off",
-                "autocapitalize": "characters"
-            },
-            "fieldClasses": "ons-question__answer",
-            "error": params.error,
-            "postTextboxLinkText": params.postTextboxLinkText,
-            "postTextboxLinkUrl": params.postTextboxLinkUrl
-        }) }}
+        {{
+            onsInput({
+                "id": params.id,
+                "type": params.type,
+                "name": params.name,
+                "classes": "ons-access-code__input ons-js-access-code" + (" ons-u-mb-xs" if params.postTextboxLinkText else ""),
+                "label": params.label,
+                "maxLength": maxLength,
+                "attributes": {
+                    "data-group-size": groupSize,
+                    "autocomplete": "off",
+                    "autocapitalize": "characters"
+                },
+                "fieldClasses": "ons-question__answer",
+                "error": params.error,
+                "postTextboxLinkText": params.postTextboxLinkText,
+                "postTextboxLinkUrl": params.postTextboxLinkUrl
+            })
+        }}
     {% endset %}
 
     {% if not params.error %}
