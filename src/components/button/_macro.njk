@@ -13,11 +13,11 @@
         {% endif %}
     {% elif params.iconType is not defined and params.noIcon is not defined %}
         {% if params.url and params.newWindow %}
-        {# CTA link opening in new tab #}
+            {# CTA link opening in new tab #}
             {% set iconType = "external-link" %}
             {% set iconPosition = "after" %}
         {% elif params.url %}
-        {# CTA link #}
+            {# CTA link #}
             {% set iconType = "arrow-next" %}
             {% set iconPosition = "after" %}
         {% endif %}
@@ -39,7 +39,7 @@
             {% endif %}
             {% set iconType = "print" %}
             {% set iconPosition = "before" %}
-            {% set variantClasses = "ons-u-d-no ons-js-print-btn" %}
+            {% set variantClasses = " ons-u-d-no ons-js-print-btn" %}
         {% elif 'download' in params.variants %}
             {# Download #}
             {% set iconType = "download" %}
@@ -55,74 +55,75 @@
             {% set variantAttributes = "disabled" %}
         {% elif 'timer' in params.variants %}
             {# Timer #}
-            {% set variantClasses = "ons-js-timer ons-js-submit-btn" %}
+            {% set variantClasses = " ons-js-timer ons-js-submit-btn" %}
         {% elif 'loader' in params.variants %}
             {# Loader #}
             {% set iconType = "loader" %}
             {% set iconPosition = "after" %}
-            {% set variantClasses = "ons-btn--loader ons-js-loader ons-js-submit-btn" %}
+            {% set variantClasses = " ons-btn--loader ons-js-loader ons-js-submit-btn" %}
         {% endif %}
     {% endif %}
-
     {% set tag = "a" if params.url else "button" %}
-
-    <{{ tag }}
-        {% if params.url %}
-            href="{{ params.url }}"
-            role="button"
-        {% else %}
-            type="{{ buttonType }}"
-        {% endif %}
-        class="ons-btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-btn--{{ variant }}{% endfor %}{% else %} ons-btn--{{ params.variants }}{% endif %}{% endif %}{% if params.url %} ons-btn--link ons-js-submit-btn{% endif %}{% if variantClasses %} {{ variantClasses }}{% endif %}"
-        {% if params.id %}id="{{ params.id }}"{% endif %}
-        {% if params.value and tag != "a" %}value="{{ params.value }}"{% endif %}
-        {% if params.name and tag != "a" %}name="{{ params.name }}"{% endif %}
-        {% if params.url and params.newWindow %}target="_blank" rel="noopener"{% endif %}
-        {{ variantAttributes }}
-        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}
-        >
-        <span class="ons-btn__inner{% if params.innerClasses %} {{ params.innerClasses }}{% endif %}">
-            {%- if iconPosition == "before" or iconPosition == "after" %}
-                {%- if iconPosition == "before" %}
-                    {{-
-                        onsIcon({
-                            "iconType": iconType,
-                            "classes": 'ons-u-mr-xs'
-                        })
-                    -}}
-                {% endif -%}
-                <span class="ons-btn__text">{{- params.html | safe if params.html else params.text -}}</span>
-                {%- if iconPosition == "after" %}
-                    {{-
-                        onsIcon({
-                            "iconType": iconType,
-                            "classes": 'ons-u-ml-xs'
-                        })
-                    -}}
-                {% endif -%}
-            {% elif iconPosition == "only" -%}
+    {% set openingTag = "<" + tag %}
+    {% set closingTag = "</" + tag + ">" %}
+    {{ openingTag | safe }}
+    {% if params.url %}
+        href="{{ params.url }}" role="button"
+    {% else %}
+        type="{{ buttonType }}"
+    {% endif %}
+    class="ons-btn{{ ' ' + params.classes if params.classes else '' }}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-btn--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-btn--{{ params.variants }}{% endif %}{{ ' ons-btn--link ons-js-submit-btn' if params.url }}{{ variantClasses }}"
+    {% if params.id %}id="{{ params.id }}"{% endif %}
+    {% if params.value and tag != "a" %}value="{{ params.value }}"{% endif %}
+    {% if params.name and tag != "a" %}name="{{ params.name }}"{% endif %}
+    {% if params.url and params.newWindow %}target="_blank" rel="noopener"{% endif %}
+    {{ variantAttributes }}
+    {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+    >
+    <span class="ons-btn__inner{{ ' ' + params.innerClasses if params.innerClasses else '' }}">
+        {%- if iconPosition == "before" or iconPosition == "after" -%}
+            {%- if iconPosition == "before" -%}
                 {{-
                     onsIcon({
-                        "iconType": iconType
+                        "iconType": iconType,
+                        "classes": 'ons-u-mr-xs'
                     })
                 -}}
-                <span class="ons-btn__text ons-u-vh@xxs@s">{{- params.html | safe if params.html else params.text -}}</span>
-            {% else -%}
-                <span class="ons-btn__text">{{- params.html | safe if params.html else params.text -}}</span>
-            {% endif -%}
-        </span>
-        {% if params.url and params.newWindow %}
-            <span class="ons-btn__new-window-description ons-u-vh"> ({{ params.newWindowDescription | default("opens in a new tab") }})</span>
-        {% endif %}
-        {% if params.buttonContext %}
-            <span class="ons-btn__context ons-u-vh">{{ params.buttonContext }}</span>
-        {% endif %}
-        {% if params.listeners %}
-            <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
-                {% for listener, value in (params.listeners.items() if params.listeners is mapping and params.listeners.items else params.listeners) %}
-                    document.getElementById("{{ params.id }}").addEventListener('{{ listener }}', function(){ {{ value }} });
-                {% endfor %}
-            </script>
-        {% endif %}
-    </{{ tag }}>
+            {%- endif -%}
+            <span class="ons-btn__text">{{- params.html | safe if params.html else params.text -}}</span>
+            {%- if iconPosition == "after" -%}
+                {{-
+                    onsIcon({
+                        "iconType": iconType,
+                        "classes": 'ons-u-ml-xs'
+                    })
+                -}}
+            {%- endif -%}
+        {%- elif iconPosition == "only" -%}
+            {{-
+                onsIcon({
+                    "iconType": iconType
+                })
+            -}}
+            <span class="ons-btn__text ons-u-vh@xxs@s">{{- params.html | safe if params.html else params.text -}}</span>
+        {%- else -%}
+            <span class="ons-btn__text">{{- params.html | safe if params.html else params.text -}}</span>
+        {%- endif -%}
+    </span>
+    {% if params.url and params.newWindow %}
+        <span class="ons-btn__new-window-description ons-u-vh"> ({{ params.newWindowDescription | default("opens in a new tab") }})</span>
+    {% endif %}
+    {% if params.buttonContext %}
+        <span class="ons-btn__context ons-u-vh">{{ params.buttonContext }}</span>
+    {% endif %}
+    {% if params.listeners %}
+        <!-- prettier-ignore-start -->
+        <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
+            {% for listener, value in (params.listeners.items() if params.listeners is mapping and params.listeners.items else params.listeners) %}
+                document.getElementById("{{ params.id }}").addEventListener('{{ listener }}', function(){ {{ value }} });
+            {% endfor %}
+        </script>
+        <!-- prettier-ignore-end -->
+    {% endif %}
+    {{ closingTag | safe }}
 {% endmacro %}

@@ -1,155 +1,158 @@
 ---
-title: "Example: Hub – partially completed"
+title: 'Example: Hub – partially completed'
 layout: ~
 ---
-{% extends "layout/_template.njk" %}
 
+{% extends "layout/_template.njk" %}
 {% from "components/summary/_macro.njk" import onsSummary %}
 {% from "components/button/_macro.njk" import onsButton %}
-
-{% set pageConfig = {
-    "header": {
-        "title": "Hub example",
-        "signoutButton": {
-            "text": "Save and sign out"
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Hub example",
+            "signoutButton": {
+                "text": "Save and sign out"
+            }
         }
     }
-} %}
+%}
 
 {% block main %}
     <h1 class="ons-u-mt-m">Choose another section to complete</h1>
 
-    {{ onsSummary({
-        "variant": "hub",
-        "classes": "ons-u-mt-m",
-        "summaries": [
-            {
-                "groups": [
-                    {
-                        "rows": [
-                            {
-                                "rowTitle": "People who live here",
-                                "rowItems": [
-                                    {
-                                        "iconType": "check",
-                                        "valueList": [
-                                            {
-                                                "text": "Completed"
-                                            }
-                                        ],
-                                        "actions": [
-                                            {
-                                                "text": "View answers",
-                                                "ariaLabel": "View answers for People who live here",
-                                                "url": "#0"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "rowTitle": "Household accommodation",
-                                "rowItems": [
-                                    {
-                                        "iconType": "check",
-                                        "valueList": [
-                                            {
-                                                "text": "Completed"
-                                            }
-                                        ],
-                                        "actions": [
-                                            {
-                                                "text": "View answers",
-                                                "ariaLabel": "View answers for Household accommodation",
-                                                "url": "#0"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "rowTitle": "Mary Smith",
-                                "rowItems": [
-                                    {
-                                        "iconType": "check",
-                                        "valueList": [
-                                            {
-                                                "text": "Completed"
-                                            }
-                                        ],
-                                        "actions": [
-                                            {
-                                                "text": "View answers",
-                                                "ariaLabel": "View answers for Mary Smith",
-                                                "url": "#0"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "rowTitle": "John Smith",
-                                "rowItems": [
-                                    {
-                                        "valueList": [
-                                            {
-                                                "text": "Partially completed"
-                                            }
-                                        ],
-                                        "actions": [
-                                            {
-                                                "text": "Continue with section",
-                                                "ariaLabel": "Continue with John Smith's section",
-                                                "url": "/patterns/hub-and-spoke/examples/spoke-continue/"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "rowTitle": "Billy Smith",
-                                "rowItems": [
-                                    {
-                                        "valueList": [
-                                            {
-                                                "text": "Not started"
-                                            }
-                                        ],
-                                        "actions": [
-                                            {
-                                                "text": "Start section",
-                                                "ariaLabel": "Start Billy Smith's section",
-                                                "url": "/patterns/hub-and-spoke/examples/spoke-start/"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "rowTitle": "Mary Susannah Smith (Visitor)",
-                                "rowItems": [
-                                    {
-                                        "valueList": [
-                                            {
-                                                "text": "Not started"
-                                            }
-                                        ],
-                                        "actions": [
-                                            {
-                                                "text": "Start section",
-                                                "ariaLabel": "Start Mary Susannah Smith's section",
-                                                "url": "#0"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }) }}
+    {{
+        onsSummary({
+            "variant": "hub",
+            "classes": "ons-u-mt-m",
+            "summaries": [
+                {
+                    "groups": [
+                        {
+                            "rows": [
+                                {
+                                    "rowTitle": "People who live here",
+                                    "rowItems": [
+                                        {
+                                            "iconType": "check",
+                                            "valueList": [
+                                                {
+                                                    "text": "Completed"
+                                                }
+                                            ],
+                                            "actions": [
+                                                {
+                                                    "text": "View answers",
+                                                    "ariaLabel": "View answers for People who live here",
+                                                    "url": "#0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rowTitle": "Household accommodation",
+                                    "rowItems": [
+                                        {
+                                            "iconType": "check",
+                                            "valueList": [
+                                                {
+                                                    "text": "Completed"
+                                                }
+                                            ],
+                                            "actions": [
+                                                {
+                                                    "text": "View answers",
+                                                    "ariaLabel": "View answers for Household accommodation",
+                                                    "url": "#0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rowTitle": "Mary Smith",
+                                    "rowItems": [
+                                        {
+                                            "iconType": "check",
+                                            "valueList": [
+                                                {
+                                                    "text": "Completed"
+                                                }
+                                            ],
+                                            "actions": [
+                                                {
+                                                    "text": "View answers",
+                                                    "ariaLabel": "View answers for Mary Smith",
+                                                    "url": "#0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rowTitle": "John Smith",
+                                    "rowItems": [
+                                        {
+                                            "valueList": [
+                                                {
+                                                    "text": "Partially completed"
+                                                }
+                                            ],
+                                            "actions": [
+                                                {
+                                                    "text": "Continue with section",
+                                                    "ariaLabel": "Continue with John Smith's section",
+                                                    "url": "/patterns/hub-and-spoke/examples/spoke-continue/"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rowTitle": "Billy Smith",
+                                    "rowItems": [
+                                        {
+                                            "valueList": [
+                                                {
+                                                    "text": "Not started"
+                                                }
+                                            ],
+                                            "actions": [
+                                                {
+                                                    "text": "Start section",
+                                                    "ariaLabel": "Start Billy Smith's section",
+                                                    "url": "/patterns/hub-and-spoke/examples/spoke-start/"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rowTitle": "Mary Susannah Smith (Visitor)",
+                                    "rowItems": [
+                                        {
+                                            "valueList": [
+                                                {
+                                                    "text": "Not started"
+                                                }
+                                            ],
+                                            "actions": [
+                                                {
+                                                    "text": "Start section",
+                                                    "ariaLabel": "Start Mary Susannah Smith's section",
+                                                    "url": "#0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        })
+    }}
 
     {{
         onsButton({

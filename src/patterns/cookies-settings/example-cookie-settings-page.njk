@@ -1,7 +1,8 @@
 ---
-title: "Example: Cookie preferences page"
+title: 'Example: Cookie preferences page'
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/button/_macro.njk" import onsButton %}
@@ -12,11 +13,20 @@ layout: ~
     <!-- Google Tag Manager -->
     <script>
         function loadGTM() {
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-TLWR59T');
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' +
+                    i +
+                    dl +
+                    '&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x';
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-TLWR59T');
         }
         var a = /^(.*)?\s*'usage':true\s*[^;]+(.*)?$/;
         if (document.cookie.match(a)) {
@@ -24,54 +34,61 @@ layout: ~
         }
     </script>
     <!-- End Google Tag Manager -->
-
 {% endblock %}
 {% block bodyStart %}
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLWR59T&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+        ><iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TLWR59T&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+        ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 {% endblock %}
 {% block preHeader %}
-{% from "components/cookies-banner/_macro.njk" import onsCookiesBanner %}
-{{
-    onsCookiesBanner()
-}}
+    {% from "components/cookies-banner/_macro.njk" import onsCookiesBanner %}
+    {{ onsCookiesBanner() }}
 {% endblock %}
-{% set pageConfig = {
-    "header": {
-        "title": "Service name"
-    },
-    "footer": {
-        "rows": [
-            {
-                "itemsList": [
-                    {
-                        "text": "Accessibility",
-                        "url": "#0"
-                    },
-                    {
-                        "text": "Privacy",
-                        "url": "#0"
-                    }
-                ]
-            }
-        ]
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Service name"
+        },
+        "footer": {
+            "rows": [
+                {
+                    "itemsList": [
+                        {
+                            "text": "Accessibility",
+                            "url": "#0"
+                        },
+                        {
+                            "text": "Privacy",
+                            "url": "#0"
+                        }
+                    ]
+                }
+            ]
+        }
     }
-} %}
+%}
 
 {% block main %}
     <div class="ons-page__body">
         <h1 class="ons-u-fs-xxl">Cookies on ons.gov.uk</h1>
-        {% call onsPanel({
-            "classes": "ons-u-mb-m ons-u-d-no ons-cookies-confirmation-message",
-            "variant": "success",
-            "iconType": "check",
-            "iconSize": "xl"
-        }) %}
+        {%
+            call onsPanel({
+                "classes": "ons-u-mb-m ons-u-d-no ons-cookies-confirmation-message",
+                "variant": "success",
+                "iconType": "check",
+                "iconSize": "xl"
+            })
+        %}
             <h2>Your cookie settings have been saved</h2>
             <p class="ons-u-mb-no">Some parts of the ONS may use additional cookies and will have their own cookie policy and banner.</p>
-            <a class="{% if not isDesignSystemExample %}ons-js-return-link {% endif %}ons-u-mt-s ons-u-dib" href="#0">Return to previous page</a>
+            <a class="ons-u-mt-s ons-u-dib{{ ' ons-js-return-link' if not isDesignSystemExample }}" href="#0">Return to previous page</a>
         {% endcall %}
 
         <p>Cookies are small files saved on your phone, tablet or computer when you visit a website.</p>
@@ -90,21 +107,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <form data-module="cookie-settings">
                 <h3>Cookies that measure website use</h3>
-                <p>We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:</p>
+                <p>
+                    We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics
+                    sets cookies that store anonymised information about:
+                </p>
                 <ul>
                     <li>how you got to the site</li>
                     <li>the pages you visit on ons.gov.uk and how long you spend on each page</li>
                     <li>what you click on while you're visiting the site</li>
                 </ul>
-                {% call onsDetails({
-                    "id": "cookies-measure-website-use-details",
-                    "classes": "ons-u-mb-s",
-                    "title": "Learn more about these Google Analytics cookies",
-                    "titleTag": 'h4',
-                    "button": {
-                        "close": "Hide this"
-                    }
-                }) %}
+                {%
+                    call onsDetails({
+                        "id": "cookies-measure-website-use-details",
+                        "classes": "ons-u-mb-s",
+                        "title": "Learn more about these Google Analytics cookies",
+                        "titleTag": 'h4',
+                        "button": {
+                            "close": "Hide this"
+                        }
+                    })
+                %}
                     {{
                         onsTable({
                             "ths": [
@@ -164,45 +186,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 {% endcall %}
                 <p>We do not allow Google to use or share the data about how you use this site.</p>
                 <div class="ons-u-mb-s">
-                    {{ onsRadios({
-                        "id": "cookies-measure-website-use",
-                        "name": "cookies-usage",
-                        "legend": "Do you want to allow usage tracking?",
-                        "legendClasses": "ons-u-vh",
-                        "radios": [
-                            {
-                                "id": "on-1",
-                                "label": {
-                                    "text": "On"
+                    {{
+                        onsRadios({
+                            "id": "cookies-measure-website-use",
+                            "name": "cookies-usage",
+                            "legend": "Do you want to allow usage tracking?",
+                            "legendClasses": "ons-u-vh",
+                            "radios": [
+                                {
+                                    "id": "on-1",
+                                    "label": {
+                                        "text": "On"
+                                    },
+                                    "value": "on"
                                 },
-                                "value": "on"
-                            },
-                            {
-                                "id": "off-1",
-                                "label": {
-                                    "text": "Off"
-                                },
-                                "value": "off"
-                            }
-                        ]
-                    }) }}
+                                {
+                                    "id": "off-1",
+                                    "label": {
+                                        "text": "Off"
+                                    },
+                                    "value": "off"
+                                }
+                            ]
+                        })
+                    }}
                 </div>
                 <p>This selection will expire after two years.</p>
 
                 <h3>Cookies that help with our communications</h3>
-                <p>Some of our pages may contain content from other sites, like YouTube, which may set their own cookies. These sites are sometimes called “third party” services. This tells us how many people are seeing the content and whether it’s useful.</p>
-                <p>In addition, if you share a link to a ons.gov.uk page, the service you share it on may set a cookie. We have no control over cookies set on other websites – you can turn them off, but not through us.</p>
+                <p>
+                    Some of our pages may contain content from other sites, like YouTube, which may set their own cookies. These sites are
+                    sometimes called “third party” services. This tells us how many people are seeing the content and whether it’s useful.
+                </p>
+                <p>
+                    In addition, if you share a link to a ons.gov.uk page, the service you share it on may set a cookie. We have no control
+                    over cookies set on other websites – you can turn them off, but not through us.
+                </p>
                 <h4>YouTube videos</h4>
                 <p>We use YouTube to show videos on some ons.gov.uk pages. YouTube sets cookies when you visit one of these pages.</p>
-                {% call onsDetails({
-                    "id": "cookies-measure-website-comms-details",
-                    "classes": "ons-u-mb-s",
-                    "title": "Learn more about these YouTube cookies",
-                    "titleTag": 'h5',
-                    "button": {
-                        "close": "Hide this"
-                    }
-                }) %}
+                {%
+                    call onsDetails({
+                        "id": "cookies-measure-website-comms-details",
+                        "classes": "ons-u-mb-s",
+                        "title": "Learn more about these YouTube cookies",
+                        "titleTag": 'h5',
+                        "button": {
+                            "close": "Hide this"
+                        }
+                    })
+                %}
                     {{
                         onsTable({
                             "ths": [
@@ -247,53 +279,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         })
                     }}
                 {% endcall %}
-                {{ onsRadios({
-                    "id": "cookies-measure-website-comms",
-                    "name": "cookies-campaigns",
-                    "legend": "Do you want to allow communications tracking?",
-                    "legendClasses": "ons-u-vh",
-                    "radios": [
-                        {
-                            "id": "on-2",
-                            "label": {
-                                "text": "On"
+                {{
+                    onsRadios({
+                        "id": "cookies-measure-website-comms",
+                        "name": "cookies-campaigns",
+                        "legend": "Do you want to allow communications tracking?",
+                        "legendClasses": "ons-u-vh",
+                        "radios": [
+                            {
+                                "id": "on-2",
+                                "label": {
+                                    "text": "On"
+                                },
+                                "value": "on"
                             },
-                            "value": "on"
-                        },
-                        {
-                            "id": "off-2",
-                            "label": {
-                                "text": "Off"
-                            },
-                            "value": "off"
-                        }
-                    ]
-                }) }}
+                            {
+                                "id": "off-2",
+                                "label": {
+                                    "text": "Off"
+                                },
+                                "value": "off"
+                            }
+                        ]
+                    })
+                }}
 
                 <h3>Cookies that remember your settings</h3>
-                <p>These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.</p>
-                {{ onsRadios({
-                    "id": "cookies-measure-website-settings",
-                    "name": "cookies-settings",
-                    "legend": "Do you want to allow settings?",
-                    "legendClasses": "ons-u-vh",
-                    "radios": [
-                        {
-                            "id": "on-3",
-                            "label": {
-                                "text": "On"
+                <p>
+                    These cookies do things like remember your preferences and the choices you make, to personalise your experience of using
+                    the site.
+                </p>
+                {{
+                    onsRadios({
+                        "id": "cookies-measure-website-settings",
+                        "name": "cookies-settings",
+                        "legend": "Do you want to allow settings?",
+                        "legendClasses": "ons-u-vh",
+                        "radios": [
+                            {
+                                "id": "on-3",
+                                "label": {
+                                    "text": "On"
+                                },
+                                "value": "on"
                             },
-                            "value": "on"
-                        },
-                        {
-                            "id": "off-3",
-                            "label": {
-                                "text": "Off"
-                            },
-                            "value": "off"
-                        }
-                    ]
-                }) }}
+                            {
+                                "id": "off-3",
+                                "label": {
+                                    "text": "Off"
+                                },
+                                "value": "off"
+                            }
+                        ]
+                    })
+                }}
                 <h3>Strictly necessary cookies</h3>
                 <p>These essential cookies do things like:</p>
                 <ul>
@@ -301,17 +340,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <li>remember your progress through a form (for example, an ons study)</li>
                 </ul>
                 <p>They always need to be on.</p>
-                {% call onsDetails({
-                    "id": "cookies-essential-details",
-                    "classes": "ons-u-mb-l",
-                    "title": "Learn more about these essential cookies",
-                    "titleTag": 'h4',
-                    "button": {
-                        "close": "Hide this"
-                    }
-                }) %}
+                {%
+                    call onsDetails({
+                        "id": "cookies-essential-details",
+                        "classes": "ons-u-mb-l",
+                        "title": "Learn more about these essential cookies",
+                        "titleTag": 'h4',
+                        "button": {
+                            "close": "Hide this"
+                        }
+                    })
+                %}
                     <h5 class="ons-u-fs-r--b">Your progress when filling in a survey or questionnaire</h5>
-                    <p>We’ll set a cookie to remember your progress through a survey or questionnaire. These cookies do not store your personal data and are deleted once you’ve completed the survey or questionnaire.</p>
+                    <p>
+                        We’ll set a cookie to remember your progress through a survey or questionnaire. These cookies do not store your
+                        personal data and are deleted once you’ve completed the survey or questionnaire.
+                    </p>
                     {{
                         onsTable({
                             "ths": [
@@ -343,7 +387,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         })
                     }}
                     <h5 class="ons-u-fs-r--b">Cookie message</h5>
-                    <p>You may see a banner when you visit ons.gov.uk inviting you to accept cookies or review your settings. We’ll set cookies so that your computer knows you’ve seen it and not to show it again, and also to store your settings.</p>
+                    <p>
+                        You may see a banner when you visit ons.gov.uk inviting you to accept cookies or review your settings. We’ll set
+                        cookies so that your computer knows you’ve seen it and not to show it again, and also to store your settings.
+                    </p>
                     {{
                         onsTable({
                             "ths": [
@@ -394,7 +441,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         "text": 'Save changes'
                     })
                 }}
-
             </form>
         </div>
     </div>

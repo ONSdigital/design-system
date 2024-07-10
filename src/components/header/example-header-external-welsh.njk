@@ -1,14 +1,14 @@
 ---
 fullWidth: true
-layout: ~
 ---
-{% extends "layout/_template.njk" %}
 
-{% set pageConfig = {
-    "header": {
-        "mastheadLogoUrl": '#0',
+{% from "components/header/_macro.njk" import onsHeader %}
+
+{{
+    onsHeader({
         "title": 'Gwasanaeth Cymraeg',
         "titleUrl": '#0',
+        "mastheadLogoUrl": '#0',
         "language": {
             "languages": [
                 {
@@ -25,5 +25,5 @@ layout: ~
                 }
             ]
         }
-    }
-} %}
+    })
+}}
