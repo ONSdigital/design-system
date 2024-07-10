@@ -128,7 +128,7 @@ const EXAMPLE_RADIO_ITEM_TEXTAREA_WITH_PRESET_VALUE = {
         checked: true,
         id: 'other-textarea-input',
         name: 'other-answer',
-        value: 'other-answer',
+        value: 'other answer',
     },
 };
 
