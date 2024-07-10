@@ -7,41 +7,32 @@ layout: ~
 {% from "components/panel/_macro.njk" import onsPanel %}
 {%
     set pageConfig = {
-            "header": {
-                "title": "Service name"
-            },
-            "footer": {
-                "rows": [
-                    {
-                        "itemsList": [
-                            {
-                                "text": 'Contact us',
-                                "url": '#0'
-                            },
-                            {
-                                "text": 'Cookies and privacy',
-                                "url": '#0'
-                            }
-                        ]
-                    }
-                ],
-                "OGLLink": {
-                    "pre": 'All content is available under the',
-                    "link": 'Open Government Licence v3.0',
-                    "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-                    "post": ', except where otherwise stated'
+        "header": {
+            "title": "Service name"
+        },
+        "footer": {
+            "rows": [
+                {
+                    "itemsList": [
+                        {
+                            "text": 'Contact us',
+                            "url": '#0'
+                        },
+                        {
+                            "text": 'Cookies and privacy',
+                            "url": '#0'
+                        }
+                    ]
                 }
-    <<<<<<< HEAD
             ],
             "oglLink": {
                 "pre": 'All content is available under the',
                 "link": 'Open Government Licence v3.0',
                 "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
                 "post": ', except where otherwise stated'
-    =======
-    >>>>>>> origin/main
             }
         }
+    }
 %}
 
 {% block main %}

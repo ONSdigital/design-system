@@ -3,7 +3,7 @@ title: 'Example: Save and sign out'
 layout: ~
 ---
 
-{% extends "layout/_template.njk" %} <<<<<<< HEAD
+{% extends "layout/_template.njk" %}
 {%
     set pageConfig = {
         "header": {
@@ -36,68 +36,25 @@ layout: ~
             "rows": [
                 {
                     "itemsList": [
-    =======
-    {%
-        set pageConfig = {
-            "header": {
-                "title": "Service name",
-                "signoutButton": {
-                    "text": "Save and sign out",
-                    "url": "#0"
-                },
-                "language": {
-                    "languages": [
-    >>>>>>> origin/main
                         {
-                            "url": "#0",
-                            "ISOCode": "en",
-                            "text": "English",
-                            "current": true
+                            "text": 'Contact us',
+                            "url": '#'
+                        },
+                        {
+                            "text": 'Cookies and privacy',
+                            "url": '#'
                         }
                     ]
                 }
-    <<<<<<< HEAD
             ],
             "oglLink": {
                 "pre": 'All content is available under the',
                 "link": 'Open Government Licence v3.0',
                 "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
                 "post": ', except where otherwise stated'
-    =======
-            },
-            "breadcrumbs": {
-                "ariaLabel": 'Breadcrumbs',
-                "itemsList": [
-                    {
-                        "text": 'Previous',
-                        "url": '#0'
-                    }
-                ]
-            },
-            "footer": {
-                "rows": [
-                    {
-                        "itemsList": [
-                            {
-                                "text": 'Contact us',
-                                "url": '#'
-                            },
-                            {
-                                "text": 'Cookies and privacy',
-                                "url": '#'
-                            }
-                        ]
-                    }
-                ],
-                "OGLLink": {
-                    "pre": 'All content is available under the',
-                    "link": 'Open Government Licence v3.0',
-                    "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-                    "post": ', except where otherwise stated'
-                }
-    >>>>>>> origin/main
             }
         }
+    }
 %}
 {% block main %}
     <h1>Page title</h1>
