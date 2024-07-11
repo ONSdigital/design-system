@@ -122,6 +122,16 @@ const EXAMPLE_RADIO_ITEM_RADIOS = {
     },
 };
 
+const EXAMPLE_RADIO_ITEM_TEXTAREA_WITH_PRESET_VALUE = {
+    other: {
+        otherType: 'textarea',
+        checked: true,
+        id: 'other-textarea-input',
+        name: 'other-answer',
+        value: 'other answer',
+    },
+};
+
 describe('macro: radios', () => {
     it.each([
         ['plain', EXAMPLE_RADIO_ITEM],
@@ -536,6 +546,17 @@ describe('macro: radios', () => {
                 classes: 'ons-js-other-fieldset-radio',
                 radios: EXAMPLE_RADIO_ITEM_RADIOS.other.radios,
             });
+        });
+
+        it('renders "textarea" component with a preset value for item', () => {
+            const $ = cheerio.load(
+                renderComponent('radios', {
+                    ...EXAMPLE_RADIOS_MINIMAL,
+                    radios: [EXAMPLE_RADIO_ITEM_TEXTAREA_WITH_PRESET_VALUE],
+                }),
+            );
+
+            expect($('.ons-input--textarea').text()).toBe('other answer');
         });
     });
 
