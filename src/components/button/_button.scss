@@ -518,7 +518,10 @@ $button-shadow-size: 3px;
         }
     }
 
-    &--neutral & {
+    &--neutral &,
+    &--neutral:hover &,
+    &--neutral:active &,
+    &--neutral.active & {
         &__inner {
             background: transparent;
             border: 0;
@@ -530,24 +533,6 @@ $button-shadow-size: 3px;
             .ons-icon {
                 fill: var(--ons-color-black);
             }
-        }
-    }
-
-    &--neutral:hover &,
-    &--neutral:active &,
-    &--neutral.active & {
-        &__inner {
-            background: none;
-            color: var(--ons-color-text-link-hover);
-            .ons-icon {
-                fill: var(--ons-color-text-link-hover);
-            }
-        }
-    }
-
-    &--neutral:focus:hover & {
-        &__inner {
-            color: var(--ons-color-black);
         }
     }
 
