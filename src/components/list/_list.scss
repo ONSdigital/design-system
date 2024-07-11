@@ -68,6 +68,12 @@
         }
     }
 
+    &--prefix,
+    &--suffix,
+    &--icons {
+        @extend .ons-list--bare;
+    }
+
     &--social & {
         &__item {
             align-items: center;
