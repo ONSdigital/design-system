@@ -117,13 +117,6 @@
                 }
             }
         }
-
-        &__org-logo-link:focus {
-            outline: none;
-            background-color: var(--ons-color-focus);
-            .ons-icon--logo {
-                color: var(--ons-color-text-link-focus);
-            }
         }
 
         &__grid-top {
