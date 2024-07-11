@@ -285,16 +285,5 @@ describe('macro: textarea', () => {
                 error: EXAMPLE_TEXTAREA_WITH_MUTUALLY_EXCLUSIVE_WITH_ERROR.error,
             });
         });
-
-        it('still renders field component', () => {
-            const faker = templateFaker();
-            const fieldSpy = faker.spy('field');
-
-            faker.renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_MUTUALLY_EXCLUSIVE_WITH_ERROR);
-
-            expect(fieldSpy.occurrences).toContainEqual({
-                error: EXAMPLE_TEXTAREA_WITH_MUTUALLY_EXCLUSIVE_WITH_ERROR.error,
-            });
-        });
     });
 });
