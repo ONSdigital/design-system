@@ -55,7 +55,7 @@ describe('script: table-of-contents', () => {
         ['section3', 'Third section'],
     ])('marks "%s" as the current section', async (sectionId, sectionTitle) => {
         await page.$eval(`#${sectionId}`, (node) => node.scrollIntoView());
-        new Promise((r) => setTimeout(r, 250));
+        await new Promise((r) => setTimeout(r, 250));
 
         const activeSection = await page.$eval('.ons-toc__link-active', (node) => node.innerText.trim());
         expect(activeSection).toBe(sectionTitle);
@@ -154,7 +154,7 @@ describe('script: table-of-contents-fixed-position', () => {
             window.scrollTo(0, 1000);
         });
 
-        new Promise((r) => setTimeout(r, 250));
+        await new Promise((r) => setTimeout(r, 250));
         const leftColumn = await page.$('#sticky-container');
         const boundingBox = await leftColumn.boundingBox();
 

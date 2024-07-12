@@ -29,7 +29,7 @@ describe('script: timeout panel', () => {
 
         it('shows the time counting down', async () => {
             const timeAtStart = await page.$eval('.ons-js-timeout-timer', (element) => element.innerHTML);
-            new Promise((r) => setTimeout(r, 1000));
+            await new Promise((r) => setTimeout(r, 1000));
             const timeAfterOneSecond = await page.$eval('.ons-js-timeout-timer', (element) => element.innerHTML);
             expect(timeAfterOneSecond).not.toEqual(timeAtStart);
         });
@@ -130,7 +130,7 @@ describe('script: timeout panel', () => {
         });
 
         it('then redirects to the provided `redirectUrl`', async () => {
-            new Promise((r) => setTimeout(r, 2000));
+            await await new Promise((r) => setTimeout(r, 2000));
             expect(page.url()).toContain('#!');
         });
     });

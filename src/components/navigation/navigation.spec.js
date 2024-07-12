@@ -233,9 +233,9 @@ describe('script: navigation', () => {
                 beforeEach(async () => {
                     await page.focus(buttonEl);
                     await page.keyboard.press('Enter');
-                    new Promise((r) => setTimeout(r, 100));
+                    await new Promise((r) => setTimeout(r, 100));
                     await page.keyboard.press('Enter');
-                    new Promise((r) => setTimeout(r, 100));
+                    await new Promise((r) => setTimeout(r, 100));
                 });
 
                 it('has aria-hidden set as `true` on the navigation list', async () => {
