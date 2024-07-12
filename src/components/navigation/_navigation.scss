@@ -7,19 +7,6 @@
 
         &--neutral {
             background: var(--ons-color-header-neutral);
-            .ons-navigation__item {
-                &--active,
-                &:hover {
-                    border-color: var(--ons-color-white);
-                }
-                .ons-navigation__link {
-                    color: var(--ons-color-white);
-                    &:focus {
-                        background-color: var(--ons-color-focus);
-                        color: var(--ons-color-text-link-focus);
-                    }
-                }
-            }
         }
     }
 

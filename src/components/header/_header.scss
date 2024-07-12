@@ -112,7 +112,8 @@
             .ons-icon--logo {
                 display: block;
                 .ons-icon--logo__group--text,
-                .ons-icon--logo__group--primary {
+                .ons-icon--logo__group--primary,
+                .ons-icon--logo__group--secondary {
                     fill: var(--ons-color-black);
                 }
             }
