@@ -31,7 +31,7 @@ describe('script: table', () => {
             });
 
             it('should show both shadow elements', async () => {
-                await page.waitForTimeout(200);
+                new Promise((r) => setTimeout(r, 200));
 
                 const leftShadowVisibleCount = await page.$$eval('.ons-table__left-shadow.ons-visible', (nodes) => nodes.length);
                 expect(leftShadowVisibleCount).not.toBe(0);

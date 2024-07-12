@@ -60,7 +60,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert should tell the user that the number input has been cleared', async () => {
-                    await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
+                    new Promise((r) => setTimeout(r, SCREEN_READER_TIMEOUT_DELAY));
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('Gross annual income cleared.');
@@ -84,7 +84,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert should tell the user that the exclusive option has been unchecked', async () => {
-                    await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
+                    new Promise((r) => setTimeout(r, SCREEN_READER_TIMEOUT_DELAY));
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('I prefer not to say deselected.');
@@ -99,7 +99,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert shouldnt say anything', async () => {
-                    await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
+                    new Promise((r) => setTimeout(r, SCREEN_READER_TIMEOUT_DELAY));
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('');
@@ -112,7 +112,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert shouldnt say anything', async () => {
-                    await page.waitForTimeout(SCREEN_READER_TIMEOUT_DELAY);
+                    new Promise((r) => setTimeout(r, SCREEN_READER_TIMEOUT_DELAY));
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('');

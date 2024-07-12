@@ -106,7 +106,7 @@ _Note_: This command is of limited use since JavaScript and SCSS files will only
 
 It is sometimes useful to adjust the following settings when writing tests or diagnosing issues:
 
--   `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `await page.waitForTimeout(100000)` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
+-   `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `new Promise(r => setTimeout(r, 100000));` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
 
 -   `testTimeout` in 'jest.config.js' - set to a high value such as `1000000` to prevent tests from timing out when doing the above.
 
