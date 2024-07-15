@@ -10,9 +10,6 @@
     &__top {
         background: var(--ons-color-header-masthead);
         width: 100%;
-        a {
-            color: var(--ons-color-text-inverse);
-        }
     }
     &__grid-top {
         padding: 1rem 0;
@@ -94,8 +91,12 @@
             color: var(--ons-color-text-inverse);
             min-height: 36px;
             a {
+                color: var(--ons-color-text-inverse);
                 &:hover {
                     text-decoration: underline solid var(--ons-color-text-inverse-link-hover) 3px;
+                }
+                &:focus {
+                    color: var(--ons-color-text-link-focus);
                 }
             }
         }
