@@ -115,7 +115,7 @@
                     {% endif %}
                 </div>
 
-                <div class="ons-grid ons-grid--flex ons-grid--vertical-top ons-grid--between">
+                <div class="ons-grid ons-grid-flex ons-grid--vertical-top ons-grid--between">
                     <div class="ons-grid__col">
                         {% if params.legal %}
                             <!-- Legal -->
@@ -188,7 +188,7 @@
                 {% if params.copyrightDeclaration %}
                     <!-- Copyright -->
                     {% set copyrightDeclaration = '&copy; ' + params.copyrightDeclaration.copyright + '<br /> ' + params.copyrightDeclaration.text %}
-                    <div class="ons-grid ons-grid--flex ons-grid--vertical-bottom ons-grid--between">
+                    <div class="ons-grid ons-grid-flex ons-grid--vertical-bottom ons-grid--between">
                         <div class="ons-grid__col">
                             <p class="ons-u-fs-s ons-u-mb-no ons-footer__copyright">{{- copyrightDeclaration | safe -}}</p>
                         </div>

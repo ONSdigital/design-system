@@ -55,7 +55,7 @@
                     <div class="ons-cookies-banner__statement">{{ params.statementText | default(statementText) | safe }}</div>
                 </div>
             </div>
-            <div class="ons-grid ons-grid--flex ons-u-mt-s">
+            <div class="ons-grid ons-grid-flex ons-u-mt-s">
                 <div class="ons-grid__col">
                     {{
                         onsButton({
@@ -90,8 +90,8 @@
         <div
             class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }} ons-cookies-banner__confirmation ons-u-d-no"
         >
-            <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--gutterless ons-grid--no-wrap@s ons-grid--vertical-center">
-                <div class="ons-grid__col ons-grid__col--flex ons-col-auto ons-u-flex-shrink@s">
+            <div class="ons-grid ons-grid-flex ons-grid--between ons-grid--gutterless ons-grid--no-wrap@s ons-grid--vertical-center">
+                <div class="ons-grid__col ons-grid__col-flex ons-col-auto ons-u-flex-shrink@s">
                     <p class="ons-cookies-banner__desc ons-u-mb-no@s ons-u-mr-s@s">
                         <span class="ons-js-accepted-text ons-u-d-no">{{ params.acceptedText | default(acceptedText) | safe }} </span
                         ><span class="ons-js-rejected-text ons-u-d-no">{{ params.rejectedText | default(rejectedText) | safe }} </span

@@ -80,7 +80,7 @@
     }
 }
 
-.ons-grid--flex {
+.ons-grid-flex {
     display: flex;
     flex-flow: row wrap;
 
@@ -143,7 +143,7 @@
         padding-left: $grid-gutters * 2;
     }
 
-    .ons-grid--flex & {
+    .ons-grid-flex & {
         width: auto;
     }
 }
@@ -206,7 +206,7 @@
 @include bp-suffix(ons-col-auto) {
     width: auto;
 
-    .ons-grid--flex & {
+    .ons-grid-flex & {
         flex-basis: auto;
         max-width: 100%;
     }
