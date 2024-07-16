@@ -2,9 +2,6 @@ $font-sans: 'OpenSans', 'Helvetica Neue', arial, sans-serif !default;
 $font-serif: georgia, serif !default;
 $font-mono: 'RobotoMono', monospace !default;
 
-$base-font-size: 1rem;
-$base-line-height: 1.5;
-
 $font-weight-regular: 400;
 $font-weight-bold: 700;
 $base: 16px;
@@ -14,54 +11,63 @@ $type-matrix: (
         small: 32px,
         large: 48px,
         weight: $font-weight-bold,
-        line-height: 1.3,
+        line-height-mobile: 44px,
+        line-height-desktop: 56px,
     ),
     ons-u-fs-xxl: (
         small: 28px,
         large: 36px,
         weight: $font-weight-bold,
-        line-height: 1.4,
+        line-height-mobile: 40px,
+        line-height-desktop: 48px,
     ),
     ons-u-fs-xl: (
         small: 26px,
         large: 30px,
         weight: $font-weight-bold,
-        line-height: 1.4,
+        line-height-mobile: 36px,
+        line-height-desktop: 40px,
     ),
     ons-u-fs-l: (
         small: 24px,
         large: 26px,
         weight: $font-weight-bold,
-        line-height: 1.4,
+        line-height-mobile: 32px,
+        line-height-desktop: 36px,
     ),
     ons-u-fs-m: (
         small: 20px,
         large: 22px,
         weight: $font-weight-bold,
-        line-height: 1.4,
+        line-height-mobile: 28px,
+        line-height-desktop: 32px,
     ),
     ons-u-fs-r--b: (
-        small: $base,
-        large: $base,
+        small: 18px,
+        large: 18px,
         weight: $font-weight-bold,
-        line-height: 1.4,
+        line-height-mobile: 28px,
+        line-height-desktop: 28px,
     ),
     ons-u-fs-r: (
-        small: $base,
-        large: $base,
+        small: 18px,
+        large: 18px,
         weight: $font-weight-regular,
-        line-height: 1.4,
+        line-height-mobile: 28px,
+        line-height-desktop: 28px,
     ),
     ons-u-fs-s--b: (
         small: 14px,
         large: 14px,
         weight: $font-weight-bold,
-        line-height: 1.4,
+        line-height-mobile: 20px,
+        line-height-desktop: 20px,
     ),
     ons-u-fs-s: (
         small: 14px,
         large: 14px,
         weight: $font-weight-regular,
-        line-height: 1.4,
+        line-height-mobile: 20px,
+        line-height-desktop: 20px,
     ),
 );
