@@ -90,7 +90,9 @@
         <div
             class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }} ons-cookies-banner__confirmation ons-u-d-no"
         >
-            <div class="ons-grid ons-grid-flex ons-grid--between ons-grid--gutterless ons-grid--no-wrap@s ons-grid--vertical-center">
+            <div
+                class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid--gutterless ons-grid-flex--no-wrap@s ons-grid-flex--vertical-center"
+            >
                 <div class="ons-grid__col ons-grid__col-flex ons-col-auto ons-u-flex-shrink@s">
                     <p class="ons-cookies-banner__desc ons-u-mb-no@s ons-u-mr-s@s">
                         <span class="ons-js-accepted-text ons-u-d-no">{{ params.acceptedText | default(acceptedText) | safe }} </span

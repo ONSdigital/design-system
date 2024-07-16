@@ -84,28 +84,28 @@
     display: flex;
     flex-flow: row wrap;
 
-    &.ons-grid--center {
+    &--center {
         justify-content: center;
     }
 
-    &.ons-grid--between {
+    &--between {
         justify-content: space-between;
     }
 
-    &.ons-grid--vertical-top {
+    &--vertical-top {
         align-items: start;
     }
 
-    &.ons-grid--vertical-center {
+    &--vertical-center {
         align-items: center;
     }
 }
 
-@include bp-suffix(ons-grid--no-wrap) {
+@include bp-suffix(ons-grid-flex--no-wrap) {
     flex-wrap: nowrap;
 }
 
-@include bp-suffix(ons-grid--column, $create-between-breakpoints: true) {
+@include bp-suffix(ons-grid-flex--column, $create-between-breakpoints: true) {
     flex-direction: column;
 }
 
