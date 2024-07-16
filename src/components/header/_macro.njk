@@ -154,8 +154,10 @@
                                     </nav>
                                 </div>
                                 {% if params.serviceLinks.itemsList | length > 1 or params.language %}
-                                    {% if params.variants == 'internal' or params.variants == 'neutral' %}
+                                    {% if params.variants == 'internal' %}
                                         {% set buttonVariant = ["mobile", "text-link", "text-link-inverse"] %}
+                                    {% elif params.variants == 'neutral' %}
+                                        {% set buttonVariant = ["mobile", "neutral"] %}
                                     {% else %}
                                         {% set buttonVariant = ["mobile", "text-link"] %}
                                     {% endif %}
@@ -309,11 +311,7 @@
                                 </span>
                             {% endif %}
                             {% if params.navigation.toggleNavigationButton %}
-                                {% if params.variants == 'neutral' %}
-                                    {% set buttonVariant = ["mobile", "ghost-dark"] %}
-                                {% else %}
-                                    {% set buttonVariant = ["mobile", "ghost"] %}
-                                {% endif %}
+                                {% set buttonVariant = ["mobile", "ghost"] %}
                                 {{
                                     onsButton({
                                         "text": params.navigation.toggleNavigationButton.text,
