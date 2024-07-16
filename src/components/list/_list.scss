@@ -92,6 +92,19 @@
     &--p {
         padding: 0;
     }
+
+    &--summary {
+        list-style: none;
+        @extend .ons-u-pl-no;
+        .ons-list__item:not(:last-child) {
+            @extend .ons-u-bb;
+        }
+        .ons-list__item {
+            @extend .ons-u-pt-s;
+            @extend .ons-u-pb-s;
+            @extend .ons-u-m-no;
+        }
+    }
 }
 
 @include bp-suffix('ons-list--inline') {
