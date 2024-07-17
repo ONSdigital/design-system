@@ -1,8 +1,6 @@
 html {
     @include font-smoothing;
-
-    font-size: $base;
-    line-height: 1.6;
+    @extend .ons-u-fs-r;
 }
 
 body {
