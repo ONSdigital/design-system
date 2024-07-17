@@ -123,6 +123,9 @@
                 &:hover {
                     text-decoration: underline solid var(--ons-color-header-masthead-neutral) 3px;
                 }
+                &:focus:hover {
+                    text-decoration: none;
+                }
             }
         }
 
