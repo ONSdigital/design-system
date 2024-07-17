@@ -87,14 +87,6 @@
                 }
             }
         }
-        &__org-logo-link:focus {
-            background-color: transparent;
-            box-shadow: none;
-            outline: 3px solid var(--ons-color-focus);
-            .ons-icon--logo {
-                fill: var(--ons-color-text-link-focus);
-            }
-        }
         &__grid-top {
             color: var(--ons-color-text-inverse);
             min-height: 36px;
@@ -102,6 +94,12 @@
                 color: var(--ons-color-text-inverse);
                 &:hover {
                     text-decoration: underline solid var(--ons-color-text-inverse-link-hover) 3px;
+                }
+                &:focus {
+                    color: var(--ons-color-text-link-focus);
+                    &:hover {
+                        text-decoration: none;
+                    }
                 }
             }
         }
@@ -124,6 +122,9 @@
                 color: var(--ons-color-black);
                 &:hover {
                     text-decoration: underline solid var(--ons-color-header-masthead-neutral) 3px;
+                }
+                &:focus:hover {
+                    text-decoration: none;
                 }
             }
         }
