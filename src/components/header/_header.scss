@@ -97,6 +97,9 @@
                 }
                 &:focus {
                     color: var(--ons-color-text-link-focus);
+                    &:hover {
+                        text-decoration: none;
+                    }
                 }
             }
         }
