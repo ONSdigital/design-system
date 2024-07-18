@@ -54,29 +54,26 @@
         margin-left: 0.5rem;
     }
 
+    &--icons & {
+        &__item {
+            margin-top: 0;
+        }
+    }
+
     &__prefix,
     &__suffix {
         font-family: $font-mono;
     }
 
-    &--prefix &,
-    &--suffix &,
-    &--icons & {
-        &__item {
-            align-items: flex-start;
-            display: flex;
-        }
-    }
-
     &--prefix,
     &--suffix,
     &--icons {
+        margin-bottom: 0;
         @extend .ons-list--bare;
-    }
-
-    &--social & {
-        &__item {
+        .ons-list__item {
+            margin-bottom: 0.5rem;
             align-items: center;
+            display: flex;
         }
     }
 
