@@ -57,7 +57,7 @@
             {% if params.title %}
                 {{ openingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel | string) | safe }}
                 class="ons-u-fs-r--b
-                ons-u-mb-s">{{ params.title }}{{ closingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel | string) }}
+                ons-u-mb-s">{{ params.title }}{{ closingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel | string) | safe }}
             {% endif %}
             <ul class="ons-section-nav__list">
                 {% for item in params.itemsList %}
