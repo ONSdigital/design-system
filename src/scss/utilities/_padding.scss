@@ -20,7 +20,7 @@ $padding: (
 @each $key, $value in $sizes {
     @each $abbr, $dec in $padding {
         @include bp-suffix(ons-u-#{$abbr}-#{$key}, $create-between-breakpoints: true) {
-            #{$dec}: #{$value};
+            #{$dec}: #{$value} !important;
         }
     }
 }
