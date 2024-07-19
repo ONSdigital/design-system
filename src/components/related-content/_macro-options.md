@@ -14,4 +14,3 @@
 | iconType     | string                                                      | false    | Adds an icon to all the list items when set to the name of one of the [available icons](/foundations/icons#a-to-z). Requires `iconPosition` to be set. |
 | iconPosition | string                                                      | false    | Sets the position of the icon to “before” or “after” each list item in the row                                                                         |
 | iconSize     | string                                                      | false    | Icon size can be set to match the size of the list item text as detailed in the [typography type scale](/foundations/typography/#type-scale).          |
-| variants     | array or string                                             | false    | An array of values or single value (string) to adjust the list items using available variants: “bare”, “dashed”, “inline”, “social”, and “languages”   |
