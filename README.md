@@ -106,13 +106,13 @@ _Note_: This command is of limited use since JavaScript and SCSS files will only
 
 It is sometimes useful to adjust the following settings when writing tests or diagnosing issues:
 
--   `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `new Promise(r => setTimeout(r, 100000));` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
+-   `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `await new Promise(r => setTimeout(r, 100000));` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
 
 -   `testTimeout` in 'jest.config.js' - set to a high value such as `1000000` to prevent tests from timing out when doing the above.
 
 ## Testing - Visual regression tests
 
-This project uses [Backstop JS](https://github.com/garris/BackstopJS) for visual regression testing. The tests run in Chrome headless using pupeteer inside docker and run in three viewports; 1920 (desktop), 768 (tablet) and 375 (mobile). Reference images are stored in Git LFS and any approved changes will automatically be stored in Git LFS when pushed to the repository.
+This project uses [Backstop JS](https://github.com/garris/BackstopJS) for visual regression testing. The tests run in Chrome headless using Pupeteer inside docker and run in three viewports; 1920 (desktop), 768 (tablet) and 375 (mobile). Reference images are stored in Git LFS and any approved changes will automatically be stored in Git LFS when pushed to the repository.
 
 The visual tests will run automatically on pull requests and the result will be available in the Github Action logs. If the tests fail, the process for viewing the failures and approving changes will need to be handled locally using the following workflow and commands.
 
