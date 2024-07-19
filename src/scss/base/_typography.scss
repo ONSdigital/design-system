@@ -1,6 +1,7 @@
 html {
     @include font-smoothing;
-    @extend .ons-u-fs-r;
+
+    font-size: $base;
 }
 
 body {
