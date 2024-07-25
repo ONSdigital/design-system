@@ -4,108 +4,143 @@
     box-sizing: border-box;
     font-size: 0;
     margin-left: -$grid-gutters;
-}
 
-.ons-grid--float {
-    letter-spacing: 0;
-}
-
-.ons-grid--center {
-    text-align: center;
-    .ons-grid__col {
-        text-align: left;
+    &--float {
+        letter-spacing: 0;
     }
-}
 
-.ons-grid--center-all {
-    text-align: center;
-}
+    &--center {
+        text-align: center;
 
-.ons-grid--reverse {
-    direction: rtl;
-    .ons-grid__col {
-        direction: ltr;
-    }
-}
-
-.ons-grid--spaced {
-    .ons-grid__col {
-        margin-bottom: $grid-gutters;
-    }
-    &.ons-grid--tight {
         .ons-grid__col {
-            margin-bottom: math.div($grid-gutters, 2);
+            text-align: left;
+        }
+
+        &-all {
+            text-align: center;
         }
     }
-}
 
-.ons-grid--align-mid {
-    .ons-grid__col {
-        vertical-align: middle;
+    &--reverse {
+        direction: rtl;
+
+        .ons-grid__col {
+            direction: ltr;
+        }
+    }
+
+    &--spaced {
+        .ons-grid__col {
+            margin-bottom: $grid-gutters;
+        }
+
+        &.ons-grid--tight {
+            .ons-grid__col {
+                margin-bottom: math.div($grid-gutters, 2);
+            }
+        }
+    }
+
+    &--align-mid {
+        .ons-grid__col {
+            vertical-align: middle;
+        }
+    }
+
+    &--stagger-align {
+        .ons-grid__col:nth-of-type(1n) {
+            text-align: right;
+        }
+
+        .ons-grid__col:nth-of-type(2n) {
+            text-align: left;
+        }
+    }
+
+    &--tight {
+        margin-left: math.div(-$grid-gutters, 2);
+
+        .ons-grid__col {
+            padding-left: math.div($grid-gutters, 2);
+        }
+    }
+
+    &--loose {
+        margin-left: -$grid-gutters * 2;
+    }
+
+    &--gutterless {
+        margin-left: 0;
+
+        .ons-grid__col {
+            padding-left: 0;
+        }
+    }
+
+    &--pixelgutter {
+        margin-left: 1px;
+
+        .ons-grid__col {
+            margin-bottom: 1px;
+            padding-left: 1px;
+        }
+    }
+
+    &-flex {
+        display: flex;
+        flex-flow: row wrap;
+
+        &--center {
+            justify-content: center;
+        }
+
+        &--between {
+            justify-content: space-between;
+        }
+
+        &--vertical-top {
+            align-items: start;
+        }
+
+        &--vertical-center {
+            align-items: center;
+        }
+    }
+
+    &__col {
+        background-clip: content-box;
+        box-sizing: border-box;
+        display: inline-block;
+        // Fixes text overflow issues
+        min-width: 0;
+        padding-left: $grid-gutters;
+        vertical-align: top;
+        width: 100%;
+
+        .ons-grid--float & {
+            display: block;
+            float: left;
+        }
+
+        &--loose {
+            padding-left: $grid-gutters * 2;
+        }
+
+        .ons-grid-flex & {
+            width: auto;
+        }
+    }
+
+    &_col--flex {
+        display: flex;
     }
 }
 
-.ons-grid--stagger-align {
-    .ons-grid__col:nth-of-type(1n) {
-        text-align: right;
-    }
-    .ons-grid__col:nth-of-type(2n) {
-        text-align: left;
-    }
-}
-
-.ons-grid--tight {
-    margin-left: math.div(-$grid-gutters, 2);
-    .ons-grid__col {
-        padding-left: math.div($grid-gutters, 2);
-    }
-}
-
-.ons-grid--loose {
-    margin-left: -$grid-gutters * 2;
-}
-
-.ons-grid--gutterless {
-    margin-left: 0;
-    .ons-grid__col {
-        padding-left: 0;
-    }
-}
-
-.ons-grid--pixelgutter {
-    margin-left: 1px;
-    .ons-grid__col {
-        margin-bottom: 1px;
-        padding-left: 1px;
-    }
-}
-
-.ons-grid--flex {
-    display: flex;
-    flex-flow: row wrap;
-
-    &.ons-grid--center {
-        justify-content: center;
-    }
-
-    &.ons-grid--between {
-        justify-content: space-between;
-    }
-
-    &.ons-grid--vertical-top {
-        align-items: start;
-    }
-
-    &.ons-grid--vertical-center {
-        align-items: center;
-    }
-}
-
-@include bp-suffix(ons-grid--no-wrap) {
+@include bp-suffix(ons-grid-flex--no-wrap) {
     flex-wrap: nowrap;
 }
 
-@include bp-suffix(ons-grid--column, $create-between-breakpoints: true) {
+@include bp-suffix(ons-grid-flex--column, $create-between-breakpoints: true) {
     flex-direction: column;
 }
 
@@ -122,34 +157,6 @@
             padding-left: 0;
         }
     }
-}
-
-.ons-grid__col {
-    background-clip: content-box;
-    box-sizing: border-box;
-    display: inline-block;
-    // Fixes text overflow issues
-    min-width: 0;
-    padding-left: $grid-gutters;
-    vertical-align: top;
-    width: 100%;
-
-    .ons-grid--float & {
-        display: block;
-        float: left;
-    }
-
-    &--loose {
-        padding-left: $grid-gutters * 2;
-    }
-
-    .ons-grid--flex & {
-        width: auto;
-    }
-}
-
-.ons-grid__col--flex {
-    display: flex;
 }
 
 @include bp-suffix(ons-grid__col--sticky) {
@@ -206,7 +213,7 @@
 @include bp-suffix(ons-col-auto) {
     width: auto;
 
-    .ons-grid--flex & {
+    .ons-grid-flex & {
         flex-basis: auto;
         max-width: 100%;
     }
