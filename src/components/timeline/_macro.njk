@@ -5,7 +5,7 @@
         {% set titleTag = params.titleTag | default("h2") %}
         {% set openingTag = "<" + titleTag %}
         {% set closingTag = "</" + titleTag + ">" %}
-        {% for item in params.items %}
+        {% for item in params.timelineItems %}
             <div class="ons-timeline__item">
                 {{ openingTag | safe }} class="ons-timeline__heading">{{ item.heading }}{{ closingTag | safe }}
                 {% if item.itemsList %}
