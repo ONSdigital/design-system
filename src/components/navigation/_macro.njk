@@ -1,54 +1,71 @@
 {% macro onsNavigation(params) %}
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
-    <div class="ons-navigation-wrapper{% if params.variants == 'neutral' %} ons-navigation-wrapper--neutral{% endif %}">
-        <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}">
+    <div class="ons-navigation-wrapper{{ ' ons-navigation-wrapper--neutral' if params.variants == 'neutral' }}">
+        <div
+            class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}"
+        >
             {% if params.siteSearchAutosuggest %}
                 <div class="ons-navigation-search ons-js-navigation-search">
                     {% set autosuggestClasses = "ons-input-search ons-input-search--icon" %}
-                    {% set autosuggestLabelClasses = "ons-u-pl-m" %}
+                    {% set autosuggestLabelClasses = "ons-u-pl-l" %}
                     {% if params.variants == "neutral" %}
                         {% set autosuggestClasses = autosuggestClasses + ' ons-input-search--dark' %}
                     {% else %}
                         {% set autosuggestLabelClasses = autosuggestLabelClasses + ' ons-label--white' %}
                     {% endif %}
-                    {{ onsAutosuggest({
-                        "id": "ons-site-search",
-                        "containerClasses": "ons-autosuggest--header",
-                        "input": {
-                            "classes": autosuggestClasses,
-                            "accessiblePlaceholder": true,
-                            "autocomplete": "off",
-                            "label": {
-                                "text": params.siteSearchAutosuggest.label,
-                                "id": "ons-site-search-label",
-                                "classes": autosuggestLabelClasses
-                            }
-                        },
-                        "instructions": params.siteSearchAutosuggest.instructions,
-                        "ariaYouHaveSelected":params.siteSearchAutosuggest.ariaYouHaveSelected,
-                        "minChars": params.siteSearchAutosuggest.minChars,
-                        "ariaMinChars": params.siteSearchAutosuggest.ariaMinChars,
-                        "ariaResultsLabel": params.siteSearchAutosuggest.ariaResultsLabel,
-                        "ariaOneResult": params.siteSearchAutosuggest.ariaOneResult,
-                        "ariaNResults": params.siteSearchAutosuggest.ariaNResults,
-                        "ariaLimitedResults": params.siteSearchAutosuggest.ariaLimitedResults,
-                        "moreResults": params.siteSearchAutosuggest.moreResults,
-                        "resultsTitle": params.siteSearchAutosuggest.resultsTitle,
-                        "autosuggestData": params.siteSearchAutosuggest.autosuggestData,
-                        "noResults": params.siteSearchAutosuggest.noResults,
-                        "typeMore": params.siteSearchAutosuggest.typeMore,
-                        "language": params.siteSearchAutosuggest.language
-                    }) }}
+                    {{
+                        onsAutosuggest({
+                            "id": "ons-site-search",
+                            "containerClasses": "ons-autosuggest--header",
+                            "input": {
+                                "classes": autosuggestClasses,
+                                "accessiblePlaceholder": true,
+                                "autocomplete": "off",
+                                "label": {
+                                    "text": params.siteSearchAutosuggest.label,
+                                    "id": "ons-site-search-label",
+                                    "classes": autosuggestLabelClasses
+                                }
+                            },
+                            "instructions": params.siteSearchAutosuggest.instructions,
+                            "ariaYouHaveSelected":params.siteSearchAutosuggest.ariaYouHaveSelected,
+                            "minChars": params.siteSearchAutosuggest.minChars,
+                            "ariaMinChars": params.siteSearchAutosuggest.ariaMinChars,
+                            "ariaResultsLabel": params.siteSearchAutosuggest.ariaResultsLabel,
+                            "ariaOneResult": params.siteSearchAutosuggest.ariaOneResult,
+                            "ariaNResults": params.siteSearchAutosuggest.ariaNResults,
+                            "ariaLimitedResults": params.siteSearchAutosuggest.ariaLimitedResults,
+                            "moreResults": params.siteSearchAutosuggest.moreResults,
+                            "resultsTitle": params.siteSearchAutosuggest.resultsTitle,
+                            "autosuggestData": params.siteSearchAutosuggest.autosuggestData,
+                            "noResults": params.siteSearchAutosuggest.noResults,
+                            "typeMore": params.siteSearchAutosuggest.typeMore,
+                            "language": params.siteSearchAutosuggest.language
+                        })
+                    }}
                 </div>
             {% endif %}
-            <nav class="ons-navigation ons-navigation--main ons-js-navigation" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
+            <nav
+                class="ons-navigation ons-navigation--main ons-js-navigation"
+                id="{{ params.navigation.id }}"
+                aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}"
+                data-analytics="header-navigation"
+            >
                 <ul class="ons-navigation__list">
                     {% for item in params.navigation.itemsList %}
-                        <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}">
-                            <a class="ons-navigation__link" href="{{ item.url }}" {% if item.id %}id="{{ item.id }}" {% endif %}{% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %}>
-                                {% if item.title %}{{ item.title }}
-                                {% elif item.text %}{{ item.text }}
+                        <li
+                            class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}"
+                        >
+                            <a
+                                class="ons-navigation__link"
+                                href="{{ item.url }}"
+                                {% if item.id %}id="{{ item.id }}"{% endif %}{% if item.ariaLabel %}{{ ' ' }}aria-label="{{ item.ariaLabel }}"{% endif %}
+                            >
+                                {% if item.title %}
+                                    {{ item.title }}
+                                {% elif item.text %}
+                                    {{ item.text }}
                                 {% endif %}
                             </a>
                         </li>
@@ -59,14 +76,30 @@
     </div>
     {% if params.navigation.subNavigation %}
         {% if not params.navigation.subNavigation.removeHorizontalSubNav %}
-            <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes }}" id="{{ params.navigation.subNavigation.id }}" aria-label="{{ params.navigation.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
-                <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}">
+            <nav
+                class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes else '' }}"
+                id="{{ params.navigation.subNavigation.id }}"
+                aria-label="{{ params.navigation.subNavigation.ariaLabel | default('Section menu') }}"
+                data-analytics="header-section-navigation"
+            >
+                <div
+                    class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}"
+                >
                     <ul class="ons-navigation__list ons-navigation__list">
                         {% for item in params.navigation.subNavigation.itemsList %}
-                            <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}">
-                                <a class="ons-navigation__link ons-navigation__link" href="{{ item.url }}" {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %} {% if item.id %}id="{{ item.id }}" {% endif %}>
-                                    {% if item.title %}{{ item.title }}
-                                    {% elif item.text %}{{ item.text }}
+                            <li
+                                class="ons-navigation__item{{ ' ' + item.classes if item.classes else '' }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}"
+                            >
+                                <a
+                                    class="ons-navigation__link ons-navigation__link"
+                                    href="{{ item.url }}"
+                                    {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}"{% endif %}
+                                    {% if item.id %}id="{{ item.id }}"{% endif %}
+                                >
+                                    {% if item.title %}
+                                        {{ item.title }}
+                                    {% elif item.text %}
+                                        {{ item.text }}
                                     {% endif %}
                                 </a>
                             </li>
@@ -75,29 +108,52 @@
                 </div>
             </nav>
         {% endif %}
-        <div class="ons-u-d-no@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes }}">
-            {{ onsButton({
-                "text": params.navigation.currentPageTitle,
-                "classes": "ons-u-d-no ons-js-sub-navigation-button",
-                "type": "button",
-                "variants": ["mobile", "dropdown"],
-                "attributes": {
-                    "aria-label": "Toggle " + params.navigation.currentPageTitle + " menu" if params.navigation.currentPageTitle else "Toggle section menu",
-                    "aria-controls": params.navigation.subNavigation.id,
-                    "aria-expanded": "false"
-                }
-            }) }}
-            <nav class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-xs" id="{{ params.navigation.subNavigation.id }}--mobile" aria-hidden="true" aria-label="{{ params.navigation.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
-                <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.navigation.fullWidth }}{{ ' ons-container--wide' if params.navigation.wide }}">
+        <div class="ons-u-d-no@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes else '' }}">
+            {{
+                onsButton({
+                    "text": params.navigation.currentPageTitle,
+                    "classes": "ons-u-d-no ons-js-sub-navigation-button",
+                    "type": "button",
+                    "variants": ["mobile", "dropdown"],
+                    "attributes": {
+                        "aria-label": "Toggle " + params.navigation.currentPageTitle + " menu" if params.navigation.currentPageTitle else "Toggle section menu",
+                        "aria-controls": params.navigation.subNavigation.id,
+                        "aria-expanded": "false"
+                    }
+                })
+            }}
+            <nav
+                class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-xs"
+                id="{{ params.navigation.subNavigation.id }}--mobile"
+                aria-hidden="true"
+                aria-label="{{ params.navigation.subNavigation.ariaLabel | default("Section menu") }}"
+                data-analytics="header-section-navigation"
+            >
+                <div
+                    class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.navigation.fullWidth }}{{ ' ons-container--wide' if params.navigation.wide }}"
+                >
                     <ul class="ons-navigation__list ons-navigation__list--parent">
-                        <li class="ons-navigation__item{{ ' ons-navigation__item--active' if (params.navigation.subNavigation.overviewURL == params.navigation.subNavigation.currentPath)}}">
-                            <a class="ons-navigation__link" href="{{ params.navigation.subNavigation.overviewURL }}">{{ params.navigation.subNavigation.overviewText | default('Overview') }}</a>
+                        <li
+                            class="ons-navigation__item{{ ' ons-navigation__item--active' if (params.navigation.subNavigation.overviewURL == params.navigation.subNavigation.currentPath) }}"
+                        >
+                            <a class="ons-navigation__link" href="{{ params.navigation.subNavigation.overviewURL }}"
+                                >{{ params.navigation.subNavigation.overviewText | default('Overview') }}</a
+                            >
                         </li>
                         {% for item in params.navigation.subNavigation.itemsList %}
-                            <li class="ons-navigation__item {{ ' ons-navigation__item--active' if (item.url == params.navigation.subNavigation.currentPath) or (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}">
-                                <a class="ons-navigation__link" href="{{ item.url }}" {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %} {% if item.id %}id="{{ item.id }}--mobile" {% endif %}>
-                                    {% if item.title %}{{ item.title }}
-                                    {% elif item.text %}{{ item.text }}
+                            <li
+                                class="ons-navigation__item{{ ' ons-navigation__item--active' if (item.url == params.navigation.subNavigation.currentPath) or (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}"
+                            >
+                                <a
+                                    class="ons-navigation__link"
+                                    href="{{ item.url }}"
+                                    {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}"{% endif %}
+                                    {% if item.id %}id="{{ item.id }}--mobile"{% endif %}
+                                >
+                                    {% if item.title %}
+                                        {{ item.title }}
+                                    {% elif item.text %}
+                                        {{ item.text }}
                                     {% endif %}
                                 </a>
                                 {% if item.sections %}
@@ -105,12 +161,23 @@
                                         {% if section.sectionTitle %}
                                             <h3 class="ons-navigation__list-header">{{ section.sectionTitle }}</h3>
                                         {% endif %}
-                                        <ul class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs">
+                                        <ul
+                                            class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs"
+                                        >
                                             {% for child in section.children %}
-                                                <li class="ons-navigation__item ons-list__item {{ ' ons-navigation__item--active' if (child.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and child.url in params.navigation.currentPath) }}">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="{{ child.url }}" {% if child.ariaLabel %}aria-label="{{ child.ariaLabel }}" {% endif %} {% if child.id %}id="{{ child.id }}" {% endif %}>
-                                                        {% if child.title %}{{ child.title }}
-                                                        {% elif child.text %}{{ child.text }}
+                                                <li
+                                                    class="ons-navigation__item ons-list__item{{ ' ons-navigation__item--active' if (child.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and child.url in params.navigation.currentPath) }}"
+                                                >
+                                                    <a
+                                                        class="ons-navigation__link ons-navigation__link--section"
+                                                        href="{{ child.url }}"
+                                                        {% if child.ariaLabel %}aria-label="{{ child.ariaLabel }}"{% endif %}
+                                                        {% if child.id %}id="{{ child.id }}"{% endif %}
+                                                    >
+                                                        {% if child.title %}
+                                                            {{ child.title }}
+                                                        {% elif child.text %}
+                                                            {{ child.text }}
                                                         {% endif %}
                                                     </a>
                                                 </li>
@@ -125,5 +192,4 @@
             </nav>
         </div>
     {% endif %}
-
 {% endmacro %}

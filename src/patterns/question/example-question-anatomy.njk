@@ -1,6 +1,7 @@
 ---
 noTabs: true
 ---
+
 {% from "components/details/_macro.njk" import onsDetails %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/radios/_macro.njk" import onsRadios %}
@@ -64,30 +65,39 @@ noTabs: true
     <tbody class="ons-pl-question-anatomy__row">
         <tr>
             <td class="ons-pl-question-anatomy__component">
-                {% call onsPanel({
-                    "variant": "warn"
-                }) %}
+                {%
+                    call onsPanel({
+                        "variant": "warn"
+                    })
+                %}
                     <p>This is a warning notice</p>
                 {% endcall %}
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
                 <h2 class="ons-u-fs-r ons-u-mb-no">Question warning <span class="ons-u-fs-s">(optional)</span></h2>
                 <p><code>warning</code></p>
-                <p class="ons-u-fs-s ons-u-mb-no">Only to be used to warn users of a negative consequence to answering the question incorrectly</p>
+                <p class="ons-u-fs-s ons-u-mb-no">
+                    Only to be used to warn users of a negative consequence to answering the question incorrectly
+                </p>
             </th>
         </tr>
     </tbody>
     <tbody class="ons-pl-question-anatomy__row">
         <tr>
             <td class="ons-pl-question-anatomy__component">
-                {% call onsDetails({
-                    "id": "question-definition",
-                    "title": "What we mean by “employee”",
-                    "button": {
-                        "close": "Hide this"
-                    }
-                }) %}
-                    <p>An employee is a person that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job</p>
+                {%
+                    call onsDetails({
+                        "id": "question-definition",
+                        "title": "What we mean by “employee”",
+                        "button": {
+                            "close": "Hide this"
+                        }
+                    })
+                %}
+                    <p>
+                        An employee is a person that your organisation directly pays from its payroll(s), in return for carrying out a
+                        full-time or part-time job
+                    </p>
                 {% endcall %}
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
@@ -103,7 +113,10 @@ noTabs: true
                 {% call onsPanel() %}
                     <strong>Include:</strong>
                     <ul>
-                        <li>all employees in Great Britain (England, Scotland and Wales), both full and part-time, who received pay in the relevant period</li>
+                        <li>
+                            all employees in Great Britain (England, Scotland and Wales), both full and part-time, who received pay in the
+                            relevant period
+                        </li>
                     </ul>
                     <strong>Exclude:</strong>
                     <ul>
@@ -122,36 +135,38 @@ noTabs: true
     <tbody class="ons-pl-question-anatomy__row">
         <tr>
             <td class="ons-pl-question-anatomy__component">
-                {{ onsRadios({
-                    "id": "number-of-employees-example-question-anatomy",
-                    "name": "number-of-employees",
-                    "legend": "On 1 May 2021, what was the number of employees for Bolt and Ratchet?",
-                    "legendClasses": "ons-u-vh",
-                    "radios": [
-                        {
-                            "id": "answer-1-9",
-                            "label": {
-                                "text": "1 – 9 employees"
+                {{
+                    onsRadios({
+                        "id": "number-of-employees-example-question-anatomy",
+                        "name": "number-of-employees",
+                        "legend": "On 1 May 2021, what was the number of employees for Bolt and Ratchet?",
+                        "legendClasses": "ons-u-vh",
+                        "radios": [
+                            {
+                                "id": "answer-1-9",
+                                "label": {
+                                    "text": "1 – 9 employees"
+                                },
+                                "value": "1-9"
                             },
-                            "value": "1-9"
-                        },
-                        {
-                            "id": "answer-10-49",
-                            "label": {
-                                "text": "10 – 49 employees"
+                            {
+                                "id": "answer-10-49",
+                                "label": {
+                                    "text": "10 – 49 employees"
+                                },
+                                "value": "10-49"
                             },
-                            "value": "10-49"
-                        },
-                        {
-                            "id": "answer-50-100",
-                            "label": {
-                                "text": "50 – 100+ employees",
-                                "description": "Include multi-corporations"
-                            },
-                            "value": "50-100"
-                        }
-                    ]
-                }) }}
+                            {
+                                "id": "answer-50-100",
+                                "label": {
+                                    "text": "50 – 100+ employees",
+                                    "description": "Include multi-corporations"
+                                },
+                                "value": "50-100"
+                            }
+                        ]
+                    })
+                }}
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
                 <h2 class="ons-u-fs-r">Answer(s)</h2>
@@ -161,20 +176,24 @@ noTabs: true
     <tbody class="ons-pl-question-anatomy__row">
         <tr>
             <td class="ons-pl-question-anatomy__component">
-                {% call onsDetails({
-                    "id": "question-justification",
-                    "title": "Why we ask this question",
-                    "button": {
-                        "close": "Hide this"
-                    }
-                }) %}
+                {%
+                    call onsDetails({
+                        "id": "question-justification",
+                        "title": "Why we ask this question",
+                        "button": {
+                            "close": "Hide this"
+                        }
+                    })
+                %}
                     <p>We ask this question in order to understand the size of organisations in the UK.</p>
                 {% endcall %}
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
                 <h2 class="ons-u-fs-r ons-u-mb-no">Question justification <span class="ons-u-fs-s">(optional)</span></h2>
                 <p><code>justification</code></p>
-                <p class="ons-u-fs-s">Only to be used to explain why a question is being asked if there is evidence that users want to know this</p>
+                <p class="ons-u-fs-s">
+                    Only to be used to explain why a question is being asked if there is evidence that users want to know this
+                </p>
             </th>
         </tr>
     </tbody>

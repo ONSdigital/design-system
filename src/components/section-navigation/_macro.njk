@@ -1,25 +1,39 @@
 {% macro onsSectionNavigation(params) %}
     {% set headingLevel = params.headingLevel | default(2) %}
     {% set sectionTitleHeadingLevel = headingLevel + 1 %}
-    <nav class="ons-section-nav{% if params.variants == 'vertical' %} ons-section-nav--vertical{% endif %} {% if params.classes %} {{ params.classes }} {% endif %}"{% if params.id %} id="{{ params.id }}"{% endif %} aria-labelledby="{{ params.hiddenTitleId | default("section-menu-nav-title")}}">
-        <h{{ headingLevel }} class="ons-u-vh" id="{{ params.hiddenTitleId | default("section-menu-nav-title") }}">{{ params.hiddenTitle | default("Pages in this section") }}</h{{ headingLevel }}>
+    {% set openingHeadingTag = "<h" + headingLevel | string %}
+    {% set closingHeadingTag = "</h" + headingLevel | string + ">" %}
+
+    <nav
+        class="ons-section-nav{{ ' ons-section-nav--vertical' if params.variants == 'vertical' }}{{ ' ' + params.classes if params.classes else '' }}"
+        {% if params.id %}id="{{ params.id }}"{% endif %}
+        aria-labelledby="{{ params.hiddenTitleId | default('section-menu-nav-title') }}"
+    >
+        {{ openingHeadingTag | safe }} class="ons-u-vh"
+        id="{{ params.hiddenTitleId | default('section-menu-nav-title') }}">{{ params.hiddenTitle | default("Pages in this section") }}{{ closingHeadingTag | safe }}
         {% if params.sections %}
             {% for section in params.sections %}
                 {% set sectionItemHeadingLevel = headingLevel + 2 if section.title else headingLevel + 1 %}
                 <div class="ons-section-nav__sub">
                     {% if section.title %}
-                        <h{{ sectionTitleHeadingLevel }} class="ons-u-fs-r--b ons-u-mb-s">{{ section.title }}</h{{ sectionTitleHeadingLevel }}>
+                        {{ openingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel | string) | safe }}
+                        class="ons-u-fs-r--b
+                        ons-u-mb-s">{{ section.title }}{{ closingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel | string) | safe }}
                     {% endif %}
                     <ul class="ons-section-nav__list">
                         {% for item in section.itemsList %}
-                            {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title|lower) %}
+                            {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title | lower) %}
                                 {% set isCurrent = true %}
                             {% else %}
                                 {% set isCurrent = false %}
                             {% endif %}
-                            <li class="ons-section-nav__item{% if item.classes %}{{ ' ' + item.classes }}{% endif %}{% if isCurrent == true %} ons-section-nav__item--active{% endif %}">
+                            <li
+                                class="ons-section-nav__item{{ ' ' + item.classes if item.classes else '' }}{{ ' ons-section-nav__item--active' if isCurrent == true }}"
+                            >
                                 {% if isCurrent == true %}
-                                    <h{{ sectionItemHeadingLevel }} class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}" aria-current="location">{{ item.title }}</h{{ sectionItemHeadingLevel }}>
+                                    {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
+                                    class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}"
+                                    aria-current="location">{{ item.title }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
                                 {% else %}
                                     <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
                                 {% endif %}
@@ -27,7 +41,9 @@
                                     <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs">
                                         {% for anchor in item.anchors %}
                                             <li class="ons-section-nav__item ons-list__item">
-                                                <a href="{{ anchor.url }}" class="ons-section-nav__link ons-list__link">{{ anchor.title }}</a>
+                                                <a href="{{ anchor.url }}" class="ons-section-nav__link ons-list__link"
+                                                    >{{ anchor.title }}</a
+                                                >
                                             </li>
                                         {% endfor %}
                                     </ul>
@@ -39,19 +55,25 @@
             {% endfor %}
         {% else %}
             {% if params.title %}
-                <h{{ sectionTitleHeadingLevel }} class="ons-u-fs-r--b ons-u-mb-s">{{ params.title }}</h{{ sectionTitleHeadingLevel }}>
+                {{ openingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel | string) | safe }}
+                class="ons-u-fs-r--b
+                ons-u-mb-s">{{ params.title }}{{ closingHeadingTag | replace(headingLevel, sectionTitleHeadingLevel | string) | safe }}
             {% endif %}
             <ul class="ons-section-nav__list">
                 {% for item in params.itemsList %}
                     {% set sectionItemHeadingLevel = headingLevel + 2 if params.title else headingLevel + 1 %}
-                    {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title|lower) %}
+                    {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title | lower) %}
                         {% set isCurrent = true %}
                     {% else %}
                         {% set isCurrent = false %}
                     {% endif %}
-                    <li class="ons-section-nav__item{% if item.classes %}{{ ' ' + item.classes }}{% endif %}{% if isCurrent == true %} ons-section-nav__item--active{% endif %}">
-                        {% if isCurrent == true %} 
-                            <h{{ sectionItemHeadingLevel }} class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}" aria-current="location">{{ item.title }}</h{{ headingLevel + 2 if section.title else headingLevel + 1 }}>
+                    <li
+                        class="ons-section-nav__item{{ ' ' + item.classes if item.classes else '' }}{% if isCurrent == true %}{{ ' ' }}ons-section-nav__item--active{% endif %}"
+                    >
+                        {% if isCurrent == true %}
+                            {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
+                            class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}"
+                            aria-current="location">{{ item.title }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
                         {% else %}
                             <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
                         {% endif %}

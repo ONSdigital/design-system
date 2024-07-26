@@ -2,37 +2,37 @@ name: Run visual regression tests
 on: [push]
 
 env:
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-  RUNNING_IN_CI: true
+    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    RUNNING_IN_CI: true
 
 jobs:
-  run-visual-regression-tests:
-    runs-on: macos-12
+    run-visual-regression-tests:
+        runs-on: macos-12
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          lfs: true
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-      - name: Install dependencies
-        run: yarn install
-      - name: Install Docker
-        run: |
-          brew install docker
-          colima start
-      - name: Run visual regression tests
-        id: vr
-        run: yarn test-visual
-      # Archive report artifacts if visual regression tests fail
-      - name: Archive BackstopJS reports
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: backstop-reports
-          path: |
-            backstop_data/bitmaps_test
-            backstop_data/html_report
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  lfs: true
+            - name: Install Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: '.nvmrc'
+            - name: Install dependencies
+              run: yarn install
+            - name: Install Docker
+              run: |
+                  brew install docker
+                  colima start
+            - name: Run visual regression tests
+              id: vr
+              run: yarn test-visual
+            # Archive report artifacts if visual regression tests fail
+            - name: Archive BackstopJS reports
+              if: ${{ failure() }}
+              uses: actions/upload-artifact@v4
+              with:
+                  name: backstop-reports
+                  path: |
+                      backstop_data/bitmaps_test
+                      backstop_data/html_report

@@ -1,532 +1,566 @@
 $button-shadow-size: 3px;
 
 .ons-btn {
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  cursor: pointer;
-  display: inline-block;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: $font-weight-bold;
-  line-height: 1.35;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-rendering: optimizelegibility;
-  vertical-align: top;
-  white-space: nowrap;
-
-  // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
-  &::after {
-    border: ems($button-shadow-size) solid transparent;
-    inset: 0 0 - (ems($button-shadow-size)) 0; // makes sure button shadow is selectable
-    content: '';
-    position: absolute;
-  }
-
-  &--search {
-    .ons-icon {
-      @include mq(s, l) {
-        margin-right: 0.5rem;
-      }
-    }
-  }
-
-  &__inner {
-    background: var(--ons-color-button);
-    border-radius: $input-radius;
-    box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
-    color: var(--ons-color-text-inverse);
-    display: inherit;
-    padding: 0.7em 1em 0.8em;
-    // Required for Google Tag Manager
-    pointer-events: none;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: $font-weight-bold;
+    line-height: 1.35;
+    margin: 0;
+    padding: 0;
     position: relative;
-
-    .ons-icon {
-      fill: var(--ons-color-text-inverse);
-      height: 18px;
-      margin-top: -$button-shadow-size;
-      vertical-align: middle;
-      width: 18px;
-    }
-  }
-
-  // When preceded by another button (for example, in a group)
-  & + & {
-    margin-left: 0.5rem;
-  }
-
-  // When focused
-  &:focus,
-  &:focus-visible {
-    // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
-    outline: 3px solid transparent;
-    outline-offset: 1px;
-  }
-
-  &:focus &__inner {
-    background: var(--ons-color-focus);
-    box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-text-link-focus);
-    color: var(--ons-color-text-link-focus);
-
-    .ons-icon {
-      fill: var(--ons-color-text-link-focus);
-    }
-  }
-
-  &:focus:hover:not(:active, .active) &__inner {
-    background: var(--ons-color-focus-dark);
-  }
-
-  // When down
-  &:active &,
-  &:active:focus &,
-  &.active &,
-  &.active:focus & {
-    &__inner {
-      background: var(--ons-color-button);
-      box-shadow: none;
-      color: var(--ons-color-text-inverse);
-
-      .ons-icon {
-        fill: var(--ons-color-text-inverse);
-      }
-    }
-  }
-
-  &:active,
-  &.active {
-    top: ems($button-shadow-size);
-  }
-
-  // Small buttons
-  &--small,
-  &--mobile {
-    font-size: 0.9rem;
-  }
-
-  &--small & {
-    &__inner {
-      padding: 0.5em 0.7em;
-      .ons-icon {
-        height: 16px;
-        width: 16px;
-      }
-    }
-  }
-
-  &--small.ons-btn--ghost &,
-  &--mobile & {
-    &__inner {
-      padding: 0.5em 0.7em;
-    }
-  }
-
-  // Secondary button style
-  &--secondary & {
-    &__inner {
-      box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-secondary-shadow);
-    }
-  }
-
-  &--secondary &,
-  &--secondary:active &,
-  &--secondary.active &,
-  &--secondary:active:focus &,
-  &--secondary.active:focus & {
-    &__inner {
-      background: var(--ons-color-button-secondary);
-      color: var(--ons-color-text);
-      font-weight: $font-weight-regular;
-
-      .ons-icon {
-        fill: var(--ons-color-text);
-      }
-    }
-  }
-
-  // When hovered
-  &:hover & {
-    &__inner {
-      background: var(--ons-color-button-hover);
-    }
-  }
-
-  &--secondary:hover:not(&--disabled) & {
-    &__inner {
-      background: var(--ons-color-button-secondary-hover);
-    }
-  }
-
-  &--disabled:not(&--secondary) &,
-  &--loader.ons-is-loading:hover:not(&--secondary) & {
-    &__inner {
-      background: var(--ons-color-button);
-    }
-  }
-
-  // Link button when hovered
-  &--link:hover {
+    text-align: center;
     text-decoration: none;
-  }
+    text-rendering: optimizelegibility;
+    vertical-align: top;
+    white-space: nowrap;
 
-  &--link:focus:not(:active, .active, &--secondary) &,
-  &--link:focus:hover:not(:active, .active, &--secondary) & {
-    outline: inherit;
-
-    &__inner {
-      .ons-icon {
-        fill: var(--ons-color-text);
-      }
-    }
-  }
-
-  &--text-link {
-    vertical-align: baseline;
-  }
-
-  &--text-link & {
-    &__inner {
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      color: var(--ons-color-text-link);
-      font-weight: $font-weight-regular;
-      padding: 0;
-      .ons-icon {
-        fill: var(--ons-color-text-link);
-      }
-    }
-  }
-
-  &--text-link-inverse & {
-    &__inner {
-      color: var(--ons-color-text-inverse-link);
-      .ons-icon {
-        fill: var(--ons-color-text-inverse-link);
-      }
-    }
-  }
-
-  &--text-link:hover &,
-  &--text-link:active &,
-  &--text-link.active & {
-    &__inner {
-      background: none;
-      color: var(--ons-color-text-link-hover);
-      .ons-icon {
-        fill: var(--ons-color-text-link-hover);
-      }
-    }
-  }
-
-  &--text-link-inverse:hover &,
-  &--text-link-inverse:active &,
-  &--text-link-inverse.active & {
-    &__inner {
-      color: var(--ons-color-text-inverse-link-hover);
-      .ons-icon {
-        fill: var(--ons-color-text-inverse-link-hover);
-      }
-    }
-  }
-
-  &--text-link:focus:hover & {
-    &__inner {
-      color: var(--ons-color-black);
-    }
-  }
-
-  &--text-link:focus &,
-  &--text-link:active:focus &,
-  &--text-link.active:focus & {
-    &__inner {
-      background-color: var(--ons-color-focus);
-      box-shadow: 0 -2px var(--ons-color-focus),
-        0 4px var(--ons-color-text-link-focus) !important;
-      color: var(--ons-color-text-link-focus);
-      .ons-icon {
-        fill: var(--ons-color-text-link-focus);
-      }
-    }
-  }
-
-  &--ghost & {
-    &__inner {
-      background: transparent;
-      border: 2px solid rgb(255 255 255 / 60%);
-      box-shadow: none;
-      color: var(--ons-color-text-inverse);
-      .ons-icon {
-        fill: var(--ons-color-text-inverse);
-      }
-    }
-  }
-
-  &--ghost-dark & {
-    &__inner {
-      background: transparent;
-      border: 2px solid var(--ons-color-black);
-      box-shadow: none;
-      color: var(--ons-color-text);
-      .ons-icon {
-        fill: var(--ons-color-text);
-      }
-    }
-  }
-
-  &--ghost,
-  &--ghost-dark,
-  &--dropdown,
-  &--text-link,
-  &--disabled,
-  &--loader.ons-is-loading {
-    &:active,
-    .active {
-      top: 0 !important; // Override 'pressed' state for flat and non-selectable buttons
-    }
-  }
-
-  &--ghost:active:focus,
-  &--ghost.active:focus
-  &--ghost-dark:active:focus
-  &--ghost-dark.active:focus {
-    box-shadow: none;
-    outline: 3px solid transparent;
-  }
-
-  &--ghost:focus:hover,
-  &--ghost-dark:focus:hover,
-  &--dropdown:focus:hover,
-  &--text-link:focus:hover {
-    outline: none;
-  }
-
-  &--ghost-dark:focus:hover &,
-  &--dropdown:focus:hover & {
-    &__inner {
-      color: var(--ons-color-text);
-      .ons-icon {
-        fill: var(--ons-color-text);
-      }
-    }
-  }
-
-  &--ghost:hover & {
-    &__inner {
-      background: rgb(0 0 0 / 10%);
-      border-color: var(--ons-color-white);
-    }
-  }
-
-  &--ghost:active &,
-  &--ghost:active:focus &,
-  &--ghost.active & {
-    &__inner {
-      background: rgb(0 0 0 / 20%);
-      border-color: rgb(255 255 255 / 60%);
-      color: var(--ons-color-text-inverse);
-      .ons-icon {
-        fill: var(--ons-color-text-inverse);
-      }
-    }
-  }
-
-  &--ghost-dark:hover &,
-  &--ghost-dark:active &,
-  &--ghost-dark:active:focus &,
-  &--ghost-dark.active & {
-    &__inner {
-      background: var(--ons-color-black);
-      border-color: var(--ons-color-black);
-      color: var(--ons-color-white);
-      .ons-icon {
-        fill: var(--ons-color-white);
-      }
-    }
-  }
-
-  &--ghost.active:focus &,
-  &--ghost-dark.active:focus &,
-  &--dropdown.active:focus & {
-    &__inner {
-      background: var(--ons-color-focus);
-      color: var(--ons-color-text-link-focus);
-      .ons-icon {
-        fill: var(--ons-color-text-link-focus);
-      }
-    }
-  }
-
-  &--ghost:focus &,
-  &--ghost-dark:focus &,
-  &--dropdown:focus & {
-    &__inner {
-      border-color: var(--ons-color-text-link-focus);
-      box-shadow: 0 0 0 1px var(--ons-color-text-link-focus);
-      .ons-icon {
-        fill: var(--ons-color-black);
-      }
-    }
-  }
-
-  &--loader & {
-    &__inner {
-      position: relative;
-      transition: color 0.3s ease-in-out;
-      .ons-icon {
-        height: 27px;
-        left: 50%;
-        margin: 0;
-        opacity: 0;
+    // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
+    &::after {
+        border: ems($button-shadow-size) solid transparent;
+        inset: 0 0 - (ems($button-shadow-size)) 0; // Makes sure button shadow is selectable
+        content: '';
         position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        transition: opacity 0.3s ease-in-out;
-        width: 27px;
-      }
-    }
-  }
-
-  &--loader.ons-btn--small {
-    .ons-icon {
-      height: 24px;
-      width: 24px;
-    }
-  }
-
-  &--loader.ons-is-loading & {
-    &__inner {
-      color: transparent;
-      .ons-icon {
-        margin-left: 0 !important;
-        opacity: 1;
-      }
-    }
-  }
-
-  &--loader.ons-is-loading:active &, 
-  &--loader.ons-is-loading.active & {
-    &__inner {
-      box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
-    }
-  }
-
-  &--loader.ons-is-loading:hover {
-    cursor: not-allowed;
-  }
-
-  &--dropdown:focus & {
-    &__inner {
-      box-shadow: inset 0 -4px 0 0 var(--ons-color-text-link-focus);
-    }
-  }
-
-  &--mobile[aria-expanded='true'],
-  &--text-link[aria-expanded='true'] {
-    .ons-icon {
-      transform: rotate(270deg);
-    }
-  }
-
-  &--mobile,
-  &--text-link {
-    .ons-icon {
-      transform: rotate(90deg);
     }
 
-    @include mq(l) {
-      display: none;
+    &--search {
+        .ons-icon {
+            @include mq(s, l) {
+                margin-right: 0.5rem;
+            }
+        }
     }
-  }
-
-  // Disabled buttons
-  &--disabled & {
-    &__inner {
-      opacity: 0.4;
-    }
-  }
-
-  &--disabled:hover {
-    cursor: not-allowed;
-  }
-
-  &--disabled:active &,
-  &--disabled.active & {
-    &__inner {
-      box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
-    }
-  }
-
-  &--dropdown {
-    @extend .ons-btn--mobile;
-
-    width: 100%;
-  }
-
-  &--dropdown & {
-    @extend .ons-btn--mobile;
-
-    width: 100%;
 
     &__inner {
-      background: var(--ons-color-branded-tint);
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      color: var(--ons-color-branded-text);
-      display: block;
-      font-size: 1rem;
-      font-weight: $font-weight-regular;
-      padding: 0.6rem 1rem;
-      text-align: left;
+        background: var(--ons-color-button);
+        border-radius: $input-radius;
+        box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
+        color: var(--ons-color-text-inverse);
+        display: inherit;
+        padding: 0.7em 1em 0.8em;
+        // Required for Google Tag Manager
+        pointer-events: none;
+        position: relative;
 
-      .ons-icon {
-        fill: var(--ons-color-branded-text);
-        float: right;
-        margin-top: 3px;
-      }
+        .ons-icon {
+            fill: var(--ons-color-text-inverse);
+            height: 18px;
+            margin-top: -$button-shadow-size;
+            vertical-align: middle;
+            width: 18px;
+        }
     }
-  }
 
-  &--dropdown:hover & {
-    &__inner {
-      background: var(--ons-color-branded-secondary);
-      color: var(--ons-color-white);
-      .ons-icon {
-        fill: var(--ons-color-white);
-      }
+    // When preceded by another button (for example, in a group)
+    & + & {
+        margin-left: 0.5rem;
     }
-  }
 
-  &--dropdown:active &,
-  &--dropdown.active &,
-  &--dropdown:active:focus &,
-  &--dropdown.active:focus & {
-    &__inner {
-      background: var(--ons-color-branded-secondary);
-      color: var(--ons-color-white);
-      .ons-icon {
-        fill: var(--ons-color-white);
-      }
+    // When focused
+    &:focus,
+    &:focus-visible {
+        // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+        outline: 3px solid transparent;
+        outline-offset: 1px;
     }
-  }
+
+    &:focus &__inner {
+        background: var(--ons-color-focus);
+        box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-text-link-focus);
+        color: var(--ons-color-text-link-focus);
+
+        .ons-icon {
+            fill: var(--ons-color-text-link-focus);
+        }
+    }
+
+    &:focus:hover:not(:active, .active) &__inner {
+        background: var(--ons-color-focus-dark);
+    }
+
+    // When down
+    &:active &,
+    &:active:focus &,
+    &.active &,
+    &.active:focus & {
+        &__inner {
+            background: var(--ons-color-button);
+            box-shadow: none;
+            color: var(--ons-color-text-inverse);
+
+            .ons-icon {
+                fill: var(--ons-color-text-inverse);
+            }
+        }
+    }
+
+    &:active,
+    &.active {
+        top: ems($button-shadow-size);
+    }
+
+    // Small buttons
+    &--small,
+    &--mobile {
+        font-size: 0.9rem;
+    }
+
+    &--small & {
+        &__inner {
+            padding: 0.5em 0.7em;
+            .ons-icon {
+                height: 16px;
+                width: 16px;
+            }
+        }
+    }
+
+    &--small.ons-btn--ghost &,
+    &--mobile & {
+        &__inner {
+            padding: 0.5em 0.7em;
+        }
+    }
+
+    // Secondary button style
+    &--secondary & {
+        &__inner {
+            box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-secondary-shadow);
+        }
+    }
+
+    &--secondary &,
+    &--secondary:active &,
+    &--secondary.active &,
+    &--secondary:active:focus &,
+    &--secondary.active:focus & {
+        &__inner {
+            background: var(--ons-color-button-secondary);
+            color: var(--ons-color-text);
+            font-weight: $font-weight-regular;
+
+            .ons-icon {
+                fill: var(--ons-color-text);
+            }
+        }
+    }
+
+    // When hovered
+    &:hover & {
+        &__inner {
+            background: var(--ons-color-button-hover);
+        }
+    }
+
+    &--secondary:hover:not(&--disabled) & {
+        &__inner {
+            background: var(--ons-color-button-secondary-hover);
+        }
+    }
+
+    &--disabled:not(&--secondary) &,
+    &--loader.ons-is-loading:hover:not(&--secondary) & {
+        &__inner {
+            background: var(--ons-color-button);
+        }
+    }
+
+    // Link button when hovered
+    &--link:hover {
+        text-decoration: none;
+    }
+
+    &--link:focus:not(:active, .active, &--secondary) &,
+    &--link:focus:hover:not(:active, .active, &--secondary) & {
+        outline: inherit;
+
+        &__inner {
+            .ons-icon {
+                fill: var(--ons-color-text);
+            }
+        }
+    }
+
+    &--text-link {
+        vertical-align: baseline;
+    }
+
+    &--text-link & {
+        &__inner {
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            color: var(--ons-color-text-link);
+            font-weight: $font-weight-regular;
+            padding: 0;
+            .ons-icon {
+                fill: var(--ons-color-text-link);
+            }
+        }
+    }
+
+    &--text-link-inverse & {
+        &__inner {
+            color: var(--ons-color-text-inverse-link);
+            .ons-icon {
+                fill: var(--ons-color-text-inverse-link);
+            }
+        }
+    }
+
+    &--text-link:hover &,
+    &--text-link:active &,
+    &--text-link.active & {
+        &__inner {
+            background: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+
+    &--text-link-inverse:hover &,
+    &--text-link-inverse:active &,
+    &--text-link-inverse.active & {
+        &__inner {
+            color: var(--ons-color-text-inverse-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-inverse-link-hover);
+            }
+        }
+    }
+
+    &--text-link:focus:hover & {
+        &__inner {
+            color: var(--ons-color-black);
+        }
+    }
+
+    &--text-link:focus &,
+    &--text-link:active:focus &,
+    &--text-link.active:focus & {
+        &__inner {
+            background-color: var(--ons-color-focus);
+            box-shadow:
+                0 -2px var(--ons-color-focus),
+                0 4px var(--ons-color-text-link-focus) !important;
+            color: var(--ons-color-text-link-focus);
+            .ons-icon {
+                fill: var(--ons-color-text-link-focus);
+            }
+        }
+    }
+
+    &--ghost & {
+        &__inner {
+            background: transparent;
+            border: 2px solid rgb(255 255 255 / 60%);
+            box-shadow: none;
+            color: var(--ons-color-text-inverse);
+            .ons-icon {
+                fill: var(--ons-color-text-inverse);
+            }
+        }
+    }
+
+    &--ghost-dark & {
+        &__inner {
+            background: transparent;
+            border: 2px solid var(--ons-color-black);
+            box-shadow: none;
+            color: var(--ons-color-text);
+            .ons-icon {
+                fill: var(--ons-color-text);
+            }
+        }
+    }
+
+    &--ghost,
+    &--ghost-dark,
+    &--dropdown,
+    &--text-link,
+    &--neutral,
+    &--disabled,
+    &--loader.ons-is-loading {
+        &:active,
+        .active {
+            top: 0 !important; // Override 'pressed' state for flat and non-selectable buttons
+        }
+    }
+
+    &--ghost:active:focus,
+    &--ghost.active:focus &--ghost-dark:active:focus &--ghost-dark.active:focus {
+        box-shadow: none;
+        outline: 3px solid transparent;
+    }
+
+    &--ghost:focus:hover,
+    &--ghost-dark:focus:hover,
+    &--dropdown:focus:hover,
+    &--text-link:focus:hover,
+    &--neutral:focus:hover {
+        outline: none;
+    }
+
+    &--ghost-dark:focus:hover &,
+    &--dropdown:focus:hover & {
+        &__inner {
+            color: var(--ons-color-text);
+            .ons-icon {
+                fill: var(--ons-color-text);
+            }
+        }
+    }
+
+    &--ghost:hover & {
+        &__inner {
+            background: rgb(0 0 0 / 10%);
+            border-color: var(--ons-color-white);
+        }
+    }
+
+    &--ghost:active &,
+    &--ghost:active:focus &,
+    &--ghost.active & {
+        &__inner {
+            background: rgb(0 0 0 / 20%);
+            border-color: rgb(255 255 255 / 60%);
+            color: var(--ons-color-text-inverse);
+            .ons-icon {
+                fill: var(--ons-color-text-inverse);
+            }
+        }
+    }
+
+    &--ghost-dark:hover &,
+    &--ghost-dark:active &,
+    &--ghost-dark:active:focus &,
+    &--ghost-dark.active & {
+        &__inner {
+            background: var(--ons-color-black);
+            border-color: var(--ons-color-black);
+            color: var(--ons-color-white);
+            .ons-icon {
+                fill: var(--ons-color-white);
+            }
+        }
+    }
+
+    &--ghost.active:focus &,
+    &--ghost-dark.active:focus &,
+    &--dropdown.active:focus & {
+        &__inner {
+            background: var(--ons-color-focus);
+            color: var(--ons-color-text-link-focus);
+            .ons-icon {
+                fill: var(--ons-color-text-link-focus);
+            }
+        }
+    }
+
+    &--ghost:focus &,
+    &--ghost-dark:focus &,
+    &--dropdown:focus & {
+        &__inner {
+            border-color: var(--ons-color-text-link-focus);
+            box-shadow: 0 0 0 1px var(--ons-color-text-link-focus);
+            .ons-icon {
+                fill: var(--ons-color-black);
+            }
+        }
+    }
+
+    &--loader & {
+        &__inner {
+            position: relative;
+            transition: color 0.3s ease-in-out;
+            .ons-icon {
+                height: 27px;
+                left: 50%;
+                margin: 0;
+                opacity: 0;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                transition: opacity 0.3s ease-in-out;
+                width: 27px;
+            }
+        }
+    }
+
+    &--loader.ons-btn--small {
+        .ons-icon {
+            height: 24px;
+            width: 24px;
+        }
+    }
+
+    &--loader.ons-is-loading & {
+        &__inner {
+            color: transparent;
+            .ons-icon {
+                margin-left: 0 !important;
+                opacity: 1;
+            }
+        }
+    }
+
+    &--loader.ons-is-loading:active &,
+    &--loader.ons-is-loading.active & {
+        &__inner {
+            box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
+        }
+    }
+
+    &--loader.ons-is-loading:hover {
+        cursor: not-allowed;
+    }
+
+    &--dropdown:focus & {
+        &__inner {
+            box-shadow: inset 0 -4px 0 0 var(--ons-color-text-link-focus);
+        }
+    }
+
+    &--mobile[aria-expanded='true'],
+    &--text-link[aria-expanded='true'] {
+        .ons-icon {
+            transform: rotate(270deg);
+        }
+    }
+
+    &--mobile,
+    &--text-link {
+        .ons-icon {
+            transform: rotate(90deg);
+        }
+
+        @include mq(l) {
+            display: none;
+        }
+    }
+
+    // Disabled buttons
+    &--disabled & {
+        &__inner {
+            opacity: 0.4;
+        }
+    }
+
+    &--disabled:hover {
+        cursor: not-allowed;
+    }
+
+    &--disabled:active &,
+    &--disabled.active & {
+        &__inner {
+            box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
+        }
+    }
+
+    &--dropdown {
+        @extend .ons-btn--mobile;
+
+        width: 100%;
+    }
+
+    &--dropdown & {
+        @extend .ons-btn--mobile;
+
+        width: 100%;
+
+        &__inner {
+            background: var(--ons-color-branded-tint);
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            color: var(--ons-color-branded-text);
+            display: block;
+            font-size: 1rem;
+            font-weight: $font-weight-regular;
+            padding: 0.6rem 1rem;
+            text-align: left;
+
+            .ons-icon {
+                fill: var(--ons-color-branded-text);
+                float: right;
+                margin-top: 3px;
+            }
+        }
+    }
+
+    &--dropdown:hover & {
+        &__inner {
+            background: var(--ons-color-branded-secondary);
+            color: var(--ons-color-white);
+            .ons-icon {
+                fill: var(--ons-color-white);
+            }
+        }
+    }
+
+    &--dropdown:active &,
+    &--dropdown.active &,
+    &--dropdown:active:focus &,
+    &--dropdown.active:focus & {
+        &__inner {
+            background: var(--ons-color-branded-secondary);
+            color: var(--ons-color-white);
+            .ons-icon {
+                fill: var(--ons-color-white);
+            }
+        }
+    }
+
+    &--neutral &,
+    &--neutral:hover &,
+    &--neutral:active &,
+    &--neutral.active & {
+        &__inner {
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            color: var(--ons-color-black);
+            font-weight: $font-weight-regular;
+            padding: 2px;
+            .ons-icon {
+                fill: var(--ons-color-black);
+            }
+        }
+    }
+
+    &--neutral:focus &,
+    &--neutral:active:focus &,
+    &--neutral.active:focus & {
+        &__inner {
+            background-color: var(--ons-color-focus);
+            box-shadow:
+                0 -2px var(--ons-color-focus),
+                0 4px var(--ons-color-text-link-focus) !important;
+            color: var(--ons-color-text-link-focus);
+            .ons-icon {
+                fill: var(--ons-color-text-link-focus);
+            }
+        }
+    }
 }
 
 .ons-btn-group {
-  @extend .ons-u-mb-m;
+    @extend .ons-u-mb-m;
 
-  align-items: baseline;
-  display: flex;
-  flex-flow: row wrap;
+    align-items: baseline;
+    display: flex;
+    flex-flow: row wrap;
 
-  & .ons-btn,
-  & a {
-    margin: 0 1rem 1rem 0;
-  }
+    .ons-btn,
+    a {
+        margin: 0 1rem 1rem 0;
+    }
 }

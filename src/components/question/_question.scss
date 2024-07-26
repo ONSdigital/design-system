@@ -1,34 +1,34 @@
 .ons-question {
-  margin: 1rem 0 0;
+    margin: 1rem 0 0;
 
-  &__title {
-    @extend .ons-u-mb-m;
+    &__title {
+        @extend .ons-u-mb-m;
 
-    mark,
-    .ons-instruction {
-      background-color: var(--ons-color-instruction);
-      color: var(--ons-color-text-inverse);
-      margin-right: 0.5rem;
-      padding: 0 0.5rem;
-      box-shadow: none;
+        mark,
+        .ons-instruction {
+            background-color: var(--ons-color-instruction);
+            color: var(--ons-color-text-inverse);
+            margin-right: 0.5rem;
+            padding: 0 0.5rem;
+            box-shadow: none;
+        }
     }
-  }
 
-  &__description {
-    p:last-of-type {
-      margin-bottom: 0 !important;
+    &__description {
+        p:last-of-type {
+            margin-bottom: 0 !important;
+        }
     }
-  }
 
-  &__instruction {
-    background-color: var(--ons-color-instruction-tint);
-    border: 5px solid var(--ons-color-instruction);
-    display: block;
-    font-weight: $font-weight-regular;
-    padding: 1rem;
+    &__instruction {
+        background-color: var(--ons-color-instruction-tint);
+        border: 5px solid var(--ons-color-instruction);
+        display: block;
+        font-weight: $font-weight-regular;
+        padding: 1rem;
 
-    p:last-of-type {
-      margin-bottom: 0;
+        p:last-of-type {
+            margin-bottom: 0;
+        }
     }
-  }
 }

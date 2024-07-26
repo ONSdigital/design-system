@@ -1,60 +1,60 @@
 .ons-footer {
-  a {
-    color: var(--ons-color-text-banner-link);
-    text-decoration: underline;
+    a {
+        color: var(--ons-color-text-banner-link);
+        text-decoration: underline;
 
-    &:hover:not(:focus) {
-      color: var(--ons-color-text-banner-link-hover);
-      text-decoration: underline solid var(--ons-color-text-banner-link-hover) 2px;
+        &:hover:not(:focus) {
+            color: var(--ons-color-text-banner-link-hover);
+            text-decoration: underline solid var(--ons-color-text-banner-link-hover) 2px;
+        }
     }
-  }
 
-  &__button-container {
-    background-clip: border-box;
-    background-color: var(--ons-color-header);
-    padding: 1rem;
-  }
-
-  &__warning {
-    background-color: var(--ons-color-banner-bg-dark);
-    outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
-  }
-
-  &__license {
-    @extend .ons-u-fs-s;
-  }
-
-  &__ogl-img {
-    margin: 0 0.5rem 0.2rem 0;
-    max-width: 100%;
-    vertical-align: middle;
-  }
-
-  &__poweredBy-link {
-    &:focus {
-      .ons-icon--logo {
-        @extend %a-focus;
-      }
+    &__button-container {
+        background-clip: border-box;
+        background-color: var(--ons-color-header);
+        padding: 1rem;
     }
-  }
 
-  .ons-icon--logo,
-  .ons-icon--logo__group {
-    fill: var(--ons-color-black) !important;
-  }
-
-  &__body {
-    background-color: var(--ons-color-banner-bg);
-    padding: 2rem 0 4rem;
-
-    .ons-list__link {
-      margin-right: 0;
+    &__warning {
+        background-color: var(--ons-color-banner-bg-dark);
+        outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
     }
-  }
 
-  &--rows {
-    li {
-      margin-bottom: 0.5rem !important;
+    &__license {
+        @extend .ons-u-fs-s;
     }
-  }
+
+    &__ogl-img {
+        margin: 0 0.5rem 0.2rem 0;
+        max-width: 100%;
+        vertical-align: middle;
+    }
+
+    &__poweredBy-link {
+        &:focus {
+            .ons-icon--logo {
+                @extend %a-focus;
+            }
+        }
+    }
+
+    .ons-icon--logo,
+    .ons-icon--logo__group {
+        fill: var(--ons-color-black) !important;
+    }
+
+    &__body {
+        background-color: var(--ons-color-banner-bg);
+        padding: 2rem 0 4rem;
+
+        .ons-list__link {
+            margin-right: 0;
+        }
+    }
+
+    &--rows {
+        li {
+            margin-bottom: 0.5rem !important;
+        }
+    }
 }

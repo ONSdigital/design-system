@@ -6,119 +6,119 @@ import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
 describe('macro: icon', () => {
-  describe.each([
-    'arrow-forward',
-    'arrow-next',
-    'arrow-previous',
-    'check',
-    'chevron',
-    'download',
-    'exit',
-    'external-link',
-    'lock',
-    'person',
-    'print',
-    'quote',
-    'search',
-    'sort-sprite',
-    'facebook',
-    'twitter',
-    'instagram',
-    'linkedin',
-    'loader',
-    'ons-logo-en',
-    'ons-logo-cy',
-    'ons-logo-stacked-en',
-    'ons-logo-stacked-cy',
-    'crest',
-    'ogl',
-    'circle-lined',
-  ])('icon type: %s', (iconType) => {
-    it('passes jest-axe checks', async () => {
-      const $ = cheerio.load(renderComponent('icon', { iconType }));
+    describe.each([
+        'arrow-forward',
+        'arrow-next',
+        'arrow-previous',
+        'check',
+        'chevron',
+        'download',
+        'exit',
+        'external-link',
+        'lock',
+        'person',
+        'print',
+        'quote',
+        'search',
+        'sort-sprite',
+        'facebook',
+        'twitter',
+        'instagram',
+        'linkedin',
+        'loader',
+        'ons-logo-en',
+        'ons-logo-cy',
+        'ons-logo-stacked-en',
+        'ons-logo-stacked-cy',
+        'crest',
+        'ogl',
+        'circle-lined',
+    ])('icon type: %s', (iconType) => {
+        it('passes jest-axe checks', async () => {
+            const $ = cheerio.load(renderComponent('icon', { iconType }));
 
-      const results = await axe($.html());
-      expect(results).toHaveNoViolations();
+            const results = await axe($.html());
+            expect(results).toHaveNoViolations();
+        });
+
+        it('has an svg element', () => {
+            const $ = cheerio.load(renderComponent('icon', { iconType }));
+
+            expect($('svg').length).toBe(1);
+        });
+
+        it('has a role of image', () => {
+            const $ = cheerio.load(renderComponent('icon', { iconType }));
+
+            expect($('svg').attr('role')).toBe('img');
+        });
+
+        it('has additionally provided style classes', () => {
+            const $ = cheerio.load(
+                renderComponent('icon', {
+                    iconType,
+                    classes: 'extra-class another-extra-class',
+                }),
+            );
+
+            expect($('svg').hasClass('extra-class')).toBe(true);
+            expect($('svg').hasClass('another-extra-class')).toBe(true);
+        });
     });
 
-    it('has an svg element', () => {
-      const $ = cheerio.load(renderComponent('icon', { iconType }));
+    describe.each([
+        'arrow-next',
+        'arrow-previous',
+        'check',
+        'chevron',
+        'download',
+        'exit',
+        'external-link',
+        'lock',
+        'person',
+        'print',
+        'quote',
+        'search',
+        'facebook',
+        'twitter',
+        'instagram',
+        'linkedin',
+    ])('icon type: %s', (iconType) => {
+        it('has style variation class for provided icon size', () => {
+            const $ = cheerio.load(
+                renderComponent('icon', {
+                    iconType,
+                    iconSize: 'xxl',
+                }),
+            );
 
-      expect($('svg').length).toBe(1);
+            expect($('svg').hasClass('ons-icon--xxl')).toBe(true);
+        });
     });
 
-    it('has a role of image', () => {
-      const $ = cheerio.load(renderComponent('icon', { iconType }));
+    describe.each([
+        ['ons-logo-en', 'Office for National Statistics homepage'],
+        ['ons-logo-cy', 'Hafan Swyddfa Ystadegau Gwladol'],
+        ['ons-logo-stacked-en', 'Office for National Statistics homepage'],
+        ['ons-logo-stacked-cy', 'Hafan Swyddfa Ystadegau Gwladol'],
+        ['crest', 'Royal coat of arms of the United Kingdom'],
+        ['ogl', 'Open Government License logo'],
+    ])('icon type: %s', (iconType, expectedAltText) => {
+        it(`has default alt text '${expectedAltText}'`, () => {
+            const $ = cheerio.load(renderComponent('icon', { iconType }));
 
-      expect($('svg').attr('role')).toBe('img');
+            expect($('title').text().trim()).toBe(expectedAltText);
+        });
+
+        it('has provided alt text', () => {
+            const $ = cheerio.load(
+                renderComponent('icon', {
+                    iconType,
+                    altText: 'Example alt text',
+                }),
+            );
+
+            expect($('title').text().trim()).toBe('Example alt text');
+        });
     });
-
-    it('has additionally provided style classes', () => {
-      const $ = cheerio.load(
-        renderComponent('icon', {
-          iconType,
-          classes: 'extra-class another-extra-class',
-        }),
-      );
-
-      expect($('svg').hasClass('extra-class')).toBe(true);
-      expect($('svg').hasClass('another-extra-class')).toBe(true);
-    });
-  });
-
-  describe.each([
-    'arrow-next',
-    'arrow-previous',
-    'check',
-    'chevron',
-    'download',
-    'exit',
-    'external-link',
-    'lock',
-    'person',
-    'print',
-    'quote',
-    'search',
-    'facebook',
-    'twitter',
-    'instagram',
-    'linkedin',
-  ])('icon type: %s', (iconType) => {
-    it('has style variation class for provided icon size', () => {
-      const $ = cheerio.load(
-        renderComponent('icon', {
-          iconType,
-          iconSize: 'xxl',
-        }),
-      );
-
-      expect($('svg').hasClass('ons-icon--xxl')).toBe(true);
-    });
-  });
-
-  describe.each([
-    ['ons-logo-en', 'Office for National Statistics homepage'],
-    ['ons-logo-cy', 'Hafan Swyddfa Ystadegau Gwladol'],
-    ['ons-logo-stacked-en', 'Office for National Statistics homepage'],
-    ['ons-logo-stacked-cy', 'Hafan Swyddfa Ystadegau Gwladol'],
-    ['crest', 'Royal coat of arms of the United Kingdom'],
-    ['ogl', 'Open Government License logo'],
-  ])('icon type: %s', (iconType, expectedAltText) => {
-    it(`has default alt text '${expectedAltText}'`, () => {
-      const $ = cheerio.load(renderComponent('icon', { iconType }));
-
-      expect($('title').text().trim()).toBe(expectedAltText);
-    });
-
-    it('has provided alt text', () => {
-      const $ = cheerio.load(
-        renderComponent('icon', {
-          iconType,
-          altText: 'Example alt text',
-        }),
-      );
-
-      expect($('title').text().trim()).toBe('Example alt text');
-    });
-  });
 });

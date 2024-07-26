@@ -1,51 +1,49 @@
 ---
-title: "Example: Change language from English to Welsh"
+title: 'Example: Change language from English to Welsh'
 layout: ~
 ---
 
-+++
 {% extends "layout/_template.njk" %}
-
-{% set pageConfig = {
-    "header": {
-        "title": "Service name",
-        "language": {
-            "languages": [
-                {
-                    "url": "#0",
-                    "ISOCode": "en",
-                    "text": "English",
-                    "current": true
-                },
-                {
-                    "url": "/patterns/change-language/example-change-language-cymraeg",
-                    "ISOCode": "cy",
-                    "text": "Cymraeg",
-                    "current": false
-                }
-            ]
-        }
-    },
-    "footer": {
-        "rows": [
-            {
-                "itemsList": [
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Service name",
+            "language": {
+                "languages": [
                     {
-                        "text": "Contact us",
-                        "url": "#0"
+                        "url": "#0",
+                        "ISOCode": "en",
+                        "text": "English",
+                        "current": true
                     },
                     {
-                        "text": "Cookies and privacy",
-                        "url": "#0"
+                        "url": "example-change-language-cymraeg",
+                        "ISOCode": "cy",
+                        "text": "Cymraeg",
+                        "current": false
                     }
                 ]
             }
-        ],
-        "OGLLink": true
+        },
+        "footer": {
+            "rows": [
+                {
+                    "itemsList": [
+                        {
+                            "text": "Contact us",
+                            "url": "#0"
+                        },
+                        {
+                            "text": "Cookies and privacy",
+                            "url": "#0"
+                        }
+                    ]
+                }
+            ],
+            "OGLLink": true
+        }
     }
-} %}
+%}
 
 {% block main %}
 {% endblock %}
-
-+++

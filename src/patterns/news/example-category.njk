@@ -1,294 +1,285 @@
 ---
-title: "Example: News categories"
+title: 'Example: News categories'
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
 {% from "components/document-list/_macro.njk" import onsDocumentList %}
 {% from "components/pagination/_macro.njk" import onsPagination %}
 {% from "components/related-content/_macro.njk" import onsRelatedContent %}
-
-{% set pageConfig = {
-    "header": {
-        "title": 'Service name'
-    },
-    "breadcrumbs": {
-        "ariaLabel": 'Breadcrumbs',
-        "itemsList": [
-            {
-                "url": '#0',
-                "text": 'Home'
-            },
-            {
-                "url": '#0',
-                "text": 'News'
-            }
-        ]
-    },
-    "footer": {}
-} %}
+{%
+    set pageConfig = {
+        "header": {
+            "title": 'Service name'
+        },
+        "breadcrumbs": {
+            "ariaLabel": 'Breadcrumbs',
+            "itemsList": [
+                {
+                    "url": '#0',
+                    "text": 'Home'
+                },
+                {
+                    "url": '#0',
+                    "text": 'News'
+                }
+            ]
+        },
+        "footer": {}
+    }
+%}
 
 {% block main %}
-
-<div class="ons-grid">
-    <div class="ons-grid__col ons-col-7@m">
-        <h1 class="ons-u-fs-xxl">Press releases</h1>
+    <div class="ons-grid">
+        <div class="ons-grid__col ons-col-7@m">
+            <h1 class="ons-u-fs-xxl">Press releases</h1>
+        </div>
     </div>
-</div>
 
-<div class="ons-grid ons-grid--column@xs@s">
+    <div class="ons-grid">
+        <div class="ons-grid__col ons-col-7@m">
+            <div class="ons-u-mt-m ons-u-mb-m">
+                {{
+                    onsDocumentList({
+                        "documents": [
+                            {
+                                "thumbnail": {
+                                    "smallSrc": '/img/small/ons-award-winners.jpg',
+                                    "largeSrc": '/img/large/ons-award-winners.jpg'
+                                },
+                                "url": '#0',
+                                "title": 'Office for National Statistics win top Royal Statistical Society award',
+                                "metadata": {
+                                    "type": {
+                                        "text": 'Press releases',
+                                        "url": '#0'
+                                    },
+                                    "date": {
+                                        "iso": '2021-07-15',
+                                        "short": '15 July 2021'
+                                    }
+                                },
+                                "description": 'The Office for National Statistics’ (ONS) analysis showing that people from certain ethnicities had a higher risk of dying from COVID-19 has been recognised by the Royal Statistical Society (RSS) with the renowned Campion Award.'
+                            },
+                            {
+                                "thumbnail": {
+                                    "smallSrc": '/img/small/alison-pritchard.jpg',
+                                    "largeSrc": '/img/large/alison-pritchard.jpg'
+                                },
+                                "url": '#0',
+                                "title": 'ONS launches Integrated Data Service to boost government collaboration on data sharing',
+                                "metadata": {
+                                    "type": {
+                                        "text": 'Press releases',
+                                        "url": '#0'
+                                    },
+                                    "date": {
+                                        "iso": '2021-08-01',
+                                        "short": '1 August 2022'
+                                    }
+                                },
+                                "description": 'The Office for National Statistics has today launched the first stage of the Integrated Data Service (IDS), a cloud-based platform giving analysts and researchers greater access to data from a range of sources.'
+                            },
+                            {
+                                "thumbnail": true,
+                                "url": '#0',
+                                "title": 'Five Office for National Statistics names in New Year’s Honours',
+                                "metadata": {
+                                    "type": {
+                                        "text": 'Press releases',
+                                        "url": '#0'
+                                    },
+                                    "date": {
+                                        "iso": '2021-08-19',
+                                        "short": '19 August 2021'
+                                    }
+                                },
+                                "description": 'After another year in which data and statistics have dominated public debate, five Office for National Statistics (ONS) employees have been recognised for their contributions to statistics, public health and the census in the New Year’s Honours list.'
+                            },
+                            {
+                                "thumbnail": true,
+                                "url": '#0',
+                                "title": 'National Data Strategy – the ONS takes centre stage',
+                                "metadata": {
+                                    "type": {
+                                        "text": 'Press releases',
+                                        "url": '#0'
+                                    },
+                                    "date": {
+                                        "iso": '2021-09-02',
+                                        "short": '2 September 2021'
+                                    }
+                                },
+                                "description": 'The Office for National Statistics (ONS) will take a central role in the new National Data Strategy (NDS) announced by the UK government on 9 September 2020.'
+                            },
+                            {
+                                "thumbnail": true,
+                                "url": '#0',
+                                "title": 'The ONS named among the UK’s best employers for working families',
+                                "metadata": {
+                                    "type": {
+                                        "text": 'Press releases',
+                                        "url": '#0'
+                                    },
+                                    "date": {
+                                        "iso": '2021-09-08',
+                                        "short": '8 September 2021'
+                                    }
+                                },
+                                "description": 'The Office for National Statistics (ONS) has been named as one of the top 30 employers for working families in 2020.'
+                            }
+                        ]
+                    })
+                }}
+            </div>
 
-    <div class="ons-grid__col ons-col-7@m">
-
-        <div class="ons-u-mt-m ons-u-mb-m">
-
-            {{ onsDocumentList({
-                "documents": [
-                    {
-                        "thumbnail": {
-                            "smallSrc": '/img/small/ons-award-winners.jpg',
-                            "largeSrc": '/img/large/ons-award-winners.jpg'
-                        },
-                        "url": '#0',
-                        "title": 'Office for National Statistics win top Royal Statistical Society award',
-                        "metadata": {
-                            "type": {
-                                "text": 'Press releases',
-                                "url": '#0'
+            <div>
+                {{
+                    onsPagination({
+                        "previous": "Previous",
+                        "next": "Next",
+                        "currentPageNumber": 1,
+                        "pages": [
+                            {
+                                "url": "#0"
                             },
-                            "date": {
-                                "iso": '2021-07-15',
-                                "short": '15 July 2021'
-                            }
-                        },
-                        "description": 'The Office for National Statistics’ (ONS) analysis showing that people from certain ethnicities had a higher risk of dying from COVID-19 has been recognised by the Royal Statistical Society (RSS) with the renowned Campion Award.'
-                    },
-                    {
-                        "thumbnail": {
-                            "smallSrc": '/img/small/alison-pritchard.jpg',
-                            "largeSrc": '/img/large/alison-pritchard.jpg'
-                        },
-                        "url": '#0',
-                        "title": 'ONS launches Integrated Data Service to boost government collaboration on data sharing',
-                        "metadata": {
-                            "type": {
-                                "text": 'Press releases',
-                                "url": '#0'
+                            {
+                                "url": "#0"
                             },
-                            "date": {
-                                "iso": '2021-08-01',
-                                "short": '1 August 2022'
-                            }
-                        },
-                        "description": 'The Office for National Statistics has today launched the first stage of the Integrated Data Service (IDS), a cloud-based platform giving analysts and researchers greater access to data from a range of sources.'
-                    },
-                    {
-                        "thumbnail": true,
-                        "url": '#0',
-                        "title": 'Five Office for National Statistics names in New Year’s Honours',
-                        "metadata": {
-                            "type": {
-                                "text": 'Press releases',
-                                "url": '#0'
+                            {
+                                "url": "#0"
                             },
-                            "date": {
-                                "iso": '2021-08-19',
-                                "short": '19 August 2021'
-                            }
-                        },
-                        "description": 'After another year in which data and statistics have dominated public debate, five Office for National Statistics (ONS) employees have been recognised for their contributions to statistics, public health and the census in the New Year’s Honours list.'
-                    },
-                    {
-                        "thumbnail": true,
-                        "url": '#0',
-                        "title": 'National Data Strategy – the ONS takes centre stage',
-                        "metadata": {
-                            "type": {
-                                "text": 'Press releases',
-                                "url": '#0'
+                            {
+                                "url": "#0"
                             },
-                            "date": {
-                                "iso": '2021-09-02',
-                                "short": '2 September 2021'
-                            }
-                        },
-                        "description": 'The Office for National Statistics (ONS) will take a central role in the new National Data Strategy (NDS) announced by the UK government on 9 September 2020.'
-                    },
-                    {
-                        "thumbnail": true,
-                        "url": '#0',
-                        "title": 'The ONS named among the UK’s best employers for working families',
-                        "metadata": {
-                            "type": {
-                                "text": 'Press releases',
-                                "url": '#0'
+                            {
+                                "url": "#0"
                             },
-                            "date": {
-                                "iso": '2021-09-08',
-                                "short": '8 September 2021'
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
+                            },
+                            {
+                                "url": "#0"
                             }
-                        },
-                        "description": 'The Office for National Statistics (ONS) has been named as one of the top 30 employers for working families in 2020.'
-                    }
-                ]
-            }) }}
-
+                        ]
+                    })
+                }}
+            </div>
         </div>
 
-        <div>
-
-            {{
-                onsPagination({
-                    "previous": "Previous",
-                    "next": "Next",
-                    "currentPageNumber": 1,
-                    "pages": [
+        <div class="ons-grid__col ons-col-4@m ons-push-1@m">
+            {%
+                call onsRelatedContent({
+                    "ariaLabel": 'Related content',
+                    "rows": [
                         {
-                            "url": "#0"
+                            "id": 'related-links',
+                            "title": 'Categories',
+                            "itemsList": [
+                                {
+                                    "text": 'Press releases',
+                                    "url": '#0'
+                                },
+                                {
+                                    "text": 'Statements',
+                                    "url": '#0'
+                                }
+                            ]
                         },
                         {
-                            "url": "#0"
+                            "id": 'media-enquiries',
+                            "title": 'Media enquiries',
+                            "classes": 'ons-u-mb-no',
+                            "itemsList": [
+                                {
+                                    "text": 'Telephone: 0845 604 1858 <br> Monday to Friday, 8:30am to 5:30pm'
+                                },
+                                {
+                                    "text": 'Out of hours: 07867 906 553'
+                                },
+                                {
+                                    "text": 'Email: <a href="#0">media.relations@ons.gov.uk</a>'
+                                }
+                            ]
                         },
                         {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
-                        },
-                        {
-                            "url": "#0"
+                            "id": 'follow-us',
+                            "title": 'Follow us',
+                            "iconPosition": 'before',
+                            "iconSize": 'xxl',
+                            "itemsList": [
+                                {
+                                    "url": '#0',
+                                    "text": 'Twitter',
+                                    "iconType": 'twitter',
+                                    "rel": 'noreferrer external'
+                                },
+                                {
+                                    "url": '#0',
+                                    "text": 'Facebook',
+                                    "iconType": 'facebook',
+                                    "rel": 'noreferrer external'
+                                },
+                                {
+                                    "url": '#0',
+                                    "text": 'Instagram',
+                                    "iconType": 'instagram',
+                                    "rel": 'noreferrer external'
+                                },
+                                {
+                                    "url": '#0',
+                                    "text": 'LinkedIn',
+                                    "iconType": 'linkedin',
+                                    "rel": 'noreferrer external'
+                                }
+                            ]
                         }
                     ]
                 })
-            }}
-
+            %}
+            {% endcall %}
         </div>
-
     </div>
-
-    <div class="ons-grid__col ons-col-4@m ons-push-1@m">
-
-        {% call onsRelatedContent({
-            "ariaLabel": 'Related content',
-            "rows": [
-                {
-                    "id": 'related-links',
-                    "title": 'Categories',
-                    "itemsList": [
-                        {
-                            "text": 'Press releases',
-                            "url": '#0'
-                        },
-                        {
-                            "text": 'Statements',
-                            "url": '#0'
-                        }
-                    ]
-                },
-                {
-                    "id": 'media-enquiries',
-                    "title": 'Media enquiries',
-                    "classes": 'ons-u-mb-no',
-                    "variants": 'bare',
-                    "itemsList": [
-                        {
-                            "text": 'Telephone: 0845 604 1858 <br> Monday to Friday, 8:30am to 5:30pm'
-                        },
-                        {
-                            "text": 'Out of hours: 07867 906 553'
-                        },
-                        {
-                            "text": 'Email: <a href="#0">media.relations@ons.gov.uk</a>'
-                        }
-                    ]
-                },
-                {
-                    "id": 'follow-us',
-                    "title": 'Follow us',
-                    "variants": 'social',
-                    "iconPosition": 'before',
-                    "iconSize": 'xxl',
-                    "itemsList": [
-                        {
-                            "url": '#0',
-                            "text": 'Twitter',
-                            "iconType": 'twitter',
-                            "rel": 'noreferrer external'
-                        },
-                        {
-                            "url": '#0',
-                            "text": 'Facebook',
-                            "iconType": 'facebook',
-                            "rel": 'noreferrer external'
-                        },
-                        {
-                            "url": '#0',
-                            "text": 'Instagram',
-                            "iconType": 'instagram',
-                            "rel": 'noreferrer external'
-                        },
-                        {
-                            "url": '#0',
-                            "text": 'LinkedIn',
-                            "iconType": 'linkedin',
-                            "rel": 'noreferrer external'
-                        }
-                    ]
-                }
-            ]
-        }) %}
-
-        {% endcall %}
-
-    </div>
-
-</div>
-
 {% endblock %}
