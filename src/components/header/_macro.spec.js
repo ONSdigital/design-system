@@ -924,7 +924,7 @@ describe('mode: with site search autosuggest', () => {
                 autocomplete: 'off',
                 classes: 'ons-input-search ons-input-search--icon',
                 label: {
-                    classes: 'ons-u-pl-m ons-label--white',
+                    classes: 'ons-u-pl-l ons-label--white',
                     id: 'ons-site-search-label',
                     text: 'label',
                 },
