@@ -2,14 +2,14 @@
 layout: layouts/example
 ---
 
-{% from "components/helpers/grid.njk" import dsExampleGrid %}
+{% from "components/helpers/grid/grid.njk" import dsExampleGrid %}
 
 {{
     dsExampleGrid({
-        'container': true,
         "itemsList": [
             {
-                'col': 8
+                'repeat': 12,
+                'col': 1
             }
         ]
     })
