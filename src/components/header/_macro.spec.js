@@ -795,7 +795,7 @@ describe('macro: header', () => {
 
             expect(buttonSpy.occurrences[0]).toEqual({
                 text: 'Menu',
-                classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
+                classes: 'ons-u-ml-2xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
                 variants: ['mobile', 'ghost'],
                 attributes: {
                     'aria-label': 'Toggle main menu',
@@ -835,7 +835,7 @@ describe('macro: header', () => {
 
             expect(buttonSpy.occurrences[0]).toEqual({
                 text: 'Search',
-                classes: 'ons-btn--search ons-u-ml-xs ons-u-d-no ons-js-toggle-search',
+                classes: 'ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search',
                 variants: ['small', 'ghost'],
                 iconType: 'search',
                 iconPosition: 'only',
@@ -924,7 +924,7 @@ describe('mode: with site search autosuggest', () => {
                 autocomplete: 'off',
                 classes: 'ons-input-search ons-input-search--icon',
                 label: {
-                    classes: 'ons-u-pl-l ons-label--white',
+                    classes: 'ons-u-pl-xl ons-label--white',
                     id: 'ons-site-search-label',
                     text: 'label',
                 },

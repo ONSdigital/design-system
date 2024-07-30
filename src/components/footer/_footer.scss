@@ -54,7 +54,7 @@
 
     &--rows {
         li {
-            margin-bottom: 0.5rem !important;
+            @extend .ons-u-mb-2xs;
         }
     }
 }

@@ -43,7 +43,7 @@ ul {
 }
 
 li {
-    margin-bottom: 0.5rem;
+    @extend .ons-u-mb-2xs;
 }
 
 em {

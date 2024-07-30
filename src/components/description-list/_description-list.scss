@@ -9,7 +9,7 @@
         font-weight: $font-weight-bold;
 
         &:not(:first-child) {
-            margin-top: 0.5rem;
+            @extend .ons-u-mt-2xs;
         }
     }
 

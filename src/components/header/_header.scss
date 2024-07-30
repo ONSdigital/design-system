@@ -222,7 +222,7 @@
             }
             .ons-icon {
                 clip-path: circle(9px at center);
-                margin-right: 0.5rem;
+                @extend .ons-u-mr-2xs;
             }
         }
 

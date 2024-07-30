@@ -26,7 +26,7 @@
     }
 
     &__pre-title {
-        margin-bottom: 0.5rem;
+        @extend .ons-u-mb-2xs;
 
         @include mq(xxs, m) {
             max-width: 145px;

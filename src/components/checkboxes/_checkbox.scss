@@ -164,7 +164,7 @@ $checkbox-padding: 11px;
 
     &__description {
         display: block;
-        margin-top: 0.25rem;
+        @extend .ons-u-mt-3xs;
     }
 
     &__other {

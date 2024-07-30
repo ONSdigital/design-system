@@ -8,7 +8,7 @@
             {% if params.siteSearchAutosuggest %}
                 <div class="ons-navigation-search ons-js-navigation-search">
                     {% set autosuggestClasses = "ons-input-search ons-input-search--icon" %}
-                    {% set autosuggestLabelClasses = "ons-u-pl-l" %}
+                    {% set autosuggestLabelClasses = "ons-u-pl-xl" %}
                     {% if params.variants == "neutral" %}
                         {% set autosuggestClasses = autosuggestClasses + ' ons-input-search--dark' %}
                     {% else %}
@@ -123,7 +123,7 @@
                 })
             }}
             <nav
-                class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-xs"
+                class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-2xs"
                 id="{{ params.navigation.subNavigation.id }}--mobile"
                 aria-hidden="true"
                 aria-label="{{ params.navigation.subNavigation.ariaLabel | default("Section menu") }}"
@@ -162,7 +162,7 @@
                                             <h3 class="ons-navigation__list-header">{{ section.sectionTitle }}</h3>
                                         {% endif %}
                                         <ul
-                                            class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs"
+                                            class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-2xs"
                                         >
                                             {% for child in section.children %}
                                                 <li

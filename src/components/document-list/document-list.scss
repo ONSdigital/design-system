@@ -63,7 +63,7 @@
                 &--reverse {
                     display: flex;
                     flex-direction: column-reverse;
-                    margin-bottom: 0.5rem;
+                    @extend .ons-u-mb-2xs;
                 }
             }
 

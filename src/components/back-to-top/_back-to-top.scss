@@ -1,6 +1,6 @@
 .ons-back-to-top {
     &__description {
-        margin-left: 0.2rem;
+        @extend .ons-u-ml-3xs;
     }
 
     &__enabled {

@@ -2,13 +2,14 @@
     margin: 1rem 0 0;
 
     &__title {
-        @extend .ons-u-mb-m;
+        @extend .ons-u-mb-l;
 
         mark,
         .ons-instruction {
             background-color: var(--ons-color-instruction);
             color: var(--ons-color-text-inverse);
-            margin-right: 0.5rem;
+            @extend .ons-u-mr-2xs;
+
             padding: 0 0.5rem;
             box-shadow: none;
         }

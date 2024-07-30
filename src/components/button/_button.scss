@@ -30,7 +30,7 @@ $button-shadow-size: 3px;
     &--search {
         .ons-icon {
             @include mq(s, l) {
-                margin-right: 0.5rem;
+                @extend .ons-u-mr-2xs;
             }
         }
     }
@@ -57,7 +57,7 @@ $button-shadow-size: 3px;
 
     // When preceded by another button (for example, in a group)
     & + & {
-        margin-left: 0.5rem;
+        @extend .ons-u-ml-2xs;
     }
 
     // When focused
@@ -553,7 +553,7 @@ $button-shadow-size: 3px;
 }
 
 .ons-btn-group {
-    @extend .ons-u-mb-m;
+    @extend .ons-u-mb-l;
 
     align-items: baseline;
     display: flex;

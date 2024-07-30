@@ -33,5 +33,5 @@
 
 .ons-timeline__heading {
     font-size: 1rem !important;
-    margin-bottom: 0.5rem;
+    @extend .ons-u-mb-2xs;
 }
