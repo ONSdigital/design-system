@@ -1,10 +1,18 @@
 ### Link to Deprecation Ticket
 
+Provide a link to the issue or ticket where the deprecation is tracked and discussed.
+
 ### Description of Change:
+
+Detail what changes are being made, specifically outlining what is being deprecated or altered.
 
 ### Reason for Change:
 
+Explain why the change is necessary, including any issues or benefits associated with the update.
+
 ### Components Impacted (if relevant):
+
+List any specific components or areas of the codebase that are affected by this change.
 
 ### Migration steps:
 
@@ -43,6 +51,8 @@
     </details>
 
 ### Planned Removal Version:
+
+Indicate the version in which the deprecated feature or component will be removed.
 
 ### Checklist
 
