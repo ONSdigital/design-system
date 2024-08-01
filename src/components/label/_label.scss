@@ -12,12 +12,12 @@
     }
 
     &--with-description {
-        margin-bottom: 0;
+        @extend .ons-u-mb-no;
+
         padding-bottom: 0;
     }
 
     &--placeholder {
-        font-size: 1rem;
         font-weight: $font-weight-regular;
         color: var(--ons-color-text-placeholder);
         left: 10px;

@@ -4,7 +4,8 @@
 
 .ons-message-item {
     list-style: none;
-    margin-bottom: 2rem;
+    @extend .ons-u-mb-xl;
+
     padding-bottom: 1.5rem;
 
     &:not(:last-child) {

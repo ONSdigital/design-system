@@ -98,7 +98,8 @@
         .ons-panel__icon {
             font-size: 21px;
             line-height: 25px;
-            margin-top: 0;
+            @extend .ons-u-mt-no;
+
             min-height: 24px;
             min-width: 26px;
             top: 17px;

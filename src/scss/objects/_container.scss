@@ -26,7 +26,6 @@
 }
 
 .ons-grid__col {
-    font-size: 1rem;
 }
 
 @include bp-suffix('ons-container--gutterless', $create-between-breakpoints: true) {

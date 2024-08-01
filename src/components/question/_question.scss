@@ -17,7 +17,7 @@
 
     &__description {
         p:last-of-type {
-            margin-bottom: 0 !important;
+            @extend .ons-u-mb-no;
         }
     }
 
@@ -29,7 +29,7 @@
         padding: 1rem;
 
         p:last-of-type {
-            margin-bottom: 0;
+            @extend .ons-u-mb-no;
         }
     }
 }

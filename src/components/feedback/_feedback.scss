@@ -1,6 +1,7 @@
 .ons-feedback {
     border: 3px solid var(--ons-color-branded);
-    margin-bottom: 2rem;
+    @extend .ons-u-mb-xl;
+
     padding: 1rem;
     position: relative;
     &__link {

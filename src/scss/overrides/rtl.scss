@@ -14,7 +14,7 @@
 
         &__link {
             margin-left: 1rem;
-            margin-right: 0;
+            @extend .ons-u-mr-no;
         }
 
         &--bare {
@@ -25,12 +25,14 @@
             padding-right: 0;
 
             .ons-list__item {
-                margin-left: 0;
+                @extend .ons-u-ml-no;
+
                 margin-right: 25px;
 
                 &::before {
                     left: auto;
-                    margin-left: 0;
+                    @extend .ons-u-ml-no;
+
                     margin-right: -25px;
                     right: 0;
                 }
@@ -92,7 +94,7 @@
     .ons-download {
         &__image {
             margin-left: 1.5rem;
-            margin-right: 0;
+            @extend .ons-u-mr-no;
         }
     }
 

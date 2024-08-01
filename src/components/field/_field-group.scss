@@ -1,13 +1,12 @@
 .ons-field-group {
-    font-size: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 
     .ons-field {
         display: inline-block;
-        font-size: 1rem;
-        margin-top: 0;
+        @extend .ons-u-mt-no;
+
         vertical-align: top;
     }
 }

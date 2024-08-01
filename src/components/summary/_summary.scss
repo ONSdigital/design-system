@@ -14,7 +14,7 @@ $hub-row-spacing: 1.3rem;
         width: 100%;
 
         + .ons-summary__group-title {
-            margin-top: 1.5rem;
+            @extend .ons-u-mt-l;
         }
     }
 

@@ -12,7 +12,7 @@
         }
 
         > :last-child {
-            margin-bottom: 0;
+            @extend .ons-u-mb-no;
         }
     }
 }

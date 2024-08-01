@@ -5,11 +5,12 @@
     &__link {
         display: flex;
         flex-direction: column;
-        margin-bottom: 1rem;
+        @extend .ons-u-mb-s;
+
         width: fit-content;
 
         > .ons-card__title {
-            margin-bottom: 0;
+            @extend .ons-u-mb-no;
         }
     }
 

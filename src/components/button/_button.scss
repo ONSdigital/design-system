@@ -7,7 +7,6 @@ $button-shadow-size: 3px;
     cursor: pointer;
     display: inline-block;
     font-family: inherit;
-    font-size: 1rem;
     font-weight: $font-weight-bold;
     line-height: 1.35;
     margin: 0;
@@ -30,7 +29,7 @@ $button-shadow-size: 3px;
     &--search {
         .ons-icon {
             @include mq(s, l) {
-                @extend .ons-u-mr-2xs;
+                margin-right: 0.5rem;
             }
         }
     }
@@ -49,7 +48,7 @@ $button-shadow-size: 3px;
         .ons-icon {
             fill: var(--ons-color-text-inverse);
             height: 18px;
-            margin-top: -$button-shadow-size;
+            // margin-top: -$button-shadow-size;
             vertical-align: middle;
             width: 18px;
         }
@@ -482,7 +481,6 @@ $button-shadow-size: 3px;
             box-shadow: none;
             color: var(--ons-color-branded-text);
             display: block;
-            font-size: 1rem;
             font-weight: $font-weight-regular;
             padding: 0.6rem 1rem;
             text-align: left;
@@ -490,7 +488,7 @@ $button-shadow-size: 3px;
             .ons-icon {
                 fill: var(--ons-color-branded-text);
                 float: right;
-                margin-top: 3px;
+                @extend .ons-u-mt-3xs;
             }
         }
     }

@@ -3,7 +3,6 @@
 
     &-wrapper {
         background: var(--ons-color-header);
-        margin-top: -0.03rem;
 
         &--neutral {
             background: var(--ons-color-header-neutral);
@@ -42,7 +41,6 @@
         }
 
         &-header {
-            font-size: 1rem;
             margin: 0.75rem 0 0.6rem;
             padding: 0 0 0 1rem;
         }
@@ -52,6 +50,7 @@
         border-left: 4px solid transparent;
         display: block;
         margin: 0 0 0.2rem;
+        @extend .ons-u-mb-no;
         &--active,
         &:hover {
             border-color: var(--ons-color-white);
@@ -123,7 +122,6 @@
 
         @include mq(l) {
             display: inline-block;
-            font-size: 1rem;
             margin: 0;
             padding: 0;
         }

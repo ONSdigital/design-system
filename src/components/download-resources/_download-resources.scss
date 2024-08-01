@@ -7,10 +7,10 @@
     }
 
     &__item {
-        margin-top: 1.5rem;
+        @extend .ons-u-mt-l;
 
         &:first-of-type {
-            margin-top: 1.5rem;
+            @extend .ons-u-mt-l;
         }
 
         .ons-checkboxes__item {
@@ -34,7 +34,7 @@
 
         .ons-label {
             font-weight: $font-weight-regular;
-            margin-bottom: 0;
+            @extend .ons-u-mb-no;
             @extend .ons-u-mr-2xs;
         }
 

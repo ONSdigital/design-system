@@ -48,7 +48,7 @@
         padding: 2rem 0 4rem;
 
         .ons-list__link {
-            margin-right: 0;
+            @extend .ons-u-mr-no;
         }
     }
 

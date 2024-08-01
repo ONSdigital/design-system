@@ -33,11 +33,11 @@
 
     // Removes inherited bottom margin to make whitespace inside panel equal
     > *:last-child {
-        margin-bottom: 0;
+        @extend .ons-u-mb-no;
     }
 
     .ons-field {
-        margin-bottom: 0;
+        @extend .ons-u-mb-no;
     }
 
     &:focus {
@@ -66,7 +66,7 @@
         // Removes inherited bottom margin to make whitespace inside panel equal
         > *:last-child,
         strong > *:last-child {
-            margin-bottom: 0;
+            @extend .ons-u-mb-no;
         }
 
         &.ons-icon-margin--xxxl {
@@ -115,13 +115,15 @@
 
     &--warn {
         border: 0 !important;
-        margin-bottom: 1rem;
+        @extend .ons-u-mb-s;
+
         outline: none !important;
         padding: 0;
 
         &--footer {
             background-color: var(--ons-color-grey-15) !important;
-            margin-bottom: 0;
+            @extend .ons-u-mb-no;
+
             padding: 1rem 0 !important;
         }
     }
@@ -130,7 +132,8 @@
     &--announcement {
         border: 0 !important;
         color: var(--ons-color-white);
-        margin-bottom: 0;
+        @extend .ons-u-mb-no;
+
         outline: none !important;
         padding: 1rem 0 !important;
         a {
@@ -194,7 +197,7 @@
 
     &--announcement & {
         &__body div > *:last-child {
-            margin-bottom: 0;
+            @extend .ons-u-mb-no;
         }
 
         &__icon {
@@ -220,7 +223,6 @@
             padding-left: 1rem;
             .ons-icon {
                 fill: var(--ons-color-success) !important;
-                margin-top: -15% !important;
             }
         }
     }

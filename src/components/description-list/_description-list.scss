@@ -15,7 +15,7 @@
 
     &__value {
         float: right;
-        margin-left: 0; /* As normalize adds a 40px left margin */
+        @extend .ons-u-ml-no; /* As normalize adds a 40px left margin */
 
         &:not(:nth-of-type(1)) {
             @include mq(m) {

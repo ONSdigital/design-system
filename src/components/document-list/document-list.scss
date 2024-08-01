@@ -1,7 +1,7 @@
 .ons-document-list {
     @extend .ons-list--bare;
 
-    margin-bottom: 0;
+    @extend .ons-u-mb-no;
 
     &__item {
         border-bottom: 1px solid var(--ons-color-borders-light);
@@ -75,7 +75,7 @@
             // If featured item is first in same list
             + .ons-document-list__item {
                 border-top: 0;
-                margin-top: 0;
+                @extend .ons-u-mt-no;
             }
         }
 
@@ -87,7 +87,8 @@
 
     &__item-image {
         flex: 0 0 auto;
-        margin-bottom: 1rem;
+        @extend .ons-u-mb-s;
+
         width: 136px;
 
         @include mq(xs) {
@@ -170,11 +171,12 @@
     }
 
     &__item-description {
-        margin-bottom: 0;
+        @extend .ons-u-mb-no;
+
         max-width: 660px; // Equivalent to 8 Columns
 
         p:last-of-type {
-            margin-bottom: 0;
+            @extend .ons-u-mb-no;
         }
     }
 }

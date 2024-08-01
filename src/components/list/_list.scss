@@ -7,7 +7,7 @@
             @extend .ons-u-mt-2xs;
         }
         &:last-child {
-            margin-bottom: -0.5;
+            // margin-bottom: -0.5;
         }
     }
 
@@ -56,7 +56,7 @@
 
     &--icons & {
         &__item {
-            margin-top: 0;
+            @extend .ons-u-mt-no;
         }
     }
 
@@ -68,7 +68,7 @@
     &--prefix,
     &--suffix,
     &--icons {
-        margin-bottom: 0;
+        @extend .ons-u-mb-no;
         @extend .ons-list--bare;
         .ons-list__item {
             @extend .ons-u-mb-2xs;
@@ -79,17 +79,17 @@
     }
 
     &--icons {
-        margin-bottom: 0;
+        @extend .ons-u-mb-no;
         .ons-list__item {
-            margin-top: 0;
+            @extend .ons-u-mt-no;
             @extend .ons-u-mb-2xs;
         }
     }
 
     &--languages {
-        margin-bottom: 0;
+        @extend .ons-u-mb-no;
         .ons-list__link {
-            margin-right: 0;
+            @extend .ons-u-mr-no;
         }
     }
 

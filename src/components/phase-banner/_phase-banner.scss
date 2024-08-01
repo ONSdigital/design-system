@@ -15,6 +15,6 @@
     }
 
     &__desc {
-        margin-top: 0.3rem;
+        @extend .ons-u-mt-3xs;
     }
 }

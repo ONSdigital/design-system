@@ -2,7 +2,6 @@
 
 .ons-grid {
     box-sizing: border-box;
-    font-size: 0;
     margin-left: -$grid-gutters;
 }
 
@@ -66,7 +65,7 @@
 }
 
 .ons-grid--gutterless {
-    margin-left: 0;
+    @extend .ons-u-ml-no;
     .ons-grid__col {
         padding-left: 0;
     }

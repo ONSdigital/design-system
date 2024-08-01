@@ -19,7 +19,6 @@
     color: inherit;
     display: block;
     font-family: inherit;
-    font-size: 1rem;
     line-height: 1rem;
     padding: $input-padding-vertical $input-padding-horizontal;
     position: relative;
@@ -61,7 +60,7 @@
     }
 
     &--with-description {
-        margin-bottom: 0.55rem;
+        @extend .ons-u-mb-2xs;
     }
 
     &--with-text-description {
@@ -83,7 +82,7 @@
 .ons-input__helper {
     font-size: 0.8rem;
     font-weight: $font-weight-bold;
-    margin-top: 0.2rem;
+    @extend .ons-u-mt-3xs;
 }
 
 .ons-input--select {
