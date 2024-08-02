@@ -113,7 +113,7 @@
 
     &__item-image--file & {
         &__image-link {
-            border-color: var(--ons-color-borders-document-image);
+            border-color: var(--ons-color-borders);
 
             &--placeholder {
                 height: 136px;
@@ -128,7 +128,7 @@
         width: 100%;
 
         &:focus {
-            background-color: var(--ons-color-image-placeholder) !important;
+            background-color: var(--ons-color-text-placeholder) !important;
             border: 2px solid var(--ons-color-borders-document-image-focus);
             box-shadow: none;
             outline: 4px solid var(--ons-color-focus) !important;
