@@ -1,7 +1,7 @@
 name: Bug Report
 description: File a bug report
 title: '[Bug]: '
-labels: ['Bug', 'Community backlog']
+labels: ['Bug', 'Community backlog', 'High priority']
 assignees: []
 body:
     - type: markdown
@@ -9,64 +9,58 @@ body:
           value: |
               Thank you for taking the time to fill out this bug report
     - type: textarea
-      id: what-happened
+      id: describe-bug
       attributes:
-          label: What happened?
+          label: Describe the bug
+          description: 'If applicable, add screenshot(s) or examples of the bug/issue'
+          placeholder: 'Provide a description of the bug'
       validations:
           required: true
     - type: textarea
-      id: expected-outcome
+      id: expected-behaviour
       attributes:
-          label: What was the expected outcome?
-      validations:
-          required: true
-    - type: textarea
-      id: impact
-      attributes:
-          label: How is this problem impacting your service?
+          label: Expected behaviour / outcome
+          description: 'If applicable, add screenshot(s) or examples of the expected behaviour'
+          placeholder: 'Describe the expected outcome'
       validations:
           required: true
     - type: textarea
       id: reproduction-steps
       attributes:
-          label: What list of steps can be followed to reproduce the bug or issue?
+          label: List the steps necessary to reproduce the bug
+          placeholder: 'Step-by-step instructions to reproduce the issue'
       validations:
           required: true
     - type: textarea
-      id: example
+      id: additional-context
       attributes:
-          label: Example
-          description: Add screenshot(s) or examples of the bug or issue
-          placeholder: Add a file, image or link
+          label: Additional context
+          description: 'For example: describe the severity of the issue, any additional evidence, screenshots, proposed solution'
+          placeholder: 'Add any additional information'
       validations:
           required: false
     - type: input
       id: version
       attributes:
           label: What version of the ONS Design System are you using?
-          placeholder: For example, 32.2.7
+          placeholder: 'For example: 32.2.7'
       validations:
           required: true
     - type: dropdown
-      id: device
+      id: devices
       attributes:
-          label: What devices are you seeing the problem on?
+          label: What device(s) are you using?
           options:
               - Desktop
               - Mobile
               - Tablet
           multiple: true
-    - type: input
-      id: device-details
-      attributes:
-          label: Device details
-          description: Here you can provide further information about the device(s) that are affected by this bug or issue.
       validations:
-          required: false
+          required: true
     - type: dropdown
       id: operating-system
       attributes:
-          label: What operating systems are you seeing the problem on?
+          label: What operating system(s) are you using?
           options:
               - Windows
               - macOS
@@ -74,29 +68,18 @@ body:
               - iOS
               - Other
           multiple: true
-    - type: input
-      id: operating-system-details
-      attributes:
-          label: Operating system details
-          description: Here you can provide further information about the operating system(s) that are affected by this bug or issue.
       validations:
-          required: false
+          required: true
     - type: dropdown
       id: browsers
       attributes:
-          label: What browsers are you seeing the problem on?
+          label: What browser(s) are you using?
           options:
               - Firefox
               - Chrome
               - Safari
               - Microsoft Edge
-              - Microsoft Internet Explorer
               - Other
           multiple: true
-    - type: input
-      id: browsers-details
-      attributes:
-          label: Browser details
-          description: Here you can provide further information about the browser(s) that are affected by this bug or issue.
       validations:
-          required: false
+          required: true
