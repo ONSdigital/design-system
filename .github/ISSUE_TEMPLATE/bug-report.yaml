@@ -40,7 +40,7 @@ body:
       id: version
       attributes:
           label: What version of the ONS Design System are you using?
-          placeholder: 'For example: 32.2.7'
+          description: 'For example: 32.2.7'
       validations:
           required: true
     - type: dropdown
