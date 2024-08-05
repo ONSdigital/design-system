@@ -19,7 +19,7 @@ jobs:
               with:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
-              run: yarn cache clean && yarn install
+              run: yarn cache clean && yarn install --verbose
             - name: Install Docker
               run: |
                   brew install docker
