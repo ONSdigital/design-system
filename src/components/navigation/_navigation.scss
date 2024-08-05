@@ -41,7 +41,7 @@
         }
 
         &-header {
-            margin: 0.75rem 0 0.6rem;
+            margin: 0.75rem 0 0.5rem;
             padding: 0 0 0 1rem;
         }
     }
@@ -49,7 +49,7 @@
     &__item {
         border-left: 4px solid transparent;
         display: block;
-        margin: 0 0 0.2rem;
+        margin: 0 0 0.25rem;
         @extend .ons-u-mb-no;
         &--active,
         &:hover {

@@ -30,7 +30,7 @@
                 {% endif %}
             {%- endif -%}
             {{ openingHeadingTag | safe }}
-            class="ons-card__title {{ params.titleClasses | default('ons-u-fs-m') }}" id="{{ params.id }}"> {{ params.title }}
+            class="{{ params.titleClasses | default('ons-u-fs-m') }}" id="{{ params.id }}"> {{ params.title }}
             {{ closingHeadingTag | safe }}
         </a>
 

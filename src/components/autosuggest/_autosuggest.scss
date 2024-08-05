@@ -94,10 +94,8 @@
     &__panel.ons-panel--warn {
         background: none;
         border: 0;
-        margin: 0;
+        margin: 0 !important;
         .ons-panel__icon {
-            font-size: 21px;
-            line-height: 25px;
             @extend .ons-u-mt-no;
 
             min-height: 24px;

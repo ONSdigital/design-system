@@ -2,13 +2,12 @@
     color: inherit;
     display: block;
     font-weight: $font-weight-bold;
-    margin: 0 0 0.6rem;
+    margin: 0 0 0.5rem;
 
     &__description {
         @extend .ons-u-fs-s;
 
         display: block;
-        line-height: 1.4;
     }
 
     &--with-description {

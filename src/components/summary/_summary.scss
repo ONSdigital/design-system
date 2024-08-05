@@ -24,8 +24,6 @@ $hub-row-spacing: 1.3rem;
     }
 
     &__item {
-        line-height: 1.4;
-
         &:not(:last-child),
         &:not(.ons-summary__group--card .ons-summary__item):nth-of-type(1) {
             border-bottom: 1px solid var(--ons-color-borders);
@@ -96,7 +94,7 @@ $hub-row-spacing: 1.3rem;
         background: var(--ons-color-black);
         display: inline-block;
         height: 1.15rem;
-        margin: 0.18rem 0.25rem 0;
+        margin: 0.25rem 0.25rem 0;
         vertical-align: middle;
         width: 1px;
     }
