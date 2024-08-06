@@ -13,10 +13,10 @@
     .ons-fieldset,
     .ons-input-items,
     .ons-summary__group {
-        @extend .ons-u-mt-l;
+        margin-top: 1.5rem;
     }
 }
 
 .ons-breadcrumbs + .ons-grid {
-    // margin-top: -1rem;
+    margin-top: -1rem;
 }
