@@ -574,7 +574,7 @@ describe('FOR: Header', () => {
             test('THEN: renders button to toggle menu on small screen', () => {
                 expect(buttonSpy.occurrences[0]).toEqual({
                     text: 'Menu',
-                    classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
+                    classes: 'ons-u-ml-2xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
                     variants: ['mobile', 'ghost'],
                     attributes: {
                         'aria-label': 'Toggle main menu',
