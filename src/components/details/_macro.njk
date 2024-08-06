@@ -16,7 +16,7 @@
             {% set openingTag = "<" + titleTag %}
             {% set closingTag = "</" + titleTag + ">" %}
             {{ openingTag | safe }}
-            class="ons-details__title">{{ params.title }}{{ closingTag | safe }}
+            class="ons-details__title ons-u-fs-r--b">{{ params.title }}{{ closingTag | safe }}
             <span class="ons-details__icon">
                 {% from "components/icon/_macro.njk" import onsIcon %}
                 {{-
