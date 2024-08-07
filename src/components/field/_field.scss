@@ -17,8 +17,8 @@
         display: flex;
 
         .ons-label {
-            margin-bottom: 0;
-            margin-right: 0.5rem;
+            @extend .ons-u-mb-no;
+            @extend .ons-u-mr-2xs;
         }
     }
 }

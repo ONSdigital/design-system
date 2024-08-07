@@ -17,14 +17,14 @@
             {% if params.lists %}
                 {% for list in params.lists %}
                     {% if list.listHeading %}
-                        <h3 class="ons-u-fs-r ons-u-mb-xs">
+                        <h3 class="ons-u-fs-r ons-u-mb-2xs">
                             {{ list.listHeading }}<span class="ons-u-vh"> {{ list.listHeadingHidden }}</span>:
                         </h3>
                     {% endif %}
                     {{
                         onsList({
                             "element": 'ol',
-                            "classes": 'ons-u-mb-m',
+                            "classes": 'ons-u-mb-l',
                             "variants": 'dashed',
                             "itemsList": list.itemsList
                         })
@@ -34,7 +34,7 @@
                 {{
                     onsList({
                         "element": 'ol',
-                        "classes": 'ons-u-mb-m',
+                        "classes": 'ons-u-mb-l',
                         "variants": 'dashed',
                         "itemsList": params.itemsList
                     })

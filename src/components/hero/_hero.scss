@@ -26,16 +26,11 @@
     }
 
     &__pre-title {
-        margin-bottom: 0.5rem;
+        @extend .ons-u-mb-2xs;
 
         @include mq(xxs, m) {
             max-width: 145px;
         }
-    }
-
-    &__title {
-        font-size: 2.3rem;
-        line-height: 1.2;
     }
 
     &__details {

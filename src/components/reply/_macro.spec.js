@@ -24,7 +24,7 @@ const EXAMPLE_BUTTON = {
     id: 'reply-button',
     type: 'button',
     text: 'Send message',
-    classes: 'u-mb-xs',
+    classes: 'u-mb-2xs',
 };
 
 const EXAMPLE_REPLY = {

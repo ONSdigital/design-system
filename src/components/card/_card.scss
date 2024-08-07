@@ -5,22 +5,17 @@
     &__link {
         display: flex;
         flex-direction: column;
-        margin-bottom: 1rem;
+        @extend .ons-u-mb-s;
+
         width: fit-content;
 
         > .ons-card__title {
-            margin-bottom: 0;
+            @extend .ons-u-mb-no;
         }
     }
 
     &__link:hover {
         text-decoration-thickness: 3px;
-    }
-
-    &__title {
-        // This is to allow the focus state for multi lined title links to render the focus style correctly.
-        // This should be corrected when the typography scale is improved.
-        line-height: 1.65 !important;
     }
 
     @include mq(m) {

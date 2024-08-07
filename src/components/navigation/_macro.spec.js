@@ -138,7 +138,7 @@ describe('macro: navigation', () => {
                     classes: 'ons-input-search ons-input-search--icon',
                     label: {
                         id: 'ons-site-search-label',
-                        classes: 'ons-u-pl-l ons-label--white',
+                        classes: 'ons-u-pl-xl ons-label--white',
                     },
                 },
             });

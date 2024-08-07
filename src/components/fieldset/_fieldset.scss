@@ -3,7 +3,7 @@
         font-weight: $font-weight-bold;
         margin: 0;
         &:not(&--with-description) {
-            margin-bottom: 0.55rem;
+            @extend .ons-u-mb-2xs;
         }
         &-title {
             display: block;
@@ -19,7 +19,7 @@
     &__description:not(&__description--title) {
         @extend .ons-label__description;
 
-        margin-bottom: 0.55rem;
+        @extend .ons-u-mb-2xs;
     }
 
     &__description--title {

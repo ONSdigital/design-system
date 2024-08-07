@@ -7,9 +7,8 @@ $button-shadow-size: 3px;
     cursor: pointer;
     display: inline-block;
     font-family: inherit;
-    font-size: 1rem;
-    font-weight: $font-weight-bold;
-    line-height: 1.35;
+    @extend .ons-u-fs-r--b;
+
     margin: 0;
     padding: 0;
     position: relative;
@@ -49,7 +48,7 @@ $button-shadow-size: 3px;
         .ons-icon {
             fill: var(--ons-color-text-inverse);
             height: 18px;
-            margin-top: -$button-shadow-size;
+            // margin-top: -$button-shadow-size;
             vertical-align: middle;
             width: 18px;
         }
@@ -57,7 +56,7 @@ $button-shadow-size: 3px;
 
     // When preceded by another button (for example, in a group)
     & + & {
-        margin-left: 0.5rem;
+        @extend .ons-u-ml-2xs;
     }
 
     // When focused
@@ -405,7 +404,8 @@ $button-shadow-size: 3px;
         &__inner {
             color: transparent;
             .ons-icon {
-                margin-left: 0 !important;
+                @extend .ons-u-ml-no;
+
                 opacity: 1;
             }
         }
@@ -482,7 +482,6 @@ $button-shadow-size: 3px;
             box-shadow: none;
             color: var(--ons-color-branded-text);
             display: block;
-            font-size: 1rem;
             font-weight: $font-weight-regular;
             padding: 0.6rem 1rem;
             text-align: left;
@@ -490,7 +489,7 @@ $button-shadow-size: 3px;
             .ons-icon {
                 fill: var(--ons-color-branded-text);
                 float: right;
-                margin-top: 3px;
+                @extend .ons-u-mt-3xs;
             }
         }
     }
@@ -553,7 +552,7 @@ $button-shadow-size: 3px;
 }
 
 .ons-btn-group {
-    @extend .ons-u-mb-m;
+    @extend .ons-u-mb-l;
 
     align-items: baseline;
     display: flex;

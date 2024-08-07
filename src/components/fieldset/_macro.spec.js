@@ -183,7 +183,7 @@ describe('macro: fieldset', () => {
             const $ = cheerio.load(renderComponent('fieldset', { ...EXAMPLE_FIELDSET_BASIC, legendIsQuestionTitle: true }));
 
             expect($('.ons-fieldset__description').hasClass('ons-fieldset__description--title')).toBe(true);
-            expect($('.ons-fieldset__description').hasClass('ons-u-mb-m')).toBe(true);
+            expect($('.ons-fieldset__description').hasClass('ons-u-mb-l')).toBe(true);
         });
     });
 });

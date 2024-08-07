@@ -116,7 +116,7 @@ describe('macro: table-of-contents', () => {
 
             expect(listsSpy.occurrences[0]).toEqual({
                 element: 'ol',
-                classes: 'ons-u-mb-m',
+                classes: 'ons-u-mb-l',
                 variants: 'dashed',
                 itemsList: EXAMPLE_TABLE_OF_CONTENTS_SINGLE.itemsList,
             });
@@ -155,13 +155,13 @@ describe('macro: table-of-contents', () => {
 
             expect(listsSpy.occurrences[0]).toEqual({
                 element: 'ol',
-                classes: 'ons-u-mb-m',
+                classes: 'ons-u-mb-l',
                 variants: 'dashed',
                 itemsList: EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE.lists[0].itemsList,
             });
             expect(listsSpy.occurrences[1]).toEqual({
                 element: 'ol',
-                classes: 'ons-u-mb-m',
+                classes: 'ons-u-mb-l',
                 variants: 'dashed',
                 itemsList: EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE.lists[1].itemsList,
             });

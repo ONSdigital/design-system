@@ -13,7 +13,8 @@
 
         color: var(--ons-color-text-light);
         display: block;
-        margin-top: 0.5rem;
+        @extend .ons-u-mt-2xs;
+
         position: relative;
     }
 

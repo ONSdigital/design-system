@@ -6,11 +6,12 @@
 
     font-size: rems($small-size, $base);
     font-weight: map.get($props, weight);
-    line-height: map.get($props, line-height);
+    line-height: map.get($props, line-height-mobile);
 
     @if $small-size != $large-size {
         @include mq(m) {
             font-size: rems($large-size, $base);
+            line-height: map.get($props, line-height-desktop);
         }
     }
 }

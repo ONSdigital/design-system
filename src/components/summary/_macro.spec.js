@@ -360,7 +360,7 @@ describe('macro: summary', () => {
             it('has larger margin between groups if the top one is a household style summary', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_MULTIPLE_GROUPS));
 
-                expect($('.ons-summary__group:nth-last-of-type(2) .ons-summary__link').hasClass('ons-u-mb-xl')).toBe(true);
+                expect($('.ons-summary__group:nth-last-of-type(2) .ons-summary__link').hasClass('ons-u-mb-3xl')).toBe(true);
             });
         });
 

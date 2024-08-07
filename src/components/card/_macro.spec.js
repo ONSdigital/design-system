@@ -7,12 +7,14 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_CARD_WITHOUT_IMAGE = {
     title: 'Example card title',
+    id: 'example-title-id',
     text: 'Example card text.',
     textId: 'example-text-id',
 };
 
 const EXAMPLE_CARD_WITH_IMAGE = {
     title: 'Example card title',
+    id: 'example-title-id',
     text: 'Example card text.',
     textId: 'example-text-id',
     image: {
@@ -50,7 +52,7 @@ describe('macro: card', () => {
         it('has the provided `title` text', () => {
             const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
 
-            expect($('.ons-card__title').text().trim()).toBe('Example card title');
+            expect($('#example-title-id').text().trim()).toBe('Example card title');
         });
 
         it.each([
@@ -64,7 +66,7 @@ describe('macro: card', () => {
                 }),
             );
 
-            expect($(`${expectedTitleTag}.ons-card__title`).text().trim()).toBe('Example card title');
+            expect($(`${expectedTitleTag}#example-title-id`).text().trim()).toBe('Example card title');
         });
 
         it('has the provided `text` accessible via the `textId` identifier', () => {
@@ -111,7 +113,7 @@ describe('macro: card', () => {
         it('has the provided `title` text', () => {
             const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_IMAGE));
 
-            expect($('.ons-card__title').text().trim()).toBe('Example card title');
+            expect($('#example-title-id').text().trim()).toBe('Example card title');
         });
 
         it.each([
@@ -125,7 +127,7 @@ describe('macro: card', () => {
                 }),
             );
 
-            expect($(`${expectedTitleTag}.ons-card__title`).text().trim()).toBe('Example card title');
+            expect($(`${expectedTitleTag}#example-title-id`).text().trim()).toBe('Example card title');
         });
 
         it('has the provided `text`', () => {

@@ -16,7 +16,7 @@
     <div class="{{ className }}">
         {% for summary in params.summaries %}
             {% if summary.summaryTitle %}
-                <h2 class="ons-summary__title ons-u-mb-m{{ ' ons-u-mt-m' if loop.index > 1 }}">{{ summary.summaryTitle }}</h2>
+                <h2 class="ons-summary__title ons-u-mb-l{{ ' ons-u-mt-l' if loop.index > 1 }}">{{ summary.summaryTitle }}</h2>
                 {% set headingLevel = "3" %}
             {% endif %}
             {% for group in summary.groups %}
@@ -135,7 +135,7 @@
 
                     {% if group.summaryLink %}
                         <div
-                            class="ons-summary__link{{ ' ons-u-pt-s' if params.variant != 'card' and (group.placeholderText or group.rows) }}{{ ' ons-u-bt' if group.placeholderText is not defined and group.rows | length > 1 and params.variant != 'card' }}{{ ' ons-u-mb-xl' if not group.last }}"
+                            class="ons-summary__link{{ ' ons-u-pt-s' if params.variant != 'card' and (group.placeholderText or group.rows) }}{{ ' ons-u-bt' if group.placeholderText is not defined and group.rows | length > 1 and params.variant != 'card' }}{{ ' ons-u-mb-3xl' if not group.last }}"
                         >
                             {% set link %}
                                 <a

@@ -32,7 +32,7 @@ export default class AddressError {
             const errorListElement = document.createElement('p');
             const errorLinkElement = document.createElement('a');
 
-            errorElement.className = 'ons-panel ons-panel--error ons-u-mb-m ons-js-autosuggest-error-panel';
+            errorElement.className = 'ons-panel ons-panel--error ons-u-mb-l ons-js-autosuggest-error-panel';
             errorElementHeader.className = 'ons-panel__header';
             errorElementTitle.className = 'ons-panel__title ons-u-fs-r--b';
             errorBodyElement.className = 'ons-panel__body';

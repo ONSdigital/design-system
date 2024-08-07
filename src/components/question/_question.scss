@@ -2,13 +2,14 @@
     margin: 1rem 0 0;
 
     &__title {
-        @extend .ons-u-mb-m;
+        @extend .ons-u-mb-l;
 
         mark,
         .ons-instruction {
             background-color: var(--ons-color-instruction);
             color: var(--ons-color-text-inverse);
-            margin-right: 0.5rem;
+            @extend .ons-u-mr-2xs;
+
             padding: 0 0.5rem;
             box-shadow: none;
         }
@@ -16,7 +17,7 @@
 
     &__description {
         p:last-of-type {
-            margin-bottom: 0 !important;
+            @extend .ons-u-mb-no;
         }
     }
 
@@ -28,7 +29,7 @@
         padding: 1rem;
 
         p:last-of-type {
-            margin-bottom: 0;
+            @extend .ons-u-mb-no;
         }
     }
 }

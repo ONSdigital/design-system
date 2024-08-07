@@ -187,7 +187,7 @@ describe('macro: question', () => {
 
             faker.renderComponent('question', EXAMPLE_QUESTION_DEFINITION);
 
-            expect(detailsSpy.occurrences[0]).toHaveProperty('classes', 'ons-u-mb-m');
+            expect(detailsSpy.occurrences[0]).toHaveProperty('classes', 'ons-u-mb-l');
             expect(detailsSpy.occurrences[0]).toHaveProperty('id', 'definition-id');
             expect(detailsSpy.occurrences[0]).toHaveProperty('title', 'Definition title');
         });
@@ -206,7 +206,7 @@ describe('macro: question', () => {
 
             faker.renderComponent('question', EXAMPLE_QUESTION_GUIDANCE);
 
-            expect(panelSpy.occurrences[0]).toHaveProperty('classes', 'ons-question-guidance ons-u-mb-m');
+            expect(panelSpy.occurrences[0]).toHaveProperty('classes', 'ons-question-guidance ons-u-mb-l');
         });
 
         it('outputs the expected panel call content', () => {
@@ -251,7 +251,7 @@ describe('macro: question', () => {
 
             faker.renderComponent('question', EXAMPLE_QUESTION_JUSTIFICATION);
 
-            expect(detailsSpy.occurrences[0]).toHaveProperty('classes', 'ons-u-mb-m');
+            expect(detailsSpy.occurrences[0]).toHaveProperty('classes', 'ons-u-mb-l');
             expect(detailsSpy.occurrences[0]).toHaveProperty('id', 'justification-id');
             expect(detailsSpy.occurrences[0]).toHaveProperty('title', 'Justification title');
         });

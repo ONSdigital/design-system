@@ -164,13 +164,13 @@ $checkbox-padding: 11px;
 
     &__description {
         display: block;
-        margin-top: 0.25rem;
+        @extend .ons-u-mt-3xs;
     }
 
     &__other {
         border-left: 4px solid var(--ons-color-borders-indent);
         display: block;
-        margin: 0 1rem 0.5rem 1.1rem;
+        margin: 0 1rem 0.5rem;
         padding: 0 $checkbox-padding $checkbox-padding $checkbox-padding * 2 - 1;
     }
 
