@@ -17,6 +17,6 @@ jobs:
               with:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
-              run: yarn install
+              run: npm install
             - name: Run macro and script tests
-              run: yarn test
+              run: npm run test

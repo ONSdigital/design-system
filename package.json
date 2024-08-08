@@ -12,14 +12,14 @@
         "watch": "gulp watch",
         "test": "gulp build-assets && TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest '.*\\.spec\\.js'",
         "test:no-build": "TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest '.*\\.spec\\.js'",
-        "test:with-log": "yarn test --no-color 2>test.log",
+        "test:with-log": "npm run test --no-color 2>test.log",
         "test:start-server": "TEST_PORT=3020 gulp start-dev-server",
-        "build": "yarn && yarn tidy-clean && NODE_ENV=production gulp build",
-        "build-serve": "yarn build && gulp start-dev-server",
-        "npm-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/generate-npm-package.js",
-        "cdn-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/prepare-templates-for-zip.js",
-        "test-visual": "yarn build && gulp run-backstop-tests",
-        "test-visual:reference": "yarn build && gulp run-backstop-reference",
+        "build": "npm install && npm run tidy-clean && NODE_ENV=production gulp build",
+        "build-serve": "npm run build && gulp start-dev-server",
+        "npm-bundle": "NODE_ENV=production npm run tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/generate-npm-package.js",
+        "cdn-bundle": "NODE_ENV=production npm run tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/prepare-templates-for-zip.js",
+        "test-visual": "npm run build && gulp run-backstop-tests",
+        "test-visual:reference": "npm run build && gulp run-backstop-reference",
         "test-visual:approve": "gulp run-backstop-approve",
         "tidy-clean": "rm -rf build css favicons fonts img components layout scripts coverage scss js",
         "check-unused": "npx npm-check-unused",
@@ -41,7 +41,7 @@
         ],
         "*.scss": [
             "prettier --write",
-            "yarn run stylelint-fix"
+            "npm run stylelint-fix"
         ],
         "*.{yml,yaml,njk,html}": [
             "prettier --write"

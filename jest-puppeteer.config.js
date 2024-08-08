@@ -14,7 +14,7 @@ module.exports = {
         dumpio: true,
     },
     server: {
-        command: `yarn test:start-server`,
+        command: `npm run test:start-server`,
         launchTimeout: 30000,
         port: process.env.TEST_PORT,
     },

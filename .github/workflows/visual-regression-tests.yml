@@ -25,7 +25,7 @@ jobs:
             #       colima start
             # - name: Run visual regression tests
             #   id: vr
-            #   run: yarn test-visual
+            #   run: npm run test-visual
             # # Archive report artifacts if visual regression tests fail
             # - name: Archive BackstopJS reports
             #   if: ${{ failure() }}

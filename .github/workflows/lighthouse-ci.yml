@@ -17,9 +17,9 @@ jobs:
               with:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
-              run: yarn install
+              run: npm install
             - name: Build pages
-              run: yarn build
+              run: npm run build
             - name: Run Lighthouse CI
               run: ./lighthouse/lighthouse.sh
               env:

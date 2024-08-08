@@ -2,5 +2,5 @@
 [ -n "$NETLIFY" ] && exit 0
 . "$(dirname "$0")/_/husky.sh"
 
-yarn tidy-clean
-yarn install --check-files
+npm run tidy-clean
+npm install
