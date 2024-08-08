@@ -5,7 +5,7 @@ build/
 coverage/
 .vscode/
 .idea/
-package-lock.json
+yarn.lock
 .husky/pre-push
 .husky/post-commit
 .husky/post-merge
