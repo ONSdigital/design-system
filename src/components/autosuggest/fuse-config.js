@@ -3,7 +3,7 @@ import Fuse from 'fuse.js';
 export default function runFuse(query, data, searchFields) {
     const options = {
         shouldSort: true,
-        threshold: 0.2,
+        threshold: 0.6,
         keys: [
             {
                 name: searchFields,
