@@ -7,8 +7,7 @@ env:
 
 jobs:
     run-visual-regression-tests:
-        runs-on: macos-latest-large
-
+        runs-on: macos-12
         steps:
             - name: Checkout
               uses: actions/checkout@v4
@@ -19,7 +18,7 @@ jobs:
               with:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
-              run: yarn install --verbose
+              run: npm install
             # - name: Install Docker
             #   run: |
             #       brew install docker
