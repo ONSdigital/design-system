@@ -130,7 +130,7 @@ describe('script: timeout panel', () => {
         });
 
         it('then redirects to the provided `redirectUrl`', async () => {
-            await await new Promise((r) => setTimeout(r, 2000));
+            await new Promise((r) => setTimeout(r, 2000));
             expect(page.url()).toContain('#!');
         });
     });
