@@ -293,7 +293,10 @@ export default class AutosuggestUI {
 
     async fetchSuggestions(sanitisedQuery, data) {
         this.abortFetch();
-        const results = await runFuse(sanitisedQuery, data, this.lang, this.resultLimit);
+
+        const threshold = this.context.classList.contains('ons-autosuggest__results-extended') ? 0.4 : 0.2;
+        const results = await runFuse(sanitisedQuery, data, this.lang, threshold, this.resultLimit);
+
         results.forEach((result) => {
             result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
         });

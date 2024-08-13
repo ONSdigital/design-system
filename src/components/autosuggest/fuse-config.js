@@ -1,9 +1,9 @@
 import Fuse from 'fuse.js';
 
-export default function runFuse(query, data, searchFields) {
+export default function runFuse(query, data, searchFields, threshold) {
     const options = {
         shouldSort: true,
-        threshold: 0.3,
+        threshold: threshold,
         keys: [
             {
                 name: searchFields,
