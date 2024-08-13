@@ -147,7 +147,7 @@
                                         {{
                                             onsExternalLink({
                                                 "url": params.OGLLink.url | default('https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'),
-                                                "text": params.OGLLink.link | default('Drwydded Llywodraeth Leol v3.0')
+                                                "linkText": params.OGLLink.text | default('Drwydded Llywodraeth Leol v3.0')
                                             })
                                         }}{{ params.OGLLink.post | default(', oni bai y nodir fel arall') }}
                                     {% else %}
@@ -155,7 +155,7 @@
                                         {{
                                             onsExternalLink({
                                                 "url": params.OGLLink.url | default('https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'),
-                                                "text": params.OGLLink.link | default('Open Government Licence v3.0')
+                                                "linkText": params.OGLLink.text | default('Open Government Licence v3.0')
                                             })
                                         }}{{ params.OGLLink.post | default(', except where otherwise stated') }}
                                     {% endif %}
