@@ -83,8 +83,8 @@
                                 {% set logos = [params.mastheadLogo.multipleLogos.logo1, params.mastheadLogo.multipleLogos.logo2, params.mastheadLogo.multipleLogos.logo3] %}
                                 {% for logo in logos %}
                                     {% set mastheadLogo %}
-                                        {% if logo.logoImage != "ONS Logo" %}
-                                            {{ logo.logoImage | safe }}
+                                        {% if logo.image != "ONS Logo" %}
+                                            {{ logo.image | safe }}
                                         {% else %}
                                             {{-
                                                 onsIcon({
@@ -94,8 +94,8 @@
                                             -}}
                                         {% endif %}
                                     {% endset %}
-                                    {% if logo.logoURL %}
-                                        <a class="ons-header__org-logo-link" href="{{ logo.logoURL }}">{{ mastheadLogo | safe }}</a>
+                                    {% if logo.url %}
+                                        <a class="ons-header__org-logo-link" href="{{ logo.url }}">{{ mastheadLogo | safe }}</a>
                                     {% else %}
                                         {{ mastheadLogo | safe }}
                                     {% endif %}
