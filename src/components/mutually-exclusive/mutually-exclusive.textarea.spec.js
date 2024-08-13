@@ -34,6 +34,8 @@ const EXAMPLE_MUTUALLY_EXCLUSIVE_TEXTAREA_PARAMS = {
     },
 };
 
+const sleep = (milliseconds) => new Promise((r) => setTimeout(r, milliseconds));
+
 const FAKE_TEXTAREA_INPUT = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
 describe('script: mutually-exclusive', () => {
@@ -68,7 +70,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert should tell the user that the textarea has been cleared', async () => {
-                    await new Promise((r) => setTimeout(r, SCREEN_READER_TIMEOUT_DELAY));
+                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('Enter your feedback cleared.');
@@ -92,7 +94,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert should tell the user that the exclusive option has been unchecked', async () => {
-                    await new Promise((r) => setTimeout(r, SCREEN_READER_TIMEOUT_DELAY));
+                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('I dont want to provide feedback deselected.');
@@ -107,7 +109,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert shouldnt say anything', async () => {
-                    await new Promise((r) => setTimeout(r, SCREEN_READER_TIMEOUT_DELAY));
+                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('');
@@ -120,7 +122,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert shouldnt say anything', async () => {
-                    await new Promise((r) => setTimeout(r, SCREEN_READER_TIMEOUT_DELAY));
+                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('');

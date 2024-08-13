@@ -16,7 +16,6 @@ export async function getNodeAttributes(page, selector) {
 
 export async function setViewport(page, viewport) {
     await page.setViewport(viewport);
-    await new Promise((r) => setTimeout(r, 100));
 }
 
 function sanitizeHref(href) {
