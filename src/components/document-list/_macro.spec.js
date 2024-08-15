@@ -32,10 +32,10 @@ const EXAMPLE_DOCUMENT_LIST_WITH_METADATA_FILE = {
     },
 };
 
-const EXAMPLE_DOCUMENT_LIST_WITH_METADATA_TYPE = {
+const EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT = {
     ...EXAMPLE_DOCUMENT_LIST_BASIC,
     metadata: {
-        type: {
+        object: {
             text: 'Poster',
             url: '#0',
             ref: 'some ref',
@@ -51,7 +51,7 @@ const EXAMPLE_DOCUMENT_LIST_WITH_MULTIPLE = {
         largeSrc: '/example-large.png',
     },
     metadata: {
-        type: {
+        object: {
             text: 'Poster',
             url: '#0',
             ref: 'some ref',
@@ -258,11 +258,11 @@ describe('macro: document list', () => {
         });
     });
 
-    describe('mode: with metadata `type` configuration', () => {
+    describe('mode: with metadata `object` configuration', () => {
         it('passes jest-axe checks', async () => {
             const $ = cheerio.load(
                 renderComponent('document-list', {
-                    documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_TYPE],
+                    documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT],
                 }),
             );
 
@@ -273,7 +273,7 @@ describe('macro: document list', () => {
         it('has the provided `url`', () => {
             const $ = cheerio.load(
                 renderComponent('document-list', {
-                    documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_TYPE],
+                    documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT],
                 }),
             );
 
@@ -282,13 +282,13 @@ describe('macro: document list', () => {
         });
 
         it('has expected `text`', () => {
-            const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_TYPE] }));
+            const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT] }));
             const text = $('.ons-document-list__attribute-link > span').text().trim();
             expect(text).toBe('Poster:');
         });
 
         it('has expected `ref`', () => {
-            const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_TYPE] }));
+            const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT] }));
             const text = $('.ons-document-list__attribute-link + span').text().trim();
             expect(text).toBe('some ref');
         });

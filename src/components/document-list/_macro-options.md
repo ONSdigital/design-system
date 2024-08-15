@@ -29,13 +29,13 @@
 
 ### Metadata
 
-| Name | Type           | Required | Description                                                                                                   |
-| ---- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
-| type | `<Object>Type` | false    | An object for a list item describing the [type of document](#type), for example, “Dataset” or “Press release” |
-| date | `<Object>Date` | false    | An object for the [date](#date) the document was published or updated                                         |
-| file | `<Object>File` | false    | An object to describe the [details of the downloadable file](#file) such as format and size                   |
+| Name   | Type             | Required | Description                                                                                                     |
+| ------ | ---------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| object | `Object<Object>` | false    | An object for a list item describing the [type of document](#object), for example, “Dataset” or “Press release” |
+| date   | `Object<Date>`   | false    | An object for the [date](#date) the document was published or updated                                           |
+| file   | `Object<File>`   | false    | An object to describe the [details of the downloadable file](#file) such as format and size                     |
 
-#### Type
+#### Object
 
 | Name | Type   | Required | Description                                                                                                                        |
 | ---- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |

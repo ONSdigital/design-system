@@ -63,23 +63,23 @@
                                     </li>
                                 {% endif %}
 
-                                {%- if document.metadata.type and document.metadata.type.text -%}
+                                {%- if document.metadata.object and document.metadata.object.text -%}
                                     <li class="ons-document-list__item-attribute{{ ' ons-u-mr-no' if document.metadata.file }}">
-                                        {% set metadataType %}
+                                        {% set metadataObject %}
                                             <span
-                                                {% if not document.metadata.file and not document.metadata.type.url %}class="ons-u-fw-b"{% endif %}
-                                                >{{ document.metadata.type.text }}{%- if document.metadata.type.ref -%}:{% elif document.metadata.file %},{% endif %}</span
+                                                {% if not document.metadata.file and not document.metadata.object.url %}class="ons-u-fw-b"{% endif %}
+                                                >{{ document.metadata.object.text }}{%- if document.metadata.object.ref -%}:{% elif document.metadata.file %},{% endif %}</span
                                             >
                                         {% endset %}
-                                        {%- if document.metadata.type.url -%}
-                                            <a class="ons-document-list__attribute-link" href="{{ document.metadata.type.url }}">
-                                                {{ metadataType | safe }}
+                                        {%- if document.metadata.object.url -%}
+                                            <a class="ons-document-list__attribute-link" href="{{ document.metadata.object.url }}">
+                                                {{ metadataObject | safe }}
                                             </a>
                                         {% else %}
-                                            {{ metadataType | safe }}
+                                            {{ metadataObject | safe }}
                                         {% endif %}
-                                        {%- if document.metadata.type.ref -%}
-                                            <span>{{ document.metadata.type.ref }}</span>
+                                        {%- if document.metadata.object.ref -%}
+                                            <span>{{ document.metadata.object.ref }}</span>
                                         {% endif %}
                                     </li>
                                 {% endif %}
