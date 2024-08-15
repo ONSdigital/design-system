@@ -14,7 +14,7 @@
 | Name     | Type              | Required | Description                                                            |
 | -------- | ----------------- | -------- | ---------------------------------------------------------------------- |
 | id       | string            | true     | The HTML `id` for the message item                                     |
-| subject  | `Object<Subject>` | true     | Settings for the [Subject]                                             |
+| subject  | `Object<Subject>` | true     | Settings for the [Subject](#subject)                                   |
 | fromText | string            | true     | Value of the “From” sender name in the message metadata information    |
 | dateText | string            | true     | Value of the “Sent” date stamp in the message metadata information     |
 | body     | string            | true     | Text displayed for the message body snippet                            |
