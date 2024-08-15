@@ -6,8 +6,10 @@ import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
 const EXAMPLE_DOCUMENT_LIST_BASIC = {
-    url: '#0',
-    title: 'Crime and justice',
+    title: {
+        text: 'Crime and justice',
+        url: '#0',
+    },
     description: 'Some description',
 };
 

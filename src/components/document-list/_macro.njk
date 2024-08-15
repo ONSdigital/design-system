@@ -15,7 +15,7 @@
                     >
                         <a
                             class="ons-document-list__image-link{{ ' ons-document-list__image-link--placeholder' if not document.thumbnail.smallSrc }}"
-                            href="{{ document.url }}"
+                            href="{{ document.title.url }}"
                             tabindex="-1"
                         >
                             {% if document.thumbnail.smallSrc and document.thumbnail.largeSrc %}
@@ -35,8 +35,8 @@
                         class="ons-document-list__item-header{{ ' ons-document-list__item-header--reverse' if document.showMetadataFirst == true }}"
                     >
                         {{ openingTag | safe }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
-                        <a href="{{ document.url }}"
-                            >{{ document.title }}
+                        <a href="{{ document.title.url }}"
+                            >{{ document.title.text }}
                             {%- if document.metadata and document.metadata.file -%}
                                 <span class="ons-u-vh">
                                     {%
