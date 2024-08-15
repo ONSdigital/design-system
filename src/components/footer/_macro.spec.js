@@ -8,7 +8,7 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_OGL_LINK_PARAM = {
     pre: 'All content is available under the',
-    link: 'Open Government Licence v3.0',
+    text: 'Open Government Licence v3.0',
     url: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
     post: ', except where otherwise stated',
 };
