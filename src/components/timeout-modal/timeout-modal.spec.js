@@ -21,10 +21,10 @@ describe('script: timeout modal', () => {
         beforeEach(async () => {
             const component = renderComponent('timeout-modal', { ...EXAMPLE_TIMEOUT_MODAL_BASIC, showModalTimeInSeconds: 58 });
             const template = `
-        <div class="ons-page">
-          ${component}
-        </div>
-      `;
+                <div class="ons-page">
+                ${component}
+                </div>
+            `;
             await setTestPage('/test', template);
         });
 
@@ -44,10 +44,10 @@ describe('script: timeout modal', () => {
                 });
 
                 const template = `
-          <div class="ons-page">
-            ${component}
-          </div>
-        `;
+                    <div class="ons-page">
+                        ${component}
+                    </div>
+                `;
 
                 await setTestPage('/test', template);
             });
@@ -72,10 +72,10 @@ describe('script: timeout modal', () => {
                 });
 
                 const template = `
-          <div class="ons-page">
-            ${component}
-          </div>
-        `;
+                    <div class="ons-page">
+                        ${component}
+                    </div>
+                `;
                 await setTestPage('/test', template);
             });
 
@@ -97,10 +97,10 @@ describe('script: timeout modal', () => {
                 });
 
                 const template = `
-          <div class="ons-page">
-            ${component}
-          </div>
-        `;
+                    <div class="ons-page">
+                        ${component}
+                    </div>
+                `;
                 await setTestPage('/test', template);
             });
 
@@ -122,10 +122,10 @@ describe('script: timeout modal', () => {
                 });
 
                 const template = `
-          <div class="ons-page">
-            ${component}
-          </div>
-        `;
+                    <div class="ons-page">
+                        ${component}
+                    </div>
+                `;
                 await setTestPage('/test', template);
             });
 
@@ -147,10 +147,10 @@ describe('script: timeout modal', () => {
                 });
 
                 const template = `
-          <div class="ons-page">
-            ${component}
-          </div>
-        `;
+                    <div class="ons-page">
+                        ${component}
+                    </div>
+                `;
                 await setTestPage('/test', template);
             });
 
@@ -172,10 +172,10 @@ describe('script: timeout modal', () => {
                 });
 
                 const template = `
-          <div class="ons-page">
-            ${component}
-          </div>
-        `;
+                    <div class="ons-page">
+                        ${component}
+                    </div>
+                `;
                 await setTestPage('/test', template);
             });
 
@@ -199,10 +199,10 @@ describe('script: timeout modal', () => {
             });
 
             const template = `
-        <div class="ons-page">
-          ${component}
-        </div>
-      `;
+                <div class="ons-page">
+                ${component}
+                </div>
+            `;
 
             await setTestPage('/test', template);
         });
