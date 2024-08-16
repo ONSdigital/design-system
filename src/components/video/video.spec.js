@@ -82,7 +82,7 @@ describe('script: video', () => {
             await setTestPage(
                 '/test',
                 `${renderComponent('video', EXAMPLE_VIDEO_YOUTUBE)}
-        <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
+                <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
             );
             await page.click('.ons-js-accept-cookies');
         });
@@ -114,7 +114,7 @@ describe('script: video', () => {
             await setTestPage(
                 '/test',
                 `${renderComponent('video', EXAMPLE_VIDEO_VIMEO)}
-        <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
+                <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
             );
             await page.click('.ons-js-accept-cookies');
 
