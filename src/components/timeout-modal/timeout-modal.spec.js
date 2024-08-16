@@ -22,7 +22,7 @@ describe('script: timeout modal', () => {
             const component = renderComponent('timeout-modal', { ...EXAMPLE_TIMEOUT_MODAL_BASIC, showModalTimeInSeconds: 58 });
             const template = `
                 <div class="ons-page">
-                ${component}
+                    ${component}
                 </div>
             `;
             await setTestPage('/test', template);
@@ -200,7 +200,7 @@ describe('script: timeout modal', () => {
 
             const template = `
                 <div class="ons-page">
-                ${component}
+                    ${component}
                 </div>
             `;
 
