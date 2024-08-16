@@ -36,7 +36,7 @@
     {% endif %}
 
     {% if not isDesignSystemExample %}
-        {% set settingsLinkURL = params.settingsLinkTextURL | default(defaultCookiesLink) %}
+        {% set settingsLinkURL = params.settingsLinkURL | default(defaultCookiesLink) %}
     {% else %}
         {% set settingsLinkURL = '#0' %}
     {% endif %}
