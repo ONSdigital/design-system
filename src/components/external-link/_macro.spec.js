@@ -7,7 +7,7 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_EXTERNAL_LINK = {
     url: 'http://example.com',
-    linkText: 'Example link',
+    text: 'Example link',
 };
 
 describe('macro: external-link', () => {
