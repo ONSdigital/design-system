@@ -5,94 +5,121 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
-const EXAMPLE_ADDRESS_OUTPUT_FULL = {
-    unit: 'Unit 5',
-    organisation: 'Trescos',
-    line1: 'Abingdon Road',
-    line2: 'Goathill',
-    town: 'Barry',
-    postcode: 'AB12 6UH',
-};
+import { EXAMPLE_ADDRESS_OUTPUT_FULL, EXAMPLE_ADDRESS_OUTPUT_NONE } from './_test_examples';
 
-const EXAMPLE_ADDRESS_OUTPUT_NONE = {};
+describe('FOR: address-output', () => {
+    describe('GIVEN: Params: none', () => {
+        describe('WHEN: All params are at default state', () => {
+            const $ = cheerio.load(renderComponent('address-output', EXAMPLE_ADDRESS_OUTPUT_FULL));
 
-describe('macro: address-output', () => {
-    it('passes jest-axe checks', async () => {
-        const $ = cheerio.load(renderComponent('address-output', EXAMPLE_ADDRESS_OUTPUT_FULL));
-
-        const results = await axe($.html());
-        expect(results).toHaveNoViolations();
+            test('THEN: jest-axe tests pass', async () => {
+                const results = await axe($.html());
+                expect(results).toHaveNoViolations();
+            });
+        });
     });
 
-    it('has additionally provided container style classes', () => {
-        const $ = cheerio.load(
-            renderComponent('address-output', {
-                ...EXAMPLE_ADDRESS_OUTPUT_FULL,
-                classes: 'extra-class another-extra-class',
-            }),
-        );
+    describe('GIVEN: Params: classes', () => {
+        describe('WHEN: classes are provided', () => {
+            const $ = cheerio.load(
+                renderComponent('address-output', {
+                    ...EXAMPLE_ADDRESS_OUTPUT_FULL,
+                    classes: 'extra-class another-extra-class',
+                }),
+            );
 
-        expect($('.ons-address-output').hasClass('extra-class')).toBe(true);
-        expect($('.ons-address-output').hasClass('another-extra-class')).toBe(true);
+            test('THEN: additionally provided classes are rendered', async () => {
+                expect($('.ons-address-output').hasClass('extra-class')).toBe(true);
+                expect($('.ons-address-output').hasClass('another-extra-class')).toBe(true);
+            });
+        });
     });
 
-    it('renders no lines when no parameters are provided', () => {
-        const $ = cheerio.load(renderComponent('address-output', EXAMPLE_ADDRESS_OUTPUT_NONE));
+    describe('GIVEN: Params: none', () => {
+        describe('WHEN: no address lines are provided in the parameters', () => {
+            const $ = cheerio.load(renderComponent('address-output', EXAMPLE_ADDRESS_OUTPUT_NONE));
 
-        expect($('.ons-address-output__lines *').length).toBe(0);
+            test('THEN: no lines are rendered', () => {
+                expect($('.ons-address-output__lines *').length).toBe(0);
+            });
+        });
     });
 
-    it.each([
+    describe.each([
         ['all address lines', EXAMPLE_ADDRESS_OUTPUT_FULL],
         ['single line', { unit: 'Unit 5' }],
-    ])('renders `unit` with %s', (_, params) => {
-        const $ = cheerio.load(renderComponent('address-output', params));
+    ])('GIVEN: %s', (scenario, params) => {
+        describe(`WHEN: the address-output is rendered with ${scenario}`, () => {
+            const $ = cheerio.load(renderComponent('address-output', params));
 
-        expect($('.ons-address-output__unit').text().trim()).toBe('Unit 5');
+            test('THEN: the `unit` is rendered correctly', () => {
+                expect($('.ons-address-output__unit').text().trim()).toBe('Unit 5');
+            });
+        });
     });
 
-    it.each([
+    describe.each([
         ['all address lines', EXAMPLE_ADDRESS_OUTPUT_FULL],
         ['single line', { organisation: 'Trescos' }],
-    ])('renders `organisation` with %s', (_, params) => {
-        const $ = cheerio.load(renderComponent('address-output', params));
+    ])('GIVEN: %s', (scenario, params) => {
+        describe(`WHEN: the address-output is rendered with ${scenario}`, () => {
+            const $ = cheerio.load(renderComponent('address-output', params));
 
-        expect($('.ons-address-output__organisation').text().trim()).toBe('Trescos');
+            test('THEN: the `organisation` is rendered correctly', () => {
+                expect($('.ons-address-output__organisation').text().trim()).toBe('Trescos');
+            });
+        });
     });
 
-    it.each([
+    describe.each([
         ['all address lines', EXAMPLE_ADDRESS_OUTPUT_FULL],
         ['single line', { line1: 'Abingdon Road' }],
-    ])('renders `line1` with %s', (_, params) => {
-        const $ = cheerio.load(renderComponent('address-output', params));
+    ])('GIVEN: %s', (scenario, params) => {
+        describe(`WHEN: the address-output is rendered with ${scenario}`, () => {
+            const $ = cheerio.load(renderComponent('address-output', params));
 
-        expect($('.ons-address-output__line1').text().trim()).toBe('Abingdon Road');
+            test('THEN: the `line1` is rendered correctly', () => {
+                expect($('.ons-address-output__line1').text().trim()).toBe('Abingdon Road');
+            });
+        });
     });
 
-    it.each([
+    describe.each([
         ['all address lines', EXAMPLE_ADDRESS_OUTPUT_FULL],
         ['single line', { line2: 'Goathill' }],
-    ])('renders `line2` with %s', (_, params) => {
-        const $ = cheerio.load(renderComponent('address-output', params));
+    ])('GIVEN: %s', (scenario, params) => {
+        describe(`WHEN: the address-output is rendered with ${scenario}`, () => {
+            const $ = cheerio.load(renderComponent('address-output', params));
 
-        expect($('.ons-address-output__line2').text().trim()).toBe('Goathill');
+            test('THEN: the `line2` is rendered correctly', () => {
+                expect($('.ons-address-output__line2').text().trim()).toBe('Goathill');
+            });
+        });
     });
 
-    it.each([
+    describe.each([
         ['all address lines', EXAMPLE_ADDRESS_OUTPUT_FULL],
         ['single line', { town: 'Barry' }],
-    ])('renders `town` with %s', (_, params) => {
-        const $ = cheerio.load(renderComponent('address-output', params));
+    ])('GIVEN: %s', (scenario, params) => {
+        describe(`WHEN: the address-output is rendered with ${scenario}`, () => {
+            const $ = cheerio.load(renderComponent('address-output', params));
 
-        expect($('.ons-address-output__town').text().trim()).toBe('Barry');
+            test('THEN: the `town` is rendered correctly', () => {
+                expect($('.ons-address-output__town').text().trim()).toBe('Barry');
+            });
+        });
     });
 
-    it.each([
+    describe.each([
         ['all address lines', EXAMPLE_ADDRESS_OUTPUT_FULL],
         ['single line', { postcode: 'AB12 6UH' }],
-    ])('renders `postcode` with %s', (_, params) => {
-        const $ = cheerio.load(renderComponent('address-output', params));
+    ])('GIVEN: %s', (scenario, params) => {
+        describe(`WHEN: the address-output is rendered with ${scenario}`, () => {
+            const $ = cheerio.load(renderComponent('address-output', params));
 
-        expect($('.ons-address-output__postcode').text().trim()).toBe('AB12 6UH');
+            test('THEN: the `postcode` is rendered correctly', () => {
+                expect($('.ons-address-output__postcode').text().trim()).toBe('AB12 6UH');
+            });
+        });
     });
 });
