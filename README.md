@@ -154,7 +154,7 @@ Make sure dependencies are installed:
 yarn install
 ```
 
-Set the version (replacing <DS release version> with actual release version e.g. 70.0.0):
+Set the version (replacing "<DS release version>" with actual release version e.g. 70.0.0):
 
 ```bash
 npm version <DS release version>
