@@ -144,6 +144,42 @@ Generate a build into `./build`.
 yarn build
 ```
 
+## Manually publish to NPM
+
+Make sure you are logged into the CLI with the DS shared npm account
+
+Make sure dependencies are installed:
+
+```bash
+yarn install
+```
+
+Set the version (replacing <DS release version> with actual release version e.g. 70.0.0):
+
+```bash
+npm version <DS release version>
+```
+
+Create an NPM package by running:
+
+```bash
+yarn npm-bundle
+```
+
+Because once you have published to npm the version you have published can never be used again so you want to make sure you have the right files included to do this run:
+
+```bash
+npm pack
+```
+
+Then compare this list with the list of the current version here (https://www.npmjs.com/package/@ons/design-system?activeTab=code)
+
+If these match or have some expected changes then run this to publish:
+
+```bash
+npm publish --access public
+```
+
 ## Recommended Visual Studio Code Extensions for this project
 
 -   [axe Accessibility Linter](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter)
