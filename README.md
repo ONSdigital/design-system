@@ -166,7 +166,7 @@ Create an NPM package by running:
 yarn npm-bundle
 ```
 
-Because once you have published to npm the version you have published can never be used again so you want to make sure you have the right files included to do this run:
+**_Once you have published to npm, the version you have published can never be used again so you want to make sure you have the right files included to do this run:_**
 
 ```bash
 npm pack
