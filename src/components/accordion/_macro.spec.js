@@ -199,4 +199,27 @@ describe('FOR: Accordion', () => {
             });
         });
     });
+    describe('GIVEN: Params: open ', () => {
+        describe('WHEN: open param is at default/set to false', () => {
+            const $ = cheerio.load(
+                renderComponent('accordion', {
+                    ...EXAMPLE_ACCORDION,
+                }),
+            );
+            test('THEN: renders with accordion items open on page load', () => {
+                expect($('.ons-details--accordion').attr('open')).toBe(undefined);
+            });
+        });
+        describe('WHEN: open param is set to true', () => {
+            const $ = cheerio.load(
+                renderComponent('accordion', {
+                    ...EXAMPLE_ACCORDION,
+                    open: true,
+                }),
+            );
+            test('THEN: renders with accordion items open on page load', () => {
+                expect($('.ons-details--accordion').attr('open'));
+            });
+        });
+    });
 });
