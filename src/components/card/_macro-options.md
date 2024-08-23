@@ -17,11 +17,11 @@
 
 | Name         | Type   | Required | Description                                                                   |
 | ------------ | ------ | -------- | ----------------------------------------------------------------------------- |
-| text         | string | true     | The text for the title of the card heading                                    |
+| text         | string | true     | The text for the card title                                                   |
 | headingLevel | int    | false    | Number used to determine the heading level of the card title. Defaults to `2` |
-| classes      | string | false    | Font size classes for the card heading. Defaults to `ons-u-fs-m`              |
+| classes      | string | false    | Font size classes for the card title. Defaults to `ons-u-fs-m`                |
 | url          | string | true     | The URL for the title link `href` attribute                                   |
-| id           | string | true     | The HTML `id` attribute for the card heading                                  |
+| id           | string | true     | The HTML `id` attribute for the card title                                    |
 
 ## Body
 
