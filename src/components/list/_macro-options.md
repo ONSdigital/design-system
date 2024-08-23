@@ -8,6 +8,7 @@
 | iconPosition | string            | false    | Sets position of icon to “before” or “after” each list item                                                                                            |
 | iconType     | string            | false    | Adds an icon to all the list items when set to the name of one of the [available icons](/foundations/icons#a-to-z). Requires `iconPosition` to be set. |
 | iconSize     | string            | false    | Icon size can be set to match the size of the list item text as detailed in the [typography type scale](/foundations/typography/#type-scale).          |
+| iconClasses  | string            | false    | Adds on option to pass icon classes fron list component.                                                                                               |
 | attributes   | object            | false    | HTML attributes (for example, data attributes) to add to wrapping element                                                                              |
 
 ## ListItem
