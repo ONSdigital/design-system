@@ -63,8 +63,7 @@
     &__prefix,
     &__suffix {
         font-family: $font-mono;
-        .ons-icon {
-            &--check-green {
+        .ons-icon--check-green {
                 fill: var(--ons-color-leaf-green);
             }
         }
