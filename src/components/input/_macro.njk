@@ -103,7 +103,7 @@
                             aria-label="{{ abbr.title }}" role="figure"
                         {% endif %}
                         {% if abbr.title %}title="{{ abbr.title }}"{% endif %}
-                        >{{ abbr.text }}
+                        >{{- abbr.text -}}
                         {{ endTag | safe }}
                     </span>
                 </span>
