@@ -108,7 +108,7 @@ describe('FOR: access-code', () => {
             test('THEN: renders input with total maxlength of 19', () => {
                 expect($('input').attr('maxlength')).toBe('19');
             });
-            test('THEN: renders input with groupsize of 4', () => {
+            test('THEN: renders input with groupSize of 4', () => {
                 expect($('input').attr('data-group-size')).toBe('4');
             });
         });
@@ -122,24 +122,24 @@ describe('FOR: access-code', () => {
                 expect($('input').attr('maxlength')).toBe('9');
             });
         });
-        describe('WHEN: groupsize param is provided', () => {
+        describe('WHEN: groupSize param is provided', () => {
             const $ = cheerio.load(
                 renderComponent('access-code', {
                     groupSize: 2,
                 }),
             );
-            test('THEN: renders input with provided groupsize', () => {
+            test('THEN: renders input with provided groupSize', () => {
                 expect($('input').attr('data-group-size')).toBe('2');
             });
         });
-        describe('WHEN: maxlength and groupsize params are provided', () => {
+        describe('WHEN: maxlength and groupSize params are provided', () => {
             const $ = cheerio.load(
                 renderComponent('access-code', {
                     maxlength: 6,
                     groupSize: 3,
                 }),
             );
-            test('THEN: renders input with provided maxlength accounting for provided groupsize', () => {
+            test('THEN: renders input with provided maxlength accounting for provided groupSize', () => {
                 expect($('input').attr('maxlength')).toBe('7');
             });
         });
