@@ -199,14 +199,37 @@ describe('FOR: Accordion', () => {
             });
         });
     });
-    describe('GIVEN: Params: open ', () => {
-        describe('WHEN: open param is at default/set to false', () => {
+    describe('GIVEN: Params: saveState ', () => {
+        describe('WHEN: saveState param is not provided', () => {
             const $ = cheerio.load(
                 renderComponent('accordion', {
                     ...EXAMPLE_ACCORDION,
                 }),
             );
-            test('THEN: renders with accordion items open on page load', () => {
+            test('THEN: renders without saveState attribute', () => {
+                expect($('.ons-details--accordion').attr('saveState')).toBe(undefined);
+            });
+        });
+        describe('WHEN: saveState param is set to true', () => {
+            const $ = cheerio.load(
+                renderComponent('accordion', {
+                    ...EXAMPLE_ACCORDION,
+                    saveState: true,
+                }),
+            );
+            test('THEN: renders with saveState attribute', () => {
+                expect($('.ons-details--accordion').attr('saveState'));
+            });
+        });
+    });
+    describe('GIVEN: Params: open ', () => {
+        describe('WHEN: open param is not provided', () => {
+            const $ = cheerio.load(
+                renderComponent('accordion', {
+                    ...EXAMPLE_ACCORDION,
+                }),
+            );
+            test('THEN: renders with accordion items closed on page load', () => {
                 expect($('.ons-details--accordion').attr('open')).toBe(undefined);
             });
         });
