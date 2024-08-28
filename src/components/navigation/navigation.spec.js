@@ -272,14 +272,14 @@ describe('script: navigation', () => {
 
                 it('has the aria-hidden attribute removed from the navigation list', async () => {
                     const nav = await page.$(navEl);
-                    const hasAriaAttribute = await nav.evaluate((node) => node.getAttribute('aria-hidden') !== null);
-                    expect(hasAriaAttribute).toBe(false);
+                    const hasAriaAttribute = await nav.evaluate((node) => node.getAttribute('aria-hidden') === null);
+                    expect(hasAriaAttribute).toBe(true);
                 });
 
                 it('has aria-expanded removed from the navigation toggle button', async () => {
                     const button = await page.$(buttonEl);
-                    const hasAriaExpanded = await button.evaluate((node) => node.getAttribute('aria-expanded') !== null);
-                    expect(hasAriaExpanded).toBe(false);
+                    const hasAriaExpanded = await button.evaluate((node) => node.getAttribute('aria-expanded') === null);
+                    expect(hasAriaExpanded).toBe(true);
                 });
 
                 it('has the hide class removed from the navigation list', async () => {

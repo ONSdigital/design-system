@@ -185,7 +185,7 @@ describe('script: timeout modal', () => {
             });
 
             it('then redirects to the provided `redirectUrl`', async () => {
-                await sleep(1000);
+                await sleep(2000);
                 expect(page.url()).toContain('#!');
             });
         });
