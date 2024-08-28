@@ -569,6 +569,21 @@ describe('macro: list', () => {
             expect(iconsSpy.occurrences[1]).toEqual({ iconType: 'check', iconSize: 'xl' });
         });
 
+        it.each([['before'], ['after']])('renders green check icon when iconType is set to check-green', (iconPosition) => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+
+            faker.renderComponent('list', {
+                ...EXAMPLE_LIST_TEXT_ITEMS,
+                iconPosition,
+                iconType: 'check-green',
+                iconSize: 'xl',
+            });
+
+            expect(iconsSpy.occurrences[0]).toEqual({ iconType: 'check', iconSize: 'xl', classes: 'ons-icon--check-green' });
+            expect(iconsSpy.occurrences[1]).toEqual({ iconType: 'check', iconSize: 'xl', classes: 'ons-icon--check-green' });
+        });
+
         it.each([['before'], ['after']])('renders a custom icon on specific list items when icon is positioned %s', (iconPosition) => {
             const faker = templateFaker();
             const iconsSpy = faker.spy('icon');

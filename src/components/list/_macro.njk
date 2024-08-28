@@ -13,6 +13,11 @@
         {% set otherClasses = '' %}
     {% endif %}
 
+    {% if params.iconType == 'check-green' %}
+        {% set iconType = 'check' %}
+        {% set iconClasses = "ons-icon--check-green" %}
+    {% endif %}
+
     {% if params.element and listLength > 1 %}
         {% set listEl = params.element | lower %}
     {% elif (params.element == 'ol') and listLength < 2 %}
@@ -22,7 +27,6 @@
     {% endif %}
     {% set openingTag = "<" + listEl %}
     {% set closingTag = "</" + listEl + ">" %}
-
     {{ openingTag | safe }}{% if params.id %}{{ ' ' }}id="{{ params.id }}"{% endif %}
     class="ons-list{{ ' ons-list--p' if listEl == 'p' }}{{ ' ' + params.classes if params.classes else '' }}{% if params.variants %}{% if params.variants is not string %}{% for variant in variants %}{{ ' ' }}ons-list--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-list--{{ variants }}{% endif %}{% endif %}{{ ' ' + otherClasses if otherClasses else '' }}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
     {%- for item in params.itemsList -%}
@@ -57,7 +61,7 @@
                             onsIcon({
                                 "iconType": itemIconType,
                                 "iconSize": params.iconSize,
-                                "classes": params.iconClasses
+                                "classes": iconClasses
                             })
                         -}}
                     {%- endif -%}
@@ -99,7 +103,7 @@
                             onsIcon({
                                 "iconType": itemIconType,
                                 "iconSize": params.iconSize,
-                                "classes": params.iconClasses
+                                "classes": iconClasses
                             })
                         -}}
                     {%- endif -%}</span
