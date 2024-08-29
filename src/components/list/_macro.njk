@@ -13,11 +13,6 @@
         {% set otherClasses = '' %}
     {% endif %}
 
-    {% if params.iconType == 'check-green' %}
-        {% set iconType = 'check' %}
-        {% set iconClasses = "ons-icon--check-green" %}
-    {% endif %}
-
     {% if params.element and listLength > 1 %}
         {% set listEl = params.element | lower %}
     {% elif (params.element == 'ol') and listLength < 2 %}
@@ -52,7 +47,10 @@
             {% endif %}
 
             {%- if item.prefix or (params.iconPosition == 'before') -%}
-                <span class="ons-list__prefix" {% if listEl != 'ol' %}aria-hidden="true"{% endif %}>
+                <span
+                    class="ons-list__prefix {{ 'ons-list__prefix--icon-check' if params.variants == 'summary' and params.iconType == 'check' }}"
+                    {% if listEl != 'ol' %}aria-hidden="true"{% endif %}
+                >
                     {%- if item.prefix -%}
                         {{- item.prefix -}}.
                     {% elif params.iconPosition == 'before' %}
@@ -60,8 +58,7 @@
                         {{-
                             onsIcon({
                                 "iconType": itemIconType,
-                                "iconSize": params.iconSize,
-                                "classes": iconClasses
+                                "iconSize": params.iconSize
                             })
                         -}}
                     {%- endif -%}
@@ -92,7 +89,10 @@
                 {{- itemText | safe -}}
             {%- endif -%}
             {%- if item.suffix or (params.iconPosition == 'after') -%}
-                <span class="ons-list__suffix" {% if listEl != 'ol' %}aria-hidden="true"{% endif %}>
+                <span
+                    class="ons-list__suffix {{ 'ons-list__suffix--icon-check' if params.variants == 'summary' and params.iconType == 'check' }}"
+                    {% if listEl != 'ol' %}aria-hidden="true"{% endif %}
+                >
                     {%- if item.suffix -%}
                         {{- item.suffix -}}
                     {%- elif (item.index and listEl != 'ol') or (item.index and listEl == 'ol' and 'bare' in variants) -%}
@@ -102,8 +102,7 @@
                         {{-
                             onsIcon({
                                 "iconType": itemIconType,
-                                "iconSize": params.iconSize,
-                                "classes": iconClasses
+                                "iconSize": params.iconSize
                             })
                         -}}
                     {%- endif -%}</span

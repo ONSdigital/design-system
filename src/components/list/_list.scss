@@ -63,9 +63,6 @@
     &__prefix,
     &__suffix {
         font-family: $font-mono;
-        .ons-icon--check-green {
-            fill: var(--ons-color-leaf-green);
-        }
     }
 
     &--prefix,
@@ -109,6 +106,12 @@
             @extend .ons-u-pt-s;
             @extend .ons-u-pb-s;
             @extend .ons-u-m-no;
+        }
+        .ons-list__prefix,
+        .ons-list__suffix {
+            &--icon-check .ons-icon {
+                fill: var(--ons-color-leaf-green) !important;
+            }
         }
     }
 }
