@@ -4,20 +4,7 @@ import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
-
-const EXAMPLE_ACCORDION = {
-    id: 'accordion-identifier',
-    itemsList: [
-        {
-            title: 'Title for item 1',
-            content: 'Content for item 1',
-        },
-        {
-            title: 'Title for item 2',
-            content: 'Content for item 2',
-        },
-    ],
-};
+import { EXAMPLE_ACCORDION } from './_test_examples';
 
 describe('FOR: Accordion', () => {
     describe('GIVEN: Params: required ', () => {
