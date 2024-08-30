@@ -70,7 +70,7 @@ const EXAMPLE_MUTUALLY_EXCLUSIVE_DATE_SINGLE_PARAMS = {
     },
 };
 
-const sleep = (milliseconds) => new Promise((r) => setTimeout(r, milliseconds));
+const { setTimeout } = require('node:timers/promises');
 
 describe('script: mutually-exclusive', () => {
     describe('date', () => {
@@ -105,7 +105,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert should tell the user that the date input has been cleared', async () => {
-                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                    await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('Day cleared. Month cleared. Year cleared.');
@@ -131,7 +131,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert should tell the user that the exclusive option has been unchecked', async () => {
-                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                    await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('I have never had a paid job deselected.');
@@ -148,7 +148,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert shouldnt say anything', async () => {
-                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                    await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('');
@@ -161,7 +161,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert shouldnt say anything', async () => {
-                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                    await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('');
@@ -195,7 +195,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert should tell the user that the date input has been cleared', async () => {
-                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                    await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('What year was your last MOT? cleared.');
@@ -219,7 +219,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert should tell the user that the exclusive option has been unchecked', async () => {
-                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                    await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('I have never had a paid job deselected.');
@@ -234,7 +234,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert shouldnt say anything', async () => {
-                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                    await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('');
@@ -247,7 +247,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria alert shouldnt say anything', async () => {
-                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                    await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('');

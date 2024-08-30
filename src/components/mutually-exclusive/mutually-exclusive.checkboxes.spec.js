@@ -60,7 +60,7 @@ const EXAMPLE_MUTUALLY_EXCLUSIVE_CHECKBOXES_PARAMS = {
     },
 };
 
-const sleep = (milliseconds) => new Promise((r) => setTimeout(r, milliseconds));
+const { setTimeout } = require('node:timers/promises');
 
 describe('script: mutually-exclusive', () => {
     describe('checkboxes', () => {
@@ -95,7 +95,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria-live message should reflect the removed non exclusive options', async () => {
-                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                    await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('Gas deselected. Electric deselected. Other deselected. Please specify deselected.');
@@ -127,7 +127,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria-live message should reflect the removed exclusive option', async () => {
-                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                    await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('No central heating deselected.');
@@ -139,7 +139,7 @@ describe('script: mutually-exclusive', () => {
                     });
 
                     it('the aria-live message should not be updated', async () => {
-                        await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                        await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                         const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                         expect(alertText).toBe('No central heating deselected.');
@@ -168,7 +168,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria-live message should say nothing', async () => {
-                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                    await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('');
@@ -194,7 +194,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the aria-live message should say nothing', async () => {
-                    await sleep(SCREEN_READER_TIMEOUT_DELAY);
+                    await setTimeout(SCREEN_READER_TIMEOUT_DELAY);
 
                     const alertText = await page.$eval('.ons-js-exclusive-alert', (node) => node.textContent);
                     expect(alertText).toBe('');

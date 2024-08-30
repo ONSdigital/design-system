@@ -1,6 +1,8 @@
 import * as url from 'url';
 
 import { quietLog } from './debug';
+const { setTimeout } = require('node:timers/promises');
+await setTimeout(1000);
 
 const INTERCEPT_INSTANCE_HEADER_NAME = 'x-test-intercept-instance';
 
@@ -16,6 +18,7 @@ export async function getNodeAttributes(page, selector) {
 
 export async function setViewport(page, viewport) {
     await page.setViewport(viewport);
+    await page.evaluate(() => new Promise((r) => setTimeout(r, 100)));
 }
 
 function sanitizeHref(href) {

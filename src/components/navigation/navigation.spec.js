@@ -230,14 +230,14 @@ describe('script: navigation', () => {
             });
 
             describe('when the toggle button is clicked to close the navigation list', () => {
-                const sleep = (milliseconds) => new Promise((r) => setTimeout(r, milliseconds));
+                const { setTimeout } = require('node:timers/promises');
 
                 beforeEach(async () => {
                     await page.focus(buttonEl);
                     await page.keyboard.press('Enter');
-                    await sleep(100);
+                    await setTimeout(100);
                     await page.keyboard.press('Enter');
-                    await sleep(100);
+                    await setTimeout(100);
                 });
 
                 it('has aria-hidden set as `true` on the navigation list', async () => {

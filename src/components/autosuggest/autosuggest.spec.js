@@ -53,7 +53,7 @@ const EXAMPLE_AUTOSUGGEST_WITH_LANGUAGE = {
     language: 'en-gb',
 };
 
-const sleep = (milliseconds) => new Promise((r) => setTimeout(r, milliseconds));
+const { setTimeout } = require('node:timers/promises');
 
 describe('script: autosuggest', () => {
     const apiFaker = new PuppeteerEndpointFaker('/test/fake/api');
@@ -300,11 +300,11 @@ describe('script: autosuggest', () => {
             const suggestionCountSample1 = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.length);
             expect(suggestionCountSample1).toBe(2);
 
-            await sleep(200);
+            await setTimeout(200);
             const suggestionCountSample2 = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.length);
             expect(suggestionCountSample2).toBe(2);
 
-            await sleep(320);
+            await setTimeout(320);
             const suggestionCountSample3 = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.length);
             expect(suggestionCountSample3).toBe(0);
         });
@@ -314,7 +314,7 @@ describe('script: autosuggest', () => {
 
             await page.type('.ons-js-autosuggest-input', 'Unite', { delay: 20 });
             await page.keyboard.press('Tab');
-            await sleep(320);
+            await setTimeout(320);
 
             const listboxInnerHTML = await page.$eval('.ons-js-autosuggest-listbox', (node) => node.innerHTML);
             expect(listboxInnerHTML).toBe('');
@@ -325,7 +325,7 @@ describe('script: autosuggest', () => {
 
             await page.type('.ons-js-autosuggest-input', 'Unite', { delay: 20 });
             await page.keyboard.press('Tab');
-            await sleep(320);
+            await setTimeout(320);
 
             const hasClass = await page.$eval('.ons-autosuggest', (node) => node.classList.contains('ons-autosuggest--has-results'));
             expect(hasClass).toBe(false);
@@ -336,7 +336,7 @@ describe('script: autosuggest', () => {
 
             await page.type('.ons-js-autosuggest-input', 'Unite', { delay: 20 });
             await page.keyboard.press('Tab');
-            await sleep(320);
+            await setTimeout(320);
 
             const attributes = await getNodeAttributes(page, '.ons-js-autosuggest-input');
             expect(attributes['aria-activedescendant']).toBeUndefined();

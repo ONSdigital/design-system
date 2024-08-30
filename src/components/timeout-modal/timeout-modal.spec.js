@@ -14,7 +14,7 @@ const EXAMPLE_TIMEOUT_MODAL_BASIC = {
     endWithFullStop: true,
 };
 
-const sleep = (milliseconds) => new Promise((r) => setTimeout(r, milliseconds));
+const { setTimeout } = require('node:timers/promises');
 
 describe('script: timeout modal', () => {
     describe('when the page loads', () => {
@@ -29,7 +29,7 @@ describe('script: timeout modal', () => {
         });
 
         it('displays the modal after the correct number of seconds', async () => {
-            await sleep(2000);
+            await setTimeout(2000);
             const modalIsVisible = await page.$eval('.ons-modal', (node) => node.classList.contains('ons-u-db'));
             expect(modalIsVisible).toBe(true);
         });
@@ -54,7 +54,7 @@ describe('script: timeout modal', () => {
 
             it('shows the time counting down', async () => {
                 const timeAtStart = await page.$eval('.ons-js-timeout-timer span', (element) => element.innerHTML);
-                await sleep(1000);
+                await setTimeout(1000);
                 const timeAfterOneSecond = await page.$eval('.ons-js-timeout-timer span', (element) => element.innerHTML);
                 expect(timeAfterOneSecond).not.toEqual(timeAtStart);
             });
@@ -185,7 +185,7 @@ describe('script: timeout modal', () => {
             });
 
             it('then redirects to the provided `redirectUrl`', async () => {
-                await sleep(2000);
+                await setTimeout(2000);
                 expect(page.url()).toContain('#!');
             });
         });
@@ -219,7 +219,7 @@ describe('script: timeout modal', () => {
             });
 
             it('restarts the timer and displays the modal after the correct number of seconds', async () => {
-                await sleep(2000);
+                await setTimeout(2000);
                 const modalIsVisible = await page.$eval('.ons-modal', (node) => node.classList.contains('ons-u-db'));
                 expect(modalIsVisible).toBe(true);
             });

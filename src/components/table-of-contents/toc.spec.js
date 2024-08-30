@@ -1,6 +1,6 @@
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
-const sleep = (milliseconds) => new Promise((r) => setTimeout(r, milliseconds));
+const { setTimeout } = require('node:timers/promises');
 
 describe('script: table-of-contents', () => {
     beforeEach(async () => {
@@ -57,7 +57,7 @@ describe('script: table-of-contents', () => {
         ['section3', 'Third section'],
     ])('marks "%s" as the current section', async (sectionId, sectionTitle) => {
         await page.$eval(`#${sectionId}`, (node) => node.scrollIntoView());
-        await sleep(250);
+        await setTimeout(250);
 
         const activeSection = await page.$eval('.ons-toc__link-active', (node) => node.innerText.trim());
         expect(activeSection).toBe(sectionTitle);
@@ -156,7 +156,7 @@ describe('script: table-of-contents-fixed-position', () => {
             window.scrollTo(0, 1000);
         });
 
-        await sleep(250);
+        await setTimeout(250);
         const leftColumn = await page.$('#sticky-container');
         const boundingBox = await leftColumn.boundingBox();
 

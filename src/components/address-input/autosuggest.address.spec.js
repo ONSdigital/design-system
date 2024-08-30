@@ -62,7 +62,7 @@ const EXAMPLE_ADDRESS_INPUT_WITH_API = {
     externalInitialiser: true,
 };
 
-const sleep = (milliseconds) => new Promise((r) => setTimeout(r, milliseconds));
+const { setTimeout } = require('node:timers/promises');
 
 describe('script: address-input', () => {
     const apiFaker = new PuppeteerEndpointFaker(EXAMPLE_ADDRESS_INPUT_WITH_API.APIDomain);
@@ -186,7 +186,7 @@ describe('script: address-input', () => {
     describe('When the component initializes', () => {
         it('checks api status by trying a request', async () => {
             await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
-            await sleep(50);
+            await setTimeout(50);
 
             expect(apiFaker.getRequestCount('/addresses/eq?input=cf142&limit=10')).toBe(1);
         });
@@ -194,7 +194,7 @@ describe('script: address-input', () => {
         describe('when api status is okay', () => {
             beforeEach(async () => {
                 await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
-                await sleep(50);
+                await setTimeout(50);
             });
 
             it('does not switch to manual input', async () => {
@@ -218,7 +218,7 @@ describe('script: address-input', () => {
                 });
 
                 await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
-                await sleep(50);
+                await setTimeout(50);
             });
 
             it('switches to manual input', async () => {
@@ -307,7 +307,7 @@ describe('script: address-input', () => {
 
                 await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = 'Penlline Road, Whitchurch, Cardiff, CF14 2N'));
                 await page.type('.ons-js-autosuggest-input', 'Z');
-                await sleep(100);
+                await setTimeout(100);
             });
 
             it('provides expected parameters to the address API', async () => {
@@ -330,7 +330,7 @@ describe('script: address-input', () => {
                 beforeEach(async () => {
                     await page.keyboard.press('ArrowDown');
                     await page.keyboard.press('Enter');
-                    await sleep(100);
+                    await setTimeout(100);
                 });
 
                 it('makes expected request when a suggestion is selected', async () => {
@@ -354,7 +354,7 @@ describe('script: address-input', () => {
 
                 await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = 'CF14 '));
                 await page.type('.ons-js-autosuggest-input', '2');
-                await sleep(200);
+                await setTimeout(200);
             });
 
             it('provides expected parameters to the address API', async () => {
@@ -373,7 +373,7 @@ describe('script: address-input', () => {
                 beforeEach(async () => {
                     await page.keyboard.press('ArrowDown');
                     await page.keyboard.press('Enter');
-                    await sleep(200);
+                    await setTimeout(200);
                 });
 
                 it('makes expected request', async () => {
@@ -395,7 +395,7 @@ describe('script: address-input', () => {
                     beforeEach(async () => {
                         await page.keyboard.press('ArrowDown');
                         await page.keyboard.press('Enter');
-                        await sleep(200);
+                        await setTimeout(200);
                     });
 
                     it('populates manual input fields with address from selection', async () => {
@@ -439,7 +439,7 @@ describe('script: address-input', () => {
                 await page.type('.ons-js-autosuggest-input', '2', { delay: 20 });
                 await page.keyboard.press('ArrowDown');
                 await page.keyboard.press('Enter');
-                await sleep(100);
+                await setTimeout(100);
 
                 const isManualElementHidden = await page.$eval('.ons-js-address-input__manual', (node) =>
                     node.classList.contains('ons-u-db-no-js_enabled'),
@@ -482,7 +482,7 @@ describe('script: address-input', () => {
                     await page.type('.ons-js-autosuggest-input', 'T', { delay: 20 });
                     await page.keyboard.press('ArrowDown');
                     await page.keyboard.press('Enter');
-                    await sleep(100);
+                    await setTimeout(100);
 
                     const urpnValueBefore = await page.$eval('.ons-js-hidden-uprn', (node) => node.value);
                     expect(urpnValueBefore).toBe('100070332099');
@@ -621,7 +621,7 @@ describe('script: address-input', () => {
                 await page.keyboard.press('ArrowDown');
                 await page.keyboard.press('Enter');
 
-                await sleep(50);
+                await setTimeout(50);
             });
 
             it('then the retrieveAddress function will be called', async () => {
@@ -741,7 +741,7 @@ describe('script: address-input', () => {
             await page.keyboard.press('ArrowDown');
             await page.keyboard.press('Enter');
 
-            await sleep(50);
+            await setTimeout(50);
 
             expect(apiFaker.getRequestCount(uprnEndpoint)).toBe(1);
         });

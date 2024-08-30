@@ -13,7 +13,7 @@ const EXAMPLE_TIMEOUT_PANEL_BASIC = {
     endWithFullStop: true,
 };
 
-const sleep = (milliseconds) => new Promise((r) => setTimeout(r, milliseconds));
+const { setTimeout } = require('node:timers/promises');
 
 describe('script: timeout panel', () => {
     describe('when the page loads', () => {
@@ -31,7 +31,7 @@ describe('script: timeout panel', () => {
 
         it('shows the time counting down', async () => {
             const timeAtStart = await page.$eval('.ons-js-timeout-timer', (element) => element.innerHTML);
-            await sleep(1000);
+            await setTimeout(1000);
             const timeAfterOneSecond = await page.$eval('.ons-js-timeout-timer', (element) => element.innerHTML);
             expect(timeAfterOneSecond).not.toEqual(timeAtStart);
         });
@@ -132,7 +132,7 @@ describe('script: timeout panel', () => {
         });
 
         it('then redirects to the provided `redirectUrl`', async () => {
-            await sleep(2000);
+            await setTimeout(2000);
             expect(page.url()).toContain('#!');
         });
     });
