@@ -15,7 +15,7 @@ const EXAMPLE_APPROVED_COOKIE = JSON.stringify({ campaigns: true }).replace(/"/g
 
 describe('script: video', () => {
     beforeEach(async () => {
-        const client = await page.createCDPSession();
+        const client = await page.target().createCDPSession();
         await client.send('Network.clearBrowserCookies');
     });
 
