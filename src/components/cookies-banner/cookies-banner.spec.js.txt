@@ -4,7 +4,7 @@ const EXAMPLE_COOKIES_BANNER_PAGE = renderComponent('cookies-banner', {});
 
 describe('script: cookies-banner', () => {
     beforeEach(async () => {
-        const client = await page.createCDPSession();
+        const client = await page.target().createCDPSession();
         await client.send('Network.clearBrowserCookies');
     });
 
