@@ -107,6 +107,12 @@
             @extend .ons-u-pb-s;
             @extend .ons-u-m-no;
         }
+        .ons-list__prefix,
+        .ons-list__suffix {
+            &--icon-check .ons-icon {
+                fill: var(--ons-color-leaf-green) !important;
+            }
+        }
     }
 }
 
