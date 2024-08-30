@@ -109,6 +109,32 @@ describe('macro: list', () => {
             expect($('.ons-list').hasClass('ons-list--icons')).toBe(true);
         });
 
+        it('has the correct icon class when variants is `summary`, `iconType` is `check` and `iconPosition` is before', () => {
+            const $ = cheerio.load(
+                renderComponent('list', {
+                    ...EXAMPLE_LIST_TEXT_ITEMS,
+                    iconPosition: 'before',
+                    iconType: 'check',
+                    variants: 'summary',
+                }),
+            );
+
+            expect($('.ons-list__prefix').hasClass('ons-list__prefix--icon-check')).toBe(true);
+        });
+
+        it('has the correct icon class when variants is `summary`, `iconType` is `check` and `iconPosition` is `after`', () => {
+            const $ = cheerio.load(
+                renderComponent('list', {
+                    ...EXAMPLE_LIST_TEXT_ITEMS,
+                    iconPosition: 'after',
+                    iconType: 'check',
+                    variants: 'summary',
+                }),
+            );
+
+            expect($('.ons-list__suffix').hasClass('ons-list__suffix--icon-check')).toBe(true);
+        });
+
         it('renders a <ul> element by default', () => {
             const $ = cheerio.load(renderComponent('list', EXAMPLE_LIST_TEXT_ITEMS));
 
