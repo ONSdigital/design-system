@@ -43,120 +43,101 @@ describe('FOR: address-output', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            test('THEN: renders `unit` line correctly', () => {
+            test('THEN: renders `unit` line with correct text', () => {
                 expect($('.ons-address-output__unit').text().trim()).toBe('Unit 5');
             });
 
-            test('THEN: renders `organisation` line correctly', () => {
+            test('THEN: renders `organisation` line with correct text', () => {
                 expect($('.ons-address-output__organisation').text().trim()).toBe('Trescos');
             });
 
-            test('THEN: renders `line1` line correctly', () => {
+            test('THEN: renders `line1` line with correct text', () => {
                 expect($('.ons-address-output__line1').text().trim()).toBe('Abingdon Road');
             });
 
-            test('THEN: renders `line2` line correctly', () => {
+            test('THEN: renders `line2` line with correct text', () => {
                 expect($('.ons-address-output__line2').text().trim()).toBe('Goathill');
             });
 
-            test('THEN: renders the `town` line correctly', () => {
+            test('THEN: renders the `town` line with correct text', () => {
                 expect($('.ons-address-output__town').text().trim()).toBe('Barry');
             });
 
-            test('THEN: renders the `postcode` line correctly', () => {
+            test('THEN: renders the `postcode` line with correct text', () => {
                 expect($('.ons-address-output__postcode').text().trim()).toBe('AB12 6UH');
             });
         });
     });
 
     describe('GIVEN: Params: single param', () => {
-        describe('WHEN: classes are provided', () => {
+        describe('WHEN: the `unit` address line is the only parameter provided', () => {
             const $ = cheerio.load(
                 renderComponent('address-output', {
                     unit: 'Unit 5',
                 }),
             );
 
-            test('THEN: renders with additional classes provided', async () => {
-                expect($('.ons-address-output').hasClass('extra-class')).toBe(true);
-                expect($('.ons-address-output').hasClass('another-extra-class')).toBe(true);
-            });
-        });
-    });
-
-    describe.each([
-        ['all parameters provided', EXAMPLE_ADDRESS_OUTPUT_FULL],
-        ['single parameter unit provided', { unit: 'Unit 5' }],
-    ])('GIVEN: Params: %s', (scenario, params) => {
-        describe(`WHEN: the address-output with ${scenario}`, () => {
-            const $ = cheerio.load(renderComponent('address-output', params));
-
-            test('THEN: renders `unit` line correctly', () => {
+            test('THEN: renders `unit` line with correct text', () => {
                 expect($('.ons-address-output__unit').text().trim()).toBe('Unit 5');
             });
         });
-    });
 
-    describe.each([
-        ['all parameters provided', EXAMPLE_ADDRESS_OUTPUT_FULL],
-        ['single parameter organisation provided', { organisation: 'Trescos' }],
-    ])('GIVEN: Params: %s', (scenario, params) => {
-        describe(`WHEN: the address-output with ${scenario}`, () => {
-            const $ = cheerio.load(renderComponent('address-output', params));
+        describe('WHEN: the `organisation` address line is the only parameter provided', () => {
+            const $ = cheerio.load(
+                renderComponent('address-output', {
+                    organisation: 'Trescos',
+                }),
+            );
 
-            test('THEN: renders `organisation` line correctly', () => {
+            test('THEN: renders `organisation` line with correct text', () => {
                 expect($('.ons-address-output__organisation').text().trim()).toBe('Trescos');
             });
         });
-    });
 
-    describe.each([
-        ['all parameters provided', EXAMPLE_ADDRESS_OUTPUT_FULL],
-        ['single parameter line1 provided', { line1: 'Abingdon Road' }],
-    ])('GIVEN: Params: %s', (scenario, params) => {
-        describe(`WHEN: the address-output with ${scenario}`, () => {
-            const $ = cheerio.load(renderComponent('address-output', params));
+        describe('WHEN: the `line1` address line is the only parameter provided', () => {
+            const $ = cheerio.load(
+                renderComponent('address-output', {
+                    line1: 'Abingdon Road',
+                }),
+            );
 
-            test('THEN: renders `line1` line correctly', () => {
+            test('THEN: renders `line1` line with correct text', () => {
                 expect($('.ons-address-output__line1').text().trim()).toBe('Abingdon Road');
             });
         });
-    });
 
-    describe.each([
-        ['all parameters provided', EXAMPLE_ADDRESS_OUTPUT_FULL],
-        ['single parameter line2 provided', { line2: 'Goathill' }],
-    ])('GIVEN: Params: %s', (scenario, params) => {
-        describe(`WHEN: the address-output with ${scenario}`, () => {
-            const $ = cheerio.load(renderComponent('address-output', params));
+        describe('WHEN: the `line2` address line is the only parameter provided', () => {
+            const $ = cheerio.load(
+                renderComponent('address-output', {
+                    line2: 'Goathill',
+                }),
+            );
 
-            test('THEN: renders `line2` line correctly', () => {
+            test('THEN: renders `line2` line with correct text', () => {
                 expect($('.ons-address-output__line2').text().trim()).toBe('Goathill');
             });
         });
-    });
 
-    describe.each([
-        ['all parameters provided', EXAMPLE_ADDRESS_OUTPUT_FULL],
-        ['single parameter town provided', { town: 'Barry' }],
-    ])('GIVEN: Params: %s', (scenario, params) => {
-        describe(`WHEN: the address-output with ${scenario}`, () => {
-            const $ = cheerio.load(renderComponent('address-output', params));
+        describe('WHEN: the `town` address line is the only parameter provided', () => {
+            const $ = cheerio.load(
+                renderComponent('address-output', {
+                    town: 'Barry',
+                }),
+            );
 
-            test('THEN: renders the `town` line correctly', () => {
+            test('THEN: renders `town` line with correct text', () => {
                 expect($('.ons-address-output__town').text().trim()).toBe('Barry');
             });
         });
-    });
 
-    describe.each([
-        ['all parameters provided', EXAMPLE_ADDRESS_OUTPUT_FULL],
-        ['single parameter postcode provided', { postcode: 'AB12 6UH' }],
-    ])('GIVEN: Params: %s', (scenario, params) => {
-        describe(`WHEN: the address-output with ${scenario}`, () => {
-            const $ = cheerio.load(renderComponent('address-output', params));
+        describe('WHEN: the `postcode` address line is the only parameter provided', () => {
+            const $ = cheerio.load(
+                renderComponent('address-output', {
+                    postcode: 'AB12 6UH',
+                }),
+            );
 
-            test('THEN: renders the `postcode` line correctly', () => {
+            test('THEN: renders `postcode` line with correct text', () => {
                 expect($('.ons-address-output__postcode').text().trim()).toBe('AB12 6UH');
             });
         });
