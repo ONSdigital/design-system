@@ -22,7 +22,6 @@
     {% endif %}
     {% set openingTag = "<" + listEl %}
     {% set closingTag = "</" + listEl + ">" %}
-
     {{ openingTag | safe }}{% if params.id %}{{ ' ' }}id="{{ params.id }}"{% endif %}
     class="ons-list{{ ' ons-list--p' if listEl == 'p' }}{{ ' ' + params.classes if params.classes else '' }}{% if params.variants %}{% if params.variants is not string %}{% for variant in variants %}{{ ' ' }}ons-list--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-list--{{ variants }}{% endif %}{% endif %}{{ ' ' + otherClasses if otherClasses else '' }}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
     {%- for item in params.itemsList -%}
@@ -48,7 +47,10 @@
             {% endif %}
 
             {%- if item.prefix or (params.iconPosition == 'before') -%}
-                <span class="ons-list__prefix" {% if listEl != 'ol' %}aria-hidden="true"{% endif %}>
+                <span
+                    class="ons-list__prefix{{ ' ons-list__prefix--icon-check' if params.variants == 'summary' and itemIconType == 'check' }}"
+                    {% if listEl != 'ol' %}aria-hidden="true"{% endif %}
+                >
                     {%- if item.prefix -%}
                         {{- item.prefix -}}.
                     {% elif params.iconPosition == 'before' %}
@@ -87,7 +89,10 @@
                 {{- itemText | safe -}}
             {%- endif -%}
             {%- if item.suffix or (params.iconPosition == 'after') -%}
-                <span class="ons-list__suffix" {% if listEl != 'ol' %}aria-hidden="true"{% endif %}>
+                <span
+                    class="ons-list__suffix{{ ' ons-list__suffix--icon-check' if params.variants == 'summary' and itemIconType == 'check' }}"
+                    {% if listEl != 'ol' %}aria-hidden="true"{% endif %}
+                >
                     {%- if item.suffix -%}
                         {{- item.suffix -}}
                     {%- elif (item.index and listEl != 'ol') or (item.index and listEl == 'ol' and 'bare' in variants) -%}
