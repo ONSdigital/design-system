@@ -1,66 +1,6 @@
 import { PuppeteerEndpointFaker } from '../../tests/helpers/puppeteer';
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
-
-const EXAMPLE_ADDRESS_INPUT = {
-    id: 'address',
-    autocomplete: 'off',
-    label: {
-        text: 'Enter address or postcode and select from results',
-    },
-    legend: 'What is the address?',
-    isEditable: true,
-    mandatory: true,
-    dontWrap: true,
-    instructions: 'Use up and down keys to navigate.',
-    ariaYouHaveSelected: 'You have selected',
-    ariaMinChars: 'Enter 3 or more characters for suggestions.',
-    minChars: 3,
-    ariaResultsLabel: 'Country suggestions',
-    ariaOneResult: 'There is one suggestion available.',
-    ariaNResults: 'There are {n} suggestions available.',
-    ariaLimitedResults: 'Type more characters to improve your search',
-    ariaGroupedResults: 'There are {n} for {x}',
-    groupCount: '{n} addresses',
-    moreResults: 'Continue entering to improve suggestions',
-    resultsTitle: 'Suggestions',
-    resultsTitleId: 'country-of-birth-suggestions',
-    noResults: 'No suggestions found.',
-    tooManyResults: '{n} results found. Enter more of the address to improve results',
-    typeMore: 'Continue entering to get suggestions',
-    errorTitle: 'There is a problem with your answer',
-    errorMessageEnter: 'Enter an address',
-    errorMessageSelect: 'Select an address',
-    errorMessageAPI: 'Sorry, there is a problem loading addresses',
-    errorMessageAPILinkText: 'Enter address manually',
-    options: {
-        regionCode: 'gb-eng',
-        addressType: 'residential',
-    },
-    organisation: {
-        label: 'Organisation',
-    },
-    line1: {
-        label: 'Address line 1',
-    },
-    line2: {
-        label: 'Address line 2',
-    },
-    town: {
-        label: 'Town or city',
-    },
-    postcode: {
-        label: 'Postcode',
-    },
-    searchButton: 'Search for an address',
-    manualLinkText: 'Manually enter address',
-};
-
-const EXAMPLE_ADDRESS_INPUT_WITH_API = {
-    ...EXAMPLE_ADDRESS_INPUT,
-    APIDomain: '/fake/api',
-    APIDomainBearerToken: 'someToken',
-    externalInitialiser: true,
-};
+import { EXAMPLE_ADDRESS_INPUT_WITH_API } from './_test-examples';
 
 describe('FOR: address-input', () => {
     const apiFaker = new PuppeteerEndpointFaker(EXAMPLE_ADDRESS_INPUT_WITH_API.APIDomain);
