@@ -5,32 +5,7 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
-const EXAMPLE_AUTOSUGGEST = {
-    id: 'country-of-birth',
-    input: {
-        label: {
-            text: 'Current name of country',
-            description: 'Enter your own answer or select from suggestions',
-            id: 'country-of-birth-label',
-            classes: 'extra-label-class',
-        },
-        autocomplete: 'off',
-    },
-    instructions: 'Use up and down keys to navigate.',
-    ariaYouHaveSelected: 'You have selected',
-    ariaMinChars: 'Enter 3 or more characters for suggestions.',
-    minChars: 2,
-    ariaResultsLabel: 'Country suggestions',
-    ariaOneResult: 'There is one suggestion available.',
-    ariaNResults: 'There are {n} suggestions available.',
-    ariaLimitedResults: 'Type more characters to improve your search',
-    moreResults: 'Continue entering to improve suggestions',
-    resultsTitle: 'Suggestions',
-    resultsTitleId: 'country-of-birth-suggestions',
-    autosuggestData: '/examples/data/country-of-birth.json',
-    noResults: 'No suggestions found. You can enter your own answer',
-    typeMore: 'Continue entering to get suggestions',
-};
+import { EXAMPLE_AUTOSUGGEST } from './_test-examples';
 
 describe('macro: autosuggest', () => {
     describe('GIVEN: Params: none', () => {
@@ -55,16 +30,16 @@ describe('macro: autosuggest', () => {
             test('THEN: it has the provided data attributes', () => {
                 const $element = $('.ons-autosuggest');
                 expect($element.attr('data-allow-multiple')).toBeUndefined();
-                expect($element.attr('data-min-chars')).toBe('2');
+                expect($element.attr('data-min-chars')).toBe('3');
                 expect($element.attr('data-aria-limited-results')).toBe('Type more characters to improve your search');
                 expect($element.attr('data-aria-min-chars')).toBe('Enter 3 or more characters for suggestions.');
                 expect($element.attr('data-aria-n-results')).toBe('There are {n} suggestions available.');
                 expect($element.attr('data-aria-one-result')).toBe('There is one suggestion available.');
                 expect($element.attr('data-aria-you-have-selected')).toBe('You have selected');
-                expect($element.attr('data-autosuggest-data')).toBe('/examples/data/country-of-birth.json');
+                expect($element.attr('data-autosuggest-data')).toBe('/test/fake/api/countries');
                 expect($element.attr('data-instructions')).toBe('Use up and down keys to navigate.');
                 expect($element.attr('data-more-results')).toBe('Continue entering to improve suggestions');
-                expect($element.attr('data-no-results')).toBe('No suggestions found. You can enter your own answer');
+                expect($element.attr('data-no-results')).toBe('No suggestions found.');
                 expect($element.attr('data-results-title')).toBe('Suggestions');
                 expect($element.attr('data-type-more')).toBe('Continue entering to get suggestions');
             });

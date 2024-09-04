@@ -1,57 +1,7 @@
 import { getNodeAttributes, PuppeteerEndpointFaker } from '../../tests/helpers/puppeteer';
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
-const EXAMPLE_AUTOSUGGEST = {
-    id: 'country-of-birth',
-    input: {
-        label: {
-            text: 'Current name of country',
-            description: 'Enter your own answer or select from suggestions',
-            id: 'country-of-birth-label',
-            classes: 'extra-label-class',
-        },
-        autocomplete: 'off',
-    },
-    instructions: 'Use up and down keys to navigate.',
-    ariaYouHaveSelected: 'You have selected',
-    ariaMinChars: 'Enter 3 or more characters for suggestions.',
-    minChars: 3,
-    ariaResultsLabel: 'Country suggestions',
-    ariaOneResult: 'There is one suggestion available.',
-    ariaNResults: 'There are {n} suggestions available.',
-    ariaLimitedResults: 'Type more characters to improve your search',
-    moreResults: 'Continue entering to improve suggestions',
-    resultsTitle: 'Suggestions',
-    resultsTitleId: 'country-of-birth-suggestions',
-    noResults: 'No suggestions found.',
-    typeMore: 'Continue entering to get suggestions',
-    autosuggestData: '/test/fake/api/countries',
-};
-const EXAMPLE_AUTOSUGGEST_WITH_LANGUAGE = {
-    id: 'country-of-birth',
-    label: {
-        text: 'Current name of country',
-        description: 'Enter your own answer or select from suggestions',
-        id: 'country-of-birth-label',
-        classes: 'extra-label-class',
-    },
-    autocomplete: 'off',
-    instructions: 'Use up and down keys to navigate.',
-    ariaYouHaveSelected: 'You have selected',
-    ariaMinChars: 'Enter 3 or more characters for suggestions.',
-    minChars: 3,
-    ariaResultsLabel: 'Country suggestions',
-    ariaOneResult: 'There is one suggestion available.',
-    ariaNResults: 'There are {n} suggestions available.',
-    ariaLimitedResults: 'Type more characters to improve your search',
-    moreResults: 'Continue entering to improve suggestions',
-    resultsTitle: 'Suggestions',
-    resultsTitleId: 'country-of-birth-suggestions',
-    noResults: 'No suggestions found.',
-    typeMore: 'Continue entering to get suggestions',
-    autosuggestData: '/test/fake/api/countries',
-    language: 'en-gb',
-};
+import { EXAMPLE_AUTOSUGGEST, EXAMPLE_AUTOSUGGEST_WITH_LANGUAGE } from './_test-examples';
 
 describe('script: autosuggest', () => {
     const apiFaker = new PuppeteerEndpointFaker('/test/fake/api');
