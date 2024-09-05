@@ -46,11 +46,11 @@
 {# Page columns #}
 {% set pageColNumber = pageConfig.pageColNumber | default("12") %}
 {%
-    set pageColClasses = ' ' + pageConfig.pageColClasses if pageConfig.pageColClasses else
+    set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else
     ''
 %}
 {%
-    set mainClasses = ' ' + pageConfig.mainColClasses if pageConfig.mainColClasses else
+    set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else
     ''
 %}
 {%
@@ -186,8 +186,8 @@
                                 {% endif %}
                             {% endblock %}
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m{{ pageColClasses }}">
-                                    <main id="main-content" class="ons-page__main{{ mainColClasses }}">
+                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m {{ pageColClasses }}">
+                                    <main id="main-content" class="ons-page__main {{ mainColClasses }}">
                                         {% block main %}{% endblock %}
                                     </main>
                                 </div>
