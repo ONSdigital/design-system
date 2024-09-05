@@ -50,7 +50,7 @@ export const EXAMPLE_MANUAL_INPUT_FIELDS = {
     },
 };
 
-const EXAMPLE_ADDRESS_INPUT = {
+export const EXAMPLE_ADDRESS_INPUT_WITH_API = {
     id: 'address',
     autocomplete: 'off',
     label: {
@@ -102,10 +102,6 @@ const EXAMPLE_ADDRESS_INPUT = {
     },
     searchButton: 'Search for an address',
     manualLinkText: 'Manually enter address',
-};
-
-export const EXAMPLE_ADDRESS_INPUT_WITH_API = {
-    ...EXAMPLE_ADDRESS_INPUT,
     APIDomain: '/fake/api',
     APIDomainBearerToken: 'someToken',
     externalInitialiser: true,

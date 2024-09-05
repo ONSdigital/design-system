@@ -2,7 +2,7 @@ import { PuppeteerEndpointFaker } from '../../tests/helpers/puppeteer';
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 import { EXAMPLE_ADDRESS_INPUT_WITH_API } from './_test-examples';
 
-describe('FOR: address-input', () => {
+describe('FOR: SCRIPT: address-input', () => {
     const apiFaker = new PuppeteerEndpointFaker(EXAMPLE_ADDRESS_INPUT_WITH_API.APIDomain);
 
     apiFaker.setOverrides(
@@ -121,7 +121,7 @@ describe('FOR: address-input', () => {
         await apiFaker.reset();
     });
     describe('GIVEN: the component initializes', () => {
-        describe('WHEN: the component initializes without options', () => {
+        describe("WHEN: 'options' is not provided", () => {
             test('THEN: it checks api status by trying a request', async () => {
                 await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
                 await page.waitForTimeout(50);
@@ -219,7 +219,7 @@ describe('FOR: address-input', () => {
                     addressType: 'workplace',
                 },
             ],
-        ])('WHEN: the component initialises with options - %s', (_, searchEndpoint, uprnEndpoint, lang, options) => {
+        ])("WHEN: 'options' is provided - %s", (_, searchEndpoint, uprnEndpoint, lang, options) => {
             beforeEach(async () => {
                 apiFaker.setTemporaryOverride(searchEndpoint, {
                     data: {
