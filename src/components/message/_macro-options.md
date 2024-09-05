@@ -11,6 +11,6 @@
 | sentId         | string | false    | The HTML `id` of the `sentValue` element                               |
 | sentName       | string | false    | The HTML `name` attribute of the `sentValue` element                   |
 | unreadLinkText | string | false    | Text for the the “Mark unread” link element                            |
-| unreadLink     | string | false    | The URL for the “Mark unread” link element’s `href` attribute          |
+| unreadLinkUrl  | string | false    | The URL for the “Mark unread” link element’s `href` attribute          |
 | unreadLinkId   | string | false    | The HTML `id` of the “Mark unread” link element                        |
 | messageID      | string | false    | The HTML `id` of the message body                                      |
