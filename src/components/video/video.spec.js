@@ -1,10 +1,10 @@
-// import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
+import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
-// const EXAMPLE_VIDEO_YOUTUBE = {
-//     videoEmbedUrl: 'https://www.youtube.com/embed/_EGJlvkgbPo',
-//     title: 'Census 2021 promotional TV advert',
-//     linkText: 'Example link text',
-// };
+const EXAMPLE_VIDEO_YOUTUBE = {
+    videoEmbedUrl: 'https://www.youtube.com/embed/_EGJlvkgbPo',
+    title: 'Census 2021 promotional TV advert',
+    linkText: 'Example link text',
+};
 // const EXAMPLE_VIDEO_VIMEO = {
 //     videoEmbedUrl: 'https://player.vimeo.com/video/838454524?h=24551a3754',
 //     title: 'Vimeo Video',
@@ -19,14 +19,14 @@ describe('script: video', () => {
         await client.send('Network.clearBrowserCookies');
     });
 
-    // it('should show the placeholder content', async () => {
-    //     await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
+    it('should show the placeholder content', async () => {
+        await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
 
-    //     const displayStyle = await page.$eval('.ons-js-video-placeholder', (node) =>
-    //         window.getComputedStyle(node).getPropertyValue('display'),
-    //     );
-    //     expect(displayStyle).toBe('block');
-    // });
+        const displayStyle = await page.$eval('.ons-js-video-placeholder', (node) =>
+            window.getComputedStyle(node).getPropertyValue('display'),
+        );
+        expect(displayStyle).toBe('block');
+    });
 
     // it('should not show the iframe', async () => {
     //     await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
