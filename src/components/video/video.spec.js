@@ -52,12 +52,12 @@ describe('script: video', () => {
             expect(displayStyle).toBe('none');
         }, 10000);
 
-        //     it('should show the iframe', async () => {
-        //         const displayStyle = await page.$eval('.ons-js-video-iframe', (node) =>
-        //             window.getComputedStyle(node).getPropertyValue('display'),
-        //         );
-        //         expect(displayStyle).toBe('block');
-        //     }, 10000);
+        it('should show the iframe', async () => {
+            const displayStyle = await page.$eval('.ons-js-video-iframe', (node) =>
+                window.getComputedStyle(node).getPropertyValue('display'),
+            );
+            expect(displayStyle).toBe('block');
+        }, 10000);
 
         //     it('should add the correct modifier class', async () => {
         //         const hasClass = await page.$eval('.ons-js-video', (node) => node.classList.contains('ons-video--hasIframe'));
