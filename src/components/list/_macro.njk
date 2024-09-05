@@ -48,7 +48,7 @@
 
             {%- if item.prefix or (params.iconPosition == 'before') -%}
                 <span
-                    class="ons-list__prefix {{ 'ons-list__prefix--icon-check' if params.variants == 'summary' and params.iconType == 'check' }}"
+                    class="ons-list__prefix{{ ' ons-list__prefix--icon-check' if params.variants == 'summary' and itemIconType == 'check' }}"
                     {% if listEl != 'ol' %}aria-hidden="true"{% endif %}
                 >
                     {%- if item.prefix -%}
@@ -90,7 +90,7 @@
             {%- endif -%}
             {%- if item.suffix or (params.iconPosition == 'after') -%}
                 <span
-                    class="ons-list__suffix {{ 'ons-list__suffix--icon-check' if params.variants == 'summary' and params.iconType == 'check' }}"
+                    class="ons-list__suffix{{ ' ons-list__suffix--icon-check' if params.variants == 'summary' and itemIconType == 'check' }}"
                     {% if listEl != 'ol' %}aria-hidden="true"{% endif %}
                 >
                     {%- if item.suffix -%}
