@@ -37,10 +37,10 @@
 
 ## LogoObject
 
-| Name      | Type           | Required | Description                                                                                                   |
-| --------- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
-| logoImage | HTML or string | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`. Use 'ONS Logo' for the default ONS icon. |
-| logoURL   | string         | false    | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                    |
+| Name  | Type           | Required | Description                                                                                                   |
+| ----- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| image | HTML or string | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`. Use 'ONS Logo' for the default ONS icon. |
+| url   | string         | false    | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                    |
 
 ## TitleLogo
 
