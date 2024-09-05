@@ -28,12 +28,12 @@ describe('script: video', () => {
         expect(displayStyle).toBe('block');
     });
 
-    // it('should not show the iframe', async () => {
-    //     await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
+    it('should not show the iframe', async () => {
+        await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
 
-    //     const displayStyle = await page.$eval('.ons-js-video-iframe', (node) => window.getComputedStyle(node).getPropertyValue('display'));
-    //     expect(displayStyle).toBe('none');
-    // });
+        const displayStyle = await page.$eval('.ons-js-video-iframe', (node) => window.getComputedStyle(node).getPropertyValue('display'));
+        expect(displayStyle).toBe('none');
+    });
 
     // describe('when cookies are accepted on page load', () => {
     //     beforeEach(async () => {
