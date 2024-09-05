@@ -39,7 +39,7 @@
         <div class="ons-header__top">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div
-                    class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center{{ ' '+ params.mastheadLogo.classes if params.mastheadLogo.classes }}{{ ' ons-grid--no-wrap ons-grid--gutterless' if not params.mastheadLogo.multipleLogos }}"
+                    class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center{{ ' '+ params.mastheadLogo.classes if params.mastheadLogo.classes }}{{ ' ons-grid-flex--no-wrap ons-grid--gutterless' if not params.mastheadLogo.multipleLogos }}"
                 >
                     <div class="ons-grid__col ons-col-auto">
                         {%- if not params.mastheadLogo.multipleLogos -%}
@@ -221,7 +221,7 @@
         <div class="ons-header__main">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div
-                    class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{{ ' ons-grid--gutterless' if not params.button }}"
+                    class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap{{ ' ons-grid--gutterless' if not params.button }}"
                 >
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         {% if params.titleLogo.large %}
