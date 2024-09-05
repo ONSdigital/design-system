@@ -167,7 +167,7 @@ describe('macro: footer', () => {
             expect(externalLinkSpy.occurrences).toContainEqual(
                 expect.objectContaining({
                     url: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-                    linkText: 'Open Government Licence v3.0',
+                    text: 'Open Government Licence v3.0',
                 }),
             );
         });
