@@ -1,4 +1,4 @@
-export { EXAMPLE_ADDRESS_OUTPUT_FULL, EXAMPLE_ADDRESS_OUTPUT_NONE };
+export { EXAMPLE_ADDRESS_OUTPUT_FULL };
 
 const EXAMPLE_ADDRESS_OUTPUT_FULL = {
     unit: 'Unit 5',
@@ -8,5 +8,3 @@ const EXAMPLE_ADDRESS_OUTPUT_FULL = {
     town: 'Barry',
     postcode: 'AB12 6UH',
 };
-
-const EXAMPLE_ADDRESS_OUTPUT_NONE = {};

@@ -5,12 +5,12 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
-import { EXAMPLE_ADDRESS_OUTPUT_FULL, EXAMPLE_ADDRESS_OUTPUT_NONE } from './_test_examples';
+import { EXAMPLE_ADDRESS_OUTPUT_FULL } from './_test_examples';
 
 describe('FOR: address-output', () => {
     describe('GIVEN: Params: none', () => {
         describe('WHEN: no parameters are provided', () => {
-            const $ = cheerio.load(renderComponent('address-output', EXAMPLE_ADDRESS_OUTPUT_NONE));
+            const $ = cheerio.load(renderComponent('address-output', {}));
 
             test('THEN: renders no lines', () => {
                 expect($('.ons-address-output__lines *').length).toBe(0);
