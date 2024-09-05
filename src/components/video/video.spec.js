@@ -43,7 +43,7 @@ describe('script: video', () => {
             });
 
             await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
-        }, 10000);
+        });
 
         it('should hide the placeholder content', async () => {
             const displayStyle = await page.$eval('.ons-js-video-placeholder', (node) =>
@@ -85,21 +85,21 @@ describe('script: video', () => {
                 <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
             );
             await page.click('.ons-js-accept-cookies');
-        }, 10000);
+        });
 
         it('should hide the placeholder content', async () => {
             const displayStyle = await page.$eval('.ons-js-video-placeholder', (node) =>
                 window.getComputedStyle(node).getPropertyValue('display'),
             );
             expect(displayStyle).toBe('none');
-        }, 10000);
+        });
 
         it('should show the iframe', async () => {
             const displayStyle = await page.$eval('.ons-js-video-iframe', (node) =>
                 window.getComputedStyle(node).getPropertyValue('display'),
             );
             expect(displayStyle).toBe('block');
-        }, 10000);
+        });
 
         it('should add the correct modifier class', async () => {
             const hasClass = await page.$eval('.ons-js-video', (node) => node.classList.contains('ons-video--hasIframe'));
