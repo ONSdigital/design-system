@@ -7,12 +7,12 @@
     {% else %}
         {% set lang = 'en' %}
     {% endif %}
-
+    {% set extraLogo = params.footerLogo.logos.logo2 %}
     {% set onsLogo %}
         {% if params.lang == 'cy' %}
             {{-
                 onsIcon({
-                    "iconType": 'ons-logo-cy',
+                    "iconType": 'ons-logo-stacked-cy' if extraLogo else 'ons-logo-cy',
                     "altText": 'Swyddfa Ystadegau Gwladol',
                     "altTextId": 'ons-logo-cy-footer-alt'
                 })
@@ -20,7 +20,7 @@
         {% else %}
             {{-
                 onsIcon({
-                    "iconType": 'ons-logo-en',
+                    "iconType": 'ons-logo-stacked-en' if extraLogo else 'ons-logo-en' ,
                     "altText": 'Office for National Statistics',
                     "altTextId": 'ons-logo-en-footer-alt'
                 })
@@ -115,7 +115,7 @@
                     {% endif %}
                 </div>
 
-                <div class="ons-grid ons-grid-flex ons-grid-flex--vertical-top ons-grid-flex--between">
+                <div class="ons-grid{% if params.crest %}ons-grid-flex{% endif %} ons-grid-flex--vertical-top ons-grid-flex--between">
                     <div class="ons-grid__col">
                         {% if params.legal %}
                             <!-- Legal -->
@@ -162,14 +162,35 @@
                                 {% endif %}
                             </div>
                         {% endif %}
-                        {% if not params.poweredBy %}
-                            <a
-                                class="ons-footer__poweredBy-link"
-                                {% if lang == "cy" %}href="https://cy.ons.gov.uk/"{% else %}href="https://www.ons.gov.uk/"{% endif %}
-                            >
-                                <div class="ons-footer__poweredby-logo ons-u-mb-m">{{ onsLogo | safe }}</div>
-                            </a>
+
+                        {% if not params.footerLogo.logos.logo1 %}
+                            {%
+                                set logo1 = {
+                                    'logoUrl': 'https://cy.ons.gov.uk/' if lang == 'cy' else 'https://www.ons.gov.uk/',
+                                    'logoImage': onsLogo | safe
+                                }
+                            %}
+                            {% set logos = [logo1, params.footerLogo.logos.logo2] %}
+                        {% else %}
+                            {% set logos = [params.footerLogo.logos.logo1, params.footerLogo.logos.logo2] %}
                         {% endif %}
+
+                        <div
+                            class="ons-footer__logo-container ons-u-mb-m ons-grid-flex ons-grid-flex--vertical-center{% if params.footerLogo.display == 'split' %}ons-grid-flex--between{% endif %}"
+                        >
+                            {% for logo in logos %}
+                                {%- if logo.logoUrl -%}
+                                    <a
+                                        class="ons-footer__logo-link{% if extraLogo and loop.index == 1 %}ons-u-mr-s{% endif %}"
+                                        href="{{ logo.logoUrl }}"
+                                        >{{ logo.logoImage | safe }}</a
+                                    >
+                                {%- else -%}
+
+                                    {{ logo.logoImage | safe }}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
                     {% if params.crest %}
                         <!-- Crest -->
@@ -182,13 +203,10 @@
                         </div>
                     {% endif %}
                 </div>
-                {% if params.poweredBy %}
-                    {{ params.poweredBy | safe }}
-                {% endif %}
                 {% if params.copyrightDeclaration %}
                     <!-- Copyright -->
                     {% set copyrightDeclaration = '&copy; ' + params.copyrightDeclaration.copyright + '<br /> ' + params.copyrightDeclaration.text %}
-                    <div class="ons-grid ons-grid-flex ons-grid--vertical-bottom ons-grid-flex--between">
+                    <div class="ons-grid ons-grid-flex ons-grid-flex--between">
                         <div class="ons-grid__col">
                             <p class="ons-u-fs-s ons-u-mb-no ons-footer__copyright">{{- copyrightDeclaration | safe -}}</p>
                         </div>
