@@ -52,6 +52,7 @@ const EXAMPLE_ADDRESS_INPUT = {
         label: 'Postcode',
     },
     searchButton: 'Search for an address',
+    manualLinkUrl: '#0',
     manualLinkText: 'Manually enter address',
 };
 

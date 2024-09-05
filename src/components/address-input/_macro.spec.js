@@ -341,7 +341,7 @@ describe('macro: address-input', () => {
                 errorMessageAPI: '[params.errorMessageAPI]',
                 errorMessageAPILinkText: '[params.errorMessageAPILinkText]',
                 options: '[params.options]',
-                manualLink: '[params.manualLink]',
+                manualLinkUrl: '[params.manualLinkUrl]',
                 manualLinkText: '[params.manualLinkText]',
             });
 
@@ -390,15 +390,16 @@ describe('macro: address-input', () => {
                 errorMessageAPI: '[params.errorMessageAPI]',
                 errorMessageAPILinkText: '[params.errorMessageAPILinkText]',
                 options: '[params.options]',
-                manualLink: '[params.manualLink]',
+                manualLinkUrl: '[params.manualLinkUrl]',
                 manualLinkText: '[params.manualLinkText]',
             });
         });
 
-        it('renders manualLinkText` when provided with a default value for `manualLink`', () => {
+        it('renders manualLinkText` when provided with a default value for `manualLinkUrl`', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
+                    manualLinkUrl: '#0',
                     manualLinkText: 'Manually enter address',
                 }),
             );
@@ -407,11 +408,11 @@ describe('macro: address-input', () => {
             expect($('.ons-js-address-manual-btn').text().trim()).toBe('Manually enter address');
         });
 
-        it('renders `manualLinkText` with `manualLink` when provided', () => {
+        it('renders `manualLinkText` with `manualLinkUrl` when provided', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
-                    manualLink: 'https://example.com/edit-address',
+                    manualLinkUrl: 'https://example.com/edit-address',
                     manualLinkText: 'Manually enter address',
                 }),
             );
