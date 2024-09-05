@@ -1,11 +1,11 @@
 {%- macro onsCard(params) -%}
-    {% set headingLevel = params.headingLevel | default(2) | string %}
+    {% set headingLevel = params.title.headingLevel | default(2) | string %}
     {% set openingHeadingTag = "<h" + headingLevel %}
     {% set closingHeadingTag = "</h" + headingLevel + ">" %}
     {% set placeholderSrcset = (params.image.placeholderURL if params.image.placeholderURL else "") + "/img/small/placeholder-card.png 1x, " + (params.image.placeholderURL if params.image.placeholderURL else "") + "/img/large/placeholder-card.png 2x" %}
 
     <div class="ons-card">
-        <a href="{{ params.url }}" class="ons-card__link">
+        <a href="{{ params.title.url }}" class="ons-card__link">
             {%- if params.image -%}
                 {% if params.image.smallSrc %}
                     <img
@@ -30,18 +30,18 @@
                 {% endif %}
             {%- endif -%}
             {{ openingHeadingTag | safe }}
-            class="ons-card__title {{ params.titleClasses | default('ons-u-fs-m') }}" id="{{ params.id }}"> {{ params.title }}
+            class="ons-card__title {{ params.title.classes | default('ons-u-fs-m') }}" id="{{ params.title.id }}"> {{ params.title.text }}
             {{ closingHeadingTag | safe }}
         </a>
 
-        <p id="{{ params.textId }}">{{ params.text }}</p>
+        <p id="{{ params.body.id }}">{{ params.body.text }}</p>
 
-        {%- if params.itemsList -%}
+        {%- if params.body.itemsList -%}
             {% from "components/list/_macro.njk" import onsList %}
             {{
                 onsList({
                     "variants": 'dashed',
-                    "itemsList": params.itemsList
+                    "itemsList": params.body.itemsList
                 })
             }}
         {% endif %}
