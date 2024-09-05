@@ -15,7 +15,7 @@
 
     {% if params.element and listLength > 1 %}
         {% set listEl = params.element | lower %}
-    {% elif listLength < 2 %}
+    {% elif (params.element == 'ol') and listLength < 2 %}
         {% set listEl = 'p' %}
     {% else %}
         {% set listEl = 'ul' %}
