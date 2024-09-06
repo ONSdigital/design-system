@@ -69,7 +69,9 @@
             data-analytics="footer"
             {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
         >
-            <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+            <div
+                class="ons-container{{ ' ons-container--full-width' if params.fullWidth else "" }}{{ ' ons-container--wide' if params.wide else "" }}"
+            >
                 <div class="ons-grid">
                     {% if params.newTabWarning %}
                         <div class="ons-grid__col">
@@ -115,7 +117,7 @@
                     {% endif %}
                 </div>
 
-                <div class="ons-grid{% if params.crest %}ons-grid-flex{% endif %} ons-grid-flex--vertical-top ons-grid-flex--between">
+                <div class="ons-grid{{ ' ons-grid-flex' if params.crest else "" }} ons-grid-flex--vertical-top ons-grid-flex--between">
                     <div class="ons-grid__col">
                         {% if params.legal %}
                             <!-- Legal -->
@@ -176,12 +178,12 @@
                         {% endif %}
 
                         <div
-                            class="ons-footer__logo-container ons-u-mb-m ons-grid-flex ons-grid-flex--vertical-center{% if params.footerLogo.display == 'split' %}ons-grid-flex--between{% endif %}"
+                            class="ons-footer__logo-container ons-u-mb-m ons-grid-flex ons-grid-flex--vertical-top{{ ' ons-grid-flex--between' if params.footerLogo.display == 'split' else "" }}"
                         >
                             {% for logo in logos %}
                                 {%- if logo.logoUrl -%}
                                     <a
-                                        class="ons-footer__logo-link{% if extraLogo and loop.index == 1 %}ons-u-mr-s{% endif %}"
+                                        class="ons-footer__logo-link{{ ' ons-u-mr-s' if extraLogo and loop.index == 1 else "" }}"
                                         href="{{ logo.logoUrl }}"
                                         >{{ logo.logoImage | safe }}</a
                                     >
