@@ -5,13 +5,13 @@ const EXAMPLE_VIDEO_YOUTUBE = {
     title: 'Census 2021 promotional TV advert',
     linkText: 'Example link text',
 };
-// const EXAMPLE_VIDEO_VIMEO = {
-//     videoEmbedUrl: 'https://player.vimeo.com/video/838454524?h=24551a3754',
-//     title: 'Vimeo Video',
-//     linkText: 'Example link text',
-// };
+const EXAMPLE_VIDEO_VIMEO = {
+    videoEmbedUrl: 'https://player.vimeo.com/video/838454524?h=24551a3754',
+    title: 'Vimeo Video',
+    linkText: 'Example link text',
+};
 
-// const EXAMPLE_APPROVED_COOKIE = JSON.stringify({ campaigns: true }).replace(/"/g, "'");
+const EXAMPLE_APPROVED_COOKIE = JSON.stringify({ campaigns: true }).replace(/"/g, "'");
 
 describe('script: video', () => {
     beforeEach(async () => {
