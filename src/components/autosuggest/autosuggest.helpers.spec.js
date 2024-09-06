@@ -1,6 +1,6 @@
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
 
-describe('module: autosuggest.helpers', () => {
+describe('FOR: module: autosuggest.helpers', () => {
     describe('GIVEN: function: sanitiseAutosuggestText', () => {
         describe('WHEN: only input parameter is set', () => {
             test.each([

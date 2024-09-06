@@ -3,7 +3,7 @@ import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
 import { EXAMPLE_AUTOSUGGEST, EXAMPLE_AUTOSUGGEST_WITH_LANGUAGE } from './_test-examples';
 
-describe('script: autosuggest', () => {
+describe('FOR: script: autosuggest', () => {
     const apiFaker = new PuppeteerEndpointFaker('/test/fake/api');
 
     apiFaker.setOverride('/countries', {
