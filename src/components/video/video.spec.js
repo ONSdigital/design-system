@@ -69,14 +69,14 @@ describe('script: video', () => {
             const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
             expect(src.includes('?dnt=1')).toBe(false);
         }, 10000);
-
-        it('should add dnt to Vimeo videos', async () => {
-            await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_VIMEO));
-
-            const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
-            expect(src.includes('?dnt=1')).toBe(true);
-        }, 10000);
     });
+
+    it('should add dnt to Vimeo videos', async () => {
+        await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_VIMEO));
+
+        const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
+        expect(src.includes('?dnt=1')).toBe(true);
+    }, 10000);
 
     describe('when cookies are accepted via banner', () => {
         beforeEach(async () => {
