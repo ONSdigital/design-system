@@ -282,7 +282,7 @@ describe('FOR: macro: autosuggest', () => {
     });
 
     describe('GIVEN: autosuggest results', () => {
-        describe('WHEN:`mutallyExclusive` parameter is not defined', () => {
+        describe('WHEN: mutallyExclusive parameter is not defined', () => {
             const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
             test('THEN: autosuggest results is rendered', () => {
@@ -290,7 +290,7 @@ describe('FOR: macro: autosuggest', () => {
             });
         });
 
-        describe('WHEN:`mutallyExclusive` parameter is defined', () => {
+        describe('WHEN: mutallyExclusive parameter is defined', () => {
             const $ = cheerio.load(
                 renderComponent('autosuggest', {
                     ...EXAMPLE_AUTOSUGGEST,
