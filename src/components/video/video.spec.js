@@ -77,50 +77,50 @@ describe('script: video', () => {
         // }, 10000);
     });
 
-    // describe('when cookies are accepted via banner', () => {
-    //     beforeEach(async () => {
-    //         await setTestPage(
-    //             '/test',
-    //             `${renderComponent('video', EXAMPLE_VIDEO_YOUTUBE)}
-    //             <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
-    //         );
-    //         await page.click('.ons-js-accept-cookies');
-    //     });
+    describe('when cookies are accepted via banner', () => {
+        beforeEach(async () => {
+            await setTestPage(
+                '/test',
+                `${renderComponent('video', EXAMPLE_VIDEO_YOUTUBE)}
+                <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
+            );
+            await page.click('.ons-js-accept-cookies');
+        });
 
-    //     it('should hide the placeholder content', async () => {
-    //         const displayStyle = await page.$eval('.ons-js-video-placeholder', (node) =>
-    //             window.getComputedStyle(node).getPropertyValue('display'),
-    //         );
-    //         expect(displayStyle).toBe('none');
-    //     });
+        it('should hide the placeholder content', async () => {
+            const displayStyle = await page.$eval('.ons-js-video-placeholder', (node) =>
+                window.getComputedStyle(node).getPropertyValue('display'),
+            );
+            expect(displayStyle).toBe('none');
+        });
 
-    //     it('should show the iframe', async () => {
-    //         const displayStyle = await page.$eval('.ons-js-video-iframe', (node) =>
-    //             window.getComputedStyle(node).getPropertyValue('display'),
-    //         );
-    //         expect(displayStyle).toBe('block');
-    //     });
+        it('should show the iframe', async () => {
+            const displayStyle = await page.$eval('.ons-js-video-iframe', (node) =>
+                window.getComputedStyle(node).getPropertyValue('display'),
+            );
+            expect(displayStyle).toBe('block');
+        });
 
-    //     it('should add the correct modifier class', async () => {
-    //         const hasClass = await page.$eval('.ons-js-video', (node) => node.classList.contains('ons-video--hasIframe'));
-    //         expect(hasClass).toBe(true);
-    //     }, 10000);
+        it('should add the correct modifier class', async () => {
+            const hasClass = await page.$eval('.ons-js-video', (node) => node.classList.contains('ons-video--hasIframe'));
+            expect(hasClass).toBe(true);
+        }, 10000);
 
-    //     it('should not add dnt to YouTube videos', async () => {
-    //         const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
-    //         expect(src.includes('?dnt=1')).toBe(false);
-    //     }, 10000);
+        //     it('should not add dnt to YouTube videos', async () => {
+        //         const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
+        //         expect(src.includes('?dnt=1')).toBe(false);
+        //     }, 10000);
 
-    //     it('should add dnt to Vimeo videos', async () => {
-    //         await setTestPage(
-    //             '/test',
-    //             `${renderComponent('video', EXAMPLE_VIDEO_VIMEO)}
-    //             <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
-    //         );
-    //         await page.click('.ons-js-accept-cookies');
+        //     it('should add dnt to Vimeo videos', async () => {
+        //         await setTestPage(
+        //             '/test',
+        //             `${renderComponent('video', EXAMPLE_VIDEO_VIMEO)}
+        //             <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
+        //         );
+        //         await page.click('.ons-js-accept-cookies');
 
-    //         const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
-    //         expect(src.includes('?dnt=1')).toBe(true);
-    //     }, 10000);
-    // });
+        //         const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
+        //         expect(src.includes('?dnt=1')).toBe(true);
+        //     }, 10000);
+    });
 });
