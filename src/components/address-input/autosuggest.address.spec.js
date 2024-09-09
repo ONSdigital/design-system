@@ -273,6 +273,7 @@ describe('script: address-input', () => {
             });
 
             it('has expected suggestion entries', async () => {
+                await setTimeout(100);
                 const suggestions = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.map((node) => node.textContent.trim()));
                 expect(suggestions).toEqual(['196 College Road, Birmingham, B44 8HF', '196 College Road, Whitchurch, Cardiff, CF14 2NZ']);
             });
