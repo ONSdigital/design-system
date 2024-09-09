@@ -78,7 +78,7 @@ describe('script: video', () => {
 
         const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
 
-        await setTimeout(50);
+        await setTimeout(100);
 
         expect(src.includes('?dnt=1')).toBe(true);
     }, 10000);
@@ -128,7 +128,7 @@ describe('script: video', () => {
 
         const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
 
-        await setTimeout(50);
+        await setTimeout(100);
 
         expect(src.includes('?dnt=1')).toBe(true);
     }, 10000);
