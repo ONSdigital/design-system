@@ -1,5 +1,7 @@
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
+const { setTimeout } = require('node:timers/promises');
+
 const EXAMPLE_VIDEO_YOUTUBE = {
     videoEmbedUrl: 'https://www.youtube.com/embed/_EGJlvkgbPo',
     title: 'Census 2021 promotional TV advert',
