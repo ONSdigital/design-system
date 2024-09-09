@@ -75,7 +75,11 @@ describe('script: video', () => {
 
     describe('when cookies are accepted on page load, Vimeo videos', () => {
         it('should add dnt', async () => {
-            await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_VIMEO));
+            await setTestPage(
+                '/test',
+                `${renderComponent('video', EXAMPLE_VIDEO_VIMEO)}
+                <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
+            );
 
             const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
 
