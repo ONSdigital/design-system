@@ -38,7 +38,7 @@ describe('script: video', () => {
         expect(displayStyle).toBe('none');
     });
 
-    describe('when cookies are accepted on page load, Youtube videos', () => {
+    describe('when cookies are accepted on page load', () => {
         beforeEach(async () => {
             await page.setCookie({
                 name: 'ons_cookie_policy',
@@ -67,29 +67,13 @@ describe('script: video', () => {
             expect(hasClass).toBe(true);
         }, 10000);
 
-        it('should not add dnt', async () => {
+        it('should not add dnt to YouTube videos', async () => {
             const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
             expect(src.includes('?dnt=1')).toBe(false);
         }, 10000);
     });
 
-    describe('when cookies are accepted on page load, Vimeo videos', () => {
-        it('should add dnt', async () => {
-            await setTestPage(
-                '/test',
-                `${renderComponent('video', EXAMPLE_VIDEO_VIMEO)}
-                <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
-            );
-
-            const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
-
-            await setTimeout(100);
-
-            expect(src.includes('?dnt=1')).toBe(true);
-        }, 10000);
-    });
-
-    describe('when cookies are accepted via banner, YouTube videos', () => {
+    describe('when cookies are accepted via banner', () => {
         beforeEach(async () => {
             await setTestPage(
                 '/test',
@@ -118,26 +102,39 @@ describe('script: video', () => {
             expect(hasClass).toBe(true);
         }, 10000);
 
-        it('should not add dnt', async () => {
+        it('should not add dnt to YouTube videos', async () => {
             const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
             expect(src.includes('?dnt=1')).toBe(false);
         }, 10000);
     });
 
-    describe('when cookies are accepted on page load, Vimeo videos', () => {
-        it('should add dnt', async () => {
-            await setTestPage(
-                '/test',
-                `${renderComponent('video', EXAMPLE_VIDEO_VIMEO)}
-                <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
-            );
-            await page.click('.ons-js-accept-cookies');
+    it('when cookies are accepted on page load, should add dnt to Vimeo videos', async () => {
+        await page.setCookie({
+            name: 'ons_cookie_policy',
+            value: EXAMPLE_APPROVED_COOKIE,
+        });
 
-            const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
+        await setTestPage('/test', renderComponent('video', EXAMPLE_VIDEO_VIMEO));
 
-            await setTimeout(100);
+        const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
 
-            expect(src.includes('?dnt=1')).toBe(true);
-        }, 10000);
-    });
+        await setTimeout(100);
+
+        expect(src.includes('?dnt=1')).toBe(true);
+    }, 10000);
+
+    it('when cookies are accepted via banner, should add dnt to Vimeo videos', async () => {
+        await setTestPage(
+            '/test',
+            `${renderComponent('video', EXAMPLE_VIDEO_VIMEO)}
+            <div class="ons-cookies-banner ons-u-db"><button class="ons-js-accept-cookies">Accept</button></div>`,
+        );
+        await page.click('.ons-js-accept-cookies');
+
+        const src = await page.$eval('.ons-js-video-iframe', (node) => node.getAttribute('src'));
+
+        await setTimeout(100);
+
+        expect(src.includes('?dnt=1')).toBe(true);
+    }, 10000);
 });
