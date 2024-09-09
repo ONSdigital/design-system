@@ -6,11 +6,11 @@
     {% set titleTag = "h1" if params.titleAsH1 else "div" %}
     {% set openingTag = "<" + titleTag %}
     {% set closingTag = "</" + titleTag + ">" %}
-    {% set currentLanguageISOCode = "en" %}
+    {% set currentLanguageIsoCode = "en" %}
 
     {% if params.language and params.language.languages %}
         {% set currentLanguage = params.language.languages | selectattr("current") | first %}
-        {% set currentLanguageISOCode = currentLanguage.ISOCode %}
+        {% set currentLanguageIsoCode = currentLanguage.isoCode %}
     {% endif %}
 
     <header
@@ -19,7 +19,7 @@
     >
         {{
             onsBrowserBanner({
-                "lang": currentLanguageISOCode,
+                "lang": currentLanguageIsoCode,
                 "wide": params.wide,
                 "fullWidth": params.fullWidth
             })
@@ -51,7 +51,7 @@
                                     {% else %}
                                         {{-
                                             onsIcon({
-                                                "iconType": 'ons-logo-' + currentLanguageISOCode,
+                                                "iconType": 'ons-logo-' + currentLanguageIsoCode,
                                                 "altText": 'Office for National Statistics homepage'
                                             })
                                         -}}
@@ -65,7 +65,7 @@
                                     {% else %}
                                         {{-
                                             onsIcon({
-                                                "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                                "iconType": 'ons-logo-stacked-' + currentLanguageIsoCode,
                                                 "altText": 'Office for National Statistics logo'
                                             })
                                         -}}
@@ -88,7 +88,7 @@
                                         {% else %}
                                             {{-
                                                 onsIcon({
-                                                    "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                                    "iconType": 'ons-logo-stacked-' + currentLanguageIsoCode,
                                                     "altText": 'Office for National Statistics logo'
                                                 })
                                             -}}

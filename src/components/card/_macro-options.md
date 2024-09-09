@@ -11,7 +11,7 @@
 | smallSrc       | string | true     | Path to the non-retina version of the image                                                                          |
 | largeSrc       | string | false    | Path to the retina version of the image                                                                              |
 | alt            | string | false    | The HTML `alt` tag to explain the appearance and function of the image. Not required if the image is only decorative |
-| placeholderURL | string | false    | Optional base path for placeholder image                                                                             |
+| placeholderUrl | string | false    | Optional base path for placeholder image                                                                             |
 
 ## Title
 

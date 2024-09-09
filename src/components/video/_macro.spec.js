@@ -7,7 +7,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 
 const EXAMPLE_VIDEO_YOUTUBE = {
     videoEmbedUrl: 'https://www.youtube.com/embed/_EGJlvkgbPo',
-    videoLinkURL: 'https://www.youtube.com/watch?v=_EGJlvkgbPo',
+    videoLinkUrl: 'https://www.youtube.com/watch?v=_EGJlvkgbPo',
     title: 'Census 2021 promotional TV advert',
     videoLinkText: 'Example link text',
     image: {

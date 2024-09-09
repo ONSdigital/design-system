@@ -10,7 +10,7 @@ const EXAMPLE_COOKIES_BANNER_PARAMS = {
     serviceName: 'ons.gov.uk override',
     statementTitle: 'Cookies on override',
     settingsLinkText: 'Cookie settings override',
-    settingsLinkURL: '/cookiesoverride',
+    settingsLinkUrl: '/cookiesoverride',
     statementText: 'Statement override',
     acceptButtonText: 'Accept additional cookies override',
     rejectButtonText: 'Reject additional cookies override',

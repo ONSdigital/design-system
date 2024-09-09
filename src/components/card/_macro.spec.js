@@ -32,7 +32,7 @@ const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE = {
 const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH = {
     ...EXAMPLE_CARD_WITHOUT_IMAGE,
     image: {
-        placeholderURL: '/placeholder-image-url',
+        placeholderUrl: '/placeholder-image-url',
     },
 };
 
@@ -239,7 +239,7 @@ describe('macro: card', () => {
             });
         });
 
-        describe('with a default placeholder image with `placeholderURL`', () => {
+        describe('with a default placeholder image with `placeholderUrl`', () => {
             it('outputs an `img` element', () => {
                 const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH));
 

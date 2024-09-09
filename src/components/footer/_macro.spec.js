@@ -125,7 +125,7 @@ describe('macro: footer', () => {
 
     describe('OGL link', () => {
         const params = {
-            OGLLink: EXAMPLE_OGL_LINK_PARAM,
+            oglLink: EXAMPLE_OGL_LINK_PARAM,
         };
 
         it('passes jest-axe checks', async () => {
@@ -147,8 +147,8 @@ describe('macro: footer', () => {
         it('renders raw HTML when `HTML` is provided', () => {
             const $ = cheerio.load(
                 renderComponent('footer', {
-                    OGLLink: {
-                        ...params.OGLLink,
+                    oglLink: {
+                        ...params.oglLink,
                         HTML: '<strong>Bold text.</strong>',
                     },
                 }),
@@ -179,11 +179,11 @@ describe('macro: footer', () => {
             expect(licenseHtml).toContain(', except where otherwise stated');
         });
 
-        it('renders welsh `post` content when `lang:cy` provided and `OGLLink` is "true"', () => {
+        it('renders welsh `post` content when `lang:cy` provided and `oglLink` is "true"', () => {
             const $ = cheerio.load(
                 renderComponent('footer', {
                     lang: 'cy',
-                    OGLLink: true,
+                    oglLink: true,
                 }),
             );
 
@@ -426,14 +426,14 @@ describe('macro: footer', () => {
         describe('provided footer logo', () => {
             describe.each([
                 [
-                    'the `footerLogo` and `OGLLink` parameters are provided',
+                    'the `footerLogo` and `oglLink` parameters are provided',
                     {
                         footerLogo: {
                             logos: {
                                 logo1: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
                             },
                         },
-                        OGLLink: EXAMPLE_OGL_LINK_PARAM,
+                        oglLink: EXAMPLE_OGL_LINK_PARAM,
                     },
                 ],
                 [

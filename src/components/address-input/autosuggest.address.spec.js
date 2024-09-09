@@ -30,8 +30,8 @@ const EXAMPLE_ADDRESS_INPUT = {
     errorTitle: 'There is a problem with your answer',
     errorMessageEnter: 'Enter an address',
     errorMessageSelect: 'Select an address',
-    errorMessageAPI: 'Sorry, there is a problem loading addresses',
-    errorMessageAPILinkText: 'Enter address manually',
+    errorMessageApi: 'Sorry, there is a problem loading addresses',
+    errorMessageApiLinkText: 'Enter address manually',
     options: {
         regionCode: 'gb-eng',
         addressType: 'residential',
@@ -58,13 +58,13 @@ const EXAMPLE_ADDRESS_INPUT = {
 
 const EXAMPLE_ADDRESS_INPUT_WITH_API = {
     ...EXAMPLE_ADDRESS_INPUT,
-    APIDomain: '/fake/api',
-    APIDomainBearerToken: 'someToken',
+    apiDomain: '/fake/api',
+    apiDomainBearerToken: 'someToken',
     externalInitialiser: true,
 };
 
 describe('script: address-input', () => {
-    const apiFaker = new PuppeteerEndpointFaker(EXAMPLE_ADDRESS_INPUT_WITH_API.APIDomain);
+    const apiFaker = new PuppeteerEndpointFaker(EXAMPLE_ADDRESS_INPUT_WITH_API.apiDomain);
 
     apiFaker.setOverrides(
         [

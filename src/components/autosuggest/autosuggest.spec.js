@@ -595,7 +595,7 @@ describe('script: autosuggest', () => {
                         ...EXAMPLE_AUTOSUGGEST,
                         errorTitle: 'There is a problem with your answer',
                         errorMessage: 'Enter an address ',
-                        errorMessageAPI: 'Sorry, there is a problem.',
+                        errorMessageApi: 'Sorry, there is a problem.',
                     }),
                 );
 

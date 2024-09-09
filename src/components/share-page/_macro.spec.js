@@ -8,7 +8,7 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 const EXAMPLE_SHARE_PAGE = {
     title: 'Share page',
     pageTitle: 'An example page',
-    pageURL: 'https://example.com/an-example-page',
+    pageUrl: 'https://example.com/an-example-page',
     facebook: true,
     twitter: true,
 };
