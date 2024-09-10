@@ -31,7 +31,7 @@ describe('macro: share-page', () => {
         const $ = cheerio.load(
             renderComponent('share-page', {
                 ...EXAMPLE_SHARE_PAGE,
-                titleTag: 'h4',
+                headingLevel: 4,
             }),
         );
 

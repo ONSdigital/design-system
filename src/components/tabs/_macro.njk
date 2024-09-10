@@ -8,9 +8,9 @@
     {% endset %}
 
     <section class="{{ classes }}" {% if params.noInitialActiveTab %}data-no-initial-active-tab="true"{% endif %}>
-        {% set titleTag = params.titleTag | default("h2") %}
-        {% set openingTag = "<" + titleTag %}
-        {% set closingTag = "</" + titleTag + ">" %}
+        {% set titleTag = params.headingLevel | default(2) %}
+        {% set openingTag = "<h" + titleTag %}
+        {% set closingTag = "</h" + titleTag + ">" %}
         {{ openingTag | safe }}
         class="ons-tabs__title ons-u-fs-r--b
         ons-u-mt-no{{ ' ' + params.titleClasses if params.titleClasses else '' }}">{{ params.title }}{{ closingTag | safe }}

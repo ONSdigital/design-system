@@ -156,15 +156,15 @@ describe('macro: document list', () => {
             expect($('.ons-document-list__item-header--reverse').length).toBe(1);
         });
 
-        it('overrides the heading title tag when `titleTag` is provided', () => {
+        it('overrides the heading title tag when `headingLevel` is provided', () => {
             const $ = cheerio.load(
                 renderComponent('document-list', {
-                    titleTag: 'h1',
+                    headingLevel: 1,
                     documents: [EXAMPLE_DOCUMENT_LIST_BASIC],
                 }),
             );
-            const titleTag = $('.ons-document-list__item-title')[0].tagName;
-            expect(titleTag).toBe('h1');
+            const headingLevel = $('.ons-document-list__item-title')[0].tagName;
+            expect(headingLevel).toBe('h1');
         });
 
         it('has expected `title`', () => {

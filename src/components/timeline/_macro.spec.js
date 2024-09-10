@@ -63,10 +63,10 @@ describe('macro: timeline', () => {
         expect($secondItem.text()).toContain('Timeline entry 2');
     });
 
-    it('renders a heading based upon titleTag parameter', () => {
+    it('renders a heading based upon `headingLevel` parameter', () => {
         const EXAMPLE_TIMELINE_WITH_TITLE_TAG = {
             ...EXAMPLE_TIMELINE,
-            titleTag: 'h3',
+            headingLevel: 3,
         };
         const $ = cheerio.load(renderComponent('timeline', EXAMPLE_TIMELINE_WITH_TITLE_TAG));
         const $firstItem = $('.ons-timeline__item:nth-child(1)');
