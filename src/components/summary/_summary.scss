@@ -186,7 +186,7 @@ $hub-row-spacing: 1.3rem;
 
         &__button {
             align-self: flex-start;
-            overflow: auto;
+            word-break: break-all;
         }
 
         &__values--2 {
