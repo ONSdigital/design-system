@@ -15,13 +15,13 @@ const EXAMPLE_MESSAGE_MINIMAL = {
 
 const EXAMPLE_MESSAGE = {
     ...EXAMPLE_MESSAGE_MINIMAL,
-    unreadLink: 'https://example.com/message/1',
+    unreadLinkUrl: 'https://example.com/message/1',
     unreadLinkText: 'Unread message',
     id: 'message1',
     fromId: 'from1',
     sentId: 'sent1',
     unreadLinkId: 'unreadLink1',
-    messageID: 'messageBody1',
+    messageId: 'messageBody1',
 };
 
 describe('macro: message', () => {
@@ -92,7 +92,7 @@ describe('macro: message', () => {
         expect($('.ons-message__timestamp .ons-message__value').attr('id')).toBe('sent1');
     });
 
-    it('has the provided `unreadLink`', () => {
+    it('has the provided `unreadLinkUrl`', () => {
         const $ = cheerio.load(renderComponent('message', EXAMPLE_MESSAGE, ['Message content...']));
 
         expect($('.ons-message__unread-link').attr('href')).toBe('https://example.com/message/1');

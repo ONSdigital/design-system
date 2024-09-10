@@ -165,7 +165,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto">
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
@@ -236,7 +236,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
         </div>
         <div class="ons-header__main">
             <div class="ons-container">
-                <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         
 
@@ -404,7 +404,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto">
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
@@ -475,7 +475,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
         </div>
         <div class="ons-header__main">
             <div class="ons-container">
-                <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         
 
@@ -671,7 +671,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
     <div class="ons-phase-banner">
         <div class="ons-container">
-            <div class="ons-grid ons-grid--flex ons-grid--gutterless ons-grid--vertical-top ons-grid--no-wrap">
+            <div class="ons-grid ons-grid-flex ons-grid--gutterless ons-grid-flex--vertical-top ons-grid-flex--no-wrap">
                 
                     <div class="ons-grid__col ons-col-auto ons-u-flex-no-grow ons-u-flex-no-shrink">
                         <strong class="ons-phase-banner__badge">BETA</strong>
@@ -687,7 +687,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto"><a class="ons-header__org-logo-link" href="#0">
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
@@ -884,7 +884,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </div>
         <div class="ons-header__main">
             <div class="ons-container">
-                <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap">
+                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap">
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         
 
@@ -1326,7 +1326,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
+    
     
 
     <footer class="ons-footer">
@@ -1600,7 +1600,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     
                 </div>
 
-                <div class="ons-grid ons-grid--flex ons-grid--vertical-top ons-grid--between">
+                <div class="ons-grid ons-grid-flex--vertical-top ons-grid-flex--between">
                     <div class="ons-grid__col">
                         
                             <!-- Legal -->
@@ -1705,9 +1705,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                 
                             </div>
                         
+
                         
-                            <a class="ons-footer__poweredBy-link" href="https://www.ons.gov.uk/">
-                                <div class="ons-footer__poweredby-logo ons-u-mb-m">
+                            
+                            
+                        
+
+                        <div class="ons-footer__logo-container ons-u-mb-m ons-grid-flex ons-grid-flex--vertical-top">
+                            <a class="ons-footer__logo-link" href="https://www.ons.gov.uk/">
         <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-footer-alt" role="img">
             <title id="ons-logo-en-footer-alt">
                 Office for National Statistics
@@ -1748,13 +1753,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                 <path d="M605.1,47.79A15.9,15.9,0,0,1,597.45,46l1.42-3.47A10.54,10.54,0,0,0,604.4,44c2.77,0,5-1.78,5-3.94,0-6-11.1-3.2-11.1-11.47,0-3.76,3.37-7.42,8.85-7.42a13.49,13.49,0,0,1,7.1,1.83l-1.42,3.14a8.42,8.42,0,0,0-4.63-1.45c-2.8,0-4.53,1.69-4.53,3.62,0,5.64,11.32,3.14,11.32,11.6,0,4-3.85,7.9-9.89,7.9"></path>
             </g>
         </svg>
-    </div>
-                            </a>
-                        
+    </a>
+                            
+                                
+                            
+                        </div>
                     </div>
                     
                 </div>
-                
                 
             </div>
         </div>
@@ -1886,7 +1892,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto">
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
@@ -1957,7 +1963,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
         </div>
         <div class="ons-header__main">
             <div class="ons-container">
-                <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         
 
@@ -2109,7 +2115,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto">
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
@@ -2180,7 +2186,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
         </div>
         <div class="ons-header__main">
             <div class="ons-container">
-                <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         
 
