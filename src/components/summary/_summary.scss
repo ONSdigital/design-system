@@ -88,10 +88,6 @@ $hub-row-spacing: 1.3rem;
         }
     }
 
-    &__actions {
-        white-space: nowrap;
-    }
-
     &__spacer {
         background: var(--ons-color-black);
         display: inline-block;
@@ -190,6 +186,7 @@ $hub-row-spacing: 1.3rem;
 
         &__button {
             align-self: flex-start;
+            overflow: auto;
         }
 
         &__values--2 {
