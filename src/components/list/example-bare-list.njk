@@ -1,16 +1,20 @@
 {% from "components/list/_macro.njk" import onsList %}
 {{
     onsList({
-        "element": "ol",
-        "attributes": {
-            "fhdjfdsfdsslf": "fhdjshfj"
-        },
+        "variants": 'bare',
         "itemsList": [
             {
-                "text": 'Who we are',
-                "attributes": {
-                    "fhdjslf": "fhdjshfj"
-                }
+                "url": '#0',
+                "text": 'Who we are'
+            },
+            {
+                "url": '#0',
+                "text": 'What we do'
+            },
+            {
+                "url": 'https://goo.gl/maps/ULnVRd16zfFLZWdt7',
+                "text": 'Where to find us',
+                "external": true
             }
         ]
     })
