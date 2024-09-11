@@ -21,7 +21,8 @@
         {% set listEl = 'ul' %}
     {% endif %}
 
-    {% if listLength < 2 %}
+    {# Remove "and not params.itemsList[0].url" in future update #}
+    {% if listLength < 2 and not params.attributes and not params.itemsList[0].url %}
         {% set attributes = params.itemsList[0].attributes %}
     {% else %}
         {% set attributes = params.attributes %}

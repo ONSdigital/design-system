@@ -18,5 +18,7 @@ jobs:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
               run: yarn install
+            - name: Clear jest cache
+              run: yarn test:clear-cache
             - name: Run macro and script tests
               run: yarn test
