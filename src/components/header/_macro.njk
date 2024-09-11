@@ -6,11 +6,11 @@
     {% set titleTag = "h1" if params.titleAsH1 else "div" %}
     {% set openingTag = "<" + titleTag %}
     {% set closingTag = "</" + titleTag + ">" %}
-    {% set currentLanguageISOCode = "en" %}
+    {% set currentLanguageIsoCode = "en" %}
 
     {% if params.language and params.language.languages %}
         {% set currentLanguage = params.language.languages | selectattr("current") | first %}
-        {% set currentLanguageISOCode = currentLanguage.ISOCode %}
+        {% set currentLanguageIsoCode = currentLanguage.isoCode %}
     {% endif %}
 
     <header
@@ -19,7 +19,7 @@
     >
         {{
             onsBrowserBanner({
-                "lang": currentLanguageISOCode,
+                "lang": currentLanguageIsoCode,
                 "wide": params.wide,
                 "fullWidth": params.fullWidth
             })
@@ -39,7 +39,7 @@
         <div class="ons-header__top">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div
-                    class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center{{ ' '+ params.mastheadLogo.classes if params.mastheadLogo.classes }}{{ ' ons-grid--no-wrap ons-grid--gutterless' if not params.mastheadLogo.multipleLogos }}"
+                    class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center{{ ' '+ params.mastheadLogo.classes if params.mastheadLogo.classes }}{{ ' ons-grid-flex--no-wrap ons-grid--gutterless' if not params.mastheadLogo.multipleLogos }}"
                 >
                     <div class="ons-grid__col ons-col-auto">
                         {%- if not params.mastheadLogo.multipleLogos -%}
@@ -51,7 +51,7 @@
                                     {% else %}
                                         {{-
                                             onsIcon({
-                                                "iconType": 'ons-logo-' + currentLanguageISOCode,
+                                                "iconType": 'ons-logo-' + currentLanguageIsoCode,
                                                 "altText": 'Office for National Statistics homepage'
                                             })
                                         -}}
@@ -65,7 +65,7 @@
                                     {% else %}
                                         {{-
                                             onsIcon({
-                                                "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                                "iconType": 'ons-logo-stacked-' + currentLanguageIsoCode,
                                                 "altText": 'Office for National Statistics logo'
                                             })
                                         -}}
@@ -83,19 +83,19 @@
                                 {% set logos = [params.mastheadLogo.multipleLogos.logo1, params.mastheadLogo.multipleLogos.logo2, params.mastheadLogo.multipleLogos.logo3] %}
                                 {% for logo in logos %}
                                     {% set mastheadLogo %}
-                                        {% if logo.logoImage != "ONS Logo" %}
-                                            {{ logo.logoImage | safe }}
+                                        {% if logo.image != "ONS Logo" %}
+                                            {{ logo.image | safe }}
                                         {% else %}
                                             {{-
                                                 onsIcon({
-                                                    "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                                    "iconType": 'ons-logo-stacked-' + currentLanguageIsoCode,
                                                     "altText": 'Office for National Statistics logo'
                                                 })
                                             -}}
                                         {% endif %}
                                     {% endset %}
-                                    {% if logo.logoURL %}
-                                        <a class="ons-header__org-logo-link" href="{{ logo.logoURL }}">{{ mastheadLogo | safe }}</a>
+                                    {% if logo.url %}
+                                        <a class="ons-header__org-logo-link" href="{{ logo.url }}">{{ mastheadLogo | safe }}</a>
                                     {% else %}
                                         {{ mastheadLogo | safe }}
                                     {% endif %}
@@ -221,7 +221,7 @@
         <div class="ons-header__main">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div
-                    class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{{ ' ons-grid--gutterless' if not params.button }}"
+                    class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap{{ ' ons-grid--gutterless' if not params.button }}"
                 >
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         {% if params.titleLogo.large %}

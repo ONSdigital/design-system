@@ -492,7 +492,7 @@ describe('macro: list', () => {
 
                 expect(externalLinkSpy.occurrences[0]).toEqual({
                     url: 'https://example.com/external-link',
-                    linkText: expectedItemText,
+                    text: expectedItemText,
                 });
             });
 
