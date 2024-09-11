@@ -23,7 +23,7 @@
 
     {% if listLength < 2 and not params.attributes %}
         {% set attributes = [params.itemsList[0].attributes] %}
-    {% elif listLength < 2 and params.attributes and params.itemsList[0].attributes %}
+    {% elif listLength < 2 and params.attributes and params.itemsList[0].attributes and listEl == 'p' %}
         {% set attributes = [params.attributes, params.itemsList[0].attributes] %}
     {% else %}
         {% set attributes = [params.attributes] %}
