@@ -3,7 +3,7 @@
 import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
-import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
+import { renderComponent } from '../../tests/helpers/rendering';
 import { EXAMPLE_CALL_TO_ACTION } from './_test-examples';
 
 describe('FOR: call-to-action', () => {
@@ -27,13 +27,10 @@ describe('FOR: call-to-action', () => {
             });
 
             test('THEN: it outputs the expected call-to-action button', () => {
-                const faker = templateFaker();
-                const buttonSpy = faker.spy('button');
+                const buttonText = $('.ons-btn__text').text().trim();
 
-                faker.renderComponent('call-to-action', EXAMPLE_CALL_TO_ACTION);
-
-                expect(buttonSpy.occurrences[0]).toHaveProperty('text', 'Start');
-                expect(buttonSpy.occurrences[0]).toHaveProperty('url', 'https://example.com/start');
+                expect(buttonText).toBe('Start');
+                expect($('.ons-btn--link').attr('href')).toBe('https://example.com/start');
             });
         });
     });
