@@ -21,17 +21,18 @@
         {% set listEl = 'ul' %}
     {% endif %}
 
-    {# Remove "and not params.itemsList[0].url" in future update #}
-    {% if listLength < 2 and not params.attributes and not params.itemsList[0].url %}
-        {% set attributes = params.itemsList[0].attributes %}
+    {% if listLength < 2 and not params.attributes %}
+        {% set attributes = [params.itemsList[0].attributes] %}
+    {% elif listLength < 2 and params.attributes and params.itemsList[0].attributes and listEl == 'p' %}
+        {% set attributes = [params.attributes, params.itemsList[0].attributes] %}
     {% else %}
-        {% set attributes = params.attributes %}
+        {% set attributes = [params.attributes] %}
     {% endif %}
     {% set openingTag = "<" + listEl %}
     {% set closingTag = "</" + listEl + ">" %}
 
     {{ openingTag | safe }}{% if params.id %}{{ ' ' }}id="{{ params.id }}"{% endif %}
-    class="ons-list{{ ' ons-list--p' if listEl == 'p' }}{{ ' ' + params.classes if params.classes else '' }}{% if params.variants %}{% if params.variants is not string %}{% for variant in variants %}{{ ' ' }}ons-list--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-list--{{ variants }}{% endif %}{% endif %}{{ ' ' + otherClasses if otherClasses else '' }}"{% if params.attributes or params.itemsList[0].attributes %}{% for attribute, value in (attributes.items() if attributes is mapping and attributes.items else attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
+    class="ons-list{{ ' ons-list--p' if listEl == 'p' }}{{ ' ' + params.classes if params.classes else '' }}{% if params.variants %}{% if params.variants is not string %}{% for variant in variants %}{{ ' ' }}ons-list--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-list--{{ variants }}{% endif %}{% endif %}{{ ' ' + otherClasses if otherClasses else '' }}"{% if params.attributes or params.itemsList[0].attributes %}{% for attributeList in attributes %}{% for attribute, value in (attributeList.items() if attributeList is mapping and attributeList.items else attributeList) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endfor %}{% endif %}>
     {%- for item in params.itemsList -%}
         {% set sublistClasses = item.listClasses if item.listClasses %}
         {%
@@ -82,11 +83,10 @@
                         })
                     }}
                 {%- else -%}
-                    {# Remove setting attributes on link in future update #}
                     <a
                         href="{{ item.url }}"
                         class="ons-list__link{{ ' ons-js-inpagelink' if item.variants == 'inPageLink' }}{{ ' ' + item.classes if item.classes else '' }}"
-                        {% if item.target %}target="{{ item.target }}"{% endif %}{% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
+                        {% if item.target %}target="{{ item.target }}"{% endif %}
                     >
                         {%- if item.prefix -%}<span class="ons-u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- itemText | safe -}}
                         {%- if item.target == "_blank" -%}
@@ -124,11 +124,10 @@
         {% endset %}
 
         {% if listLength > 1 or listEl == 'ul' %}
-            {# Remove if not item.url in future update #}
             <li
                 class="ons-list__item{{ ' ' + item.listClasses if item.listClasses else '' }}"
                 {% if item.current %}aria-current="true"{% endif %}
-                {% if not item.url %}{% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}{% endif %}
+                {% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
             >
                 {{- listItem | safe -}}
             </li>
