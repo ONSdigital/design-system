@@ -106,13 +106,13 @@ _Note_: This command is of limited use since JavaScript and SCSS files will only
 
 It is sometimes useful to adjust the following settings when writing tests or diagnosing issues:
 
--   `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `await page.waitForTimeout(100000)` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
+-   `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `await new Promise(r => setTimeout(r, 100000));` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
 
 -   `testTimeout` in 'jest.config.js' - set to a high value such as `1000000` to prevent tests from timing out when doing the above.
 
 ## Testing - Visual regression tests
 
-This project uses [Backstop JS](https://github.com/garris/BackstopJS) for visual regression testing. The tests run in Chrome headless using pupeteer inside docker and run in three viewports; 1920 (desktop), 768 (tablet) and 375 (mobile). Reference images are stored in Git LFS and any approved changes will automatically be stored in Git LFS when pushed to the repository.
+This project uses [Backstop JS](https://github.com/garris/BackstopJS) for visual regression testing. The tests run in Chrome headless using Pupeteer inside docker and run in three viewports; 1920 (desktop), 768 (tablet) and 375 (mobile). Reference images are stored in Git LFS and any approved changes will automatically be stored in Git LFS when pushed to the repository.
 
 The visual tests will run automatically on pull requests and the result will be available in the Github Action logs. If the tests fail, the process for viewing the failures and approving changes will need to be handled locally using the following workflow and commands.
 
@@ -142,6 +142,42 @@ Generate a build into `./build`.
 
 ```bash
 yarn build
+```
+
+## Manually publish to NPM
+
+Make sure you are logged into the CLI with the DS shared npm account
+
+Make sure dependencies are installed:
+
+```bash
+yarn install
+```
+
+Set the version (replacing "<DS release version>" with actual release version e.g. 70.0.0):
+
+```bash
+npm version <DS release version>
+```
+
+Create an NPM package by running:
+
+```bash
+yarn npm-bundle
+```
+
+**_Once you have published to npm, the version you have published can never be used again so you want to make sure you have the right files included to do this run:_**
+
+```bash
+npm pack
+```
+
+Then compare this list with the list of the current version here (https://www.npmjs.com/package/@ons/design-system?activeTab=code)
+
+If these match or have some expected changes then run this to publish:
+
+```bash
+npm publish --access public
 ```
 
 ## Recommended Visual Studio Code Extensions for this project

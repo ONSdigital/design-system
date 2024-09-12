@@ -77,29 +77,27 @@ describe('macro: list', () => {
             expect($('.ons-list').hasClass('ons-list--inline')).toBe(true);
         });
 
-        it('assumes the "bare" variant with a prefix modifier class when the first list item has a prefix', () => {
+        it('assumes a prefix modifier class when the first list item has a prefix', () => {
             const $ = cheerio.load(
                 renderComponent('list', {
                     itemsList: [{ text: 'Item text', prefix: 'Abc' }],
                 }),
             );
 
-            expect($('.ons-list').hasClass('ons-list--bare')).toBe(true);
             expect($('.ons-list').hasClass('ons-list--prefix')).toBe(true);
         });
 
-        it('assumes the "bare" variant with a suffix modifier class when the first list item has a suffix', () => {
+        it('assumes a suffix modifier class when the first list item has a suffix', () => {
             const $ = cheerio.load(
                 renderComponent('list', {
                     itemsList: [{ text: 'Item text', suffix: 'Abc' }],
                 }),
             );
 
-            expect($('.ons-list').hasClass('ons-list--bare')).toBe(true);
             expect($('.ons-list').hasClass('ons-list--suffix')).toBe(true);
         });
 
-        it('assumes the "bare" variant with a icons modifier class when the first list item has an icon', () => {
+        it('assumes a icons modifier class when the first list item has an icon', () => {
             const $ = cheerio.load(
                 renderComponent('list', {
                     ...EXAMPLE_LIST_TEXT_ITEMS,
@@ -108,8 +106,33 @@ describe('macro: list', () => {
                 }),
             );
 
-            expect($('.ons-list').hasClass('ons-list--bare')).toBe(true);
             expect($('.ons-list').hasClass('ons-list--icons')).toBe(true);
+        });
+
+        it('has the correct icon class when variants is `summary`, `iconType` is `check` and `iconPosition` is before', () => {
+            const $ = cheerio.load(
+                renderComponent('list', {
+                    ...EXAMPLE_LIST_TEXT_ITEMS,
+                    iconPosition: 'before',
+                    iconType: 'check',
+                    variants: 'summary',
+                }),
+            );
+
+            expect($('.ons-list__prefix').hasClass('ons-list__prefix--icon-check')).toBe(true);
+        });
+
+        it('has the correct icon class when variants is `summary`, `iconType` is `check` and `iconPosition` is `after`', () => {
+            const $ = cheerio.load(
+                renderComponent('list', {
+                    ...EXAMPLE_LIST_TEXT_ITEMS,
+                    iconPosition: 'after',
+                    iconType: 'check',
+                    variants: 'summary',
+                }),
+            );
+
+            expect($('.ons-list__suffix').hasClass('ons-list__suffix--icon-check')).toBe(true);
         });
 
         it('renders a <ul> element by default', () => {

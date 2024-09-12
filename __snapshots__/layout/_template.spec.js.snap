@@ -826,7 +826,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     
     
-    <button type="button" class="ons-btn ons-u-d-no ons-js-toggle-services ons-btn--mobile ons-btn--text-link ons-btn--text-link-inverse" aria-label="Toggle services menu" aria-controls="service-links" aria-expanded="false">
+    <button type="button" class="ons-btn ons-u-d-no ons-js-toggle-services ons-btn--mobile ons-btn--neutral" aria-label="Toggle services menu" aria-controls="service-links" aria-expanded="false">
     <span class="ons-btn__inner"><span class="ons-btn__text">Account</span><svg class="ons-icon ons-u-ml-xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-chevron">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg></span>
@@ -943,8 +943,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             
                             
                                 
-                                    
-                                
                                 
 
     
@@ -968,7 +966,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     
     
-    <button type="submit" class="ons-btn ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l ons-btn--mobile ons-btn--ghost-dark" aria-label="Toggle main menu" aria-controls="main-nav" aria-expanded="false">
+    <button type="submit" class="ons-btn ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l ons-btn--mobile ons-btn--ghost" aria-label="Toggle main menu" aria-controls="main-nav" aria-expanded="false">
     <span class="ons-btn__inner"><span class="ons-btn__text">Menu</span><svg class="ons-icon ons-u-ml-xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-chevron">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg></span>
@@ -1395,6 +1393,11 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
+
+    
+    
+        
+    
     
     
 
@@ -1403,6 +1406,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1410,13 +1414,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">About our surveys</a>
+            
+                    <a href="#0" class="ons-list__link">About our surveys</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1424,13 +1430,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Lists of all surveys</a>
+            
+                    <a href="#0" class="ons-list__link">Lists of all surveys</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1438,7 +1446,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Respondent Charter</a>
+            
+                    <a href="#0" class="ons-list__link">Respondent Charter</a>
         </li>
         </ul>
 
@@ -1460,6 +1469,11 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
+
+    
+    
+        
+    
     
     
 
@@ -1468,6 +1482,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1475,13 +1490,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">What we do</a>
+            
+                    <a href="#0" class="ons-list__link">What we do</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1489,13 +1506,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Transparency and governance</a>
+            
+                    <a href="#0" class="ons-list__link">Transparency and governance</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1503,7 +1522,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Contact us</a>
+            
+                    <a href="#0" class="ons-list__link">Contact us</a>
         </li>
         </ul>
 
@@ -1525,6 +1545,11 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
+
+    
+    
+        
+    
     
     
 
@@ -1533,6 +1558,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1554,6 +1580,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1561,13 +1588,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Release calendar</a>
+            
+                    <a href="#0" class="ons-list__link">Release calendar</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1575,7 +1604,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">News</a>
+            
+                    <a href="#0" class="ons-list__link">News</a>
         </li>
         </ul>
 
@@ -1606,6 +1636,11 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
+
+    
+    
+        
+    
     
     
 
@@ -1614,6 +1649,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1621,13 +1657,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Cookies</a>
+            
+                    <a href="#0" class="ons-list__link">Cookies</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1635,13 +1673,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Accessibility statement</a>
+            
+                    <a href="#0" class="ons-list__link">Accessibility statement</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1649,13 +1689,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Privacy and data protection</a>
+            
+                    <a href="#0" class="ons-list__link">Privacy and data protection</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1663,7 +1705,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Terms and conditions</a>
+            
+                    <a href="#0" class="ons-list__link">Terms and conditions</a>
         </li>
         </ul>
 
