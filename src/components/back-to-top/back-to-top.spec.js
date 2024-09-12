@@ -1,5 +1,7 @@
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
+const { setTimeout } = require('node:timers/promises');
+
 describe('script: back-to-top', () => {
     beforeEach(async () => {
         await setTestPage(
@@ -98,7 +100,7 @@ describe('script: back-to-top', () => {
         await page.evaluate(() => {
             window.scrollTo(0, window.innerHeight * 2);
         });
-        await new Promise((r) => setTimeout(r, 250));
+        await setTimeout(250);
         const previousWidth = await page.evaluate(() => {
             const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link').children[0];
             return window.getComputedStyle(node).marginLeft;
@@ -107,7 +109,7 @@ describe('script: back-to-top', () => {
         await page.evaluate(() => {
             window.scrollTo(0, window.innerHeight * 2);
         });
-        await new Promise((r) => setTimeout(r, 250));
+        await setTimeout(250);
         const newWidth = await page.evaluate(() => {
             const node = document.querySelector('.ons-back-to-top > .ons-back-to-top__link').children[0];
             return window.getComputedStyle(node).marginLeft;
