@@ -40,5 +40,5 @@ module.exports = {
     },
     report: process.env.RUNNING_IN_CI === 'true' ? [] : ['browser'],
     dockerCommandTemplate:
-        'docker run --rm -i --user $(id -u):$(id -g) --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
+        'ENV XDG_CONFIG_HOME=/tmp/.chromium ENV XDG_CACHE_HOME=/tmp/.chromium docker run --rm -i --user $(id -u):$(id -g) --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
 };
