@@ -1393,13 +1393,20 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
+
     
     
+        
+    
+    
+    
+
     <ul class="ons-list ons-u-mb-no ons-list--bare">
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1407,13 +1414,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">About our surveys</a>
+            
+                    <a href="#0" class="ons-list__link">About our surveys</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1421,13 +1430,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Lists of all surveys</a>
+            
+                    <a href="#0" class="ons-list__link">Lists of all surveys</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1435,7 +1446,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Respondent Charter</a>
+            
+                    <a href="#0" class="ons-list__link">Respondent Charter</a>
         </li>
         </ul>
 
@@ -1457,13 +1469,20 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
+
     
     
+        
+    
+    
+    
+
     <ul class="ons-list ons-u-mb-no ons-list--bare">
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1471,13 +1490,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">What we do</a>
+            
+                    <a href="#0" class="ons-list__link">What we do</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1485,13 +1506,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Transparency and governance</a>
+            
+                    <a href="#0" class="ons-list__link">Transparency and governance</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1499,7 +1522,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Contact us</a>
+            
+                    <a href="#0" class="ons-list__link">Contact us</a>
         </li>
         </ul>
 
@@ -1521,13 +1545,20 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
+
     
     
+        
+    
+    
+    
+
     <ul class="ons-list ons-u-mb-no ons-list--bare">
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1549,6 +1580,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1556,13 +1588,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Release calendar</a>
+            
+                    <a href="#0" class="ons-list__link">Release calendar</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1570,7 +1604,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">News</a>
+            
+                    <a href="#0" class="ons-list__link">News</a>
         </li>
         </ul>
 
@@ -1601,13 +1636,20 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
+
     
     
+        
+    
+    
+    
+
     <ul class="ons-list ons-u-mb-s ons-footer--rows ons-list--bare ons-list--inline">
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1615,13 +1657,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Cookies</a>
+            
+                    <a href="#0" class="ons-list__link">Cookies</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1629,13 +1673,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Accessibility statement</a>
+            
+                    <a href="#0" class="ons-list__link">Accessibility statement</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1643,13 +1689,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Privacy and data protection</a>
+            
+                    <a href="#0" class="ons-list__link">Privacy and data protection</a>
         </li>
         
         
         
 
         
+            
             <li class="ons-list__item">
         
             
@@ -1657,7 +1705,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            <a href="#0" class="ons-list__link">Terms and conditions</a>
+            
+                    <a href="#0" class="ons-list__link">Terms and conditions</a>
         </li>
         </ul>
 
