@@ -3,7 +3,7 @@
 {% macro onsAutosuggest(params) %}
     <div
         id="{{ params.id }}-container"
-        class="ons-autosuggest{{ ' ons-js-autosuggest' if not params.externalInitialiser }}{{ ' ons-autosuggest__results-extended' if params.extendedSearch }}{{ ' ons-js-address-not-editable' if params.isEditable == false }}{{ ' ons-js-address-mandatory' if params.mandatory == true }}{{ ' ' + params.containerClasses if params.containerClasses else '' }}"
+        class="ons-autosuggest{{ ' ons-js-autosuggest' if not params.externalInitialiser }}{{ ' ons-autosuggest__results-extended-' + params.extendedSearch if params.extendedSearch }}{{ ' ons-js-address-not-editable' if params.isEditable == false }}{{ ' ons-js-address-mandatory' if params.mandatory == true }}{{ ' ' + params.containerClasses if params.containerClasses else '' }}"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
         data-min-chars="{{ params.minChars }}"
