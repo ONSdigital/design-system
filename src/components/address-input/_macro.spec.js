@@ -344,7 +344,7 @@ describe('FOR: address-input', () => {
                 }),
             );
 
-            test('THEN: it renders the provided manualLink with the manualText', () => {
+            test('THEN: it renders the manual link with the provided text and url, () => {
                 expect($('.ons-js-address-manual-btn').attr('href')).toBe('https://example.com/edit-address');
                 expect($('.ons-js-address-manual-btn').text().trim()).toBe('Manually enter address');
             });
