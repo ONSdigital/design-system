@@ -38,7 +38,7 @@ describe('FOR: browser-banner', () => {
                 expect(bannerLeadingText).toBe('Nid yw’r wefan hon yn cefnogi eich porwr mwyach.');
             });
 
-            it('has the welsh version of default `bannerCTA`', () => {
+            it('THEN: has the welsh default bannerCTA', () => {
                 const bannerCtaHtml = $('.ons-browser-banner__cta').text().trim();
                 expect(bannerCtaHtml).toBe('Gallwch ddiweddaru eich porwr i’r fersiwn ddiweddaraf.');
             });
