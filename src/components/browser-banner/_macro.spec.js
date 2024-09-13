@@ -15,7 +15,7 @@ describe('FOR: browser-banner', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            it('has the english version of default `bannerLeadingText`', () => {
+            it('THEN: has the english default bannerLeadingText', () => {
                 const bannerLeadingText = $('.ons-browser-banner__lead').text().trim();
                 expect(bannerLeadingText).toBe('This website no longer supports your browser.');
             });
