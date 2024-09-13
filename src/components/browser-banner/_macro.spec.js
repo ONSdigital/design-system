@@ -91,7 +91,7 @@ describe('FOR: browser-banner', () => {
         });
 
         describe('WHEN: fullWidth is not set', () => {
-            it('does not have `container--full-width` class when `fullWidth` is not set', () => {
+            it('THEN: does not have container--full-width class', () => {
                 const $ = cheerio.load(
                     renderComponent('browser-banner', {
                         ...{},
