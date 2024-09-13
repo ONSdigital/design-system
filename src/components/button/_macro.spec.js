@@ -5,296 +5,275 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
-describe('macro: button', () => {
-    it('has the provided `id` attribute', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                id: 'example-id',
-            }),
-        );
+describe('FOR: button', () => {
+    describe('GIVEN: Params: no params', () => {
+        describe('WHEN: there are no params given', () => {
+            it('THEN: renders expected style classes', () => {
+                const $ = cheerio.load(renderComponent('button'));
+                expect($('.ons-btn .ons-btn__inner').length).toBe(1);
+            });
 
-        expect($('#example-id').length).toBe(1);
-    });
-
-    it('has additionally provided `attributes`', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                attributes: {
-                    a: 123,
-                    b: 456,
-                },
-            }),
-        );
-
-        expect($('button').attr('a')).toBe('123');
-        expect($('button').attr('b')).toBe('456');
-    });
-
-    it('has expected style classes', () => {
-        const $ = cheerio.load(renderComponent('button'));
-
-        expect($('.ons-btn .ons-btn__inner').length).toBe(1);
-    });
-
-    it('has provided variant style classes', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                variants: ['variant-a', 'variant-b'],
-            }),
-        );
-
-        expect($('.ons-btn').hasClass('ons-btn--variant-a')).toBe(true);
-        expect($('.ons-btn').hasClass('ons-btn--variant-b')).toBe(true);
-    });
-
-    it('has download variant style class when `variants` contains `download`', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                url: 'http://example.com',
-                variants: 'download',
-            }),
-        );
-
-        expect($('.ons-btn').hasClass('ons-btn--download')).toBe(true);
-    });
-
-    it('has `download` icon when `variants` contains "download"', () => {
-        const faker = templateFaker();
-        const iconsSpy = faker.spy('icon');
-
-        faker.renderComponent('button', {
-            url: 'http://example.com',
-            variants: 'download',
+            it('THEN; renders `button` element', () => {
+                const $ = cheerio.load(renderComponent('button'));
+                expect($('button').length).toBe(1);
+            });
         });
-
-        expect(iconsSpy.occurrences[0].iconType).toBe('download');
     });
-
-    it('has provided variant style classes when `variants` contains "print"', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                variants: 'print',
-            }),
-        );
-
-        expect($('.ons-btn').hasClass('ons-btn--print')).toBe(true);
-        expect($('.ons-btn').hasClass('ons-u-d-no')).toBe(true);
-        expect($('.ons-btn').hasClass('ons-js-print-btn')).toBe(true);
-    });
-
-    it('has `print` icon when `variants` contains "print"', () => {
-        const faker = templateFaker();
-        const iconsSpy = faker.spy('icon');
-
-        faker.renderComponent('button', {
-            url: 'http://example.com',
-            variants: 'print',
+    describe('GIVEN: Params: standard', () => {
+        describe('WHEN: button component is set with standard params', () => {
+            it('THEN: passes jest-axe checks', async () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        text: 'Example button',
+                        name: 'example',
+                        value: 'example-value',
+                    }),
+                );
+                const results = await axe($.html());
+                expect(results).toHaveNoViolations();
+            });
         });
-
-        expect(iconsSpy.occurrences[0].iconType).toBe('print');
     });
-
-    it('has provided variant style classes when `variants` contains "loader"', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                variants: 'loader',
-            }),
-        );
-
-        expect($('.ons-btn').hasClass('ons-btn--loader')).toBe(true);
-        expect($('.ons-btn').hasClass('ons-js-loader')).toBe(true);
-        expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
-    });
-
-    it('has `loader` icon when `variants` contains "loader"', () => {
-        const faker = templateFaker();
-        const iconsSpy = faker.spy('icon');
-
-        faker.renderComponent('button', {
-            variants: 'loader',
+    describe('GIVEN: Params: id', () => {
+        describe('WHEN: id is given as parameter', () => {
+            it('THEN: renders the provided `id` attribute', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        id: 'example-id',
+                    }),
+                );
+                expect($('#example-id').length).toBe(1);
+            });
         });
-
-        expect(iconsSpy.occurrences[0].iconType).toBe('loader');
     });
-
-    it('has `chevron` icon when `variants` contains "mobile"', () => {
-        const faker = templateFaker();
-        const iconsSpy = faker.spy('icon');
-
-        faker.renderComponent('button', {
-            variants: 'mobile',
+    describe('GIVEN: Params: attributes', () => {
+        describe('WHEN: attributes is given as parameter', () => {
+            it('THEN: renders additionally provided `attributes`', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        attributes: {
+                            a: 123,
+                            b: 456,
+                        },
+                    }),
+                );
+                expect($('button').attr('a')).toBe('123');
+                expect($('button').attr('b')).toBe('456');
+            });
         });
-
-        expect(iconsSpy.occurrences[0].iconType).toBe('chevron');
     });
-
-    it('has provided variant style classes when `variants` contains "timer"', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                variants: 'timer',
-            }),
-        );
-
-        expect($('.ons-btn').hasClass('ons-js-timer')).toBe(true);
-        expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
-    });
-
-    it('has additionally provided style classes', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                classes: 'extra-class another-extra-class',
-            }),
-        );
-
-        expect($('.ons-btn').hasClass('extra-class')).toBe(true);
-        expect($('.ons-btn').hasClass('another-extra-class')).toBe(true);
-    });
-
-    it('has additionally provided inner style classes', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                innerClasses: 'extra-inner-class another-extra-inner-class',
-            }),
-        );
-
-        expect($('.ons-btn__inner').hasClass('extra-inner-class')).toBe(true);
-        expect($('.ons-btn__inner').hasClass('another-extra-inner-class')).toBe(true);
-    });
-
-    it('has label text when `text` is provided', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                text: 'Click > me!',
-            }),
-        );
-
-        expect($('.ons-btn__text').html()).toBe('Click &gt; me!');
-    });
-
-    it('has label text when `html` is provided', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                html: 'Click <strong>me</strong>!',
-            }),
-        );
-
-        expect($('.ons-btn__text').html()).toBe('Click <strong>me</strong>!');
-    });
-
-    it('has button context text when `buttonContext` is provided', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                buttonContext: 'button context text',
-            }),
-        );
-
-        expect($('.ons-btn__context').text()).toBe('button context text');
-    });
-
-    it('has custom icon before button text', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                text: 'Click me!',
-                iconPosition: 'before',
-                iconType: 'exit',
-            }),
-        );
-
-        expect($('.ons-icon + .ons-btn__text').text()).toBe('Click me!');
-    });
-
-    it('has custom icon after button text', () => {
-        const $ = cheerio.load(
-            renderComponent('button', {
-                text: 'Click me!',
-                iconPosition: 'after',
-                iconType: 'exit',
-            }),
-        );
-
-        expect($('.ons-btn__text + .ons-icon').prev().text()).toBe('Click me!');
-    });
-
-    describe('mode: standard', () => {
-        it('passes jest-axe checks', async () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    text: 'Example button',
-                    name: 'example',
-                    value: 'example-value',
-                }),
-            );
-
-            const results = await axe($.html());
-            expect(results).toHaveNoViolations();
+    describe('GIVEN: Params: text', () => {
+        describe('WHEN: text is given as parameter', () => {
+            it('THEN: renders label text', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        text: 'Click > me!',
+                    }),
+                );
+                expect($('.ons-btn__text').html()).toBe('Click &gt; me!');
+            });
         });
-
-        it('is an `button` element', () => {
-            const $ = cheerio.load(renderComponent('button'));
-
-            expect($('button').length).toBe(1);
+    });
+    describe('GIVEN: Params: buttonContext', () => {
+        describe('WHEN: buttonContext parameter is provided', () => {
+            it('THEN: renders button context text', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        buttonContext: 'button context text',
+                    }),
+                );
+                expect($('.ons-btn__context').text()).toBe('button context text');
+            });
         });
-
-        it('has the provided `type` attribute', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    type: 'special-type',
-                }),
-            );
-
-            expect($('button').attr('type')).toBe('special-type');
+    });
+    describe('GIVEN: Params: html', () => {
+        describe('WHEN: html parameter is provided', () => {
+            it('THEN: renders label text', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        html: 'Click <strong>me</strong>!',
+                    }),
+                );
+                expect($('.ons-btn__text').html()).toBe('Click <strong>me</strong>!');
+            });
         });
+    });
+    describe('GIVEN: Params: iconPosition', () => {
+        describe('WHEN: iconPosition is set to before for custom icon', () => {
+            it('THEN: renders custom icon before button text', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        text: 'Click me!',
+                        iconPosition: 'before',
+                        iconType: 'exit',
+                    }),
+                );
+                expect($('.ons-icon + .ons-btn__text').text()).toBe('Click me!');
+            });
+        });
+        describe('WHEN: iconPosition is set to after for custom icon', () => {
+            it('THEN: renders custom icon before button text', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        text: 'Click me!',
+                        iconPosition: 'after',
+                        iconType: 'exit',
+                    }),
+                );
+                expect($('.ons-btn__text + .ons-icon').prev().text()).toBe('Click me!');
+            });
+        });
+    });
 
-        it('has the provided `type` attribute even if print variant is provided', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    type: 'special-type',
+    describe('GIVEN: Params: variants', () => {
+        describe('WHEN: variants are present', () => {
+            it('THEN: renders provided variant style classes', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        variants: ['variant-a', 'variant-b'],
+                    }),
+                );
+
+                expect($('.ons-btn').hasClass('ons-btn--variant-a')).toBe(true);
+                expect($('.ons-btn').hasClass('ons-btn--variant-b')).toBe(true);
+            });
+        });
+        describe('WHEN: variants contains download', () => {
+            it('THEN: renders provided variant style class', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        url: 'http://example.com',
+                        variants: 'download',
+                    }),
+                );
+                expect($('.ons-btn').hasClass('ons-btn--download')).toBe(true);
+            });
+            it('THEN: renders download icon', () => {
+                const faker = templateFaker();
+                const iconsSpy = faker.spy('icon');
+
+                faker.renderComponent('button', {
+                    url: 'http://example.com',
+                    variants: 'download',
+                });
+
+                expect(iconsSpy.occurrences[0].iconType).toBe('download');
+            });
+            it('THEN: renders the download attribute when variants contains download', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        variants: 'download',
+                    }),
+                );
+
+                expect($('.ons-btn').attr('download')).toBeDefined();
+            });
+        });
+        describe('WHEN: variants contains loader', () => {
+            it('THEN: renders provided variant style classes', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        variants: 'loader',
+                    }),
+                );
+
+                expect($('.ons-btn').hasClass('ons-btn--loader')).toBe(true);
+                expect($('.ons-btn').hasClass('ons-js-loader')).toBe(true);
+                expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
+            });
+            it('THEN: loader icon when variants contains loader', () => {
+                const faker = templateFaker();
+                const iconsSpy = faker.spy('icon');
+
+                faker.renderComponent('button', {
+                    variants: 'loader',
+                });
+
+                expect(iconsSpy.occurrences[0].iconType).toBe('loader');
+            });
+        });
+        describe('WHEN: variants contains timer', () => {
+            it('THEN: renders provided variant style classes', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        variants: 'timer',
+                    }),
+                );
+
+                expect($('.ons-btn').hasClass('ons-js-timer')).toBe(true);
+                expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
+            });
+        });
+        describe('WHEN: variants contains print', () => {
+            it('THEN: renders provided variant style classes', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        variants: 'print',
+                    }),
+                );
+
+                expect($('.ons-btn').hasClass('ons-btn--print')).toBe(true);
+                expect($('.ons-btn').hasClass('ons-u-d-no')).toBe(true);
+                expect($('.ons-btn').hasClass('ons-js-print-btn')).toBe(true);
+            });
+
+            it('THEN: renders print icon when variants contains print', () => {
+                const faker = templateFaker();
+                const iconsSpy = faker.spy('icon');
+
+                faker.renderComponent('button', {
+                    url: 'http://example.com',
                     variants: 'print',
-                }),
-            );
+                });
 
-            expect($('button').attr('type')).toBe('special-type');
+                expect(iconsSpy.occurrences[0].iconType).toBe('print');
+            });
         });
+    });
+    describe('GIVEN: Params: type', () => {
+        describe('WHEN: type parameter is provided', () => {
+            it('THEN: renders the provided type attribute', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        type: 'special-type',
+                    }),
+                );
 
-        it('defaults to being a "submit" button when `type` is not provided', () => {
-            const $ = cheerio.load(renderComponent('button'));
+                expect($('button').attr('type')).toBe('special-type');
+            });
 
-            expect($('button').attr('type')).toBe('submit');
+            it('THEN: renders the provided type attribute if variant contains print', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        type: 'special-type',
+                        variants: 'print',
+                    }),
+                );
+
+                expect($('button').attr('type')).toBe('special-type');
+            });
         });
+        describe('WHEN: type parameter is not provided', () => {
+            it('THEN: defaults to being a submit button when type is not provided', () => {
+                const $ = cheerio.load(renderComponent('button'));
 
-        it('defaults to being a "button" when `type` is not provided and `variants` contains "print"', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    variants: 'print',
-                }),
-            );
+                expect($('button').attr('type')).toBe('submit');
+            });
 
-            expect($('button').attr('type')).toBe('button');
-        });
+            it('THEN: defaults to being a button if variants contains print', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        variants: 'print',
+                    }),
+                );
 
-        it('has the provided `value` attribute', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    value: 'special-value',
-                }),
-            );
-
-            expect($('button').attr('value')).toBe('special-value');
-        });
-
-        it('has the provided `name` attribute', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    name: 'special-name',
-                }),
-            );
-
-            expect($('button').attr('name')).toBe('special-name');
+                expect($('button').attr('type')).toBe('button');
+            });
         });
     });
 
-    describe('mode: link', () => {
-        it('passes jest-axe checks', async () => {
+    describe('GIVEN: Params: link', () => {
+        describe('WHEN: link parameter is provided', () => {
             const $ = cheerio.load(
                 renderComponent('button', {
                     text: 'Example button',
@@ -303,130 +282,104 @@ describe('macro: button', () => {
                     url: 'http://example.com',
                 }),
             );
-
-            const results = await axe($.html());
-            expect(results).toHaveNoViolations();
-        });
-
-        it('is an `a` element', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    url: 'http://example.com',
-                }),
-            );
-
-            expect($('a').length).toBe(1);
-        });
-
-        it('has expected style classes', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    url: 'http://example.com',
-                }),
-            );
-
-            expect($('a').hasClass('ons-btn')).toBe(true);
-            expect($('.ons-btn').hasClass('ons-btn--link')).toBe(true);
-            expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
-        });
-
-        it('has the provided link', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    url: 'http://example.com',
-                }),
-            );
-
-            expect($('a').attr('href')).toBe('http://example.com');
-        });
-
-        it('has `arrow-next` icon by default', () => {
-            const faker = templateFaker();
-            const iconsSpy = faker.spy('icon');
-
-            faker.renderComponent('button', {
-                url: 'http://example.com',
+            it('THEN: passes jest-axe checks', async () => {
+                const results = await axe($.html());
+                expect(results).toHaveNoViolations();
             });
 
-            expect(iconsSpy.occurrences[0].iconType).toBe('arrow-next');
-        });
-
-        it('opens in a new window when `newWindow` is `true`', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    url: 'http://example.com',
-                    newWindow: true,
-                }),
-            );
-
-            expect($('a').attr('target')).toBe('_blank');
-            expect($('a').attr('rel')).toBe('noopener');
-        });
-
-        it('has `external-link` icon when `newWindow` is `true`', () => {
-            const faker = templateFaker();
-            const iconsSpy = faker.spy('icon');
-
-            faker.renderComponent('button', {
-                url: 'http://example.com',
-                newWindow: true,
+            it('THEN: renders an `a` element', () => {
+                expect($('a').length).toBe(1);
             });
 
-            expect(iconsSpy.occurrences[0].iconType).toBe('external-link');
-        });
+            it('THEN: renders expected style classes', () => {
+                expect($('a').hasClass('ons-btn')).toBe(true);
+                expect($('.ons-btn').hasClass('ons-btn--link')).toBe(true);
+                expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
+            });
 
-        it('has the `button` role', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
+            it('THEN: contains the provided link', () => {
+                expect($('a').attr('href')).toBe('http://example.com');
+            });
+
+            it('THEN: contains arrow-next icon by default', () => {
+                const faker = templateFaker();
+                const iconsSpy = faker.spy('icon');
+
+                faker.renderComponent('button', {
                     url: 'http://example.com',
-                }),
-            );
+                });
 
-            expect($('.ons-btn').attr('role')).toBe('button');
+                expect(iconsSpy.occurrences[0].iconType).toBe('arrow-next');
+            });
+
+            it('THEN: contains the button role', () => {
+                expect($('.ons-btn').attr('role')).toBe('button');
+            });
         });
-
-        it('has a default new window description when `newWindow` is `true`', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    url: 'http://example.com',
-                    newWindow: true,
-                }),
-            );
-
-            expect($('.ons-btn__new-window-description').text()).toBe(' (opens in a new tab)');
+        describe('WHEN: link parameter is provided and newWindow is true', () => {
+            it('THEN: renders a default new window description', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        url: 'http://example.com',
+                        newWindow: true,
+                    }),
+                );
+                expect($('.ons-btn__new-window-description').text()).toBe(' (opens in a new tab)');
+            });
         });
-
-        it('has a custom new window description when `newWindow` is `true` and `newWindowDescription` is provided', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    url: 'http://example.com',
-                    newWindow: true,
-                    newWindowDescription: 'custom opens in a new window text',
-                }),
-            );
-
-            expect($('.ons-btn__new-window-description').text()).toBe(' (custom opens in a new window text)');
+        describe('WHEN: link parameter is provided, newWindow is true and newWindowDescription is provided', () => {
+            it('THEN: contains a custom new window description', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        url: 'http://example.com',
+                        newWindow: true,
+                        newWindowDescription: 'custom opens in a new window text',
+                    }),
+                );
+                expect($('.ons-btn__new-window-description').text()).toBe(' (custom opens in a new window text)');
+            });
         });
+    });
 
-        it('has the `download` attribute when `variants` contains "download"', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    variants: 'download',
-                }),
-            );
+    describe('GIVEN: Params: additonal classes', () => {
+        describe('WHEN: classes parameter is provided', () => {
+            it('THENL renders additionally provided style classes', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        classes: 'extra-class another-extra-class',
+                    }),
+                );
 
-            expect($('.ons-btn').attr('download')).toBeDefined();
+                expect($('.ons-btn').hasClass('extra-class')).toBe(true);
+                expect($('.ons-btn').hasClass('another-extra-class')).toBe(true);
+            });
         });
+        describe('WHEN: innerclasses parameter is provided', () => {
+            it('THEN: renders additionally provided inner style classes', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        innerClasses: 'extra-inner-class another-extra-inner-class',
+                    }),
+                );
 
-        it('does not have the `download` attribute when `variants` contains "download" and `removeDownloadAttribute` is `true`', () => {
-            const $ = cheerio.load(
-                renderComponent('button', {
-                    variants: 'download',
-                    removeDownloadAttribute: true,
-                }),
-            );
+                expect($('.ons-btn__inner').hasClass('extra-inner-class')).toBe(true);
+                expect($('.ons-btn__inner').hasClass('another-extra-inner-class')).toBe(true);
+            });
+        });
+    });
 
-            expect($('.ons-btn').attr('download')).toBeUndefined();
+    describe('GIVEN: params: removeDownloadattribute', () => {
+        describe('WHEN: variants contains download and removeDownloadAttribute is true', () => {
+            it('THEN: does not have the download attribute', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        variants: 'download',
+                        removeDownloadAttribute: true,
+                    }),
+                );
+
+                expect($('.ons-btn').attr('download')).toBeUndefined();
+            });
         });
     });
 });
