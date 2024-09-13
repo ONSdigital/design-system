@@ -4,39 +4,12 @@ import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
-
-const EXAMPLE_CARD_WITHOUT_IMAGE = {
-    title: 'Example card title',
-    text: 'Example card text.',
-    textId: 'example-text-id',
-};
-
-const EXAMPLE_CARD_WITH_IMAGE = {
-    title: 'Example card title',
-    text: 'Example card text.',
-    textId: 'example-text-id',
-    image: {
-        smallSrc: 'example-small.png',
-        largeSrc: 'example-large.png',
-        alt: 'Example alt text',
-    },
-};
-
-const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE = {
-    title: 'Example card title',
-    text: 'Example card text.',
-    textId: 'example-text-id',
-    image: true,
-};
-
-const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH = {
-    title: 'Example card title',
-    text: 'Example card text.',
-    textId: 'example-text-id',
-    image: {
-        placeholderURL: '/placeholder-image-url',
-    },
-};
+import {
+    EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE,
+    EXAMPLE_CARD_WITHOUT_IMAGE,
+    EXAMPLE_CARD_WITH_IMAGE,
+    EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH,
+} from './_test-examples';
 
 describe('macro: card', () => {
     describe('mode: without image', () => {
