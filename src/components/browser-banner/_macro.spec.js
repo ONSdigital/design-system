@@ -20,7 +20,7 @@ describe('FOR: browser-banner', () => {
                 expect(bannerLeadingText).toBe('This website no longer supports your browser.');
             });
 
-            it('has the english version of default `bannerCTA`', () => {
+            it('THEN: has the english default bannerCTA', () => {
                 const bannerCtaHtml = $('.ons-browser-banner__cta').text().trim();
                 expect(bannerCtaHtml).toBe('You can upgrade your browser to the latest version.');
             });
