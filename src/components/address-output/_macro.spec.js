@@ -43,7 +43,7 @@ describe('FOR: address-output', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            test('THEN: renders `unit` line with correct text', () => {
+            test('THEN: renders unit with provided text', () => {
                 expect($('.ons-address-output__unit').text().trim()).toBe('Unit 5');
             });
 
