@@ -7,7 +7,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 
 describe('FOR: browser-banner', () => {
     describe('GIVEN: Params: default', () => {
-        describe('WHEN: params are at default and language is default', () => {
+        describe('WHEN: params are at default state', () => {
             const $ = cheerio.load(renderComponent('browser-banner', {}));
 
             it('passes jest-axe checks with', async () => {
