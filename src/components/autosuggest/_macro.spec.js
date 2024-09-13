@@ -94,7 +94,7 @@ describe('FOR: autosuggest', () => {
                     allowMultiple: false,
                 }),
             );
-            test('THEN: it doen not have the data-allow-multiple attribute', () => {
+            test('THEN: it does not have the data-allow-multiple attribute', () => {
                 expect($('.ons-autosuggest').attr('data-allow-multiple')).toBeUndefined();
             });
         });
