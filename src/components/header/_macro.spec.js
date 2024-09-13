@@ -14,7 +14,7 @@ import {
     EXAMPLE_HEADER_LANGUAGE_CONFIG,
     EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG,
     EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST,
-} from './_test_examples';
+} from './_test-examples';
 
 describe('FOR: Header', () => {
     describe('GIVEN: Params: none', () => {
