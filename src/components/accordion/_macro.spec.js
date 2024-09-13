@@ -7,7 +7,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 import { EXAMPLE_ACCORDION } from './_test_examples';
 
 describe('FOR: Accordion', () => {
-    describe('GIVEN: Params: required ', () => {
+    describe('GIVEN: Params: required', () => {
         describe('WHEN: all required params are provided', () => {
             const $ = cheerio.load(renderComponent('accordion', EXAMPLE_ACCORDION));
             test('THEN: jest-axe checks pass', async () => {
@@ -209,7 +209,7 @@ describe('FOR: Accordion', () => {
             });
         });
     });
-    describe('GIVEN: Params: open ', () => {
+    describe('GIVEN: Params: open', () => {
         describe('WHEN: open param is not provided', () => {
             const $ = cheerio.load(
                 renderComponent('accordion', {
