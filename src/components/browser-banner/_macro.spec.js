@@ -51,7 +51,7 @@ describe('FOR: browser-banner', () => {
 
     describe('GIVEN: Params: wide', () => {
         describe('WHEN: wide is set to true', () => {
-            it('has `container--wide` class', () => {
+            it('THEN: has container--wide class', () => {
                 const $ = cheerio.load(
                     renderComponent('browser-banner', {
                         ...{},
