@@ -75,33 +75,33 @@ describe('FOR: autosuggest', () => {
     });
 
     describe('GIVEN: Params: allowMultiple', () => {
-        describe('WHEN: `allowMultiple` is `true`', () => {
+        describe('WHEN: allowMultiple is true', () => {
             const $ = cheerio.load(
                 renderComponent('autosuggest', {
                     ...EXAMPLE_AUTOSUGGEST,
                     allowMultiple: true,
                 }),
             );
-            test('THEN: it has the `data-allow-multiple` attribute', () => {
+            test('THEN: it has the data-allow-multiple attribute', () => {
                 expect($('.ons-autosuggest').attr('data-allow-multiple')).toBe('true');
             });
         });
 
-        describe('WHEN: `allowMultiple` is `false`', () => {
+        describe('WHEN: allowMultiple is false', () => {
             const $ = cheerio.load(
                 renderComponent('autosuggest', {
                     ...EXAMPLE_AUTOSUGGEST,
                     allowMultiple: false,
                 }),
             );
-            test('THEN: it doen not have the `data-allow-multiple` attribute', () => {
+            test('THEN: it doen not have the data-allow-multiple attribute', () => {
                 expect($('.ons-autosuggest').attr('data-allow-multiple')).toBeUndefined();
             });
         });
     });
 
     describe('GIVEN: Params: externalInitialiser', () => {
-        describe('WHEN: `externalInitialiser` is `true`', () => {
+        describe('WHEN: externalInitialiser is true', () => {
             const $ = cheerio.load(
                 renderComponent('autosuggest', {
                     ...EXAMPLE_AUTOSUGGEST,
@@ -114,7 +114,7 @@ describe('FOR: autosuggest', () => {
             });
         });
 
-        describe('WHEN: `externalInitialiser` is `false`', () => {
+        describe('WHEN: externalInitialiser is false', () => {
             const $ = cheerio.load(
                 renderComponent('autosuggest', {
                     ...EXAMPLE_AUTOSUGGEST,
@@ -129,7 +129,7 @@ describe('FOR: autosuggest', () => {
     });
 
     describe('GIVEN: Params: isEditable', () => {
-        describe('WHEN: `isEditable` is `false`', () => {
+        describe('WHEN: isEditable is false', () => {
             const $ = cheerio.load(
                 renderComponent('autosuggest', {
                     ...EXAMPLE_AUTOSUGGEST,
@@ -144,7 +144,7 @@ describe('FOR: autosuggest', () => {
     });
 
     describe('GIVEN: Params: mandatory', () => {
-        describe('WHEN: `mandatory` is `true`', () => {
+        describe('WHEN: mandatory is true', () => {
             const $ = cheerio.load(
                 renderComponent('autosuggest', {
                     ...EXAMPLE_AUTOSUGGEST,
@@ -159,7 +159,7 @@ describe('FOR: autosuggest', () => {
     });
 
     describe('GIVEN: Params: containerClasses', () => {
-        describe('WHEN: `containerClasses` is provided', () => {
+        describe('WHEN: containerClasses is provided', () => {
             const $ = cheerio.load(
                 renderComponent('autosuggest', {
                     ...EXAMPLE_AUTOSUGGEST,
@@ -237,7 +237,7 @@ describe('FOR: autosuggest', () => {
                     },
                 },
             });
-            test('THEN: it uses the `input` component with the expected parameters', () => {
+            test('THEN: it uses the input component with the expected parameters', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('id', 'country-of-birth');
                 expect(inputSpy.occurrences[0]).toHaveProperty('type', 'text');
                 expect(inputSpy.occurrences[0]).toHaveProperty('classes', 'ons-js-autosuggest-input extra-class another-extra-class');
