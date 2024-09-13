@@ -33,7 +33,7 @@ describe('FOR: browser-banner', () => {
         describe('WHEN: params are at default and language is set to welsh', () => {
             const $ = cheerio.load(renderComponent('browser-banner', { lang: 'cy' }));
 
-            it('has the welsh version of default `bannerLeadingText`', () => {
+            it('THEN: has the welsh default bannerLeadingText', () => {
                 const bannerLeadingText = $('.ons-browser-banner__lead').text().trim();
                 expect(bannerLeadingText).toBe('Nid yw’r wefan hon yn cefnogi eich porwr mwyach.');
             });
