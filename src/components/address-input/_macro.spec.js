@@ -143,7 +143,7 @@ describe('FOR: address-input', () => {
             });
         });
 
-        describe('WHEN: javascript has been disabled', () => {
+        describe('WHEN: JavaScript has been disabled', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
