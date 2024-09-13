@@ -10,7 +10,7 @@ describe('FOR: browser-banner', () => {
         describe('WHEN: params are at default state', () => {
             const $ = cheerio.load(renderComponent('browser-banner', {}));
 
-            it('passes jest-axe checks', async () => {
+            it('THEN: passes jest-axe checks', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
