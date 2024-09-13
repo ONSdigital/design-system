@@ -25,7 +25,7 @@ describe('FOR: browser-banner', () => {
                 expect(bannerCtaHtml).toBe('You can upgrade your browser to the latest version.');
             });
 
-            it('has the english version of default `bannerLinkUrl`', () => {
+            it('THEN: has the english default bannerLinkUrl', () => {
                 expect($('.ons-browser-banner__link').attr('href')).toBe('https://www.ons.gov.uk/help/browsers');
             });
         });
