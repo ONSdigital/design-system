@@ -1385,17 +1385,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     <ul class="ons-list ons-u-mb-no ons-list--bare">
 
 
@@ -1435,17 +1424,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     <ul class="ons-list ons-u-mb-no ons-list--bare">
 
 
@@ -1476,17 +1454,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             <div class="ons-grid__col ons-col-4@m ons-u-mt-m@xxs@m">
 
                                     <h2 class="ons-footer__heading ons-u-fs-r--b">Statistics</h2>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1546,17 +1513,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     <div class="ons-grid__col">
 
                             <!-- Legal -->
-
-
-
-
-
-
-
-
-
-
-
 
 
 
