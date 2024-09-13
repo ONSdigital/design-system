@@ -43,7 +43,7 @@ describe('FOR: browser-banner', () => {
                 expect(bannerCtaHtml).toBe('Gallwch ddiweddaru eich porwr i’r fersiwn ddiweddaraf.');
             });
 
-            it('has the welsh version of default `bannerLinkUrl`', () => {
+            it('THEN: has the welsh default bannerLinkUrl', () => {
                 expect($('.ons-browser-banner__link').attr('href')).toBe('https://cy.ons.gov.uk/help/browsers');
             });
         });
