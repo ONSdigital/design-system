@@ -602,6 +602,8 @@ describe('script: address-input', () => {
         beforeEach(async () => {
             await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
             await page.evaluate(() => document.documentElement.setAttribute('lang', 'cy'));
+
+            await setTimeout(50);
         });
 
         it('then the fetch url should contain the favour Welsh parameter', async () => {
