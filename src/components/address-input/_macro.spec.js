@@ -42,7 +42,7 @@ describe('FOR: address-input', () => {
                 }),
             );
 
-            test('THEN: does not have class to hide input fields', () => {
+            test('THEN: it does not have class to hide input fields', () => {
                 expect($('.ons-js-address-input__manual').hasClass('ons-u-db-no-js_enabled')).toBe(false);
             });
         });
@@ -138,12 +138,12 @@ describe('FOR: address-input', () => {
                     searchButton: 'Search for address',
                 }),
             );
-            test('THEN: it does not render', () => {
+            test('THEN: search button does not render', () => {
                 expect($('.ons-js-address-search-btn').length).toBe(0);
             });
         });
 
-        describe('WHEN: there is no javascript', () => {
+        describe('WHEN: javascript has been disabled', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
@@ -152,24 +152,24 @@ describe('FOR: address-input', () => {
                 }),
             );
 
-            test('THEN: it marks field so that it is displayed', () => {
+            test('THEN: search button is displayed', () => {
                 expect($('.ons-js-address-search-btn').hasClass('ons-u-db-no-js_disabled')).toBe(true);
             });
 
-            test('THEN: it renders provided text for search button', () => {
+            test('THEN: it renders search button with provided text', () => {
                 expect($('.ons-js-address-search-btn').text().trim()).toBe('Search for address');
             });
         });
     });
 
     describe('GIVEN: hidden field for uprn', () => {
-        describe('WHEN: `uprn.value` is not provided', () => {
+        describe('WHEN: uprn.value is not provided', () => {
             const faker = templateFaker();
             const inputSpy = faker.spy('input', { suppressOutput: true });
 
             faker.renderComponent('address-input', EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL);
 
-            test('THEN: it renders hidden `input` component with expected parameters', () => {
+            test('THEN: it renders hidden input component with expected parameters', () => {
                 expect(inputSpy.occurrences).toContainEqual({
                     id: 'address-input-example-id-uprn',
                     classes: 'ons-js-hidden-uprn ons-u-d-no',
@@ -180,7 +180,7 @@ describe('FOR: address-input', () => {
             });
         });
 
-        describe('WHEN: `uprn.value` is provided', () => {
+        describe('WHEN: uprn.value is provided', () => {
             const faker = templateFaker();
             const inputSpy = faker.spy('input', { suppressOutput: true });
 
@@ -191,7 +191,7 @@ describe('FOR: address-input', () => {
                 },
             });
 
-            test('THEN: it renders hidden `input` component with expected parameters', () => {
+            test('THEN: it renders hidden input component with expected parameters', () => {
                 expect(inputSpy.occurrences).toContainEqual({
                     id: 'address-input-example-id-uprn',
                     classes: 'ons-js-hidden-uprn ons-u-d-no',
@@ -204,7 +204,7 @@ describe('FOR: address-input', () => {
     });
 
     describe('GIVEN: autosuggest search field', () => {
-        describe('WHEN: `manualEntry` is `true`', () => {
+        describe('WHEN: manualEntry is true', () => {
             const faker = templateFaker();
             const autosuggestSpy = faker.spy('autosuggest', { suppressOutput: true });
 
@@ -213,18 +213,18 @@ describe('FOR: address-input', () => {
                 manualEntry: true,
             });
 
-            test('THEN: it is not shown', () => {
+            test('THEN: autosuggest search field is not shown', () => {
                 expect(autosuggestSpy.occurrences.length).toBe(0);
             });
         });
 
-        describe('WHEN: `manualEntry` is not set', () => {
+        describe('WHEN: manualEntry is not set', () => {
             const faker = templateFaker();
             const autosuggestSpy = faker.spy('autosuggest', { suppressOutput: true });
 
-            // Since `autosuggestSpy` suppresses output the values being tested below do not
+            // Since autosuggestSpy suppresses output the values being tested below do not
             // need to represent real values. This test is only interested in verifying that
-            // the provided values are being passed through to the `autosuggest` component.
+            // the provided values are being passed through to the autosuggest component.
             faker.renderComponent('address-input', {
                 ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
                 label: {
@@ -269,7 +269,7 @@ describe('FOR: address-input', () => {
                 manualLinkText: '[params.manualLinkText]',
             });
 
-            test('THEN: it renders `autosuggest` component with expected parameters', () => {
+            test('THEN: it renders autosuggest component with expected parameters', () => {
                 expect(autosuggestSpy.occurrences[0]).toEqual({
                     id: 'address-input-example-id-autosuggest',
                     classes: 'ons-address-input__autosuggest ons-u-mb-no',
@@ -321,7 +321,7 @@ describe('FOR: address-input', () => {
             });
         });
 
-        describe('WHEN: provided with a default value for `manualLink`', () => {
+        describe('WHEN: provided with a default value for manualLink', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
@@ -335,7 +335,7 @@ describe('FOR: address-input', () => {
             });
         });
 
-        describe('WHEN: a value for `manualLink` is provided', () => {
+        describe('WHEN: a value for manualLink is provided', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
@@ -344,7 +344,7 @@ describe('FOR: address-input', () => {
                 }),
             );
 
-            test('THEN: renders `manualLinkText` with `manualLink`', () => {
+            test('THEN: it renders the provided manualLink with the manualText', () => {
                 expect($('.ons-js-address-manual-btn').attr('href')).toBe('https://example.com/edit-address');
                 expect($('.ons-js-address-manual-btn').text().trim()).toBe('Manually enter address');
             });
@@ -352,7 +352,7 @@ describe('FOR: address-input', () => {
     });
 
     describe('GIVEN: fieldset', () => {
-        describe('WHEN: `dontWrap` is `true`', () => {
+        describe('WHEN: dontWrap is true', () => {
             const faker = templateFaker();
             const fieldsetSpy = faker.spy('fieldset', { suppressOutput: true });
 
@@ -361,12 +361,12 @@ describe('FOR: address-input', () => {
                 dontWrap: true,
             });
 
-            test('THEN: it does not render `fieldset` component`', () => {
+            test('THEN: it does not render fieldset component', () => {
                 expect(fieldsetSpy.occurrences.length).toBe(0);
             });
         });
 
-        describe('WHEN: `dontWrap` is not set', () => {
+        describe('WHEN: dontWrap is not set', () => {
             const faker = templateFaker();
             const fieldsetSpy = faker.spy('fieldset', { suppressOutput: true });
 
@@ -376,7 +376,7 @@ describe('FOR: address-input', () => {
                 legendClasses: 'extra-legend-class',
             });
 
-            test('THEN: it renders `fieldset` component with expected parameters', () => {
+            test('THEN: it renders the fieldset component with expected parameters', () => {
                 expect(fieldsetSpy.occurrences[0]).toEqual({
                     id: 'address-input-example-id',
                     classes: 'extra-field-class',
