@@ -1,17 +1,8 @@
-export {
-    EXAMPLE_HEADER_BASIC,
-    EXAMPLE_SERVICE_LINKS_CONFIG,
-    EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE,
-    EXAMPLE_HEADER_SERVICE_LINKS_SINGLE,
-    EXAMPLE_HEADER_LANGUAGE_CONFIG,
-    EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG,
-    EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST,
-};
-
-const EXAMPLE_HEADER_BASIC = {
+export const EXAMPLE_HEADER_BASIC = {
     title: 'Header title',
 };
-const EXAMPLE_SERVICE_LINKS_CONFIG = {
+
+export const EXAMPLE_SERVICE_LINKS_CONFIG = {
     id: 'service-links',
     ariaLabel: 'Services menu',
     classes: 'custom-class',
@@ -20,7 +11,8 @@ const EXAMPLE_SERVICE_LINKS_CONFIG = {
         ariaLabel: 'Toggle services menu',
     },
 };
-const EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE = {
+
+export const EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE = {
     ...EXAMPLE_HEADER_BASIC,
     serviceLinks: {
         ...EXAMPLE_SERVICE_LINKS_CONFIG,
@@ -40,7 +32,8 @@ const EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE = {
         ],
     },
 };
-const EXAMPLE_HEADER_SERVICE_LINKS_SINGLE = {
+
+export const EXAMPLE_HEADER_SERVICE_LINKS_SINGLE = {
     ...EXAMPLE_HEADER_BASIC,
     serviceLinks: {
         ...EXAMPLE_SERVICE_LINKS_CONFIG,
@@ -52,7 +45,8 @@ const EXAMPLE_HEADER_SERVICE_LINKS_SINGLE = {
         ],
     },
 };
-const EXAMPLE_HEADER_LANGUAGE_CONFIG = {
+
+export const EXAMPLE_HEADER_LANGUAGE_CONFIG = {
     language: {
         languages: [
             {
@@ -74,7 +68,8 @@ const EXAMPLE_HEADER_LANGUAGE_CONFIG = {
         ],
     },
 };
-const EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG = {
+
+export const EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG = {
     navigation: {
         id: 'main-nav',
         ariaLabel: 'Main menu',
@@ -117,7 +112,8 @@ const EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG = {
         },
     },
 };
-const EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST = {
+
+export const EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST = {
     navigation: {
         id: 'main-nav',
         ariaLabel: 'Main menu',
