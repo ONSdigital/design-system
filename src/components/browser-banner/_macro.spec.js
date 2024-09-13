@@ -78,7 +78,7 @@ describe('FOR: browser-banner', () => {
 
     describe('GIVEN: Params: fullWidth', () => {
         describe('WHEN: fullWidth is set to true', () => {
-            it('has `container--full-width` class', () => {
+            it('THEN: has container--full-width class', () => {
                 const $ = cheerio.load(
                     renderComponent('browser-banner', {
                         ...{},
