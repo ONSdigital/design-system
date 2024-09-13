@@ -16,6 +16,23 @@ describe('FOR: Accordion', () => {
             });
         });
     });
+    describe('GIVEN: Params: required and allButton', () => {
+        describe('WHEN: required and allButton params are provided', () => {
+            const $ = cheerio.load(
+                renderComponent('accordion', {
+                    ...EXAMPLE_ACCORDION,
+                    allButton: {
+                        open: 'Open label',
+                        close: 'Close label',
+                    },
+                }),
+            );
+            test('THEN: jest-axe checks pass', async () => {
+                const results = await axe($.html());
+                expect(results).toHaveNoViolations();
+            });
+        });
+    });
     describe('GIVEN: Params: id', () => {
         describe('WHEN: id is provided', () => {
             const $ = cheerio.load(renderComponent('accordion', EXAMPLE_ACCORDION));
@@ -186,7 +203,7 @@ describe('FOR: Accordion', () => {
             });
         });
     });
-    describe('GIVEN: Params: saveState ', () => {
+    describe('GIVEN: Params: saveState', () => {
         describe('WHEN: saveState param is not provided', () => {
             const $ = cheerio.load(
                 renderComponent('accordion', {
