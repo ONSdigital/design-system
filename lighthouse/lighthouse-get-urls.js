@@ -32,7 +32,7 @@ async function getURLs() {
         for (const folder of folders) {
             const files = await glob(`${directory.path}/${folder}/**/*.html`, { ignore: `${directory.path}/${folder}/index.html` });
             for (const file of files) {
-                data.urls.push(file.replace('./build/', 'http://localhost:9000/'));
+                data.urls.push(file.replace('build/', 'http://localhost:9000/'));
             }
         }
     }
