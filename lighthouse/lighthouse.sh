@@ -5,8 +5,11 @@
 node ./lighthouse/lighthouse-get-urls.js
 
 # Start the HTTP server in the background and capture its PID
-npx http-server -p 9000 ./build &
+npx http-server -p 9000 ./build > http-server.log 2>&1 &
 HTTP_SERVER_PID=$!
+
+# Wait a bit to ensure the server is fully up
+sleep 2
 
 # Install the necessary Lighthouse CI CLI globally
 npm install -g @lhci/cli@0.12.x
