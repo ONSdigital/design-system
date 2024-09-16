@@ -109,7 +109,7 @@ describe('FOR: autosuggest', () => {
                 }),
             );
 
-            test('THEN: it does not have a special class', () => {
+            test('THEN: it does not have a special class that indicates the component should initialise itself', () => {
                 expect($('.ons-autosuggest').hasClass('ons-js-autosuggest')).toBe(false);
             });
         });
@@ -122,7 +122,7 @@ describe('FOR: autosuggest', () => {
                 }),
             );
 
-            test('THEN: it has a special class', () => {
+            test('THEN: it has a special class that indicates the component should initialise itself', () => {
                 expect($('.ons-autosuggest').hasClass('ons-js-autosuggest')).toBe(true);
             });
         });
@@ -175,7 +175,7 @@ describe('FOR: autosuggest', () => {
     });
 
     describe('GIVEN: Params: input', () => {
-        describe('WHEN: input is provided', () => {
+        describe('WHEN: input param is provided', () => {
             const faker = templateFaker();
             const inputSpy = faker.spy('input');
 
@@ -237,7 +237,7 @@ describe('FOR: autosuggest', () => {
                     },
                 },
             });
-            test('THEN: it uses the input component with the expected parameters', () => {
+            test('THEN: it renders the input component with the expected parameters', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('id', 'country-of-birth');
                 expect(inputSpy.occurrences[0]).toHaveProperty('type', 'text');
                 expect(inputSpy.occurrences[0]).toHaveProperty('classes', 'ons-js-autosuggest-input extra-class another-extra-class');
@@ -285,7 +285,7 @@ describe('FOR: autosuggest', () => {
         describe('WHEN: mutallyExclusive parameter is not defined', () => {
             const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-            test('THEN: autosuggest results is rendered', () => {
+            test('THEN: autosuggest results are rendered', () => {
                 expect($('.ons-autosuggest__results').length).toBe(1);
             });
         });
@@ -298,7 +298,7 @@ describe('FOR: autosuggest', () => {
                 }),
             );
 
-            test('THEN: autosuggest results is not rendered', () => {
+            test('THEN: autosuggest results are not rendered', () => {
                 expect($('.ons-autosuggest__results').length).toBe(0);
             });
         });
