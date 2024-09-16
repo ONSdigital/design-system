@@ -21,7 +21,7 @@ jobs:
             - name: Zip templates
               run: zip -r templates.zip templates/*
             - name: Release
-              uses: softprops/action-gh-release@v1
+              uses: softprops/action-gh-release@v2
               with:
                   files: templates.zip
               env:
