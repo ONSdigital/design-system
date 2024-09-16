@@ -1,6 +1,7 @@
 module.exports = {
     ci: {
         collect: {
+            url: require('./lighthouse/urls.json').urls,
             numberOfRuns: 1,
             settings: {
                 onlyCategories: ['accessibility'],
