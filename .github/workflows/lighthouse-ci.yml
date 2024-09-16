@@ -20,6 +20,8 @@ jobs:
               run: yarn install
             - name: Build pages
               run: yarn build
+            - name: Build urls
+              run: node ./lighthouse/lighthouse-get-urls.js
             - name: Run Lighthouse CI
               run: |
                   npm install -g @lhci/cli@0.14.x
