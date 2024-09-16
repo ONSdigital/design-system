@@ -18,8 +18,8 @@ describe('FOR: address-input', () => {
         });
     });
 
-    describe('GIVEN: manual entry of address', () => {
-        describe('WHEN: automatic search is enabled', () => {
+    describe('GIVEN: Params: manualEntry', () => {
+        describe('WHEN: manualEntry is set to false', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
@@ -28,12 +28,12 @@ describe('FOR: address-input', () => {
                 }),
             );
 
-            test('THEN: it has class to hide input fields', () => {
+            test('THEN: it renders with class to hide manual input fields', () => {
                 expect($('.ons-js-address-input__manual').hasClass('ons-u-db-no-js_enabled')).toBe(true);
             });
         });
 
-        describe('WHEN: automatic search is disabled', () => {
+        describe('WHEN: manualEntry is set to true', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
@@ -42,7 +42,7 @@ describe('FOR: address-input', () => {
                 }),
             );
 
-            test('THEN: it does not have class to hide input fields', () => {
+            test('THEN: it renders with class to show manual input fields', () => {
                 expect($('.ons-js-address-input__manual').hasClass('ons-u-db-no-js_enabled')).toBe(false);
             });
         });
@@ -329,7 +329,7 @@ describe('FOR: address-input', () => {
                 }),
             );
 
-            test('THEN: it renders manualLinkText', () => {
+            test('THEN: it renders the manual link with the provided text and a default url', () => {
                 expect($('.ons-js-address-manual-btn').attr('href')).toBe('#0');
                 expect($('.ons-js-address-manual-btn').text().trim()).toBe('Manually enter address');
             });
@@ -344,14 +344,14 @@ describe('FOR: address-input', () => {
                 }),
             );
 
-            test('THEN: it renders the manual link with the provided text and url, () => {
+            test('THEN: it renders the manual link with the provided text and url', () => {
                 expect($('.ons-js-address-manual-btn').attr('href')).toBe('https://example.com/edit-address');
                 expect($('.ons-js-address-manual-btn').text().trim()).toBe('Manually enter address');
             });
         });
     });
 
-    describe('GIVEN: fieldset', () => {
+    describe('GIVEN: Params: dontWrap', () => {
         describe('WHEN: dontWrap is true', () => {
             const faker = templateFaker();
             const fieldsetSpy = faker.spy('fieldset', { suppressOutput: true });
