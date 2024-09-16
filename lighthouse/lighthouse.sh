@@ -5,7 +5,7 @@ npm install -g @lhci/cli@0.12.x
 lhci healthcheck --fatal
 for url in $(jq '.urls[]' ./lighthouse/urls.json); do sem
     lhci collect "--url=$url" --additive --config=./lighthouse/lighthouserc.js &
-done    
+done
 sem --wait
 lhci assert --config=./lighthouse/lighthouserc.js
 lhci upload --config=./lighthouse/lighthouserc.js
