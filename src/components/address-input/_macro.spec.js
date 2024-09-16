@@ -34,6 +34,9 @@ describe('FOR: address-input', () => {
         });
 
         describe('WHEN: manualEntry is set to true', () => {
+            const faker = templateFaker();
+            const autosuggestSpy = faker.spy('autosuggest', { suppressOutput: true });
+
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
@@ -44,173 +47,6 @@ describe('FOR: address-input', () => {
 
             test('THEN: it renders with class to show manual input fields', () => {
                 expect($('.ons-js-address-input__manual').hasClass('ons-u-db-no-js_enabled')).toBe(false);
-            });
-        });
-
-        describe('WHEN: manual fields are provided', () => {
-            const faker = templateFaker();
-            const inputSpy = faker.spy('input', { suppressOutput: true });
-
-            faker.renderComponent('address-input', {
-                ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
-                ...EXAMPLE_MANUAL_INPUT_FIELDS,
-                isEditable: true,
-            });
-
-            test('THEN: it renders "organisation" input field with expected parameters', () => {
-                expect(inputSpy.occurrences).toContainEqual({
-                    id: 'address-input-example-id-organisation',
-                    name: 'address-input-example-id-organisation',
-                    classes: 'ons-js-address-organisation',
-                    label: {
-                        text: 'Organisation name',
-                    },
-                    value: 'Example Organisation',
-                    width: '20@m',
-                    error: { text: 'Server error: organisation name' },
-                });
-            });
-
-            test('THEN: it renders "address line 1" input field with expected parameters', () => {
-                expect(inputSpy.occurrences).toContainEqual({
-                    id: 'address-input-example-id-line1',
-                    name: 'address-input-example-id-line1',
-                    classes: 'ons-js-address-line1',
-                    label: {
-                        text: 'Address line 1',
-                    },
-                    value: 'Flat 12345',
-                    width: '20@m',
-                    error: { text: 'Server error: address line 1' },
-                });
-            });
-
-            test('THEN: it renders "address line 2" input field with expected parameters', () => {
-                expect(inputSpy.occurrences).toContainEqual({
-                    id: 'address-input-example-id-line2',
-                    name: 'address-input-example-id-line2',
-                    classes: 'ons-js-address-line2',
-                    label: {
-                        text: 'Address line 2',
-                    },
-                    value: '12345 The Road',
-                    width: '20@m',
-                    error: { text: 'Server error: address line 2' },
-                });
-            });
-
-            test('THEN: it renders "town or city" input field with expected parameters', () => {
-                expect(inputSpy.occurrences).toContainEqual({
-                    id: 'address-input-example-id-town',
-                    name: 'address-input-example-id-town',
-                    classes: 'ons-js-address-town',
-                    label: {
-                        text: 'Town or city',
-                    },
-                    value: 'The Town',
-                    error: { text: 'Server error: town or city' },
-                });
-            });
-
-            test('THEN: it renders "postcode" input field with expected parameters', () => {
-                expect(inputSpy.occurrences).toContainEqual({
-                    id: 'address-input-example-id-postcode',
-                    name: 'address-input-example-id-postcode',
-                    classes: 'ons-js-address-postcode',
-                    label: {
-                        text: 'Postcode',
-                    },
-                    value: 'PO57 6ODE',
-                    width: '7',
-                    error: { text: 'Server error: postcode' },
-                });
-            });
-        });
-    });
-
-    describe('GIVEN: search button for no-js', () => {
-        describe('WHEN: automatic search is disabled', () => {
-            const $ = cheerio.load(
-                renderComponent('address-input', {
-                    ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
-                    isEditable: true,
-                    manualEntry: true,
-                    searchButton: 'Search for address',
-                }),
-            );
-            test('THEN: search button does not render', () => {
-                expect($('.ons-js-address-search-btn').length).toBe(0);
-            });
-        });
-
-        describe('WHEN: JavaScript has been disabled', () => {
-            const $ = cheerio.load(
-                renderComponent('address-input', {
-                    ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
-                    isEditable: true,
-                    searchButton: 'Search for address',
-                }),
-            );
-
-            test('THEN: search button is displayed', () => {
-                expect($('.ons-js-address-search-btn').hasClass('ons-u-db-no-js_disabled')).toBe(true);
-            });
-
-            test('THEN: it renders search button with provided text', () => {
-                expect($('.ons-js-address-search-btn').text().trim()).toBe('Search for address');
-            });
-        });
-    });
-
-    describe('GIVEN: hidden field for uprn', () => {
-        describe('WHEN: uprn.value is not provided', () => {
-            const faker = templateFaker();
-            const inputSpy = faker.spy('input', { suppressOutput: true });
-
-            faker.renderComponent('address-input', EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL);
-
-            test('THEN: it renders hidden input component with expected parameters', () => {
-                expect(inputSpy.occurrences).toContainEqual({
-                    id: 'address-input-example-id-uprn',
-                    classes: 'ons-js-hidden-uprn ons-u-d-no',
-                    type: 'hidden',
-                    name: 'address-input-example-id-uprn',
-                    value: '',
-                });
-            });
-        });
-
-        describe('WHEN: uprn.value is provided', () => {
-            const faker = templateFaker();
-            const inputSpy = faker.spy('input', { suppressOutput: true });
-
-            faker.renderComponent('address-input', {
-                ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
-                uprn: {
-                    value: '[params.uprn.value]',
-                },
-            });
-
-            test('THEN: it renders hidden input component with expected parameters', () => {
-                expect(inputSpy.occurrences).toContainEqual({
-                    id: 'address-input-example-id-uprn',
-                    classes: 'ons-js-hidden-uprn ons-u-d-no',
-                    type: 'hidden',
-                    name: 'address-input-example-id-uprn',
-                    value: '[params.uprn.value]',
-                });
-            });
-        });
-    });
-
-    describe('GIVEN: autosuggest search field', () => {
-        describe('WHEN: manualEntry is true', () => {
-            const faker = templateFaker();
-            const autosuggestSpy = faker.spy('autosuggest', { suppressOutput: true });
-
-            faker.renderComponent('address-input', {
-                ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
-                manualEntry: true,
             });
 
             test('THEN: autosuggest search field is not shown', () => {
@@ -320,7 +156,172 @@ describe('FOR: address-input', () => {
                 });
             });
         });
+    });
 
+    describe('GIVEN: Params: AddressField object', () => {
+        const faker = templateFaker();
+        const inputSpy = faker.spy('input', { suppressOutput: true });
+
+        faker.renderComponent('address-input', {
+            ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
+            ...EXAMPLE_MANUAL_INPUT_FIELDS,
+            isEditable: true,
+        });
+        describe('WHEN: Params: organisation', () => {
+            test('THEN: it renders "organisation" input field with expected parameters', () => {
+                expect(inputSpy.occurrences).toContainEqual({
+                    id: 'address-input-example-id-organisation',
+                    name: 'address-input-example-id-organisation',
+                    classes: 'ons-js-address-organisation',
+                    label: {
+                        text: 'Organisation name',
+                    },
+                    value: 'Example Organisation',
+                    width: '20@m',
+                    error: { text: 'Server error: organisation name' },
+                });
+            });
+        });
+        describe('WHEN: Params: line1', () => {
+            test('THEN: it renders "address line 1" input field with expected parameters', () => {
+                expect(inputSpy.occurrences).toContainEqual({
+                    id: 'address-input-example-id-line1',
+                    name: 'address-input-example-id-line1',
+                    classes: 'ons-js-address-line1',
+                    label: {
+                        text: 'Address line 1',
+                    },
+                    value: 'Flat 12345',
+                    width: '20@m',
+                    error: { text: 'Server error: address line 1' },
+                });
+            });
+        });
+
+        describe('WHEN: Params: line2', () => {
+            test('THEN: it renders "address line 2" input field with expected parameters', () => {
+                expect(inputSpy.occurrences).toContainEqual({
+                    id: 'address-input-example-id-line2',
+                    name: 'address-input-example-id-line2',
+                    classes: 'ons-js-address-line2',
+                    label: {
+                        text: 'Address line 2',
+                    },
+                    value: '12345 The Road',
+                    width: '20@m',
+                    error: { text: 'Server error: address line 2' },
+                });
+            });
+        });
+
+        describe('WHEN: Params: town', () => {
+            test('THEN: it renders "town or city" input field with expected parameters', () => {
+                expect(inputSpy.occurrences).toContainEqual({
+                    id: 'address-input-example-id-town',
+                    name: 'address-input-example-id-town',
+                    classes: 'ons-js-address-town',
+                    label: {
+                        text: 'Town or city',
+                    },
+                    value: 'The Town',
+                    error: { text: 'Server error: town or city' },
+                });
+            });
+        });
+
+        describe('WHEN: Params: postcode', () => {
+            test('THEN: it renders "postcode" input field with expected parameters', () => {
+                expect(inputSpy.occurrences).toContainEqual({
+                    id: 'address-input-example-id-postcode',
+                    name: 'address-input-example-id-postcode',
+                    classes: 'ons-js-address-postcode',
+                    label: {
+                        text: 'Postcode',
+                    },
+                    value: 'PO57 6ODE',
+                    width: '7',
+                    error: { text: 'Server error: postcode' },
+                });
+            });
+        });
+    });
+
+    describe('GIVEN: Params: searchButton for no-js', () => {
+        describe('WHEN: manualEntry parameter is set to true', () => {
+            const $ = cheerio.load(
+                renderComponent('address-input', {
+                    ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
+                    isEditable: true,
+                    manualEntry: true,
+                    searchButton: 'Search for address',
+                }),
+            );
+            test('THEN: search button does not render', () => {
+                expect($('.ons-js-address-search-btn').length).toBe(0);
+            });
+        });
+
+        describe('WHEN: manualEntry parameter is not set', () => {
+            const $ = cheerio.load(
+                renderComponent('address-input', {
+                    ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
+                    isEditable: true,
+                    searchButton: 'Search for address',
+                }),
+            );
+
+            test('THEN: search button is displayed', () => {
+                expect($('.ons-js-address-search-btn').hasClass('ons-u-db-no-js_disabled')).toBe(true);
+            });
+
+            test('THEN: it renders search button with provided text', () => {
+                expect($('.ons-js-address-search-btn').text().trim()).toBe('Search for address');
+            });
+        });
+    });
+
+    describe('GIVEN: Params: uprn', () => {
+        describe('WHEN: uprn.value is not provided', () => {
+            const faker = templateFaker();
+            const inputSpy = faker.spy('input', { suppressOutput: true });
+
+            faker.renderComponent('address-input', EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL);
+
+            test('THEN: it renders hidden input component with expected parameters', () => {
+                expect(inputSpy.occurrences).toContainEqual({
+                    id: 'address-input-example-id-uprn',
+                    classes: 'ons-js-hidden-uprn ons-u-d-no',
+                    type: 'hidden',
+                    name: 'address-input-example-id-uprn',
+                    value: '',
+                });
+            });
+        });
+
+        describe('WHEN: uprn.value is provided', () => {
+            const faker = templateFaker();
+            const inputSpy = faker.spy('input', { suppressOutput: true });
+
+            faker.renderComponent('address-input', {
+                ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
+                uprn: {
+                    value: '[params.uprn.value]',
+                },
+            });
+
+            test('THEN: it renders hidden input component with expected parameters', () => {
+                expect(inputSpy.occurrences).toContainEqual({
+                    id: 'address-input-example-id-uprn',
+                    classes: 'ons-js-hidden-uprn ons-u-d-no',
+                    type: 'hidden',
+                    name: 'address-input-example-id-uprn',
+                    value: '[params.uprn.value]',
+                });
+            });
+        });
+    });
+
+    describe('GIVEN: Params: manualLink', () => {
         describe('WHEN: provided with a default value for manualLink', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
