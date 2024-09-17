@@ -1,7 +1,8 @@
 module.exports = {
     ci: {
         collect: {
-            url: require('./lighthouse/urls.json').urls,
+            staticDistDir: './build',
+            url: require('./urls.json').urls,
             numberOfRuns: 1,
             settings: {
                 onlyCategories: ['accessibility'],
