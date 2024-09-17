@@ -109,8 +109,10 @@
         }
         .ons-list__prefix,
         .ons-list__suffix {
+            margin-right: 0;
             &--icon-check .ons-icon {
                 fill: var(--ons-color-leaf-green) !important;
+                margin-right: 1rem;
             }
         }
     }
