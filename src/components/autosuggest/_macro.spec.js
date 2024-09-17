@@ -52,7 +52,7 @@ describe('FOR: autosuggest', () => {
                 expect($('.ons-autosuggest__results-title').text().trim()).toBe('Suggestions');
             });
 
-            test('THEN: it renders list with a generated identifier', () => {
+            test('THEN: it has the expected id on the results list element', () => {
                 expect($('.ons-autosuggest__listbox').attr('id')).toBe('country-of-birth-listbox');
             });
 
