@@ -68,7 +68,7 @@ describe('FOR: autosuggest', () => {
                 expect($('.ons-autosuggest__status').attr('aria-atomic')).toBe('true');
             });
 
-            test('THEN: it enders instructions text', () => {
+            test('THEN: it renders the instructions with the provided instructions text', () => {
                 expect($('.ons-autosuggest__instructions').text().trim()).toBe('Use up and down keys to navigate.');
             });
         });
