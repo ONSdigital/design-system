@@ -56,7 +56,7 @@ describe('FOR: autosuggest', () => {
                 expect($('.ons-autosuggest__listbox').attr('id')).toBe('country-of-birth-listbox');
             });
 
-            test('THEN: it renders an accessible list', () => {
+            test('THEN: it renders the results list element with the title attribute set to the provided title text', () => {
                 expect($('.ons-autosuggest__listbox').attr('title')).toBe('Suggestions');
             });
 
