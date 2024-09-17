@@ -82,7 +82,7 @@ describe('FOR: autosuggest', () => {
                     allowMultiple: true,
                 }),
             );
-            test('THEN: it has the data-allow-multiple attribute', () => {
+            test('THEN: it has the data-allow-multiple attribute set to true on the container element', () => {
                 expect($('.ons-autosuggest').attr('data-allow-multiple')).toBe('true');
             });
         });
