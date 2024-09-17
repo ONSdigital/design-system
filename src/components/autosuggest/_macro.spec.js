@@ -8,8 +8,8 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 import { EXAMPLE_AUTOSUGGEST } from './_test-examples';
 
 describe('FOR: autosuggest', () => {
-    describe('GIVEN: Params: none', () => {
-        describe('WHEN: All params are at default state', () => {
+    describe('GIVEN: Params: required', () => {
+        describe('WHEN: All required params are provided', () => {
             const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
             test('THEN: it passes jest-axe checks', async () => {
@@ -281,7 +281,7 @@ describe('FOR: autosuggest', () => {
         });
     });
 
-    describe('GIVEN: autosuggest results', () => {
+    describe('GIVEN: Params: mutuallyExclusive', () => {
         describe('WHEN: mutallyExclusive parameter is not defined', () => {
             const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
