@@ -7,8 +7,8 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 import { EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL, EXAMPLE_MANUAL_INPUT_FIELDS } from './_test-examples';
 
 describe('FOR: address-input', () => {
-    describe('GIVEN: Params: none', () => {
-        describe('WHEN: All params are at default state', () => {
+    describe('GIVEN: Params: required', () => {
+        describe('WHEN: All required params are provided', () => {
             const $ = cheerio.load(renderComponent('address-input', EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL));
 
             test('THEN: jest-axe tests pass', async () => {
