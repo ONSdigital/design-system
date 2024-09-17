@@ -48,7 +48,7 @@ describe('FOR: autosuggest', () => {
                 expect($('.ons-autosuggest__results-title').attr('id')).toBe('country-of-birth-suggestions');
             });
 
-            test('THEN: it renders div with the provided title text', () => {
+            test('THEN: it renders the results title div with the provided title text', () => {
                 expect($('.ons-autosuggest__results-title').text().trim()).toBe('Suggestions');
             });
 
