@@ -109,7 +109,7 @@ describe('FOR: autosuggest', () => {
                 }),
             );
 
-            test('THEN: it does not have a special class that indicates the component should initialise itself', () => {
+            test('THEN: it does not have the ons-js-autosuggest class that indicates the component should initialise itself', () => {
                 expect($('.ons-autosuggest').hasClass('ons-js-autosuggest')).toBe(false);
             });
         });
