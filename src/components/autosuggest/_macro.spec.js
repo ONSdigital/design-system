@@ -137,7 +137,7 @@ describe('FOR: autosuggest', () => {
                 }),
             );
 
-            test('THEN: it has special class to indicate that component is not editable', () => {
+            test('THEN: it has the ons-js-address-not-editable class to indicate that component is not editable', () => {
                 expect($('.ons-autosuggest').hasClass('ons-js-address-not-editable')).toBe(true);
             });
         });
