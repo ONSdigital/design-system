@@ -64,7 +64,7 @@ describe('FOR: autosuggest', () => {
                 expect($('.ons-autosuggest__instructions').attr('id')).toBe('country-of-birth-instructions');
             });
 
-            test('THEN: it adds aria-atomic=true value to status container', () => {
+            test('THEN: the aria-atomic attribute is set to true on the status container', () => {
                 expect($('.ons-autosuggest__status').attr('aria-atomic')).toBe('true');
             });
 
