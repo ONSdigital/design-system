@@ -12,18 +12,22 @@ import {
 } from './_test-examples';
 
 describe('FOR: card', () => {
-    describe('mode: without image', () => {
-        it('passes jest-axe checks', async () => {
-            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
+    describe('GIVEN: card without image', () => {
+        describe('WHEN: All params are at default state', () => {
+            test('THEN: it passes jest-axe checks', async () => {
+                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
 
-            const results = await axe($.html());
-            expect(results).toHaveNoViolations();
+                const results = await axe($.html());
+                expect(results).toHaveNoViolations();
+            });
         });
 
-        it('has the provided title text', () => {
-            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
+        describe('WHEN: Params: title', () => {
+            test('THEN: it has the provided title text', () => {
+                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
 
-            expect($('.ons-card__title').text().trim()).toBe('Example card title');
+                expect($('.ons-card__title').text().trim()).toBe('Example card title');
+            });
         });
 
         it.each([
@@ -73,7 +77,7 @@ describe('FOR: card', () => {
         });
     });
 
-    describe('mode: with image', () => {
+    describe('GIVEN: card with image', () => {
         it('passes jest-axe checks', async () => {
             const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_IMAGE));
 
