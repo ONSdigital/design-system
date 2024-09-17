@@ -44,7 +44,7 @@ describe('FOR: autosuggest', () => {
                 expect($element.attr('data-type-more')).toBe('Continue entering to get suggestions');
             });
 
-            test('THEN: it renders div with the provided title identifier', () => {
+            test('THEN: it has the expected id on the results title element', () => {
                 expect($('.ons-autosuggest__results-title').attr('id')).toBe('country-of-birth-suggestions');
             });
 
