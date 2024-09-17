@@ -152,7 +152,7 @@ describe('FOR: autosuggest', () => {
                 }),
             );
 
-            test('THEN: it has special class to indicate that component input is mandatory', () => {
+            test('THEN: it has the ons-js-address-mandatory class to indicate that component input is mandatory', () => {
                 expect($('.ons-autosuggest').hasClass('ons-js-address-mandatory')).toBe(true);
             });
         });
