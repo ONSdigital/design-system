@@ -105,12 +105,12 @@ $button-shadow-size: 3px;
     // Small buttons
     &--small,
     &--mobile {
-        font-size: 0.9rem;
+        @extend .ons-u-fs-s;
     }
 
     &--small & {
         &__inner {
-            padding: 0.5em 0.7em;
+            padding: 0.625rem 0.75rem 0.6875rem;
             .ons-icon {
                 height: 16px;
                 width: 16px;
@@ -121,7 +121,7 @@ $button-shadow-size: 3px;
     &--small.ons-btn--ghost &,
     &--mobile & {
         &__inner {
-            padding: 0.5em 0.7em;
+            padding: 0.625rem 0.75rem 0.6875rem;
         }
     }
 
