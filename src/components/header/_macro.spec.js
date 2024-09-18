@@ -14,7 +14,7 @@ import {
     EXAMPLE_HEADER_LANGUAGE_CONFIG,
     EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG,
     EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST,
-} from './_test_examples';
+} from './_test-examples';
 
 describe('FOR: Header', () => {
     describe('GIVEN: Params: none', () => {
@@ -140,7 +140,7 @@ describe('FOR: Header', () => {
         });
     });
     describe('GIVEN: Params: multipleLogos', () => {
-        describe('WHEN: logoImage parameter is set to "ONS Logo"', () => {
+        describe('WHEN: image parameter is set to "ONS Logo"', () => {
             const faker = templateFaker();
             const iconsSpy = faker.spy('icon');
 
@@ -149,7 +149,7 @@ describe('FOR: Header', () => {
                 mastheadLogo: {
                     multipleLogos: {
                         logo1: {
-                            logoImage: 'ONS Logo',
+                            image: 'ONS Logo',
                         },
                     },
                 },
@@ -158,15 +158,15 @@ describe('FOR: Header', () => {
                 expect(iconsSpy.occurrences[0].iconType).toBe('ons-logo-stacked-en');
             });
         });
-        describe('WHEN: logoURL parameter is set ', () => {
+        describe('WHEN: url parameter is set ', () => {
             const $ = cheerio.load(
                 renderComponent('header', {
                     ...EXAMPLE_HEADER_BASIC,
                     mastheadLogo: {
                         multipleLogos: {
                             logo1: {
-                                logoImage: '<img src="a-logo.svg">',
-                                logoURL: '#0',
+                                image: '<img src="a-logo.svg">',
+                                url: '#0',
                             },
                         },
                     },
@@ -183,13 +183,13 @@ describe('FOR: Header', () => {
                     mastheadLogo: {
                         multipleLogos: {
                             logo1: {
-                                logoImage: '<img src="a-logo.svg">',
+                                image: '<img src="a-logo.svg">',
                             },
                             logo2: {
-                                logoImage: '<img src="a-second-logo.svg">',
+                                image: '<img src="a-second-logo.svg">',
                             },
                             logo3: {
-                                logoImage: '<img src="a-third-logo.svg">',
+                                image: '<img src="a-third-logo.svg">',
                             },
                         },
                     },
@@ -209,7 +209,7 @@ describe('FOR: Header', () => {
                         large: '<img src="big-logo.svg">',
                         multipleLogos: {
                             logo1: {
-                                logoImage: '<img src="a-logo.svg">',
+                                image: '<img src="a-logo.svg">',
                             },
                         },
                     },

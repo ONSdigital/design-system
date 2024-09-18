@@ -67,7 +67,7 @@ describe('macro: accordion', () => {
                     itemsList: [
                         {
                             title: 'Title for item 1',
-                            titleTag: 'h5',
+                            headingLevel: 5,
                             content: 'Content for item 1',
                         },
                     ],
