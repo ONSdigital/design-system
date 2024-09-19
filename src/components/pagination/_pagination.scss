@@ -27,12 +27,6 @@ $pagination-item-width: 2.5rem;
         }
     }
 
-    &__items > & {
-        &__item--current {
-            margin: 0 0 0 $pagination-item-padding;
-        }
-    }
-
     &__item,
     &__link {
         height: $pagination-item-width;

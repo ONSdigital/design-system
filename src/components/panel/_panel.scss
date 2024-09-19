@@ -200,6 +200,7 @@
         }
 
         &__icon {
+            top: 1.2rem;
             background-color: var(--ons-color-white);
             color: var(--ons-color-black);
             display: flex;
@@ -219,6 +220,7 @@
     &--success & {
         &__icon {
             left: 0;
+            top: 0.875rem;
             padding-left: 1rem;
             .ons-icon {
                 fill: var(--ons-color-success) !important;
@@ -232,6 +234,8 @@
 
     &--bare & {
         &__icon {
+            position: absolute;
+            top: -0.2rem;
             height: 1.3rem;
             width: 1.3rem;
         }
@@ -241,7 +245,6 @@
     }
 
     &--info,
-    &--bare,
     &--success,
     &--warn,
     &--warn-branded,

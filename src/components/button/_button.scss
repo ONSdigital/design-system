@@ -37,19 +37,23 @@ $button-shadow-size: 3px;
     &__inner {
         background: var(--ons-color-button);
         border-radius: $input-radius;
-        box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
+        box-shadow: 0 rems($button-shadow-size) 0 var(--ons-color-button-shadow);
         color: var(--ons-color-text-inverse);
-        display: inherit;
-        padding: 0.7em 1em 0.8em;
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
         // Required for Google Tag Manager
         pointer-events: none;
         position: relative;
-
+        &:has(> .ons-icon + .ons-btn__text) {
+            padding-left: 1rem;
+        }
+        &:has(> .ons-btn__text + .ons-icon) {
+            padding-right: 1rem;
+        }
         .ons-icon {
             fill: var(--ons-color-text-inverse);
             height: 18px;
-            // margin-top: -$button-shadow-size;
-            vertical-align: middle;
             width: 18px;
         }
     }
@@ -105,15 +109,21 @@ $button-shadow-size: 3px;
     // Small buttons
     &--small,
     &--mobile {
-        @extend .ons-u-fs-s;
+        line-height: 1.25rem !important;
     }
 
     &--small & {
         &__inner {
-            padding: 0.625rem 0.75rem 0.6875rem;
+            padding: 0.5625rem 1.25rem;
             .ons-icon {
                 height: 16px;
                 width: 16px;
+            }
+            &:has(> .ons-icon + .ons-btn__text) {
+                padding-left: 0.75rem;
+            }
+            &:has(> .ons-btn__text + .ons-icon) {
+                padding-right: 0.75rem;
             }
         }
     }
@@ -121,7 +131,13 @@ $button-shadow-size: 3px;
     &--small.ons-btn--ghost &,
     &--mobile & {
         &__inner {
-            padding: 0.625rem 0.75rem 0.6875rem;
+            padding: 0.5625rem 1.25rem;
+            &:has(> .ons-icon + .ons-btn__text) {
+                padding-left: 0.75rem;
+            }
+            &:has(> .ons-btn__text + .ons-icon) {
+                padding-right: 0.75rem;
+            }
         }
     }
 
@@ -390,6 +406,9 @@ $button-shadow-size: 3px;
                 transition: opacity 0.3s ease-in-out;
                 width: 27px;
             }
+            .ons-btn__text {
+                margin-left: 0;
+            }
         }
     }
 
@@ -548,6 +567,14 @@ $button-shadow-size: 3px;
                 fill: var(--ons-color-text-link-focus);
             }
         }
+    }
+}
+
+.ons-search__btn {
+    height: 92.5%; //this is to allow the button to be fully aligned with the input by accounting for the shadow box of 3px
+    .ons-btn__inner:has(> .ons-icon) {
+        padding-right: 0.75rem;
+        height: 100%;
     }
 }
 
