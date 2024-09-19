@@ -6,7 +6,7 @@ import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 import { EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL, EXAMPLE_MANUAL_INPUT_FIELDS } from './_test-examples';
 
-describe('FOR: address-input', () => {
+describe('FOR: Macro: Address-input', () => {
     describe('GIVEN: Params: required', () => {
         describe('WHEN: all required params are provided', () => {
             const $ = cheerio.load(renderComponent('address-input', EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL));
