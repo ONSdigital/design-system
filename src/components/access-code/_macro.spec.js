@@ -24,7 +24,7 @@ describe('FOR: Macro: Access-code', () => {
             test('THEN: autocomplete is disabled on text input', () => {
                 expect($('input').attr('autocomplete')).toBe('off');
             });
-            test('THEN: text input has automatic capitalisation', () => {
+            test('THEN: text input has autocapitalize attribute', () => {
                 expect($('input').attr('autocapitalize')).toBe('characters');
             });
         });
