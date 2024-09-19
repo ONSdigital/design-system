@@ -7,7 +7,7 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 import { EXAMPLE_AUTOSUGGEST } from './_test-examples';
 
-describe('FOR: autosuggest', () => {
+describe('FOR: Macro: Autosuggest', () => {
     describe('GIVEN: Params: required', () => {
         describe('WHEN: All required params are provided', () => {
             const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
