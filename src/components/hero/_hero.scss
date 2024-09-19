@@ -25,6 +25,10 @@
         height: 100%;
     }
 
+    &__text {
+        padding-bottom: 1rem;
+    }
+
     &__pre-title {
         @extend .ons-u-mb-2xs;
 
@@ -34,7 +38,7 @@
     }
 
     &__details {
-        padding-bottom: 3rem;
+        padding-bottom: 3.5rem;
         padding-top: 2rem;
         position: relative;
         z-index: 5;
