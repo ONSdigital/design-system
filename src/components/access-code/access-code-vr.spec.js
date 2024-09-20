@@ -16,7 +16,7 @@ describe('FOR: VR: Access-code', () => {
             // const jestVRConfig = require('./jest-vr.config.js');
             const { configureToMatchImageSnapshot } = require('jest-image-snapshot');
             const toMatchImageSnapshot = configureToMatchImageSnapshot({
-                customDiffConfig: { threshold: 0.6 },
+                customDiffConfig: { threshold: 0.1, dumpDiffToConsole: true },
             });
             expect.extend({ toMatchImageSnapshot });
             const image = await page.screenshot();
