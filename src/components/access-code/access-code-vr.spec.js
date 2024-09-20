@@ -1,5 +1,4 @@
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
-const jestVRConfig = require('./jest-vr.config.js');
 
 describe('FOR: VR: Access-code', () => {
     describe('GIVEN: required params', () => {
@@ -14,9 +13,10 @@ describe('FOR: VR: Access-code', () => {
                     },
                 }),
             );
+            // const jestVRConfig = require('./jest-vr.config.js');
             const { configureToMatchImageSnapshot } = require('jest-image-snapshot');
             const toMatchImageSnapshot = configureToMatchImageSnapshot({
-                customDiffConfig: jestVRConfig,
+                customDiffConfig: { threshold: 0.3 },
             });
             expect.extend({ toMatchImageSnapshot });
             const image = await page.screenshot();
