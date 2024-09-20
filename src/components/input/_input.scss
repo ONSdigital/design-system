@@ -73,7 +73,7 @@
 @include input-width($class-name: 'ons-input--w-{x}');
 
 // Number input widths
-@include input-width($class-name: 'ons-input-number--w-{x}', $char-width: 0.54rem);
+@include input-width($class-name: 'ons-input-number--w-{x}', $char-width: 0.607rem);
 
 .ons-input--postcode {
     max-width: input-width-calc($chars: 5, $num-chars: 2, $spaces: 1);
@@ -100,9 +100,9 @@
 }
 
 .ons-input--textarea {
-    line-height: 1.75rem;
     resize: vertical;
     width: 100%;
+    height: auto;
 }
 
 .ons-input--block {

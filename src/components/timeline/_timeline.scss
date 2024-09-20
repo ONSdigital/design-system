@@ -32,5 +32,6 @@
 }
 
 .ons-timeline__heading {
+    @extend .ons-u-fs-r--b;
     @extend .ons-u-mb-2xs;
 }
