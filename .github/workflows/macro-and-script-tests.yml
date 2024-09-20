@@ -22,3 +22,10 @@ jobs:
               run: yarn test:clear-cache
             - name: Run macro and script tests
               run: yarn test
+            - name: Archive VR reports
+              if: ${{ failure() }}
+              uses: actions/upload-artifact@v4
+              with:
+                  name: backstop-reports
+                  path: |
+                      __diff_output__
