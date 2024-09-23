@@ -4,6 +4,8 @@
     border-radius: $input-radius;
     padding: 0;
     width: 100%;
+    // custom line height to center the placeholder text
+    line-height: 1.5rem;
     &::-webkit-file-upload-button {
         background: var(--ons-color-button-secondary);
         border: 0;
