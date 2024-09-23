@@ -30,9 +30,10 @@ async function getUrls() {
     for (const directory of directories) {
         const folders = await readdir(directory.path);
         for (const folder of folders) {
-            const files = await glob(`${directory.path}/${folder}/**/*.html`, { ignore: `${directory.path}/${folder}/index.html` });
-            for (const file of files) {
-                data.urls.push(file.replace('./build/', 'http://localhost:9000/'));
+            const files = await glob(`${directory.path}/${folder}/**/*.html`);
+            const filteredFiles = files.filter((path) => !path.includes('index.html') && !path.includes('example-skip-to-content.html'));
+            for (const file of filteredFiles) {
+                data.urls.push(file.replace('build/', 'http://localhost/'));
             }
         }
     }
