@@ -3,7 +3,7 @@ const util = require('util');
 const { glob } = require('glob');
 const readdir = util.promisify(fs.readdir);
 
-const testURL = `http://host.docker.internal:3010`;
+const testURL = `http://localhost:3000`;
 
 export default async () => {
     let urls = [];
