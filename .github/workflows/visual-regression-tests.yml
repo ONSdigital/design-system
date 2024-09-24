@@ -20,6 +20,8 @@ jobs:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
               run: yarn install
+            - name: Start docker
+              run: docker start
             - name: Run visual regression tests
               id: vr
               run: yarn test-visual
