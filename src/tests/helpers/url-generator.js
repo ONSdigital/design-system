@@ -3,7 +3,7 @@ const util = require('util');
 const { glob } = require('glob');
 const readdir = util.promisify(fs.readdir);
 
-const testURL = `http://localhost:3000`;
+const testURL = `http://0.0.0.0:3010`;
 
 export default async () => {
     let urls = [];
