@@ -5,7 +5,7 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
-describe('FOR: Back-to-top', () => {
+describe('FOR: Macro: Back-to-top', () => {
     describe('GIVEN: Params: default', () => {
         describe('WHEN: params are at default', () => {
             const $ = cheerio.load(renderComponent('back-to-top'));
