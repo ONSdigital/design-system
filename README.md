@@ -44,6 +44,15 @@ yarn start
 
 Once the server has started, navigate to <http://localhost:3030>
 
+## Lighthouse Testing - local
+
+This project uses [LHCI](https://www.npmjs.com/package/@lhci/cli).
+
+```bash
+yarn global add @lhci/cli
+yarn test-lighthouse 
+```
+
 ## Testing - macros and scripts
 
 This project uses [jest](https://jestjs.io/docs/cli) and supports its command line options.
