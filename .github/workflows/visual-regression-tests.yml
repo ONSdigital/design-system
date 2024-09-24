@@ -20,8 +20,8 @@ jobs:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
               run: yarn install
-            - name: Start docker
-              run: docker start
+            - name: Set up Docker
+              uses: docker/setup-buildx-action@v3
             - name: Run visual regression tests
               id: vr
               run: yarn test-visual
