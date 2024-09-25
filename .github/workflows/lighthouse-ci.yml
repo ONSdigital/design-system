@@ -20,7 +20,11 @@ jobs:
               run: yarn install
             - name: Build pages
               run: yarn build
+            - name: Build urls
+              run: node ./lighthouse/lighthouse-get-urls.js
             - name: Run Lighthouse CI
-              run: ./lighthouse/lighthouse.sh
+              run: |
+                  npm install -g @lhci/cli@0.14.x
+                  lhci autorun --config=./lighthouse/lighthouserc.js
               env:
                   LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

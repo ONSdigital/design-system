@@ -5,102 +5,101 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
-const EXAMPLE_BROWSER_BANNER_DEFAULT = {};
+describe('FOR: Macro: Browser-banner', () => {
+    describe('GIVEN: Params: default', () => {
+        describe('WHEN: params are at default state', () => {
+            const $ = cheerio.load(renderComponent('browser-banner', {}));
 
-describe('macro: browser-banner', () => {
-    it('passes jest-axe checks with', async () => {
-        const $ = cheerio.load(renderComponent('browser-banner', EXAMPLE_BROWSER_BANNER_DEFAULT));
+            it('THEN: passes jest-axe checks', async () => {
+                const results = await axe($.html());
+                expect(results).toHaveNoViolations();
+            });
 
-        const results = await axe($.html());
-        expect(results).toHaveNoViolations();
+            it('THEN: has the english default bannerLeadingText', () => {
+                const bannerLeadingText = $('.ons-browser-banner__lead').text().trim();
+                expect(bannerLeadingText).toBe('This website no longer supports your browser.');
+            });
+
+            it('THEN: has the english default bannerCTA', () => {
+                const bannerCtaHtml = $('.ons-browser-banner__cta').text().trim();
+                expect(bannerCtaHtml).toBe('You can upgrade your browser to the latest version.');
+            });
+
+            it('THEN: has the english default bannerLinkUrl', () => {
+                expect($('.ons-browser-banner__link').attr('href')).toBe('https://www.ons.gov.uk/help/browsers');
+            });
+        });
+
+        describe('WHEN: params are at default and language is set to welsh', () => {
+            const $ = cheerio.load(renderComponent('browser-banner', { lang: 'cy' }));
+
+            it('THEN: has the welsh default bannerLeadingText', () => {
+                const bannerLeadingText = $('.ons-browser-banner__lead').text().trim();
+                expect(bannerLeadingText).toBe('Nid yw’r wefan hon yn cefnogi eich porwr mwyach.');
+            });
+
+            it('THEN: has the welsh default bannerCTA', () => {
+                const bannerCtaHtml = $('.ons-browser-banner__cta').text().trim();
+                expect(bannerCtaHtml).toBe('Gallwch ddiweddaru eich porwr i’r fersiwn ddiweddaraf.');
+            });
+
+            it('THEN: has the welsh default bannerLinkUrl', () => {
+                expect($('.ons-browser-banner__link').attr('href')).toBe('https://cy.ons.gov.uk/help/browsers');
+            });
+        });
     });
 
-    it('has the default `bannerLeadingText`', () => {
-        const $ = cheerio.load(renderComponent('browser-banner', EXAMPLE_BROWSER_BANNER_DEFAULT));
+    describe('GIVEN: Params: wide', () => {
+        describe('WHEN: wide is set to true', () => {
+            it('THEN: has container--wide class', () => {
+                const $ = cheerio.load(
+                    renderComponent('browser-banner', {
+                        ...{},
+                        wide: true,
+                    }),
+                );
 
-        const bannerLeadingText = $('.ons-browser-banner__lead').text().trim();
-        expect(bannerLeadingText).toBe('This website no longer supports your browser.');
+                expect($('.ons-container').hasClass('ons-container--wide')).toBe(true);
+            });
+        });
+
+        describe('WHEN: wide is not set', () => {
+            it('THEN: does not have container--wide class', () => {
+                const $ = cheerio.load(
+                    renderComponent('browser-banner', {
+                        ...{},
+                    }),
+                );
+
+                expect($('.ons-container').hasClass('ons-container--wide')).toBe(false);
+            });
+        });
     });
 
-    it('has the default `bannerCTA`', () => {
-        const $ = cheerio.load(renderComponent('browser-banner', EXAMPLE_BROWSER_BANNER_DEFAULT));
+    describe('GIVEN: Params: fullWidth', () => {
+        describe('WHEN: fullWidth is set to true', () => {
+            it('THEN: has container--full-width class', () => {
+                const $ = cheerio.load(
+                    renderComponent('browser-banner', {
+                        ...{},
+                        fullWidth: true,
+                    }),
+                );
 
-        const bannerCtaHtml = $('.ons-browser-banner__cta').text().trim();
-        expect(bannerCtaHtml).toBe('You can upgrade your browser to the latest version.');
-    });
+                expect($('.ons-container').hasClass('ons-container--full-width')).toBe(true);
+            });
+        });
 
-    it('has the default `bannerLinkUrl`', () => {
-        const $ = cheerio.load(renderComponent('browser-banner', EXAMPLE_BROWSER_BANNER_DEFAULT));
+        describe('WHEN: fullWidth is not set', () => {
+            it('THEN: does not have container--full-width class', () => {
+                const $ = cheerio.load(
+                    renderComponent('browser-banner', {
+                        ...{},
+                    }),
+                );
 
-        expect($('.ons-browser-banner__link').attr('href')).toBe('https://www.ons.gov.uk/help/browsers');
-    });
-
-    it('has `container--wide` class when `wide` is true', () => {
-        const $ = cheerio.load(
-            renderComponent('browser-banner', {
-                ...EXAMPLE_BROWSER_BANNER_DEFAULT,
-                wide: true,
-            }),
-        );
-
-        expect($('.ons-container').hasClass('ons-container--wide')).toBe(true);
-    });
-
-    it('does not have `container--wide` class when `wide` is not set', () => {
-        const $ = cheerio.load(
-            renderComponent('browser-banner', {
-                ...EXAMPLE_BROWSER_BANNER_DEFAULT,
-            }),
-        );
-
-        expect($('.ons-container').hasClass('ons-container--wide')).toBe(false);
-    });
-
-    it('has `container--full-width` class when `fullWidth` is true', () => {
-        const $ = cheerio.load(
-            renderComponent('browser-banner', {
-                ...EXAMPLE_BROWSER_BANNER_DEFAULT,
-                fullWidth: true,
-            }),
-        );
-
-        expect($('.ons-container').hasClass('ons-container--full-width')).toBe(true);
-    });
-
-    it('does not have `container--full-width` class when `fullWidth` is not set', () => {
-        const $ = cheerio.load(
-            renderComponent('browser-banner', {
-                ...EXAMPLE_BROWSER_BANNER_DEFAULT,
-            }),
-        );
-
-        expect($('.ons-container').hasClass('ons-container--full-width')).toBe(false);
-    });
-});
-
-describe('mode: Welsh language', () => {
-    it('has the welsh version of default `bannerLeadingText`', () => {
-        const $ = cheerio.load(
-            renderComponent('browser-banner', {
-                ...EXAMPLE_BROWSER_BANNER_DEFAULT,
-                lang: 'cy',
-            }),
-        );
-
-        const bannerLeadingText = $('.ons-browser-banner__lead').text().trim();
-        expect(bannerLeadingText).toBe('Nid yw’r wefan hon yn cefnogi eich porwr mwyach.');
-    });
-
-    it('has the welsh version of default `bannerCTA`', () => {
-        const $ = cheerio.load(renderComponent('browser-banner', { lang: 'cy' }));
-
-        const bannerCtaHtml = $('.ons-browser-banner__cta').text().trim();
-        expect(bannerCtaHtml).toBe('Gallwch ddiweddaru eich porwr i’r fersiwn ddiweddaraf.');
-    });
-
-    it('has the welsh version of default `bannerLinkUrl`', () => {
-        const $ = cheerio.load(renderComponent('browser-banner', { lang: 'cy' }));
-
-        expect($('.ons-browser-banner__link').attr('href')).toBe('https://cy.ons.gov.uk/help/browsers');
+                expect($('.ons-container').hasClass('ons-container--full-width')).toBe(false);
+            });
+        });
     });
 });
