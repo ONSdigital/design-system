@@ -6,7 +6,7 @@ import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 import { EXAMPLE_ACCORDION } from './_test_examples';
 
-describe('FOR: Accordion', () => {
+describe('FOR: Macro: Accordion', () => {
     describe('GIVEN: Params: required', () => {
         describe('WHEN: all required params are provided', () => {
             const $ = cheerio.load(renderComponent('accordion', EXAMPLE_ACCORDION));
