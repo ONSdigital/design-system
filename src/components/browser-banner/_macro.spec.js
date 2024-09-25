@@ -5,7 +5,7 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
-describe('FOR: browser-banner', () => {
+describe('FOR: Macro: Browser-banner', () => {
     describe('GIVEN: Params: default', () => {
         describe('WHEN: params are at default state', () => {
             const $ = cheerio.load(renderComponent('browser-banner', {}));
