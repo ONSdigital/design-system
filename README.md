@@ -44,6 +44,15 @@ yarn start
 
 Once the server has started, navigate to <http://localhost:3030>
 
+## Lighthouse Testing - local
+
+This project uses [LHCI](https://www.npmjs.com/package/@lhci/cli).
+
+```bash
+yarn global add @lhci/cli
+yarn test-lighthouse 
+```
+
 ## Testing - macros and scripts
 
 This project uses [jest](https://jestjs.io/docs/cli) and supports its command line options.
@@ -112,7 +121,7 @@ It is sometimes useful to adjust the following settings when writing tests or di
 
 ## Testing - Visual regression tests
 
-This project uses [Backstop JS](https://github.com/garris/BackstopJS) for visual regression testing. The tests run in Chrome headless using Pupeteer inside docker and run in three viewports; 1920 (desktop), 768 (tablet) and 375 (mobile). Reference images are stored in Git LFS and any approved changes will automatically be stored in Git LFS when pushed to the repository.
+This project uses [Backstop JS](https://github.com/garris/BackstopJS) for visual regression testing. The tests run in Chrome headless using Puppeteer inside docker and run in three viewports; 1920 (desktop), 768 (tablet) and 375 (mobile). Reference images are stored in Git LFS and any approved changes will automatically be stored in Git LFS when pushed to the repository.
 
 The visual tests will run automatically on pull requests and the result will be available in the Github Action logs. If the tests fail, the process for viewing the failures and approving changes will need to be handled locally using the following workflow and commands.
 
