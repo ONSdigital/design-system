@@ -1,6 +1,4 @@
-export { EXAMPLE_ACCORDION };
-
-const EXAMPLE_ACCORDION = {
+export const EXAMPLE_ACCORDION = {
     id: 'accordion-identifier',
     itemsList: [
         {
