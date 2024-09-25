@@ -5,7 +5,7 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
-describe('FOR: access-code', () => {
+describe('FOR: Macro: Access-code', () => {
     describe('GIVEN: Params: required', () => {
         describe('WHEN: all required params are provided', () => {
             const $ = cheerio.load(
@@ -24,7 +24,7 @@ describe('FOR: access-code', () => {
             test('THEN: autocomplete is disabled on text input', () => {
                 expect($('input').attr('autocomplete')).toBe('off');
             });
-            test('THEN: text input has automatic capitalisation', () => {
+            test('THEN: text input has autocapitalize attribute', () => {
                 expect($('input').attr('autocapitalize')).toBe('characters');
             });
         });
