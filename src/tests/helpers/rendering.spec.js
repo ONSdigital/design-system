@@ -37,24 +37,24 @@ describe('getMacroName(componentName)', () => {
 describe('renderTemplate(template)', () => {
     it('renders the provided template', () => {
         const result = helper.renderTemplate(`
-      {%- for value in [1, 2, 3] -%}
-        {{ value }}
-      {%- endfor -%}
-    `);
+            {%- for value in [1, 2, 3] -%}
+                {{ value }}
+            {%- endfor -%}
+        `);
 
         expect(result).toBe(`123`);
     });
 
     it('imports a component macro when rendering the provided template', () => {
         const result = helper.renderTemplate(`
-      {% from "components/button/_macro.njk" import onsButton %}
+            {% from "components/button/_macro.njk" import onsButton %}
 
-      {{
-        onsButton({
-          text: 'Click me!'
-        })
-      }}
-    `);
+            {{
+                onsButton({
+                    text: 'Click me!'
+                })
+            }}
+        `);
 
         expect(result).toContain('Click me!');
     });
@@ -89,21 +89,21 @@ describe('templateFaker()', () => {
         faker.setFake(
             'button',
             `
-      {% macro onsButton(params) %}
-        FAKE BUTTON
-      {% endmacro %}
-    `,
+                {% macro onsButton(params) %}
+                    FAKE BUTTON
+                {% endmacro %}
+            `,
         );
 
         const result = faker.renderTemplate(`
-      {% from "components/button/_macro.njk" import onsButton %}
+            {% from "components/button/_macro.njk" import onsButton %}
 
-      {{
-        onsButton({
-          text: 'Click me!'
-        })
-      }}
-    `);
+            {{
+                onsButton({
+                    text: 'Click me!'
+                })
+            }}
+        `);
 
         expect(result.trim()).toBe('FAKE BUTTON');
     });
@@ -113,10 +113,10 @@ describe('templateFaker()', () => {
         faker.setFake(
             'button',
             `
-      {% macro onsButton(params) %}
-        FAKE BUTTON
-      {% endmacro %}
-    `,
+                {% macro onsButton(params) %}
+                    FAKE BUTTON
+                {% endmacro %}
+            `,
         );
 
         const result = faker.renderComponent('button', {
@@ -131,18 +131,19 @@ describe('templateFaker()', () => {
         faker.setFake(
             'checkboxes/checkbox',
             `
-      {% macro onsCheckbox(params) %}
-        FAKE CHECKBOX
-      {% endmacro %}
-    `,
+                {% macro onsCheckbox(params) %}
+                    FAKE CHECKBOX
+                {% endmacro %}
+            `,
         );
 
         const result = faker.renderTemplate(`
-      {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
-      {{
-        onsCheckbox({ id: 'test' })
-      }}
-    `);
+            {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
+
+            {{
+                onsCheckbox({ id: 'test' })
+            }}
+        `);
 
         expect(result.trim()).toBe('FAKE CHECKBOX');
     });
@@ -155,14 +156,14 @@ describe('templateFaker()', () => {
         /*const buttonSpy =*/ faker.spy('button', options);
 
         const result = faker.renderTemplate(`
-      {% from "components/button/_macro.njk" import onsButton %}
+            {% from "components/button/_macro.njk" import onsButton %}
 
-      {{
-        onsButton({
-          text: 'Test Button A'
-        })
-      }}
-    `);
+            {{
+                onsButton({
+                    text: 'Test Button A'
+                })
+            }}
+        `);
 
         expect(result).toContain('Test Button A');
     });
@@ -172,14 +173,14 @@ describe('templateFaker()', () => {
         /*const buttonSpy =*/ faker.spy('button', { suppressOutput: true });
 
         const result = faker.renderTemplate(`
-      {% from "components/button/_macro.njk" import onsButton %}
+            {% from "components/button/_macro.njk" import onsButton %}
 
-      {{
-        onsButton({
-          text: 'Test Button A'
-        })
-      }}
-    `);
+            {{
+                onsButton({
+                    text: 'Test Button A'
+                })
+            }}
+        `);
 
         expect(result).not.toContain('Test Button A');
     });
@@ -192,19 +193,19 @@ describe('templateFaker()', () => {
         const buttonSpy = faker.spy('button', options);
 
         faker.renderTemplate(`
-      {% from "components/button/_macro.njk" import onsButton %}
+            {% from "components/button/_macro.njk" import onsButton %}
 
-      {{
-        onsButton({
-          text: 'Test Button A'
-        })
-      }}
-      {{
-        onsButton({
-          text: 'Test Button B'
-        })
-      }}
-    `);
+            {{
+                onsButton({
+                    text: 'Test Button A'
+                })
+            }}
+            {{
+                onsButton({
+                    text: 'Test Button B'
+                })
+            }}
+        `);
 
         expect(buttonSpy.occurrences[0].text).toBe('Test Button A');
         expect(buttonSpy.occurrences[1].text).toBe('Test Button B');
@@ -219,37 +220,37 @@ describe('templateFaker()', () => {
         const panelSpy = faker.spy('panel');
 
         faker.renderTemplate(`
-      {% from "components/button/_macro.njk" import onsButton %}
-      {% from "components/panel/_macro.njk" import onsPanel %}
+            {% from "components/button/_macro.njk" import onsButton %}
+            {% from "components/panel/_macro.njk" import onsPanel %}
 
-      {% set foo %}
-        {{
-          onsButton({
-            text: 'Test Button A'
-          })
-        }}
-      {% endset %}
+            {% set foo %}
+                {{
+                    onsButton({
+                        text: 'Test Button A'
+                    })
+                }}
+            {% endset %}
 
-      {{
-        onsButton({
-            text: 'Test Button B'
-        })
-      }}
+            {{
+                onsButton({
+                    text: 'Test Button B'
+                })
+            }}
 
-      {{
-        onsPanel({
-            body: 'Test Panel'
-        })
-      }}
+            {{
+                onsPanel({
+                    body: 'Test Panel'
+                })
+            }}
 
-      {% set bar %}
-        {{
-          onsButton({
-            text: 'Test Button C'
-          })
-        }}
-      {% endset %}
-    `);
+            {% set bar %}
+                {{
+                    onsButton({
+                        text: 'Test Button C'
+                    })
+                }}
+            {% endset %}
+        `);
 
         expect(buttonSpy.occurrences[0]).toBeUndefined();
         expect(buttonSpy.occurrences[1].text).toBe('Test Button B');
