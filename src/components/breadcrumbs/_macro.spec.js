@@ -5,12 +5,12 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { mapAll } from '../../tests/helpers/cheerio';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
-import { EXAMPLE_BREADCRUMBS_REQUIRED_PARAMS, EXAMPLE_BREADCRUMBS_ITEM_PARAMS, EXAMPLE_BREADCRUMBS_ALL_PARAMS } from './_test_examples';
+import { EXAMPLE_BREADCRUMBS_REQUIRED_PARAMS, EXAMPLE_BREADCRUMBS_ALL_PARAMS } from './_test_examples';
 
-describe('FOR: Breadcrumbs', () => {
+describe('FOR: macro: Breadcrumbs', () => {
     describe('GIVEN: Params: required', () => {
         describe('WHEN: required params are provided', () => {
-            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ALL_PARAMS));
+            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_REQUIRED_PARAMS));
             test('THEN: jest-axe tests pass', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
@@ -86,48 +86,49 @@ describe('FOR: Breadcrumbs', () => {
             });
         });
     });
-    describe('GIVEN: Params: itemsList', () => {
+    describe('GIVEN: Params: itemsList (multiple)', () => {
         describe('WHEN: itemClasses param is provided', () => {
-            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ITEM_PARAMS));
+            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ALL_PARAMS));
             test('THEN: renders item with provided style classes', () => {
                 expect($('.ons-breadcrumbs__item:first').hasClass('item-extra-class')).toBe(true);
                 expect($('.ons-breadcrumbs__item:first').hasClass('item-another-extra-class')).toBe(true);
             });
         });
         describe('WHEN: linkClasses param is provided', () => {
-            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ITEM_PARAMS));
+            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ALL_PARAMS));
             test('THEN: renders link with provided style classes', () => {
                 expect($('.ons-breadcrumbs__link').hasClass('link-extra-class')).toBe(true);
                 expect($('.ons-breadcrumbs__link').hasClass('link-another-extra-class')).toBe(true);
             });
         });
         describe('WHEN: id param is provided', () => {
-            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ITEM_PARAMS));
-            test('THEN: renders item with provided id', () => {
-                expect($('.ons-breadcrumbs__link').attr('id')).toBe('first-breadcrumb');
+            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ALL_PARAMS));
+            test('THEN: renders items with provided id', () => {
+                const ids = mapAll($('.ons-breadcrumbs__link'), (node) => node.attr('id'));
+                expect(ids).toEqual(['first-breadcrumb', 'second-breadcrumb']);
             });
         });
         describe('WHEN: url param is provided', () => {
-            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ITEM_PARAMS));
-            test('THEN: renders item with provided url link', () => {
-                const url = mapAll($('.ons-breadcrumbs__link'), (node) => node.attr('href'));
-                expect(url).toEqual(['https://example.com/']);
+            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ALL_PARAMS));
+            test('THEN: renders items with provided url link', () => {
+                const urls = mapAll($('.ons-breadcrumbs__link'), (node) => node.attr('href'));
+                expect(urls).toEqual(['https://example.com/', 'https://example.com/guide/']);
             });
         });
         describe('WHEN: text param is provided', () => {
-            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ITEM_PARAMS));
-            test('THEN: renders item link with provided text', () => {
-                const label = mapAll($('.ons-breadcrumbs__link'), (node) => node.text().trim());
-                expect(label).toEqual(['Home']);
+            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ALL_PARAMS));
+            test('THEN: renders item links with provided text', () => {
+                const labels = mapAll($('.ons-breadcrumbs__link'), (node) => node.text().trim());
+                expect(labels).toEqual(['Home', 'Guide']);
             });
         });
         describe('WHEN: attributes param is provided', () => {
-            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ITEM_PARAMS));
-            test('THEN: renders item with provided attributes', () => {
+            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_ALL_PARAMS));
+            test('THEN: renders items with provided attributes', () => {
                 const testValuesA = mapAll($('.ons-breadcrumbs__link'), (node) => node.attr('data-a'));
-                expect(testValuesA).toEqual(['123']);
+                expect(testValuesA).toEqual(['123', '789']);
                 const testValuesB = mapAll($('.ons-breadcrumbs__link'), (node) => node.attr('data-b'));
-                expect(testValuesB).toEqual(['456']);
+                expect(testValuesB).toEqual(['456', 'ABC']);
             });
         });
     });
