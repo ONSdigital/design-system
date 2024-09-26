@@ -14,9 +14,9 @@ import {
     EXAMPLE_HEADER_LANGUAGE_CONFIG,
     EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG,
     EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST,
-} from './_test_examples';
+} from './_test-examples';
 
-describe('FOR: Header', () => {
+describe('FOR: Macro: Header', () => {
     describe('GIVEN: Params: none', () => {
         describe('WHEN: All params are at default state', () => {
             const $ = cheerio.load(
