@@ -44,20 +44,20 @@ export function renderComponent(componentName, params = {}, children = null, fak
     if (!!children) {
         return renderTemplate(
             `
-      {% from "${info.templateName}" import ${info.macroName} %}
-      {%- call ${info.macroName}(${JSON.stringify(params, null, 2)}) -%}
-        ${Array.isArray(children) ? children.join('') : children}
-      {%- endcall -%}
-    `,
+                {% from "${info.templateName}" import ${info.macroName} %}
+                {%- call ${info.macroName}(${JSON.stringify(params, null, 2)}) -%}
+                    ${Array.isArray(children) ? children.join('') : children}
+                {%- endcall -%}
+            `,
             fakerContext,
             isDesignSystemExample,
         );
     } else {
         return renderTemplate(
             `
-      {% from "${info.templateName}" import ${info.macroName} %}
-      {{- ${info.macroName}(${JSON.stringify(params, null, 2)}) -}}
-    `,
+                {% from "${info.templateName}" import ${info.macroName} %}
+                {{- ${info.macroName}(${JSON.stringify(params, null, 2)}) -}}
+            `,
             fakerContext,
             isDesignSystemExample,
         );
@@ -66,9 +66,9 @@ export function renderComponent(componentName, params = {}, children = null, fak
 
 export function renderBaseTemplate(config) {
     const compositedTemplate = `
-    {% extends 'layout/_template.njk' %}
-    ${config}
-  `;
+        {% extends 'layout/_template.njk' %}
+        ${config}
+    `;
 
     return renderTemplate(compositedTemplate);
 }
@@ -172,10 +172,10 @@ export async function setTestPage(path, template, blockName = 'body') {
     verifyConsoleSubscription(page);
 
     const compositedTemplate = `
-    {% block ${blockName} %}
-      ${template}
-    {% endblock %}
-  `;
+        {% block ${blockName} %}
+            ${template}
+        {% endblock %}
+    `;
 
     const html = renderBaseTemplate(compositedTemplate);
 
