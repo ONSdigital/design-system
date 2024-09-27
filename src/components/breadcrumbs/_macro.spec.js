@@ -7,7 +7,7 @@ import { mapAll } from '../../tests/helpers/cheerio';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 import { EXAMPLE_BREADCRUMBS_REQUIRED_PARAMS, EXAMPLE_BREADCRUMBS_ALL_PARAMS } from './_test_examples';
 
-describe('FOR: macro: Breadcrumbs', () => {
+describe('FOR: Macro: Breadcrumbs', () => {
     describe('GIVEN: Params: required', () => {
         describe('WHEN: required params are provided', () => {
             const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_REQUIRED_PARAMS));
