@@ -35,7 +35,7 @@ describe('FOR: Macro: Address-output', () => {
     });
 
     describe('GIVEN: Params: All params', () => {
-        describe('WHEN: All address line params are provided', () => {
+        describe('WHEN: all address line params are provided', () => {
             const $ = cheerio.load(renderComponent('address-output', EXAMPLE_ADDRESS_OUTPUT_FULL));
 
             test('THEN: jest-axe tests pass', async () => {
