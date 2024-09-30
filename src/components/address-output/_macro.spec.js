@@ -82,7 +82,7 @@ describe('FOR: Macro: Address-output', () => {
             });
         });
 
-        describe('WHEN: the `organisation` address line is the only parameter provided', () => {
+        describe('WHEN: the organisation address line is the only parameter provided', () => {
             const $ = cheerio.load(
                 renderComponent('address-output', {
                     organisation: 'Trescos',
