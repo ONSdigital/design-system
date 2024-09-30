@@ -47,7 +47,7 @@ describe('FOR: Macro: Address-output', () => {
                 expect($('.ons-address-output__unit').text().trim()).toBe('Unit 5');
             });
 
-            test('THEN: renders `organisation` line with correct text', () => {
+            test('THEN: renders organisation line with correct text', () => {
                 expect($('.ons-address-output__organisation').text().trim()).toBe('Trescos');
             });
 
