@@ -70,7 +70,7 @@ describe('FOR: Macro: Address-output', () => {
     });
 
     describe('GIVEN: Params: single param', () => {
-        describe('WHEN: the `unit` address line is the only parameter provided', () => {
+        describe('WHEN: the unit address line is the only parameter provided', () => {
             const $ = cheerio.load(
                 renderComponent('address-output', {
                     unit: 'Unit 5',
