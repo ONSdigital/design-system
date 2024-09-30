@@ -59,7 +59,7 @@ describe('FOR: Macro: Address-output', () => {
                 expect($('.ons-address-output__line2').text().trim()).toBe('Goathill');
             });
 
-            test('THEN: renders the `town` line with correct text', () => {
+            test('THEN: renders the town line with correct text', () => {
                 expect($('.ons-address-output__town').text().trim()).toBe('Barry');
             });
 
