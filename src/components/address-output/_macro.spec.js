@@ -77,7 +77,7 @@ describe('FOR: Macro: Address-output', () => {
                 }),
             );
 
-            test('THEN: renders `unit` line with correct text', () => {
+            test('THEN: renders unit line with correct text', () => {
                 expect($('.ons-address-output__unit').text().trim()).toBe('Unit 5');
             });
         });
