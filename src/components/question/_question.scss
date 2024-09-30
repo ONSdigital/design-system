@@ -8,8 +8,7 @@
         .ons-instruction {
             background-color: var(--ons-color-instruction);
             color: var(--ons-color-text-inverse);
-            @extend .ons-u-mr-2xs;
-
+            margin-right: 0.5rem;
             padding: 0 0.5rem;
             box-shadow: none;
         }
@@ -29,7 +28,7 @@
         padding: 1rem;
 
         p:last-of-type {
-            @extend .ons-u-mb-no;
+            margin-bottom: 0;
         }
     }
 }

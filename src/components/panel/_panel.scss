@@ -196,7 +196,7 @@
 
     &--announcement & {
         &__body div > *:last-child {
-            @extend .ons-u-mb-no;
+            margin-bottom: 0;
         }
 
         &__icon {

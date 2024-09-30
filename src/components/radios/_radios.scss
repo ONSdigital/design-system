@@ -9,9 +9,9 @@
         &--no-border {
             @extend .ons-checkboxes__item--no-border;
 
-            @extend .ons-u-mb-xs;
+            margin-bottom: 0.75rem;
             &:last-child {
-                @extend .ons-u-mb-no;
+                margin-bottom: 0;
             }
         }
     }

@@ -2,8 +2,7 @@
 
 .ons-message {
     border-radius: math.div($grid-gutters, 2);
-    @extend .ons-u-mb-xl;
-
+    margin-bottom: 2rem;
     outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
 
     &--sent {

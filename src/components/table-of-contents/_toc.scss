@@ -1,8 +1,7 @@
 .ons-toc {
     &-container {
         border-bottom: 1px solid var(--ons-color-grey-15);
-        @extend .ons-u-mb-xl;
-
+        margin-bottom: 2rem;
         padding-bottom: 1rem;
     }
 

@@ -18,7 +18,7 @@
         width: 100%;
 
         &:last-child {
-            @extend .ons-u-mb-no;
+            margin-bottom: 0;
         }
 
         @include mq(s) {
@@ -36,7 +36,7 @@
     &--mutually-exclusive__item {
         @extend .ons-checkboxes__item;
 
-        @extend .ons-u-mb-no;
+        margin-bottom: 0;
 
         @include mq(s) {
             max-width: max-content;

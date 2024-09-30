@@ -59,8 +59,7 @@ $details-caret-width: 1.75rem;
         &__title {
             display: inline-block;
             font-weight: $font-weight-bold;
-            @extend .ons-u-mb-no;
-
+            margin-bottom: 0;
             text-underline-position: under;
             transform: translateY(-1px);
             pointer-events: none;

@@ -15,8 +15,8 @@
 }
 
 .ons-page__main {
-    @extend .ons-u-mb-4xl;
-    @extend .ons-u-mt-2xl;
+    margin-bottom: 4rem;
+    margin-top: 2.5rem;
 
     @include mq(xxs, m) {
         margin-top: 1.5rem;
@@ -25,7 +25,7 @@
 
 // Adjust margin-top when .ons-page__main contains .ons-panel--error
 .ons-breadcrumbs ~ .ons-grid .ons-grid__col .ons-page__main:has(.ons-panel--error) {
-    @extend .ons-u-mt-s;
+    margin-top: 1rem;
 }
 
 .ons-page__body {
@@ -36,7 +36,7 @@
     h4,
     h5,
     h6 {
-        @extend .ons-u-mt-xl;
+        margin-top: 2rem;
     }
     .ons-panel__body,
     .ons-details {
@@ -45,10 +45,10 @@
         h4,
         h5,
         h6 {
-            @extend .ons-u-mt-no;
+            margin-top: 0;
         }
     }
     h2:not(:first-child) {
-        @extend .ons-u-mt-2xl;
+        margin-top: 2.5rem;
     }
 }

@@ -5,8 +5,7 @@
 
     .ons-field {
         display: inline-block;
-        @extend .ons-u-mt-no;
-
+        margin-top: 0;
         vertical-align: top;
     }
 }

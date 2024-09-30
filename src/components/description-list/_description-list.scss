@@ -9,13 +9,13 @@
         font-weight: $font-weight-bold;
 
         &:not(:first-child) {
-            @extend .ons-u-mt-2xs;
+            margin-top: 0.5rem;
         }
     }
 
     &__value {
         float: right;
-        @extend .ons-u-ml-no; /* As normalize adds a 40px left margin */
+        margin-left: 0; /* As normalize adds a 40px left margin */
 
         &:not(:nth-of-type(1)) {
             @include mq(m) {

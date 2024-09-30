@@ -11,8 +11,7 @@
     }
 
     &--with-description {
-        @extend .ons-u-mb-no;
-
+        margin-bottom: 0;
         padding-bottom: 0;
     }
 

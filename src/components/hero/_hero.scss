@@ -30,7 +30,7 @@
     }
 
     &__pre-title {
-        @extend .ons-u-mb-2xs;
+        margin-bottom: 0.5rem;
 
         @include mq(xxs, m) {
             max-width: 145px;

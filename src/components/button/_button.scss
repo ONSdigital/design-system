@@ -60,7 +60,7 @@ $button-shadow-size: 3px;
 
     // When preceded by another button (for example, in a group)
     & + & {
-        @extend .ons-u-ml-2xs;
+        margin-left: 0.5rem;
     }
 
     // When focused
@@ -508,7 +508,7 @@ $button-shadow-size: 3px;
             .ons-icon {
                 fill: var(--ons-color-branded-text);
                 float: right;
-                @extend .ons-u-mt-3xs;
+                margin-top: 0.25rem;
             }
         }
     }

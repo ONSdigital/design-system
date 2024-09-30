@@ -61,7 +61,7 @@
     }
 
     &--with-description {
-        @extend .ons-u-mb-2xs;
+        margin-bottom: 0.5rem;
     }
 
     &--with-text-description {
@@ -83,7 +83,7 @@
 .ons-input__helper {
     font-size: 0.8rem;
     font-weight: $font-weight-bold;
-    @extend .ons-u-mt-3xs;
+    margin-top: 0.25rem;
 }
 
 .ons-input--select {

@@ -70,7 +70,7 @@
     }
 
     &--gutterless {
-        @extend .ons-u-ml-no;
+        margin-left: 0;
 
         .ons-grid__col {
             padding-left: 0;

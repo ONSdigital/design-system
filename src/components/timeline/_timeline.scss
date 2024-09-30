@@ -27,11 +27,12 @@
     }
 
     :last-child {
-        @extend .ons-u-mb-no;
+        margin-bottom: 0;
     }
 }
 
 .ons-timeline__heading {
     @extend .ons-u-fs-r--b;
-    @extend .ons-u-mb-2xs;
+
+    margin-bottom: 0.5rem;
 }

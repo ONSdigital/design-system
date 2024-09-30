@@ -1,5 +1,5 @@
 .ons-address-output {
     &__lines {
-        @extend .ons-u-mb-no;
+        margin-bottom: 0;
     }
 }

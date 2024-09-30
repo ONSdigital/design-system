@@ -7,10 +7,10 @@
     }
 
     &__item {
-        @extend .ons-u-mt-l;
+        margin-top: 1.5rem;
 
         &:first-of-type {
-            @extend .ons-u-mt-l;
+            margin-top: 1.5rem;
         }
 
         .ons-checkboxes__item {
@@ -20,7 +20,7 @@
 
     &__selection {
         color: var(--ons-color-grey-100);
-        @extend .ons-u-mb-2xs;
+        margin-bottom: 0.5rem;
     }
 
     &__results-options {
@@ -30,12 +30,12 @@
     &__results-sort {
         align-items: center;
         display: flex;
-        @extend .ons-u-mt-2xs;
+        margin-top: 0.5rem;
 
         .ons-label {
             font-weight: $font-weight-regular;
-            @extend .ons-u-mb-no;
-            @extend .ons-u-mr-2xs;
+            margin-bottom: 0;
+            margin-right: 0.5rem;
         }
 
         .ons-input--select {

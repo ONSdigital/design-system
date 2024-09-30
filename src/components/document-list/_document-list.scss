@@ -1,7 +1,7 @@
 .ons-document-list {
     @extend .ons-list--bare;
 
-    @extend .ons-u-mb-no;
+    margin-bottom: 0;
 
     &__item {
         border-bottom: 1px solid var(--ons-color-borders-light);
@@ -63,7 +63,7 @@
                 &--reverse {
                     display: flex;
                     flex-direction: column-reverse;
-                    @extend .ons-u-mb-2xs;
+                    margin-bottom: 0.5rem;
                 }
             }
 
@@ -75,7 +75,7 @@
             // If featured item is first in same list
             + .ons-document-list__item {
                 border-top: 0;
-                @extend .ons-u-mt-no;
+                margin-top: 0;
             }
         }
 
@@ -87,8 +87,7 @@
 
     &__item-image {
         flex: 0 0 auto;
-        @extend .ons-u-mb-s;
-
+        margin-bottom: 1rem;
         width: 136px;
 
         @include mq(xs) {
@@ -169,12 +168,11 @@
     }
 
     &__item-description {
-        @extend .ons-u-mb-no;
-
+        margin-bottom: 0;
         max-width: 660px; // Equivalent to 8 Columns
 
         p:last-of-type {
-            @extend .ons-u-mb-no;
+            margin-bottom: 0;
         }
     }
 }

@@ -1,8 +1,7 @@
 .ons-table {
     border-collapse: collapse;
     border-spacing: 0;
-    @extend .ons-u-mb-s;
-
+    margin-bottom: 1rem;
     width: 100%;
 
     &__head {

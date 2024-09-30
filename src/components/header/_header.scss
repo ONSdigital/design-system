@@ -71,7 +71,7 @@
                 @extend .ons-u-fs-m;
                 @extend .ons-u-fs-xxl\@m;
 
-                @extend .ons-u-mb-no;
+                margin-bottom: 0;
             }
         }
     }
@@ -217,11 +217,11 @@
                 margin: 0 0 0.5rem;
             }
             &:first-child {
-                @extend .ons-u-ml-no;
+                margin-left: 0;
             }
             .ons-icon {
                 clip-path: circle(9px at center);
-                @extend .ons-u-mr-2xs;
+                margin-right: 0.5rem;
             }
         }
 
