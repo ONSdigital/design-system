@@ -55,7 +55,7 @@ describe('FOR: Macro: Address-output', () => {
                 expect($('.ons-address-output__line1').text().trim()).toBe('Abingdon Road');
             });
 
-            test('THEN: renders `line2` line with correct text', () => {
+            test('THEN: renders line2 line with correct text', () => {
                 expect($('.ons-address-output__line2').text().trim()).toBe('Goathill');
             });
 
