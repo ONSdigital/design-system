@@ -37,7 +37,7 @@ describe('macro: hero', () => {
     it('has expected `title`', () => {
         const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO));
 
-        const title = $('h1').html().trim();
+        const title = $('.ons-hero__title').html().trim();
         expect(title).toBe('Hero title');
     });
 
