@@ -63,7 +63,7 @@ describe('FOR: Macro: Address-output', () => {
                 expect($('.ons-address-output__town').text().trim()).toBe('Barry');
             });
 
-            test('THEN: renders the `postcode` line with correct text', () => {
+            test('THEN: renders the postcode line with correct text', () => {
                 expect($('.ons-address-output__postcode').text().trim()).toBe('AB12 6UH');
             });
         });
