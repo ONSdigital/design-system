@@ -113,7 +113,7 @@ describe('FOR: Macro: Address-output', () => {
                 }),
             );
 
-            test('THEN: renders `line2` line with correct text', () => {
+            test('THEN: renders line2 line with correct text', () => {
                 expect($('.ons-address-output__line2').text().trim()).toBe('Goathill');
             });
         });
