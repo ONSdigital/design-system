@@ -7,7 +7,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 
 import { EXAMPLE_ADDRESS_OUTPUT_FULL } from './_test_examples';
 
-describe('FOR: address-output', () => {
+describe('FOR: Macro: Address-output', () => {
     describe('GIVEN: Params: none', () => {
         describe('WHEN: no parameters are provided', () => {
             const $ = cheerio.load(renderComponent('address-output', {}));
