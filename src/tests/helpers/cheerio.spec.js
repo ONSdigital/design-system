@@ -3,12 +3,12 @@ import * as cheerio from 'cheerio';
 import * as helper from '../../tests/helpers/cheerio';
 
 const EXAMPLE_HTML = `
-  <div>
-    <div id="a">First</div>
-    <div id="b" class="second">Second</div>
-    <div id="c" class="third">Third</div>
-  </div>
-`;
+        <div>
+            <div id="a">First</div>
+            <div id="b" class="second">Second</div>
+            <div id="c" class="third">Third</div>
+        </div>
+    `;
 
 describe('mapAll(cheerioNodes, selector)', () => {
     it('gets mapped values`', () => {
