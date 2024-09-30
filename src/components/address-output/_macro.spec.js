@@ -130,7 +130,7 @@ describe('FOR: Macro: Address-output', () => {
             });
         });
 
-        describe('WHEN: the `postcode` address line is the only parameter provided', () => {
+        describe('WHEN: the postcode address line is the only parameter provided', () => {
             const $ = cheerio.load(
                 renderComponent('address-output', {
                     postcode: 'AB12 6UH',
