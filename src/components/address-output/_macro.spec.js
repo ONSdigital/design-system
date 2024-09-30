@@ -125,7 +125,7 @@ describe('FOR: Macro: Address-output', () => {
                 }),
             );
 
-            test('THEN: renders `town` line with correct text', () => {
+            test('THEN: renders town line with correct text', () => {
                 expect($('.ons-address-output__town').text().trim()).toBe('Barry');
             });
         });
