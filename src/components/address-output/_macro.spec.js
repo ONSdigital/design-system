@@ -137,7 +137,7 @@ describe('FOR: Macro: Address-output', () => {
                 }),
             );
 
-            test('THEN: renders `postcode` line with correct text', () => {
+            test('THEN: renders postcode line with correct text', () => {
                 expect($('.ons-address-output__postcode').text().trim()).toBe('AB12 6UH');
             });
         });
