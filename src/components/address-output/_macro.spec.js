@@ -101,7 +101,7 @@ describe('FOR: Macro: Address-output', () => {
                 }),
             );
 
-            test('THEN: renders `line1` line with correct text', () => {
+            test('THEN: renders line1 line with correct text', () => {
                 expect($('.ons-address-output__line1').text().trim()).toBe('Abingdon Road');
             });
         });
