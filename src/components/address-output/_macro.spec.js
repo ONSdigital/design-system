@@ -106,7 +106,7 @@ describe('FOR: Macro: Address-output', () => {
             });
         });
 
-        describe('WHEN: the `line2` address line is the only parameter provided', () => {
+        describe('WHEN: the line2 address line is the only parameter provided', () => {
             const $ = cheerio.load(
                 renderComponent('address-output', {
                     line2: 'Goathill',
