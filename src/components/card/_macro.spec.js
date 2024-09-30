@@ -49,7 +49,7 @@ describe('macro: card', () => {
         it('has the provided `title` text', () => {
             const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
 
-            expect($('#example-title-id').text().trim()).toBe('Example card title');
+            expect($('.ons-card__title').text().trim()).toBe('Example card title');
         });
 
         it.each([

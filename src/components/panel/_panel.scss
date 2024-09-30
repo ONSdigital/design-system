@@ -234,7 +234,6 @@
 
     &--bare & {
         &__icon {
-            position: absolute;
             top: -0.2rem;
             height: 1.3rem;
             width: 1.3rem;
@@ -245,6 +244,7 @@
     }
 
     &--info,
+    &--bare,
     &--success,
     &--warn,
     &--warn-branded,
