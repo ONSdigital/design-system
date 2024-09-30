@@ -89,7 +89,7 @@ describe('FOR: Macro: Address-output', () => {
                 }),
             );
 
-            test('THEN: renders `organisation` line with correct text', () => {
+            test('THEN: renders organisation line with correct text', () => {
                 expect($('.ons-address-output__organisation').text().trim()).toBe('Trescos');
             });
         });
