@@ -18,7 +18,7 @@
     margin-bottom: 4rem;
     margin-top: 2.5rem;
 
-    @include mq(2xs, m) {
+    @include mq(xxs, m) {
         margin-top: 1.5rem;
     }
 }

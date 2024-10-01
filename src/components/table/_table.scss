@@ -63,7 +63,7 @@
     }
 
     &--responsive {
-        @include mq(2xs, s) {
+        @include mq(xxs, s) {
             .ons-table__header {
                 display: none;
             }
@@ -124,7 +124,7 @@
             }
             .ons-table__header,
             .ons-table__cell {
-                @include mq(2xs, m) {
+                @include mq(xxs, m) {
                     white-space: nowrap;
                 }
             }

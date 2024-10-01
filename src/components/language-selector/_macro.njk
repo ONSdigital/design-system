@@ -2,7 +2,7 @@
     {% set alternativeLanguages = params.languages | rejectattr("current") %}
     {% set languageNumber = params.languages | length %}
 
-    <ul class="ons-language-links{{ ' ons-u-d-no@2xs@m' if languageNumber and languageNumber != 2 }}">
+    <ul class="ons-language-links{{ ' ons-u-d-no@xxs@m' if languageNumber and languageNumber != 2 }}">
         {% for language in alternativeLanguages %}
             <li class="ons-language-links__item">
                 <a
@@ -10,7 +10,7 @@
                     lang="{{ language.isoCode }}"
                     {% if language.attributes %}{% for attribute, value in (language.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                     >{% if language.abbrText %}
-                        <span class="ons-u-d-no@s">{{ language.abbrText }}</span><span class="ons-u-d-no@2xs@s">{{- language.text -}}</span>
+                        <span class="ons-u-d-no@s">{{ language.abbrText }}</span><span class="ons-u-d-no@xxs@s">{{- language.text -}}</span>
                     {% else %}
                         {{- language.text -}}
                     {% endif %}</a

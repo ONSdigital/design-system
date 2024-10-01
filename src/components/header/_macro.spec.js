@@ -329,7 +329,7 @@ describe('FOR: Macro: Header', () => {
             test('THEN: renders button with provided parameters', () => {
                 expect(buttonSpy.occurrences).toContainEqual({
                     text: 'Save and sign out',
-                    classes: 'ons-u-d-no@2xs@m',
+                    classes: 'ons-u-d-no@xxs@m',
                     variants: 'ghost',
                     name: 'button-name',
                     attributes: {
@@ -407,7 +407,7 @@ describe('FOR: Macro: Header', () => {
             faker.renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE);
 
             test('THEN: renders with correct display class on large screen', () => {
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@m')).toBe(true);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@m')).toBe(true);
             });
             test('THEN: renders button on small screen', () => {
                 expect(buttonSpy.occurrences).toContainEqual({
@@ -426,8 +426,8 @@ describe('FOR: Macro: Header', () => {
         describe('WHEN: one item is provided to the itemsList parameter', () => {
             const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_SINGLE));
             test('THEN: renders without multiple link display class on large screen', () => {
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@m')).toBe(false);
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@xs')).toBe(false);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@m')).toBe(false);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@xs')).toBe(false);
             });
             test('THEN: does not render button on small screen', () => {
                 expect($('.ons-js-toggle-services').length).toBe(0);
@@ -515,7 +515,7 @@ describe('FOR: Macro: Header', () => {
                 }),
             );
             test('THEN: renders with correct display class', () => {
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@xs')).toBe(true);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@xs')).toBe(true);
             });
         });
     });

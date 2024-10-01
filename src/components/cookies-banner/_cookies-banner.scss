@@ -13,7 +13,7 @@
         p {
             margin: 0 0 0.5rem;
 
-            @include mq(2xs, s) {
+            @include mq(xxs, s) {
                 font-size: 0.875rem;
                 line-height: 1.25rem;
             }

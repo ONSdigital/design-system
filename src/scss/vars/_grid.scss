@@ -1,13 +1,13 @@
 @use 'sass:map';
 
 $grid-bp: (
-    2xs: 300px,
+    xxs: 300px,
     xs: 400px,
     s: 500px,
     m: 740px,
     l: 980px,
     xl: 1300px,
-    2xl: 1600px,
+    xxl: 1600px,
 ) !default;
 
 $grid-max-width: 64.625625rem !default;

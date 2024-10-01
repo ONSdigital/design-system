@@ -96,7 +96,7 @@ describe('macro: language-selector', () => {
         it('does not have a visibility class applied', () => {
             const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_TWO_LANGUAGES));
 
-            expect($('.ons-language-links').hasClass('ons-u-d-no@2xs@m')).toBe(false);
+            expect($('.ons-language-links').hasClass('ons-u-d-no@xxs@m')).toBe(false);
         });
 
         it('has the `abbrText` rendered', () => {
@@ -131,7 +131,7 @@ describe('macro: language-selector', () => {
         it('has the visibility class applied', () => {
             const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_THREE_LANGUAGES));
 
-            expect($('.ons-language-links').hasClass('ons-u-d-no@2xs@m')).toBe(true);
+            expect($('.ons-language-links').hasClass('ons-u-d-no@xxs@m')).toBe(true);
         });
     });
 });

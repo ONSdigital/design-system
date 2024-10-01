@@ -5,7 +5,7 @@
         border-radius: $input-radius;
         display: inline-block;
 
-        @include mq(2xs, s) {
+        @include mq(xxs, s) {
             width: 100%;
         }
     }

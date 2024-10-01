@@ -82,7 +82,7 @@
                     {% if params.cols %}
                         {% for col in params.cols %}
                             <!-- Full footer columns -->
-                            <div class="ons-grid__col ons-col-4@m{{ ' ons-u-mt-l@2xs@m' if loop.index > 1 }}">
+                            <div class="ons-grid__col ons-col-4@m{{ ' ons-u-mt-l@xxs@m' if loop.index > 1 }}">
                                 {% if col.title %}
                                     <h2 class="ons-footer__heading ons-u-fs-r--b">{{ col.title }}</h2>
                                 {% endif %}
@@ -196,7 +196,7 @@
                     </div>
                     {% if params.crest %}
                         <!-- Crest -->
-                        <div class="ons-grid__col ons-footer__crest ons-u-mb-l@2xs@l">
+                        <div class="ons-grid__col ons-footer__crest ons-u-mb-l@xxs@l">
                             {{-
                                 onsIcon({
                                     "iconType": 'crest'
