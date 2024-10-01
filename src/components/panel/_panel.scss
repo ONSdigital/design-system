@@ -69,14 +69,14 @@
             @extend .ons-u-mb-no;
         }
 
-        &.ons-icon-margin--xxxl {
+        &.ons-icon-margin--3xl {
             padding-left: 2.7rem !important;
 
             @include mq(m) {
                 padding-left: 3.5rem !important;
             }
         }
-        &.ons-icon-margin--xxl {
+        &.ons-icon-margin--2xl {
             padding-left: 2.45rem !important;
 
             @include mq(m) {

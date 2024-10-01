@@ -106,7 +106,7 @@
                     {% if params.language or params.serviceLinks %}
                         <div class="ons-header__links ons-grid__col ons-u-ml-auto">
                             {% if params.language %}
-                                <div class="ons-grid__col ons-col-auto{{ ' ons-u-mr-s ons-u-d-no@xxs@xs' if params.serviceLinks }}">
+                                <div class="ons-grid__col ons-col-auto{{ ' ons-u-mr-s ons-u-d-no@2xs@xs' if params.serviceLinks }}">
                                     {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                                     {{ onsLanguageSelector(params.language) }}
                                 </div>
@@ -122,7 +122,7 @@
                                     {% set controlVisibility = false %}
                                 {% endif %}
                                 <div
-                                    class="ons-grid__col ons-col-auto{% if controlVisibility == true %}{{ ' ' }}ons-u-d-no@xxs@{{ breakpoint }}{% endif %}"
+                                    class="ons-grid__col ons-col-auto{% if controlVisibility == true %}{{ ' ' }}ons-u-d-no@2xs@{{ breakpoint }}{% endif %}"
                                 >
                                     <nav
                                         class="ons-header-service-nav ons-header-service-nav--main{{ ' ' + params.serviceLinks.classes if params.serviceLinks.classes else '' }}"
@@ -228,7 +228,7 @@
 
                             {% set title %}
                                 <div
-                                    class="ons-header__title-logo ons-header__title-logo--large{{ ' ' + params.titleLogo.classes if params.titleLogo.classes else '' }}{{ ' ons-u-d-no@xxs@s' if params.titleLogo.small }}"
+                                    class="ons-header__title-logo ons-header__title-logo--large{{ ' ' + params.titleLogo.classes if params.titleLogo.classes else '' }}{{ ' ons-u-d-no@2xs@s' if params.titleLogo.small }}"
                                 >
                                     {{ params.titleLogo.large | safe }}
                                 </div>
@@ -274,7 +274,7 @@
                             {{
                                 onsButton({
                                     "text": params.button.text,
-                                    "classes": "ons-u-d-no@xxs@l" if params.navigation else "ons-u-d-no@xxs@m",
+                                    "classes": "ons-u-d-no@2xs@l" if params.navigation else "ons-u-d-no@2xs@m",
                                     "variants": buttonVariant,
                                     "name": params.button.name,
                                     "attributes": params.button.attributes,
@@ -293,7 +293,7 @@
                                 {% else %}
                                     {% set buttonVariant = ["small", "ghost"] %}
                                 {% endif %}
-                                <span class="ons-grid ons-u-d-no@xxs@xs ons-u-ml-no ons-u-d-no@l">
+                                <span class="ons-grid ons-u-d-no@2xs@xs ons-u-ml-no ons-u-d-no@l">
                                     {{
                                         onsButton({
                                             "text": "Search",
