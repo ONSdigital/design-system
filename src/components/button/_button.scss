@@ -41,16 +41,16 @@ $button-shadow-size: 3px;
         color: var(--ons-color-text-inverse);
         display: flex;
         align-items: center;
-        padding: 0.75rem 1.5rem;
+        padding: 0.75rem 1rem;
         // Required for Google Tag Manager
         pointer-events: none;
         position: relative;
-        &:has(> .ons-icon + .ons-btn__text) {
-            padding-left: 1rem;
-        }
-        &:has(> .ons-btn__text + .ons-icon) {
-            padding-right: 1rem;
-        }
+        // &:has(> .ons-icon + .ons-btn__text) {
+        //     padding-left: 1rem;
+        // }
+        // &:has(> .ons-btn__text + .ons-icon) {
+        //     padding-right: 1rem;
+        // }
         .ons-icon {
             fill: var(--ons-color-text-inverse);
             height: 18px;
@@ -114,16 +114,10 @@ $button-shadow-size: 3px;
 
     &--small & {
         &__inner {
-            padding: 0.5625rem 1.25rem;
+            padding: 0.5rem 0.75rem;
             .ons-icon {
                 height: 16px;
                 width: 16px;
-            }
-            &:has(> .ons-icon + .ons-btn__text) {
-                padding-left: 0.75rem;
-            }
-            &:has(> .ons-btn__text + .ons-icon) {
-                padding-right: 0.75rem;
             }
         }
     }
@@ -131,13 +125,7 @@ $button-shadow-size: 3px;
     &--small.ons-btn--ghost &,
     &--mobile & {
         &__inner {
-            padding: 0.5625rem 1.25rem;
-            &:has(> .ons-icon + .ons-btn__text) {
-                padding-left: 0.75rem;
-            }
-            &:has(> .ons-btn__text + .ons-icon) {
-                padding-right: 0.75rem;
-            }
+            padding: 0.5rem 0.75rem;
         }
     }
 
