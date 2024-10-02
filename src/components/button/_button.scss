@@ -45,12 +45,6 @@ $button-shadow-size: 3px;
         // Required for Google Tag Manager
         pointer-events: none;
         position: relative;
-        // &:has(> .ons-icon + .ons-btn__text) {
-        //     padding-left: 1rem;
-        // }
-        // &:has(> .ons-btn__text + .ons-icon) {
-        //     padding-right: 1rem;
-        // }
         .ons-icon {
             fill: var(--ons-color-text-inverse);
             height: 18px;
