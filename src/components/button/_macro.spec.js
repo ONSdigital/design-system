@@ -5,7 +5,7 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
-describe('FOR: button', () => {
+describe('FOR: Macro: Button', () => {
     describe('GIVEN: Params: no params', () => {
         describe('WHEN: there are no params given', () => {
             it('THEN: renders expected style classes', () => {
@@ -13,7 +13,7 @@ describe('FOR: button', () => {
                 expect($('.ons-btn .ons-btn__inner').length).toBe(1);
             });
 
-            it('THEN; renders `button` element', () => {
+            it('THEN: the button is rendered', () => {
                 const $ = cheerio.load(renderComponent('button'));
                 expect($('button').length).toBe(1);
             });
