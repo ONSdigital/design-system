@@ -193,7 +193,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: variants contains timer', () => {
-            it('THEN: renders provided variant style classes', () => {
+            it('THEN: the button has the timer classes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: 'timer',
