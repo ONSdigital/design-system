@@ -112,7 +112,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: iconPosition is set to after for custom icon', () => {
-            it('THEN: renders custom icon before button text', () => {
+            it('THEN: renders custom icon after button text', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         text: 'Click me!',
