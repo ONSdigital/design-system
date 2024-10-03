@@ -316,7 +316,7 @@ describe('FOR: Macro: Button', () => {
                 expect($('.ons-btn').attr('role')).toBe('button');
             });
         });
-        describe('WHEN: link parameter is provided and newWindow is true', () => {
+        describe('WHEN: url parameter is provided and newWindow is true', () => {
             it('THEN: has default new window description', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
