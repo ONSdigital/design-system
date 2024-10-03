@@ -297,7 +297,7 @@ describe('FOR: Macro: Button', () => {
                 expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
             });
 
-            it('THEN: contains the provided link', () => {
+            it('THEN: the link points to the provided url', () => {
                 expect($('a').attr('href')).toBe('http://example.com');
             });
 
