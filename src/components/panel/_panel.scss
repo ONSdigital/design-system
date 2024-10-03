@@ -184,8 +184,9 @@
             background: var(--ons-color-black);
             border-radius: 50%;
             color: var(--ons-color-white);
-            @extend .ons-u-fs-l;
-
+            font-size: 1.5rem;
+            font-weight: $font-weight-bold;
+            line-height: 2rem;
             min-height: 2rem;
             min-width: 2rem;
             outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
