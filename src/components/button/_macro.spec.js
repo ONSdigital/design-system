@@ -127,7 +127,7 @@ describe('FOR: Macro: Button', () => {
 
     describe('GIVEN: Params: variants', () => {
         describe('WHEN: variants are present', () => {
-            it('THEN: renders provided variant style classes', () => {
+            it('THEN: the button has the expected variant classes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: ['variant-a', 'variant-b'],
