@@ -317,7 +317,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: link parameter is provided and newWindow is true', () => {
-            it('THEN: renders a default new window description', () => {
+            it('THEN: has default new window description', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         url: 'http://example.com',
