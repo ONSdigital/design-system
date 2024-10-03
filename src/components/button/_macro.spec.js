@@ -139,7 +139,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: variants contains download', () => {
-            it('THEN: renders provided variant style class', () => {
+            it('THEN: the button has the download class', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         url: 'http://example.com',
