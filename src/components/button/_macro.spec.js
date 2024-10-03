@@ -232,7 +232,7 @@ describe('FOR: Macro: Button', () => {
     });
     describe('GIVEN: Params: type', () => {
         describe('WHEN: type parameter is provided', () => {
-            it('THEN: renders the provided type attribute', () => {
+            it('THEN: has the provided type attribute', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         type: 'special-type',
