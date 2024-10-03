@@ -355,7 +355,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: innerclasses parameter is provided', () => {
-            it('THEN: renders additionally provided inner style classes', () => {
+            it('THEN: the button inner has the additionally provided inner style classes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         innerClasses: 'extra-inner-class another-extra-inner-class',
