@@ -272,8 +272,8 @@ describe('FOR: Macro: Button', () => {
         });
     });
 
-    describe('GIVEN: Params: link', () => {
-        describe('WHEN: link parameter is provided', () => {
+    describe('GIVEN: Params: url', () => {
+        describe('WHEN: url parameter is provided', () => {
             const $ = cheerio.load(
                 renderComponent('button', {
                     text: 'Example button',
