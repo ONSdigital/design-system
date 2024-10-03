@@ -181,7 +181,7 @@ describe('FOR: Macro: Button', () => {
                 expect($('.ons-btn').hasClass('ons-js-loader')).toBe(true);
                 expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
             });
-            it('THEN: loader icon when variants contains loader', () => {
+            it('THEN: the button has the loader icon', () => {
                 const faker = templateFaker();
                 const iconsSpy = faker.spy('icon');
 
