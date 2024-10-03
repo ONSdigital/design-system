@@ -217,7 +217,7 @@ describe('FOR: Macro: Button', () => {
                 expect($('.ons-btn').hasClass('ons-js-print-btn')).toBe(true);
             });
 
-            it('THEN: renders print icon when variants contains print', () => {
+            it('THEN: button has the print icon', () => {
                 const faker = templateFaker();
                 const iconsSpy = faker.spy('icon');
 
