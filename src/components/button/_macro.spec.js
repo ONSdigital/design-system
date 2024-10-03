@@ -328,7 +328,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: url parameter is provided, newWindow is true and newWindowDescription is provided', () => {
-            it('THEN: contains a custom new window description', () => {
+            it('THEN: has custom new window description', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         url: 'http://example.com',
