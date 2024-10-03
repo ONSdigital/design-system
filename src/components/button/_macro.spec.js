@@ -36,7 +36,7 @@ describe('FOR: Macro: Button', () => {
     });
     describe('GIVEN: Params: id', () => {
         describe('WHEN: id is given as parameter', () => {
-            it('THEN: renders the provided `id` attribute', () => {
+            it('THEN: the button has the provided id', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         id: 'example-id',
