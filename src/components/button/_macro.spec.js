@@ -301,7 +301,7 @@ describe('FOR: Macro: Button', () => {
                 expect($('a').attr('href')).toBe('http://example.com');
             });
 
-            it('THEN: contains arrow-next icon by default', () => {
+            it('THEN: the link button has the arrow-next icon by default', () => {
                 const faker = templateFaker();
                 const iconsSpy = faker.spy('icon');
 
