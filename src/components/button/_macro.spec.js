@@ -370,7 +370,7 @@ describe('FOR: Macro: Button', () => {
 
     describe('GIVEN: params: removeDownloadattribute', () => {
         describe('WHEN: variants contains download and removeDownloadAttribute is true', () => {
-            it('THEN: does not have the download attribute', () => {
+            it('THEN: the button does not have the download attribute', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: 'download',
