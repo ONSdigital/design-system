@@ -368,7 +368,7 @@ describe('FOR: Macro: Button', () => {
         });
     });
 
-    describe('GIVEN: params: removeDownloadattribute', () => {
+    describe('GIVEN: Params: removeDownloadattribute', () => {
         describe('WHEN: variants contains download and removeDownloadAttribute is true', () => {
             it('THEN: the button does not have the download attribute', () => {
                 const $ = cheerio.load(
