@@ -8,7 +8,6 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 const EXAMPLE_CARD_WITHOUT_IMAGE = {
     title: {
         text: 'Example card title',
-        id: 'example-title-id',
     },
     body: {
         text: 'Example card text.',
@@ -61,7 +60,6 @@ describe('macro: card', () => {
                     title: {
                         text: 'Example card title',
                         headingLevel: headingLevel,
-                        id: 'example-title-id',
                     },
                     body: {
                         text: 'Example card text.',
@@ -70,7 +68,7 @@ describe('macro: card', () => {
                 }),
             );
 
-            expect($(`${expectedTitleTag}#example-title-id`).text().trim()).toBe('Example card title');
+            expect($(`${expectedTitleTag}.ons-card__title`).text().trim()).toBe('Example card title');
         });
 
         it('has the provided `text` accessible via the `textId` identifier', () => {
@@ -129,7 +127,7 @@ describe('macro: card', () => {
         it('has the provided `title` text', () => {
             const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_IMAGE));
 
-            expect($('#example-title-id').text().trim()).toBe('Example card title');
+            expect($('.ons-card__title').text().trim()).toBe('Example card title');
         });
 
         it.each([
@@ -141,7 +139,6 @@ describe('macro: card', () => {
                     title: {
                         text: 'Example card title',
                         headingLevel: headingLevel,
-                        id: 'example-title-id',
                     },
                     body: {
                         text: 'Example card text.',
@@ -155,7 +152,7 @@ describe('macro: card', () => {
                 }),
             );
 
-            expect($(`${expectedTitleTag}#example-title-id`).text().trim()).toBe('Example card title');
+            expect($(`${expectedTitleTag}.ons-card__title`).text().trim()).toBe('Example card title');
         });
 
         it('has the provided `text`', () => {
