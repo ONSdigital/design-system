@@ -159,7 +159,7 @@ describe('FOR: Macro: Button', () => {
 
                 expect(iconsSpy.occurrences[0].iconType).toBe('download');
             });
-            it('THEN: renders the download attribute when variants contains download', () => {
+            it('THEN: the button has the download attribute', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: 'download',
