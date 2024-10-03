@@ -254,7 +254,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: type parameter is not provided', () => {
-            it('THEN: defaults to being a submit button when type is not provided', () => {
+            it('THEN: defaults to being a submit button', () => {
                 const $ = cheerio.load(renderComponent('button'));
 
                 expect($('button').attr('type')).toBe('submit');
