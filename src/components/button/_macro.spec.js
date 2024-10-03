@@ -291,7 +291,7 @@ describe('FOR: Macro: Button', () => {
                 expect($('a').length).toBe(1);
             });
 
-            it('THEN: renders expected style classes', () => {
+            it('THEN: has expected style classes', () => {
                 expect($('a').hasClass('ons-btn')).toBe(true);
                 expect($('.ons-btn').hasClass('ons-btn--link')).toBe(true);
                 expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
