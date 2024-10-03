@@ -148,7 +148,7 @@ describe('FOR: Macro: Button', () => {
                 );
                 expect($('.ons-btn').hasClass('ons-btn--download')).toBe(true);
             });
-            it('THEN: renders download icon', () => {
+            it('THEN: the button has the download icon', () => {
                 const faker = templateFaker();
                 const iconsSpy = faker.spy('icon');
 
