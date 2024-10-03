@@ -312,7 +312,7 @@ describe('FOR: Macro: Button', () => {
                 expect(iconsSpy.occurrences[0].iconType).toBe('arrow-next');
             });
 
-            it('THEN: contains the button role', () => {
+            it('THEN: the role attribute is set to button', () => {
                 expect($('.ons-btn').attr('role')).toBe('button');
             });
         });
