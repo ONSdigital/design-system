@@ -7,8 +7,8 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 describe('FOR: Macro: Button', () => {
     describe('GIVEN: Params: no params', () => {
-        describe('WHEN: there are no params given', () => {
-            it('THEN: renders expected style classes', () => {
+        describe('WHEN: there are no params provided', () => {
+            it('THEN: has expected style classes', () => {
                 const $ = cheerio.load(renderComponent('button'));
                 expect($('.ons-btn .ons-btn__inner').length).toBe(1);
             });
@@ -19,8 +19,8 @@ describe('FOR: Macro: Button', () => {
             });
         });
     });
-    describe('GIVEN: Params: standard', () => {
-        describe('WHEN: button component is set with standard params', () => {
+    describe('GIVEN: Params: text, name and value', () => {
+        describe('WHEN: text, name and value params are provided', () => {
             it('THEN: passes jest-axe checks', async () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
@@ -35,7 +35,7 @@ describe('FOR: Macro: Button', () => {
         });
     });
     describe('GIVEN: Params: id', () => {
-        describe('WHEN: id is given as parameter', () => {
+        describe('WHEN: the id param is provided', () => {
             it('THEN: the button has the provided id', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
@@ -47,7 +47,7 @@ describe('FOR: Macro: Button', () => {
         });
     });
     describe('GIVEN: Params: attributes', () => {
-        describe('WHEN: attributes is given as parameter', () => {
+        describe('WHEN: the attributes param is provided', () => {
             it('THEN: the button has the additionally provided attributes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
@@ -63,8 +63,8 @@ describe('FOR: Macro: Button', () => {
         });
     });
     describe('GIVEN: Params: text', () => {
-        describe('WHEN: text is given as parameter', () => {
-            it('THEN: renders label text', () => {
+        describe('WHEN: the text param is provided', () => {
+            it('THEN: the button has the label text', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         text: 'Click > me!',
@@ -76,7 +76,7 @@ describe('FOR: Macro: Button', () => {
     });
     describe('GIVEN: Params: buttonContext', () => {
         describe('WHEN: buttonContext parameter is provided', () => {
-            it('THEN: renders button context text', () => {
+            it('THEN: the button has the provided button context', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         buttonContext: 'button context text',
@@ -88,7 +88,7 @@ describe('FOR: Macro: Button', () => {
     });
     describe('GIVEN: Params: html', () => {
         describe('WHEN: html parameter is provided', () => {
-            it('THEN: renders label text', () => {
+            it('THEN: the button label has the provided html', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         html: 'Click <strong>me</strong>!',
