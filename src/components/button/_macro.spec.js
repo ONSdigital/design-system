@@ -242,7 +242,7 @@ describe('FOR: Macro: Button', () => {
                 expect($('button').attr('type')).toBe('special-type');
             });
 
-            it('THEN: renders the provided type attribute if variant contains print', () => {
+            it('THEN: has the provided type attribute if variant contains print', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         type: 'special-type',
