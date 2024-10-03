@@ -170,7 +170,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: variants contains loader', () => {
-            it('THEN: renders provided variant style classes', () => {
+            it('THEN: the button has the loader classes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: 'loader',
