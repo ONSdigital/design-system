@@ -327,7 +327,7 @@ describe('FOR: Macro: Button', () => {
                 expect($('.ons-btn__new-window-description').text()).toBe(' (opens in a new tab)');
             });
         });
-        describe('WHEN: link parameter is provided, newWindow is true and newWindowDescription is provided', () => {
+        describe('WHEN: url parameter is provided, newWindow is true and newWindowDescription is provided', () => {
             it('THEN: contains a custom new window description', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
