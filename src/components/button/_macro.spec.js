@@ -48,7 +48,7 @@ describe('FOR: Macro: Button', () => {
     });
     describe('GIVEN: Params: attributes', () => {
         describe('WHEN: attributes is given as parameter', () => {
-            it('THEN: renders additionally provided `attributes`', () => {
+            it('THEN: the button has the additionally provided attributes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         attributes: {
