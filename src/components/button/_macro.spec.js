@@ -287,7 +287,7 @@ describe('FOR: Macro: Button', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            it('THEN: renders an `a` element', () => {
+            it('THEN: renders an <a> element', () => {
                 expect($('a').length).toBe(1);
             });
 
