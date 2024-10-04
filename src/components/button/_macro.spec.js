@@ -241,8 +241,9 @@ describe('FOR: Macro: Button', () => {
 
                 expect($('button').attr('type')).toBe('special-type');
             });
-
-            it('THEN: has the provided type attribute if variant contains print', () => {
+        });
+        describe('WHEN: type parameter is provided and variant contains print', () => {
+            it('THEN: has the provided type attribute', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         type: 'special-type',
@@ -259,8 +260,9 @@ describe('FOR: Macro: Button', () => {
 
                 expect($('button').attr('type')).toBe('submit');
             });
-
-            it('THEN: defaults to being a button if variants contains print', () => {
+        });
+        describe('WHEN: type parameter is not provided and variant contains print', () => {
+            it('THEN: defaults to being a button', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: 'print',
@@ -324,7 +326,7 @@ describe('FOR: Macro: Button', () => {
                         newWindow: true,
                     }),
                 );
-                expect($('.ons-btn__new-window-description').text()).toBe(' (opens in a new tab)');
+                expect($('.ons-btn__new-window-description').text()).toBe('(opens in a new tab)');
             });
         });
         describe('WHEN: url parameter is provided, newWindow is true and newWindowDescription is provided', () => {
@@ -336,7 +338,7 @@ describe('FOR: Macro: Button', () => {
                         newWindowDescription: 'custom opens in a new window text',
                     }),
                 );
-                expect($('.ons-btn__new-window-description').text()).toBe(' (custom opens in a new window text)');
+                expect($('.ons-btn__new-window-description').text()).toBe('(custom opens in a new window text)');
             });
         });
     });
