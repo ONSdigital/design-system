@@ -32,7 +32,7 @@
     &__pre-title {
         margin-bottom: 0.5rem;
 
-        @include mq(xxs, m) {
+        @include mq('2xs', m) {
             max-width: 145px;
         }
     }

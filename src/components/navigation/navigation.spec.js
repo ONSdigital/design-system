@@ -212,7 +212,7 @@ describe('script: navigation', () => {
 
                 it('has the hide class removed from the navigation list', async () => {
                     const hasClass = await page.$eval(navEl, (node) =>
-                        node.classList.contains('ons-u-d-no@xxs@l' || 'ons-u-d-no' || 'ons-u-d-no@xs@l'),
+                        node.classList.contains('ons-u-d-no@2xs@l' || 'ons-u-d-no' || 'ons-u-d-no@xs@l'),
                     );
                     expect(hasClass).toBe(false);
                 });
@@ -284,7 +284,7 @@ describe('script: navigation', () => {
 
                 it('has the hide class removed from the navigation list', async () => {
                     const hasClass = await page.$eval(navEl, (node) =>
-                        node.classList.contains('ons-u-d-no@xxs@l' || 'ons-u-d-no' || 'ons-u-d-no@xs@l'),
+                        node.classList.contains('ons-u-d-no@2xs@l' || 'ons-u-d-no' || 'ons-u-d-no@xs@l'),
                     );
                     expect(hasClass).toBe(false);
                 });

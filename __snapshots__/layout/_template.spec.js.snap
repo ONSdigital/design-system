@@ -753,7 +753,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     
                         <div class="ons-header__links ons-grid__col ons-u-ml-auto">
                             
-                                <div class="ons-grid__col ons-col-auto ons-u-mr-s ons-u-d-no@xxs@xs">
+                                <div class="ons-grid__col ons-col-auto ons-u-mr-s ons-u-d-no@2xs@xs">
                                     
                                     
     
@@ -774,7 +774,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                     
                                     
                                 
-                                <div class="ons-grid__col ons-col-auto ons-u-d-no@xxs@m">
+                                <div class="ons-grid__col ons-col-auto ons-u-d-no@2xs@m">
                                     <nav class="ons-header-service-nav ons-header-service-nav--main" aria-label="Services menu">
                                         <ul class="ons-header-service-nav__list">
                                             
@@ -926,7 +926,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     
     
-    <button type="submit" class="ons-btn ons-u-d-no@xxs@l ons-btn--ghost-dark">
+    <button type="submit" class="ons-btn ons-u-d-no@2xs@l ons-btn--ghost-dark">
     <span class="ons-btn__inner"><span class="ons-btn__text">Save and sign out</span><svg class="ons-icon ons-u-ml-2xs" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-exit">
             <path d="M13.85,7.65l-2.5-2.5a.5.5,0,0,0-.71,0,.48.48,0,0,0-.15.36V7h-3a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h3v1.5A.49.49,0,0,0,11,11a.48.48,0,0,0,.34-.14l2.51-2.5a.49.49,0,0,0,0-.68Z" transform="translate(-2 -2)"></path>
             <path d="M8.5,14h-6a.5.5,0,0,1-.5-.5V2.5A.5.5,0,0,1,2.5,2h6a.5.5,0,0,1,.5.5V3a.5.5,0,0,1-.5.5h-5v9h5A.5.5,0,0,1,9,13v.5A.5.5,0,0,1,8.5,14Z" transform="translate(-2 -2)"></path>
@@ -986,7 +986,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     
     <div class="ons-navigation-wrapper ons-navigation-wrapper--neutral">
-        <div class="ons-container ons-container--gutterless@xxs@l">
+        <div class="ons-container ons-container--gutterless@2xs@l">
             
             <nav class="ons-navigation ons-navigation--main ons-js-navigation" id="main-nav" aria-label="Main menu" data-analytics="header-navigation">
                 <ul class="ons-navigation__list">
@@ -1037,8 +1037,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     </div>
     
         
-            <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l" id="sub-nav" aria-label="Section menu" data-analytics="header-section-navigation">
-                <div class="ons-container ons-container--gutterless@xxs@l">
+            <nav class="ons-navigation ons-navigation--sub ons-u-d-no@2xs@l" id="sub-nav" aria-label="Section menu" data-analytics="header-section-navigation">
+                <div class="ons-container ons-container--gutterless@2xs@l">
                     <ul class="ons-navigation__list ons-navigation__list">
                         
                             <li class="ons-navigation__item">
@@ -1111,7 +1111,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     </button>
 
             <nav class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-2xs" id="sub-nav--mobile" aria-hidden="true" aria-label="Section menu" data-analytics="header-section-navigation">
-                <div class="ons-container ons-container--gutterless@xxs@l">
+                <div class="ons-container ons-container--gutterless@2xs@l">
                     <ul class="ons-navigation__list ons-navigation__list--parent">
                         <li class="ons-navigation__item">
                             <a class="ons-navigation__link" href="#0">Overview</a>
@@ -1447,7 +1447,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             </div>
                         
                             <!-- Full footer columns -->
-                            <div class="ons-grid__col ons-col-4@m ons-u-mt-l@xxs@m">
+                            <div class="ons-grid__col ons-col-4@m ons-u-mt-l@2xs@m">
                                 
                                     <h2 class="ons-footer__heading ons-u-fs-r--b">About ONS</h2>
                                 
@@ -1516,7 +1516,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             </div>
                         
                             <!-- Full footer columns -->
-                            <div class="ons-grid__col ons-col-4@m ons-u-mt-l@xxs@m">
+                            <div class="ons-grid__col ons-col-4@m ons-u-mt-l@2xs@m">
                                 
                                     <h2 class="ons-footer__heading ons-u-fs-r--b">Statistics</h2>
                                 

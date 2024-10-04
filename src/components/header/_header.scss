@@ -31,7 +31,7 @@
     }
     &__title {
         @extend .ons-u-fs-r--b;
-        @extend .ons-u-fs-xl\@xxs;
+        @extend .ons-u-fs-xl\@2xs;
 
         color: var(--ons-color-white);
 
@@ -168,7 +168,7 @@
     }
 
     &__org-logo--large {
-        @include mq(xxs, 454px) {
+        @include mq('2xs', 454px) {
             display: none;
         }
     }

@@ -146,7 +146,7 @@ $hub-row-spacing: 1.3rem;
     }
 
     // Breakpoints
-    @include mq(xxs, m, none, '<') {
+    @include mq('2xs', m, none, '<') {
         &__item-title,
         &__values,
         &__actions {
