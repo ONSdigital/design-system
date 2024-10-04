@@ -15,8 +15,7 @@
 }
 
 .ons-page__main {
-    margin-bottom: 4rem;
-    margin-top: 2.5rem;
+    margin: 2.5rem 0 4rem;
 
     @include mq(xxs, m) {
         margin-top: 1.5rem;
