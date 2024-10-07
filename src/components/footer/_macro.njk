@@ -138,8 +138,8 @@
                                         "iconType": 'ogl'
                                     })
                                 -}}
-                                {% if params.OGLLink.HTML %}
-                                    {{ params.OGLLink.HTML | safe }}
+                                {% if params.OGLLink.html %}
+                                    {{ params.OGLLink.html | safe }}
                                 {% elif params.OGLLink %}
                                     {% from "components/external-link/_macro.njk" import onsExternalLink %}
                                     {% if params.lang == 'cy' %}
