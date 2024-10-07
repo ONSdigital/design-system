@@ -69,7 +69,7 @@
 
 ## Logo
 
-| Name      | Type           | Required | Description                                                                             |
-| --------- | -------------- | -------- | --------------------------------------------------------------------------------------- |
-| logoImage | HTML or string | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`.                    |
-| logoUrl   | string         | false    | Wraps the extra logo in a link. Set the URL for the HTML `href` attribute for the link. |
+| Name      | Type   | Required | Description                                                                             |
+| --------- | ------ | -------- | --------------------------------------------------------------------------------------- |
+| logoImage | string | false    | HTML to render an image for example embedded `<svg>` or `<img>`.                        |
+| logoUrl   | string | false    | Wraps the extra logo in a link. Set the URL for the HTML `href` attribute for the link. |
