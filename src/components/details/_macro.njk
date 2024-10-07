@@ -12,9 +12,9 @@
             role="button"
             {% if params.headingAttributes %}{% for attribute, value in (params.headingAttributes.items() if params.headingAttributes is mapping and params.headingAttributes.items else params.headingAttributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
         >
-            {% set titleTag = params.titleTag | default("h2") %}
-            {% set openingTag = "<" + titleTag %}
-            {% set closingTag = "</" + titleTag + ">" %}
+            {% set titleTag = params.headingLevel | default(2) %}
+            {% set openingTag = "<h" + titleTag %}
+            {% set closingTag = "</h" + titleTag + ">" %}
             {{ openingTag | safe }}
             class="ons-details__title">{{ params.title }}{{ closingTag | safe }}
             <span class="ons-details__icon">

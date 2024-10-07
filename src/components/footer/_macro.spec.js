@@ -8,7 +8,7 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_OGL_LINK_PARAM = {
     pre: 'All content is available under the',
-    link: 'Open Government Licence v3.0',
+    text: 'Open Government Licence v3.0',
     url: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
     post: ', except where otherwise stated',
 };
@@ -125,7 +125,7 @@ describe('macro: footer', () => {
 
     describe('OGL link', () => {
         const params = {
-            OGLLink: EXAMPLE_OGL_LINK_PARAM,
+            oglLink: EXAMPLE_OGL_LINK_PARAM,
         };
 
         it('passes jest-axe checks', async () => {
@@ -147,8 +147,8 @@ describe('macro: footer', () => {
         it('renders raw HTML when `html` is provided', () => {
             const $ = cheerio.load(
                 renderComponent('footer', {
-                    OGLLink: {
-                        ...params.OGLLink,
+                    oglLink: {
+                        ...params.oglLink,
                         html: '<strong>Bold text.</strong>',
                     },
                 }),
@@ -167,7 +167,7 @@ describe('macro: footer', () => {
             expect(externalLinkSpy.occurrences).toContainEqual(
                 expect.objectContaining({
                     url: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-                    linkText: 'Open Government Licence v3.0',
+                    text: 'Open Government Licence v3.0',
                 }),
             );
         });
@@ -179,11 +179,11 @@ describe('macro: footer', () => {
             expect(licenseHtml).toContain(', except where otherwise stated');
         });
 
-        it('renders welsh `post` content when `lang:cy` provided and `OGLLink` is "true"', () => {
+        it('renders welsh `post` content when `lang:cy` provided and `oglLink` is "true"', () => {
             const $ = cheerio.load(
                 renderComponent('footer', {
                     lang: 'cy',
-                    OGLLink: true,
+                    oglLink: true,
                 }),
             );
 
@@ -354,8 +354,8 @@ describe('macro: footer', () => {
         });
     });
 
-    describe('poweredBy logo', () => {
-        describe('default poweredBy logo', () => {
+    describe('Footer logo', () => {
+        describe('default footer logo', () => {
             describe.each([
                 [
                     'the `lang` parameter is not provided',
@@ -387,7 +387,7 @@ describe('macro: footer', () => {
                 });
             });
         });
-        describe('provided poweredBy logo', () => {
+        describe('provided footer logo', () => {
             describe.each([
                 [
                     'the `lang` parameter is "cy"',
@@ -415,54 +415,74 @@ describe('macro: footer', () => {
             it('has the Welsh lang link when the default Welsh lang ons icon is present', () => {
                 const $ = cheerio.load(renderComponent('footer', { lang: 'cy' }));
 
-                expect($('.ons-footer__poweredBy-link').attr('href')).toBe('https://cy.ons.gov.uk/');
+                expect($('.ons-footer__logo-link').attr('href')).toBe('https://cy.ons.gov.uk/');
             });
             it('has the English lang link when the default English lang ons icon is present', () => {
                 const $ = cheerio.load(renderComponent('footer', { lang: 'en' }));
 
-                expect($('.ons-footer__poweredBy-link').attr('href')).toBe('https://www.ons.gov.uk/');
+                expect($('.ons-footer__logo-link').attr('href')).toBe('https://www.ons.gov.uk/');
             });
         });
-        describe('provided poweredBy logo', () => {
+        describe('provided footer logo', () => {
             describe.each([
                 [
-                    'the `poweredBy` and `OGLLink` parameters are provided',
+                    'the `footerLogo` and `oglLink` parameters are provided',
                     {
-                        poweredBy: '<img src="logo.svg" class="custom-logo" alt="logo">',
-                        OGLLink: EXAMPLE_OGL_LINK_PARAM,
+                        footerLogo: {
+                            logos: {
+                                logo1: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                            },
+                        },
+                        oglLink: EXAMPLE_OGL_LINK_PARAM,
                     },
                 ],
                 [
-                    'the `poweredBy` and `legal` parameters are provided',
+                    'the `footerLogo` and `legal` parameters are provided',
                     {
-                        poweredBy: '<img src="logo.svg" class="custom-logo" alt="logo">',
+                        footerLogo: {
+                            logos: {
+                                logo1: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                            },
+                        },
                         legal: EXAMPLE_LEGAL_PARAM,
                     },
                 ],
                 [
-                    'the `poweredBy` and `crest` parameters are provided',
+                    'the `footerLogo` and `crest` parameters are provided',
                     {
-                        poweredBy: '<img src="logo.svg" class="custom-logo" alt="logo">',
+                        footerLogo: {
+                            logos: {
+                                logo1: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                            },
+                        },
                         crest: true,
                     },
                 ],
                 [
-                    'the `poweredBy`, `legal` and `crest` parameters are provided',
+                    'the `footerLogo`, `legal` and `crest` parameters are provided',
                     {
-                        poweredBy: '<img src="logo.svg" class="custom-logo" alt="logo">',
+                        footerLogo: {
+                            logos: {
+                                logo1: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                            },
+                        },
                         legal: EXAMPLE_LEGAL_PARAM,
                         crest: true,
                     },
                 ],
                 [
-                    'the `poweredBy` parameter is provided but the `legal` and `crest` parameters are not provided',
+                    'the `footerLogo` parameter is provided but the `legal` and `crest` parameters are not provided',
                     {
-                        poweredBy: '<img src="logo.svg" class="custom-logo" alt="logo">',
+                        footerLogo: {
+                            logos: {
+                                logo1: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                            },
+                        },
                     },
                 ],
-            ])('where %s', (_, poweredByParams) => {
+            ])('where %s', (_, footerLogoParams) => {
                 const params = {
-                    ...poweredByParams,
+                    ...footerLogoParams,
                 };
 
                 it('passes jest-axe checks', async () => {
@@ -477,6 +497,48 @@ describe('macro: footer', () => {
 
                     expect($('.custom-logo').length).toBe(1);
                 });
+            });
+
+            it('has the extra footer logo image and link', () => {
+                const $ = cheerio.load(
+                    renderComponent('footer', {
+                        footerLogo: {
+                            logos: {
+                                logo1: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                                logo2: {
+                                    logoUrl: '#0',
+                                    logoImage: '<img src="a-logo.svg">',
+                                },
+                            },
+                        },
+                        legal: EXAMPLE_LEGAL_PARAM,
+                        crest: true,
+                    }),
+                );
+
+                expect($('.ons-footer__logo-link').attr('href')).toBe('#0');
+                expect($('.ons-footer__logo-link > img').attr('src')).toBe('a-logo.svg');
+            });
+
+            it('has the correct class applied for opposite display of logos', () => {
+                const $ = cheerio.load(
+                    renderComponent('footer', {
+                        footerLogo: {
+                            logos: {
+                                logo1: { logoImage: '<img src="logo.svg" class="custom-logo" alt="logo">' },
+                                logo2: {
+                                    logoUrl: '#0',
+                                    logoImage: '<img src="a-logo.svg">',
+                                },
+                            },
+                            display: 'split',
+                        },
+                        legal: EXAMPLE_LEGAL_PARAM,
+                        crest: true,
+                    }),
+                );
+
+                expect($('.ons-footer__logo-container').attr('class')).toContain('ons-grid-flex--between');
             });
         });
     });

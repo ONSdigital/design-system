@@ -20,35 +20,35 @@
 
 ## MastheadLogo
 
-| Name          | Type                    | Required | Description                                                                    |
-| ------------- | ----------------------- | -------- | ------------------------------------------------------------------------------ |
-| classes       | string                  | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
-| large         | string                  | false    | HTML to render an image for example embedded `<svg>` or `<img>`                |
-| small         | string                  | false    | Optionally provide a version of the logo more suited to mobile viewports       |
-| multipleLogos | object`<MultipleLogos>` | false    | Allows for up to three logos to be used in the masthead.                       |
+| Name          | Type                    | Required | Description                                                              |
+| ------------- | ----------------------- | -------- | ------------------------------------------------------------------------ |
+| classes       | string                  | false    | Classes to be added to the masthead logo                                 |
+| large         | string                  | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`      |
+| small         | string                  | false    | Optionally provide a version of the logo more suited to mobile viewports |
+| multipleLogos | object`<MultipleLogos>` | false    | Allows for up to three logos to be used in the masthead                  |
 
 ## MultipleLogos
 
-| Name  | Type                 | Required | Description |
-| ----- | -------------------- | -------- | ----------- |
-| logo1 | object`<LogoObject>` | true     | First Logo  |
-| logo2 | object`<LogoObject>` | false    | Second Logo |
-| logo3 | object`<LogoObject>` | false    | Third Logo  |
+| Name  | Type           | Required | Description |
+| ----- | -------------- | -------- | ----------- |
+| logo1 | object`<Logo>` | true     | First Logo  |
+| logo2 | object`<Logo>` | false    | Second Logo |
+| logo3 | object`<Logo>` | false    | Third Logo  |
 
-## LogoObject
+## Logo
 
-| Name      | Type           | Required | Description                                                                                               |
-| --------- | -------------- | -------- | --------------------------------------------------------------------------------------------------------- |
-| logoImage | HTML or string | false    | HTML to render an image for example embedded `<svg>` or `<img>`. Use 'ONS Logo' for the default ONS icon. |
-| logoURL   | string         | false    | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                |
+| Name  | Type   | Required | Description                                                                                                   |
+| ----- | ------ | -------- | ------------------------------------------------------------------------------------------------------------- |
+| image | string | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`. Use 'ONS Logo' for the default ONS icon. |
+| url   | string | false    | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                    |
 
 ## TitleLogo
 
-| Name    | Type   | Required | Description                                                                    |
-| ------- | ------ | -------- | ------------------------------------------------------------------------------ |
-| classes | string | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
-| large   | string | true     | HTML to render an image for example embedded `<svg>` or `<img>`                |
-| small   | string | false    | Optionally provide a version of the logo more suited to mobile viewports       |
+| Name    | Type   | Required | Description                                                              |
+| ------- | ------ | -------- | ------------------------------------------------------------------------ |
+| classes | string | false    | Classes to be added to the masthead logo                                 |
+| large   | string | true     | Any HTML to render an image for example embedded `<svg>` or `<img>`      |
+| small   | string | false    | Optionally provide a version of the logo more suited to mobile viewports |
 
 ## ServiceLinks
 
@@ -72,7 +72,7 @@
 | Name       | Type    | Required | Description                                                                                         |
 | ---------- | ------- | -------- | --------------------------------------------------------------------------------------------------- |
 | url        | string  | true     | URL to change the application language                                                              |
-| ISOCode    | string  | true     | The ISO language code for the language                                                              |
+| isoCode    | string  | true     | The ISO language code for the language                                                              |
 | text       | string  | true     | The name of the language to display                                                                 |
 | abbrText   | string  | false    | Abbreviated version of the language text can be provided. This will be displayed on small viewports |
 | current    | boolean | true     | The current selected language                                                                       |
@@ -92,10 +92,10 @@
 
 ## ToggleButton
 
-| Name      | Type   | Required | Description                                                                  |
-| --------- | ------ | -------- | ---------------------------------------------------------------------------- |
-| text      | string | false    | The text for the toggle button label. Defaults to “Menu”.                    |
-| ariaLabel | string | false    | The `aria-label` attribute for the toggle button. Defaults to “Toggle menu”. |
+| Name      | Type   | Required | Description                                                                 |
+| --------- | ------ | -------- | --------------------------------------------------------------------------- |
+| text      | string | false    | The text for the toggle button label. Defaults to “Menu”                    |
+| ariaLabel | string | false    | The `aria-label` attribute for the toggle button. Defaults to “Toggle menu” |
 
 ## Item
 

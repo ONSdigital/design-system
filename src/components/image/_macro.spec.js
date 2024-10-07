@@ -5,8 +5,8 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
-const EXAMPLE_IMAGE_URL_MINIMAL = {
-    url: 'example.png',
+const EXAMPLE_IMAGE_SRC_URL_MINIMAL = {
+    src: 'example.png',
 };
 
 const EXAMPLE_IMAGE_IMAGE_MINIMAL = {
@@ -18,7 +18,7 @@ const EXAMPLE_IMAGE_IMAGE_MINIMAL = {
 
 describe('macro: image', () => {
     it('outputs a `figure` element', () => {
-        const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_URL_MINIMAL));
+        const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_SRC_URL_MINIMAL));
 
         expect($('.ons-image')[0].tagName).toBe('figure');
     });
@@ -26,7 +26,7 @@ describe('macro: image', () => {
     it('outputs a `figurecaption` element when `caption` is provided', () => {
         const $ = cheerio.load(
             renderComponent('image', {
-                ...EXAMPLE_IMAGE_URL_MINIMAL,
+                ...EXAMPLE_IMAGE_SRC_URL_MINIMAL,
                 caption: 'Example image caption',
             }),
         );
@@ -37,7 +37,7 @@ describe('macro: image', () => {
     it('outputs a `figurecaption` element with provided `caption` text', () => {
         const $ = cheerio.load(
             renderComponent('image', {
-                ...EXAMPLE_IMAGE_URL_MINIMAL,
+                ...EXAMPLE_IMAGE_SRC_URL_MINIMAL,
                 caption: 'Example image caption',
             }),
         );
@@ -45,22 +45,22 @@ describe('macro: image', () => {
         expect($('.ons-image__caption').text().trim()).toBe('Example image caption');
     });
 
-    describe('mode: url', () => {
+    describe('mode: src', () => {
         it('passes jest-axe checks', async () => {
-            const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_URL_MINIMAL));
+            const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_SRC_URL_MINIMAL));
 
             const results = await axe($.html());
             expect(results).toHaveNoViolations();
         });
 
         it('outputs an `img` element', () => {
-            const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_URL_MINIMAL));
+            const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_SRC_URL_MINIMAL));
 
             expect($('.ons-image__img')[0].tagName).toBe('img');
         });
 
         it('outputs an `img` element with the expected `src`', () => {
-            const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_URL_MINIMAL));
+            const $ = cheerio.load(renderComponent('image', EXAMPLE_IMAGE_SRC_URL_MINIMAL));
 
             expect($('.ons-image__img').attr('src')).toBe('example.png');
         });
@@ -68,7 +68,7 @@ describe('macro: image', () => {
         it('outputs an `img` element with the expected alt text', () => {
             const $ = cheerio.load(
                 renderComponent('image', {
-                    ...EXAMPLE_IMAGE_URL_MINIMAL,
+                    ...EXAMPLE_IMAGE_SRC_URL_MINIMAL,
                     alt: 'Example alt text',
                 }),
             );
