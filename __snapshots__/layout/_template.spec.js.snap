@@ -169,7 +169,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                     <div class="ons-grid__col ons-col-auto">
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
-                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
+                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="208" height="20" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
             <title id="ons-logo-en-alt">
                 Office for National Statistics homepage
             </title>
@@ -408,7 +408,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                     <div class="ons-grid__col ons-col-auto">
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
-                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
+                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="208" height="20" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
             <title id="ons-logo-en-alt">
                 Office for National Statistics homepage
             </title>
@@ -690,7 +690,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                 <div class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto"><a class="ons-header__org-logo-link" href="#0">
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
-                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
+                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="208" height="20" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
             <title id="ons-logo-en-alt">
                 Office for National Statistics homepage
             </title>
@@ -1713,7 +1713,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
                         <div class="ons-footer__logo-container ons-u-mb-l ons-grid-flex ons-grid-flex--vertical-top">
                             <a class="ons-footer__logo-link" href="https://www.ons.gov.uk/">
-        <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-footer-alt" role="img">
+        <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="208" height="20" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-footer-alt" role="img">
             <title id="ons-logo-en-footer-alt">
                 Office for National Statistics
             </title>
@@ -1896,7 +1896,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                     <div class="ons-grid__col ons-col-auto">
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
-                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
+                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="208" height="20" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
             <title id="ons-logo-en-alt">
                 Office for National Statistics homepage
             </title>
@@ -2119,7 +2119,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
                     <div class="ons-grid__col ons-col-auto">
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
-                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
+                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="208" height="20" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
             <title id="ons-logo-en-alt">
                 Office for National Statistics homepage
             </title>
