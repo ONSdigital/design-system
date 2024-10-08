@@ -13,6 +13,9 @@
         background-clip: border-box;
         background-color: var(--ons-color-header);
         padding: 1rem;
+        a {
+            text-decoration: none;
+        }
     }
 
     &__warning {
@@ -25,7 +28,7 @@
     }
 
     &__ogl-img {
-        margin: 0 0.5rem 0.2rem 0;
+        margin: 0 0.5rem 0.25rem 0;
         max-width: 100%;
         vertical-align: middle;
     }
@@ -56,7 +59,7 @@
 
     &--rows {
         li {
-            margin-bottom: 0.5rem !important;
+            @extend .ons-u-mb-2xs;
         }
     }
 }

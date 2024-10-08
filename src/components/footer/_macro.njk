@@ -75,14 +75,14 @@
                 <div class="ons-grid">
                     {% if params.newTabWarning %}
                         <div class="ons-grid__col">
-                            <p class="ons-u-fs-s ons-u-mb-m ons-footer__new-tab-warning">{{ params.newTabWarning | safe }}</p>
+                            <p class="ons-u-fs-s ons-u-mb-l ons-footer__new-tab-warning">{{ params.newTabWarning | safe }}</p>
                         </div>
                     {% endif %}
 
                     {% if params.cols %}
                         {% for col in params.cols %}
                             <!-- Full footer columns -->
-                            <div class="ons-grid__col ons-col-4@m{{ ' ons-u-mt-m@xxs@m' if loop.index > 1 }}">
+                            <div class="ons-grid__col ons-col-4@m{{ ' ons-u-mt-l@2xs@m' if loop.index > 1 }}">
                                 {% if col.title %}
                                     <h2 class="ons-footer__heading ons-u-fs-r--b">{{ col.title }}</h2>
                                 {% endif %}
@@ -111,7 +111,7 @@
                     {% endif %}
 
                     {% if (params.cols) or (params.rows) %}
-                        <div class="ons-grid__col ons-u-mb-m">
+                        <div class="ons-grid__col ons-u-mb-l">
                             <hr class="ons-footer__hr" />
                         </div>
                     {% endif %}
@@ -134,7 +134,7 @@
 
                         {% if params.oglLink %}
                             <!-- OGL -->
-                            <div class="ons-footer__license ons-u-mb-m">
+                            <div class="ons-footer__license ons-u-mb-l">
                                 {{-
                                     onsIcon({
                                         "iconType": 'ogl'
@@ -178,7 +178,7 @@
                         {% endif %}
 
                         <div
-                            class="ons-footer__logo-container ons-u-mb-m ons-grid-flex ons-grid-flex--vertical-top{{ ' ons-grid-flex--between' if params.footerLogo.display == 'split' else "" }}"
+                            class="ons-footer__logo-container ons-u-mb-l ons-grid-flex ons-grid-flex--vertical-top{{ ' ons-grid-flex--between' if params.footerLogo.display == 'split' else "" }}"
                         >
                             {% for logo in logos %}
                                 {%- if logo.logoUrl -%}
@@ -196,7 +196,7 @@
                     </div>
                     {% if params.crest %}
                         <!-- Crest -->
-                        <div class="ons-grid__col ons-footer__crest ons-u-mb-m@xxs@l">
+                        <div class="ons-grid__col ons-footer__crest ons-u-mb-l@2xs@l">
                             {{-
                                 onsIcon({
                                     "iconType": 'crest'
@@ -210,7 +210,7 @@
                     {% set copyrightDeclaration = '&copy; ' + params.copyrightDeclaration.copyright + '<br /> ' + params.copyrightDeclaration.text %}
                     <div class="ons-grid ons-grid-flex ons-grid-flex--between">
                         <div class="ons-grid__col">
-                            <p class="ons-u-fs-s ons-u-mb-no ons-footer__copyright">{{- copyrightDeclaration | safe -}}</p>
+                            <p class="ons-u-fs-s ons-u-mb-l ons-footer__copyright">{{- copyrightDeclaration | safe -}}</p>
                         </div>
                     </div>
                 {% endif %}

@@ -6,7 +6,7 @@
         {% set openingTag = "<h" ~ titleTag %}
         {% set closingTag = "</h" ~ titleTag ~ ">" %}
         {{ openingTag | safe }}
-        class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}{{ closingTag | safe }}
+        class="ons-u-fs-r--b ons-u-mb-2xs">{{ params.title }}{{ closingTag | safe }}
     {% endif %}
 
     {% if params.facebook and params.facebook == true %}
@@ -37,7 +37,7 @@
         onsList({
             "variants": 'inline',
             "iconPosition": 'before',
-            "iconSize": params.iconSize | default("xxl"),
+            "iconSize": params.iconSize | default("2xl"),
             "itemsList": [facebook, twitter]
         })
     }}
