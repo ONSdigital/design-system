@@ -4,7 +4,7 @@
     <div class="ons-timeline{{ ' ' + params.classes if params.classes else '' }}">
         {% set titleTag = params.headingLevel | default(2) %}
         {% set openingTag = "<h" ~ titleTag %}
-        {% set closingTag = "</h" ~ titleTag + ">" %}
+        {% set closingTag = "</h" ~ titleTag ~ ">" %}
         {% for item in params.timelineItems %}
             <div class="ons-timeline__item">
                 {{ openingTag | safe }} class="ons-timeline__heading">{{ item.heading }}{{ closingTag | safe }}
