@@ -13,6 +13,9 @@
         background-clip: border-box;
         background-color: var(--ons-color-header);
         padding: 1rem;
+        a {
+            text-decoration: none;
+        }
     }
 
     &__warning {
