@@ -23,8 +23,8 @@
 | Name          | Type                    | Required | Description                                                              |
 | ------------- | ----------------------- | -------- | ------------------------------------------------------------------------ |
 | classes       | string                  | false    | Classes to be added to the masthead logo                                 |
-| large         | HTML                    | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`      |
-| small         | HTML                    | false    | Optionally provide a version of the logo more suited to mobile viewports |
+| large         | string                  | false    | HTML to render an image for example embedded `<svg>` or `<img>`          |
+| small         | string                  | false    | Optionally provide a version of the logo more suited to mobile viewports |
 | multipleLogos | object`<MultipleLogos>` | false    | Allows for up to three logos to be used in the masthead                  |
 
 ## MultipleLogos
@@ -37,18 +37,18 @@
 
 ## Logo
 
-| Name      | Type           | Required | Description                                                                                                   |
-| --------- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
-| logoImage | HTML or string | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`. Use 'ONS Logo' for the default ONS icon. |
-| logoUrl   | string         | false    | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                    |
+| Name  | Type   | Required | Description                                                                                               |
+| ----- | ------ | -------- | --------------------------------------------------------------------------------------------------------- |
+| image | string | false    | HTML to render an image for example embedded `<svg>` or `<img>`. Use 'ONS Logo' for the default ONS icon. |
+| url   | string | false    | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                |
 
 ## TitleLogo
 
 | Name    | Type   | Required | Description                                                              |
 | ------- | ------ | -------- | ------------------------------------------------------------------------ |
 | classes | string | false    | Classes to be added to the masthead logo                                 |
-| large   | HTML   | true     | Any HTML to render an image for example embedded `<svg>` or `<img>`      |
-| small   | HTML   | false    | Optionally provide a version of the logo more suited to mobile viewports |
+| large   | string | true     | HTML to render an image for example embedded `<svg>` or `<img>`          |
+| small   | string | false    | Optionally provide a version of the logo more suited to mobile viewports |
 
 ## ServiceLinks
 
