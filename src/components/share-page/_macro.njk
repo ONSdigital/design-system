@@ -2,8 +2,11 @@
     {% from "components/list/_macro.njk" import onsList %}
 
     {% if params.title %}
-        {% set headingLevel = params.headingLevel | default(2) %}
-        <h{{ headingLevel }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</h{{ headingLevel }}>
+        {% set titleTag = params.headingLevel | default(2) %}
+        {% set openingTag = "<h" ~ titleTag %}
+        {% set closingTag = "</h" ~ titleTag ~ ">" %}
+        {{ openingTag | safe }}
+        class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}{{ closingTag | safe }}
     {% endif %}
 
     {% if params.facebook and params.facebook == true %}

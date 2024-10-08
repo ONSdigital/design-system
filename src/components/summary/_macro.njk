@@ -22,7 +22,10 @@
             {% for group in summary.groups %}
                 <div {% if group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__group{{ variantClasses }}">
                     {% if group.title %}
-                        <h{{ headingLevel }} class="ons-summary__group-title">{{ group.title }}</h{{ headingLevel }}>
+                        {% set openingHeadingTag = "<h" ~ headingLevel %}
+                        {% set closingHeadingTag = "</h" ~ headingLevel ~ ">" %}
+                        {{ openingHeadingTag | safe }}
+                        class="ons-summary__group-title">{{ group.title }}{{ closingHeadingTag | safe }}
                     {% endif %}
                     {% if group.rows %}
                         <dl class="ons-summary__items">

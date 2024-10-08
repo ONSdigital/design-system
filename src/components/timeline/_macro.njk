@@ -2,8 +2,10 @@
     {% from "components/list/_macro.njk" import onsList %}
 
     <div class="ons-timeline{{ ' ' + params.classes if params.classes else '' }}">
-        {% set headingLevel = params.headingLevel | default(2) %}
-        {% for item in params.items %}
+        {% set titleTag = params.headingLevel | default(2) %}
+        {% set openingTag = "<h" ~ titleTag %}
+        {% set closingTag = "</h" ~ titleTag ~ ">" %}
+        {% for item in params.timelineItems %}
             <div class="ons-timeline__item">
                 <h{{ headingLevel }} class="ons-timeline__heading">{{ item.heading }}</h{{ headingLevel }}>
                 {% if item.itemsList %}
