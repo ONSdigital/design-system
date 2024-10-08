@@ -86,7 +86,7 @@ $details-caret-width: 1.75rem;
             border-top: 1px solid var(--ons-color-borders);
             margin: 0;
             padding-bottom: 1rem;
-            padding-top: 1rem;
+            padding-top: 15px; // set to 15px to allow for the 1px border top
             width: 100%;
 
             &:focus {
