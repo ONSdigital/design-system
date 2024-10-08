@@ -144,12 +144,12 @@ describe('macro: footer', () => {
             expect(iconsSpy.occurrences).toContainEqual(expect.objectContaining({ iconType: 'ogl' }));
         });
 
-        it('renders raw HTML when `HTML` is provided', () => {
+        it('renders raw HTML when `html` is provided', () => {
             const $ = cheerio.load(
                 renderComponent('footer', {
                     oglLink: {
                         ...params.oglLink,
-                        HTML: '<strong>Bold text.</strong>',
+                        html: '<strong>Bold text.</strong>',
                     },
                 }),
             );

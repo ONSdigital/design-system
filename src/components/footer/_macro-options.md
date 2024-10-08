@@ -19,11 +19,11 @@
 
 | Name | Type   | Required                    | Description                                           |
 | ---- | ------ | --------------------------- | ----------------------------------------------------- |
-| pre  | string | true (unless `HTML` is set) | The text before the OGL link                          |
-| url  | string | true (unless `HTML` is set) | The URL for the HTML `href` attribute of the OGL link |
-| text | string | true (unless `HTML` is set) | The text label for the OGL link                       |
-| post | string | true (unless `HTML` is set) | The text after the OGL link                           |
-| HTML | string | false                       | The alternative HTML for the OGL content              |
+| pre  | string | true (unless `html` is set) | The text before the OGL link                          |
+| url  | string | true (unless `html` is set) | The URL for the HTML `href` attribute of the OGL link |
+| text | string | true (unless `html` is set) | The text label for the OGL link                       |
+| post | string | true (unless `html` is set) | The text after the OGL link                           |
+| html | string | false                       | The alternative HTML for the OGL content              |
 
 ## CopyrightDeclaration
 
@@ -69,7 +69,7 @@
 
 ## Logo
 
-| Name      | Type           | Required | Description                                                                             |
-| --------- | -------------- | -------- | --------------------------------------------------------------------------------------- |
-| logoImage | HTML or string | false    | Any HTML to render an image for example embedded `<svg>` or `<img>`.                    |
-| logoUrl   | string         | false    | Wraps the extra logo in a link. Set the URL for the HTML `href` attribute for the link. |
+| Name      | Type   | Required | Description                                                                             |
+| --------- | ------ | -------- | --------------------------------------------------------------------------------------- |
+| logoImage | string | false    | HTML to render an image for example embedded `<svg>` or `<img>`.                        |
+| logoUrl   | string | false    | Wraps the extra logo in a link. Set the URL for the HTML `href` attribute for the link. |
