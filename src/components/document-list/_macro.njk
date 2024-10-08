@@ -5,8 +5,8 @@
     >
         {% for document in params.documents %}
             {% set titleTag = params.headingLevel | default(2) %}
-            {% set openingTag = "<h" + titleTag %}
-            {% set closingTag = "</h" + titleTag + ">" %}
+            {% set openingTag = "<h" ~ titleTag %}
+            {% set closingTag = "</h" ~ titleTag ~ ">" %}
             {% set documentItem %}
                 {% if document.thumbnail %}
                     <div
