@@ -34,14 +34,20 @@
                                     {% if row.errorMessage %}
                                         <div class="ons-summary__row-title--error ons-u-fs-r">{{ row.errorMessage }}</div>
                                     {% endif %}
-                                    {% if row.items | length > 1 and row.title %}
-                                        <div class="ons-summary__row-title ons-summary__row-title--no-group-title ons-u-fs-r">{{ row.title }}</div>
+                                    {% if row.itemsList | length > 1 and row.title %}
+                                        <div class="ons-summary__row-title ons-summary__row-title--no-group-title ons-u-fs-r">
+                                            {{- row.title -}}
+                                        </div>
                                     {% endif %}
 
-                                    {% for item in row.items %}
-                                        <div class="ons-summary__row{{ " ons-summary__row--has-values" if item.valueList else "" }}"{% if item.id %} id="{{ item.id }}"{% endif %}>
-                                            <dt class="ons-summary__item-title"
-                                                {% if item.titleAttributes %}{% for attribute, value in (item.titleAttributes.items() if item.titleAttributes is mapping and item.titleAttributes.items else item.titleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                    {% for item in row.itemsList %}
+                                        <div
+                                            class="ons-summary__row{{ ' ons-summary__row--has-values' if item.valueList else "" }}"
+                                            {% if item.id %}id="{{ item.id }}"{% endif %}
+                                        >
+                                            <dt
+                                                class="ons-summary__item-title"
+                                                {% if item.titleAttributes %}{% for attribute, value in (item.titleAttributes.items() if item.titleAttributes is mapping and item.titleAttributes.items else item.titleAttributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                             >
                                                 {% if item.iconType %}
                                                     {% from "components/icon/_macro.njk" import onsIcon %}
