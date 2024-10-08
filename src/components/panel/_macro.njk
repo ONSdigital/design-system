@@ -56,7 +56,7 @@
                 {% else %}
                     {% set defaultTitleTag = "div" %}
                 {% endif %}
-                {% set headingLevel = "h" ~  params.headingLevel if params.headingLevel else undefined %}
+                {% set headingLevel = "h" ~ params.headingLevel if params.headingLevel else undefined %}
                 {% set titleTag = headingLevel | default(defaultTitleTag) %}
                 {% set openingTag = "<" ~ titleTag %}
                 {% set closingTag = "</" ~ titleTag ~ ">" %}
