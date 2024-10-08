@@ -644,12 +644,12 @@ describe('macro: list', () => {
                 itemsList: [{ text: 'First item' }, { text: 'Second item', iconType: 'print' }, { text: 'Third item' }],
                 iconPosition,
                 iconType: 'check',
-                iconSize: 'xxl',
+                iconSize: '2xl',
             });
 
-            expect(iconsSpy.occurrences[0]).toEqual({ iconType: 'check', iconSize: 'xxl' });
-            expect(iconsSpy.occurrences[1]).toEqual({ iconType: 'print', iconSize: 'xxl' });
-            expect(iconsSpy.occurrences[2]).toEqual({ iconType: 'check', iconSize: 'xxl' });
+            expect(iconsSpy.occurrences[0]).toEqual({ iconType: 'check', iconSize: '2xl' });
+            expect(iconsSpy.occurrences[1]).toEqual({ iconType: 'print', iconSize: '2xl' });
+            expect(iconsSpy.occurrences[2]).toEqual({ iconType: 'check', iconSize: '2xl' });
         });
 
         it('renders the icon before the item text', () => {

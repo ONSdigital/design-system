@@ -38,7 +38,7 @@
                                     <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.text }}</a>
                                 {% endif %}
                                 {% if item.anchors and isCurrent == true %}
-                                    <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs">
+                                    <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-2xs ons-u-mb-2xs">
                                         {% for anchor in item.anchors %}
                                             <li class="ons-section-nav__item ons-list__item">
                                                 <a href="{{ anchor.url }}" class="ons-section-nav__link ons-list__link"
@@ -78,7 +78,7 @@
                             <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.text }}</a>
                         {% endif %}
                         {% if item.anchors %}
-                            <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs">
+                            <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-2xs ons-u-mb-2xs">
                                 {% for anchor in item.anchors %}
                                     <li class="ons-section-nav__item ons-list__item">
                                         <a href="{{ anchor.url }}" class="ons-section-nav__link ons-list__link">{{ anchor.text }}</a>

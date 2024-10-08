@@ -12,7 +12,7 @@ const EXAMPLE_REPLY = {
         id: 'reply-button',
         type: 'button',
         text: 'Send message',
-        classes: 'u-mb-xs',
+        classes: 'u-mb-2xs',
     },
     closeLinkText: 'Close conversation',
     closeLinkUrl: '/close-conversation',

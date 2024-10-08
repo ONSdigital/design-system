@@ -13,6 +13,9 @@
         background-clip: border-box;
         background-color: var(--ons-color-header);
         padding: 1rem;
+        a {
+            text-decoration: none;
+        }
     }
 
     &__extra-logo svg,
@@ -21,7 +24,17 @@
         width: auto;
     }
 
-    &__logo {
+    &__license {
+        @extend .ons-u-fs-s;
+    }
+
+    &__ogl-img {
+        margin: 0 0.5rem 0.25rem 0;
+        max-width: 100%;
+        vertical-align: middle;
+    }
+
+    &__logo-container {
         gap: 1rem;
 
         svg,

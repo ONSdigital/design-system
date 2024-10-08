@@ -329,7 +329,7 @@ describe('FOR: Macro: Header', () => {
             test('THEN: renders button with provided parameters', () => {
                 expect(buttonSpy.occurrences).toContainEqual({
                     text: 'Save and sign out',
-                    classes: 'ons-u-d-no@xxs@m',
+                    classes: 'ons-u-d-no@2xs@m',
                     variants: 'ghost',
                     name: 'button-name',
                     attributes: {
@@ -407,7 +407,7 @@ describe('FOR: Macro: Header', () => {
             faker.renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE);
 
             test('THEN: renders with correct display class on large screen', () => {
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@m')).toBe(true);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@m')).toBe(true);
             });
             test('THEN: renders button on small screen', () => {
                 expect(buttonSpy.occurrences).toContainEqual({
@@ -426,8 +426,8 @@ describe('FOR: Macro: Header', () => {
         describe('WHEN: one item is provided to the itemsList parameter', () => {
             const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_SINGLE));
             test('THEN: renders without multiple link display class on large screen', () => {
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@m')).toBe(false);
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@xs')).toBe(false);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@m')).toBe(false);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@xs')).toBe(false);
             });
             test('THEN: does not render button on small screen', () => {
                 expect($('.ons-js-toggle-services').length).toBe(0);
@@ -515,7 +515,7 @@ describe('FOR: Macro: Header', () => {
                 }),
             );
             test('THEN: renders with correct display class', () => {
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@xs')).toBe(true);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@xs')).toBe(true);
             });
         });
     });
@@ -574,7 +574,7 @@ describe('FOR: Macro: Header', () => {
             test('THEN: renders button to toggle menu on small screen', () => {
                 expect(buttonSpy.occurrences[0]).toEqual({
                     text: 'Menu',
-                    classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
+                    classes: 'ons-u-ml-2xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
                     variants: ['mobile', 'ghost'],
                     attributes: {
                         'aria-label': 'Toggle main menu',
@@ -647,7 +647,7 @@ describe('FOR: Macro: Header', () => {
             test('THEN: renders button to toggle search on small screen', () => {
                 expect(buttonSpy.occurrences[0]).toEqual({
                     text: 'Search',
-                    classes: 'ons-btn--search ons-u-ml-xs ons-u-d-no ons-js-toggle-search',
+                    classes: 'ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search',
                     variants: ['small', 'ghost'],
                     iconType: 'search',
                     iconPosition: 'only',
@@ -722,7 +722,7 @@ describe('FOR: Macro: Header', () => {
                         autocomplete: 'off',
                         classes: 'ons-input-search ons-input-search--icon',
                         label: {
-                            classes: 'ons-u-pl-l ons-label--white',
+                            classes: 'ons-u-pl-xl ons-label--white',
                             id: 'ons-site-search-label',
                             text: 'label',
                         },

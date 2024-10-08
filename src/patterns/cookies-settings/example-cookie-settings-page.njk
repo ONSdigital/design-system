@@ -77,10 +77,10 @@ layout: ~
 
 {% block main %}
     <div class="ons-page__body">
-        <h1 class="ons-u-fs-xxl">Cookies on ons.gov.uk</h1>
+        <h1 class="ons-u-fs-2xl">Cookies on ons.gov.uk</h1>
         {%
             call onsPanel({
-                "classes": "ons-u-mb-m ons-u-d-no ons-cookies-confirmation-message",
+                "classes": "ons-u-mb-l ons-u-d-no ons-cookies-confirmation-message",
                 "variant": "success",
                 "iconType": "check",
                 "iconSize": "xl"
@@ -336,15 +336,17 @@ layout: ~
                     <li>remember your progress through a form (for example, an ons study)</li>
                 </ul>
                 <p>They always need to be on.</p>
-                {% call onsDetails({
-                    "id": "cookies-essential-details",
-                    "classes": "ons-u-mb-l",
-                    "title": "Learn more about these essential cookies",
-                    "headingLevel": 4,
-                    "button": {
-                        "close": "Hide this"
-                    }
-                }) %}
+                {%
+                    call onsDetails({
+                        "id": "cookies-essential-details",
+                        "classes": "ons-u-mb-xl",
+                        "title": "Learn more about these essential cookies",
+                        "headingLevel": 4,
+                        "button": {
+                            "close": "Hide this"
+                        }
+                    })
+                %}
                     <h5 class="ons-u-fs-r--b">Your progress when filling in a survey or questionnaire</h5>
                     <p>
                         We’ll set a cookie to remember your progress through a survey or questionnaire. These cookies do not store your
