@@ -3,8 +3,8 @@
 
     {% if params.title %}
         {% set titleTag = params.headingLevel | default(2) %}
-        {% set openingTag = "<h" + titleTag %}
-        {% set closingTag = "</h" + titleTag + ">" %}
+        {% set openingTag = "<h" ~ titleTag %}
+        {% set closingTag = "</h" ~ titleTag ~ ">" %}
         {{ openingTag | safe }}
         class="ons-u-fs-r--b ons-u-mb-2xs">{{ params.title }}{{ closingTag | safe }}
     {% endif %}

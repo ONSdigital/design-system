@@ -52,14 +52,14 @@
 
             {% if params.title %}
                 {% if params.variant == 'error' %}
-                    {% set defaultTitleTag = "h" + 2 %}
+                    {% set defaultTitleTag = "h" ~ 2 %}
                 {% else %}
                     {% set defaultTitleTag = "div" %}
                 {% endif %}
-                {% set headingLevel = "h" +  params.headingLevel if params.headingLevel else undefined %}
+                {% set headingLevel = "h" ~ params.headingLevel if params.headingLevel else undefined %}
                 {% set titleTag = headingLevel | default(defaultTitleTag) %}
-                {% set openingTag = "<" + titleTag %}
-                {% set closingTag = "</" + titleTag + ">" %}
+                {% set openingTag = "<" ~ titleTag %}
+                {% set closingTag = "</" ~ titleTag ~ ">" %}
                 <div class="ons-panel__header">
                     {{ openingTag | safe }} id="alert"{% if params.variant %}data-qa="{{ params.variant }}-header"{% endif %}
                     class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}{{ closingTag | safe }}
