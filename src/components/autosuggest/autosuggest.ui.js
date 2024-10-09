@@ -293,7 +293,18 @@ export default class AutosuggestUI {
 
     async fetchSuggestions(sanitisedQuery, data) {
         this.abortFetch();
-        const results = await runFuse(sanitisedQuery, data, this.lang, this.resultLimit);
+
+        //const threshold = this.context.classList.includes('ons-autosuggest__results-extended-') ? 0.4 : 0.2;
+        const classList = Array.from(this.context.classList);
+        const thresholdClass = classList.find((className) => className.startsWith('ons-autosuggest__results-extended-'));
+        const extendedSearchThreshold = thresholdClass
+            ? parseFloat(thresholdClass.match(/ons-autosuggest__results-extended-([\d.]+)/)[1])
+            : null;
+        // validation needs to be discussed and done for this
+        const threshold = extendedSearchThreshold !== null ? extendedSearchThreshold : 0.2;
+        //console.log(threshold);
+        const results = await runFuse(sanitisedQuery, data, this.lang, threshold, this.resultLimit);
+
         results.forEach((result) => {
             result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
         });
