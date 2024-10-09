@@ -15,10 +15,9 @@
 }
 
 .ons-page__main {
-    margin-bottom: 4.5rem;
-    margin-top: 2.5rem;
+    margin: 2.5rem 0 4rem;
 
-    @include mq(xxs, m) {
+    @include mq('2xs', m) {
         margin-top: 1.5rem;
     }
 }

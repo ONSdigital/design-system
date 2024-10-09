@@ -83,12 +83,12 @@ describe('macro: tabs', () => {
         const $ = cheerio.load(
             renderComponent('tabs', {
                 ...EXAMPLE_TABS,
-                titleTag: 'h4',
+                headingLevel: 4,
             }),
         );
 
-        const titleTag = $('.ons-tabs__title')[0].tagName;
-        expect(titleTag).toBe('h4');
+        const expectedTitleTag = $('.ons-tabs__title')[0].tagName;
+        expect(expectedTitleTag).toBe('h4');
     });
 
     it('has the provided tab id attributes', () => {

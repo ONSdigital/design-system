@@ -14,16 +14,20 @@ const EXAMPLE_MESSAGE_LIST_MINIMAL = {
         {
             id: 'message1',
             unread: true,
-            url: 'https://example.com/message/1',
-            subject: 'Example message subject',
+            subject: {
+                url: 'https://example.com/message/1',
+                text: 'Example message subject',
+            },
             fromText: 'Example Sender 1',
             dateText: 'Tue 4 Jul 2020 at 7:47',
             body: 'An example message.',
         },
         {
             id: 'message2',
-            url: 'https://example.com/message/2',
-            subject: 'Another example message subject',
+            subject: {
+                url: 'https://example.com/message/2',
+                text: 'Another example message subject',
+            },
             fromText: 'Example Sender 2',
             dateText: 'Mon 1 Oct 2019 at 9:52',
             body: 'Another example message.',

@@ -165,11 +165,11 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto">
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
-                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
+                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="208" height="20" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
             <title id="ons-logo-en-alt">
                 Office for National Statistics homepage
             </title>
@@ -236,7 +236,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
         </div>
         <div class="ons-header__main">
             <div class="ons-container">
-                <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         
 
@@ -404,11 +404,11 @@ exports[`base page template matches the footer block override snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto">
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
-                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
+                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="208" height="20" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
             <title id="ons-logo-en-alt">
                 Office for National Statistics homepage
             </title>
@@ -475,7 +475,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
         </div>
         <div class="ons-header__main">
             <div class="ons-container">
-                <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         
 
@@ -671,7 +671,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
     <div class="ons-phase-banner">
         <div class="ons-container">
-            <div class="ons-grid ons-grid--flex ons-grid--gutterless ons-grid--vertical-top ons-grid--no-wrap">
+            <div class="ons-grid ons-grid-flex ons-grid--gutterless ons-grid-flex--vertical-center ons-grid-flex--no-wrap">
                 
                     <div class="ons-grid__col ons-col-auto ons-u-flex-no-grow ons-u-flex-no-shrink">
                         <strong class="ons-phase-banner__badge">BETA</strong>
@@ -687,10 +687,10 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto"><a class="ons-header__org-logo-link" href="#0">
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
-                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
+                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="208" height="20" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
             <title id="ons-logo-en-alt">
                 Office for National Statistics homepage
             </title>
@@ -753,7 +753,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     
                         <div class="ons-header__links ons-grid__col ons-u-ml-auto">
                             
-                                <div class="ons-grid__col ons-col-auto ons-u-mr-s ons-u-d-no@xxs@xs">
+                                <div class="ons-grid__col ons-col-auto ons-u-mr-s ons-u-d-no@2xs@xs">
                                     
                                     
     
@@ -774,7 +774,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                     
                                     
                                 
-                                <div class="ons-grid__col ons-col-auto ons-u-d-no@xxs@m">
+                                <div class="ons-grid__col ons-col-auto ons-u-d-no@2xs@m">
                                     <nav class="ons-header-service-nav ons-header-service-nav--main" aria-label="Services menu">
                                         <ul class="ons-header-service-nav__list">
                                             
@@ -827,7 +827,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     
     <button type="button" class="ons-btn ons-u-d-no ons-js-toggle-services ons-btn--mobile ons-btn--neutral" aria-label="Toggle services menu" aria-controls="service-links" aria-expanded="false">
-    <span class="ons-btn__inner"><span class="ons-btn__text">Account</span><svg class="ons-icon ons-u-ml-xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-chevron">
+    <span class="ons-btn__inner"><span class="ons-btn__text">Account</span><svg class="ons-icon ons-u-ml-2xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-chevron">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg></span>
     
@@ -884,7 +884,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </div>
         <div class="ons-header__main">
             <div class="ons-container">
-                <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap">
+                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap">
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         
 
@@ -926,8 +926,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     
     
-    <button type="submit" class="ons-btn ons-u-d-no@xxs@l ons-btn--ghost-dark">
-    <span class="ons-btn__inner"><span class="ons-btn__text">Save and sign out</span><svg class="ons-icon ons-u-ml-xs" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-exit">
+    <button type="submit" class="ons-btn ons-u-d-no@2xs@l ons-btn--ghost-dark">
+    <span class="ons-btn__inner"><span class="ons-btn__text">Save and sign out</span><svg class="ons-icon ons-u-ml-2xs" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-exit">
             <path d="M13.85,7.65l-2.5-2.5a.5.5,0,0,0-.71,0,.48.48,0,0,0-.15.36V7h-3a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h3v1.5A.49.49,0,0,0,11,11a.48.48,0,0,0,.34-.14l2.51-2.5a.49.49,0,0,0,0-.68Z" transform="translate(-2 -2)"></path>
             <path d="M8.5,14h-6a.5.5,0,0,1-.5-.5V2.5A.5.5,0,0,1,2.5,2h6a.5.5,0,0,1,.5.5V3a.5.5,0,0,1-.5.5h-5v9h5A.5.5,0,0,1,9,13v.5A.5.5,0,0,1,8.5,14Z" transform="translate(-2 -2)"></path>
         </svg></span>
@@ -966,8 +966,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     
     
-    <button type="submit" class="ons-btn ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l ons-btn--mobile ons-btn--ghost" aria-label="Toggle main menu" aria-controls="main-nav" aria-expanded="false">
-    <span class="ons-btn__inner"><span class="ons-btn__text">Menu</span><svg class="ons-icon ons-u-ml-xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-chevron">
+    <button type="submit" class="ons-btn ons-u-ml-2xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l ons-btn--mobile ons-btn--ghost" aria-label="Toggle main menu" aria-controls="main-nav" aria-expanded="false">
+    <span class="ons-btn__inner"><span class="ons-btn__text">Menu</span><svg class="ons-icon ons-u-ml-2xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-chevron">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg></span>
     
@@ -986,7 +986,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     
     <div class="ons-navigation-wrapper ons-navigation-wrapper--neutral">
-        <div class="ons-container ons-container--gutterless@xxs@l">
+        <div class="ons-container ons-container--gutterless@2xs@l">
             
             <nav class="ons-navigation ons-navigation--main ons-js-navigation" id="main-nav" aria-label="Main menu" data-analytics="header-navigation">
                 <ul class="ons-navigation__list">
@@ -1037,8 +1037,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     </div>
     
         
-            <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l" id="sub-nav" aria-label="Section menu" data-analytics="header-section-navigation">
-                <div class="ons-container ons-container--gutterless@xxs@l">
+            <nav class="ons-navigation ons-navigation--sub ons-u-d-no@2xs@l" id="sub-nav" aria-label="Section menu" data-analytics="header-section-navigation">
+                <div class="ons-container ons-container--gutterless@2xs@l">
                     <ul class="ons-navigation__list ons-navigation__list">
                         
                             <li class="ons-navigation__item">
@@ -1102,7 +1102,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     
     <button type="button" class="ons-btn ons-u-d-no ons-js-sub-navigation-button ons-btn--mobile ons-btn--dropdown" aria-label="Toggle Design system menu" aria-controls="sub-nav" aria-expanded="false">
-    <span class="ons-btn__inner"><span class="ons-btn__text">Design system</span><svg class="ons-icon ons-u-ml-xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-chevron">
+    <span class="ons-btn__inner"><span class="ons-btn__text">Design system</span><svg class="ons-icon ons-u-ml-2xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-chevron">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg></span>
     
@@ -1110,8 +1110,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     </button>
 
-            <nav class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-xs" id="sub-nav--mobile" aria-hidden="true" aria-label="Section menu" data-analytics="header-section-navigation">
-                <div class="ons-container ons-container--gutterless@xxs@l">
+            <nav class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-2xs" id="sub-nav--mobile" aria-hidden="true" aria-label="Section menu" data-analytics="header-section-navigation">
+                <div class="ons-container ons-container--gutterless@2xs@l">
                     <ul class="ons-navigation__list ons-navigation__list--parent">
                         <li class="ons-navigation__item">
                             <a class="ons-navigation__link" href="#0">Overview</a>
@@ -1155,7 +1155,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                         
                                             <h3 class="ons-navigation__list-header">Ask users for...</h3>
                                         
-                                        <ul class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs">
+                                        <ul class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-2xs">
                                             
                                                 <li class="ons-navigation__item ons-list__item ons-navigation__item--active">
                                                     <a class="ons-navigation__link ons-navigation__link--section" href="#access-codes">
@@ -1218,7 +1218,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                         
                                             <h3 class="ons-navigation__list-header">Help users to...</h3>
                                         
-                                        <ul class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs">
+                                        <ul class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-2xs">
                                             
                                                 <li class="ons-navigation__item ons-list__item">
                                                     <a class="ons-navigation__link ons-navigation__link--section" href="#0">
@@ -1326,7 +1326,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
+    
     
 
     <footer class="ons-footer">
@@ -1358,7 +1358,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     
     <button type="submit" class="ons-btn ons-btn--ghost">
-    <span class="ons-btn__inner"><span class="ons-btn__text">Save and sign out</span><svg class="ons-icon ons-u-ml-xs" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-exit">
+    <span class="ons-btn__inner"><span class="ons-btn__text">Save and sign out</span><svg class="ons-icon ons-u-ml-2xs" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" title="ons-icon-exit">
             <path d="M13.85,7.65l-2.5-2.5a.5.5,0,0,0-.71,0,.48.48,0,0,0-.15.36V7h-3a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h3v1.5A.49.49,0,0,0,11,11a.48.48,0,0,0,.34-.14l2.51-2.5a.49.49,0,0,0,0-.68Z" transform="translate(-2 -2)"></path>
             <path d="M8.5,14h-6a.5.5,0,0,1-.5-.5V2.5A.5.5,0,0,1,2.5,2h6a.5.5,0,0,1,.5.5V3a.5.5,0,0,1-.5.5h-5v9h5A.5.5,0,0,1,9,13v.5A.5.5,0,0,1,8.5,14Z" transform="translate(-2 -2)"></path>
         </svg></span>
@@ -1395,7 +1395,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
 
     
-    
         
     
     
@@ -1406,7 +1405,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1414,15 +1412,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            
-                    <a href="#0" class="ons-list__link">About our surveys</a>
+            <a href="#0" class="ons-list__link">About our surveys</a>
         </li>
         
         
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1430,15 +1426,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            
-                    <a href="#0" class="ons-list__link">Lists of all surveys</a>
+            <a href="#0" class="ons-list__link">Lists of all surveys</a>
         </li>
         
         
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1446,15 +1440,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            
-                    <a href="#0" class="ons-list__link">Respondent Charter</a>
+            <a href="#0" class="ons-list__link">Respondent Charter</a>
         </li>
         </ul>
 
                             </div>
                         
                             <!-- Full footer columns -->
-                            <div class="ons-grid__col ons-col-4@m ons-u-mt-m@xxs@m">
+                            <div class="ons-grid__col ons-col-4@m ons-u-mt-l@2xs@m">
                                 
                                     <h2 class="ons-footer__heading ons-u-fs-r--b">About ONS</h2>
                                 
@@ -1471,7 +1464,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
 
     
-    
         
     
     
@@ -1482,7 +1474,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1490,15 +1481,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            
-                    <a href="#0" class="ons-list__link">What we do</a>
+            <a href="#0" class="ons-list__link">What we do</a>
         </li>
         
         
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1506,15 +1495,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            
-                    <a href="#0" class="ons-list__link">Transparency and governance</a>
+            <a href="#0" class="ons-list__link">Transparency and governance</a>
         </li>
         
         
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1522,15 +1509,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            
-                    <a href="#0" class="ons-list__link">Contact us</a>
+            <a href="#0" class="ons-list__link">Contact us</a>
         </li>
         </ul>
 
                             </div>
                         
                             <!-- Full footer columns -->
-                            <div class="ons-grid__col ons-col-4@m ons-u-mt-m@xxs@m">
+                            <div class="ons-grid__col ons-col-4@m ons-u-mt-l@2xs@m">
                                 
                                     <h2 class="ons-footer__heading ons-u-fs-r--b">Statistics</h2>
                                 
@@ -1547,7 +1533,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
 
     
-    
         
     
     
@@ -1558,7 +1543,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1580,7 +1564,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1588,15 +1571,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            
-                    <a href="#0" class="ons-list__link">Release calendar</a>
+            <a href="#0" class="ons-list__link">Release calendar</a>
         </li>
         
         
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1604,8 +1585,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            
-                    <a href="#0" class="ons-list__link">News</a>
+            <a href="#0" class="ons-list__link">News</a>
         </li>
         </ul>
 
@@ -1614,13 +1594,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     
 
                     
-                        <div class="ons-grid__col ons-u-mb-m">
+                        <div class="ons-grid__col ons-u-mb-l">
                             <hr class="ons-footer__hr">
                         </div>
                     
                 </div>
 
-                <div class="ons-grid ons-grid--flex ons-grid--vertical-top ons-grid--between">
+                <div class="ons-grid ons-grid-flex--vertical-top ons-grid-flex--between">
                     <div class="ons-grid__col">
                         
                             <!-- Legal -->
@@ -1638,7 +1618,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
 
     
-    
         
     
     
@@ -1649,7 +1628,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1657,15 +1635,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            
-                    <a href="#0" class="ons-list__link">Cookies</a>
+            <a href="#0" class="ons-list__link">Cookies</a>
         </li>
         
         
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1673,15 +1649,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            
-                    <a href="#0" class="ons-list__link">Accessibility statement</a>
+            <a href="#0" class="ons-list__link">Accessibility statement</a>
         </li>
         
         
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1689,15 +1663,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            
-                    <a href="#0" class="ons-list__link">Privacy and data protection</a>
+            <a href="#0" class="ons-list__link">Privacy and data protection</a>
         </li>
         
         
         
 
         
-            
             <li class="ons-list__item">
         
             
@@ -1705,8 +1677,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
 
             
-            
-                    <a href="#0" class="ons-list__link">Terms and conditions</a>
+            <a href="#0" class="ons-list__link">Terms and conditions</a>
         </li>
         </ul>
 
@@ -1715,7 +1686,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
                         
                             <!-- OGL -->
-                            <div class="ons-footer__license ons-u-mb-m"><svg class="ons-footer__ogl-img" xmlns="http://www.w3.org/2000/svg" width="50px" height="20px" viewBox="0 0 60 24" focusable="false" aria-hidden="true" role="img">
+                            <div class="ons-footer__license ons-u-mb-l"><svg class="ons-footer__ogl-img" xmlns="http://www.w3.org/2000/svg" width="50px" height="20px" viewBox="0 0 60 24" focusable="false" aria-hidden="true" role="img">
             <title>Open Government License logo</title>
             <path d="M51.7,17.5V0l-6.2,4v19.8h13.8v-6.2H51.7z M36.7,16.3c-1,0.9-2.4,1.4-3.8,1.4c-3.2,0-5.8-2.6-5.8-5.8s2.6-5.8,5.8-5.8c2,0,3.9,1.1,4.9,2.7L43,5.6C40.9,2.2,37.1,0,32.9,0c-4.5,0-8.4,2.5-10.4,6.1C20.4,2.5,16.5,0,12,0C5.4,0,0,5.4,0,12s5.4,12,12,12c4.5,0,8.4-2.5,10.4-6.1c2.1,3.6,6,6.1,10.4,6.1c3,0,5.8-1.1,7.9-3l2.4,2.7h0.4V13h-9.8L36.7,16.3zM12,17.8c-3.2,0-5.8-2.6-5.8-5.8S8.8,6.2,12,6.2s5.8,2.6,5.8,5.8S15.2,17.8,12,17.8" fill="#595959"></path>
         </svg>
@@ -1734,10 +1705,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                 
                             </div>
                         
+
                         
-                            <a class="ons-footer__poweredBy-link" href="https://www.ons.gov.uk/">
-                                <div class="ons-footer__poweredby-logo ons-u-mb-m">
-        <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-footer-alt" role="img">
+                            
+                            
+                        
+
+                        <div class="ons-footer__logo-container ons-u-mb-l ons-grid-flex ons-grid-flex--vertical-top">
+                            <a class="ons-footer__logo-link" href="https://www.ons.gov.uk/">
+        <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="208" height="20" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-footer-alt" role="img">
             <title id="ons-logo-en-footer-alt">
                 Office for National Statistics
             </title>
@@ -1777,13 +1753,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                 <path d="M605.1,47.79A15.9,15.9,0,0,1,597.45,46l1.42-3.47A10.54,10.54,0,0,0,604.4,44c2.77,0,5-1.78,5-3.94,0-6-11.1-3.2-11.1-11.47,0-3.76,3.37-7.42,8.85-7.42a13.49,13.49,0,0,1,7.1,1.83l-1.42,3.14a8.42,8.42,0,0,0-4.63-1.45c-2.8,0-4.53,1.69-4.53,3.62,0,5.64,11.32,3.14,11.32,11.6,0,4-3.85,7.9-9.89,7.9"></path>
             </g>
         </svg>
-    </div>
-                            </a>
-                        
+    </a>
+                            
+                                
+                            
+                        </div>
                     </div>
                     
                 </div>
-                
                 
             </div>
         </div>
@@ -1915,11 +1892,11 @@ exports[`base page template matches the meta block override snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto">
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
-                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
+                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="208" height="20" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
             <title id="ons-logo-en-alt">
                 Office for National Statistics homepage
             </title>
@@ -1986,7 +1963,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
         </div>
         <div class="ons-header__main">
             <div class="ons-container">
-                <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         
 
@@ -2138,11 +2115,11 @@ exports[`base page template matches the social block override snapshot 1`] = `
         
         <div class="ons-header__top">
             <div class="ons-container">
-                <div class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto">
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
-                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="197" height="19" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
+                                    <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="208" height="20" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
             <title id="ons-logo-en-alt">
                 Office for National Statistics homepage
             </title>
@@ -2209,7 +2186,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
         </div>
         <div class="ons-header__main">
             <div class="ons-container">
-                <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap ons-grid--gutterless">
+                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         
 
