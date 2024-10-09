@@ -50,7 +50,7 @@ This project uses [LHCI](https://www.npmjs.com/package/@lhci/cli).
 
 ```bash
 yarn global add @lhci/cli
-yarn test-lighthouse 
+yarn test-lighthouse
 ```
 
 ## Testing - macros and scripts
