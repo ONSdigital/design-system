@@ -393,7 +393,7 @@ describe('macro: button', () => {
                 }),
             );
 
-            expect($('.ons-btn__new-window-description').text()).toBe(' (opens in a new tab)');
+            expect($('.ons-btn__new-window-description').text()).toBe('(opens in a new tab)');
         });
 
         it('has a custom new window description when `newWindow` is `true` and `newWindowDescription` is provided', () => {
@@ -405,7 +405,7 @@ describe('macro: button', () => {
                 }),
             );
 
-            expect($('.ons-btn__new-window-description').text()).toBe(' (custom opens in a new window text)');
+            expect($('.ons-btn__new-window-description').text()).toBe('(custom opens in a new window text)');
         });
 
         it('has the `download` attribute when `variants` contains "download"', () => {

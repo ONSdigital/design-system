@@ -16,13 +16,13 @@ layout: ~
             "languages": [
                 {
                     "url": "#0",
-                    "ISOCode": "en",
+                    "isoCode": "en",
                     "text": "English",
                     "current": true
                 },
                 {
                     "url": "#0",
-                    "ISOCode": "cy",
+                    "isoCode": "cy",
                     "text": "Cymraeg",
                     "current": false
                 }
@@ -42,8 +42,8 @@ layout: ~
 %}
 
 {% block main %}
-    <h1 class="ons-u-fs-xxl">Downloadable resources</h1>
-    <div class="ons-col-8@m ons-u-mb-l">
+    <h1 class="ons-u-fs-2xl">Downloadable resources</h1>
+    <div class="ons-col-8@m ons-u-mb-xl">
         <p>
             Census 2021 promotional materials and resources to help local authorities and community groups spread the word about the census
             and support people to complete it.
@@ -51,13 +51,13 @@ layout: ~
     </div>
 
     <div class="ons-js-adv-filter">
-        <div class="ons-grid ons-u-mb-m@m">
+        <div class="ons-grid ons-u-mb-l@m">
             <div class="ons-grid__col ons-col-4@m ons-js-adv-filter__wrap">
                 {{
                     onsButton({
                         "type": 'button',
                         "text": 'Show filters',
-                        "classes": 'ons-adv-filter__trigger ons-js-adv-filter__trigger ons-btn ons-btn--secondary ons-btn--small ons-u-mb-m',
+                        "classes": 'ons-adv-filter__trigger ons-js-adv-filter__trigger ons-btn ons-btn--secondary ons-btn--small ons-u-mb-l',
                         "attributes": {
                             "aria-expanded": 'false',
                             "aria-controls": 'filter-panel'
@@ -312,10 +312,12 @@ layout: ~
                                     "data-sort-index": '1'
                                 },
                                 "thumbnail": true,
-                                "url": '#',
-                                "title": "Census 2021 matters to everyone",
+                                "title": {
+                                    "text": 'Census 2021 matters to everyone',
+                                    "url": '#0'
+                                },
                                 "metadata": {
-                                    "type": {
+                                    "object": {
                                         "text": 'Poster'
                                     },
                                     "file": {
@@ -333,10 +335,12 @@ layout: ~
                                     "data-sort-index": '2'
                                 },
                                 "thumbnail": true,
-                                "url": '#',
-                                "title": 'Including everyone in Census 2021',
+                                "title": {
+                                    "text": 'Including everyone in Census 2021',
+                                    "url": '#0'
+                                },
                                 "metadata": {
-                                    "type": {
+                                    "object": {
                                         "text": 'Poster'
                                     },
                                     "file": {
@@ -354,10 +358,12 @@ layout: ~
                                     "data-sort-index": '3'
                                 },
                                 "thumbnail": true,
-                                "url": '#',
-                                "title": "Census awareness poster",
+                                "title": {
+                                    "text": 'Census awareness poster',
+                                    "url": '#0'
+                                },
                                 "metadata": {
-                                    "type": {
+                                    "object": {
                                         "text": 'Poster'
                                     },
                                     "file": {
@@ -375,10 +381,12 @@ layout: ~
                                     "data-sort-index": '4'
                                 },
                                 "thumbnail": true,
-                                "url": '#',
-                                "title": "Community handbook for Census 2021",
+                                "title": {
+                                    "text": 'Community handbook for Census 2021',
+                                    "url": '#0'
+                                },
                                 "metadata": {
-                                    "type": {
+                                    "object": {
                                         "text": 'Booklet'
                                     },
                                     "file": {
@@ -396,10 +404,12 @@ layout: ~
                                     "data-sort-index": '5'
                                 },
                                 "thumbnail": true,
-                                "url": '#',
-                                "title": "Brand guidelines for Census 2021",
+                                "title": {
+                                    "text": 'Brand guidelines for Census 2021',
+                                    "url": '#0'
+                                },
                                 "metadata": {
-                                    "type": {
+                                    "object": {
                                         "text": "Booklet"
                                     },
                                     "file": {
@@ -417,10 +427,12 @@ layout: ~
                                     "data-sort-index": '6'
                                 },
                                 "thumbnail": true,
-                                "url": '#',
-                                "title": "Tone of voice for Census 2021",
+                                "title": {
+                                    "text": 'Tone of voice for Census 2021',
+                                    "url": '#0'
+                                },
                                 "metadata": {
-                                    "type": {
+                                    "object": {
                                         "text": "Booklet"
                                     },
                                     "file": {
@@ -438,10 +450,12 @@ layout: ~
                                     "data-sort-index": '7'
                                 },
                                 "thumbnail": true,
-                                "url": "#0",
-                                "title": "Default awareness pop-up stand graphics for Census 2021",
+                                "title": {
+                                    "text": 'Default awareness pop-up stand graphics for Census 2021',
+                                    "url": '#0'
+                                },
                                 "metadata": {
-                                    "type": {
+                                    "object": {
                                         "text": "Poster"
                                     },
                                     "file": {
@@ -459,10 +473,12 @@ layout: ~
                                     "data-sort-index": '8'
                                 },
                                 "thumbnail": true,
-                                "url": "#0",
-                                "title": "Field officer jobs poster for Census 2021",
+                                "title": {
+                                    "text": 'Field officer jobs poster for Census 2021',
+                                    "url": '#0'
+                                },
                                 "metadata": {
-                                    "type": {
+                                    "object": {
                                         "text": "Poster"
                                     },
                                     "file": {
@@ -480,10 +496,12 @@ layout: ~
                                     "data-sort-index": '9'
                                 },
                                 "thumbnail": true,
-                                "url": "#0",
-                                "title": "Census 2021 logos pack for print and web",
+                                "title": {
+                                    "text": 'Census 2021 logos pack for print and web',
+                                    "url": '#0'
+                                },
                                 "metadata": {
-                                    "type": {
+                                    "object": {
                                         "text": "Logo"
                                     },
                                     "file": {

@@ -19,12 +19,12 @@
     color: inherit;
     display: block;
     font-family: inherit;
-    font-size: 1rem;
-    line-height: 1rem;
     padding: $input-padding-vertical $input-padding-horizontal;
     position: relative;
     width: 100%;
     z-index: 3;
+    height: 2.5rem;
+    line-height: 1.75rem;
 
     &::-ms-clear {
         display: none;
@@ -61,7 +61,7 @@
     }
 
     &--with-description {
-        margin-bottom: 0.55rem;
+        margin-bottom: 0.5rem;
     }
 
     &--with-text-description {
@@ -70,10 +70,10 @@
 }
 
 // Text input widths
-@include input-width('ons-input--w-{x}');
+@include input-width($class-name: 'ons-input--w-{x}');
 
 // Number input widths
-@include input-width('ons-input-number--w-{x}', 0.54rem);
+@include input-width($class-name: 'ons-input-number--w-{x}', $char-width: 0.607rem);
 
 .ons-input--postcode {
     max-width: input-width-calc($chars: 5, $num-chars: 2, $spaces: 1);
@@ -83,7 +83,7 @@
 .ons-input__helper {
     font-size: 0.8rem;
     font-weight: $font-weight-bold;
-    margin-top: 0.2rem;
+    margin-top: 0.25rem;
 }
 
 .ons-input--select {
@@ -92,8 +92,7 @@
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11.75 7.7'%3E%3Cpath fill='currentColor' d='m1.37.15 4.5 5.1 4.5-5.1a.37.37 0 0 1 .6 0l.7.7a.45.45 0 0 1 0 .5l-5.5 6.2a.37.37 0 0 1-.6 0l-5.5-6.1a.64.64 0 0 1 0-.6l.7-.7a.64.64 0 0 1 .6 0Z'/%3E%3C/svg%3E")
         no-repeat center right 10px;
     background-size: 1rem;
-    line-height: 1.3rem;
-    padding: 0.39rem 2rem 0.39rem $input-padding-horizontal;
+    padding: 0.25rem 2rem 0.25rem $input-padding-horizontal;
 
     &::-ms-expand {
         display: none;
@@ -101,9 +100,9 @@
 }
 
 .ons-input--textarea {
-    line-height: normal;
     resize: vertical;
     width: 100%;
+    height: auto;
 }
 
 .ons-input--block {
@@ -147,6 +146,7 @@
     display: flex;
     flex-flow: row nowrap !important;
     gap: 0.5rem;
+    height: 2.5rem;
 }
 
 .ons-input-search {
@@ -157,7 +157,7 @@
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%23ffffff'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z'/%3E%3C/svg%3E");
         background-position: 12px 10px;
         background-repeat: no-repeat;
-        background-size: 18px 18px;
+        background-size: 16px;
         padding-left: 2.4rem;
 
         &:focus,

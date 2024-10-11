@@ -109,7 +109,9 @@
                 </span>
             {% endif %}
         {% elif params.searchButton %}
-            <span class="ons-grid--flex ons-input_search-button{{ ' ons-input--with-text-description' if params.label.description }}">
+            <span
+                class="ons-grid-flex ons-grid-flex--vertical-top ons-input_search-button{{ ' ons-input--with-text-description' if params.label.description }}"
+            >
                 {% if params.accessiblePlaceholder %}
                     {{
                         onsLabel({
@@ -150,7 +152,7 @@
             </span>
         {% else %}
             {% if params.accessiblePlaceholder %}
-                <span class="ons-grid--flex{{ ' ons-input--with-text-description' if params.label.description }}">
+                <span class="ons-grid-flex{{ ' ons-input--with-text-description' if params.label.description }}">
                     {{
                         onsLabel({
                             "for": params.id,

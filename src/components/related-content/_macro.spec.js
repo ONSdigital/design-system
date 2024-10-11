@@ -27,7 +27,7 @@ const EXAMPLE_RELATED_CONTENT_LINKS = {
             id: 'related-links',
             title: 'Related links',
             iconPosition: 'after',
-            iconSize: 'xxl',
+            iconSize: '2xl',
             itemsList: [
                 { text: 'A', url: '/article/a' },
                 { text: 'B', url: '/article/b' },
@@ -121,7 +121,7 @@ describe('macro: related-content', () => {
             ]);
 
             expect(listsSpy.occurrences[1]).toHaveProperty('iconPosition', 'after');
-            expect(listsSpy.occurrences[1]).toHaveProperty('iconSize', 'xxl');
+            expect(listsSpy.occurrences[1]).toHaveProperty('iconSize', '2xl');
             expect(listsSpy.occurrences[1]).toHaveProperty('itemsList', [
                 { text: 'A', url: '/article/a' },
                 { text: 'B', url: '/article/b' },
