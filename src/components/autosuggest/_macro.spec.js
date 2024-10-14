@@ -32,6 +32,11 @@ const EXAMPLE_AUTOSUGGEST = {
     typeMore: 'Continue entering to get suggestions',
 };
 
+const EXAMPLE_AUTOSUGGEST_WITH_EXTENDED_SEARCH = {
+    ...EXAMPLE_AUTOSUGGEST,
+    extendedSearch: 0.5,
+};
+
 describe('macro: autosuggest', () => {
     it('passes jest-axe checks', async () => {
         const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
@@ -47,7 +52,7 @@ describe('macro: autosuggest', () => {
     });
 
     it('has the provided data attributes', () => {
-        const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
+        const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST_WITH_EXTENDED_SEARCH));
 
         const $element = $('.ons-autosuggest');
         expect($element.attr('data-allow-multiple')).toBeUndefined();
@@ -63,6 +68,7 @@ describe('macro: autosuggest', () => {
         expect($element.attr('data-no-results')).toBe('No suggestions found. You can enter your own answer');
         expect($element.attr('data-results-title')).toBe('Suggestions');
         expect($element.attr('data-type-more')).toBe('Continue entering to get suggestions');
+        expect($element.attr('data-extended-search')).toBe('0.5');
     });
 
     it('has the `data-allow-multiple` attribute when `allowMultiple` is `true`', () => {

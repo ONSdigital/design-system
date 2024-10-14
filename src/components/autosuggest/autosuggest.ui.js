@@ -37,6 +37,7 @@ export default class AutosuggestUI {
         errorAPI,
         errorAPILinkText,
         typeMore,
+        extendedSearchThreshold,
     }) {
         // DOM Elements
         this.context = context;
@@ -65,6 +66,7 @@ export default class AutosuggestUI {
         this.errorAPI = errorAPI || context.getAttribute('data-error-api');
         this.errorAPILinkText = errorAPILinkText || context.getAttribute('data-error-api-link-text');
         this.typeMore = typeMore || context.getAttribute('data-type-more');
+        this.extendedSearchThreshold = extendedSearchThreshold || context.getAttribute('data-extended-search');
         this.language = context.getAttribute('data-lang');
         this.allowMultiple = context.getAttribute('data-allow-multiple') || false;
         this.listboxId = this.listbox.getAttribute('id');
@@ -294,15 +296,7 @@ export default class AutosuggestUI {
     async fetchSuggestions(sanitisedQuery, data) {
         this.abortFetch();
 
-        //const threshold = this.context.classList.includes('ons-autosuggest__results-extended-') ? 0.4 : 0.2;
-        const classList = Array.from(this.context.classList);
-        const thresholdClass = classList.find((className) => className.startsWith('ons-autosuggest__results-extended-'));
-        const extendedSearchThreshold = thresholdClass
-            ? parseFloat(thresholdClass.match(/ons-autosuggest__results-extended-([\d.]+)/)[1])
-            : null;
-        // validation needs to be discussed and done for this
-        const threshold = extendedSearchThreshold !== null ? extendedSearchThreshold : 0.2;
-        //console.log(threshold);
+        const threshold = this.extendedSearchThreshold >= 0 && this.extendedSearchThreshold <= 1 ? this.extendedSearchThreshold : 0.2;
         const results = await runFuse(sanitisedQuery, data, this.lang, threshold, this.resultLimit);
 
         results.forEach((result) => {
