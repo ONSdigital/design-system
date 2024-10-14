@@ -25,21 +25,20 @@
         height: 100%;
     }
 
+    &__text {
+        padding-bottom: 1rem;
+    }
+
     &__pre-title {
         margin-bottom: 0.5rem;
 
-        @include mq(xxs, m) {
+        @include mq('2xs', m) {
             max-width: 145px;
         }
     }
 
-    &__title {
-        font-size: 2.3rem;
-        line-height: 1.2;
-    }
-
     &__details {
-        padding-bottom: 3rem;
+        padding-bottom: 3.5rem;
         padding-top: 2rem;
         position: relative;
         z-index: 5;
@@ -51,7 +50,6 @@
 
             a {
                 color: inherit;
-                text-decoration: underline solid var(--ons-color-text-inverse-link) 1px;
             }
 
             a:hover {

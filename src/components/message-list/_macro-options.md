@@ -11,12 +11,18 @@
 
 ## Message
 
-| Name     | Type    | Required | Description                                                                      |
-| -------- | ------- | -------- | -------------------------------------------------------------------------------- |
-| id       | string  | true     | The HTML `id` for the message item                                               |
-| url      | string  | true     | The URL for the HTML `href` attribute to link to the message conversation thread |
-| subject  | string  | true     | Text displayed for the message subject                                           |
-| fromText | string  | true     | Value of the “From” sender name in the message metadata information              |
-| dateText | string  | true     | Value of the “Sent” date stamp in the message metadata information               |
-| body     | string  | true     | Text displayed for the message body snippet                                      |
-| unread   | boolean | false    | Set to “true” to display the unread message suffix after the `subject`           |
+| Name     | Type              | Required | Description                                                            |
+| -------- | ----------------- | -------- | ---------------------------------------------------------------------- |
+| id       | string            | true     | The HTML `id` for the message item                                     |
+| subject  | `Object<Subject>` | true     | Settings for the [Subject](#subject)                                   |
+| fromText | string            | true     | Value of the “From” sender name in the message metadata information    |
+| dateText | string            | true     | Value of the “Sent” date stamp in the message metadata information     |
+| body     | string            | true     | Text displayed for the message body snippet                            |
+| unread   | boolean           | false    | Set to “true” to display the unread message suffix after the `subject` |
+
+## Subject
+
+| Name | Type   | Required | Description                                                                      |
+| ---- | ------ | -------- | -------------------------------------------------------------------------------- |
+| text | string | true     | Text displayed for the message subject                                           |
+| url  | string | true     | The URL for the HTML `href` attribute to link to the message conversation thread |

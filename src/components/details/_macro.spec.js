@@ -48,7 +48,7 @@ describe('macro: details', () => {
         const $ = cheerio.load(
             renderComponent('details', {
                 ...EXAMPLE_DETAILS_BASIC,
-                titleTag: 'h4',
+                headingLevel: 4,
             }),
         );
 

@@ -2,9 +2,10 @@
     background: var(--ons-color-white);
     border: 1px solid var(--ons-color-input-border);
     border-radius: $input-radius;
-    font-size: 1rem;
     padding: 0;
     width: 100%;
+    // custom line height to center the placeholder text
+    line-height: 1.5rem;
     &::-webkit-file-upload-button {
         background: var(--ons-color-button-secondary);
         border: 0;
@@ -12,7 +13,6 @@
         border-right: 1px solid var(--ons-color-input-border);
         border-top-right-radius: 0;
         color: var(--ons-color-text);
-        font-size: 1rem;
         outline: none;
         padding: 0.5rem 1rem;
         transition: border-color 200ms ease-in;

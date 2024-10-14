@@ -8,7 +8,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 const EXAMPLE_FEEDBACK_MINIMAL = {
     heading: 'Feedback heading',
     content: 'Feedback content...',
-    url: 'http://example.com',
+    linkUrl: 'http://example.com',
     linkText: 'Feedback link text',
 };
 
@@ -19,7 +19,7 @@ const EXAMPLE_FEEDBACK_FULL = {
     headingLevel: 5,
     headingClasses: 'extra-heading-class another-extra-heading-class',
     content: 'Feedback content...',
-    url: 'http://example.com',
+    linkUrl: 'http://example.com',
     linkText: 'Feedback link text',
 };
 
@@ -92,7 +92,7 @@ describe('macro: feedback', () => {
         expect($('p').text().trim()).toBe('Feedback content...');
     });
 
-    it('has a link with the provided `url`', () => {
+    it('has a link with the provided `linkUrl`', () => {
         const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
 
         expect($('.ons-feedback__link').attr('href')).toBe('http://example.com');
