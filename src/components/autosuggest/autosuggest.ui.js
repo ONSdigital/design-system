@@ -296,7 +296,10 @@ export default class AutosuggestUI {
     async fetchSuggestions(sanitisedQuery, data) {
         this.abortFetch();
 
-        const threshold = this.extendedSearchThreshold >= 0 && this.extendedSearchThreshold <= 1 ? this.extendedSearchThreshold : 0.2;
+        const threshold =
+            this.extendedSearch != null && this.extendedSearchThreshold >= 0 && this.extendedSearchThreshold <= 1
+                ? this.extendedSearchThreshold
+                : 0.2;
         const results = await runFuse(sanitisedQuery, data, this.lang, threshold, this.resultLimit);
 
         results.forEach((result) => {
