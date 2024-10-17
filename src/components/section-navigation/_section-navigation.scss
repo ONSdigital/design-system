@@ -26,7 +26,6 @@
         padding: 0;
         &--active {
             border-left: 4px solid var(--ons-color-text-link-active);
-            font-weight: $font-weight-bold;
             margin-left: -1rem;
             padding-left: 0.75rem;
             a,
@@ -45,6 +44,7 @@
 
     &__item-header {
         @extend .ons-u-mb-no;
+        @extend .ons-u-fs-r--b;
     }
 
     &__sub-items {
@@ -64,7 +64,6 @@
             &--active,
             &:hover {
                 border-color: var(--ons-color-text-link-active);
-                margin: 0 1rem 0 0;
                 padding: 0;
                 a,
                 h2,
