@@ -300,7 +300,7 @@ export default class AutosuggestUI {
             this.extendedSearch != null && this.extendedSearchThreshold >= 0 && this.extendedSearchThreshold <= 1
                 ? this.extendedSearchThreshold
                 : 0.2;
-        const results = await runFuse(sanitisedQuery, data, this.lang, threshold, this.resultLimit);
+        const results = await runFuse(sanitisedQuery, data, this.lang, threshold);
 
         results.forEach((result) => {
             result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
