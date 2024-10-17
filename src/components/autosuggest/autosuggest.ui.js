@@ -37,7 +37,7 @@ export default class AutosuggestUI {
         errorAPI,
         errorAPILinkText,
         typeMore,
-        extendedSearchThreshold,
+        customResultsThreshold,
     }) {
         // DOM Elements
         this.context = context;
@@ -66,7 +66,7 @@ export default class AutosuggestUI {
         this.errorAPI = errorAPI || context.getAttribute('data-error-api');
         this.errorAPILinkText = errorAPILinkText || context.getAttribute('data-error-api-link-text');
         this.typeMore = typeMore || context.getAttribute('data-type-more');
-        this.extendedSearchThreshold = extendedSearchThreshold || context.getAttribute('data-extended-search');
+        this.customResultsThreshold = customResultsThreshold || context.getAttribute('data-result-threshold');
         this.language = context.getAttribute('data-lang');
         this.allowMultiple = context.getAttribute('data-allow-multiple') || false;
         this.listboxId = this.listbox.getAttribute('id');
@@ -297,8 +297,8 @@ export default class AutosuggestUI {
         this.abortFetch();
 
         const threshold =
-            this.extendedSearch != null && this.extendedSearchThreshold >= 0 && this.extendedSearchThreshold <= 1
-                ? this.extendedSearchThreshold
+            this.customResultsThreshold != null && this.customResultsThreshold >= 0 && this.customResultsThreshold <= 1
+                ? this.customResultsThreshold
                 : 0.2;
         const results = await runFuse(sanitisedQuery, data, this.lang, threshold);
 
