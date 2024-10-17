@@ -297,7 +297,7 @@ export default class AutosuggestUI {
         this.abortFetch();
 
         const threshold =
-            this.customResultsThreshold != null && this.customResultsThreshold >= 0 && this.customResultsThreshold <= 1
+            this.resultsThreshold != null && this.customResultsThreshold >= 0 && this.customResultsThreshold <= 1
                 ? this.customResultsThreshold
                 : 0.2;
         const results = await runFuse(sanitisedQuery, data, this.lang, threshold);
