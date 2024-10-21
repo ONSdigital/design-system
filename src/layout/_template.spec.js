@@ -9,7 +9,7 @@ const FULL_EXAMPLE = `
 {% set pageConfig = {
     "bodyClasses": "custom-class",
     "title": "Social survey",
-    "assetsURL": "/some-path",
+    "assetsUrl": "/some-path",
     "meta": {
         "description": "Meta description",
         "canonicalUrl": "/some-url",
@@ -46,13 +46,13 @@ const FULL_EXAMPLE = `
             "languages": [
                 {
                     "url": "#0",
-                    "ISOCode": "en",
+                    "isoCode": "en",
                     "text": "English",
                     "current": true
                 },
                 {
                     "url": "#0",
-                    "ISOCode": "cy",
+                    "isoCode": "cy",
                     "text": "Cymraeg",
                     "current": false
                 }
@@ -110,7 +110,7 @@ const FULL_EXAMPLE = `
             },
             "subNavigation": {
                 "id": 'sub-nav',
-                "overviewURL": '#0',
+                "overviewUrl": '#0',
                 "overviewText": 'Overview',
                 "ariaLabel": 'Section menu',
                 "itemsList": [
@@ -288,7 +288,7 @@ const FULL_EXAMPLE = `
                 ]
             }
         ],
-        "OGLLink": true
+        "oglLink": true
     }
 } %}
 

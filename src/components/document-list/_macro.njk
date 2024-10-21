@@ -4,9 +4,9 @@
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
     >
         {% for document in params.documents %}
-            {% set titleTag = params.titleTag | default("h2") %}
-            {% set openingTag = "<" + titleTag %}
-            {% set closingTag = "</" + titleTag + ">" %}
+            {% set titleTag = params.headingLevel | default(2) %}
+            {% set openingTag = "<h" ~ titleTag %}
+            {% set closingTag = "</h" ~ titleTag ~ ">" %}
             {% set documentItem %}
                 {% if document.thumbnail %}
                     <div
@@ -15,7 +15,7 @@
                     >
                         <a
                             class="ons-document-list__image-link{{ ' ons-document-list__image-link--placeholder' if not document.thumbnail.smallSrc }}"
-                            href="{{ document.url }}"
+                            href="{{ document.title.url }}"
                             tabindex="-1"
                         >
                             {% if document.thumbnail.smallSrc and document.thumbnail.largeSrc %}
@@ -34,9 +34,9 @@
                     <div
                         class="ons-document-list__item-header{{ ' ons-document-list__item-header--reverse' if document.showMetadataFirst == true }}"
                     >
-                        {{ openingTag | safe }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
-                        <a href="{{ document.url }}"
-                            >{{ document.title }}
+                        {{ openingTag | safe }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-2xs">
+                        <a href="{{ document.title.url }}"
+                            >{{ document.title.text }}
                             {%- if document.metadata and document.metadata.file -%}
                                 <span class="ons-u-vh">
                                     {%
@@ -52,7 +52,7 @@
                         {{ closingTag | safe }}
 
                         {%- if document.metadata -%}
-                            <ul class="ons-document-list__item-metadata{{ ' ons-u-mb-xs' if document.description else ' ons-u-mb-no' }}">
+                            <ul class="ons-document-list__item-metadata{{ ' ons-u-mb-2xs' if document.description else ' ons-u-mb-no' }}">
                                 {%- if document.metadata.date -%}
                                     <li class="ons-document-list__item-attribute">
                                         {% set prefixClass = "ons-u-fw-b" if document.metadata.date.showPrefix == true else "ons-u-vh" %}
@@ -63,23 +63,23 @@
                                     </li>
                                 {% endif %}
 
-                                {%- if document.metadata.type and document.metadata.type.text -%}
+                                {%- if document.metadata.object and document.metadata.object.text -%}
                                     <li class="ons-document-list__item-attribute{{ ' ons-u-mr-no' if document.metadata.file }}">
-                                        {% set metadataType %}
+                                        {% set metadataObject %}
                                             <span
-                                                {% if not document.metadata.file and not document.metadata.type.url %}class="ons-u-fw-b"{% endif %}
-                                                >{{ document.metadata.type.text }}{%- if document.metadata.type.ref -%}:{% elif document.metadata.file %},{% endif %}</span
+                                                {% if not document.metadata.file and not document.metadata.object.url %}class="ons-u-fw-b"{% endif %}
+                                                >{{ document.metadata.object.text }}{%- if document.metadata.object.ref -%}:{% elif document.metadata.file %},{% endif %}</span
                                             >
                                         {% endset %}
-                                        {%- if document.metadata.type.url -%}
-                                            <a class="ons-document-list__attribute-link" href="{{ document.metadata.type.url }}">
-                                                {{ metadataType | safe }}
+                                        {%- if document.metadata.object.url -%}
+                                            <a class="ons-document-list__attribute-link" href="{{ document.metadata.object.url }}">
+                                                {{ metadataObject | safe }}
                                             </a>
                                         {% else %}
-                                            {{ metadataType | safe }}
+                                            {{ metadataObject | safe }}
                                         {% endif %}
-                                        {%- if document.metadata.type.ref -%}
-                                            <span>{{ document.metadata.type.ref }}</span>
+                                        {%- if document.metadata.object.ref -%}
+                                            <span>{{ document.metadata.object.ref }}</span>
                                         {% endif %}
                                     </li>
                                 {% endif %}

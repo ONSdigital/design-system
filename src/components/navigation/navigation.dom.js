@@ -3,7 +3,7 @@ import domready from '../../js/domready';
 domready(async () => {
     const toggleNavigationBtn = document.querySelector('.ons-js-navigation-button');
     const navigationEl = document.querySelector('.ons-js-navigation');
-    const navigationHideClass = 'ons-u-d-no@xxs@l';
+    const navigationHideClass = 'ons-u-d-no@2xs@l';
     const toggleSubNavigationBtn = document.querySelector('.ons-js-sub-navigation-button');
     const subNavigationEl = document.querySelector('.ons-js-secondary-nav');
     const subNavigationHideClass = 'ons-u-d-no';

@@ -1,5 +1,5 @@
 $checkbox-input-width: 22px;
-$checkbox-padding: 11px;
+$checkbox-padding: 10px;
 
 .ons-checkbox {
     display: inline-block;
@@ -74,7 +74,7 @@ $checkbox-padding: 11px;
 
     &--no-border {
         > .ons-checkbox__label {
-            padding: 0 0 0 1.85rem;
+            padding: 0 0 0 2rem;
 
             &::before {
                 background: none !important;
@@ -89,7 +89,7 @@ $checkbox-padding: 11px;
 
         > .ons-checkbox__input {
             left: 0.05rem;
-            top: 0.15rem;
+            top: 0.22rem;
 
             &:checked,
             &:focus {
@@ -170,7 +170,7 @@ $checkbox-padding: 11px;
     &__other {
         border-left: 4px solid var(--ons-color-borders-indent);
         display: block;
-        margin: 0 1rem 0.5rem 1.1rem;
+        margin: 0 1rem 0.5rem;
         padding: 0 $checkbox-padding $checkbox-padding $checkbox-padding * 2 - 1;
     }
 

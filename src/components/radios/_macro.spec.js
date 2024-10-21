@@ -541,7 +541,7 @@ describe('macro: radios', () => {
                 name: 'example-radios-name',
                 borderless: true,
                 legend: 'Select preferred times of day',
-                legendClasses: 'extra-legend-class ons-u-mb-xs',
+                legendClasses: 'extra-legend-class ons-u-mb-2xs',
                 attributes: { a: 42 },
                 classes: 'ons-js-other-fieldset-radio',
                 radios: EXAMPLE_RADIO_ITEM_RADIOS.other.radios,

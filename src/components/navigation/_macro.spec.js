@@ -29,7 +29,7 @@ const PARAMS = {
     ],
     subNavigation: {
         id: 'sub-nav',
-        overviewURL: '#overview',
+        overviewUrl: '#overview',
         overviewText: 'Overview',
         ariaLabel: 'Section menu',
         itemsList: [
@@ -138,7 +138,7 @@ describe('macro: navigation', () => {
                     classes: 'ons-input-search ons-input-search--icon',
                     label: {
                         id: 'ons-site-search-label',
-                        classes: 'ons-u-pl-l ons-label--white',
+                        classes: 'ons-u-pl-xl ons-label--white',
                     },
                 },
             });
