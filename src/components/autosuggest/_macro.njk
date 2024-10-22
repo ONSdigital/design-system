@@ -15,6 +15,7 @@
         data-results-title="{{ params.resultsTitle }}"
         data-no-results="{{ params.noResults }}"
         data-type-more="{{ params.typeMore }}"
+        {% if params.resultsThreshold %}data-result-threshold="{{ params.resultsThreshold }}"{% endif %}
         {% if params.apiDomain %}data-api-domain="{{ params.apiDomain }}"{% endif %}
         {% if params.apiDomainBearerToken %}data-authorization-token="{{ params.apiDomainBearerToken }}"{% endif %}
         {% if params.apiManualQueryParams == true %}data-query-params=""{% endif %}
