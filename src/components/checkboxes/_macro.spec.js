@@ -87,6 +87,31 @@ const EXAMPLE_CHECKBOXES_WITH_MUTUALLY_EXCLUSIVE_WITH_ERROR = {
     },
 };
 
+const EXAMPLE_CHECKBOX_ITEM_CHECKBOXES_WITH_TEXTAREA = {
+    name: 'example-checkboxes-name',
+    legend: 'Legend text',
+    checkboxesLabel: 'Select all that apply',
+    checkboxesLabelClasses: 'extra-checkboxes-label-class',
+    checkboxes: [
+        EXAMPLE_CHECKBOX_ITEM,
+        {
+            other: {
+                otherType: 'textarea',
+                id: 'other-textbox-example-checkbox-with-revealed-text-area',
+                name: 'other answer',
+                label: {
+                    text: 'Provide more details',
+                },
+                charCheckLimit: {
+                    limit: 300,
+                    charCountSingular: 'You have {x} character remaining',
+                    charCountPlural: 'You have {x} characters remaining',
+                },
+            },
+        },
+    ],
+};
+
 describe('macro: checkboxes', () => {
     it('passes jest-axe checks', async () => {
         const $ = cheerio.load(renderComponent('checkboxes', EXAMPLE_CHECKBOXES));
@@ -132,6 +157,15 @@ describe('macro: checkboxes', () => {
             const $ = cheerio.load(renderComponent('checkboxes', EXAMPLE_CHECKBOXES));
 
             expect($('.ons-checkboxes__label').hasClass('extra-checkboxes-label-class')).toBe(true);
+        });
+    });
+
+    describe('checkbox item with text area', () => {
+        it('renders the text area with expected parameters', () => {
+            const $ = cheerio.load(renderComponent('checkboxes', EXAMPLE_CHECKBOX_ITEM_CHECKBOXES_WITH_TEXTAREA));
+            expect($('.ons-input--textarea').attr('name')).toBe('other answer');
+            expect($('.ons-input__limit').attr('data-charcount-singular')).toBe('You have {x} character remaining');
+            expect($('.ons-input__limit').attr('data-charcount-plural')).toBe('You have {x} characters remaining');
         });
     });
 
