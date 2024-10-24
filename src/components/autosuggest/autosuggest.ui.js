@@ -511,6 +511,7 @@ export default class AutosuggestUI {
         const warningSpanElement = document.createElement('span');
         const warningBodyElement = document.createElement('div');
 
+        warningContainer.id = this.listbox.getAttribute('id');
         warningContainer.className = 'ons-autosuggest__warning';
         warningElement.className = 'ons-panel ons-panel--warn ons-autosuggest__panel';
 
