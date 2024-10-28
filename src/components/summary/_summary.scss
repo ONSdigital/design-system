@@ -18,17 +18,17 @@ $hub-row-spacing: 1.3rem;
         }
     }
 
-    &__row {
+    &__item {
         display: flex;
         margin: 0;
-    }
-
-    &__item {
+        flex-wrap: wrap;
         &:not(:last-child),
         &:not(.ons-summary__group--card .ons-summary__item):nth-of-type(1) {
             border-bottom: 1px solid var(--ons-color-borders);
         }
+    }
 
+    &__item {
         &--total {
             @extend .ons-u-fs-m;
 
@@ -51,6 +51,7 @@ $hub-row-spacing: 1.3rem;
     &__row-title {
         padding: $summary-row-spacing 0;
         text-align: left;
+        flex: 0 0 100%;
     }
     // reduces the gap between row title and summary title when there is no group title
     &__title + &__group &__row-title--no-group-title {
@@ -95,12 +96,13 @@ $hub-row-spacing: 1.3rem;
         width: 1px;
     }
 
-    // Item Modifiers
+    // Row Modifiers
     &__item--error & {
         &__row-title--error {
             color: var(--ons-color-errors);
             font-weight: $font-weight-bold;
             padding: $summary-row-spacing $summary-col-spacing;
+            flex: 0 0 100%;
         }
 
         &__row-title,
@@ -159,7 +161,7 @@ $hub-row-spacing: 1.3rem;
             }
         }
 
-        &__row {
+        &__item {
             flex-direction: column;
         }
     }
@@ -172,14 +174,19 @@ $hub-row-spacing: 1.3rem;
             flex: 5 1 33%;
             padding-top: $summary-row-spacing;
             vertical-align: top;
-            &:not(:last-child) {
-                padding-right: $summary-col-spacing;
-            }
+        }
+
+        &__item-title,
+        &__values {
+            padding-right: $summary-col-spacing;
         }
 
         &__actions {
             display: flex;
             justify-content: right;
+            & :not(.ons-summary__item-title--error) {
+                padding-right: 0;
+            }
         }
 
         &__button {
