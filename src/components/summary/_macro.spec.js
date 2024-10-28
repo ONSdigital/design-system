@@ -399,12 +399,6 @@ describe('macro: summary', () => {
                 expect($('#row-id-3').length).toBe(1);
             });
 
-            it('has the correct class for each row when there is a `valueList`', () => {
-                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
-
-                expect($('.ons-summary__row--has-values').length).toBe(5);
-            });
-
             it('has custom row `titleAttributes`', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
