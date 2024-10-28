@@ -300,7 +300,10 @@ export default class AutosuggestUI {
             this.customResultsThreshold != null && this.customResultsThreshold >= 0 && this.customResultsThreshold <= 1
                 ? this.customResultsThreshold
                 : 0.2;
-        const results = await runFuse(sanitisedQuery, data, this.lang, threshold);
+
+        const distance = threshold >= 0.6 ? 500 : threshold >= 0.4 ? 300 : 100;
+
+        const results = await runFuse(sanitisedQuery, data, this.lang, threshold, distance);
 
         results.forEach((result) => {
             result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
