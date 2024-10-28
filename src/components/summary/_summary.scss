@@ -26,9 +26,7 @@ $hub-row-spacing: 1.3rem;
         &:not(.ons-summary__group--card .ons-summary__item):nth-of-type(1) {
             border-bottom: 1px solid var(--ons-color-borders);
         }
-    }
 
-    &__item {
         &--total {
             @extend .ons-u-fs-m;
 
