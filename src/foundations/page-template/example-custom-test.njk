@@ -1,0 +1,84 @@
+---
+title: 'Example: Customised page template'
+layout: ~
+---
+
+{% extends "layout/_template.njk" %}
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Social survey One",
+            "phase": {
+                "badge": 'BETA',
+                "html": 'This is a new service – your <a href="#feedback">feedback</a> will help us improve it.'
+            },
+            "signoutButton": {
+                "text": "Save and sign out",
+                "iconType": "exit",
+                "iconPosition": "after"
+            },
+            "language": {
+                "languages": [
+                    {
+                        "url": "#0",
+                        "isoCode": "en",
+                        "text": "English",
+                        "current": true
+                    },
+                    {
+                        "url": "#0",
+                        "isoCode": "cy",
+                        "text": "Cymraeg",
+                        "current": false
+                    }
+                ]
+            }
+        },
+        "breadcrumbs": {
+            "ariaLabel": 'Breadcrumbs',
+            "itemsList": [
+                {
+                    "url": '/',
+                    "text": 'Home'
+                },
+                {
+                    "url": '/components',
+                    "text": 'Components'
+                }
+            ]
+        },
+        "footer": {
+            "rows": [
+                {
+                    "itemsList": [
+                        {
+                            "text": 'Contact us',
+                            "url": '#0'
+                        },
+                        {
+                            "text": 'Cookies and privacy',
+                            "url": '#0'
+                        }
+                    ]
+                }
+            ],
+            "oglLink": {
+                "pre": 'All content is available under the',
+                "link": 'Open Government Licence v3.0',
+                "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+                "post": ', except where otherwise stated'
+            }
+        },
+        "wide": true,
+        "fullWidth": true
+    }
+%}
+{% block main %}
+    <h1>Page Title</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    </p>
+    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+{% endblock %}

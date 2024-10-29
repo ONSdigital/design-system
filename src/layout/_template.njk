@@ -149,8 +149,8 @@
                     {% block header %}
                         {{
                             onsHeader({
-                                "wide": pageConfig.wide,
-                                "fullWidth": pageConfig.fullWidth,
+                                "wide": pageConfig.header.wide | default(pageConfig.wide),
+                                "fullWidth": pageConfig.header.fullWidth | default(pageConfig.fullWidth),
                                 "language": pageConfig.header.language,
                                 "button": pageConfig.header.signoutButton,
                                 "toggleNavigationButton": pageConfig.header.toggleNavigationButton,
@@ -200,8 +200,8 @@
                     {% if pageConfig.footer %}
                         {{
                             onsFooter({
-                                "wide": pageConfig.wide,
-                                "fullWidth": pageConfig.fullWidth,
+                                "wide": pageConfig.footer.wide | default(pageConfig.wide),
+                                "fullWidth": pageConfig.footer.fullWidth | default(pageConfig.fullWidth),
                                 "classes": "ons-page__footer",
                                 "lang": currentLanguageIsoCode,
                                 "rows": pageConfig.footer.rows,
