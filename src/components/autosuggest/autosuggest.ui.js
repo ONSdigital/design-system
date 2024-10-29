@@ -301,7 +301,14 @@ export default class AutosuggestUI {
                 ? this.customResultsThreshold
                 : 0.2;
 
-        const distance = threshold >= 0.6 ? 500 : threshold >= 0.4 ? 300 : 100;
+        let distance;
+        if (threshold >= 0.6) {
+            distance = 500;
+        } else if (threshold >= 0.4) {
+            distance = 300;
+        } else {
+            distance = 100;
+        }
 
         const results = await runFuse(sanitisedQuery, data, this.lang, threshold, distance);
 
