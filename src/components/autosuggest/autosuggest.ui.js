@@ -313,7 +313,7 @@ export default class AutosuggestUI {
         const results = await runFuse(sanitisedQuery, data, this.lang, threshold, distance);
 
         results.forEach((result) => {
-            result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
+            result.sanitisedText = sanitiseAutosuggestText(result.item[this.lang], this.sanitisedQueryReplaceChars);
         });
         return {
             status: this.responseStatus,
@@ -363,7 +363,7 @@ export default class AutosuggestUI {
             this.listbox.innerHTML = '';
             if (this.results) {
                 this.resultOptions = this.results.map((result, index) => {
-                    let innerHTML = this.emboldenMatch(result[this.lang], this.query);
+                    let innerHTML = this.emboldenMatch(result.item[this.lang], this.query);
 
                     const listElement = document.createElement('li');
                     listElement.className = classAutosuggestOption;
@@ -506,13 +506,13 @@ export default class AutosuggestUI {
             this.resultSelected = true;
 
             if (this.allowMultiple === 'true') {
-                let value = this.storeExistingSelections(result[this.lang]);
+                let value = this.storeExistingSelections(result.item[this.lang]);
                 result.displayText = value;
             } else if (result.url) {
-                result.displayText = result[this.lang];
+                result.displayText = result.item[this.lang];
                 window.location = result.url;
             } else {
-                result.displayText = result[this.lang];
+                result.displayText = result.item[this.lang];
             }
             this.onSelect(result).then(() => (this.settingResult = false));
 
