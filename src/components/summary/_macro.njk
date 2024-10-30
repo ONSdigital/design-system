@@ -119,7 +119,9 @@
                                                             <span class="ons-summary__button-text" aria-hidden="true">
                                                                 {{- action.text -}}
                                                             </span>
-                                                            <span class="ons-u-vh">{{ action.visuallyHiddenText }}</span>
+                                                            <span class="ons-u-vh"
+                                                                >{{ action.visuallyHiddenText | default (action.text) }}</span
+                                                            >
                                                         </a>
                                                     {% endfor %}
                                                 </dd>
