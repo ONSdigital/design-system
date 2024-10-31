@@ -17,3 +17,4 @@
 | resultsTitleId      | string                               | true     | ID for the results title. The ID is used in the results `aria-labelledby` to provide context for the results                                                 |
 | input               | `Input` [_(ref)_](/components/input) | true     | Configuration object for the input                                                                                                                           |
 | language            | string                               | false    | The ISO 639-1 Code will override the default language in page. Please note that only 'en', 'cy' and 'ni' is currently supported                              |
+| id                  | string                               | false    | The `id` if the input                                                                                                                                        |
