@@ -18,6 +18,10 @@ jobs:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
               run: yarn install
+            - name: create env file
+              run: |
+                  touch .env
+                  echo RUNNING_IN_CI=${{ RUNNING_IN_CI }} >> .env
             - name: Clear jest cache
               run: yarn test:clear-cache
             - name: Run macro and script tests
