@@ -9,7 +9,9 @@ if (window.google_tag_manager !== undefined) {
         console.log('Data sent to Data Layer');
     };
 } else {
-    console.log('Google analytics not connected');
+    if (process.env.RUNNING_IN_CI !== 'true') {
+        console.log('Google analytics not connected');
+    }
 }
 
 export const trackElement = (el, type) => {
