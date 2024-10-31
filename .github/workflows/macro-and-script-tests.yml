@@ -23,7 +23,7 @@ jobs:
             - name: create env file
               run: |
                   ls
-                  touch .env
+                  touch ./.env
                   echo RUNNING_IN_CI="$RUNNING_IN_CI" >> .env
                   ls
             - name: Clear jest cache
