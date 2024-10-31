@@ -3,11 +3,12 @@ on: [push]
 
 env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    RUNNING_IN_CI: true
 
 jobs:
     run-macro-and-script-tests:
         runs-on: ubuntu-latest
+        env:
+            RUNNING_IN_CI: true
 
         steps:
             - name: Checkout
@@ -18,10 +19,6 @@ jobs:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
               run: yarn install
-            - name: create env file
-              run: |
-                  touch .env
-                  echo RUNNING_IN_CI=true >> .env
             - name: Clear jest cache
               run: yarn test:clear-cache
             - name: Run macro and script tests
