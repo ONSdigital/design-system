@@ -24,7 +24,7 @@ jobs:
               run: |
                   pwd
                   ls
-                  touch ./.env
+                  touch /home/runner/work/design-system/design-system/.env
                   echo RUNNING_IN_CI="$RUNNING_IN_CI" >> .env
             - name: Clear jest cache
               run: yarn test:clear-cache
