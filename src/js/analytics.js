@@ -11,10 +11,11 @@ if (window.google_tag_manager !== undefined) {
 } else {
     if (process.env.RUNNING_IN_CI !== 'true') {
         console.log('Google analytics not connected');
+        console.log('####################');
+        console.log(process.env.RUNNING_IN_CI);
+        console.log('####################');
     }
 }
-
-console.log(process.env.RUNNING_IN_CI);
 
 export const trackElement = (el, type) => {
     const attributes = el.attributes;
