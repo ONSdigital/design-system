@@ -187,6 +187,7 @@ describe('script: address-input', () => {
     describe('When the component initializes', () => {
         it('checks api status by trying a request', async () => {
             await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
+            await setTimeout(50);
 
             expect(await apiFaker.getRequestCount('/addresses/eq?input=cf142&limit=10')).toBe(1);
         });
@@ -734,6 +735,7 @@ describe('script: address-input', () => {
         it('provides expected parameters to the address API', async () => {
             await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = '196 coll'));
             await page.type('.ons-js-autosuggest-input', 'e');
+            await setTimeout(50);
 
             expect(await apiFaker.getRequestCount(searchEndpoint)).toBe(1);
         });
@@ -743,6 +745,7 @@ describe('script: address-input', () => {
             await page.type('.ons-js-autosuggest-input', 'e', { delay: 20 });
             await page.keyboard.press('ArrowDown');
             await page.keyboard.press('Enter');
+            await setTimeout(50);
 
             expect(await apiFaker.getRequestCount(uprnEndpoint)).toBe(1);
         });
