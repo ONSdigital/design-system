@@ -25,8 +25,9 @@ jobs:
                   ls
                   touch ./.env
                   echo RUNNING_IN_CI="$RUNNING_IN_CI" >> .env
-                  ls
             - name: Clear jest cache
               run: yarn test:clear-cache
             - name: Run macro and script tests
-              run: yarn test
+              run: |
+                  ls
+                  yarn test
