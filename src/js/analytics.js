@@ -1,5 +1,5 @@
 import domready from './domready';
-require('dotenv').config();
+import 'dotenv/config';
 
 export let trackEvent = () => {};
 
