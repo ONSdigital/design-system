@@ -369,10 +369,10 @@ export default class AutosuggestUI {
                     listElement.className = classAutosuggestOption;
                     listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
                     listElement.setAttribute('role', 'option');
-                    if (result.category) {
+                    if (result.item.category) {
                         innerHTML =
                             innerHTML +
-                            `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${result.category}</span>`;
+                            `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${result.item.category}</span>`;
                     }
                     listElement.innerHTML = innerHTML;
                     listElement.addEventListener('click', () => {
@@ -508,9 +508,9 @@ export default class AutosuggestUI {
             if (this.allowMultiple === 'true') {
                 let value = this.storeExistingSelections(result.item[this.lang]);
                 result.displayText = value;
-            } else if (result.url) {
+            } else if (result.item.url) {
                 result.displayText = result.item[this.lang];
-                window.location = result.url;
+                window.location = result.item.url;
             } else {
                 result.displayText = result.item[this.lang];
             }
