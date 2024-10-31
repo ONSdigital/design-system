@@ -3,6 +3,7 @@ on: [push]
 
 env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    RUNNING_IN_CI: true
 
 jobs:
     run-macro-and-script-tests:
@@ -20,7 +21,7 @@ jobs:
             - name: create env file
               run: |
                   touch .env
-                  echo RUNNING_IN_CI=true >> .env
+                  echo RUNNING_IN_CI="$RUNNING_IN_CI" >> .env
             - name: Clear jest cache
               run: yarn test:clear-cache
             - name: Run macro and script tests
