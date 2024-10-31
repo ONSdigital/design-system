@@ -14,6 +14,8 @@ if (window.google_tag_manager !== undefined) {
     }
 }
 
+console.log(process.env.RUNNING_IN_CI);
+
 export const trackElement = (el, type) => {
     const attributes = el.attributes;
     const eventData = {};
