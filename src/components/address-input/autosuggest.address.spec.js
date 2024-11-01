@@ -612,6 +612,8 @@ describe('script: address-input', () => {
             await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = '196 coll'));
             await page.type('.ons-js-autosuggest-input', 'e');
 
+            await setTimeout(50);
+
             expect(await apiFaker.getRequestCount('/addresses/eq?input=196%20colle&limit=10&favourwelsh=true')).toBe(1);
         });
     });
