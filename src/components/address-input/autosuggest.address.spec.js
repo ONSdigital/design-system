@@ -268,6 +268,8 @@ describe('script: address-input', () => {
 
                 await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = 'CF14 2N'));
                 await page.type('.ons-js-autosuggest-input', 'T');
+
+                await setTimeout(100);
             });
 
             it('provides expected parameters to the address API where `limit` is 100', async () => {
@@ -275,7 +277,6 @@ describe('script: address-input', () => {
             });
 
             it('has expected suggestion entries', async () => {
-                await setTimeout(100);
                 const suggestions = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.map((node) => node.textContent.trim()));
                 expect(suggestions).toEqual(['196 College Road, Birmingham, B44 8HF', '196 College Road, Whitchurch, Cardiff, CF14 2NZ']);
             });
