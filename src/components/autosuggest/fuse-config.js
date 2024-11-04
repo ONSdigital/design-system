@@ -11,6 +11,10 @@ export default function runFuse(query, data, searchFields, threshold, distance) 
                 weight: 0.9,
             },
             {
+                name: 'formattedAddress',
+                weight: 0.9,
+            },
+            {
                 name: 'tags',
                 weight: 0.1,
             },

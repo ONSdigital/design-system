@@ -313,7 +313,12 @@ export default class AutosuggestUI {
         const results = await runFuse(sanitisedQuery, data, this.lang, threshold, distance);
 
         results.forEach((result) => {
-            result.sanitisedText = sanitiseAutosuggestText(result.item[this.lang], this.sanitisedQueryReplaceChars);
+            const resultItem = result.item ?? result;
+
+            result.sanitisedText = sanitiseAutosuggestText(
+                resultItem[this.lang] ?? resultItem['formattedAddress'],
+                this.sanitisedQueryReplaceChars,
+            );
         });
         return {
             status: this.responseStatus,
@@ -363,18 +368,21 @@ export default class AutosuggestUI {
             this.listbox.innerHTML = '';
             if (this.results) {
                 this.resultOptions = this.results.map((result, index) => {
-                    let innerHTML = this.emboldenMatch(result.item[this.lang], this.query);
+                    const resultItem = result.item ?? result;
+
+                    let innerHTML = this.emboldenMatch(resultItem[this.lang] ?? resultItem['formattedAddress'], this.query);
 
                     const listElement = document.createElement('li');
                     listElement.className = classAutosuggestOption;
                     listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
                     listElement.setAttribute('role', 'option');
-                    if (result.item.category) {
+                    if (resultItem.category) {
                         innerHTML =
                             innerHTML +
-                            `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${result.item.category}</span>`;
+                            `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${resultItem.category}</span>`;
                     }
                     listElement.innerHTML = innerHTML;
+                    console.log(listElement);
                     listElement.addEventListener('click', () => {
                         this.selectResult(index);
                     });
@@ -503,16 +511,19 @@ export default class AutosuggestUI {
         if (this.results.length) {
             this.settingResult = true;
             const result = this.results[index || this.highlightedResultIndex || 0];
+            const resultItem = result.item ?? result;
+            const resultValue = resultItem[this.lang] ?? resultItem['formattedAddress'];
+
             this.resultSelected = true;
 
             if (this.allowMultiple === 'true') {
-                let value = this.storeExistingSelections(result.item[this.lang]);
+                let value = this.storeExistingSelections(resultValue);
                 result.displayText = value;
-            } else if (result.item.url) {
-                result.displayText = result.item[this.lang];
-                window.location = result.item.url;
+            } else if (resultItem.url) {
+                result.displayText = resultValue;
+                window.location = resultItem.url;
             } else {
-                result.displayText = result.item[this.lang];
+                result.displayText = resultValue;
             }
             this.onSelect(result).then(() => (this.settingResult = false));
 
