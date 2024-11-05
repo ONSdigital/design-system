@@ -382,7 +382,6 @@ export default class AutosuggestUI {
                             `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${resultItem.category}</span>`;
                     }
                     listElement.innerHTML = innerHTML;
-                    console.log(listElement);
                     listElement.addEventListener('click', () => {
                         this.selectResult(index);
                     });
