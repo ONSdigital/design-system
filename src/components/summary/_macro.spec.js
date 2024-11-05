@@ -399,12 +399,6 @@ describe('macro: summary', () => {
                 expect($('#row-id-3').length).toBe(1);
             });
 
-            it('has the correct class for each row when there is a `valueList`', () => {
-                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
-
-                expect($('.ons-summary__row--has-values').length).toBe(5);
-            });
-
             it('has custom row `titleAttributes`', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
@@ -462,18 +456,16 @@ describe('macro: summary', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__row .ons-summary__values .ons-summary__text')
-                        .text()
-                        .trim(),
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__values .ons-summary__text').text().trim(),
                 ).toBe('row value 1');
             });
 
             it('displays the `other` text', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-                expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__row .ons-summary__values ul li').text().trim(),
-                ).toBe('other value');
+                expect($('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__values ul li').text().trim()).toBe(
+                    'other value',
+                );
             });
 
             it('wraps the `valueList` in a ul if multiple values provided', () => {
@@ -601,9 +593,7 @@ describe('macro: summary', () => {
                 }),
             );
 
-            expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__row .ons-summary__item-title span').text()).toBe(
-                ' — row value 2',
-            );
+            expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__item-title span').text()).toBe(' — row value 2');
         });
     });
 
