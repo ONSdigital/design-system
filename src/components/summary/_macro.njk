@@ -112,12 +112,10 @@
                                                         class="ons-summary__button"
                                                         {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                                     >
-                                                        <span class="ons-summary__button-text" aria-hidden="true">
-                                                            {{- action.text -}}
-                                                        </span>
-                                                        <span class="ons-u-vh">
-                                                            {{ action.visuallyHiddenText | default (action.text) }}
-                                                        </span>
+                                                        <span class="ons-summary__button-text" aria-hidden="true">{{- action.text -}}</span>
+                                                        <span class="ons-u-vh"
+                                                            >{{ action.visuallyHiddenText | default (action.text) }}</span
+                                                        >
                                                     </a>
                                                 {% endfor %}
                                             </dd>
