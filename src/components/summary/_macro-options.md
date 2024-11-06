@@ -53,12 +53,12 @@
 
 ## SummaryAction
 
-| Name               | Type   | Required | Description                                                                                 |
-| ------------------ | ------ | -------- | ------------------------------------------------------------------------------------------- |
-| text               | string | true     | Text for the action link                                                                    |
-| url                | string | true     | The URL for the HTML `href` attribute of the link used to change the value of the row item  |
-| attributes         | object | false    | HTML attributes (for example, data attributes) to add to the action link                    |
-| visuallyHiddenText | string | false    | Visually hidden text in a span under the action link to add more context for screen readers |
+| Name               | Type   | Required | Description                                                                                                                      |
+| ------------------ | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| text               | string | true     | Text for the action link                                                                                                         |
+| url                | string | true     | The URL for the HTML `href` attribute of the link used to change the value of the row item                                       |
+| attributes         | object | false    | HTML attributes (for example, data attributes) to add to the action link                                                         |
+| visuallyHiddenText | string | false    | Visually hidden text in a span under the action link to add more context for screen readers, , defaults the text in `text` param |
 
 ## SummaryLink
 
