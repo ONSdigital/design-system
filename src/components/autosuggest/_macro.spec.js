@@ -5,7 +5,7 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
-import { EXAMPLE_AUTOSUGGEST } from './_test-examples';
+import { EXAMPLE_AUTOSUGGEST, EXAMPLE_AUTOSUGGEST_WITH_RESULTS_THRESHOLD } from './_test-examples';
 
 describe('FOR: Macro: Autosuggest', () => {
     describe('GIVEN: Params: required', () => {
@@ -22,7 +22,7 @@ describe('FOR: Macro: Autosuggest', () => {
             });
 
             test('THEN: it has a special class that indicates the component should initialise itself', () => {
-                const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
+                const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST_WITH_RESULTS_THRESHOLD));
 
                 expect($('.ons-autosuggest').hasClass('ons-js-autosuggest')).toBe(true);
             });
@@ -42,6 +42,7 @@ describe('FOR: Macro: Autosuggest', () => {
                 expect($element.attr('data-no-results')).toBe('No suggestions found. You can enter your own answer');
                 expect($element.attr('data-results-title')).toBe('Suggestions');
                 expect($element.attr('data-type-more')).toBe('Continue entering to get suggestions');
+                expect($element.attr('data-result-threshold')).toBe('0.5');
             });
 
             test('THEN: it has the expected id on the results title element', () => {

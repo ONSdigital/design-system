@@ -4,22 +4,22 @@
     {% set linkContents %}
         {% if params.image.smallSrc %}
             <img
-                class="ons-video__img ons-u-mb-xs"
+                class="ons-video__img ons-u-mb-2xs"
                 {% if params.image.largeSrc %}srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x"{% endif %}
                 src="{{ params.image.smallSrc }}"
                 alt="{{ params.image.alt }}"
                 loading="lazy"
             />
         {% endif %}
-        <span class="ons-video__link-text ons-u-mt-xs">{{ params.linkText }}</span>
+        <span class="ons-video__link-text ons-u-mt-2xs">{{ params.videoLinkText }}</span>
     {% endset %}
 
     <div class="ons-video ons-js-video">
         {{
             onsExternalLink({
-                "url": params.videoLinkURL,
+                "url": params.videoLinkUrl,
                 "classes": "ons-video__link ons-js-video-placeholder ons-u-db",
-                "linkText": linkContents
+                "text": linkContents
             })
         }}
         <iframe

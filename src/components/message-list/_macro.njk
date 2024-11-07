@@ -3,7 +3,7 @@
         {% for message in params.messages %}
             <li class="ons-message-item" aria-labelledby="{{ message.id }}">
                 <h3 class="ons-message-item__subject" id="{{ message.id }}">
-                    <a href="{{ message.url }}" class="ons-u-fs-r--b">{{ message.subject }}</a>
+                    <a href="{{ message.subject.url }}" class="ons-u-fs-r--b">{{ message.subject.text }}</a>
                     {% if message.unread %}<span class="ons-message-item__unread ons-u-fs-s">({{ params.unreadText }})</span>{% endif %}
                 </h3>
                 <dl class="ons-message-item__metadata" aria-label="{{ params.ariaLabelMetaData | default("Message metadata") }}">
@@ -20,7 +20,7 @@
                     {{ message.body | safe }}
                 </div>
                 <div class="ons-message-item__link ons-u-vh">
-                    <a href="{{ message.url }}">{{ params.hiddenReadLabel }}: {{ message.subject }}</a>
+                    <a href="{{ message.subject.url }}">{{ params.hiddenReadLabel }}: {{ message.subject.text }}</a>
                 </div>
             </li>
         {% endfor %}

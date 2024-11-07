@@ -24,12 +24,12 @@
 | ------- | ---------------- | -------- | -------------------------------------------------- |
 | classes | string           | false    | Additional classes for the list item element       |
 | url     | string           | true     | The URL for the HTML `href` attribute for the link |
-| title   | string           | true     | The text for the link                              |
+| text    | string           | true     | The text for the link                              |
 | anchors | `Array<Anchors>` | false    | An array of [sub-section list anchors](#anchors)   |
 
 ## Anchors
 
-| Name  | Type   | Required | Description                                             |
-| ----- | ------ | -------- | ------------------------------------------------------- |
-| url   | string | true     | The HTML `id` of the heading tag on the page to link to |
-| title | string | true     | The text for the anchor link                            |
+| Name | Type   | Required | Description                                             |
+| ---- | ------ | -------- | ------------------------------------------------------- |
+| url  | string | true     | The HTML `id` of the heading tag on the page to link to |
+| text | string | true     | The text for the anchor link                            |
