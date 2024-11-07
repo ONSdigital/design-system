@@ -10,7 +10,7 @@ import { EXAMPLE_AUTOSUGGEST, EXAMPLE_AUTOSUGGEST_WITH_RESULTS_THRESHOLD } from 
 describe('FOR: Macro: Autosuggest', () => {
     describe('GIVEN: Params: required', () => {
         describe('WHEN: required params are provided', () => {
-            const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
+            const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST_WITH_RESULTS_THRESHOLD));
 
             test('THEN: it passes jest-axe checks', async () => {
                 const results = await axe($.html());
@@ -22,27 +22,63 @@ describe('FOR: Macro: Autosuggest', () => {
             });
 
             test('THEN: it has a special class that indicates the component should initialise itself', () => {
-                const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST_WITH_RESULTS_THRESHOLD));
-
                 expect($('.ons-autosuggest').hasClass('ons-js-autosuggest')).toBe(true);
             });
 
-            test('THEN: it has the provided data attributes', () => {
-                const $element = $('.ons-autosuggest');
-                expect($element.attr('data-allow-multiple')).toBeUndefined();
-                expect($element.attr('data-min-chars')).toBe('2');
-                expect($element.attr('data-aria-limited-results')).toBe('Type more characters to improve your search');
-                expect($element.attr('data-aria-min-chars')).toBe('Enter 3 or more characters for suggestions.');
-                expect($element.attr('data-aria-n-results')).toBe('There are {n} suggestions available.');
-                expect($element.attr('data-aria-one-result')).toBe('There is one suggestion available.');
-                expect($element.attr('data-aria-you-have-selected')).toBe('You have selected');
-                expect($element.attr('data-autosuggest-data')).toBe('/examples/data/country-of-birth.json');
-                expect($element.attr('data-instructions')).toBe('Use up and down keys to navigate.');
-                expect($element.attr('data-more-results')).toBe('Continue entering to improve suggestions');
-                expect($element.attr('data-no-results')).toBe('No suggestions found. You can enter your own answer');
-                expect($element.attr('data-results-title')).toBe('Suggestions');
-                expect($element.attr('data-type-more')).toBe('Continue entering to get suggestions');
-                expect($element.attr('data-result-threshold')).toBe('0.5');
+            test('THEN: it does not have the data-allow-multiple attribute', () => {
+                expect($('.ons-autosuggest').attr('data-allow-multiple')).toBeUndefined();
+            });
+
+            test('THEN: it has data-min-chars set to "2"', () => {
+                expect($('.ons-autosuggest').attr('data-min-chars')).toBe('2');
+            });
+
+            test('THEN: it has data-aria-limited-results with expected message', () => {
+                expect($('.ons-autosuggest').attr('data-aria-limited-results')).toBe('Type more characters to improve your search');
+            });
+
+            test('THEN: it has data-aria-min-chars with expected message', () => {
+                expect($('.ons-autosuggest').attr('data-aria-min-chars')).toBe('Enter 3 or more characters for suggestions.');
+            });
+
+            test('THEN: it has data-aria-n-results with expected message', () => {
+                expect($('.ons-autosuggest').attr('data-aria-n-results')).toBe('There are {n} suggestions available.');
+            });
+
+            test('THEN: it has data-aria-one-result with expected message', () => {
+                expect($('.ons-autosuggest').attr('data-aria-one-result')).toBe('There is one suggestion available.');
+            });
+
+            test('THEN: it has data-aria-you-have-selected with expected message', () => {
+                expect($('.ons-autosuggest').attr('data-aria-you-have-selected')).toBe('You have selected');
+            });
+
+            test('THEN: it has data-autosuggest-data pointing to correct URL', () => {
+                expect($('.ons-autosuggest').attr('data-autosuggest-data')).toBe('/examples/data/country-of-birth.json');
+            });
+
+            test('THEN: it has data-instructions with expected instructions', () => {
+                expect($('.ons-autosuggest').attr('data-instructions')).toBe('Use up and down keys to navigate.');
+            });
+
+            test('THEN: it has data-more-results with expected message', () => {
+                expect($('.ons-autosuggest').attr('data-more-results')).toBe('Continue entering to improve suggestions');
+            });
+
+            test('THEN: it has data-no-results with expected message', () => {
+                expect($('.ons-autosuggest').attr('data-no-results')).toBe('No suggestions found. You can enter your own answer');
+            });
+
+            test('THEN: it has data-results-title with expected title', () => {
+                expect($('.ons-autosuggest').attr('data-results-title')).toBe('Suggestions');
+            });
+
+            test('THEN: it has data-type-more with expected message', () => {
+                expect($('.ons-autosuggest').attr('data-type-more')).toBe('Continue entering to get suggestions');
+            });
+
+            test('THEN: it has data-result-threshold set to "0.5"', () => {
+                expect($('.ons-autosuggest').attr('data-result-threshold')).toBe('0.5');
             });
 
             test('THEN: it has the expected id on the results title element', () => {
@@ -238,7 +274,7 @@ describe('FOR: Macro: Autosuggest', () => {
                     },
                 },
             });
-            test('THEN: it renders the input component with the expected parameters', () => {
+            test('THEN: the provided attributes are passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('id', 'country-of-birth');
                 expect(inputSpy.occurrences[0]).toHaveProperty('type', 'text');
                 expect(inputSpy.occurrences[0]).toHaveProperty('classes', 'ons-js-autosuggest-input extra-class another-extra-class');

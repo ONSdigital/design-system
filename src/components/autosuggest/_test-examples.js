@@ -24,3 +24,8 @@ export const EXAMPLE_AUTOSUGGEST = {
     noResults: 'No suggestions found. You can enter your own answer',
     typeMore: 'Continue entering to get suggestions',
 };
+
+export const EXAMPLE_AUTOSUGGEST_WITH_RESULTS_THRESHOLD = {
+    ...EXAMPLE_AUTOSUGGEST,
+    resultsThreshold: 0.5,
+};
