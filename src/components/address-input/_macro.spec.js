@@ -105,7 +105,7 @@ describe('FOR: Macro: Address-input', () => {
                 manualLinkText: '[params.manualLinkText]',
             });
 
-            test('THEN: it renders autosuggest component with expected parameters', () => {
+            test('THEN: the provided attributes are passed through to the autosuggest component', () => {
                 expect(autosuggestSpy.occurrences[0]).toEqual({
                     id: 'address-input-example-id-autosuggest',
                     classes: 'ons-address-input__autosuggest ons-u-mb-no',
@@ -151,7 +151,7 @@ describe('FOR: Macro: Address-input', () => {
                     errorMessageApi: '[params.errorMessageApi]',
                     errorMessageApiLinkText: '[params.errorMessageApiLinkText]',
                     options: '[params.options]',
-                    manualLink: '[params.manualLink]',
+                    manualLinkUrl: '[params.manualLinkUrl]',
                     manualLinkText: '[params.manualLinkText]',
                 });
             });
@@ -337,7 +337,7 @@ describe('FOR: Macro: Address-input', () => {
             });
         });
 
-        describe('WHEN: a value for manualLink and manualLinkText is provided', () => {
+        describe('WHEN: a value for manualLinkUrl and manualLinkText is provided', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
