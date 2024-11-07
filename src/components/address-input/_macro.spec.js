@@ -72,9 +72,9 @@ describe('FOR: Macro: Address-input', () => {
                 error: '[params.error]',
                 name: '[params.name]',
                 mutuallyExclusive: '[params.mutuallyExclusive]',
-                APIDomain: '[params.APIDomain]',
-                APIDomainBearerToken: '[params.APIDomainBearerToken]',
-                APIManualQueryParams: '[params.APIManualQueryParams]',
+                apiDomain: '[params.apiDomain]',
+                apiDomainBearerToken: '[params.apiDomainBearerToken]',
+                apiManualQueryParams: '[params.apiManualQueryParams]',
                 allowMultiple: '[params.allowMultiple]',
                 mandatory: '[params.mandatory]',
                 instructions: '[params.instructions]',
@@ -98,10 +98,10 @@ describe('FOR: Macro: Address-input', () => {
                 errorTitle: '[params.errorTitle]',
                 errorMessageEnter: '[params.errorMessageEnter]',
                 errorMessageSelect: '[params.errorMessageSelect]',
-                errorMessageAPI: '[params.errorMessageAPI]',
-                errorMessageAPILinkText: '[params.errorMessageAPILinkText]',
+                errorMessageApi: '[params.errorMessageApi]',
+                errorMessageApiLinkText: '[params.errorMessageApiLinkText]',
                 options: '[params.options]',
-                manualLink: '[params.manualLink]',
+                manualLinkUrl: '[params.manualLinkUrl]',
                 manualLinkText: '[params.manualLinkText]',
             });
 
@@ -123,9 +123,9 @@ describe('FOR: Macro: Address-input', () => {
                         mutuallyExclusive: '[params.mutuallyExclusive]',
                     },
                     externalInitialiser: true,
-                    APIDomain: '[params.APIDomain]',
-                    APIDomainBearerToken: '[params.APIDomainBearerToken]',
-                    APIManualQueryParams: '[params.APIManualQueryParams]',
+                    apiDomain: '[params.apiDomain]',
+                    apiDomainBearerToken: '[params.apiDomainBearerToken]',
+                    apiManualQueryParams: '[params.apiManualQueryParams]',
                     allowMultiple: '[params.allowMultiple]',
                     mandatory: '[params.mandatory]',
                     instructions: '[params.instructions]',
@@ -148,8 +148,8 @@ describe('FOR: Macro: Address-input', () => {
                     errorTitle: '[params.errorTitle]',
                     errorMessageEnter: '[params.errorMessageEnter]',
                     errorMessageSelect: '[params.errorMessageSelect]',
-                    errorMessageAPI: '[params.errorMessageAPI]',
-                    errorMessageAPILinkText: '[params.errorMessageAPILinkText]',
+                    errorMessageApi: '[params.errorMessageApi]',
+                    errorMessageApiLinkText: '[params.errorMessageApiLinkText]',
                     options: '[params.options]',
                     manualLink: '[params.manualLink]',
                     manualLinkText: '[params.manualLinkText]',
@@ -326,6 +326,7 @@ describe('FOR: Macro: Address-input', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
+                    manualLinkUrl: '#0',
                     manualLinkText: 'Manually enter address',
                 }),
             );
@@ -340,7 +341,7 @@ describe('FOR: Macro: Address-input', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
-                    manualLink: 'https://example.com/edit-address',
+                    manualLinkUrl: 'https://example.com/edit-address',
                     manualLinkText: 'Manually enter address',
                 }),
             );

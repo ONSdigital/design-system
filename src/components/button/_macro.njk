@@ -86,7 +86,7 @@
                 {{-
                     onsIcon({
                         "iconType": iconType,
-                        "classes": 'ons-u-mr-xs'
+                        "classes": 'ons-u-mr-2xs'
                     })
                 -}}
             {%- endif -%}
@@ -95,7 +95,7 @@
                 {{-
                     onsIcon({
                         "iconType": iconType,
-                        "classes": 'ons-u-ml-xs'
+                        "classes": 'ons-u-ml-2xs'
                     })
                 -}}
             {%- endif -%}
@@ -105,7 +105,7 @@
                     "iconType": iconType
                 })
             -}}
-            <span class="ons-btn__text ons-u-vh@xxs@s">{{- params.html | safe if params.html else params.text -}}</span>
+            <span class="ons-btn__text ons-u-vh@2xs@s">{{- params.html | safe if params.html else params.text -}}</span>
         {%- else -%}
             <span class="ons-btn__text">{{- params.html | safe if params.html else params.text -}}</span>
         {%- endif -%}

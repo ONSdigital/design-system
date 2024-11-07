@@ -13,18 +13,18 @@
         p {
             margin: 0 0 0.5rem;
 
-            @include mq(xxs, s) {
-                font-size: 0.9rem;
-                line-height: 1.4;
+            @include mq('2xs', s) {
+                font-size: 0.875rem;
+                line-height: 1.25rem;
             }
         }
     }
 
     &__link {
-        line-height: 2.1rem;
+        line-height: 2rem;
     }
 
     &__btn {
-        margin: 0 0 0.8rem;
+        margin: 0 0 0.75rem;
     }
 }

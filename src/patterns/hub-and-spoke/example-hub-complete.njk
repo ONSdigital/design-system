@@ -19,7 +19,7 @@ layout: ~
 %}
 
 {% block main %}
-    <h1 class="ons-u-mt-m">Submit study</h1>
+    <h1 class="ons-u-mt-l">Submit study</h1>
 
     {%
         call onsPanel({
@@ -32,15 +32,15 @@ layout: ~
     {{
         onsSummary({
             "variant": "hub",
-            "classes": "ons-u-mt-m",
+            "classes": "ons-u-mt-l",
             "summaries": [
                 {
                     "groups": [
                         {
                             "rows": [
                                 {
-                                    "rowTitle": "People who live here",
-                                    "rowItems": [
+                                    "title": "People who live here",
+                                    "itemsList": [
                                         {
                                             "iconType": "check",
                                             "valueList": [
@@ -59,8 +59,8 @@ layout: ~
                                     ]
                                 },
                                 {
-                                    "rowTitle": "Household accommodation",
-                                    "rowItems": [
+                                    "title": "Household accommodation",
+                                    "itemsList": [
                                         {
                                             "iconType": "check",
                                             "valueList": [
@@ -79,8 +79,8 @@ layout: ~
                                     ]
                                 },
                                 {
-                                    "rowTitle": "Mary Smith",
-                                    "rowItems": [
+                                    "title": "Mary Smith",
+                                    "itemsList": [
                                         {
                                             "iconType": "check",
                                             "valueList": [
@@ -99,8 +99,8 @@ layout: ~
                                     ]
                                 },
                                 {
-                                    "rowTitle": "John Smith",
-                                    "rowItems": [
+                                    "title": "John Smith",
+                                    "itemsList": [
                                         {
                                             "iconType": "check",
                                             "valueList": [
@@ -119,8 +119,8 @@ layout: ~
                                     ]
                                 },
                                 {
-                                    "rowTitle": "Billy Smith",
-                                    "rowItems": [
+                                    "title": "Billy Smith",
+                                    "itemsList": [
                                         {
                                             "iconType": "check",
                                             "valueList": [
@@ -139,8 +139,8 @@ layout: ~
                                     ]
                                 },
                                 {
-                                    "rowTitle": "Mary Susannah Smith (Visitor)",
-                                    "rowItems": [
+                                    "title": "Mary Susannah Smith (Visitor)",
+                                    "itemsList": [
                                         {
                                             "iconType": "check",
                                             "valueList": [
@@ -165,13 +165,13 @@ layout: ~
             ]
         })
     }}
-    <div class="ons-u-mt-l">
+    <div class="ons-u-mt-xl">
         <p>By submitting this study you are confirming that, to the best of your knowledge and belief, the details provided are correct.</p>
     </div>
     {{
         onsButton({
             "text": 'Submit study',
-            "classes": 'ons-u-mb-m'
+            "classes": 'ons-u-mb-l'
         })
     }}
 {% endblock %}

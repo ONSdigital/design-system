@@ -1,12 +1,17 @@
 import Fuse from 'fuse.js';
 
-export default function runFuse(query, data, searchFields) {
+export default function runFuse(query, data, searchFields, threshold, distance) {
     const options = {
         shouldSort: true,
-        threshold: 0.2,
+        threshold: threshold,
+        distance: distance,
         keys: [
             {
                 name: searchFields,
+                weight: 0.9,
+            },
+            {
+                name: 'formattedAddress',
                 weight: 0.9,
             },
             {

@@ -44,7 +44,7 @@ export default function initAnalytics() {
     document.body.addEventListener('click', ({ target }) => {
         if (target.getAttribute('data-ga') === 'click') {
             return trackElement(target, 'click');
-        } else if (target.parentElement.getAttribute('data-ga') === 'click') {
+        } else if (target.parentElement?.getAttribute('data-ga') === 'click') {
             return trackElement(target.parentElement, 'click');
         }
     });
