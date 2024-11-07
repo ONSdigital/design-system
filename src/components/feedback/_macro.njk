@@ -7,6 +7,6 @@
         {{ params.heading }}
         {{ closingHeadingTag | safe }}
         <p class="ons-feedback__content">{{- params.content | safe -}}</p>
-        <a href="{{ params.url }}" class="ons-feedback__link">{{- params.linkText -}}</a>
+        <a href="{{ params.linkUrl }}" class="ons-feedback__link">{{- params.linkText -}}</a>
     </div>
 {% endmacro %}

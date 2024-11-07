@@ -30,7 +30,7 @@
     box-sizing: border-box;
     display: list-item;
     list-style: none;
-    margin: 0 0 0.3rem;
+    margin: 0 0 0.25rem;
 
     &--row {
         display: inline;
@@ -44,8 +44,8 @@
     color: var(--ons-color-text);
     display: inline-block;
     height: 2.55rem;
-    line-height: 2.3rem;
-    margin: 0 0.4rem 0 0;
+    line-height: 2.25rem;
+    margin: 0 0.5rem 0 0;
     overflow: visible;
     padding: 0 1rem;
     position: relative;
@@ -143,7 +143,6 @@
     }
 
     .ons-tabs__panel {
-        margin-top: 1px;
         padding: 1rem;
     }
 }

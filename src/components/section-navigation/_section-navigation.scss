@@ -23,13 +23,11 @@
     }
 
     &__item {
-        font-size: 1rem;
         padding: 0;
         &--active {
             border-left: 4px solid var(--ons-color-text-link-active);
-            font-weight: $font-weight-bold;
-            margin-left: -18px;
-            padding-left: 14px;
+            margin-left: -1rem;
+            padding-left: 0.75rem;
             a,
             h2,
             h3,
@@ -40,16 +38,13 @@
             }
         }
         & & {
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.25rem;
         }
     }
 
     &__item-header {
         @extend .ons-u-mb-no;
-
-        font-size: 1rem;
-        font-weight: 700;
-        line-height: 1.6;
+        @extend .ons-u-fs-r--b;
     }
 
     &__sub-items {
@@ -69,7 +64,6 @@
             &--active,
             &:hover {
                 border-color: var(--ons-color-text-link-active);
-                margin: 0 1rem 0 0;
                 padding: 0;
                 a,
                 h2,

@@ -312,9 +312,9 @@ describe('macro: address-input', () => {
                 error: '[params.error]',
                 name: '[params.name]',
                 mutuallyExclusive: '[params.mutuallyExclusive]',
-                APIDomain: '[params.APIDomain]',
-                APIDomainBearerToken: '[params.APIDomainBearerToken]',
-                APIManualQueryParams: '[params.APIManualQueryParams]',
+                apiDomain: '[params.apiDomain]',
+                apiDomainBearerToken: '[params.apiDomainBearerToken]',
+                apiManualQueryParams: '[params.apiManualQueryParams]',
                 allowMultiple: '[params.allowMultiple]',
                 mandatory: '[params.mandatory]',
                 instructions: '[params.instructions]',
@@ -338,10 +338,10 @@ describe('macro: address-input', () => {
                 errorTitle: '[params.errorTitle]',
                 errorMessageEnter: '[params.errorMessageEnter]',
                 errorMessageSelect: '[params.errorMessageSelect]',
-                errorMessageAPI: '[params.errorMessageAPI]',
-                errorMessageAPILinkText: '[params.errorMessageAPILinkText]',
+                errorMessageApi: '[params.errorMessageApi]',
+                errorMessageApiLinkText: '[params.errorMessageApiLinkText]',
                 options: '[params.options]',
-                manualLink: '[params.manualLink]',
+                manualLinkUrl: '[params.manualLinkUrl]',
                 manualLinkText: '[params.manualLinkText]',
             });
 
@@ -362,9 +362,9 @@ describe('macro: address-input', () => {
                     mutuallyExclusive: '[params.mutuallyExclusive]',
                 },
                 externalInitialiser: true,
-                APIDomain: '[params.APIDomain]',
-                APIDomainBearerToken: '[params.APIDomainBearerToken]',
-                APIManualQueryParams: '[params.APIManualQueryParams]',
+                apiDomain: '[params.apiDomain]',
+                apiDomainBearerToken: '[params.apiDomainBearerToken]',
+                apiManualQueryParams: '[params.apiManualQueryParams]',
                 allowMultiple: '[params.allowMultiple]',
                 mandatory: '[params.mandatory]',
                 instructions: '[params.instructions]',
@@ -387,18 +387,19 @@ describe('macro: address-input', () => {
                 errorTitle: '[params.errorTitle]',
                 errorMessageEnter: '[params.errorMessageEnter]',
                 errorMessageSelect: '[params.errorMessageSelect]',
-                errorMessageAPI: '[params.errorMessageAPI]',
-                errorMessageAPILinkText: '[params.errorMessageAPILinkText]',
+                errorMessageApi: '[params.errorMessageApi]',
+                errorMessageApiLinkText: '[params.errorMessageApiLinkText]',
                 options: '[params.options]',
-                manualLink: '[params.manualLink]',
+                manualLinkUrl: '[params.manualLinkUrl]',
                 manualLinkText: '[params.manualLinkText]',
             });
         });
 
-        it('renders manualLinkText` when provided with a default value for `manualLink`', () => {
+        it('renders manualLinkText` when provided with a default value for `manualLinkUrl`', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
+                    manualLinkUrl: '#0',
                     manualLinkText: 'Manually enter address',
                 }),
             );
@@ -407,11 +408,11 @@ describe('macro: address-input', () => {
             expect($('.ons-js-address-manual-btn').text().trim()).toBe('Manually enter address');
         });
 
-        it('renders `manualLinkText` with `manualLink` when provided', () => {
+        it('renders `manualLinkText` with `manualLinkUrl` when provided', () => {
             const $ = cheerio.load(
                 renderComponent('address-input', {
                     ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
-                    manualLink: 'https://example.com/edit-address',
+                    manualLinkUrl: 'https://example.com/edit-address',
                     manualLinkText: 'Manually enter address',
                 }),
             );

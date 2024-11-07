@@ -27,5 +27,5 @@
 | suffix              | string            | false    | Will suffix the list item with the parameter’s value                                                                                   |
 | current             | boolean           | false    | Set to “true” to indicate the current page in a list of content navigational links                                                     |
 | iconType            | string            | false    | Adds an icon to the individual list item when set to the name of one of the [available icons](/foundations/icons#a-to-z)               |
-| attributes          | object            | false    | HTML attributes (for example, data attributes) to add to list item link                                                                |
+| attributes          | object            | false    | HTML attributes (for example, data attributes) to add to list item                                                                     |
 | itemsList           | `Array<ListItem>` | false    | Settings for each [list item](#listitem)                                                                                               |
