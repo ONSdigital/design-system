@@ -8,7 +8,7 @@ import { EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL, EXAMPLE_MANUAL_INPUT_FIELDS } from
 
 describe('FOR: Macro: Address-input', () => {
     describe('GIVEN: Params: required', () => {
-        describe('WHEN: all required params are provided', () => {
+        describe('WHEN: required params are provided', () => {
             const $ = cheerio.load(renderComponent('address-input', EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL));
 
             test('THEN: jest-axe tests pass', async () => {
