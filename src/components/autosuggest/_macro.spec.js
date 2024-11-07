@@ -9,7 +9,7 @@ import { EXAMPLE_AUTOSUGGEST } from './_test-examples';
 
 describe('FOR: Macro: Autosuggest', () => {
     describe('GIVEN: Params: required', () => {
-        describe('WHEN: All required params are provided', () => {
+        describe('WHEN: required params are provided', () => {
             const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
             test('THEN: it passes jest-axe checks', async () => {
