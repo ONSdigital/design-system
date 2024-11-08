@@ -167,7 +167,7 @@ describe('FOR: Macro: Address-input', () => {
             ...EXAMPLE_MANUAL_INPUT_FIELDS,
             isEditable: true,
         });
-        describe('WHEN: Params: organisation', () => {
+        describe('WHEN: organisation is provided', () => {
             test('THEN: it renders "organisation" input field with expected parameters', () => {
                 expect(inputSpy.occurrences).toContainEqual({
                     id: 'address-input-example-id-organisation',
@@ -182,7 +182,7 @@ describe('FOR: Macro: Address-input', () => {
                 });
             });
         });
-        describe('WHEN: Params: line1', () => {
+        describe('WHEN: line1 is provided', () => {
             test('THEN: it renders "address line 1" input field with expected parameters', () => {
                 expect(inputSpy.occurrences).toContainEqual({
                     id: 'address-input-example-id-line1',
@@ -198,7 +198,7 @@ describe('FOR: Macro: Address-input', () => {
             });
         });
 
-        describe('WHEN: Params: line2', () => {
+        describe('WHEN: line2 is provided', () => {
             test('THEN: it renders "address line 2" input field with expected parameters', () => {
                 expect(inputSpy.occurrences).toContainEqual({
                     id: 'address-input-example-id-line2',
@@ -214,7 +214,7 @@ describe('FOR: Macro: Address-input', () => {
             });
         });
 
-        describe('WHEN: Params: town', () => {
+        describe('WHEN: town is provided', () => {
             test('THEN: it renders "town or city" input field with expected parameters', () => {
                 expect(inputSpy.occurrences).toContainEqual({
                     id: 'address-input-example-id-town',
@@ -229,7 +229,7 @@ describe('FOR: Macro: Address-input', () => {
             });
         });
 
-        describe('WHEN: Params: postcode', () => {
+        describe('WHEN: postcode is provided', () => {
             test('THEN: it renders "postcode" input field with expected parameters', () => {
                 expect(inputSpy.occurrences).toContainEqual({
                     id: 'address-input-example-id-postcode',
