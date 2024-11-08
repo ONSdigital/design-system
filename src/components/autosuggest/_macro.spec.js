@@ -274,45 +274,115 @@ describe('FOR: Macro: Autosuggest', () => {
                     },
                 },
             });
-            test('THEN: the provided attributes are passed through to the input component', () => {
+
+            test('THEN: id is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('id', 'country-of-birth');
+            });
+
+            test('THEN: type is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('type', 'text');
+            });
+
+            test('THEN: classes are passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('classes', 'ons-js-autosuggest-input extra-class another-extra-class');
+            });
+
+            test('THEN: width is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('width', '7');
+            });
+
+            test('THEN: label is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('label.text', 'Current name of country');
                 expect(inputSpy.occurrences[0]).toHaveProperty('label.description', 'Enter your own answer or select from suggestions');
                 expect(inputSpy.occurrences[0]).toHaveProperty('label.id', 'country-of-birth-label');
                 expect(inputSpy.occurrences[0]).toHaveProperty('label.classes', 'extra-label-class');
+            });
+
+            test('THEN: autocomplete is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('autocomplete', 'off');
+            });
+
+            test('THEN: legend is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('legend', 'this is a legend');
                 expect(inputSpy.occurrences[0]).toHaveProperty('legendClasses', 'legend-extra-class');
+            });
+
+            test('THEN: value is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('value', 'abc');
+            });
+
+            test('THEN: custom attribute "a" is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('attributes.a', 42);
+            });
+
+            test('THEN: error is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('error.id', 'error-id');
                 expect(inputSpy.occurrences[0]).toHaveProperty('error.text', 'An error occurred.');
+            });
+
+            test('THEN: mutuallyExclusive is passed as null to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('mutuallyExclusive', null);
+            });
+
+            test('THEN: accessiblePlaceholder is passed as true to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('accessiblePlaceholder', true);
+            });
+
+            test('THEN: name is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('name', 'test-params');
+            });
+
+            test('THEN: autosuggestResults type is string', () => {
                 expect(typeof inputSpy.occurrences[0].autosuggestResults).toBe('string');
+            });
+
+            test('THEN: minLength is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('minLength', 1);
+            });
+
+            test('THEN: maxLength is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('maxLength', 10);
+            });
+
+            test('THEN: prefix is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('prefix.title', 'Great British Pounds');
                 expect(inputSpy.occurrences[0]).toHaveProperty('prefix.text', '£');
                 expect(inputSpy.occurrences[0]).toHaveProperty('prefix.id', 'gbp-prefix');
+            });
+
+            test('THEN: suffix is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('suffix.title', 'Percentage of total');
                 expect(inputSpy.occurrences[0]).toHaveProperty('suffix.text', '%');
                 expect(inputSpy.occurrences[0]).toHaveProperty('suffix.id', 'percentage-suffix');
+            });
+
+            test('THEN: field is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('fieldId', 'field-id-test');
                 expect(inputSpy.occurrences[0]).toHaveProperty('fieldClasses', 'field-class-test');
+            });
+
+            test('THEN: dontWrap is passed as true to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('dontWrap', true);
+            });
+
+            test('THEN: charCheckLimit is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.limit', 200);
                 expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.charCountSingular', 'You have {x} character remaining');
                 expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.charCountPlural', 'You have {x} characters remaining');
                 expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.charCountOverLimitSingular', '{x} character too many');
                 expect(inputSpy.occurrences[0]).toHaveProperty('charCheckLimit.charCountOverLimitPlural', '{x} characters too many');
+            });
+
+            test('THEN: searchButton text is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('searchButton.text', 'Search');
+            });
+
+            test('THEN: postTextboxLinkText is passed through to the input component', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('postTextboxLinkText', 'Post textbox link text');
                 expect(inputSpy.occurrences[0]).toHaveProperty('postTextboxLinkUrl', 'https://www.ons.gov.uk');
+            });
+
+            test('THEN: click listener is correctly assigned', () => {
                 expect(inputSpy.occurrences[0]).toHaveProperty('listeners.click', "function() { console.log('click'); }");
             });
         });
