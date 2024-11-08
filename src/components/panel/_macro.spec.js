@@ -147,12 +147,12 @@ describe('macro: panel', () => {
             expect(titleTag).toBe('div');
         });
 
-        it('has the provided `titleTag`', () => {
+        it('has the provided `headingLevel`', () => {
             const $ = cheerio.load(
                 renderComponent('panel', {
                     ...EXAMPLE_PANEL_BASIC,
                     title: 'Panel title',
-                    titleTag: 'h3',
+                    headingLevel: 3,
                 }),
             );
 

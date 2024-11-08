@@ -15,17 +15,17 @@
 
     <div class="{{ className }}">
         {% for summary in params.summaries %}
-            {% if summary.summaryTitle %}
-                <h2 class="ons-summary__title ons-u-mb-m{{ ' ons-u-mt-m' if loop.index > 1 }}">{{ summary.summaryTitle }}</h2>
+            {% if summary.title %}
+                <h2 class="ons-summary__title ons-u-mb-l{{ ' ons-u-mt-l' if loop.index > 1 else "" }}">{{ summary.title }}</h2>
                 {% set headingLevel = "3" %}
             {% endif %}
             {% for group in summary.groups %}
-                <div {% if group.id %}id="{{ group.id }}"{{ ' ' }}{% endif %}class="ons-summary__group{{ variantClasses }}">
-                    {% if group.groupTitle %}
-                        {% set openingHeadingTag = "<h" + headingLevel %}
-                        {% set closingHeadingTag = "</h" + headingLevel + ">" %}
+                <div {% if group.id %}id="{{ group.id }}"{% endif %} class="ons-summary__group{{ variantClasses }}">
+                    {% if group.title %}
+                        {% set openingHeadingTag = "<h" ~ headingLevel %}
+                        {% set closingHeadingTag = "</h" ~ headingLevel ~ ">" %}
                         {{ openingHeadingTag | safe }}
-                        class="ons-summary__group-title">{{ group.groupTitle }}{{ closingHeadingTag | safe }}
+                        class="ons-summary__group-title">{{ group.title }}{{ closingHeadingTag | safe }}
                     {% endif %}
                     {% if group.rows %}
                         <dl class="ons-summary__items">
@@ -35,96 +35,91 @@
                                 {% if row.total %}{% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
                                 <div {% if row.id %}id="{{ row.id }}"{% endif %}class="ons-summary__item{{ itemClass }}">
                                     {% if row.errorMessage %}
-                                        <div class="ons-summary__row-title--error ons-u-fs-r">{{ row.errorMessage }}</div>
+                                        <dt class="ons-summary__row-title--error ons-u-fs-r">{{ row.errorMessage }}</dt>
                                     {% endif %}
-                                    {% if row.rowItems | length > 1 and row.rowTitle %}
-                                        <div class="ons-summary__row-title ons-summary__row-title--no-group-title ons-u-fs-r">
-                                            {{- row.rowTitle -}}
-                                        </div>
+                                    {% if row.itemsList | length > 1 and row.title %}
+                                        <dt class="ons-summary__row-title ons-summary__row-title--no-group-title ons-u-fs-r">
+                                            {{- row.title -}}
+                                        </dt>
                                     {% endif %}
 
-                                    {% for rowItem in row.rowItems %}
-                                        <div
-                                            class="ons-summary__row{{ ' ons-summary__row--has-values' if rowItem.valueList }}"
-                                            {% if rowItem.id %}id="{{ rowItem.id }}"{% endif %}
+                                    {% for item in row.itemsList %}
+                                        <dt
+                                            class="ons-summary__item-title"
+                                            {% if item.titleAttributes %}{% for attribute, value in (item.titleAttributes.items() if item.titleAttributes is mapping and item.titleAttributes.items else item.titleAttributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                         >
-                                            <dt
-                                                class="ons-summary__item-title"
-                                                {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                                            {% if item.iconType %}
+                                                {% from "components/icon/_macro.njk" import onsIcon %}
+                                                <span
+                                                    class="ons-summary__item-title-icon{{ ' ons-summary__item-title-icon--check' if item.iconType == 'check' else "" }}"
+                                                >
+                                                    {{-
+                                                        onsIcon({
+                                                            "iconType": item.iconType
+                                                        })
+                                                    -}}
+                                                    {% if item.iconVisuallyHiddenText %}
+                                                        <span class="ons-u-vh">{{ item.iconVisuallyHiddenText }}</span>
+                                                    {% endif %}
+                                                </span>
+                                            {% endif %}
+
+                                            <div
+                                                class="ons-summary__item--text{{ ' ons-summary__item-title--text' if item.iconType else "" }}"
                                             >
-                                                {% if rowItem.iconType %}
-                                                    {% from "components/icon/_macro.njk" import onsIcon %}
-                                                    <span
-                                                        class="ons-summary__item-title-icon{{ ' ons-summary__item-title-icon--check' if rowItem.iconType == 'check' }}"
-                                                    >
-                                                        {{-
-                                                            onsIcon({
-                                                                "iconType": rowItem.iconType
-                                                            })
-                                                        -}}
-                                                        {% if rowItem.iconVisuallyHiddenText %}
-                                                            <span class="ons-u-vh">{{ rowItem.iconVisuallyHiddenText }}</span>
-                                                        {% endif %}
-                                                    </span>
-                                                {% endif %}
+                                                {{- item.title | default(row.title) | safe -}}
+                                            </div>
 
-                                                <div
-                                                    class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType }}"
-                                                >
-                                                    {{- rowItem.rowTitle | default(row.rowTitle) | safe -}}
-                                                </div>
-
-                                                {# Render section status for mobile if is hub #}
-                                                {% if variantHub and rowItem.valueList %}
-                                                    <span class="ons-u-d-no@m ons-u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
-                                                {% endif %}
-                                            </dt>
-                                            {% if rowItem.valueList %}
-                                                <dd
-                                                    class="ons-summary__values{{ ' ons-summary__values--2' if not rowItem.actions }}"
-                                                    {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
-                                                >
-                                                    {% if rowItem.valueList | length == 1 %}
-                                                        <span class="ons-summary__text">{{ rowItem.valueList[0].text | safe }}</span>
-                                                        {% if rowItem.valueList[0].other or rowItem.valueList[0].other == 0 %}
-                                                            <ul class="ons-u-mb-no">
-                                                                <li>{{ rowItem.valueList[0].other | safe }}</li>
-                                                            </ul>
-                                                        {% endif %}
-                                                    {% else %}
+                                            {# Render section status for mobile if is hub #}
+                                            {% if variantHub and item.valueList %}
+                                                <span class="ons-u-d-no@m ons-u-fs-r"> — {{ item.valueList[0].text | safe }}</span>
+                                            {% endif %}
+                                        </dt>
+                                        {% if item.valueList %}
+                                            <dd
+                                                class="ons-summary__values{{ ' ons-summary__values--2' if not item.actions }}"
+                                                {% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                                            >
+                                                {% if item.valueList | length == 1 %}
+                                                    <span class="ons-summary__text">{{ item.valueList[0].text | safe }}</span>
+                                                    {% if item.valueList[0].other or item.valueList[0].other == 0 %}
                                                         <ul class="ons-u-mb-no">
-                                                            {% for value in rowItem.valueList %}
-                                                                <li>
-                                                                    <span class="ons-summary__text">{{ value.text | safe }}</span>
-                                                                    {% if value.other or value.other == 0 %}
-                                                                        <ul class="ons-u-mb-no">
-                                                                            <li>{{ value.other | safe }}</li>
-                                                                        </ul>
-                                                                    {% endif %}
-                                                                </li>
-                                                            {% endfor %}
+                                                            <li>{{ item.valueList[0].other | safe }}</li>
                                                         </ul>
                                                     {% endif %}
-                                                </dd>
-                                            {% endif %}
-                                            {% if rowItem.actions %}
-                                                <dd class="ons-summary__actions">
-                                                    {% for action in rowItem.actions %}
-                                                        {% if loop.index > 1 %}<span class="ons-summary__spacer"></span>{% endif %}
-                                                        <a
-                                                            href="{{ action.url }}"
-                                                            class="ons-summary__button"
-                                                            {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                                                {% else %}
+                                                    <ul class="ons-u-mb-no">
+                                                        {% for value in item.valueList %}
+                                                            <li>
+                                                                <span class="ons-summary__text">{{ value.text | safe }}</span>
+                                                                {% if value.other or value.other == 0 %}
+                                                                    <ul class="ons-u-mb-no">
+                                                                        <li>{{ value.other | safe }}</li>
+                                                                    </ul>
+                                                                {% endif %}
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% endif %}
+                                            </dd>
+                                        {% endif %}
+                                        {% if item.actions %}
+                                            <dd class="ons-summary__actions">
+                                                {% for action in item.actions %}
+                                                    {% if loop.index > 1 %}<span class="ons-summary__spacer"></span>{% endif %}
+                                                    <a
+                                                        href="{{ action.url }}"
+                                                        class="ons-summary__button"
+                                                        {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                                                    >
+                                                        <span class="ons-summary__button-text" aria-hidden="true">{{- action.text -}}</span>
+                                                        <span class="ons-u-vh"
+                                                            >{{ action.visuallyHiddenText | default (action.text) }}</span
                                                         >
-                                                            <span class="ons-summary__button-text" aria-hidden="true">
-                                                                {{- action.text -}}
-                                                            </span>
-                                                            <span class="ons-u-vh">{{ action.visuallyHiddenText }}</span>
-                                                        </a>
-                                                    {% endfor %}
-                                                </dd>
-                                            {% endif %}
-                                        </div>
+                                                    </a>
+                                                {% endfor %}
+                                            </dd>
+                                        {% endif %}
                                     {% endfor %}
                                 </div>
                             {% endfor %}
@@ -135,7 +130,7 @@
 
                     {% if group.summaryLink %}
                         <div
-                            class="ons-summary__link{{ ' ons-u-pt-s' if params.variant != 'card' and (group.placeholderText or group.rows) }}{{ ' ons-u-bt' if group.placeholderText is not defined and group.rows | length > 1 and params.variant != 'card' }}{{ ' ons-u-mb-xl' if not group.last }}"
+                            class="ons-summary__link{{ ' ons-u-pt-s' if params.variant != 'card' and (group.placeholderText or group.rows) }}{{ ' ons-u-bt' if group.placeholderText is not defined and group.rows | length > 1 and params.variant != 'card' }}{{ ' ons-u-mb-3xl' if not group.last }}"
                         >
                             {% set link %}
                                 <a
@@ -146,7 +141,7 @@
                                 </a>
                             {% endset %}
                             {% if params.variant == 'card' %}
-                                <div>{{ link | safe }}</div>
+                                <div class="ons-summary__link-container">{{ link | safe }}</div>
                             {% else %}
                                 {{ link | safe }}
                             {% endif %}
