@@ -360,7 +360,7 @@ describe('macro: button', () => {
                 noIcon: true,
             });
 
-            expect(iconsSpy.occurrences[0]).toBe(undefined);
+            expect(iconsSpy.occurrences[0]).toBeUndefined();
         });
 
         it('has default `arrow-next` icon when noIcon is set to false', () => {
