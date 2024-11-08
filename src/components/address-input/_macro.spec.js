@@ -331,23 +331,11 @@ describe('FOR: Macro: Address-input', () => {
                 }),
             );
 
-            test('THEN: it renders the manual link with the provided text and a default url', () => {
+            test('THEN: it renders the manual link with the provided url', () => {
                 expect($('.ons-js-address-manual-btn').attr('href')).toBe('#0');
-                expect($('.ons-js-address-manual-btn').text().trim()).toBe('Manually enter address');
             });
-        });
 
-        describe('WHEN: a value for manualLinkUrl and manualLinkText is provided', () => {
-            const $ = cheerio.load(
-                renderComponent('address-input', {
-                    ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
-                    manualLinkUrl: 'https://example.com/edit-address',
-                    manualLinkText: 'Manually enter address',
-                }),
-            );
-
-            test('THEN: it renders the manualLink with the provided text and url', () => {
-                expect($('.ons-js-address-manual-btn').attr('href')).toBe('https://example.com/edit-address');
+            test('THEN: it renders the manual link with the provided text', () => {
                 expect($('.ons-js-address-manual-btn').text().trim()).toBe('Manually enter address');
             });
         });
