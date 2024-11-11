@@ -81,6 +81,10 @@ describe('FOR: Macro: Autosuggest', () => {
                 expect($('.ons-autosuggest').attr('data-result-threshold')).toBe('0.5');
             });
 
+            test('THEN: it has language set to "en-gb"', () => {
+                expect($('.ons-autosuggest').attr('data-lang')).toBe('en-gb');
+            });
+
             test('THEN: it has the expected id on the results title element', () => {
                 expect($('.ons-autosuggest__results-title').attr('id')).toBe('country-of-birth-suggestions');
             });

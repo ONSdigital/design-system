@@ -23,6 +23,7 @@ export const EXAMPLE_AUTOSUGGEST = {
     autosuggestData: '/examples/data/country-of-birth.json',
     noResults: 'No suggestions found. You can enter your own answer',
     typeMore: 'Continue entering to get suggestions',
+    language: 'en-gb',
 };
 
 export const EXAMPLE_AUTOSUGGEST_WITH_RESULTS_THRESHOLD = {
