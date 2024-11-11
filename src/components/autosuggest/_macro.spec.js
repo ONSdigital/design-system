@@ -5,12 +5,12 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
-import { EXAMPLE_AUTOSUGGEST, EXAMPLE_AUTOSUGGEST_WITH_RESULTS_THRESHOLD } from './_test-examples';
+import { EXAMPLE_AUTOSUGGEST } from './_test-examples';
 
 describe('FOR: Macro: Autosuggest', () => {
     describe('GIVEN: Params: required', () => {
         describe('WHEN: required params are provided', () => {
-            const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST_WITH_RESULTS_THRESHOLD));
+            const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
             test('THEN: it passes jest-axe checks', async () => {
                 const results = await axe($.html());
@@ -75,14 +75,6 @@ describe('FOR: Macro: Autosuggest', () => {
 
             test('THEN: it has data-type-more with expected message', () => {
                 expect($('.ons-autosuggest').attr('data-type-more')).toBe('Continue entering to get suggestions');
-            });
-
-            test('THEN: it has data-result-threshold set to "0.5"', () => {
-                expect($('.ons-autosuggest').attr('data-result-threshold')).toBe('0.5');
-            });
-
-            test('THEN: it has language set to "en-gb"', () => {
-                expect($('.ons-autosuggest').attr('data-lang')).toBe('en-gb');
             });
 
             test('THEN: it has the expected id on the results title element', () => {
@@ -211,6 +203,36 @@ describe('FOR: Macro: Autosuggest', () => {
             test('THEN: it has additionally provided container style classes', () => {
                 expect($('.ons-autosuggest').hasClass('extra-class')).toBe(true);
                 expect($('.ons-autosuggest').hasClass('another-extra-class')).toBe(true);
+            });
+        });
+    });
+
+    describe('GIVEN: Params: resultsThreshold', () => {
+        describe('WHEN: resultsThreshold is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('autosuggest', {
+                    ...EXAMPLE_AUTOSUGGEST,
+                    resultsThreshold: 0.5,
+                }),
+            );
+
+            test('THEN: it has data-result-threshold set to "0.5"', () => {
+                expect($('.ons-autosuggest').attr('data-result-threshold')).toBe('0.5');
+            });
+        });
+    });
+
+    describe('GIVEN: Params: language', () => {
+        describe('WHEN: language is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('autosuggest', {
+                    ...EXAMPLE_AUTOSUGGEST,
+                    language: 'en-gb',
+                }),
+            );
+
+            test('THEN: it has language set to "en-gb"', () => {
+                expect($('.ons-autosuggest').attr('data-lang')).toBe('en-gb');
             });
         });
     });
