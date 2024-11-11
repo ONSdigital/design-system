@@ -356,7 +356,7 @@ describe('FOR: Macro: Button', () => {
                 expect($('.ons-btn').hasClass('another-extra-class')).toBe(true);
             });
         });
-        describe('WHEN: innerclasses parameter is provided', () => {
+        describe('WHEN: innerClasses parameter is provided', () => {
             it('THEN: the button inner has the additionally provided inner style classes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
