@@ -216,7 +216,7 @@ describe('script: timeout modal', () => {
             it('closes the modal', async () => {
                 const modalIsVisible = await page.$eval('.ons-modal', (node) => node.classList.contains('ons-u-db'));
 
-                await setTimeout(50);
+                await setTimeout(100);
 
                 expect(modalIsVisible).toBe(false);
             });
