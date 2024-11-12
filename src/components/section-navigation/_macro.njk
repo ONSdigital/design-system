@@ -31,9 +31,12 @@
                                 class="ons-section-nav__item{{ ' ' + item.classes if item.classes else '' }}{{ ' ons-section-nav__item--active' if isCurrent == true }}"
                             >
                                 {% if isCurrent == true %}
-                                    {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
-                                    class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}"
-                                    aria-current="location">{{ item.text }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
+                                    <a
+                                        class="ons-section-nav__link ons-section-nav__item-header"
+                                        href="{{ item.url }}"
+                                        aria-current="location"
+                                        >{{ item.text }}</a
+                                    >
                                 {% else %}
                                     <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.text }}</a>
                                 {% endif %}
@@ -71,9 +74,9 @@
                         class="ons-section-nav__item{{ ' ' + item.classes if item.classes else '' }}{% if isCurrent == true %}{{ ' ' }}ons-section-nav__item--active{% endif %}"
                     >
                         {% if isCurrent == true %}
-                            {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
-                            class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}"
-                            aria-current="location">{{ item.text }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
+                            <a class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}" aria-current="location"
+                                >{{ item.text }}</a
+                            >
                         {% else %}
                             <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.text }}</a>
                         {% endif %}
