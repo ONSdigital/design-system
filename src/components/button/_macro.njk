@@ -11,7 +11,7 @@
             {# Default icon position before label #}
             {% set iconPosition = "before" %}
         {% endif %}
-    {% elif params.iconType is not defined and params.noIcon is not defined %}
+    {% elif params.iconType is not defined and params.noIcon != true %}
         {% if params.url and params.newWindow %}
             {# CTA link opening in new tab #}
             {% set iconType = "external-link" %}
