@@ -149,6 +149,21 @@ describe('FOR: Macro: Button', () => {
         });
     });
 
+    describe('GIVEN: Params: iconType', () => {
+        describe('WHEN: iconType parameter is provided', () => {
+            test('THEN: the button has an svg element', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        text: 'Click me!',
+                        iconPosition: 'after',
+                        iconType: 'exit',
+                    }),
+                );
+                expect($('svg').length).toBe(1);
+            });
+        });
+    });
+
     describe('GIVEN: Params: variants', () => {
         describe('WHEN: variants are present', () => {
             test('THEN: the button has the expected variant classes', () => {
@@ -419,7 +434,7 @@ describe('FOR: Macro: Button', () => {
 
     describe('GIVEN: Params: noIcon', () => {
         describe('WHEN: noIcon is set to true', () => {
-            test('THEN: button does not have the default arrow-next icon', () => {
+            test('THEN: the button does not have the default arrow-next icon', () => {
                 const faker = templateFaker();
                 const iconsSpy = faker.spy('icon');
 
@@ -432,7 +447,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: noIcon is set to false', () => {
-            test('THEN: button has the default arrow-next icon', () => {
+            test('THEN: the button has the default arrow-next icon', () => {
                 const faker = templateFaker();
                 const iconsSpy = faker.spy('icon');
 
@@ -442,6 +457,29 @@ describe('FOR: Macro: Button', () => {
                 });
 
                 expect(iconsSpy.occurrences[0].iconType).toBe('arrow-next');
+            });
+        });
+    });
+
+    describe('GIVEN: Params: listeners', () => {
+        describe('WHEN: listeners are provided', () => {
+            test('THEN: the button renders each listener', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        id: 'example-id',
+                        listeners: {
+                            click: `alert('Input was clicked')`,
+                            keypress: `alert('Key was pressed')`,
+                        },
+                    }),
+                );
+                const script = $('script').html();
+                expect(script).toContain(
+                    `document.getElementById("example-id").addEventListener('click', function(){ alert(&#39;Input was clicked&#39;) });`,
+                );
+                expect(script).toContain(
+                    `document.getElementById("example-id").addEventListener('keypress', function(){ alert(&#39;Key was pressed&#39;) });`,
+                );
             });
         });
     });
