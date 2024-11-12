@@ -351,6 +351,30 @@ describe('macro: button', () => {
             expect(iconsSpy.occurrences[0].iconType).toBe('arrow-next');
         });
 
+        it('has no icon when noIcon is set to true', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+
+            faker.renderComponent('button', {
+                url: 'http://example.com',
+                noIcon: true,
+            });
+
+            expect(iconsSpy.occurrences[0]).toBeUndefined();
+        });
+
+        it('has default `arrow-next` icon when noIcon is set to false', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+
+            faker.renderComponent('button', {
+                url: 'http://example.com',
+                noIcon: false,
+            });
+
+            expect(iconsSpy.occurrences[0].iconType).toBe('arrow-next');
+        });
+
         it('opens in a new window when `newWindow` is `true`', () => {
             const $ = cheerio.load(
                 renderComponent('button', {
