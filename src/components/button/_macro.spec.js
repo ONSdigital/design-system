@@ -342,11 +342,11 @@ describe('FOR: Macro: Button', () => {
                 expect($('.ons-btn').attr('role')).toBe('button');
             });
 
-            test('THEN: <a> element does not have a name attribute', () => {
+            test('THEN: the link does not have a name attribute', () => {
                 expect($('a').attr('name')).toBeUndefined();
             });
 
-            test('THEN: <a> element does not have a value attribute', () => {
+            test('THEN: the link does not have a value attribute', () => {
                 expect($('a').attr('value')).toBeUndefined();
             });
         });
