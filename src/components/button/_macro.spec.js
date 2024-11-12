@@ -74,6 +74,30 @@ describe('FOR: Macro: Button', () => {
             });
         });
     });
+    describe('GIVEN: Params: name', () => {
+        describe('WHEN: the name param is provided', () => {
+            test('THEN: the button renders with the provided name', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        name: 'example',
+                    }),
+                );
+                expect($('button').attr('name')).toBe('example');
+            });
+        });
+    });
+    describe('GIVEN: Params: value', () => {
+        describe('WHEN: the value param is provided', () => {
+            test('THEN: the button renders with the provided value', () => {
+                const $ = cheerio.load(
+                    renderComponent('button', {
+                        value: 'example-value',
+                    }),
+                );
+                expect($('button').attr('value')).toBe('example-value');
+            });
+        });
+    });
     describe('GIVEN: Params: buttonContext', () => {
         describe('WHEN: buttonContext parameter is provided', () => {
             test('THEN: the button has the provided button context', () => {
@@ -317,6 +341,14 @@ describe('FOR: Macro: Button', () => {
             test('THEN: the role attribute is set to button', () => {
                 expect($('.ons-btn').attr('role')).toBe('button');
             });
+
+            test('THEN: <a> element does not have a name attribute', () => {
+                expect($('a').attr('name')).toBeUndefined();
+            });
+
+            test('THEN: <a> element does not have a value attribute', () => {
+                expect($('a').attr('value')).toBeUndefined();
+            });
         });
         describe('WHEN: url parameter is provided and newWindow is true', () => {
             test('THEN: has default new window description', () => {
@@ -381,6 +413,35 @@ describe('FOR: Macro: Button', () => {
                 );
 
                 expect($('.ons-btn').attr('download')).toBeUndefined();
+            });
+        });
+    });
+
+    describe('GIVEN: Params: noIcon', () => {
+        describe('WHEN: noIcon is set to true', () => {
+            test('THEN: button does not have the default arrow-next icon', () => {
+                const faker = templateFaker();
+                const iconsSpy = faker.spy('icon');
+
+                faker.renderComponent('button', {
+                    url: 'http://example.com',
+                    noIcon: true,
+                });
+
+                expect(iconsSpy.occurrences[0]).toBeUndefined();
+            });
+        });
+        describe('WHEN: noIcon is set to false', () => {
+            test('THEN: button has the default arrow-next icon', () => {
+                const faker = templateFaker();
+                const iconsSpy = faker.spy('icon');
+
+                faker.renderComponent('button', {
+                    url: 'http://example.com',
+                    noIcon: false,
+                });
+
+                expect(iconsSpy.occurrences[0].iconType).toBe('arrow-next');
             });
         });
     });
