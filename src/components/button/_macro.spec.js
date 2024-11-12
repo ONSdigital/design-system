@@ -8,12 +8,12 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 describe('FOR: Macro: Button', () => {
     describe('GIVEN: Params: no params', () => {
         describe('WHEN: there are no params provided', () => {
-            it('THEN: has expected style classes', () => {
+            test('THEN: has expected style classes', () => {
                 const $ = cheerio.load(renderComponent('button'));
                 expect($('.ons-btn .ons-btn__inner').length).toBe(1);
             });
 
-            it('THEN: the button is rendered', () => {
+            test('THEN: the button is rendered', () => {
                 const $ = cheerio.load(renderComponent('button'));
                 expect($('button').length).toBe(1);
             });
@@ -21,7 +21,7 @@ describe('FOR: Macro: Button', () => {
     });
     describe('GIVEN: Params: text, name and value', () => {
         describe('WHEN: text, name and value params are provided', () => {
-            it('THEN: passes jest-axe checks', async () => {
+            test('THEN: passes jest-axe checks', async () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         text: 'Example button',
@@ -64,7 +64,7 @@ describe('FOR: Macro: Button', () => {
     });
     describe('GIVEN: Params: text', () => {
         describe('WHEN: the text param is provided', () => {
-            it('THEN: the button has the label text', () => {
+            test('THEN: the button has the label text', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         text: 'Click > me!',
@@ -76,7 +76,7 @@ describe('FOR: Macro: Button', () => {
     });
     describe('GIVEN: Params: buttonContext', () => {
         describe('WHEN: buttonContext parameter is provided', () => {
-            it('THEN: the button has the provided button context', () => {
+            test('THEN: the button has the provided button context', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         buttonContext: 'button context text',
@@ -88,7 +88,7 @@ describe('FOR: Macro: Button', () => {
     });
     describe('GIVEN: Params: html', () => {
         describe('WHEN: html parameter is provided', () => {
-            it('THEN: the button label has the provided html', () => {
+            test('THEN: the button label has the provided html', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         html: 'Click <strong>me</strong>!',
@@ -100,7 +100,7 @@ describe('FOR: Macro: Button', () => {
     });
     describe('GIVEN: Params: iconPosition', () => {
         describe('WHEN: iconPosition is set to before for custom icon', () => {
-            it('THEN: renders custom icon before button text', () => {
+            test('THEN: renders custom icon before button text', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         text: 'Click me!',
@@ -112,7 +112,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: iconPosition is set to after for custom icon', () => {
-            it('THEN: renders custom icon after button text', () => {
+            test('THEN: renders custom icon after button text', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         text: 'Click me!',
@@ -127,7 +127,7 @@ describe('FOR: Macro: Button', () => {
 
     describe('GIVEN: Params: variants', () => {
         describe('WHEN: variants are present', () => {
-            it('THEN: the button has the expected variant classes', () => {
+            test('THEN: the button has the expected variant classes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: ['variant-a', 'variant-b'],
@@ -139,7 +139,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: variants contains download', () => {
-            it('THEN: the button has the download class', () => {
+            test('THEN: the button has the download class', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         url: 'http://example.com',
@@ -148,7 +148,7 @@ describe('FOR: Macro: Button', () => {
                 );
                 expect($('.ons-btn').hasClass('ons-btn--download')).toBe(true);
             });
-            it('THEN: the button has the download icon', () => {
+            test('THEN: the button has the download icon', () => {
                 const faker = templateFaker();
                 const iconsSpy = faker.spy('icon');
 
@@ -159,7 +159,7 @@ describe('FOR: Macro: Button', () => {
 
                 expect(iconsSpy.occurrences[0].iconType).toBe('download');
             });
-            it('THEN: the button has the download attribute', () => {
+            test('THEN: the button has the download attribute', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: 'download',
@@ -170,7 +170,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: variants contains loader', () => {
-            it('THEN: the button has the loader classes', () => {
+            test('THEN: the button has the loader classes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: 'loader',
@@ -181,7 +181,7 @@ describe('FOR: Macro: Button', () => {
                 expect($('.ons-btn').hasClass('ons-js-loader')).toBe(true);
                 expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
             });
-            it('THEN: the button has the loader icon', () => {
+            test('THEN: the button has the loader icon', () => {
                 const faker = templateFaker();
                 const iconsSpy = faker.spy('icon');
 
@@ -193,7 +193,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: variants contains timer', () => {
-            it('THEN: the button has the timer classes', () => {
+            test('THEN: the button has the timer classes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: 'timer',
@@ -205,7 +205,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: variants contains print', () => {
-            it('THEN: renders provided variant style classes', () => {
+            test('THEN: renders provided variant style classes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: 'print',
@@ -217,7 +217,7 @@ describe('FOR: Macro: Button', () => {
                 expect($('.ons-btn').hasClass('ons-js-print-btn')).toBe(true);
             });
 
-            it('THEN: button has the print icon', () => {
+            test('THEN: button has the print icon', () => {
                 const faker = templateFaker();
                 const iconsSpy = faker.spy('icon');
 
@@ -232,7 +232,7 @@ describe('FOR: Macro: Button', () => {
     });
     describe('GIVEN: Params: type', () => {
         describe('WHEN: type parameter is provided', () => {
-            it('THEN: has the provided type attribute', () => {
+            test('THEN: has the provided type attribute', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         type: 'special-type',
@@ -243,7 +243,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: type parameter is provided and variant contains print', () => {
-            it('THEN: has the provided type attribute', () => {
+            test('THEN: has the provided type attribute', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         type: 'special-type',
@@ -255,14 +255,14 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: type parameter is not provided', () => {
-            it('THEN: defaults to being a submit button', () => {
+            test('THEN: defaults to being a submit button', () => {
                 const $ = cheerio.load(renderComponent('button'));
 
                 expect($('button').attr('type')).toBe('submit');
             });
         });
         describe('WHEN: type parameter is not provided and variant contains print', () => {
-            it('THEN: defaults to being a button', () => {
+            test('THEN: defaults to being a button', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: 'print',
@@ -284,26 +284,26 @@ describe('FOR: Macro: Button', () => {
                     url: 'http://example.com',
                 }),
             );
-            it('THEN: passes jest-axe checks', async () => {
+            test('THEN: passes jest-axe checks', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
 
-            it('THEN: renders an <a> element', () => {
+            test('THEN: renders an <a> element', () => {
                 expect($('a').length).toBe(1);
             });
 
-            it('THEN: has expected style classes', () => {
+            test('THEN: has expected style classes', () => {
                 expect($('a').hasClass('ons-btn')).toBe(true);
                 expect($('.ons-btn').hasClass('ons-btn--link')).toBe(true);
                 expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
             });
 
-            it('THEN: the link points to the provided url', () => {
+            test('THEN: the link points to the provided url', () => {
                 expect($('a').attr('href')).toBe('http://example.com');
             });
 
-            it('THEN: the link button has the arrow-next icon by default', () => {
+            test('THEN: the link button has the arrow-next icon by default', () => {
                 const faker = templateFaker();
                 const iconsSpy = faker.spy('icon');
 
@@ -314,12 +314,12 @@ describe('FOR: Macro: Button', () => {
                 expect(iconsSpy.occurrences[0].iconType).toBe('arrow-next');
             });
 
-            it('THEN: the role attribute is set to button', () => {
+            test('THEN: the role attribute is set to button', () => {
                 expect($('.ons-btn').attr('role')).toBe('button');
             });
         });
         describe('WHEN: url parameter is provided and newWindow is true', () => {
-            it('THEN: has default new window description', () => {
+            test('THEN: has default new window description', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         url: 'http://example.com',
@@ -330,7 +330,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: url parameter is provided, newWindow is true and newWindowDescription is provided', () => {
-            it('THEN: has custom new window description', () => {
+            test('THEN: has custom new window description', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         url: 'http://example.com',
@@ -345,7 +345,7 @@ describe('FOR: Macro: Button', () => {
 
     describe('GIVEN: Params: additional classes', () => {
         describe('WHEN: classes parameter is provided', () => {
-            it('THEN: the button has the additionally provided style classes', () => {
+            test('THEN: the button has the additionally provided style classes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         classes: 'extra-class another-extra-class',
@@ -357,7 +357,7 @@ describe('FOR: Macro: Button', () => {
             });
         });
         describe('WHEN: innerClasses parameter is provided', () => {
-            it('THEN: the button inner has the additionally provided inner style classes', () => {
+            test('THEN: the button inner has the additionally provided inner style classes', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         innerClasses: 'extra-inner-class another-extra-inner-class',
@@ -372,7 +372,7 @@ describe('FOR: Macro: Button', () => {
 
     describe('GIVEN: Params: removeDownloadAttribute', () => {
         describe('WHEN: variants contains download and removeDownloadAttribute is true', () => {
-            it('THEN: the button does not have the download attribute', () => {
+            test('THEN: the button does not have the download attribute', () => {
                 const $ = cheerio.load(
                     renderComponent('button', {
                         variants: 'download',
