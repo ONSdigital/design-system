@@ -170,8 +170,8 @@ $checkbox-padding: 10px;
     &__other {
         border-left: 4px solid var(--ons-color-borders-indent);
         display: block;
-        margin: 0 1.25rem 0.5rem;
-        padding: 0 $checkbox-padding $checkbox-padding $checkbox-padding * 2;
+        margin: 0 1.1875rem 0.5rem;
+        padding: 0 $checkbox-padding $checkbox-padding $checkbox-padding * 2 - 1;
     }
 
     &__input:checked + &__label::before {
