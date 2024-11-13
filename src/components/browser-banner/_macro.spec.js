@@ -10,22 +10,22 @@ describe('FOR: Macro: Browser-banner', () => {
         describe('WHEN: params are at default state', () => {
             const $ = cheerio.load(renderComponent('browser-banner', {}));
 
-            it('THEN: passes jest-axe checks', async () => {
+            test('THEN: passes jest-axe checks', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
 
-            it('THEN: has the english default bannerLeadingText', () => {
+            test('THEN: has the english default bannerLeadingText', () => {
                 const bannerLeadingText = $('.ons-browser-banner__lead').text().trim();
                 expect(bannerLeadingText).toBe('This website no longer supports your browser.');
             });
 
-            it('THEN: has the english default bannerCTA', () => {
+            test('THEN: has the english default bannerCTA', () => {
                 const bannerCtaHtml = $('.ons-browser-banner__cta').text().trim();
                 expect(bannerCtaHtml).toBe('You can upgrade your browser to the latest version.');
             });
 
-            it('THEN: has the english default bannerLinkUrl', () => {
+            test('THEN: has the english default bannerLinkUrl', () => {
                 expect($('.ons-browser-banner__link').attr('href')).toBe('https://www.ons.gov.uk/help/browsers');
             });
         });
@@ -33,17 +33,17 @@ describe('FOR: Macro: Browser-banner', () => {
         describe('WHEN: params are at default and language is set to welsh', () => {
             const $ = cheerio.load(renderComponent('browser-banner', { lang: 'cy' }));
 
-            it('THEN: has the welsh default bannerLeadingText', () => {
+            test('THEN: has the welsh default bannerLeadingText', () => {
                 const bannerLeadingText = $('.ons-browser-banner__lead').text().trim();
                 expect(bannerLeadingText).toBe('Nid yw’r wefan hon yn cefnogi eich porwr mwyach.');
             });
 
-            it('THEN: has the welsh default bannerCTA', () => {
+            test('THEN: has the welsh default bannerCTA', () => {
                 const bannerCtaHtml = $('.ons-browser-banner__cta').text().trim();
                 expect(bannerCtaHtml).toBe('Gallwch ddiweddaru eich porwr i’r fersiwn ddiweddaraf.');
             });
 
-            it('THEN: has the welsh default bannerLinkUrl', () => {
+            test('THEN: has the welsh default bannerLinkUrl', () => {
                 expect($('.ons-browser-banner__link').attr('href')).toBe('https://cy.ons.gov.uk/help/browsers');
             });
         });
@@ -51,7 +51,7 @@ describe('FOR: Macro: Browser-banner', () => {
 
     describe('GIVEN: Params: wide', () => {
         describe('WHEN: wide is set to true', () => {
-            it('THEN: has container--wide class', () => {
+            test('THEN: has container--wide class', () => {
                 const $ = cheerio.load(
                     renderComponent('browser-banner', {
                         ...{},
@@ -64,7 +64,7 @@ describe('FOR: Macro: Browser-banner', () => {
         });
 
         describe('WHEN: wide is not set', () => {
-            it('THEN: does not have container--wide class', () => {
+            test('THEN: does not have container--wide class', () => {
                 const $ = cheerio.load(
                     renderComponent('browser-banner', {
                         ...{},
@@ -78,7 +78,7 @@ describe('FOR: Macro: Browser-banner', () => {
 
     describe('GIVEN: Params: fullWidth', () => {
         describe('WHEN: fullWidth is set to true', () => {
-            it('THEN: has container--full-width class', () => {
+            test('THEN: has container--full-width class', () => {
                 const $ = cheerio.load(
                     renderComponent('browser-banner', {
                         ...{},
@@ -91,7 +91,7 @@ describe('FOR: Macro: Browser-banner', () => {
         });
 
         describe('WHEN: fullWidth is not set', () => {
-            it('THEN: does not have container--full-width class', () => {
+            test('THEN: does not have container--full-width class', () => {
                 const $ = cheerio.load(
                     renderComponent('browser-banner', {
                         ...{},
