@@ -63,7 +63,7 @@ describe('FOR: Macro: Accordion', () => {
                 expect(titleText).toBe('Title for item 1');
             });
         });
-        describe('WHEN: titleTag is not provided', () => {
+        describe('WHEN: headingLevel is not provided', () => {
             const $ = cheerio.load(
                 renderComponent('accordion', {
                     itemsList: [
@@ -79,7 +79,7 @@ describe('FOR: Macro: Accordion', () => {
                 expect(titleTag).toBe('h2');
             });
         });
-        describe('WHEN: titleTag is provided', () => {
+        describe('WHEN: headingLevel is provided', () => {
             const $ = cheerio.load(
                 renderComponent('accordion', {
                     itemsList: [
