@@ -171,7 +171,7 @@ $checkbox-padding: 10px;
         border-left: 4px solid var(--ons-color-borders-indent);
         display: block;
         margin: 0 1.1875rem 0.5rem;
-        padding: 0 $checkbox-padding $checkbox-padding $checkbox-padding * 2 - 1;
+        padding: 0 $checkbox-padding $checkbox-padding $checkbox-padding * 2;
     }
 
     &__input:checked + &__label::before {
