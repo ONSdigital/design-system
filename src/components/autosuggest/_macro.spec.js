@@ -9,7 +9,7 @@ import { EXAMPLE_AUTOSUGGEST } from './_test-examples';
 
 describe('FOR: Macro: Autosuggest', () => {
     describe('GIVEN: Params: required', () => {
-        describe('WHEN: required params are provided', () => {
+        describe('WHEN: component is initialised', () => {
             const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
             test('THEN: it passes jest-axe checks', async () => {
@@ -17,16 +17,20 @@ describe('FOR: Macro: Autosuggest', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            test('THEN: it has expected id on container element', () => {
-                expect($('.ons-autosuggest').attr('id')).toBe('country-of-birth-container');
-            });
-
             test('THEN: it has a special class that indicates the component should initialise itself', () => {
                 expect($('.ons-autosuggest').hasClass('ons-js-autosuggest')).toBe(true);
             });
 
-            test('THEN: it does not have the data-allow-multiple attribute', () => {
-                expect($('.ons-autosuggest').attr('data-allow-multiple')).toBeUndefined();
+            test('THEN: the aria-atomic attribute is set to true on the status container', () => {
+                expect($('.ons-autosuggest__status').attr('aria-atomic')).toBe('true');
+            });
+        });
+
+        describe('WHEN: required params are provided', () => {
+            const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
+
+            test('THEN: it has expected id on container element', () => {
+                expect($('.ons-autosuggest').attr('id')).toBe('country-of-birth-container');
             });
 
             test('THEN: it has data-min-chars set to "2"', () => {
@@ -97,10 +101,6 @@ describe('FOR: Macro: Autosuggest', () => {
                 expect($('.ons-autosuggest__instructions').attr('id')).toBe('country-of-birth-instructions');
             });
 
-            test('THEN: the aria-atomic attribute is set to true on the status container', () => {
-                expect($('.ons-autosuggest__status').attr('aria-atomic')).toBe('true');
-            });
-
             test('THEN: it renders the instructions with the provided instructions text', () => {
                 expect($('.ons-autosuggest__instructions').text().trim()).toBe('Use up and down keys to navigate.');
             });
@@ -128,6 +128,17 @@ describe('FOR: Macro: Autosuggest', () => {
                 }),
             );
             test('THEN: it does not have the data-allow-multiple attribute on the container element', () => {
+                expect($('.ons-autosuggest').attr('data-allow-multiple')).toBeUndefined();
+            });
+        });
+
+        describe('WHEN: allowMultiple is not set', () => {
+            const $ = cheerio.load(
+                renderComponent('autosuggest', {
+                    ...EXAMPLE_AUTOSUGGEST,
+                }),
+            );
+            test('THEN: it does not have the data-allow-multiple attribute', () => {
                 expect($('.ons-autosuggest').attr('data-allow-multiple')).toBeUndefined();
             });
         });
