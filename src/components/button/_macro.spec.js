@@ -390,7 +390,7 @@ describe('FOR: Macro: Button', () => {
         });
     });
 
-    describe('GIVEN: Params: additional classes', () => {
+    describe('GIVEN: Params: classes', () => {
         describe('WHEN: classes parameter is provided', () => {
             test('THEN: the button has the additionally provided style classes', () => {
                 const $ = cheerio.load(
