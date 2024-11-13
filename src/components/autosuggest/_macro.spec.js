@@ -8,7 +8,7 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 import { EXAMPLE_AUTOSUGGEST } from './_test-examples';
 
 describe('FOR: Macro: Autosuggest', () => {
-    describe('GIVEN: Params: required', () => {
+    describe('GIVEN: Params: None', () => {
         describe('WHEN: component is initialised', () => {
             const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
@@ -25,7 +25,8 @@ describe('FOR: Macro: Autosuggest', () => {
                 expect($('.ons-autosuggest__status').attr('aria-atomic')).toBe('true');
             });
         });
-
+    });
+    describe('GIVEN: Params: Required', () => {
         describe('WHEN: required params are provided', () => {
             const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
@@ -106,7 +107,6 @@ describe('FOR: Macro: Autosuggest', () => {
             });
         });
     });
-
     describe('GIVEN: Params: allowMultiple', () => {
         describe('WHEN: allowMultiple is true', () => {
             const $ = cheerio.load(
