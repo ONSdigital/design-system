@@ -12,8 +12,6 @@ export const EXAMPLE_AUTOSUGGEST = {
     instructions: 'Use up and down keys to navigate.',
     ariaYouHaveSelected: 'You have selected',
     ariaMinChars: 'Enter 3 or more characters for suggestions.',
-    minChars: 2,
-    ariaResultsLabel: 'Country suggestions',
     ariaOneResult: 'There is one suggestion available.',
     ariaNResults: 'There are {n} suggestions available.',
     ariaLimitedResults: 'Type more characters to improve your search',

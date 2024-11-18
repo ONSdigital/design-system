@@ -8,8 +8,8 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 import { EXAMPLE_AUTOSUGGEST } from './_test-examples';
 
 describe('FOR: Macro: Autosuggest', () => {
-    describe('GIVEN: Params: None', () => {
-        describe('WHEN: component is initialised', () => {
+    describe('GIVEN: Params: Required', () => {
+        describe('WHEN: required params are provided', () => {
             const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
             test('THEN: it passes jest-axe checks', async () => {
@@ -21,21 +21,8 @@ describe('FOR: Macro: Autosuggest', () => {
                 expect($('.ons-autosuggest').hasClass('ons-js-autosuggest')).toBe(true);
             });
 
-            test('THEN: the aria-atomic attribute is set to true on the status container', () => {
-                expect($('.ons-autosuggest__status').attr('aria-atomic')).toBe('true');
-            });
-        });
-    });
-    describe('GIVEN: Params: Required', () => {
-        describe('WHEN: required params are provided', () => {
-            const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
-
             test('THEN: it has expected id on container element', () => {
                 expect($('.ons-autosuggest').attr('id')).toBe('country-of-birth-container');
-            });
-
-            test('THEN: it has data-min-chars set to "2"', () => {
-                expect($('.ons-autosuggest').attr('data-min-chars')).toBe('2');
             });
 
             test('THEN: it has data-aria-limited-results with expected message', () => {
@@ -105,8 +92,28 @@ describe('FOR: Macro: Autosuggest', () => {
             test('THEN: it renders the instructions with the provided instructions text', () => {
                 expect($('.ons-autosuggest__instructions').text().trim()).toBe('Use up and down keys to navigate.');
             });
+
+            test('THEN: the aria-atomic attribute is set to true on the status container', () => {
+                expect($('.ons-autosuggest__status').attr('aria-atomic')).toBe('true');
+            });
         });
     });
+
+    describe('GIVEN: Params: minChars', () => {
+        describe('WHEN: minChars is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('autosuggest', {
+                    ...EXAMPLE_AUTOSUGGEST,
+                    minChars: 2,
+                }),
+            );
+
+            test('THEN: it has data-min-chars set to "2"', () => {
+                expect($('.ons-autosuggest').attr('data-min-chars')).toBe('2');
+            });
+        });
+    });
+
     describe('GIVEN: Params: allowMultiple', () => {
         describe('WHEN: allowMultiple is true', () => {
             const $ = cheerio.load(
