@@ -9,7 +9,7 @@ describe('script: table-of-contents', () => {
             /* eslint-disable indent */
             `
       <div class="ons-page__container ons-container">
-        <div class="ons-grid ons-js-table-of-contents-container">
+        <div class="ons-grid ons-js-toc-container">
           <div class="ons-grid__col ons-grid__col--sticky@m ons-col-4@m">
             ${renderComponent('table-of-contents', {
                 title: 'Contents',
@@ -71,7 +71,7 @@ describe('script: table-of-contents-fixed-position', () => {
             /* eslint-disable indent */
             `
         <div class="ons-page__container ons-container">
-          <div class="ons-grid ons-js-table-of-contents-container">
+          <div class="ons-grid ons-js-toc-container">
             <div id="sticky-container" class="ons-grid__col ons-grid__col--sticky@m ons-col-4@m">
               ${renderComponent('table-of-contents', {
                   title: 'Contents',
