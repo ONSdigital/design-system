@@ -96,6 +96,14 @@ describe('FOR: Macro: Autosuggest', () => {
             test('THEN: the aria-atomic attribute is set to true on the status container', () => {
                 expect($('.ons-autosuggest__status').attr('aria-atomic')).toBe('true');
             });
+
+            test('THEN: it has no value set for data-min-chars', () => {
+                expect($('.ons-autosuggest').attr('data-min-chars')).toBe('');
+            });
+
+            test('THEN: it has no value set for data-result-threshold"', () => {
+                expect($('.ons-autosuggest').attr('data-result-threshold')).toBeUndefined();
+            });
         });
     });
 
