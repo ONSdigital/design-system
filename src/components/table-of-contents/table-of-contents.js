@@ -1,4 +1,4 @@
-export default class Toc {
+export default class TableOfContents {
     constructor(component) {
         this.component = component;
         this.sections = [...this.component.querySelectorAll('section[id]')];
@@ -28,11 +28,11 @@ export default class Toc {
         this.activeSection = activeSection;
 
         for (let section of this.sections) {
-            const tocItem = document.querySelector(`.ons-toc .ons-list__link[href="#${section.id}"]`);
+            const tocItem = document.querySelector(`.ons-table-of-contents .ons-list__link[href="#${section.id}"]`);
             if (section === activeSection) {
-                tocItem.classList.add('ons-toc__link-active');
+                tocItem.classList.add('ons-table-of-contents__link-active');
             } else {
-                tocItem.classList.remove('ons-toc__link-active');
+                tocItem.classList.remove('ons-table-of-contents__link-active');
             }
         }
     }

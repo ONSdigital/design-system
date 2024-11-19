@@ -1,13 +1,13 @@
 import domready from '../../js/domready';
 
-async function toc() {
-    const toc = [...document.querySelectorAll('.ons-js-toc-container')];
+async function tableOfContents() {
+    const tableOfContents = [...document.querySelectorAll('.ons-js-table-of-contents-container')];
 
-    if (toc.length) {
-        const Toc = (await import('./table-of-contents')).default;
+    if (tableOfContents.length) {
+        const TableOfContents = (await import('./table-of-contents')).default;
 
-        toc.forEach((component) => new Toc(component));
+        tableOfContents.forEach((component) => new TableOfContents(component));
     }
 }
 
-domready(toc);
+domready(tableOfContents);
