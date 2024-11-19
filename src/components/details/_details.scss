@@ -68,7 +68,6 @@ $details-caret-width: 1.75rem;
 
     &--open & {
         &__icon {
-            left: -0.1rem;
             top: 0.2rem;
             transform: rotate(90deg);
         }
@@ -76,7 +75,7 @@ $details-caret-width: 1.75rem;
         &__content {
             border-left: 4px solid var(--ons-color-borders-indent);
             display: block;
-            margin: 1rem 0 0;
+            margin: 1rem 0 0 0.5rem;
             padding: 0 0 0 1.5rem;
         }
     }
