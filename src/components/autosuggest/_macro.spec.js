@@ -192,6 +192,19 @@ describe('FOR: Macro: Autosuggest', () => {
                 expect($('.ons-autosuggest').hasClass('ons-js-address-not-editable')).toBe(true);
             });
         });
+
+        describe('WHEN: isEditable is true', () => {
+            const $ = cheerio.load(
+                renderComponent('autosuggest', {
+                    ...EXAMPLE_AUTOSUGGEST,
+                    isEditable: true,
+                }),
+            );
+
+            test('THEN: it has the ons-js-address-not-editable class to indicate that component is not editable', () => {
+                expect($('.ons-autosuggest').hasClass('ons-js-address-not-editable')).toBe(false);
+            });
+        });
     });
 
     describe('GIVEN: Params: mandatory', () => {
@@ -205,6 +218,19 @@ describe('FOR: Macro: Autosuggest', () => {
 
             test('THEN: it has the ons-js-address-mandatory class to indicate that component input is mandatory', () => {
                 expect($('.ons-autosuggest').hasClass('ons-js-address-mandatory')).toBe(true);
+            });
+        });
+
+        describe('WHEN: mandatory is false', () => {
+            const $ = cheerio.load(
+                renderComponent('autosuggest', {
+                    ...EXAMPLE_AUTOSUGGEST,
+                    mandatory: false,
+                }),
+            );
+
+            test('THEN: it has the ons-js-address-mandatory class to indicate that component input is mandatory', () => {
+                expect($('.ons-autosuggest').hasClass('ons-js-address-mandatory')).toBe(false);
             });
         });
     });
