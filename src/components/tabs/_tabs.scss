@@ -43,11 +43,11 @@
     border-radius: 3px 3px 0 0;
     color: var(--ons-color-text);
     display: inline-block;
-    height: 2.55rem;
-    line-height: 2.25rem;
+    height: 2.5rem;
+    // line-height: 2.25rem;
     margin: 0 0.5rem 0 0;
     overflow: visible;
-    padding: 0 1rem;
+    padding: 5px 16px 6px;
     position: relative;
     text-decoration: underline;
 
@@ -62,10 +62,10 @@
         background-color: var(--ons-color-focus);
         border-bottom: 1px solid var(--ons-color-borders);
         box-shadow:
-            inset 0 0 0 9px var(--ons-color-button-secondary),
-            inset 17px 0 0 0 var(--ons-color-button-secondary),
-            inset -17px 0 0 0 var(--ons-color-button-secondary),
-            inset 0 -13px 0 0 var(--ons-color-text-link-focus);
+            inset 0 0 0 5px var(--ons-color-button-secondary),
+            inset 15px 0 0 0 var(--ons-color-button-secondary),
+            inset -14px 0 0 0 var(--ons-color-button-secondary),
+            inset 0 -9px 0 0 var(--ons-color-text-link-focus);
         color: var(--ons-color-text-link-focus);
 
         // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
@@ -88,10 +88,10 @@
         &:focus {
             background-color: var(--ons-color-focus);
             box-shadow:
-                inset 0 0 0 9px var(--ons-color-page-light),
-                inset 17px 0 0 0 var(--ons-color-page-light),
-                inset -17px 0 0 0 var(--ons-color-page-light),
-                inset 0 -13px 0 0 var(--ons-color-text-link-focus);
+                inset 0 0 0 5px var(--ons-color-page-light),
+                inset 15px 0 0 0 var(--ons-color-page-light),
+                inset -14px 0 0 0 var(--ons-color-page-light),
+                inset 0 -9px 0 0 var(--ons-color-text-link-focus);
             text-decoration: none;
         }
     }
