@@ -467,7 +467,7 @@ describe('FOR: Macro: Autosuggest', () => {
     });
 
     describe('GIVEN: Params: mutuallyExclusive', () => {
-        describe('WHEN: mutallyExclusive parameter is not defined', () => {
+        describe('WHEN: mutuallyExclusive parameter is not defined', () => {
             const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
             test('THEN: autosuggest results are rendered', () => {
