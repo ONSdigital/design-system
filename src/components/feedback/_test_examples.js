@@ -5,7 +5,7 @@ export const EXAMPLE_FEEDBACK = {
     linkText: 'Feedback link text',
 };
 
-export const EXAMPLE_FEEDBACK_FULL = {
+export const EXAMPLE_FEEDBACK_ALL_PARAMS = {
     id: 'example-feedback',
     classes: 'extra-class',
     heading: 'Feedback heading',

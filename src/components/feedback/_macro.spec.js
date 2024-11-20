@@ -4,7 +4,7 @@ import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
-import { EXAMPLE_FEEDBACK, EXAMPLE_FEEDBACK_FULL } from './_test_examples';
+import { EXAMPLE_FEEDBACK, EXAMPLE_FEEDBACK_ALL_PARAMS } from './_test_examples';
 
 describe('FOR: Macro: Feedback', () => {
     describe('GIVEN: Params: required', () => {
@@ -23,7 +23,7 @@ describe('FOR: Macro: Feedback', () => {
 
     describe('GIVEN: Params: all', () => {
         describe('WHEN: all params are provided', () => {
-            const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_FULL));
+            const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_ALL_PARAMS));
             test('THEN: jest-axe checks pass', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
