@@ -2,7 +2,7 @@
     {% from "components/list/_macro.njk" import onsList %}
     {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
 
-    <aside class="ons-toc-container" role="complementary">
+    <aside class="ons-table-of-contents-container" role="complementary">
         {% if params.skipLink %}
             {{
                 onsSkipToContent({
@@ -12,8 +12,8 @@
             }}
         {% endif %}
 
-        <nav class="ons-toc" aria-label="{{ params.ariaLabel | default('Table of contents') }}">
-            <h2 class="ons-toc__title ons-u-fs-r--b ons-u-mb-s">{{ params.title }}</h2>
+        <nav class="ons-table-of-contents" aria-label="{{ params.ariaLabel | default('Table of contents') }}">
+            <h2 class="ons-table-of-contents__title ons-u-fs-r--b ons-u-mb-s">{{ params.title }}</h2>
             {% if params.lists %}
                 {% for list in params.lists %}
                     {% if list.listHeading %}

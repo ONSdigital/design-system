@@ -6,7 +6,7 @@ import '../components/mutually-exclusive/mutually-exclusive.dom';
 import '../components/textarea/textarea.dom';
 import '../components/password/password.dom';
 import '../components/tabs/tabs.dom';
-import '../components/table-of-contents/toc.dom';
+import '../components/table-of-contents/table-of-contents.dom';
 import '../components/back-to-top/back-to-top.dom';
 import '../components/accordion/accordion.dom';
 import '../components/details/details.dom';
