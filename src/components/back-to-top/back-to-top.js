@@ -1,4 +1,4 @@
-export default class backToTop {
+export default class BackToTop {
     constructor(component) {
         this.component = component;
         this.content = this.component.previousElementSibling;

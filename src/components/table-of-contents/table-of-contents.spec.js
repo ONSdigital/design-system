@@ -59,7 +59,7 @@ describe('script: table-of-contents', () => {
         await page.$eval(`#${sectionId}`, (node) => node.scrollIntoView());
         await setTimeout(250);
 
-        const activeSection = await page.$eval('.ons-toc__link-active', (node) => node.innerText.trim());
+        const activeSection = await page.$eval('.ons-table-of-contents__link-active', (node) => node.innerText.trim());
         expect(activeSection).toBe(sectionTitle);
     });
 });
@@ -151,7 +151,7 @@ describe('script: table-of-contents-fixed-position', () => {
         );
     });
 
-    it('when the "ons-grid__col--sticky" class is used, then the ToC stays in a fixed position while scrolling', async () => {
+    it('when the "ons-grid__col--sticky" class is used, then the table of contents stays in a fixed position while scrolling', async () => {
         await page.evaluate(() => {
             window.scrollTo(0, 1000);
         });
