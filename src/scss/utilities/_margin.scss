@@ -28,5 +28,9 @@ $margins: (
         @include bp-suffix(ons-u-#{$abbr}-#{$key}, $create-between-breakpoints: true) {
             #{$dec}: #{$value} !important;
         }
+
+        @include bp-suffix(ons-u-#{$abbr}-#{$key}-not-important, $create-between-breakpoints: true) {
+            #{$dec}: #{$value};
+        }
     }
 }
