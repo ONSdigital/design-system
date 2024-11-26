@@ -19,6 +19,7 @@
             inset: 0;
             left: -40%;
             position: absolute;
+            width: 150%;
             @include mq(l) {
                 border-radius: 0 0 300% 150%;
                 left: 0;
@@ -93,7 +94,7 @@
         }
 
         &__circle-1 {
-            @include mq(m) {
+            @include mq(l) {
                 background-color: var(--ons-color-spring-green);
                 border-radius: 50%;
                 height: 59px;
@@ -105,7 +106,7 @@
         }
 
         &__circle-2 {
-            @include mq(m) {
+            @include mq(l) {
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
                 position: absolute;
@@ -117,7 +118,7 @@
         }
 
         &__circle-3 {
-            @include mq(m) {
+            @include mq(l) {
                 height: 60px;
                 right: 112px;
                 top: 25px;
@@ -129,7 +130,7 @@
         }
 
         &__circle-4 {
-            @include mq(m) {
+            @include mq(l) {
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
                 height: 60px;
@@ -140,7 +141,7 @@
             }
 
             &::before {
-                @include mq(m) {
+                @include mq(l) {
                     background-color: var(--ons-color-ocean-blue);
                     border-radius: 50%;
                     content: '';
@@ -155,7 +156,7 @@
         }
 
         &__circle-5 {
-            @include mq(m) {
+            @include mq(l) {
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
                 height: 14px;
@@ -166,7 +167,7 @@
             }
 
             &::before {
-                @include mq(m) {
+                @include mq(l) {
                     background-color: var(--ons-color-sky-blue);
                     border-radius: 50%;
                     content: '';
@@ -181,7 +182,7 @@
         }
 
         &__circle-6 {
-            @include mq(m) {
+            @include mq(l) {
                 background-color: var(--ons-color-spring-green);
                 border-radius: 50%;
                 height: 15px;
@@ -193,7 +194,7 @@
         }
 
         &__circle-7 {
-            @include mq(m) {
+            @include mq(l) {
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
                 height: 60px;
@@ -204,7 +205,7 @@
             }
 
             &::before {
-                @include mq(m) {
+                @include mq(l) {
                     background-color: var(--ons-color-night-blue);
                     border-radius: 50%;
                     content: '';
@@ -219,7 +220,7 @@
         }
 
         &__circle-8 {
-            @include mq(m) {
+            @include mq(l) {
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
                 bottom: 70px;
@@ -233,12 +234,12 @@
         &__circle-9 {
             background-color: var(--ons-color-spring-green);
             border-radius: 50%;
-            bottom: 35px;
+            bottom: 28px;
             position: absolute;
-            right: 18px;
-            width: 45px;
-            height: 45px;
-            @include mq(m) {
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            @include mq(l) {
                 bottom: 40px;
                 height: 30px;
                 position: absolute;
@@ -248,7 +249,7 @@
         }
 
         &__circle-10 {
-            @include mq(m) {
+            @include mq(l) {
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
                 bottom: 63px;
@@ -259,7 +260,7 @@
             }
 
             &::before {
-                @include mq(m) {
+                @include mq(l) {
                     background-color: var(--ons-color-aqua-teal);
                     border-radius: 50%;
                     content: '';
@@ -281,7 +282,7 @@
             position: absolute;
             bottom: -7px;
             right: 50px;
-            @include mq(m) {
+            @include mq(l) {
                 bottom: 33px;
                 height: 30px;
                 position: absolute;
@@ -291,7 +292,7 @@
         }
 
         &__circle-12 {
-            @include mq(m) {
+            @include mq(l) {
                 background-color: var(--ons-color-night-blue);
                 border-radius: 50%;
                 bottom: -35px;
