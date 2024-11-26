@@ -4,103 +4,132 @@ import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
+import { EXAMPLE_FEEDBACK, EXAMPLE_FEEDBACK_ALL_PARAMS } from './_test_examples';
 
-const EXAMPLE_FEEDBACK_MINIMAL = {
-    heading: 'Feedback heading',
-    content: 'Feedback content...',
-    linkUrl: 'http://example.com',
-    linkText: 'Feedback link text',
-};
+describe('FOR: Macro: Feedback', () => {
+    describe('GIVEN: Params: required', () => {
+        describe('WHEN: all required params are provided', () => {
+            const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK));
+            test('THEN: jest-axe checks pass', async () => {
+                const results = await axe($.html());
+                expect(results).toHaveNoViolations();
+            });
 
-const EXAMPLE_FEEDBACK_FULL = {
-    id: 'example-feedback',
-    classes: 'extra-class',
-    heading: 'Feedback heading',
-    headingLevel: 5,
-    headingClasses: 'extra-heading-class another-extra-heading-class',
-    content: 'Feedback content...',
-    linkUrl: 'http://example.com',
-    linkText: 'Feedback link text',
-};
-
-describe('macro: feedback', () => {
-    it('passes jest-axe checks with minimum parameters', async () => {
-        const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
-
-        const results = await axe($.html());
-        expect(results).toHaveNoViolations();
+            test('THEN: the title has a default headingLevel of 2', () => {
+                expect($(`h2.ons-feedback__heading`).text().trim()).toBe('Feedback heading');
+            });
+        });
     });
 
-    it('passes jest-axe checks with full parameters', async () => {
-        const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_FULL));
-
-        const results = await axe($.html());
-        expect(results).toHaveNoViolations();
+    describe('GIVEN: Params: all', () => {
+        describe('WHEN: all params are provided', () => {
+            const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_ALL_PARAMS));
+            test('THEN: jest-axe checks pass', async () => {
+                const results = await axe($.html());
+                expect(results).toHaveNoViolations();
+            });
+        });
     });
 
-    it('has the provided `id` attribute', () => {
-        const $ = cheerio.load(
-            renderComponent('feedback', {
-                id: 'example-id',
-            }),
-        );
-
-        expect($('#example-id').length).toBe(1);
+    describe('GIVEN: Params: id', () => {
+        describe('WHEN: id is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('feedback', {
+                    ...EXAMPLE_FEEDBACK,
+                    id: 'example-id',
+                }),
+            );
+            test('THEN: renders with provided id', () => {
+                expect($('#example-id').length).toBe(1);
+            });
+        });
     });
 
-    it('has additionally provided style classes', () => {
-        const $ = cheerio.load(
-            renderComponent('feedback', {
-                classes: 'extra-class another-extra-class',
-            }),
-        );
-
-        expect($('.ons-feedback').hasClass('extra-class')).toBe(true);
-        expect($('.ons-feedback').hasClass('another-extra-class')).toBe(true);
+    describe('GIVEN: Params: classes', () => {
+        describe('WHEN: additional style classes are provided', () => {
+            const $ = cheerio.load(
+                renderComponent('feedback', {
+                    ...EXAMPLE_FEEDBACK,
+                    classes: 'extra-class another-extra-class',
+                }),
+            );
+            test('THEN: renders with provided classes', () => {
+                expect($('.ons-feedback').hasClass('extra-class')).toBe(true);
+                expect($('.ons-feedback').hasClass('another-extra-class')).toBe(true);
+            });
+        });
     });
 
-    it.each([
-        [1, 'h1'],
-        [4, 'h4'],
-    ])('has the correct element type for the provided `headingLevel` (%i -> %s)', (headingLevel, expectedTitleTag) => {
-        const $ = cheerio.load(
-            renderComponent('feedback', {
-                ...EXAMPLE_FEEDBACK_MINIMAL,
-                headingLevel,
-            }),
-        );
-
-        expect($(`${expectedTitleTag}.ons-feedback__heading`).text().trim()).toBe('Feedback heading');
+    describe('GIVEN: Params: heading', () => {
+        describe('WHEN: heading is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('feedback', {
+                    ...EXAMPLE_FEEDBACK,
+                }),
+            );
+            test('THEN: renders with provided heading text', () => {
+                expect($('.ons-feedback__heading').text().trim()).toBe('Feedback heading');
+            });
+        });
     });
 
-    it('has a default `headingLevel` of 2', () => {
-        const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
-
-        expect($(`h2.ons-feedback__heading`).text().trim()).toBe('Feedback heading');
+    describe('GIVEN: Params: headingLevel', () => {
+        describe('WHEN: headingLevel is provided', () => {
+            test.each([
+                [1, 'h1'],
+                [4, 'h4'],
+            ])('THEN: has the correct heading element type for the provided headingLevel (%i -> %s)', (headingLevel, expectedTitleTag) => {
+                const $ = cheerio.load(
+                    renderComponent('feedback', {
+                        ...EXAMPLE_FEEDBACK,
+                        headingLevel,
+                    }),
+                );
+                const titleTag = $(`${expectedTitleTag}.ons-feedback__heading`)[0].tagName;
+                expect(titleTag).toBe(expectedTitleTag);
+            });
+        });
     });
 
-    it('has additional heading style classes', () => {
-        const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_FULL));
-
-        expect($('.ons-feedback__heading').hasClass('extra-heading-class')).toBe(true);
-        expect($('.ons-feedback__heading').hasClass('another-extra-heading-class')).toBe(true);
+    describe('GIVEN: Params: headingClasses', () => {
+        describe('WHEN: additional heading style classes are provided', () => {
+            const $ = cheerio.load(
+                renderComponent('feedback', {
+                    ...EXAMPLE_FEEDBACK,
+                    headingClasses: 'extra-heading-class another-extra-heading-class',
+                }),
+            );
+            test('THEN: renders with provided classes', () => {
+                expect($('.ons-feedback__heading').hasClass('extra-heading-class')).toBe(true);
+                expect($('.ons-feedback__heading').hasClass('another-extra-heading-class')).toBe(true);
+            });
+        });
     });
 
-    it('has a paragraph with the provided `content`', () => {
-        const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
-
-        expect($('p').text().trim()).toBe('Feedback content...');
+    describe('GIVEN: Params: content', () => {
+        describe('WHEN: content is provided', () => {
+            const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK));
+            test('THEN: renders paragraph with the provided content', () => {
+                expect($('p').text().trim()).toBe('Feedback content...');
+            });
+        });
     });
 
-    it('has a link with the provided `linkUrl`', () => {
-        const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
-
-        expect($('.ons-feedback__link').attr('href')).toBe('http://example.com');
+    describe('GIVEN: Params: linkUrl', () => {
+        describe('WHEN: linkUrl is provided', () => {
+            const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK));
+            test('THEN: renders a link with the provided linkUrl', () => {
+                expect($('.ons-feedback__link').attr('href')).toBe('http://example.com');
+            });
+        });
     });
 
-    it('has a link with the provided `linkText`', () => {
-        const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
-
-        expect($('.ons-feedback__link').text().trim()).toBe('Feedback link text');
+    describe('GIVEN: Params: linkText', () => {
+        describe('WHEN: linkText is provided', () => {
+            const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK));
+            test('THEN: renders a link with the provided linkText', () => {
+                expect($('.ons-feedback__link').text().trim()).toBe('Feedback link text');
+            });
+        });
     });
 });
