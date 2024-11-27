@@ -1,6 +1,14 @@
 .ons-description-list {
     &__items {
         margin: 0 0 2rem;
+
+        &.ons-description-list--horizontal {
+            @media (width >= 980px) {
+                grid-template-columns: repeat(3, 1fr);
+                display: grid;
+                gap: 0.5rem 2.5rem;
+            }
+        }
     }
 
     &__term {

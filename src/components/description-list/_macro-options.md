@@ -6,6 +6,7 @@
 | termCol              | number        | true     | The number of grid columns used for the `<dt>` elements above medium breakpoint                                |
 | descriptionCol       | number        | true     | The number of grid columns used for the `<dd>` elements above medium breakpoint                                |
 | itemsList            | array`<Item>` | true     | Settings for the terms and descriptions of the [description list items](#item)                                 |
+| horizontal           | boolean       | false    | Set to "true" to align the description list horizontally                                                       |
 
 ## Item
 
