@@ -1,6 +1,6 @@
 {% macro onsDescriptionList(params) %}
     <dl
-        class="ons-description-list ons-description-list__items{{ " " + params.classes if params.classes else "" }}{{ " ons-description-list--horizontal" if params.horizontal else " ons-grid ons-grid--gutterless ons-u-cf" }}"
+        class="ons-description-list ons-description-list__items ons-grid ons-grid--gutterless{{ " " + params.classes if params.classes else "" }}{{ " ons-description-list--inline" if params.variants == 'inline' else " ons-u-cf" }}"
         {% if params.id %}id="{{ params.id }}"{% endif %}
         {% if params.descriptionListLabel %}
             title="{{ params.descriptionListLabel }}" aria-label="{{ params.descriptionListLabel }}"
@@ -9,7 +9,9 @@
         {% for item in params.itemsList %}
             {% set descriptionItems %}
                 {% if item.term | length %}
-                    <dt class="ons-description-list__term ons-grid__col ons-col-{{ params.termCol }}@m">{{ item.term }}</dt>
+                    <dt class="ons-description-list__term ons-grid__col ons-col-{{ params.termCol }}@m ons-grid-flex--no-wrap">
+                        {{ item.term }}
+                    </dt>
                 {% endif %}
 
                 {% for descriptionItem in item.descriptions %}
@@ -24,7 +26,7 @@
                 {% endfor %}
             {% endset %}
 
-            {% if params.horizontal %}
+            {% if params.variants == 'inline' %}
                 <div>{{ descriptionItems | safe }}</div>
             {% else %}
                 {{ descriptionItems | safe }}
