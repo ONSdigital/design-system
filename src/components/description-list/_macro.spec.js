@@ -86,15 +86,15 @@ describe('macro: description-list', () => {
         expect($('#example-id').length).toBe(1);
     });
 
-    it('has provided variant style class when variant is provided', () => {
+    it('has the provided variant style class when variant is provided', () => {
         const $ = cheerio.load(
-            renderComponent('list', {
+            renderComponent('description-list', {
                 ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
                 variants: 'inline',
             }),
         );
 
-        expect($('.ons-description-list').hasClass('ons-description-list--horizontal')).toBe(true);
+        expect($('.ons-description-list').hasClass('ons-description-list--inline')).toBe(true);
     });
 
     it('has additionally provided style classes', () => {
@@ -127,22 +127,22 @@ describe('macro: description-list', () => {
         const $listElements = $('.ons-description-list__term, .ons-description-list__value');
 
         expect($listElements[0].tagName).toBe('dt');
-        expect($($listElements[0]).text()).toBe('Survey:');
+        expect($($listElements[0]).text().trim()).toBe('Survey:');
 
         expect($listElements[1].tagName).toBe('dd');
         expect($($listElements[1]).attr('id')).toBe('description-1');
-        expect($($listElements[1]).text()).toBe('Bricks & Blocks');
+        expect($($listElements[1]).text().trim()).toBe('Bricks & Blocks');
 
         expect($listElements[2].tagName).toBe('dt');
-        expect($($listElements[2]).text()).toBe('RU Refs:');
+        expect($($listElements[2]).text().trim()).toBe('RU Refs:');
 
         expect($listElements[3].tagName).toBe('dd');
         expect($($listElements[3]).attr('id')).toBe('description-2');
-        expect($($listElements[3]).text()).toBe('49900000118');
+        expect($($listElements[3]).text().trim()).toBe('49900000118');
 
         expect($listElements[4].tagName).toBe('dd');
         expect($($listElements[4]).attr('id')).toBe('description-3');
-        expect($($listElements[4]).text()).toBe('49300005832');
+        expect($($listElements[4]).text().trim()).toBe('49300005832');
     });
 
     it.each([
