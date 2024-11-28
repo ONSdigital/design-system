@@ -82,7 +82,7 @@
     }
     &--navy-blue & {
         &__details {
-            color: var(--ons-color-text-inverse) !important;
+            color: var(--ons-color-text-inverse);
             padding: 2rem 0 6rem;
             @include mq(l) {
                 padding: 4rem 0;
