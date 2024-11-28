@@ -43,8 +43,8 @@
         height: 100%;
     }
 
-    &__text {
-        padding-bottom: 1rem;
+    &__text:has(+ .ons-btn) {
+        margin-bottom: 2rem;
     }
 
     &__pre-title {
@@ -87,10 +87,6 @@
             @include mq(l) {
                 padding: 4rem 0;
             }
-        }
-
-        &__text {
-            padding: 0;
         }
 
         &__circle-1 {
