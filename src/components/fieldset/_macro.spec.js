@@ -6,63 +6,26 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 import { EXAMPLE_FIELDSET, EXAMPLE_FIELDSET_NO_LEGEND } from './_test_examples';
 
 describe('FOR: Macro: Fieldset', () => {
-    describe('GIVEN: Params: required', () => {
-        describe('WHEN: all required params are provided', () => {
+    describe('GIVEN: Params: accessibility', () => {
+        describe('WHEN: all necessary params are provided', () => {
             const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET));
 
             test('THEN: jest-axe checks pass', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
-
-            test('THEN: renders fieldset with provided id', () => {
-                expect($('.ons-fieldset').attr('id')).toBe('example-fieldset');
-            });
-
-            test('THEN: renders legend with provided text', () => {
-                const title = $('.ons-fieldset__legend-title').text().trim();
-                expect(title).toBe('Fieldset legend');
-            });
-
-            test('THEN: renders description with provided text', () => {
-                const description = $('.ons-fieldset__description').html().trim();
-                expect(description).toBe('A fieldset description');
-            });
-
-            test('THEN: legend has correct `aria-describedby` attribute', () => {
-                const ariaDescByVal = $('.ons-fieldset__legend').attr('aria-describedby');
-                expect(ariaDescByVal).toBe('example-fieldset-legend-description');
-            });
-
-            test('THEN: description has correct id', () => {
-                const id = $('.ons-fieldset__description').attr('id');
-                expect(id).toBe('example-fieldset-legend-description');
-            });
-
-            test('THEN: legend has correct class when description is provided', () => {
-                expect($('.ons-fieldset__legend').hasClass('ons-fieldset__legend--with-description')).toBe(true);
-            });
-        });
-    });
-
-    describe('GIVEN: Params: legend', () => {
-        describe('WHEN: legend is not provided and legendIsQuestionTitle is not set', () => {
-            const $ = cheerio.load(
-                renderComponent('fieldset', {
-                    ...EXAMPLE_FIELDSET,
-                    legend: undefined,
-                    legendIsQuestionTitle: undefined,
-                }),
-            );
-
-            test('THEN: does not render fieldset or legend', () => {
-                expect($('.ons-fieldset').length).toBe(0);
-                expect($('.ons-fieldset__legend').length).toBe(0);
-            });
         });
     });
 
     describe('GIVEN: Params: id', () => {
+        describe('WHEN: id is provided', () => {
+            const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET));
+
+            test('THEN: renders fieldset with provided id', () => {
+                expect($('.ons-fieldset').attr('id')).toBe('example-fieldset');
+            });
+        });
+
         describe('WHEN: id is not provided', () => {
             const $ = cheerio.load(renderComponent('fieldset', { ...EXAMPLE_FIELDSET, id: undefined }));
 
@@ -71,9 +34,38 @@ describe('FOR: Macro: Fieldset', () => {
                 expect(id).toBe('legend-description');
             });
 
-            test('THEN: legend has correct `aria-describedby` attribute', () => {
+            test('THEN: legend has correct aria-describedby attribute', () => {
                 const ariaDescByVal = $('.ons-fieldset__legend').attr('aria-describedby');
                 expect(ariaDescByVal).toBe('legend-description');
+            });
+        });
+    });
+
+    describe('GIVEN: Params: legend', () => {
+        describe('WHEN: legend is provided', () => {
+            const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET));
+
+            test('THEN: renders legend with provided text', () => {
+                const title = $('.ons-fieldset__legend-title').text().trim();
+                expect(title).toBe('Fieldset legend');
+            });
+
+            test('THEN: legend has correct aria-describedby attribute', () => {
+                const ariaDescByVal = $('.ons-fieldset__legend').attr('aria-describedby');
+                expect(ariaDescByVal).toBe('example-fieldset-legend-description');
+            });
+
+            test('THEN: legend has class "ons-fieldset__legend--with-description"', () => {
+                expect($('.ons-fieldset__legend').hasClass('ons-fieldset__legend--with-description')).toBe(true);
+            });
+        });
+
+        describe('WHEN: legend is not provided and legendIsQuestionTitle is not set', () => {
+            const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET_NO_LEGEND));
+
+            test('THEN: does not render fieldset or legend', () => {
+                expect($('.ons-fieldset').length).toBe(0);
+                expect($('.ons-fieldset__legend').length).toBe(0);
             });
         });
     });
@@ -149,13 +141,7 @@ describe('FOR: Macro: Fieldset', () => {
         });
 
         describe('WHEN: dontWrap is set to true and legend is not provided', () => {
-            const $ = cheerio.load(
-                renderComponent('fieldset', {
-                    ...EXAMPLE_FIELDSET,
-                    legend: undefined,
-                    dontWrap: true,
-                }),
-            );
+            const $ = cheerio.load(renderComponent('fieldset', { ...EXAMPLE_FIELDSET_NO_LEGEND, dontWrap: true }));
 
             test('THEN: renders ons-input-items div without fieldset or legend', () => {
                 expect($('.ons-fieldset').length).toBe(0);
@@ -165,7 +151,7 @@ describe('FOR: Macro: Fieldset', () => {
         });
     });
 
-    describe('GIVEN: Params: content', () => {
+    describe('GIVEN: Content', () => {
         describe('WHEN: content is provided', () => {
             const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET, 'Example content...'));
 
@@ -183,13 +169,12 @@ describe('FOR: Macro: Fieldset', () => {
 
             faker.renderComponent('fieldset', {
                 ...EXAMPLE_FIELDSET,
-                error: { text: 'There is an error' },
+                error: { text: 'Error message' },
             });
 
-            test('THEN: calls error component with provided error text', () => {
-                expect(errorSpy.occurrences[0]).toEqual({
-                    text: 'There is an error',
-                });
+            test('THEN: wraps fieldset with error component', () => {
+                expect(errorSpy.occurrences.length).toBe(1);
+                expect(errorSpy.occurrences[0]).toEqual({ text: 'Error message' });
             });
         });
     });
@@ -218,22 +203,6 @@ describe('FOR: Macro: Fieldset', () => {
             test('THEN: description has correct classes', () => {
                 expect($('.ons-fieldset__description').hasClass('ons-fieldset__description--title')).toBe(true);
                 expect($('.ons-fieldset__description').hasClass('ons-u-mb-l')).toBe(true);
-            });
-        });
-
-        describe('WHEN: legendIsQuestionTitle is set to true and legend is not provided', () => {
-            const $ = cheerio.load(
-                renderComponent('fieldset', {
-                    ...EXAMPLE_FIELDSET_NO_LEGEND,
-                    legendIsQuestionTitle: true,
-                }),
-            );
-
-            test('THEN: renders legend as H1 with empty text', () => {
-                const titleTag = $('.ons-fieldset__legend-title')[0].tagName;
-                expect(titleTag).toBe('h1');
-                const titleText = $('.ons-fieldset__legend-title').text().trim();
-                expect(titleText).toBe('');
             });
         });
 
@@ -291,30 +260,13 @@ describe('FOR: Macro: Fieldset', () => {
                 expect($('.ons-fieldset__description').length).toBe(0);
             });
 
-            test('THEN: legend does not have `aria-describedby` attribute', () => {
+            test('THEN: legend does not have aria-describedby attribute', () => {
                 const ariaDescByVal = $('.ons-fieldset__legend').attr('aria-describedby');
                 expect(ariaDescByVal).toBeUndefined();
             });
 
-            test('THEN: legend does not have `ons-fieldset__legend--with-description` class', () => {
+            test('THEN: legend does not have ons-fieldset__legend--with-description class', () => {
                 expect($('.ons-fieldset__legend').hasClass('ons-fieldset__legend--with-description')).toBe(false);
-            });
-        });
-    });
-
-    describe('GIVEN: Params: error', () => {
-        describe('WHEN: error is provided', () => {
-            const faker = templateFaker();
-            const errorSpy = faker.spy('error');
-
-            faker.renderComponent('fieldset', {
-                ...EXAMPLE_FIELDSET,
-                error: { text: 'Error message' },
-            });
-
-            test('THEN: wraps fieldset with error component', () => {
-                expect(errorSpy.occurrences.length).toBe(1);
-                expect(errorSpy.occurrences[0]).toEqual({ text: 'Error message' });
             });
         });
     });
