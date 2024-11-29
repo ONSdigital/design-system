@@ -4,10 +4,6 @@ domready(async () => {
     const radios = [...document.querySelectorAll('.ons-js-radio')];
 
     if (radios.length) {
-        const Radios = (await import('../checkboxes/checkboxes-with-reveal')).default;
-
-        new Radios(radios);
-
         const button = document.querySelector('.ons-js-clear-btn');
         const otherInput = document.querySelector('.ons-radio__other');
         if (button) {
