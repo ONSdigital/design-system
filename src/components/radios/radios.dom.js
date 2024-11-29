@@ -16,7 +16,7 @@ domready(async () => {
             new ClearRadios(radios, button, otherInput);
         }
 
-        const openOther = document.querySelector('.ons-radio__other--open');
+        const openOther = document.querySelector('.ons-radio__other-input');
         if (openOther) {
             const parent = openOther.parentNode;
             const radioInput = parent.querySelector('.ons-radio__input');

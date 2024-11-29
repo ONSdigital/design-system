@@ -48,7 +48,10 @@
                         }}
                         {% if radio.other %}
                             {% set otherType = radio.other.otherType | default('input') %}
-                            <span class="ons-radio__other ons-radio__other-input" id="{{ radio.id }}-other-wrap">
+                            <span
+                                class="ons-radio__other{{ ' ons-radio__other-input' if otherType == 'input' else '' }}"
+                                id="{{ radio.id }}-other-wrap"
+                            >
                                 {% if otherType == "input" %}
                                     {% from "components/input/_macro.njk" import onsInput %}
                                     {{
