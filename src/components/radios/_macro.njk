@@ -34,10 +34,6 @@
                             value="{{ radio.value }}"
                             name="{{ params.name }}"
                             {% if radio.checked or (params.value is defined and params.value == radio.value) %}{{ ' ' }}checked{% endif %}
-                            {% if radio.other and not radio.other.open %}
-                                {{ ' ' }}aria-controls="{{ radio.id }}-other-wrap"
-                                aria-haspopup="true"
-                            {% endif %}
                             {% if radio.attributes %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
                         />
                         {{
@@ -52,10 +48,7 @@
                         }}
                         {% if radio.other %}
                             {% set otherType = radio.other.otherType | default('input') %}
-                            <span
-                                class="ons-radio__other{{ ' ' + 'ons-radio__other--open' if radio.other.open else '' }}"
-                                id="{{ radio.id }}-other-wrap"
-                            >
+                            <span class="ons-radio__other ons-radio__other-input" id="{{ radio.id }}-other-wrap">
                                 {% if otherType == "input" %}
                                     {% from "components/input/_macro.njk" import onsInput %}
                                     {{

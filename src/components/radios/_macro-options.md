@@ -40,7 +40,6 @@
 | type              | string                               | false                                 | Sets the HTML `type` attribute for the nested `<input>`. Can be set to either: “number”, “email”, “tel”, “password”, or “search”. Defaults to “text”. |
 | inputClasses      | string                               | false                                 | Classes to apply to the radio input element                                                                                                           |
 | otherType         | string                               | false (unless alternative input used) | Set the type of nested input if not using default text input, using available types: “select”, “checkboxes”, “radios” or “textarea”.                  |
-| open              | boolean                              | false                                 | Set to “true” to show the nested `other` input when page loads                                                                                        |
 | selectAllChildren | boolean                              | false                                 | Set to “true” when using `otherType` set to “checkboxes” to show all nested checkboxes pre-selected                                                   |
 | attributes        | object                               | false                                 | HTML attributes (for example, data attributes) to add to the nested input                                                                             |
 

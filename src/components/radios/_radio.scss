@@ -58,9 +58,7 @@
 
     &__other {
         @extend .ons-checkbox__other;
-    }
 
-    &__input:not(:checked) ~ &__other--open {
-        display: block;
+        display: block !important;
     }
 }
