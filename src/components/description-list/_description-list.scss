@@ -7,13 +7,13 @@
         clear: both;
         float: left;
         font-weight: $font-weight-bold;
-        word-break: break-word;
+        word-wrap: break-word;
     }
 
     &__value {
         float: right;
         margin-left: 0; /* As normalize adds a 40px left margin */
-        word-break: break-word;
+        word-wrap: break-word;
 
         & + & {
             @include mq(xs) {
