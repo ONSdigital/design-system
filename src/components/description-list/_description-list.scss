@@ -16,7 +16,7 @@
         word-break: break-word;
 
         & + & {
-            @include mq(m) {
+            @include mq(xs) {
                 margin-top: 0;
             }
         }
@@ -28,7 +28,7 @@
                 @extend .ons-u-mt-2xs;
             }
             .ons-description-list__value:nth-of-type(1) {
-                @include mq(m) {
+                @include mq(xs) {
                     margin-top: 0.5rem;
                 }
             }
