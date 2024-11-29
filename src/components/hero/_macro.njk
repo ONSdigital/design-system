@@ -49,12 +49,13 @@
                 {% if caller %}
                     <div class="ons-hero__additional-content">{{- caller() -}}</div>
                 {% endif %}
+
                 {% if params.variants == 'analysis' %}
                     {% from "components/description-list/_macro.njk" import onsDescriptionList %}
                     {{
                         onsDescriptionList({
                             "classes": "ons-u-mb-no",
-                            "horizontal": true,
+                            "variant": 'inline',
                             "termCol": "4",
                             "descriptionCol": "8",
                             "itemsList": params.descriptionList.itemsList
