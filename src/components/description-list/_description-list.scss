@@ -1,23 +1,23 @@
 .ons-description-list {
-    &__items & {
+    &__items {
         margin: 0 0 2rem;
+    }
 
-        &__term {
-            clear: both;
-            float: left;
-            font-weight: $font-weight-bold;
-            word-break: break-word;
-        }
+    &__term {
+        clear: both;
+        float: left;
+        font-weight: $font-weight-bold;
+        word-break: break-word;
+    }
 
-        &__value {
-            float: right;
-            margin-left: 0; /* As normalize adds a 40px left margin */
-            word-break: break-word;
+    &__value {
+        float: right;
+        margin-left: 0; /* As normalize adds a 40px left margin */
+        word-break: break-word;
 
-            & + & {
-                @include mq(m) {
-                    margin-top: 0;
-                }
+        & + & {
+            @include mq(m) {
+                margin-top: 0;
             }
         }
     }
