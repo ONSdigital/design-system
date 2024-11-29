@@ -7,7 +7,9 @@
         class="ons-hero ons-grid--gutterless{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-hero--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-hero--{{ params.variants }}{% endif %}"
     >
         <div class="ons-hero__container ons-container{{ ' ons-container--wide' if params.wide }}">
-            <div class="ons-hero__details ons-grid__col ons-col-{{ detailsColumns }}@m ons-col-10@s@m">
+            <div
+                class="ons-hero__details ons-grid__col{% if params.variants != 'analysis' %}ons-col-{{ detailsColumns }}@m ons-col-10@s@m{% endif %}"
+            >
                 {% if params.variants == 'analysis' %}
                     {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
                     {{
@@ -20,17 +22,29 @@
                     }}
                     <h2 class="ons-hero--analysis-text">{{ params.analysisText | safe }}</h2>
                 {% endif %}
-                <header>
-                    <h1 class="ons-hero__title ons-u-fs-3xl">{{ params.title }}</h1>
-                    {% if params.subtitle %}
-                        <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
+                <div class="ons-hero__title-container">
+                    <div>
+                        <header>
+                            <h1 class="ons-hero__title ons-u-fs-3xl">{{ params.title }}</h1>
+                            {% if params.subtitle %}
+                                <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
+                            {% endif %}
+                        </header>
+                        {% if params.text %}
+                            <p class="ons-hero__text">{{ params.text | safe }}</p>
+                        {% endif %}
+                    </div>
+                    {% if params.variants == 'analysis' %}
+                        {% from "components/icon/_macro.njk" import onsIcon %}
+                        <div class="ons-u-mb-l@2xs@l">
+                            {{-
+                                onsIcon({
+                                    "iconType": 'official-statistics'
+                                })
+                            -}}
+                        </div>
                     {% endif %}
-                </header>
-
-                {% if params.text %}
-                    <p class="ons-hero__text">{{ params.text | safe }}</p>
-                {% endif %}
-
+                </div>
                 {% if params.button %}
                     {% from "components/button/_macro.njk" import onsButton %}
                     {% set btnClasses = params.button.classes if params.button.classes else '' %}
@@ -54,23 +68,13 @@
                     {% from "components/description-list/_macro.njk" import onsDescriptionList %}
                     {{
                         onsDescriptionList({
-                            "classes": "ons-u-mb-no",
-                            "variant": 'inline',
-                            "termCol": "4",
-                            "descriptionCol": "8",
-                            "itemsList": params.descriptionList.itemsList
+                        "classes": "ons-u-mb-no",
+                        "variant": 'inline',
+                        "termCol": "4",
+                        "descriptionCol": "8",
+                        "itemsList": params.descriptionList.itemsList
                         })
                     }}
-                    <!-- logo -->
-                    {% from "components/icon/_macro.njk" import onsIcon %}
-
-                    <div class="ons-grid__col ons-u-mb-l@2xs@l">
-                        {{-
-                            onsIcon({
-                                "iconType": 'official-statistics'
-                            })
-                        -}}
-                    </div>
                 {% endif %}
             </div>
 
