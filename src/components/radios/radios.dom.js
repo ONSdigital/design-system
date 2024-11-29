@@ -5,20 +5,20 @@ domready(async () => {
 
     if (radios.length) {
         const button = document.querySelector('.ons-js-clear-btn');
-        const otherInput = document.querySelector('.ons-radio__other');
+        const otherInputs = document.querySelector('.ons-radio__other');
         if (button) {
             const ClearRadios = (await import('./clear-radios')).default;
 
-            new ClearRadios(radios, button, otherInput);
+            new ClearRadios(radios, button, otherInputs);
         }
 
-        const openOther = document.querySelector('.ons-radio__other-input');
-        if (openOther) {
-            const parent = openOther.parentNode;
+        const otherTextInput = document.querySelector('.ons-radio__other-input');
+        if (otherTextInput) {
+            const parent = otherTextInput.parentNode;
             const radioInput = parent.querySelector('.ons-radio__input');
             const CheckRadios = (await import('./check-radios')).default;
 
-            new CheckRadios(radioInput, openOther);
+            new CheckRadios(radioInput, otherTextInput);
         }
 
         const otherFieldsets = [...document.querySelectorAll('.ons-js-other-fieldset-radio')];
