@@ -90,7 +90,7 @@ describe('macro: description-list', () => {
         const $ = cheerio.load(
             renderComponent('description-list', {
                 ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
-                variants: 'inline',
+                variant: 'inline',
             }),
         );
 
