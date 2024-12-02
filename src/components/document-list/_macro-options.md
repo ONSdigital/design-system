@@ -8,17 +8,18 @@
 
 ## Document
 
-| Name        | Type                | Required | Description                                                                                                                                                    |
-| ----------- | ------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| classes     | string              | false    | Custom classes to add to each document list item                                                                                                               |
-| attributes  | object              | false    | HTML attributes (for example, data attributes) to add to each document list item                                                                               |
-| title       | `Object<Title>`     | true     | An object containing text and url of the [title](#title)                                                                                                       |
-| description | string              | false    | A short HTML extract of text (for example, a short sentence to give some context of the document)                                                              |
-| thumbnail   | `Object<Thumbnail>` | false    | An object containing path and filename attributes for the [thumbnail image](#thumbnail). Renders a placeholder instead if set to `true`                        |
-| metadata    | `Object<Metadata>`  | false    | An object for a [list of information about document](#metadata), for example, date, type and size                                                              |
-| featured    | boolean             | false    | Will render a featured variant of the document if set to `true`                                                                                                |
-| fullWidth   | boolean             | false    | If set to `true`, wraps the `featured` document in a `div` with class `ons-container` for a “full-bleed” layout. Can only be set when featured is set to true. |
-| wide        | boolean             | false    | Set to `true` to increase the maximum width of the layout container to 1280px.                                                                                 |
+| Name              | Type                | Required | Description                                                                                                                                                    |
+| ----------------- | ------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| classes           | string              | false    | Custom classes to add to each document list item                                                                                                               |
+| attributes        | object              | false    | HTML attributes (for example, data attributes) to add to each document list item                                                                               |
+| title             | `Object<Title>`     | true     | An object containing text and url of the [title](#title)                                                                                                       |
+| description       | string              | false    | A short HTML extract of text (for example, a short sentence to give some context of the document)                                                              |
+| thumbnail         | `Object<Thumbnail>` | false    | An object containing path and filename attributes for the [thumbnail image](#thumbnail). Renders a placeholder instead if set to `true`                        |
+| metadata          | `Object<Metadata>`  | false    | An object for a [list of information about document](#metadata), for example, date, type and size                                                              |
+| featured          | boolean             | false    | Will render a featured variant of the document if set to `true`                                                                                                |
+| fullWidth         | boolean             | false    | If set to `true`, wraps the `featured` document in a `div` with class `ons-container` for a “full-bleed” layout. Can only be set when featured is set to true. |
+| wide              | boolean             | false    | Set to `true` to increase the maximum width of the layout container to 1280px.                                                                                 |
+| showMetadataFirst | boolean             | false    | If set to `true`, metadata is displayed above the header.                                                                                                      |
 
 ### Thumbnail
 
