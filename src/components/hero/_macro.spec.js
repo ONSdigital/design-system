@@ -87,4 +87,75 @@ describe('macro: hero', () => {
         const content = $('.ons-hero__additional-content').text().trim();
         expect(content).toEqual(expect.stringContaining('Example content...'));
     });
+
+    it('outputs the correct analysis text with `analysis` variant', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'analysis', analysisText: 'Analysis Text' }));
+
+        const content = $('.ons-hero--analysis-text').text().trim();
+        expect(content).toEqual(expect.stringContaining('Analysis Text'));
+    });
+
+    it('outputs the correct breadcrumbs', () => {
+        const $ = cheerio.load(
+            renderComponent('hero', {
+                ...EXAMPLE_HERO,
+                variants: 'analysis',
+                breadcrumbs: {
+                    ariaLabel: 'Breadcrumbs',
+                    itemsList: [
+                        {
+                            url: '/breadcrumb-1',
+                            text: 'Breadcrumbs 1',
+                        },
+                        {
+                            url: '/breadcrumb-2',
+                            text: 'Breadcrumbs 2',
+                        },
+                    ],
+                },
+            }),
+        );
+
+        const breadcrumbs = $('.ons-breadcrumbs__item');
+        console.log(breadcrumbs);
+        expect($(breadcrumbs).length).toBe(2);
+        expect($(breadcrumbs[0]).attr('href')).toBe('/breadcrumb-1');
+        expect($(breadcrumbs[0]).text().trim()).toBe('BreadCrumbs 1:');
+        expect($(breadcrumbs[1]).attr('href')).toBe('/breadcrumb-2');
+        expect($(breadcrumbs[1]).text().trim()).toBe('BreadCrumbs 2:');
+    });
+
+    it('outputs the correct description list with `termCol` and `descriptionCol`', () => {
+        const $ = cheerio.load(
+            renderComponent('hero', {
+                ...EXAMPLE_HERO,
+                variants: 'analysis',
+                descriptionList: {
+                    termCol: '4',
+                    descriptionCol: '8',
+                    itemsList: [
+                        {
+                            term: 'term1:',
+                            descriptions: [
+                                {
+                                    description: 'description1',
+                                },
+                            ],
+                        },
+                        {
+                            term: 'term2:',
+                            descriptions: [
+                                {
+                                    description: 'description2',
+                                },
+                            ],
+                        },
+                    ],
+                },
+            }),
+        );
+        // console.log($.html());
+        expect($('.ons-description-list__term')).hasClass('ons-col-4@xs').toBe(true);
+        expect($('.ons-description-list__value')).hasClass('ons-col-8@xs').toBe(true);
+    });
 });
