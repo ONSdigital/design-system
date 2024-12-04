@@ -14,9 +14,9 @@ import {
 } from './_test-examples';
 
 describe('FOR: Macro: Document list', () => {
-    describe('GIVEN: Params: basic', () => {
-        describe('WHEN: basic parameters are provided within a document', () => {
-            test('passes jest-axe checks', async () => {
+    describe('GIVEN: Params: required', () => {
+        describe('WHEN: required parameters are provided within a document', () => {
+            test('THEN: passes jest-axe checks', async () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_BASIC, EXAMPLE_DOCUMENT_LIST_BASIC, EXAMPLE_DOCUMENT_LIST_BASIC],
@@ -27,7 +27,7 @@ describe('FOR: Macro: Document list', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            test('outputs the correct number of document items', () => {
+            test('THEN: outputs three document items', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_BASIC, EXAMPLE_DOCUMENT_LIST_BASIC, EXAMPLE_DOCUMENT_LIST_BASIC],
@@ -36,12 +36,12 @@ describe('FOR: Macro: Document list', () => {
 
                 expect($('.ons-document-list__item').length).toBe(3);
             });
-            test('has expected url for the title', () => {
+            test('THEN: has expected url for the title', () => {
                 const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_BASIC] }));
                 expect($('.ons-document-list__item-title a').attr('href')).toBe('#0');
             });
 
-            test('has expected description', () => {
+            test('THEN: has expected description', () => {
                 const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_BASIC] }));
                 const title = $('.ons-document-list__item-description').html().trim();
                 expect(title).toBe('Some description');
@@ -51,7 +51,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: id', () => {
         describe('WHEN: id is provied', () => {
-            test('has the provided id attribute', () => {
+            test('THEN: has the provided id attribute', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         id: 'some-id',
@@ -65,7 +65,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: custom-class', () => {
         describe('WHEN: custom class is provided', () => {
-            test('applies the right custom classes', () => {
+            test('THEN: applies the right custom classes', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         classes: 'custom-class',
@@ -79,7 +79,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: featured', () => {
         describe('WHEN: featured is set for a document', () => {
-            test('has the correct container class', () => {
+            test('THEN: has the ons-document-list__item--featured class', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, featured: true }],
@@ -93,7 +93,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: fullWidth', () => {
         describe('WHEN: fullWidth is set for a document with basic parameters', () => {
-            test('does not apply container class', () => {
+            test('THEN: does not apply container class', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, fullWidth: true }],
@@ -144,7 +144,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: showMetadataFirst', () => {
         describe('WHEN: showMetadataFirst is set for a document', () => {
-            test('has the correct class', () => {
+            test('THEN: has the document-list__item-header--reverse class', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, showMetadataFirst: true }],
@@ -157,7 +157,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: headingLevel', () => {
         describe('WHEN: headingLevel is provided', () => {
-            test('overrides the heading title tag', () => {
+            test('THEN: overrides the heading title tag', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         headingLevel: 1,
@@ -172,7 +172,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: thumbnail', () => {
         describe('WHEN: thumbnail is provided for a document', () => {
-            test('passes jest-axe checks', async () => {
+            test('THEN: passes jest-axe checks', async () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         id: 'some-id',
@@ -184,21 +184,21 @@ describe('FOR: Macro: Document list', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            test('has expected srcset attribute', () => {
+            test('THEN: has expected srcset attribute', () => {
                 const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_THUMBNAIL] }));
 
                 const srcset = $('.ons-document-list__image-link img').attr('srcset');
                 expect(srcset).toBe('/example-small.png 1x, /example-large.png 2x');
             });
 
-            test('has expected src attribute', () => {
+            test('THEN: has expected src attribute', () => {
                 const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_THUMBNAIL] }));
 
                 const src = $('.ons-document-list__image-link img').attr('src');
                 expect(src).toBe('/example-small.png');
             });
 
-            test('has the right placeholder class', () => {
+            test('THEN: has the right placeholder class', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, thumbnail: true }],
@@ -211,7 +211,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: file', () => {
         describe('WHEN: file configuration is provided within a document metadata', () => {
-            test('passes jest-axe checks', async () => {
+            test('THEN: passes jest-axe checks', async () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_FILE],
@@ -222,7 +222,7 @@ describe('FOR: Macro: Document list', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            test('has visually hidden file information after the title', () => {
+            test('THEN: has visually hidden file information after the title', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_FILE],
@@ -233,7 +233,7 @@ describe('FOR: Macro: Document list', () => {
                 expect(hiddenText).toBe(', PDF document download, 499KB, 1 page');
             });
 
-            test('has file information displayed', () => {
+            test('THEN: has file information displayed', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_FILE],
@@ -248,7 +248,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: object', () => {
         describe('WHEN: object configuration is provided within a document metadata', () => {
-            test('passes jest-axe checks', async () => {
+            test('THEN: passes jest-axe checks', async () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT],
@@ -259,7 +259,7 @@ describe('FOR: Macro: Document list', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            test('has the provided url', () => {
+            test('THEN: has the provided url', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT],
@@ -270,13 +270,13 @@ describe('FOR: Macro: Document list', () => {
                 expect(url).toBe('#0');
             });
 
-            test('has expected text', () => {
+            test('THEN: has expected text', () => {
                 const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT] }));
                 const text = $('.ons-document-list__attribute-link > span').text().trim();
                 expect(text).toBe('Poster:');
             });
 
-            test('has expected ref', () => {
+            test('THEN: has expected ref', () => {
                 const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT] }));
                 const text = $('.ons-document-list__attribute-link + span').text().trim();
                 expect(text).toBe('some ref');
@@ -286,7 +286,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: date', () => {
         describe('WHEN: date configuration is provided within a document metadata', () => {
-            test('passes jest-axe checks', async () => {
+            test('THEN: passes jest-axe checks', async () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_DATE],
@@ -297,7 +297,7 @@ describe('FOR: Macro: Document list', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            test('has the default prefix text', () => {
+            test('THEN: has the default prefix text', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_DATE],
@@ -308,7 +308,7 @@ describe('FOR: Macro: Document list', () => {
                 expect(text).toBe('Published:');
             });
 
-            test('has the visually hidden class for prefix text', () => {
+            test('THEN: has the visually hidden class for prefix text', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_DATE],
@@ -317,7 +317,7 @@ describe('FOR: Macro: Document list', () => {
                 expect($('.ons-document-list__item-attribute > span').hasClass('ons-u-vh')).toBe(true);
             });
 
-            test('has the correct datetime attribute value', () => {
+            test('THEN: has the correct datetime attribute value', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_DATE],
@@ -326,7 +326,7 @@ describe('FOR: Macro: Document list', () => {
                 expect($('time').attr('datetime')).toBe('2022-01-01');
             });
 
-            test('has the correct time value', () => {
+            test('THEN: has the correct time value', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_DATE],
@@ -341,7 +341,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: prefix', () => {
         describe('WHEN: prefix is provided in the date metadata configuration for a document', () => {
-            test('has the provided prefix text', () => {
+            test('THEN: has the provided prefix text', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [
@@ -366,7 +366,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: showprefix', () => {
         describe('WHEN: showprefix is set in the date metadata configuration for a document', () => {
-            test('has the correct class', () => {
+            test('THEN: has the correct class', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [
@@ -391,7 +391,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: multiple', () => {
         describe('WHEN: when multiple configurations are provided in the document metadata', () => {
-            test('passes jest-axe checks', async () => {
+            test('THEN: passes jest-axe checks', async () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_MULTIPLE],
@@ -402,7 +402,7 @@ describe('FOR: Macro: Document list', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            test('has the correct document thumbnail class', async () => {
+            test('THEN: has the correct document thumbnail class', async () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_MULTIPLE],
@@ -412,7 +412,7 @@ describe('FOR: Macro: Document list', () => {
                 expect($('.ons-document-list__item-image').hasClass('ons-document-list__item-image--file')).toBe(true);
             });
 
-            test('has the correct document list class', async () => {
+            test('THEN: has the correct document list class', async () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [EXAMPLE_DOCUMENT_LIST_WITH_MULTIPLE],
