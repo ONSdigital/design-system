@@ -65,24 +65,15 @@
             gap: 0.5rem 2.5rem;
 
             .ons-grid__col {
-                flex: none;
                 width: auto;
-                display: block;
             }
 
             .ons-description-list__value {
                 float: none;
-                grid-column: auto;
-            }
-
-            .ons-description-list__values {
-                display: flex;
-                flex-wrap: wrap;
             }
 
             .ons-description-list__term {
                 margin-right: 1rem;
-                grid-column: auto;
             }
         }
     }
