@@ -13,7 +13,7 @@ import {
     EXAMPLE_DOCUMENT_LIST_WITH_MULTIPLE,
 } from './_test-examples';
 
-describe('FOR: Macro: document list', () => {
+describe('FOR: Macro: Document list', () => {
     describe('GIVEN: Params: basic', () => {
         describe('WHEN: basic parameters are provided within a document', () => {
             test('passes jest-axe checks', async () => {
