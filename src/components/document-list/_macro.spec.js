@@ -130,7 +130,7 @@ describe('FOR: Macro: Document list', () => {
             });
         });
         describe('WHEN: wide is set for a featured document with fullWidth', () => {
-            test('has the correct container class', () => {
+            test('THEN: renders with the wide container class', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, featured: true, fullWidth: true, wide: true }],
