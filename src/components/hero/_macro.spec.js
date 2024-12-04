@@ -87,4 +87,9 @@ describe('macro: hero', () => {
         const content = $('.ons-hero__additional-content').text().trim();
         expect(content).toEqual(expect.stringContaining('Example content...'));
     });
+
+    it('renders circles when variant is `navy blue`', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'navy-blue' }));
+        expect($('.ons-hero--navy-blue .ons-hero__circles').length).toBe(1);
+    });
 });
