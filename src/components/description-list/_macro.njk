@@ -10,22 +10,26 @@
             <div class="ons-description-list__item">
                 {% if item.term | length %}
                     <dt
-                        class="ons-description-list__term ons-grid__col ons-col-{{ params.termCol }}@{{ 'xs' if params.variant == 'inline' else 'm' }}"
+                        class="ons-description-list__term ons-grid__col ons-col-{{ params.termCol }}@{{ 'xs@l' if params.variant == 'inline' else 'm' }}"
                     >
                         {{ item.term }}
                     </dt>
                 {% endif %}
-
-                {% for descriptionItem in item.descriptions %}
-                    {% if descriptionItem.description | length %}
-                        <dd
-                            {% if descriptionItem.id %}id="{{ descriptionItem.id }}"{% endif %}
-                            class="ons-description-list__value ons-grid__col ons-col-{{ params.descriptionCol }}@{{ 'xs' if params.variant == 'inline' else 'm' }}"
-                        >
-                            {{- descriptionItem.description -}}
-                        </dd>
-                    {% endif %}
-                {% endfor %}
+                <span class="ons-description-list__values">
+                    {% for descriptionItem in item.descriptions %}
+                        {% if descriptionItem.description | length %}
+                            <dd
+                                {% if descriptionItem.id %}id="{{ descriptionItem.id }}"{% endif %}
+                                class="ons-description-list__value ons-grid__col ons-col-{{ params.descriptionCol }}@{{ 'xs@l' if params.variant == 'inline' else 'm' }}"
+                            >
+                                {{- descriptionItem.description -}}
+                                {%- if params.variant == 'inline' and item.descriptions | length > 1 and loop.index != item.descriptions | length -%}
+                                    <span class="ons-description-list-inline-comma">, </span>
+                                {% endif %}
+                            </dd>
+                        {% endif %}
+                    {% endfor %}
+                </span>
             </div>
         {% endfor %}
     </dl>

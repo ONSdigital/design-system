@@ -22,14 +22,37 @@
         }
     }
 
+    &-inline-comma {
+        display: none;
+
+        @include mq(l) {
+            display: inline;
+            margin-right: 0.5rem;
+        }
+    }
+
     &__item {
         &:not(:first-child) {
             .ons-description-list__term {
-                @extend .ons-u-mt-2xs;
+                margin-top: 0.5rem;
             }
+
             .ons-description-list__value:nth-of-type(1) {
-                @include mq(xs) {
+                @include mq(m) {
                     margin-top: 0.5rem;
+                }
+            }
+            .ons-description-list--inline & .ons-description-list__value:nth-of-type(1) {
+                @include mq(l) {
+                    margin-top: 0;
+                }
+                @include mq(xs, l) {
+                    margin-top: 0.5rem;
+                }
+            }
+            .ons-description-list--inline & .ons-description-list__term {
+                @include mq(l) {
+                    margin-top: 0;
                 }
             }
         }
@@ -37,9 +60,30 @@
 
     &--inline {
         @include mq(l) {
-            grid-template-columns: repeat(3, 1fr);
             display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 0.5rem 2.5rem;
+
+            .ons-grid__col {
+                flex: none;
+                width: auto;
+                display: block;
+            }
+
+            .ons-description-list__value {
+                float: none;
+                grid-column: auto;
+            }
+
+            .ons-description-list__values {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .ons-description-list__term {
+                margin-right: 1rem;
+                grid-column: auto;
+            }
         }
     }
 }
