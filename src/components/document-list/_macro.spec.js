@@ -79,7 +79,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: featured', () => {
         describe('WHEN: featured is set for a document', () => {
-            test('THEN: has the ons-document-list__item--featured class', () => {
+            test('THEN: applies the featured class to the document item', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, featured: true }],
@@ -144,7 +144,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: showMetadataFirst', () => {
         describe('WHEN: showMetadataFirst is set for a document', () => {
-            test('THEN: has the document-list__item-header--reverse class', () => {
+            test('THEN: applies the reverse class to document header', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, showMetadataFirst: true }],
