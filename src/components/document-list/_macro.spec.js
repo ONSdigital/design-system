@@ -119,7 +119,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: wide', () => {
         describe('WHEN: wide is set for a document with basic parameters', () => {
-            test('does not apply container class ', () => {
+            test('THEN: does not render with the wide container class', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, wide: true }],
