@@ -27,7 +27,7 @@
                             "classes": params.breadcrumbs.classes
                         })
                     }}
-                    <h2 class="ons-hero--analysis-text">{{ params.analysisText | safe }}</h2>
+                    <h2 class="ons-hero--topic">{{ params.topic | safe }}</h2>
                 {% endif %}
                 <div class="ons-hero__title-container">
                     <div>
@@ -75,7 +75,7 @@
                     {% from "components/description-list/_macro.njk" import onsDescriptionList %}
                     {{
                         onsDescriptionList({
-                        "classes": "ons-u-mb-no",
+                        "classes": "ons-u-mb-no ons-u-pt-l",
                         "variant": 'inline',
                         "termCol": params.descriptionList.termCol,
                         "descriptionCol": params.descriptionList.descriptionCol,

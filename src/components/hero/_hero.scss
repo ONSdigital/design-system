@@ -30,10 +30,10 @@
 
     &--analysis {
         background-color: var(--ons-color-banner-bg);
+    }
 
-        &-text {
-            color: var(--ons-color-branded) !important;
-        }
+    &--topic {
+        color: var(--ons-color-branded) !important;
     }
 
     &__container {
@@ -309,9 +309,11 @@
     }
 
     &__title-container {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
-        gap: 1rem;
+        @include mq(l) {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            gap: 1rem;
+        }
     }
 }

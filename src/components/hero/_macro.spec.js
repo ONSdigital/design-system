@@ -93,11 +93,11 @@ describe('macro: hero', () => {
         expect($('.ons-hero--navy-blue .ons-hero__circles').length).toBe(1);
     });
 
-    it('outputs the correct analysis text with `analysis` variant', () => {
-        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'analysis', analysisText: 'Analysis Text' }));
+    it('outputs the correct topic for `analysis` variant', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'analysis', topic: 'Topic Text' }));
 
-        const content = $('.ons-hero--analysis-text').text().trim();
-        expect(content).toEqual(expect.stringContaining('Analysis Text'));
+        const content = $('.ons-hero--topic').text().trim();
+        expect(content).toEqual(expect.stringContaining('Topic Text'));
     });
 
     it('outputs the correct breadcrumbs', () => {
@@ -121,16 +121,15 @@ describe('macro: hero', () => {
             }),
         );
 
-        const breadcrumbs = $('.ons-breadcrumbs__item');
-        console.log(breadcrumbs);
+        const breadcrumbs = $('.ons-breadcrumbs__link');
         expect($(breadcrumbs).length).toBe(2);
         expect($(breadcrumbs[0]).attr('href')).toBe('/breadcrumb-1');
-        expect($(breadcrumbs[0]).text().trim()).toBe('BreadCrumbs 1:');
+        expect($(breadcrumbs[0]).text().trim()).toBe('Breadcrumbs 1');
         expect($(breadcrumbs[1]).attr('href')).toBe('/breadcrumb-2');
-        expect($(breadcrumbs[1]).text().trim()).toBe('BreadCrumbs 2:');
+        expect($(breadcrumbs[1]).text().trim()).toBe('Breadcrumbs 2');
     });
 
-    it('outputs the correct description list with `termCol` and `descriptionCol`', () => {
+    it('outputs the correct description list value', () => {
         const $ = cheerio.load(
             renderComponent('hero', {
                 ...EXAMPLE_HERO,
@@ -159,8 +158,9 @@ describe('macro: hero', () => {
                 },
             }),
         );
-        // console.log($.html());
-        expect($('.ons-description-list__term')).hasClass('ons-col-4@xs').toBe(true);
-        expect($('.ons-description-list__value')).hasClass('ons-col-8@xs').toBe(true);
+
+        const descriptionText = $('.ons-description-list__value');
+        expect($(descriptionText[0]).text().trim()).toBe('description1');
+        expect($(descriptionText[1]).text().trim()).toBe('description2');
     });
 });

@@ -2,7 +2,7 @@
 | --------------- | --------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
 | variants        | array or string                                           | false    | An array of values or single value (string) to adjust the component using available variant, “dark, navy-blue and analysis” |
 | wide            | boolean                                                   | false    | Set to “true” when using the `wide` page layout container                                                                   |
-| analysisText    | string                                                    | false    | Text for the hero analysis text                                                                                             |
+| topic           | string                                                    | false    | Topic for the hero                                                                                                          |
 | title           | string                                                    | true     | Text for the hero title                                                                                                     |
 | subtitle        | string                                                    | false    | Text for the hero subtitle                                                                                                  |
 | text            | string                                                    | false    | Text to follow the hero title and subtitle                                                                                  |
