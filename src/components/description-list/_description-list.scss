@@ -13,7 +13,6 @@
     &__value {
         float: right;
         margin-left: 0; /* As normalize adds a 40px left margin */
-        word-wrap: break-word;
 
         & + & {
             @include mq(xs) {
