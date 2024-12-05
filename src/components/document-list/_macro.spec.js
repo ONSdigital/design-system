@@ -16,31 +16,26 @@ import {
 describe('FOR: Macro: Document list', () => {
     describe('GIVEN: Params: required', () => {
         describe('WHEN: required parameters are provided within a document', () => {
+            const $ = cheerio.load(
+                renderComponent('document-list', {
+                    documents: [EXAMPLE_DOCUMENT_LIST_BASIC, EXAMPLE_DOCUMENT_LIST_BASIC, EXAMPLE_DOCUMENT_LIST_BASIC],
+                }),
+            );
             test('THEN: passes jest-axe checks', async () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_BASIC, EXAMPLE_DOCUMENT_LIST_BASIC, EXAMPLE_DOCUMENT_LIST_BASIC],
-                    }),
-                );
-
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
 
             test('THEN: outputs three document items', () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_BASIC, EXAMPLE_DOCUMENT_LIST_BASIC, EXAMPLE_DOCUMENT_LIST_BASIC],
-                    }),
-                );
-
                 expect($('.ons-document-list__item').length).toBe(3);
             });
             test('THEN: has expected url for the title', () => {
-                const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_BASIC] }));
                 expect($('.ons-document-list__item-title a').attr('href')).toBe('#0');
             });
-
+        });
+    });
+    describe('GIVEN: Params: description', () => {
+        describe('WHEN: description is provided', () => {
             test('THEN: has expected description', () => {
                 const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_BASIC] }));
                 const title = $('.ons-document-list__item-description').html().trim();
@@ -172,28 +167,23 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: thumbnail', () => {
         describe('WHEN: thumbnail is provided for a document', () => {
-            test('THEN: passes jest-axe checks', async () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        id: 'some-id',
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_THUMBNAIL],
-                    }),
-                );
+            const $ = cheerio.load(
+                renderComponent('document-list', {
+                    documents: [EXAMPLE_DOCUMENT_LIST_WITH_THUMBNAIL],
+                }),
+            );
 
+            test('THEN: passes jest-axe checks', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
 
             test('THEN: has expected srcset attribute', () => {
-                const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_THUMBNAIL] }));
-
                 const srcset = $('.ons-document-list__image-link img').attr('srcset');
                 expect(srcset).toBe('/example-small.png 1x, /example-large.png 2x');
             });
 
             test('THEN: has expected src attribute', () => {
-                const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_THUMBNAIL] }));
-
                 const src = $('.ons-document-list__image-link img').attr('src');
                 expect(src).toBe('/example-small.png');
             });
@@ -211,35 +201,23 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: file', () => {
         describe('WHEN: file configuration is provided within a document metadata', () => {
-            test('THEN: passes jest-axe checks', async () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_FILE],
-                    }),
-                );
+            const $ = cheerio.load(
+                renderComponent('document-list', {
+                    documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_FILE],
+                }),
+            );
 
+            test('THEN: passes jest-axe checks', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
 
             test('THEN: has visually hidden file information after the title', () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_FILE],
-                    }),
-                );
-
                 const hiddenText = $('.ons-document-list__item-title a .ons-u-vh').text().trim();
                 expect(hiddenText).toBe(', PDF document download, 499KB, 1 page');
             });
 
             test('THEN: has file information displayed', () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_FILE],
-                    }),
-                );
-
                 const hiddenText = $('.ons-document-list__item-attribute').text().trim();
                 expect(hiddenText).toBe('PDF, 499KB, 1 page');
             });
@@ -248,36 +226,28 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: object', () => {
         describe('WHEN: object configuration is provided within a document metadata', () => {
-            test('THEN: passes jest-axe checks', async () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT],
-                    }),
-                );
+            const $ = cheerio.load(
+                renderComponent('document-list', {
+                    documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT],
+                }),
+            );
 
+            test('THEN: passes jest-axe checks', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
 
             test('THEN: has the provided url', () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT],
-                    }),
-                );
-
                 const url = $('.ons-document-list__attribute-link').attr('href');
                 expect(url).toBe('#0');
             });
 
             test('THEN: has expected text', () => {
-                const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT] }));
                 const text = $('.ons-document-list__attribute-link > span').text().trim();
                 expect(text).toBe('Poster:');
             });
 
             test('THEN: has expected ref', () => {
-                const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_OBJECT] }));
                 const text = $('.ons-document-list__attribute-link + span').text().trim();
                 expect(text).toBe('some ref');
             });
@@ -286,53 +256,31 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: date', () => {
         describe('WHEN: date configuration is provided within a document metadata', () => {
-            test('THEN: passes jest-axe checks', async () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_DATE],
-                    }),
-                );
+            const $ = cheerio.load(
+                renderComponent('document-list', {
+                    documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_DATE],
+                }),
+            );
 
+            test('THEN: passes jest-axe checks', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
 
             test('THEN: has the default prefix text', () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_DATE],
-                    }),
-                );
-
                 const text = $('.ons-document-list__item-attribute > span').text().trim();
                 expect(text).toBe('Published:');
             });
 
             test('THEN: has the visually hidden class for prefix text', () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_DATE],
-                    }),
-                );
                 expect($('.ons-document-list__item-attribute > span').hasClass('ons-u-vh')).toBe(true);
             });
 
             test('THEN: has the correct datetime attribute value', () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_DATE],
-                    }),
-                );
                 expect($('time').attr('datetime')).toBe('2022-01-01');
             });
 
             test('THEN: has the correct time value', () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_METADATA_DATE],
-                    }),
-                );
-
                 const time = $('.ons-document-list__item-attribute time').text().trim();
                 expect(time).toBe('1 January 2022');
             });
@@ -366,7 +314,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: showprefix', () => {
         describe('WHEN: showprefix is set in the date metadata configuration for a document', () => {
-            test('THEN: has the correct class', () => {
+            test('THEN: applies the prefix class to the document item', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [
@@ -391,34 +339,22 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: multiple', () => {
         describe('WHEN: when multiple configurations are provided in the document metadata', () => {
-            test('THEN: passes jest-axe checks', async () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_MULTIPLE],
-                    }),
-                );
+            const $ = cheerio.load(
+                renderComponent('document-list', {
+                    documents: [EXAMPLE_DOCUMENT_LIST_WITH_MULTIPLE],
+                }),
+            );
 
+            test('THEN: passes jest-axe checks', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
 
             test('THEN: has the correct document thumbnail class', async () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_MULTIPLE],
-                    }),
-                );
-
                 expect($('.ons-document-list__item-image').hasClass('ons-document-list__item-image--file')).toBe(true);
             });
 
             test('THEN: has the correct document list class', async () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [EXAMPLE_DOCUMENT_LIST_WITH_MULTIPLE],
-                    }),
-                );
-
                 expect($('.ons-document-list__item-attribute').hasClass('ons-u-mr-no')).toBe(true);
             });
         });
