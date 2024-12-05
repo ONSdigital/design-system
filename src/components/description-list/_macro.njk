@@ -22,10 +22,6 @@
                             class="ons-description-list__value ons-grid__col ons-col-{{ params.descriptionCol }}@{{ 'xs@l' if params.variant == 'inline' else 'm' }}"
                         >
                             {{- descriptionItem.description -}}
-
-                            {%- if params.variant == 'inline' and item.descriptions | length > 1 and loop.index != item.descriptions | length -%}
-                                <span class="ons-description-list-inline-comma">, </span>
-                            {% endif %}
                         </dd>
                     {% endif %}
                 {% endfor %}

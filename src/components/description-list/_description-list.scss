@@ -22,15 +22,6 @@
         }
     }
 
-    &-inline-comma {
-        display: none;
-
-        @include mq(l) {
-            display: inline;
-            margin-right: 0.5rem;
-        }
-    }
-
     &__item {
         &:not(:first-child) {
             .ons-description-list__term {
@@ -64,12 +55,13 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 0.5rem 2.5rem;
 
-            .ons-grid__col {
-                width: auto;
+            .ons-description-list__value {
+                grid-column-start: 2;
             }
 
-            .ons-description-list__value {
-                float: none;
+            .ons-description-list__item {
+                display: grid;
+                grid-template-columns: auto 1fr;
             }
 
             .ons-description-list__term {
