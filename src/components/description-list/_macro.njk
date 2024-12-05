@@ -12,7 +12,7 @@
                     <dt
                         class="ons-description-list__term ons-grid__col ons-col-{{ params.termCol }}@{{ 'xs@l' if params.variant == 'inline' else 'm' }}"
                     >
-                        {{ item.term }}
+                        {{- item.term -}}
                     </dt>
                 {% endif %}
                 {% for descriptionItem in item.descriptions %}
