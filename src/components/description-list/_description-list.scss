@@ -7,6 +7,7 @@
         clear: both;
         float: left;
         font-weight: $font-weight-bold;
+        white-space: nowrap;
     }
 
     &__value {
@@ -48,6 +49,9 @@
     }
 
     &--inline {
+        .ons-description-list__term {
+            padding-right: 1rem;
+        }
         @include mq(l) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
