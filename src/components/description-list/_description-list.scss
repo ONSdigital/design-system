@@ -7,13 +7,12 @@
         clear: both;
         float: left;
         font-weight: $font-weight-bold;
-        word-wrap: break-word;
+        white-space: nowrap;
     }
 
     &__value {
         float: right;
         margin-left: 0; /* As normalize adds a 40px left margin */
-        word-wrap: break-word;
 
         & + & {
             @include mq(xs) {
@@ -50,6 +49,9 @@
     }
 
     &--inline {
+        .ons-description-list__term {
+            padding-right: 1rem;
+        }
         @include mq(l) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -62,10 +64,6 @@
             .ons-description-list__item {
                 display: grid;
                 grid-template-columns: auto 1fr;
-            }
-
-            .ons-description-list__term {
-                margin-right: 1rem;
             }
         }
     }
