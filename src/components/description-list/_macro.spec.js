@@ -1,7 +1,6 @@
 /** @jest-environment jsdom */
 
 import * as cheerio from 'cheerio';
-
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
@@ -85,6 +84,17 @@ describe('macro: description-list', () => {
         );
 
         expect($('#example-id').length).toBe(1);
+    });
+
+    it('has the provided variant style class when variant is provided', () => {
+        const $ = cheerio.load(
+            renderComponent('description-list', {
+                ...EXAMPLE_DESCRIPTION_LIST_MINIMAL,
+                variant: 'inline',
+            }),
+        );
+
+        expect($('.ons-description-list').hasClass('ons-description-list--inline')).toBe(true);
     });
 
     it('has additionally provided style classes', () => {
