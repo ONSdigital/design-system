@@ -12,12 +12,6 @@
     &__value {
         float: right;
         margin-left: 0; /* As normalize adds a 40px left margin */
-
-        & + & {
-            @include mq(xs) {
-                margin-top: 0;
-            }
-        }
     }
 
     &__item {
@@ -55,6 +49,7 @@
         .ons-description-list__term {
             padding-right: 1rem;
         }
+
         @include mq(l) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
