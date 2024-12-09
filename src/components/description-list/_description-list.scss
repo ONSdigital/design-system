@@ -31,17 +31,21 @@
                     margin-top: 0.5rem;
                 }
             }
-            .ons-description-list--inline & .ons-description-list__value:nth-of-type(1) {
-                @include mq(l) {
-                    margin-top: 0;
+
+            .ons-description-list--inline & {
+                .ons-description-list__value:nth-of-type(1) {
+                    @include mq(l) {
+                        margin-top: 0;
+                    }
+                    @include mq(xs, l) {
+                        margin-top: 0.5rem;
+                    }
                 }
-                @include mq(xs, l) {
-                    margin-top: 0.5rem;
-                }
-            }
-            .ons-description-list--inline & .ons-description-list__term {
-                @include mq(l) {
-                    margin-top: 0;
+
+                .ons-description-list__term {
+                    @include mq(l) {
+                        margin-top: 0;
+                    }
                 }
             }
         }
