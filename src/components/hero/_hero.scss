@@ -28,6 +28,14 @@
         }
     }
 
+    &--analysis {
+        background-color: var(--ons-color-banner-bg);
+    }
+
+    &--topic {
+        color: var(--ons-color-branded) !important;
+    }
+
     &__container {
         align-items: center;
         display: flex;
@@ -297,6 +305,15 @@
                 right: 125px;
                 width: 59px;
             }
+        }
+    }
+
+    &__title-container {
+        @include mq(l) {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            gap: 1rem;
         }
     }
 }

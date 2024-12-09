@@ -92,4 +92,75 @@ describe('macro: hero', () => {
         const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'navy-blue' }));
         expect($('.ons-hero--navy-blue .ons-hero__circles').length).toBe(1);
     });
+
+    it('outputs the correct topic for `analysis` variant', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'analysis', topic: 'Topic Text' }));
+
+        const content = $('.ons-hero--topic').text().trim();
+        expect(content).toEqual(expect.stringContaining('Topic Text'));
+    });
+
+    it('outputs the correct breadcrumbs', () => {
+        const $ = cheerio.load(
+            renderComponent('hero', {
+                ...EXAMPLE_HERO,
+                variants: 'analysis',
+                breadcrumbs: {
+                    ariaLabel: 'Breadcrumbs',
+                    itemsList: [
+                        {
+                            url: '/breadcrumb-1',
+                            text: 'Breadcrumbs 1',
+                        },
+                        {
+                            url: '/breadcrumb-2',
+                            text: 'Breadcrumbs 2',
+                        },
+                    ],
+                },
+            }),
+        );
+
+        const breadcrumbs = $('.ons-breadcrumbs__link');
+        expect($(breadcrumbs).length).toBe(2);
+        expect($(breadcrumbs[0]).attr('href')).toBe('/breadcrumb-1');
+        expect($(breadcrumbs[0]).text().trim()).toBe('Breadcrumbs 1');
+        expect($(breadcrumbs[1]).attr('href')).toBe('/breadcrumb-2');
+        expect($(breadcrumbs[1]).text().trim()).toBe('Breadcrumbs 2');
+    });
+
+    it('outputs the correct description list value', () => {
+        const $ = cheerio.load(
+            renderComponent('hero', {
+                ...EXAMPLE_HERO,
+                variants: 'analysis',
+                descriptionList: {
+                    termCol: '4',
+                    descriptionCol: '8',
+                    itemsList: [
+                        {
+                            term: 'term1:',
+                            descriptions: [
+                                {
+                                    description: 'description1',
+                                },
+                            ],
+                        },
+                        {
+                            term: 'term2:',
+                            descriptions: [
+                                {
+                                    description: 'description2',
+                                },
+                            ],
+                        },
+                    ],
+                },
+            }),
+        );
+
+        const descriptionText = $('.ons-description-list__value');
+        expect($(descriptionText[0]).text().trim()).toBe('description1');
+        expect($(descriptionText[1]).text().trim()).toBe('description2');
+    });
 });
