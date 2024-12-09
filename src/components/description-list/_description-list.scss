@@ -7,18 +7,11 @@
         clear: both;
         float: left;
         font-weight: $font-weight-bold;
-        white-space: nowrap;
     }
 
     &__value {
         float: right;
         margin-left: 0; /* As normalize adds a 40px left margin */
-
-        & + & {
-            @include mq(xs) {
-                margin-top: 0;
-            }
-        }
     }
 
     &__item {
@@ -32,17 +25,16 @@
                     margin-top: 0.5rem;
                 }
             }
-            .ons-description-list--inline & .ons-description-list__value:nth-of-type(1) {
-                @include mq(l) {
-                    margin-top: 0;
-                }
-                @include mq(xs, l) {
-                    margin-top: 0.5rem;
-                }
-            }
-            .ons-description-list--inline & .ons-description-list__term {
-                @include mq(l) {
-                    margin-top: 0;
+
+            .ons-description-list--inline & {
+                .ons-description-list__value:nth-of-type(1),
+                .ons-description-list__term {
+                    @include mq(l) {
+                        margin-top: 0;
+                    }
+                    @include mq(xs, l) {
+                        margin-top: 0.5rem;
+                    }
                 }
             }
         }
@@ -52,6 +44,7 @@
         .ons-description-list__term {
             padding-right: 1rem;
         }
+
         @include mq(l) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
