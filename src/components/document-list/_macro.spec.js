@@ -26,7 +26,7 @@ describe('FOR: Macro: Document list', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            test('THEN: outputs three document items', () => {
+            test('THEN: renders the same number of documents items as the number passed in', () => {
                 expect($('.ons-document-list__item').length).toBe(3);
             });
             test('THEN: has expected url for the title', () => {
@@ -58,9 +58,9 @@ describe('FOR: Macro: Document list', () => {
         });
     });
 
-    describe('GIVEN: Params: custom-class', () => {
-        describe('WHEN: custom class is provided', () => {
-            test('THEN: applies the right custom classes', () => {
+    describe('GIVEN: Params: classes', () => {
+        describe('WHEN: additional style classes are provided', () => {
+            test('THEN: renders with additional classes provided', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         classes: 'custom-class',
@@ -87,33 +87,36 @@ describe('FOR: Macro: Document list', () => {
     });
 
     describe('GIVEN: Params: fullWidth', () => {
-        describe('WHEN: fullWidth is set for a document with basic parameters', () => {
-            test('THEN: does not apply container class', () => {
+        describe('WHEN: fullWidth is set for a document', () => {
+            test('THEN: document item does not have the container class', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, fullWidth: true }],
                     }),
                 );
 
-                expect($('.ons-container').length).toBe(0);
+                expect($('.ons-document-list__item > .ons-container').length).toBe(0);
             });
         });
 
         describe('WHEN: fullWidth is set for a featured document', () => {
-            test('THEN: renders with the container class', () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, featured: true, fullWidth: true }],
-                    }),
-                );
+            const $ = cheerio.load(
+                renderComponent('document-list', {
+                    documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, featured: true, fullWidth: true }],
+                }),
+            );
+            test('THEN: applies full width class to document item', () => {
+                expect($('.ons-document-list__item--full-width').length).toBe(1);
+            });
 
-                expect($('.ons-container').length).toBe(1);
+            test('THEN: document item has the container class', () => {
+                expect($('.ons-document-list__item > .ons-container').length).toBe(1);
             });
         });
     });
 
     describe('GIVEN: Params: wide', () => {
-        describe('WHEN: wide is set for a document with basic parameters', () => {
+        describe('WHEN: wide is set for a document', () => {
             test('THEN: does not render with the wide container class', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
@@ -125,21 +128,24 @@ describe('FOR: Macro: Document list', () => {
             });
         });
         describe('WHEN: wide is set for a featured document with fullWidth', () => {
-            test('THEN: renders with the wide container class', () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, featured: true, fullWidth: true, wide: true }],
-                    }),
-                );
+            const $ = cheerio.load(
+                renderComponent('document-list', {
+                    documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, featured: true, fullWidth: true, wide: true }],
+                }),
+            );
+            test('THEN: applies the wide class to the container', () => {
+                expect($('.ons-container').hasClass('ons-container--wide')).toBe(true);
+            });
 
-                expect($('.ons-container--wide').length).toBe(1);
+            test('THEN: document item has container--wide class', () => {
+                expect($('.ons-document-list__item > .ons-container--wide').length).toBe(1);
             });
         });
     });
 
     describe('GIVEN: Params: showMetadataFirst', () => {
         describe('WHEN: showMetadataFirst is set for a document', () => {
-            test('THEN: applies the reverse class to document header', () => {
+            test('THEN: applies the reverse class to document header to display the metadata before the title', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, showMetadataFirst: true }],
@@ -152,7 +158,7 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: headingLevel', () => {
         describe('WHEN: headingLevel is provided', () => {
-            test('THEN: overrides the heading title tag', () => {
+            test('THEN: the heading tag is set to the level provided', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         headingLevel: 1,
@@ -187,8 +193,10 @@ describe('FOR: Macro: Document list', () => {
                 const src = $('.ons-document-list__image-link img').attr('src');
                 expect(src).toBe('/example-small.png');
             });
+        });
 
-            test('THEN: has the right placeholder class', () => {
+        describe('WHEN: thumbnail is not provided but is set to true', () => {
+            test('THEN: has a placeholder class', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
                         documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, thumbnail: true }],
@@ -217,7 +225,7 @@ describe('FOR: Macro: Document list', () => {
                 expect(hiddenText).toBe(', PDF document download, 499KB, 1 page');
             });
 
-            test('THEN: has file information displayed', () => {
+            test('THEN: has hidden text', () => {
                 const hiddenText = $('.ons-document-list__item-attribute').text().trim();
                 expect(hiddenText).toBe('PDF, 499KB, 1 page');
             });
@@ -314,30 +322,39 @@ describe('FOR: Macro: Document list', () => {
 
     describe('GIVEN: Params: showprefix', () => {
         describe('WHEN: showprefix is set in the date metadata configuration for a document', () => {
-            test('THEN: applies the prefix class to the document item', () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        documents: [
-                            {
-                                ...EXAMPLE_DOCUMENT_LIST_BASIC,
-                                metadata: {
-                                    date: {
-                                        showPrefix: true,
-                                        iso: '2022-01-01',
-                                        short: '1 January 2022',
-                                    },
+            const $ = cheerio.load(
+                renderComponent('document-list', {
+                    documents: [
+                        {
+                            ...EXAMPLE_DOCUMENT_LIST_BASIC,
+                            metadata: {
+                                date: {
+                                    showPrefix: true,
+                                    iso: '2022-01-01',
+                                    short: '1 January 2022',
                                 },
                             },
-                        ],
-                    }),
-                );
+                        },
+                    ],
+                }),
+            );
 
+            test('THEN: applies bold font class to the prefix text', () => {
                 expect($('.ons-document-list__item-attribute > span').hasClass('ons-u-fw-b')).toBe(true);
+            });
+
+            test('THEN: does not has the visually hidden class for prefix text', () => {
+                expect($('.ons-document-list__item-attribute > span').hasClass('ons-u-vh')).toBe(false);
+            });
+
+            test('THEN: has the default prefix text', () => {
+                const text = $('.ons-document-list__item-attribute > span').text().trim();
+                expect(text).toBe('Published:');
             });
         });
     });
 
-    describe('GIVEN: Params: multiple', () => {
+    describe('GIVEN: Params: metadata', () => {
         describe('WHEN: when multiple configurations are provided in the document metadata', () => {
             const $ = cheerio.load(
                 renderComponent('document-list', {
