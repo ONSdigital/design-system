@@ -37,7 +37,7 @@ export default class ClearRadios {
         }
     }
 
-    clearRadios() {
+    clearRadios(event) {
         event.preventDefault();
 
         this.inputs.forEach((input) => {
