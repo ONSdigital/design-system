@@ -3,7 +3,6 @@ export default class CheckRadios {
         this.radio = radio;
         this.openOther = openOther;
         this.input = this.openOther.querySelector('.ons-input');
-        this.input.tabIndex = -1;
 
         this.setInputBlurAttributes();
         this.input.addEventListener('focus', this.checkRadio.bind(this));
