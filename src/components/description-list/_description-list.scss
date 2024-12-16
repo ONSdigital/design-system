@@ -7,25 +7,56 @@
         clear: both;
         float: left;
         font-weight: $font-weight-bold;
-
-        &:not(:first-child) {
-            margin-top: 0.5rem;
-        }
     }
 
     &__value {
         float: right;
         margin-left: 0; /* As normalize adds a 40px left margin */
+    }
 
-        &:not(:nth-of-type(1)) {
-            @include mq(m) {
+    &__item {
+        &:not(:first-child) {
+            .ons-description-list__term {
                 margin-top: 0.5rem;
             }
+
+            .ons-description-list__value:nth-of-type(1) {
+                @include mq(m) {
+                    margin-top: 0.5rem;
+                }
+            }
+
+            .ons-description-list--inline & {
+                .ons-description-list__value:nth-of-type(1),
+                .ons-description-list__term {
+                    @include mq(l) {
+                        margin-top: 0;
+                    }
+                    @include mq(xs, l) {
+                        margin-top: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &--inline {
+        .ons-description-list__term {
+            padding-right: 1rem;
         }
 
-        & + & {
-            @include mq(m) {
-                margin-top: 0;
+        @include mq(l) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem 2.5rem;
+
+            .ons-description-list__value {
+                grid-column-start: 2;
+            }
+
+            .ons-description-list__item {
+                display: grid;
+                grid-template-columns: auto 1fr;
             }
         }
     }
