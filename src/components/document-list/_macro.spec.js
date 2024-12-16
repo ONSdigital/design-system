@@ -355,7 +355,7 @@ describe('FOR: Macro: Document list', () => {
     });
 
     describe('GIVEN: Params: metadata', () => {
-        describe('WHEN: when multiple configurations are provided in the document metadata', () => {
+        describe('WHEN: when document has metadata with all available configurations', () => {
             const $ = cheerio.load(
                 renderComponent('document-list', {
                     documents: [EXAMPLE_DOCUMENT_LIST_WITH_MULTIPLE],
