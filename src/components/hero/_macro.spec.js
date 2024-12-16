@@ -78,7 +78,7 @@ describe('macro: hero', () => {
 
         faker.renderComponent('hero', { ...EXAMPLE_HERO, variants: 'dark' });
 
-        expect(buttonSpy.occurrences[0]).toHaveProperty('classes', ' ons-btn--ghost');
+        expect(buttonSpy.occurrences[0]).toHaveProperty('classes', 'ons-u-mt-s ons-btn--ghost');
     });
 
     it('calls with content', () => {

@@ -51,10 +51,6 @@
         height: 100%;
     }
 
-    &__text:has(+ .ons-btn) {
-        margin-bottom: 2rem;
-    }
-
     &__pre-title {
         margin-bottom: 0.5rem;
 
