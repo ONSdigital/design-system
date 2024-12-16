@@ -43,11 +43,11 @@ describe('FOR: Macro: Header', () => {
                 expect($('.ons-header--variant-b').length).toBe(1);
             });
         });
-        describe('WHEN: variants is set to nav-only', () => {
+        describe('WHEN: variants is set to basic', () => {
             test('THEN: does not render ons-header__main class ', () => {
                 const $ = cheerio.load(
                     renderComponent('header', {
-                        variants: 'nav-only',
+                        variants: 'basic',
                     }),
                 );
                 expect($('.ons-header').hasClass('ons-header__main')).toBe(false);
