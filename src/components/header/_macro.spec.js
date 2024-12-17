@@ -50,7 +50,7 @@ describe('FOR: Macro: Header', () => {
                         variants: 'basic',
                     }),
                 );
-                expect($('.ons-header').hasClass('ons-header__main')).toBe(false);
+                expect($('.ons-header > .ons-header__main').length).toBe(0);
             });
         });
     });
