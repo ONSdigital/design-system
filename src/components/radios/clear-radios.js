@@ -1,21 +1,25 @@
 let clearAlertAnnounced;
 export default class ClearRadios {
-    constructor(inputs, button, otherInput) {
+    constructor(inputs, button, otherInputs) {
         this.inputs = inputs;
         this.button = button;
-        this.otherInput = otherInput;
+        this.otherInputs = otherInputs;
         this.ariaElement = document.querySelector('.ons-js-clear-radio-alert');
         this.clearAlert = this.ariaElement.getAttribute('data-clear');
         this.clearedAlert = this.ariaElement.getAttribute('data-cleared');
+        this.otherFields = [];
 
         this.inputs.forEach((input) => input.addEventListener('click', this.setClearAttributes.bind(this)));
         this.button.addEventListener('click', this.clearRadios.bind(this));
         this.checkRadios();
 
-        if (this.otherInput) {
-            const parent = this.otherInput.parentNode;
-            this.otherField = parent.querySelector('.ons-input');
-            this.otherField.addEventListener('focus', this.setClearAttributes.bind(this));
+        if (this.otherInputs) {
+            this.otherInputs.forEach((input) => {
+                const parent = input.parentNode;
+                const otherField = parent.querySelector('.ons-input');
+                otherField.addEventListener('focus', this.setClearAttributes.bind(this));
+                this.otherFields.push(otherField);
+            });
         }
 
         clearAlertAnnounced = false;
@@ -44,8 +48,10 @@ export default class ClearRadios {
             input.checked = false;
         });
 
-        if (this.otherField) {
-            this.otherField.value = '';
+        if (this.otherFields.length) {
+            this.otherFields.forEach((field) => {
+                field.value = '';
+            });
         }
 
         this.button.classList.add('ons-u-db-no-js_enabled');

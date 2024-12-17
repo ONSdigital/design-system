@@ -5,7 +5,7 @@ domready(async () => {
 
     if (radios.length) {
         const button = document.querySelector('.ons-js-clear-btn');
-        const otherInputs = document.querySelector('.ons-radio__other');
+        const otherInputs = document.querySelectorAll('.ons-radio__other');
         if (button) {
             const ClearRadios = (await import('./clear-radios')).default;
 
