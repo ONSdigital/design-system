@@ -44,7 +44,7 @@ describe('FOR: Macro: Header', () => {
             });
         });
         describe('WHEN: variants is set to basic', () => {
-            test('THEN: does not render ons-header__main class ', () => {
+            test('THEN: does not render the main part of the header', () => {
                 const $ = cheerio.load(
                     renderComponent('header', {
                         variants: 'basic',
