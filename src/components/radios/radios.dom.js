@@ -12,13 +12,14 @@ domready(async () => {
             new ClearRadios(radios, button, otherInputs);
         }
 
-        const otherTextInput = document.querySelector('.ons-radio__other-input');
-        if (otherTextInput) {
-            const parent = otherTextInput.parentNode;
-            const radioInput = parent.querySelector('.ons-radio__input');
+        const otherTextInputs = document.querySelectorAll('.ons-radio__other-input');
+        if (otherTextInputs) {
             const CheckRadios = (await import('./check-radios')).default;
-
-            new CheckRadios(radioInput, otherTextInput);
+            otherTextInputs.forEach((textInput) => {
+                const parent = textInput.parentNode;
+                const radioInput = parent.querySelector('.ons-radio__input');
+                new CheckRadios(radioInput, textInput);
+            });
         }
 
         const otherFieldsets = [...document.querySelectorAll('.ons-js-other-fieldset-radio')];
