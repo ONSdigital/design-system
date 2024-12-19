@@ -93,18 +93,30 @@ describe('macro: hero', () => {
         expect($('.ons-hero--navy-blue .ons-hero__circles').length).toBe(1);
     });
 
-    it('outputs the correct topic for `analysis` variant', () => {
-        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'analysis', topic: 'Topic Text' }));
+    it('outputs the correct topic when set', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, topic: 'Topic Text' }));
 
         const content = $('.ons-hero--topic').text().trim();
-        expect(content).toEqual(expect.stringContaining('Topic Text'));
+        expect(content).toBe('Topic Text');
+    });
+
+    it('outputs the official statistics badge when badge is set to true', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, badge: true }));
+
+        expect($('svg').hasClass('ons-hero__badge')).toBe(true);
+        expect($('title').text().trim()).toBe('ons-official-statistics-badge');
+    });
+
+    it('renders curved gradient when variant is `grey`', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'grey' }));
+        expect($('.ons-hero--grey').length).toBe(1);
     });
 
     it('outputs the correct breadcrumbs', () => {
         const $ = cheerio.load(
             renderComponent('hero', {
                 ...EXAMPLE_HERO,
-                variants: 'analysis',
+                variants: 'grey',
                 breadcrumbs: {
                     ariaLabel: 'Breadcrumbs',
                     itemsList: [
@@ -133,7 +145,7 @@ describe('macro: hero', () => {
         const $ = cheerio.load(
             renderComponent('hero', {
                 ...EXAMPLE_HERO,
-                variants: 'analysis',
+                variants: 'grey',
                 descriptionList: {
                     termCol: '4',
                     descriptionCol: '8',
