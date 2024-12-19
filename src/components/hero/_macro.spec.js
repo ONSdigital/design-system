@@ -103,8 +103,8 @@ describe('macro: hero', () => {
     it('outputs the official statistics badge when badge is set to true', () => {
         const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, badge: true }));
 
-        expect($('svg').hasClass('ons-hero__badge')).toBe(true);
-        expect($('title').text().trim()).toBe('ons-official-statistics-badge');
+        expect($('.ons-hero__badge').length).toBe(1);
+        expect($('.ons-hero__badge svg title').text().trim()).toBe('Offical Statistics Badge');
     });
 
     it('renders curved gradient when variant is `grey`', () => {

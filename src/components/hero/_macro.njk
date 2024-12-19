@@ -25,10 +25,9 @@
                             "classes": 'ons-u-pt-no ' ~ params.breadcrumbs.classes
                         })
                     }}
-
-                    {% if params.topic %}
-                        <h2 class="ons-hero--topic">{{ params.topic | safe }}</h2>
-                    {% endif %}
+                {% endif %}
+                {% if params.topic %}
+                    <h2 class="ons-hero--topic">{{ params.topic | safe }}</h2>
                 {% endif %}
                 <div class="ons-hero__title-container {% if params.badge %}ons-hero__title-badge{% endif %}">
                     <header>
