@@ -54,6 +54,7 @@
 
     &--topic {
         color: var(--ons-color-branded);
+        @extend .ons-u-mb-no;
     }
 
     &__container {
