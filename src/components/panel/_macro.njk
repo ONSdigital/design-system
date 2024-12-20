@@ -4,8 +4,8 @@
         {% set classes = ' ' + params.classes %}
     {% endif %}
 
-    {% if params.title is not defined and params.variant != "bare" %}
-        {% set noTitleClass = ' ons-panel--no-title' %}
+    {% if (params.title and params.variant == 'error') or params.variant == "bare" %}
+        {% set noBorderClass = ' ons-panel--no-left-border' %}
     {% endif %}
 
     {% if params.variant %}
@@ -30,7 +30,7 @@
         <div
             {% if (params.variant == 'error' and params.title) or params.variant == 'success' %}
                 aria-labelledby="alert" role="alert" tabindex="-1" {% if not isDesignSystemExample %}autofocus="autofocus"{% endif %}
-            {% endif %}class="ons-panel{{ variantClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"
+            {% endif %}class="ons-panel{{ variantClass }}{{ iconClass }}{{ noBorderClass }}{{ spaciousClass }}{{ classes }}"
             {% if params and params.attributes %}{% for attribute, value in (params.attributes.items() if params and params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}{% if params and params.id %}id="{{ params.id }}"{% endif %}
         >
             {% if params.variant == "warn" or params.variant == "warn-branded" %}
@@ -50,19 +50,15 @@
                 <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Announcement: ") }}</span>
             {% endif %}
 
-            {% if params.title %}
-                {% if params.variant == 'error' %}
-                    {% set defaultTitleTag = "h" ~ 2 %}
-                {% else %}
-                    {% set defaultTitleTag = "div" %}
-                {% endif %}
+            {% if params.title and params.variant == 'error' %}
+                {% set defaultTitleTag = "h" ~ 2 %}
                 {% set headingLevel = "h" ~ params.headingLevel if params.headingLevel else undefined %}
                 {% set titleTag = headingLevel | default(defaultTitleTag) %}
                 {% set openingTag = "<" ~ titleTag %}
                 {% set closingTag = "</" ~ titleTag ~ ">" %}
                 <div class="ons-panel__header">
-                    {{ openingTag | safe }} id="alert"{% if params.variant %}data-qa="{{ params.variant }}-header"{% endif %}
-                    class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}{{ closingTag | safe }}
+                    {{ openingTag | safe }} id="alert" data-qa="{{ params.variant }}-header" class="ons-panel__title
+                    ons-u-fs-r--b">{{ params.title | safe }}{{ closingTag | safe }}
                 </div>
             {% else %}
                 {% if not params.variant or params.variant == "branded" or params.variant == "info" or params.variant == "bare" %}

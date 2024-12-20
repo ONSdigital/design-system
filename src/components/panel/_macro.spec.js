@@ -32,7 +32,7 @@ describe('macro: panel', () => {
             expect(results).toHaveNoViolations();
         });
 
-        it('has correct class', () => {
+        it('has correct panel type class', () => {
             const $ = cheerio.load(
                 renderComponent('panel', {
                     ...EXAMPLE_PANEL_BASIC,
@@ -134,59 +134,32 @@ describe('macro: panel', () => {
         });
     });
 
-    describe('mode: info', () => {
-        it('has the default title tag', () => {
+    describe.each(['info', 'bare', 'warn', 'warn-branded', 'branded', 'success', 'announcement'])('mode: %s', (panelVariant) => {
+        it('does not render a title when `title` is provided', () => {
             const $ = cheerio.load(
                 renderComponent('panel', {
                     ...EXAMPLE_PANEL_BASIC,
                     title: 'Panel title',
-                }),
-            );
-
-            const titleTag = $('.ons-panel__title')[0].tagName;
-            expect(titleTag).toBe('div');
-        });
-
-        it('has the provided `headingLevel`', () => {
-            const $ = cheerio.load(
-                renderComponent('panel', {
-                    ...EXAMPLE_PANEL_BASIC,
-                    title: 'Panel title',
-                    headingLevel: 3,
-                }),
-            );
-
-            const titleTag = $('.ons-panel__title')[0].tagName;
-            expect(titleTag).toBe('h3');
-        });
-
-        it('has the provided `title` text', () => {
-            const $ = cheerio.load(
-                renderComponent('panel', {
-                    ...EXAMPLE_PANEL_BASIC,
-                    title: 'Panel title',
-                }),
-            );
-
-            const titleText = $('.ons-panel__title').text();
-            expect(titleText).toBe('Panel title');
-        });
-    });
-
-    describe.each([
-        ['error', 'h2'],
-        ['success', 'div'],
-    ])('mode: %s', (panelVariant, tagEl) => {
-        it('has the default id set', () => {
-            const $ = cheerio.load(
-                renderComponent('panel', {
-                    ...EXAMPLE_PANEL_BASIC,
-                    title: 'Title',
                     variant: panelVariant,
                 }),
             );
 
-            expect($('#alert').length).toBe(1);
+            expect($('.ons-panel__title').length).toBe(0);
+        });
+    });
+
+    describe('mode: error', () => {
+        it('has the provided `title` text', () => {
+            const $ = cheerio.load(
+                renderComponent('panel', {
+                    ...EXAMPLE_PANEL_BASIC,
+                    title: 'Title',
+                    variant: 'error',
+                }),
+            );
+
+            const titleText = $('.ons-panel__title').text();
+            expect(titleText).toBe('Title');
         });
 
         it('has the correct default title tag', () => {
@@ -194,19 +167,47 @@ describe('macro: panel', () => {
                 renderComponent('panel', {
                     ...EXAMPLE_PANEL_BASIC,
                     title: 'Title',
-                    variant: panelVariant,
+                    variant: 'error',
                 }),
             );
 
             const titleTag = $('.ons-panel__title')[0].tagName;
-            expect(titleTag).toBe(tagEl);
+            expect(titleTag).toBe('h2');
+        });
+
+        it('has the provided `headingLevel`', () => {
+            const $ = cheerio.load(
+                renderComponent('panel', {
+                    ...EXAMPLE_PANEL_BASIC,
+                    title: 'Title',
+                    headingLevel: 3,
+                    variant: 'error',
+                }),
+            );
+
+            const titleTag = $('.ons-panel__title')[0].tagName;
+            expect(titleTag).toBe('h3');
+        });
+    });
+
+    describe.each(['error', 'success'])('mode: %s', (panelVariant) => {
+        it('has the default id set', () => {
+            const $ = cheerio.load(
+                renderComponent('panel', {
+                    ...EXAMPLE_PANEL_BASIC,
+                    title: 'Panel title',
+                    variant: panelVariant,
+                }),
+            );
+
+            expect($('#alert').length).toBe(1);
         });
 
         it('has aria-labelledby attribute set with default value', () => {
             const $ = cheerio.load(
                 renderComponent('panel', {
                     ...EXAMPLE_PANEL_BASIC,
-                    title: 'Title',
+                    title: 'Panel title',
                     variant: panelVariant,
                 }),
             );
@@ -218,7 +219,7 @@ describe('macro: panel', () => {
             const $ = cheerio.load(
                 renderComponent('panel', {
                     ...EXAMPLE_PANEL_BASIC,
-                    title: 'Title',
+                    title: 'Panel title',
                     variant: panelVariant,
                 }),
             );
@@ -230,7 +231,7 @@ describe('macro: panel', () => {
             const $ = cheerio.load(
                 renderComponent('panel', {
                     ...EXAMPLE_PANEL_BASIC,
-                    title: 'Title',
+                    title: 'Panel title',
                     variant: panelVariant,
                 }),
             );
