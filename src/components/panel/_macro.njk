@@ -50,7 +50,7 @@
                 <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Announcement: ") }}</span>
             {% endif %}
 
-            {% if params.title %}
+            {% if params.title and (params.variant not in ['bare', 'warn', 'warn-branded', 'announcement'] ) %}
                 {% if params.variant == 'error' %}
                     {% set defaultTitleTag = "h" ~ 2 %}
                 {% else %}
