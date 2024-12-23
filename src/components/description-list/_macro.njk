@@ -21,7 +21,13 @@
                             {% if descriptionItem.id %}id="{{ descriptionItem.id }}"{% endif %}
                             class="ons-description-list__value ons-grid__col ons-col-{{ params.descriptionCol }}@{{ 'xs@l' if params.variant == 'inline' else 'm' }}"
                         >
-                            {{- descriptionItem.description -}}
+                            {%- if descriptionItem.url -%}
+                                <a class="ons-description-list__link" href="{{ descriptionItem.url }}">
+                                    {{- descriptionItem.description -}}
+                                </a>
+                            {%- else -%}
+                                {{- descriptionItem.description -}}
+                            {%- endif -%}
                         </dd>
                     {% endif %}
                 {% endfor %}
