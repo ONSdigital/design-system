@@ -15,10 +15,11 @@
                     <dd class="ons-message-item__metadata-value ons-message-item__metadata-value--date ons-u-fs-s">
                         {{ message.dateText }}
                     </dd>
+                    <dt class="ons-message-item__metadata-term ons-message-item__metadata-term--body ons-u-d-no">{{ params.body }}:</dt>
+                    <dd class="ons-message-item__metadata-value ons-message-item__metadata-value--body ons-u-fs-r ons-u-mt-l">
+                        {{ message.body }}
+                    </dd>
                 </dl>
-                <div class="ons-message-item__body" aria-label="{{ params.ariaLabelMsg | default("Message text") }}">
-                    {{ message.body | safe }}
-                </div>
                 <div class="ons-message-item__link ons-u-vh">
                     <a href="{{ message.subject.url }}">{{ params.hiddenReadLabel }}: {{ message.subject.text }}</a>
                 </div>
