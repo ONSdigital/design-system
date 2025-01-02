@@ -34,6 +34,7 @@ describe('FOR: Macro: Document list', () => {
             });
         });
     });
+
     describe('GIVEN: Params: description', () => {
         describe('WHEN: description is provided', () => {
             test('THEN: has expected description', () => {
@@ -68,6 +69,67 @@ describe('FOR: Macro: Document list', () => {
                     }),
                 );
                 expect($('.ons-document-list').hasClass('custom-class')).toBe(true);
+            });
+        });
+        describe('WHEN: addtional style classes are provided within document', () => {
+            test('THEN: renders with additional classes provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('document-list', {
+                        documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, classes: 'custom-class' }],
+                    }),
+                );
+                expect($('.ons-document-list__item').hasClass('custom-class')).toBe(true);
+            });
+        });
+    });
+    describe('GIVEN: Params: attributes', () => {
+        describe('WHEN: attributes are provided', () => {
+            test('THEN: renders with provided HTML attributes', () => {
+                const $ = cheerio.load(
+                    renderComponent('document-list', {
+                        documents: [EXAMPLE_DOCUMENT_LIST_BASIC],
+                        attributes: {
+                            a: 123,
+                            b: 456,
+                        },
+                    }),
+                );
+                expect($('.ons-document-list').attr('a')).toBe('123');
+                expect($('.ons-document-list').attr('b')).toBe('456');
+            });
+        });
+        describe('WHEN: attributes are provided within document', () => {
+            test('THEN: renders with provided HTML attributes', () => {
+                const $ = cheerio.load(
+                    renderComponent('document-list', {
+                        documents: [
+                            {
+                                ...EXAMPLE_DOCUMENT_LIST_BASIC,
+                                attributes: {
+                                    a: 123,
+                                    b: 456,
+                                },
+                            },
+                        ],
+                    }),
+                );
+                expect($('.ons-document-list__item').attr('a')).toBe('123');
+                expect($('.ons-document-list__item').attr('b')).toBe('456');
+            });
+        });
+    });
+
+    describe('GIVEN: Params: headingLevel', () => {
+        describe('WHEN: headingLevel is provided', () => {
+            test('THEN: the heading tag is set to the level provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('document-list', {
+                        headingLevel: 1,
+                        documents: [EXAMPLE_DOCUMENT_LIST_BASIC],
+                    }),
+                );
+                const headingLevel = $('.ons-document-list__item-title')[0].tagName;
+                expect(headingLevel).toBe('h1');
             });
         });
     });
@@ -152,21 +214,6 @@ describe('FOR: Macro: Document list', () => {
                     }),
                 );
                 expect($('.ons-document-list__item-header--reverse').length).toBe(1);
-            });
-        });
-    });
-
-    describe('GIVEN: Params: headingLevel', () => {
-        describe('WHEN: headingLevel is provided', () => {
-            test('THEN: the heading tag is set to the level provided', () => {
-                const $ = cheerio.load(
-                    renderComponent('document-list', {
-                        headingLevel: 1,
-                        documents: [EXAMPLE_DOCUMENT_LIST_BASIC],
-                    }),
-                );
-                const headingLevel = $('.ons-document-list__item-title')[0].tagName;
-                expect(headingLevel).toBe('h1');
             });
         });
     });
