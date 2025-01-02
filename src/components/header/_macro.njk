@@ -218,118 +218,120 @@
                 </nav>
             {% endif %}
         </div>
-        <div class="ons-header__main">
-            <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
-                <div
-                    class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap{{ ' ons-grid--gutterless' if not params.button }}"
-                >
-                    <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
-                        {% if params.titleLogo.large %}
+        {% if params.variants != "basic" %}
+            <div class="ons-header__main">
+                <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+                    <div
+                        class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap{{ ' ons-grid--gutterless' if not params.button }}"
+                    >
+                        <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
+                            {% if params.titleLogo.large %}
 
-                            {% set title %}
-                                <div
-                                    class="ons-header__title-logo ons-header__title-logo--large{{ ' ' + params.titleLogo.classes if params.titleLogo.classes else '' }}{{ ' ons-u-d-no@2xs@s' if params.titleLogo.small }}"
-                                >
-                                    {{ params.titleLogo.large | safe }}
-                                </div>
-                                {% if params.titleLogo.small %}
+                                {% set title %}
                                     <div
-                                        class="ons-header__title-logo ons-header__title-logo--small ons-u-d-no@s{{ ' ' + params.titleLogo.classes if params.titleLogo.classes else '' }}"
+                                        class="ons-header__title-logo ons-header__title-logo--large{{ ' ' + params.titleLogo.classes if params.titleLogo.classes else '' }}{{ ' ons-u-d-no@2xs@s' if params.titleLogo.small }}"
                                     >
-                                        {{ params.titleLogo.small | safe }}
+                                        {{ params.titleLogo.large | safe }}
                                     </div>
-                                {% endif %}
-                            {% endset %}
+                                    {% if params.titleLogo.small %}
+                                        <div
+                                            class="ons-header__title-logo ons-header__title-logo--small ons-u-d-no@s{{ ' ' + params.titleLogo.classes if params.titleLogo.classes else '' }}"
+                                        >
+                                            {{ params.titleLogo.small | safe }}
+                                        </div>
+                                    {% endif %}
+                                {% endset %}
 
-                            {% if params.titleUrl %}
-                                <a class="ons-header__title-logo-link" href="{{ params.titleUrl }}">{{ title | safe }}</a>
-                            {% else %}
-                                {{ title | safe }}
-                            {% endif %}
-                        {% else %}
-
-                            {% set title %}
-                                {{ openingTag | safe }}
-                                class="ons-header__title">{{ params.title }}{{ closingTag | safe }}
-                            {% endset %}
-
-                            {% if params.titleUrl %}
-                                <a class="ons-header__title-link" href="{{ params.titleUrl }}">{{ title | safe }}</a>
-                            {% else %}
-                                {{ title | safe }}
-                            {% endif %}
-                        {% endif %}
-                        {% if params.description %}
-                            <p class="ons-header__description">{{ params.description }}</p>
-                        {% endif %}
-                    </div>
-
-                    {% if params.button %}
-                        {% if params.variants == 'neutral' %}
-                            {% set buttonVariant = "ghost-dark" %}
-                        {% else %}
-                            {% set buttonVariant = "ghost" %}
-                        {% endif %}
-                        <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
-                            {{
-                                onsButton({
-                                    "text": params.button.text,
-                                    "classes": "ons-u-d-no@2xs@l" if params.navigation else "ons-u-d-no@2xs@m",
-                                    "variants": buttonVariant,
-                                    "name": params.button.name,
-                                    "attributes": params.button.attributes,
-                                    "url": params.button.url,
-                                    "iconType": "exit",
-                                    "iconPosition": "after"
-                                })
-                            }}
-                        </div>
-                    {% endif %}
-                    {% if params.navigation or params.siteSearchAutosuggest %}
-                        <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
-                            {% if params.siteSearchAutosuggest %}
-                                {% if params.variants == 'neutral' %}
-                                    {% set buttonVariant = ["small", "ghost-dark"] %}
+                                {% if params.titleUrl %}
+                                    <a class="ons-header__title-logo-link" href="{{ params.titleUrl }}">{{ title | safe }}</a>
                                 {% else %}
-                                    {% set buttonVariant = ["small", "ghost"] %}
+                                    {{ title | safe }}
                                 {% endif %}
-                                <span class="ons-grid ons-u-d-no@2xs@xs ons-u-ml-no ons-u-d-no@l">
+                            {% else %}
+
+                                {% set title %}
+                                    {{ openingTag | safe }}
+                                    class="ons-header__title">{{ params.title }}{{ closingTag | safe }}
+                                {% endset %}
+
+                                {% if params.titleUrl %}
+                                    <a class="ons-header__title-link" href="{{ params.titleUrl }}">{{ title | safe }}</a>
+                                {% else %}
+                                    {{ title | safe }}
+                                {% endif %}
+                            {% endif %}
+                            {% if params.description %}
+                                <p class="ons-header__description">{{ params.description }}</p>
+                            {% endif %}
+                        </div>
+
+                        {% if params.button %}
+                            {% if params.variants == 'neutral' %}
+                                {% set buttonVariant = "ghost-dark" %}
+                            {% else %}
+                                {% set buttonVariant = "ghost" %}
+                            {% endif %}
+                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
+                                {{
+                                    onsButton({
+                                        "text": params.button.text,
+                                        "classes": "ons-u-d-no@2xs@l" if params.navigation else "ons-u-d-no@2xs@m",
+                                        "variants": buttonVariant,
+                                        "name": params.button.name,
+                                        "attributes": params.button.attributes,
+                                        "url": params.button.url,
+                                        "iconType": "exit",
+                                        "iconPosition": "after"
+                                    })
+                                }}
+                            </div>
+                        {% endif %}
+                        {% if params.navigation or params.siteSearchAutosuggest %}
+                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
+                                {% if params.siteSearchAutosuggest %}
+                                    {% if params.variants == 'neutral' %}
+                                        {% set buttonVariant = ["small", "ghost-dark"] %}
+                                    {% else %}
+                                        {% set buttonVariant = ["small", "ghost"] %}
+                                    {% endif %}
+                                    <span class="ons-grid ons-u-d-no@2xs@xs ons-u-ml-no ons-u-d-no@l">
+                                        {{
+                                            onsButton({
+                                                "text": "Search",
+                                                "classes": "ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search",
+                                                "variants": buttonVariant,
+                                                "iconType": "search",
+                                                "iconPosition": "only",
+                                                "attributes": {
+                                                    "aria-label": "Toggle search" ,
+                                                    "aria-controls": "ons-site-search",
+                                                    "aria-expanded": "false"
+                                                }
+                                            })
+                                        }}
+                                    </span>
+                                {% endif %}
+                                {% if params.navigation.toggleNavigationButton %}
+                                    {% set buttonVariant = ["mobile", "ghost"] %}
                                     {{
                                         onsButton({
-                                            "text": "Search",
-                                            "classes": "ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search",
+                                            "text": params.navigation.toggleNavigationButton.text,
+                                            "classes": "ons-u-ml-2xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l",
                                             "variants": buttonVariant,
-                                            "iconType": "search",
-                                            "iconPosition": "only",
                                             "attributes": {
-                                                "aria-label": "Toggle search" ,
-                                                "aria-controls": "ons-site-search",
+                                                "aria-label": params.navigation.toggleNavigationButton.ariaLabel | default("Toggle main menu") ,
+                                                "aria-controls": params.navigation.id,
                                                 "aria-expanded": "false"
                                             }
                                         })
                                     }}
-                                </span>
-                            {% endif %}
-                            {% if params.navigation.toggleNavigationButton %}
-                                {% set buttonVariant = ["mobile", "ghost"] %}
-                                {{
-                                    onsButton({
-                                        "text": params.navigation.toggleNavigationButton.text,
-                                        "classes": "ons-u-ml-2xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l",
-                                        "variants": buttonVariant,
-                                        "attributes": {
-                                            "aria-label": params.navigation.toggleNavigationButton.ariaLabel | default("Toggle main menu") ,
-                                            "aria-controls": params.navigation.id,
-                                            "aria-expanded": "false"
-                                        }
-                                    })
-                                }}
-                            {% endif %}
-                        </div>
-                    {% endif %}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
         {% if params.navigation %}
             {{ onsNavigation(params) }}
         {% endif %}
