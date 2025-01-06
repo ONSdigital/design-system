@@ -29,7 +29,7 @@
     }
 
     &--grey {
-        background-color: #efeff0;
+        background-color: var(--ons-color-pale-grey);
         &::before {
             content: '';
             background-color: var(--ons-color-banner-bg);
