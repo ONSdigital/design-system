@@ -29,14 +29,14 @@
                 {% if params.topic %}
                     <h2 class="ons-hero--topic">{{ params.topic | safe }}</h2>
                 {% endif %}
-                <div class="ons-hero__title-container {% if params.badge %}ons-hero__title-badge{% endif %}">
+                <div class="ons-hero__title-container {% if params.officialStatisticsBadge %}ons-hero__title-badge{% endif %}">
                     <header>
                         <h1 class="ons-hero__title ons-u-fs-3xl">{{ params.title }}</h1>
                         {% if params.subtitle %}
                             <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
                         {% endif %}
                     </header>
-                    {% if params.badge == true %}
+                    {% if params.officialStatisticsBadge == true %}
                         {% from "components/icon/_macro.njk" import onsIcon %}
                         <div class="ons-hero__badge">
                             {{-
