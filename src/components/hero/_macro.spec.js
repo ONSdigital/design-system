@@ -100,8 +100,8 @@ describe('macro: hero', () => {
         expect(content).toBe('Topic Text');
     });
 
-    it('outputs the official statistics badge when badge is set to true', () => {
-        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, badge: true }));
+    it('outputs the official statistics badge when officialStatisticsBadge is set to true', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, officialStatisticsBadge: true }));
 
         expect($('.ons-hero__badge').length).toBe(1);
         expect($('.ons-hero__badge svg title').text().trim()).toBe('Offical Statistics Badge');
