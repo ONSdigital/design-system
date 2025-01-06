@@ -74,6 +74,18 @@ describe('macro: message-list', () => {
         expect($('.ons-message-item__metadata:first').attr('aria-label')).toBe('Message information');
     });
 
+    it('has `aria-label` attribute on `.ons-message-item__metadata-term--body` with the correct default value', () => {
+        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
+
+        expect($('.ons-message-item__metadata-term--body:first').attr('aria-label')).toBe('Message text');
+    });
+
+    it('has `aria-label` attribute on `.ons-message-item__metadata-term--body` using the provided value', () => {
+        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST));
+
+        expect($('.ons-message-item__metadata-term--body:first').attr('aria-label')).toBe('Message preview');
+    });
+
     it('has `unreadText` for unread messages', () => {
         const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST));
 
