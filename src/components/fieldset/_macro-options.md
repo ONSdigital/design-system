@@ -2,7 +2,7 @@
 | --------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | id                    | string  | false    | The HTML `id` of the fieldset                                                                                                              |
 | classes               | string  | false    | Classes to apply to the fieldset                                                                                                           |
-| legend                | string  | true     | Legend will render text within a `<span>` tag                                                                                              |
+| legend                | string  | true     | Text for the fieldset’s legend                                                                                                             |
 | legendClasses         | string  | false    | Classes to apply to the legend element                                                                                                     |
 | legendIsQuestionTitle | boolean | false    | When set to true, the text provided within the `legend` is rendered as an `<h1>` tag. Use when there is only a single fieldset on the page |
 | legendTitleClasses    | string  | false    | Classes to apply to the `h1` created using `legendIsQuestionTitle`                                                                         |
