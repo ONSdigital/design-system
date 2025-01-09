@@ -7,7 +7,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 
 import { EXAMPLE_CHAR_CHECK_LIMIT } from './_test-examples';
 
-describe('FOR: Macro: Char check limit', () => {
+describe('FOR: Macro: CharCheckLimit', () => {
     describe('GIVEN: Params: Required', () => {
         describe('WHEN: required params are provided', () => {
             const $ = cheerio.load(renderComponent('char-check-limit', EXAMPLE_CHAR_CHECK_LIMIT));
