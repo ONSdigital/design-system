@@ -418,7 +418,7 @@ describe('FOR: Macro: Document list', () => {
                 expect($('.ons-document-list__item-image').hasClass('ons-document-list__item-image--file')).toBe(true);
             });
 
-            test('THEN: has the correct document list class', async () => {
+            test('THEN: the document list object item has the utility class that removes the margin between the object and file list items', async () => {
                 expect($('.ons-document-list__item-attribute').hasClass('ons-u-mr-no')).toBe(true);
             });
         });
