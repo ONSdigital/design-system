@@ -20,6 +20,7 @@ const EXAMPLE_MESSAGE_LIST_MINIMAL = {
             },
             fromText: 'Example Sender 1',
             dateText: 'Tue 4 Jul 2020 at 7:47',
+            bodyLabel: 'Body',
             body: 'An example message.',
         },
         {
@@ -30,6 +31,7 @@ const EXAMPLE_MESSAGE_LIST_MINIMAL = {
             },
             fromText: 'Example Sender 2',
             dateText: 'Mon 1 Oct 2019 at 9:52',
+            bodyLabel: 'Body',
             body: 'Another example message.',
         },
     ],
@@ -39,7 +41,6 @@ const EXAMPLE_MESSAGE_LIST = {
     ...EXAMPLE_MESSAGE_LIST_MINIMAL,
     ariaLabel: 'Message list for ONS Business Surveys',
     ariaLabelMetaData: 'Message information',
-    ariaLabelMsg: 'Message preview',
 };
 
 describe('macro: message-list', () => {
@@ -74,18 +75,6 @@ describe('macro: message-list', () => {
         expect($('.ons-message-item__metadata:first').attr('aria-label')).toBe('Message information');
     });
 
-    it('has `aria-label` attribute on `.ons-message-item__metadata-term--body` with the correct default value', () => {
-        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
-
-        expect($('.ons-message-item__metadata-term--body:first').attr('aria-label')).toBe('Message text');
-    });
-
-    it('has `aria-label` attribute on `.ons-message-item__metadata-term--body` using the provided value', () => {
-        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST));
-
-        expect($('.ons-message-item__metadata-term--body:first').attr('aria-label')).toBe('Message preview');
-    });
-
     it('has `unreadText` for unread messages', () => {
         const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST));
 
@@ -102,6 +91,12 @@ describe('macro: message-list', () => {
         const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
 
         expect($('.ons-message-item__metadata-term--date:first').text().trim()).toBe('Date:');
+    });
+
+    it('has visually hidden label `bodyLabel`', () => {
+        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
+
+        expect($('.ons-message-item__metadata-term--body:first').text().trim()).toBe('Body:');
     });
 
     it('has visually hidden label `hiddenReadLabel`', () => {
