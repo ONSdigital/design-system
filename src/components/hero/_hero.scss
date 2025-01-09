@@ -87,6 +87,12 @@
         z-index: 5;
     }
 
+    &--grey & {
+        &__details {
+            padding-top: 1rem;
+        }
+    }
+
     &--dark & {
         &__details {
             color: var(--ons-color-text-inverse) !important;
