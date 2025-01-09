@@ -67,7 +67,7 @@ describe('FOR: Macro: CharCheckLimit', () => {
                 expect(results).toHaveNoViolations();
             });
 
-            test('renders the passed content ', () => {
+            test('THEN: renders the passed content', () => {
                 expect($('.ons-js-char-check-input').text()).toBe('Test content.');
             });
         });
