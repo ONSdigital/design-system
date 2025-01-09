@@ -62,7 +62,7 @@ describe('FOR: Macro: CharCheckLimit', () => {
                 ),
             );
 
-            test('passes jest-axe checks with check', async () => {
+            test('passes jest-axe checks with variant set to check', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
