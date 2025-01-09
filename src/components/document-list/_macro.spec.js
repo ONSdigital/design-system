@@ -46,7 +46,7 @@ describe('FOR: Macro: Document list', () => {
     });
 
     describe('GIVEN: Params: id', () => {
-        describe('WHEN: id is provied', () => {
+        describe('WHEN: id is provided', () => {
             test('THEN: has the provided id attribute', () => {
                 const $ = cheerio.load(
                     renderComponent('document-list', {
