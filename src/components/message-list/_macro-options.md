@@ -17,7 +17,7 @@
 | subject   | `Object<Subject>` | true     | Settings for the [Subject](#subject)                                   |
 | fromText  | string            | true     | Value of the “From” sender name in the message metadata information    |
 | dateText  | string            | true     | Value of the “Sent” date stamp in the message metadata information     |
-| bodyLabel | string            | true     | The visually hidden screen reader "body" prefix for message body       |
+| bodyLabel | string            | true     | (NEW) The visually hidden screen reader "body" prefix for message body |
 | body      | string            | true     | Text displayed for the message body snippet                            |
 | unread    | boolean           | false    | Set to “true” to display the unread message suffix after the `subject` |
 
