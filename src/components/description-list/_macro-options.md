@@ -21,3 +21,4 @@
 | ----------- | ------ | -------- | ----------------------------------------------------- |
 | id          | string | false    | The HTML `id` for the description of the related term |
 | description | string | true     | The value of the description of the related term      |
+| url         | string | false    | The url of the description of the related term        |
