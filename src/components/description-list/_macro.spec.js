@@ -30,6 +30,7 @@ const EXAMPLE_DESCRIPTION_LIST_FULL = {
                 {
                     id: 'description-3',
                     description: '49300005832',
+                    url: '#',
                 },
             ],
         },
@@ -142,7 +143,9 @@ describe('macro: description-list', () => {
 
         expect($listElements[4].tagName).toBe('dd');
         expect($($listElements[4]).attr('id')).toBe('description-3');
-        expect($($listElements[4]).text()).toBe('49300005832');
+        const $link = $($listElements[4]).find('a');
+        expect($link.attr('href')).toBe('#');
+        expect($link.text()).toBe('49300005832');
     });
 
     it.each([
