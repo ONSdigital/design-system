@@ -1399,10 +1399,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
-    
-        
-    
     
     
 
@@ -1411,10 +1407,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
@@ -1422,13 +1423,17 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
@@ -1436,19 +1441,22 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
             <a href="#0" class="ons-list__link">Respondent Charter</a>
-        </li>
-        </ul>
+        </li></ul>
 
                             </div>
                         
@@ -1468,10 +1476,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
-    
-        
-    
     
     
 
@@ -1480,10 +1484,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
@@ -1491,13 +1500,17 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
@@ -1505,19 +1518,22 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
             <a href="#0" class="ons-list__link">Contact us</a>
-        </li>
-        </ul>
+        </li></ul>
 
                             </div>
                         
@@ -1537,10 +1553,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
-    
-        
-    
     
     
 
@@ -1549,10 +1561,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
@@ -1567,13 +1584,17 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
@@ -1581,19 +1602,22 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
             <a href="#0" class="ons-list__link">News</a>
-        </li>
-        </ul>
+        </li></ul>
 
                             </div>
                         
@@ -1622,10 +1646,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
-    
-        
-    
     
     
 
@@ -1634,10 +1654,15 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
@@ -1645,13 +1670,17 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
@@ -1659,13 +1688,17 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
@@ -1673,19 +1706,22 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
         
+        
+        
+
+        <li class="ons-list__item">
             
                 
+            
             
 
             
             <a href="#0" class="ons-list__link">Terms and conditions</a>
-        </li>
-        </ul>
+        </li></ul>
 
                             
                         
