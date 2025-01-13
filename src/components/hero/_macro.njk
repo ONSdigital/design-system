@@ -22,7 +22,7 @@
                             "itemsList": params.breadcrumbs.itemsList,
                             "ariaLabel": params.breadcrumbs.ariaLabel,
                             "id": params.breadcrumbs.id,
-                            "classes": 'ons-u-pt-no ' ~ (params.breadcrumbs.classes if params.breadcrumbs.classes else '')
+                            "classes": 'ons-u-pt-no' ~ (' ' + params.breadcrumbs.classes if params.breadcrumbs.classes else '')
                         })
                     }}
                 {% endif %}
