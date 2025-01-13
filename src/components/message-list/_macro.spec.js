@@ -10,6 +10,7 @@ const EXAMPLE_MESSAGE_LIST_MINIMAL = {
     fromLabel: 'From',
     dateLabel: 'Date',
     hiddenReadLabel: 'Read the message',
+    bodyLabel: 'Body',
     messages: [
         {
             id: 'message1',
@@ -20,7 +21,6 @@ const EXAMPLE_MESSAGE_LIST_MINIMAL = {
             },
             fromText: 'Example Sender 1',
             dateText: 'Tue 4 Jul 2020 at 7:47',
-            bodyLabel: 'Body',
             body: 'An example message.',
         },
         {
@@ -31,7 +31,6 @@ const EXAMPLE_MESSAGE_LIST_MINIMAL = {
             },
             fromText: 'Example Sender 2',
             dateText: 'Mon 1 Oct 2019 at 9:52',
-            bodyLabel: 'Body',
             body: 'Another example message.',
         },
     ],
@@ -41,6 +40,11 @@ const EXAMPLE_MESSAGE_LIST = {
     ...EXAMPLE_MESSAGE_LIST_MINIMAL,
     ariaLabel: 'Message list for ONS Business Surveys',
     ariaLabelMetaData: 'Message information',
+};
+
+const EXAMPLE_MESSAGE_LIST_WITH_DEPRECATED_ariaLabelMsg_PARAM = {
+    ...EXAMPLE_MESSAGE_LIST_MINIMAL,
+    ariaLabelMsg: 'Message Preview',
 };
 
 describe('macro: message-list', () => {
@@ -103,6 +107,12 @@ describe('macro: message-list', () => {
         const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
 
         expect($('.ons-message-item__link:first').text()).toContain('Read the message: ');
+    });
+
+    it('has visually hidden deprecated label `ariaLabelMsg`', () => {
+        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_WITH_DEPRECATED_ariaLabelMsg_PARAM));
+
+        expect($('.ons-message-item__metadata-term--body:first').text().trim()).toContain('Message Preview:');
     });
 
     it('has message as expected', () => {

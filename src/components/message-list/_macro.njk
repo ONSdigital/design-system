@@ -19,7 +19,7 @@
                         {% if params.ariaLabelMsg %}
                             {{ params.ariaLabelMsg | default("Message text") }}:
                         {% endif %}
-                        {{ message.bodyLabel | default("Message text") }}:
+                        {{ params.bodyLabel | default("Message text") }}:
                     </dt>
                     <dd class="ons-message-item__metadata-value ons-message-item__metadata-value--body ons-u-fs-r ons-u-mt-s">
                         {{ message.body | safe }}

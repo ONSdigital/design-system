@@ -7,19 +7,19 @@
 | fromLabel         | string           | true     | The visually hidden screen reader “From” prefix for each message metadata information                                        |
 | dateLabel         | string           | true     | The visually hidden screen reader “Sent” prefix for each message metadata information                                        |
 | hiddenReadLabel   | string           | true     | The visually hidden screen reader “Read the message” prefix for each visually hidden link to the message conversation thread |
+| bodyLabel         | string           | true     | (NEW) The visually hidden screen reader "body" prefix for message body                                                       |
 | messages          | `Array<Message>` | true     | Settings for each [message item](#message)                                                                                   |
 
 ## Message
 
-| Name      | Type              | Required | Description                                                            |
-| --------- | ----------------- | -------- | ---------------------------------------------------------------------- |
-| id        | string            | true     | The HTML `id` for the message item                                     |
-| subject   | `Object<Subject>` | true     | Settings for the [Subject](#subject)                                   |
-| fromText  | string            | true     | Value of the “From” sender name in the message metadata information    |
-| dateText  | string            | true     | Value of the “Sent” date stamp in the message metadata information     |
-| bodyLabel | string            | true     | (NEW) The visually hidden screen reader "body" prefix for message body |
-| body      | string            | true     | Text displayed for the message body snippet                            |
-| unread    | boolean           | false    | Set to “true” to display the unread message suffix after the `subject` |
+| Name     | Type              | Required | Description                                                            |
+| -------- | ----------------- | -------- | ---------------------------------------------------------------------- |
+| id       | string            | true     | The HTML `id` for the message item                                     |
+| subject  | `Object<Subject>` | true     | Settings for the [Subject](#subject)                                   |
+| fromText | string            | true     | Value of the “From” sender name in the message metadata information    |
+| dateText | string            | true     | Value of the “Sent” date stamp in the message metadata information     |
+| body     | string            | true     | Text displayed for the message body snippet                            |
+| unread   | boolean           | false    | Set to “true” to display the unread message suffix after the `subject` |
 
 ## Subject
 
