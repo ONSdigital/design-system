@@ -10,6 +10,7 @@ const EXAMPLE_MESSAGE_LIST_MINIMAL = {
     fromLabel: 'From',
     dateLabel: 'Date',
     hiddenReadLabel: 'Read the message',
+    bodyLabel: 'Body',
     messages: [
         {
             id: 'message1',
@@ -39,7 +40,11 @@ const EXAMPLE_MESSAGE_LIST = {
     ...EXAMPLE_MESSAGE_LIST_MINIMAL,
     ariaLabel: 'Message list for ONS Business Surveys',
     ariaLabelMetaData: 'Message information',
-    ariaLabelMsg: 'Message preview',
+};
+
+const EXAMPLE_MESSAGE_LIST_WITH_DEPRECATED_ariaLabelMsg_PARAM = {
+    ...EXAMPLE_MESSAGE_LIST_MINIMAL,
+    ariaLabelMsg: 'Message Preview',
 };
 
 describe('macro: message-list', () => {
@@ -74,18 +79,6 @@ describe('macro: message-list', () => {
         expect($('.ons-message-item__metadata:first').attr('aria-label')).toBe('Message information');
     });
 
-    it('has `aria-label` attribute on `.ons-message-item__body` with the correct default value', () => {
-        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
-
-        expect($('.ons-message-item__body:first').attr('aria-label')).toBe('Message text');
-    });
-
-    it('has `aria-label` attribute on `.ons-message-item__body` using the provided value', () => {
-        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST));
-
-        expect($('.ons-message-item__body:first').attr('aria-label')).toBe('Message preview');
-    });
-
     it('has `unreadText` for unread messages', () => {
         const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST));
 
@@ -104,10 +97,22 @@ describe('macro: message-list', () => {
         expect($('.ons-message-item__metadata-term--date:first').text().trim()).toBe('Date:');
     });
 
+    it('has visually hidden label `bodyLabel`', () => {
+        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
+
+        expect($('.ons-message-item__metadata-term--body:first').text().trim()).toBe('Body:');
+    });
+
     it('has visually hidden label `hiddenReadLabel`', () => {
         const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
 
         expect($('.ons-message-item__link:first').text()).toContain('Read the message: ');
+    });
+
+    it('has visually hidden deprecated label `ariaLabelMsg`', () => {
+        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_WITH_DEPRECATED_ariaLabelMsg_PARAM));
+
+        expect($('.ons-message-item__metadata-term--body:first').text().trim()).toContain('Message Preview:');
     });
 
     it('has message as expected', () => {
@@ -119,7 +124,7 @@ describe('macro: message-list', () => {
         expect($message2.find('.ons-message-item__subject').attr('id')).toBe('message2');
         expect($message2.find('.ons-message-item__metadata-value--from').text().trim()).toBe('Example Sender 2');
         expect($message2.find('.ons-message-item__metadata-value--date').text().trim()).toBe('Mon 1 Oct 2019 at 9:52');
-        expect($message2.find('.ons-message-item__body').text().trim()).toBe('Another example message.');
+        expect($message2.find('.ons-message-item__metadata-value--body').text().trim()).toBe('Another example message.');
         expect($message2.find('.ons-message-item__link a').attr('href')).toBe('https://example.com/message/2');
     });
 
