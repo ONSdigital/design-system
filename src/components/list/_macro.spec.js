@@ -194,11 +194,15 @@ describe('macro: list', () => {
                 }),
             );
 
-            it('renders a <p> element', () => {
-                expect($('.ons-list')[0].tagName).toBe('p');
+            it('renders the list as a <div> container element', () => {
+                expect($('.ons-list')[0].tagName).toBe('div');
             });
 
-            it('has `ons-list--p` modifier class', () => {
+            it('renders the list item as a <p> element', () => {
+                expect($('.ons-list__item')[0].tagName).toBe('p');
+            });
+
+            it('the list has `ons-list--p` modifier class', () => {
                 expect($('.ons-list').hasClass('ons-list--p')).toBe(true);
             });
 
@@ -206,14 +210,14 @@ describe('macro: list', () => {
                 expect($('.ons-list li').length).toBe(0);
             });
 
-            it('has additionally provided list `attributes`', () => {
+            it('has additionally provided list `attributes` on the <div>', () => {
                 expect($('.ons-list').attr('a')).toBe('123');
                 expect($('.ons-list').attr('b')).toBe('456');
             });
 
-            it('has additionally provided list item `attributes`', () => {
-                expect($('.ons-list--p').attr('c')).toBe('789');
-                expect($('.ons-list--p').attr('d')).toBe('123');
+            it('has additionally provided list item `attributes` on the <p>', () => {
+                expect($('.ons-list--p > .ons-list__item').attr('c')).toBe('789');
+                expect($('.ons-list--p > .ons-list__item').attr('d')).toBe('123');
             });
         });
 
