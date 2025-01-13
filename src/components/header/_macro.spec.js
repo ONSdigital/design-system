@@ -723,7 +723,6 @@ describe('FOR: Macro: Header', () => {
                     ariaMinChars: 'Enter 3 or more characters for suggestions.',
                     ariaNResults: 'There are {n} suggestions available.',
                     ariaOneResult: 'There is one suggestion available.',
-                    ariaResultsLabel: 'Country suggestions',
                     ariaYouHaveSelected: 'You have selected',
                     containerClasses: 'ons-autosuggest--header',
                     id: 'ons-site-search',
