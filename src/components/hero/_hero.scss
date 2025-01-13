@@ -87,10 +87,8 @@
         z-index: 5;
     }
 
-    &--grey & {
-        &__details {
-            padding-top: 1rem;
-        }
+    &__details:has(.ons-breadcrumbs) {
+        padding-top: 1rem;
     }
 
     &--dark & {
