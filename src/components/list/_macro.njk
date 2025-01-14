@@ -16,23 +16,15 @@
     {% if params.element and listLength > 1 %}
         {% set listEl = params.element | lower %}
     {% elif (params.element == 'ol') and listLength < 2 %}
-        {% set listEl = 'p' %}
+        {% set listEl = 'div' %}
     {% else %}
         {% set listEl = 'ul' %}
-    {% endif %}
-
-    {% if listLength < 2 and not params.attributes %}
-        {% set attributes = [params.itemsList[0].attributes] %}
-    {% elif listLength < 2 and params.attributes and params.itemsList[0].attributes and listEl == 'p' %}
-        {% set attributes = [params.attributes, params.itemsList[0].attributes] %}
-    {% else %}
-        {% set attributes = [params.attributes] %}
     {% endif %}
     {% set openingTag = "<" + listEl %}
     {% set closingTag = "</" + listEl + ">" %}
 
     {{ openingTag | safe }}{% if params.id %}{{ ' ' }}id="{{ params.id }}"{% endif %}
-    class="ons-list{{ ' ons-list--p' if listEl == 'p' }}{{ ' ' + params.classes if params.classes else '' }}{% if params.variants %}{% if params.variants is not string %}{% for variant in variants %}{{ ' ' }}ons-list--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-list--{{ variants }}{% endif %}{% endif %}{{ ' ' + otherClasses if otherClasses else '' }}"{% if params.attributes or params.itemsList[0].attributes %}{% for attributeList in attributes %}{% for attribute, value in (attributeList.items() if attributeList is mapping and attributeList.items else attributeList) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endfor %}{% endif %}>
+    class="ons-list{{ ' ons-list--p' if listEl == 'div' }}{{ ' ' + params.classes if params.classes else '' }}{% if params.variants %}{% if params.variants is not string %}{% for variant in variants %}{{ ' ' }}ons-list--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-list--{{ variants }}{% endif %}{% endif %}{{ ' ' + otherClasses if otherClasses else '' }}"{% if params.attributes %}{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}{% endif %}>
     {%- for item in params.itemsList -%}
         {% set sublistClasses = item.listClasses if item.listClasses %}
         {%
@@ -124,16 +116,18 @@
         {% endset %}
 
         {% if listLength > 1 or listEl == 'ul' %}
-            <li
-                class="ons-list__item{{ ' ' + item.listClasses if item.listClasses else '' }}"
-                {% if item.current %}aria-current="true"{% endif %}
-                {% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
-            >
-                {{- listItem | safe -}}
-            </li>
+            {% set listItemEl = 'li' %}
         {% else %}
-            {{- listItem | safe -}}
+            {% set listItemEl = 'p' %}
         {% endif %}
+        {% set openingItemTag = "<" + listItemEl %}
+        {% set closingItemTag = "</" + listItemEl + ">" %}
+
+        {{ openingItemTag | safe }}
+        class="ons-list__item{{ ' ' + item.listClasses if item.listClasses else '' }}" {% if item.current %}aria-current="true"{% endif %}
+        {% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
+        > {{- listItem | safe -}}
+        {{ closingItemTag | safe }}
     {%- endfor -%}
     {{ closingTag | safe }}
 {% endmacro %}
