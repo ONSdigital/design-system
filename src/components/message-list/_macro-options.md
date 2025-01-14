@@ -7,7 +7,7 @@
 | fromLabel         | string           | true     | The visually hidden screen reader “From” prefix for each message metadata information                                        |
 | dateLabel         | string           | true     | The visually hidden screen reader “Sent” prefix for each message metadata information                                        |
 | hiddenReadLabel   | string           | true     | The visually hidden screen reader “Read the message” prefix for each visually hidden link to the message conversation thread |
-| bodyLabel         | string           | true     | (NEW) The visually hidden screen reader "body" prefix for message body                                                       |
+| bodyLabel         | string           | false    | (NEW) The visually hidden screen reader "body" prefix for message body                                                       |
 | messages          | `Array<Message>` | true     | Settings for each [message item](#message)                                                                                   |
 
 ## Message
