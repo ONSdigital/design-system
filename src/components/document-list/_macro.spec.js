@@ -272,9 +272,9 @@ describe('FOR: Macro: Document list', () => {
                 expect(hiddenText).toBe(', PDF document download, 499KB, 1 page');
             });
 
-            test('THEN: has hidden text', () => {
-                const hiddenText = $('.ons-document-list__item-attribute').text().trim();
-                expect(hiddenText).toBe('PDF, 499KB, 1 page');
+            test('THEN: has file information', () => {
+                const fileInfo = $('.ons-document-list__item-attribute').text().trim();
+                expect(fileInfo).toBe('PDF, 499KB, 1 page');
             });
         });
     });
