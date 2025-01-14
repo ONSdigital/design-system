@@ -83,7 +83,6 @@ describe('FOR: Macro: Address-input', () => {
                 ariaYouHaveSelected: '[params.ariaYouHaveSelected]',
                 ariaMinChars: '[params.ariaMinChars]',
                 minChars: '[params.minChars]',
-                ariaResultsLabel: '[params.ariaResultsLabel]',
                 ariaOneResult: '[params.ariaOneResult]',
                 ariaNResults: '[params.ariaNResults]',
                 ariaLimitedResults: '[params.ariaLimitedResults]',
