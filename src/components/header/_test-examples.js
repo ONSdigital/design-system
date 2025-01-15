@@ -139,7 +139,6 @@ export const EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST = {
         ariaYouHaveSelected: 'You have selected',
         ariaMinChars: 'Enter 3 or more characters for suggestions.',
         minChars: 3,
-        ariaResultsLabel: 'Country suggestions',
         ariaOneResult: 'There is one suggestion available.',
         ariaNResults: 'There are {n} suggestions available.',
         ariaLimitedResults: 'Type more characters to improve your search',
