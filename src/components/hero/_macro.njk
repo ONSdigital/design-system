@@ -13,8 +13,17 @@
                 {% endfor %}
             </div>
         {% endif %}
+        {% if params.variants == 'topic-grey' %}
+            <div class="ons-hero__circles" aria-hidden="true">
+                {% for i in range(1, 4) %}
+                    <div class="ons-hero__circle-{{ i }}"></div>
+                {% endfor %}
+            </div>
+        {% endif %}
         <div class="ons-hero__container ons-container{{ ' ons-container--wide' if params.wide }}">
-            <div class="ons-hero__details ons-grid__col ons-col-{{ detailsColumns }}@m ons-col-10@s@m">
+            <div
+                class="ons-hero__details ons-grid__col {% if params.variants != 'topic-grey' %}ons-col-{{ detailsColumns }}@m{% else %}ons-col-8@l{% endif %} col-10@s@m"
+            >
                 {% if params.breadcrumbs %}
                     {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
                     {{
