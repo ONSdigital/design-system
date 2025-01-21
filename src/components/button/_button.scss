@@ -430,7 +430,8 @@ $button-shadow-size: 3px;
     }
 
     &--mobile[aria-expanded='true'],
-    &--text-link[aria-expanded='true'] {
+    &--text-link[aria-expanded='true'],
+    &--menu[aria-expanded='true'] {
         .ons-icon {
             transform: rotate(270deg);
         }
@@ -547,6 +548,84 @@ $button-shadow-size: 3px;
             color: var(--ons-color-text-link-focus);
             .ons-icon {
                 fill: var(--ons-color-text-link-focus);
+            }
+        }
+    }
+
+    &--menu {
+        align-items: center;
+        display: flex;
+        height: 67px;
+        padding: 0 1.5rem;
+        @include mq(l) {
+            height: 72px;
+        }
+        .ons-icon {
+            transform: rotate(90deg);
+        }
+    }
+
+    &--menu & {
+        &__inner {
+            background: rgb(0 0 0 / 0%);
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            color: var(--ons-color-text-link);
+            font-weight: 700;
+            padding: 0;
+            .ons-icon {
+                fill: var(--ons-color-text-link);
+                height: 1rem;
+                margin-top: 0;
+                width: 1rem;
+            }
+        }
+    }
+
+    &--menu:focus {
+        background-color: var(--ons-color-focus);
+    }
+
+    &--menu:focus & {
+        &__inner {
+            background: none;
+            box-shadow: none;
+        }
+    }
+
+    &--menu:focus:hover:not(:active, .active) {
+        .ons-btn__inner {
+            background: none;
+        }
+    }
+
+    &--menu:active,
+    &--menu[aria-expanded='true'] {
+        background-color: var(--ons-color-branded-tint);
+    }
+
+    &--menu:hover &,
+    &--menu:active &,
+    &--menu.active & {
+        &__inner {
+            background: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+
+    &--menu:active &,
+    &--menu:active:focus &,
+    &--menu.active &,
+    &--menu.active:focus & {
+        &__inner {
+            background: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
             }
         }
     }
