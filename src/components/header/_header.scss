@@ -242,7 +242,7 @@
         }
     }
 
-    &-nav-links {
+    &-nav-menu {
         background-color: var(--ons-color-branded-tint);
         margin-bottom: 1rem;
         padding-top: 2.5rem;
@@ -253,6 +253,25 @@
             padding-bottom: 1rem;
             padding-left: 0;
             row-gap: 1rem;
+        }
+        &__heading,
+        &__text,
+        &__description {
+            line-height: 1.714 !important;
+        }
+
+        &__child-list {
+            margin-bottom: 2rem !important;
+        }
+        .ons-grid {
+            margin-left: 0;
+        }
+        .ons-grid__col {
+            padding-left: 0;
+            padding-bottom: 1rem;
+            @include mq(m) {
+                padding-bottom: 0;
+            }
         }
     }
 

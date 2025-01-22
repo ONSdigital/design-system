@@ -105,6 +105,10 @@
         &--vertical-center {
             align-items: center;
         }
+
+        &--gap {
+            column-gap: 2.5rem;
+        }
     }
 
     &__col {
@@ -128,6 +132,9 @@
 
         .ons-grid-flex & {
             width: auto;
+            &--gap & {
+                padding-left: 0;
+            }
         }
     }
 
