@@ -28,11 +28,9 @@ $button-shadow-size: 3px;
 
     &--search {
         .ons-icon {
-            @include mq(s, l) {
-                margin-right: 0.5rem;
-            }
-            @include mq(xs, 499px) {
-                margin: 0.125rem 0;
+            margin: 0.125rem 0.5rem 0.125rem 0;
+            @include mq(xs, s) {
+                margin-right: 0;
             }
         }
     }
