@@ -29,7 +29,7 @@
     }
 
     &--grey-bubbles {
-        background-color: var(--ons-color-grey-20);
+        background-color: var(--ons-color-soft-blue-grey);
         margin-bottom: 2.5rem;
         &::before {
             background-color: var(--ons-color-pale-blue);
@@ -359,7 +359,7 @@
 
         &__circle-1 {
             @include mq(l) {
-                background-color: var(--ons-color-grey-20);
+                background-color: var(--ons-color-soft-blue-grey);
                 border-radius: 50%;
                 height: 440px;
                 position: absolute;
