@@ -234,28 +234,30 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             </div>
             
         </div>
-        <div class="ons-header__main">
-            <div class="ons-container">
-                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
-                    <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
-                        
-
+        
+            <div class="ons-header__main">
+                <div class="ons-container">
+                    <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
+                        <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                             
 
-                            
                                 
-                                <div class="ons-header__title">Social survey</div>
+
+                                
+                                    
+                                    <div class="ons-header__title">Social survey</div>
+                                
+                                
                             
                             
+                        </div>
+
                         
                         
                     </div>
-
-                    
-                    
                 </div>
             </div>
-        </div>
+        
         
     </header>
 
@@ -473,28 +475,30 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             </div>
             
         </div>
-        <div class="ons-header__main">
-            <div class="ons-container">
-                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
-                    <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
-                        
-
+        
+            <div class="ons-header__main">
+                <div class="ons-container">
+                    <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
+                        <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                             
 
-                            
                                 
-                                <div class="ons-header__title">Social survey</div>
+
+                                
+                                    
+                                    <div class="ons-header__title">Social survey</div>
+                                
+                                
                             
                             
+                        </div>
+
                         
                         
                     </div>
-
-                    
-                    
                 </div>
             </div>
-        </div>
+        
         
     </header>
 
@@ -882,29 +886,30 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                 </nav>
             
         </div>
-        <div class="ons-header__main">
-            <div class="ons-container">
-                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap">
-                    <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
-                        
-
+        
+            <div class="ons-header__main">
+                <div class="ons-container">
+                    <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap">
+                        <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                             
 
-                            
-                                <a class="ons-header__title-link" href="#0">
-                                <div class="ons-header__title">ONS Service</div>
-                            </a>
-                            
-                        
-                        
-                    </div>
+                                
 
-                    
+                                
+                                    <a class="ons-header__title-link" href="#0">
+                                    <div class="ons-header__title">ONS Service</div>
+                                </a>
+                                
+                            
+                            
+                        </div>
+
                         
                             
-                        
-                        <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
+                                
                             
+                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
+                                
 
     
     
@@ -936,14 +941,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     </button>
 
-                        </div>
-                    
-                    
-                        <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
-                            
-                            
+                            </div>
+                        
+                        
+                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
                                 
                                 
+                                    
+                                    
 
     
     
@@ -975,12 +980,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     </button>
 
-                            
-                        </div>
-                    
+                                
+                            </div>
+                        
+                    </div>
                 </div>
             </div>
-        </div>
+        
         
             
     
@@ -1393,10 +1399,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
-    
-        
-    
     
     
 
@@ -1405,7 +1407,12 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1416,10 +1423,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1430,10 +1441,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1441,8 +1456,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
             
             <a href="#0" class="ons-list__link">Respondent Charter</a>
-        </li>
-        </ul>
+        </li></ul>
 
                             </div>
                         
@@ -1462,10 +1476,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
-    
-        
-    
     
     
 
@@ -1474,7 +1484,12 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1485,10 +1500,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1499,10 +1518,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1510,8 +1533,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
             
             <a href="#0" class="ons-list__link">Contact us</a>
-        </li>
-        </ul>
+        </li></ul>
 
                             </div>
                         
@@ -1531,10 +1553,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
-    
-        
-    
     
     
 
@@ -1543,7 +1561,12 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1561,10 +1584,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1575,10 +1602,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1586,8 +1617,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
             
             <a href="#0" class="ons-list__link">News</a>
-        </li>
-        </ul>
+        </li></ul>
 
                             </div>
                         
@@ -1616,10 +1646,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
         
     
-
-    
-        
-    
     
     
 
@@ -1628,7 +1654,12 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1639,10 +1670,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1653,10 +1688,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1667,10 +1706,14 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </li>
         
         
-        
 
         
-            <li class="ons-list__item">
+            
+        
+        
+        
+
+        <li class="ons-list__item">
         
             
                 
@@ -1678,8 +1721,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
             
             <a href="#0" class="ons-list__link">Terms and conditions</a>
-        </li>
-        </ul>
+        </li></ul>
 
                             
                         
@@ -1961,28 +2003,30 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             </div>
             
         </div>
-        <div class="ons-header__main">
-            <div class="ons-container">
-                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
-                    <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
-                        
-
+        
+            <div class="ons-header__main">
+                <div class="ons-container">
+                    <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
+                        <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                             
 
-                            
                                 
-                                <div class="ons-header__title">Social survey</div>
+
+                                
+                                    
+                                    <div class="ons-header__title">Social survey</div>
+                                
+                                
                             
                             
+                        </div>
+
                         
                         
                     </div>
-
-                    
-                    
                 </div>
             </div>
-        </div>
+        
         
     </header>
 
@@ -2184,28 +2228,30 @@ exports[`base page template matches the social block override snapshot 1`] = `
             </div>
             
         </div>
-        <div class="ons-header__main">
-            <div class="ons-container">
-                <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
-                    <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
-                        
-
+        
+            <div class="ons-header__main">
+                <div class="ons-container">
+                    <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
+                        <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                             
 
-                            
                                 
-                                <div class="ons-header__title">Social survey</div>
+
+                                
+                                    
+                                    <div class="ons-header__title">Social survey</div>
+                                
+                                
                             
                             
+                        </div>
+
                         
                         
                     </div>
-
-                    
-                    
                 </div>
             </div>
-        </div>
+        
         
     </header>
 

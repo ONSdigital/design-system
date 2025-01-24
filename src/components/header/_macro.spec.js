@@ -43,6 +43,16 @@ describe('FOR: Macro: Header', () => {
                 expect($('.ons-header--variant-b').length).toBe(1);
             });
         });
+        describe('WHEN: variants is set to basic', () => {
+            test('THEN: does not render the main part of the header', () => {
+                const $ = cheerio.load(
+                    renderComponent('header', {
+                        variants: 'basic',
+                    }),
+                );
+                expect($('.ons-header > .ons-header__main').length).toBe(0);
+            });
+        });
     });
     describe('GIVEN: Params: classes', () => {
         describe('WHEN: classes are provided', () => {
@@ -713,7 +723,6 @@ describe('FOR: Macro: Header', () => {
                     ariaMinChars: 'Enter 3 or more characters for suggestions.',
                     ariaNResults: 'There are {n} suggestions available.',
                     ariaOneResult: 'There is one suggestion available.',
-                    ariaResultsLabel: 'Country suggestions',
                     ariaYouHaveSelected: 'You have selected',
                     containerClasses: 'ons-autosuggest--header',
                     id: 'ons-site-search',
