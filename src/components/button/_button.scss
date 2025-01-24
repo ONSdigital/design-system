@@ -31,6 +31,9 @@ $button-shadow-size: 3px;
             @include mq(s, l) {
                 margin-right: 0.5rem;
             }
+            @include mq(xs, 499px) {
+                margin: 0.125rem 0;
+            }
         }
     }
 
