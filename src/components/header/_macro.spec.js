@@ -9,6 +9,7 @@ import { mapAll } from '../../tests/helpers/cheerio';
 import {
     EXAMPLE_HEADER_BASIC,
     EXAMPLE_SERVICE_LINKS_CONFIG,
+    EXAMPLE_HEADER_SEARCH_LINKS,
     EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE,
     EXAMPLE_HEADER_SERVICE_LINKS_SINGLE,
     EXAMPLE_HEADER_LANGUAGE_CONFIG,
@@ -781,6 +782,71 @@ describe('FOR: Macro: Header', () => {
                     const suggestionCount = $('.ons-autosuggest__option').length;
                     expect(suggestionCount).toBe(1);
                 }, 20);
+            });
+        });
+    });
+    describe('GIVEN: Params: searchLinks', () => {
+        describe('WHEN: searchLinks are provided with a toggle search button', () => {
+            const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SEARCH_LINKS));
+
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', EXAMPLE_HEADER_SEARCH_LINKS);
+
+            test('THEN: renders search icon button on small screen', () => {
+                expect(buttonSpy.occurrences).toContainEqual({
+                    iconType: 'search',
+                    classes: 'ons-u-fs-s--b ons-js-toggle-services',
+                    type: 'button',
+                    variants: 'search-icon',
+                    attributes: {
+                        'aria-label': 'Toggle search',
+                        'aria-expanded': 'false',
+                    },
+                });
+            });
+
+            test('THEN: renders search input form when button is clicked', () => {
+                expect($('.ons-header-nav-search').length).toBeGreaterThan(0);
+            });
+
+            test('THEN: renders the search field with full width', () => {
+                expect($('.ons-header-nav-search__key-list .ons-input').hasClass('ons-input--w-full')).toBe(true);
+            });
+        });
+
+        describe('WHEN: popular searches are provided in searchLinks', () => {
+            const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SEARCH_LINKS));
+
+            test('THEN: renders popular searches list', () => {
+                const popularSearches = $('.ons-list--bare .ons-list__item').length;
+                expect(popularSearches).toBeGreaterThan(0);
+            });
+
+            test('THEN: renders correct links for popular searches', () => {
+                const popularSearchesLinks = mapAll($('.ons-list--bare .ons-list__item a'), (node) => node.attr('href'));
+                expect(popularSearchesLinks).toEqual(['#1', '#2', '#3']);
+            });
+
+            test('THEN: renders correct text for popular searches', () => {
+                const popularSearchesText = mapAll($('.ons-list--bare .ons-list__item a'), (node) => node.text().trim());
+                expect(popularSearchesText).toEqual(['Popular Search 1', 'Popular Search 2', 'Popular Search 3']);
+            });
+        });
+
+        describe('WHEN: searchLinks parameter is missing', () => {
+            const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_BASIC));
+
+            test('THEN: does not render search icon button', () => {
+                expect($('.ons-js-toggle-services').length).toBe(0);
+            });
+
+            test('THEN: does not render search input form', () => {
+                expect($('.ons-header-nav-search').length).toBe(0);
+            });
+
+            test('THEN: does not render popular searches', () => {
+                expect($('.ons-list--bare').length).toBe(0);
             });
         });
     });

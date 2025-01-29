@@ -86,6 +86,10 @@
     margin-top: 0.25rem;
 }
 
+.ons-input__header-search {
+    border-radius: 0;
+}
+
 .ons-input--select {
     appearance: none;
     background: var(--ons-color-input-bg)
@@ -147,6 +151,10 @@
     flex-flow: row nowrap !important;
     gap: 0.5rem;
     height: 2.5rem;
+}
+
+.ons-input_header-search-button {
+    gap: 0;
 }
 
 .ons-input-search {

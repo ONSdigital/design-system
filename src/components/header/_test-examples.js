@@ -150,3 +150,29 @@ export const EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST = {
         language: 'en-gb',
     },
 };
+
+export const EXAMPLE_HEADER_SEARCH_LINKS = {
+    searchLinks: {
+        id: 'nav-links-external',
+        ariaLabel: 'Nav Search',
+        toggleSearchButton: {
+            text: 'Search',
+            ariaLabel: 'Toggle search',
+        },
+        popularSearches: [
+            {
+                url: '#1',
+                text: 'Popular Search 1',
+            },
+            {
+                url: '#2',
+                text: 'Popular Search 2',
+            },
+            {
+                url: '#3',
+                text: 'Popular Search 3',
+                external: true,
+            },
+        ],
+    },
+};

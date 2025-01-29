@@ -180,6 +180,24 @@
                             {% endif %}
                         </div>
                     {% endif %}
+                    {% if params.searchLinks %}
+                        <div class="ons-header__links ons-grid__col ons-u-ml-auto">
+                            <div class="ons-grid__col ons-col-auto">
+                                {{
+                                    onsButton({
+                                        "classes": "ons-u-fs-s--b ons-js-toggle-services",
+                                        "type": "button",
+                                        "variants": "search-icon",
+                                        "iconType": "search",
+                                        "attributes": {
+                                            "aria-label": params.searchLinks.toggleSearchButton.ariaLabel | default("Toggle search"),
+                                            "aria-expanded": "false"
+                                        }
+                                    })
+                                }}
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
             {% if params.serviceLinks %}
@@ -214,6 +232,54 @@
                     {% if params.language %}
                         {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                         {{ onsLanguageSelector(params.language) }}
+                    {% endif %}
+                </nav>
+            {% endif %}
+
+            {% if params.searchLinks %}
+                <nav
+                    class="ons-u-d-no ons-js-services-mobile-nav ons-header-nav-search"
+                    id="{{ params.searchLinks.id }}"
+                    aria-label="{{ params.searchLinks.ariaLabel | default("Search navigation") }}"
+                >
+                    {% if params.searchLinks %}
+                        <div class="ons-container">
+                            <div class="ons-header-nav-search__key-list">
+                                <h2 class="ons-u-fs-s--b ons-u-mb-s ons-header-nav-search__heading">Search the ONS</h2>
+                                {% from "components/input/_macro.njk" import onsInput %}
+                                {{
+                                    onsInput({
+                                        "id": 'search-field',
+                                        "width": 'full',
+                                        "searchButton": {
+                                            "visuallyHideButtonText": true,
+                                            "text": 'Search',
+                                            "iconType": 'search',
+                                            'variant': 'header'
+
+                                        }
+                                    })
+                                }}
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if params.searchLinks.popularSearches %}
+                        <div class="ons-container">
+                            <h2 class="ons-u-fs-s--b ons-u-mb-s ons-header-nav-search__heading">Popular Searches</h2>
+                            <ul class="ons-list ons-list--bare ons-list--inline">
+                                {% for item in params.searchLinks.popularSearches %}
+                                    <li class="ons-list__item">
+                                        {% if item.text %}
+                                            {% if item.url %}
+                                                <a href="{{ item.url }}" class="ons-u-fs-s ons-header-nav-search__text">{{ item.text }} </a>
+                                            {% else %}
+                                                <p class="ons-u-fs-s ons-header-nav-search__text">{{ item.text }}</p>
+                                            {% endif %}
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     {% endif %}
                 </nav>
             {% endif %}

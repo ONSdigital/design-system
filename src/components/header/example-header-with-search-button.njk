@@ -1,0 +1,44 @@
+---
+'fullWidth': true
+---
+
+{% from "components/header/_macro.njk" import onsHeader %}
+
+{{
+    onsHeader({
+        "variants": 'basic',
+        "searchLinks":
+            {
+               "id": "nav-links-external",
+                "ariaLabel": 'Nav Search',
+                "toggleSearchButton": {
+                    "text": 'Search',
+                    "ariaLabel": 'Toggle search'
+                },
+                "popularSearches": [
+                    {
+                        "url": '#1',
+                        "text": 'Cost of living'
+                    },
+                    {
+                        "url": '#1',
+                        "text": 'Inflation'
+                    },
+                    {
+                        "url": '#3',
+                        "text": 'NHS waiting times',
+                        "external": true
+                    },
+                    {
+                        "url": '#0',
+                        "text": 'Wellbeing',
+                        "external": true
+                    },{
+                        "url": '#0',
+                        "text": 'Baby names',
+                        "external": true
+                    }
+                ]
+            }
+    })
+}}

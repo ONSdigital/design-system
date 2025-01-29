@@ -236,6 +236,27 @@
         }
     }
 
+    &--basic & {
+        &__grid-top {
+            padding: 0;
+        }
+    }
+
+    &-nav-search {
+        background-color: var(--ons-color-branded-tint);
+        margin-bottom: 1rem;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+        width: 100%;
+        &__key-list {
+            border-bottom: 1px solid var(--ons-color-ocean-blue);
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            padding-left: 0;
+            row-gap: 1rem;
+        }
+    }
+
     .ons-btn {
         top: 0 !important;
     }
