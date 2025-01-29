@@ -557,6 +557,7 @@ $button-shadow-size: 3px;
         display: flex;
         height: 67px;
         padding: 0 1.5rem;
+        border-bottom: 4px solid rgb(0 0 0 / 0%);
         @include mq(l) {
             height: 72px;
         }
@@ -585,6 +586,7 @@ $button-shadow-size: 3px;
 
     &--menu:focus {
         background-color: var(--ons-color-focus);
+        border-color: black;
     }
 
     &--menu:focus & {
@@ -603,6 +605,7 @@ $button-shadow-size: 3px;
     &--menu:active,
     &--menu[aria-expanded='true'] {
         background-color: var(--ons-color-branded-tint);
+        border-color: var(--ons-color-text-link-hover);
     }
 
     &--menu:hover &,
