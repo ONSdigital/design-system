@@ -183,8 +183,6 @@
                     {% if params.navLinks %}
                         <div class="ons-header__links ons-grid__col ons-u-ml-auto">
                             {% if params.navLinks %}
-                                {# May need to be replaced with a custom button - for now use the design system one with some modifications #}
-                                {% set buttonVariant = ["text-link"] %}
                                 <div class="ons-grid__col ons-col-auto">
                                     {{
                                         onsButton({
@@ -254,13 +252,13 @@
                                 {% for item in params.navLinks.keyLinksList %}
                                     {% if item.text %}
                                         <li class="ons-grid__col ons-col-4@m">
-                                            {% if item.url %}
-                                                <a href="{{ item.url }}" class="ons-header-nav-menu__link">
-                                                    <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">{{ item.text }}</h2>
-                                                </a>
-                                            {% else %}
-                                                <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">{{ item.text }}</h2>
-                                            {% endif %}
+                                            <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
+                                                {% if item.url %}
+                                                    <a href="{{ item.url }}" class="ons-header-nav-menu__link">{{ item.text }}</a>
+                                                {% else %}
+                                                    {{ item.text }}
+                                                {% endif %}
+                                            </h2>
                                             {% if item.description %}
                                                 <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">
                                                     {{ item.description }}
@@ -279,26 +277,28 @@
                                     <li class="ons-grid__col ons-col-4@m">
                                         {% for link in item.linksList %}
                                             {% if link.text %}
-                                                {% if link.url %}
-                                                    <a href="{{ link.url }}" class="ons-header-nav-menu__link">
-                                                        <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">{{ link.text }}</h2>
-                                                    </a>
-                                                {% else %}
-                                                    <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">{{ link.text }}</h2>
-                                                {% endif %}
+                                                <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
+                                                    {% if item.url %}
+                                                        <a href="{{ item.url }}" class="ons-header-nav-menu__link">{{ link.text }}</a>
+                                                    {% else %}
+                                                        {{ link.text }}
+                                                    {% endif %}
+                                                </h2>
                                             {% endif %}
                                             {% if link.children %}
                                                 <ul class="ons-list ons-list--bare ons-header-nav-menu__child-list">
                                                     {% for child in link.children %}
                                                         {% if child.text %}
                                                             <li class="ons-u-mb-no">
-                                                                {% if child.url %}
-                                                                    <a href="{{ child.url }}" class="ons-header-nav-menu__link">
-                                                                        <p class="ons-u-fs-s ons-header-nav-menu__text">{{ child.text }}</p>
-                                                                    </a>
-                                                                {% else %}
-                                                                    <p class="ons-u-fs-s ons-header-nav-menu__text">{{ child.text }}</p>
-                                                                {% endif %}
+                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                    {% if child.url %}
+                                                                        <a href="{{ child.url }}" class="ons-header-nav-menu__link">
+                                                                            {{ child.text }}
+                                                                        </a>
+                                                                    {% else %}
+                                                                        {{ child.text }}
+                                                                    {% endif %}
+                                                                </p>
                                                             </li>
                                                         {% endif %}
                                                     {% endfor %}

@@ -586,7 +586,11 @@ $button-shadow-size: 3px;
 
     &--menu:focus {
         background-color: var(--ons-color-focus);
-        border-color: black;
+        border-color: var(--ons-color-black);
+    }
+
+    &--menu:hover {
+        border-color: var(--ons-color-text-link-hover);
     }
 
     &--menu:focus & {

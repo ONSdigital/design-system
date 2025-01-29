@@ -247,6 +247,7 @@
         margin-bottom: 1rem;
         padding-top: 2.5rem;
         width: 100%;
+
         &__key-list {
             border-bottom: 1px solid var(--ons-color-ocean-blue);
             margin-bottom: 1.25rem;
@@ -254,6 +255,8 @@
             padding-left: 0;
             row-gap: 1rem;
         }
+
+        &__link,
         &__heading,
         &__text,
         &__description {
@@ -263,9 +266,11 @@
         &__child-list {
             margin-bottom: 2rem !important;
         }
+
         .ons-grid {
             margin-left: 0;
         }
+
         .ons-grid__col {
             padding-left: 0;
             padding-bottom: 1rem;
