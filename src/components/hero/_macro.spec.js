@@ -93,7 +93,7 @@ describe('macro: hero', () => {
         expect($('.ons-hero--navy-blue .ons-hero__circles').length).toBe(1);
     });
 
-    it('renders circles when variant is `pale blue bubbles`', () => {
+    it('renders circles when variant is `pale blue`', () => {
         const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'pale-blue' }));
         expect($('.ons-hero--pale-blue .ons-hero__circles').length).toBe(1);
     });
