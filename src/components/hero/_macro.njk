@@ -21,9 +21,7 @@
             </div>
         {% endif %}
         <div class="ons-hero__container ons-container{{ ' ons-container--wide' if params.wide }}">
-            <div
-                class="ons-hero__details ons-grid__col {% if params.variants != 'pale-blue' %}ons-col-{{ detailsColumns }}@m{% else %}ons-col-8@l{% endif %} col-10@s@m"
-            >
+            <div class="ons-hero__details ons-grid__col ons-col-{{ detailsColumns }}@m col-10@s@m">
                 {% if params.breadcrumbs %}
                     {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
                     {{
