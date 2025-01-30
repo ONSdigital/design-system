@@ -811,7 +811,7 @@ describe('FOR: Macro: Header', () => {
             });
 
             test('THEN: renders the search field with full width', () => {
-                expect($('.ons-header-nav-search__key-list .ons-input').hasClass('ons-input--w-full')).toBe(true);
+                expect($('.ons-header-nav-search__input .ons-input').hasClass('ons-input--w-full')).toBe(true);
             });
         });
 
