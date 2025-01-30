@@ -245,14 +245,15 @@
     &-nav-search {
         background-color: var(--ons-color-branded-tint);
         margin-bottom: 1rem;
-        padding-top: 2.5rem;
-        padding-bottom: 2.5rem;
+        @extend .ons-u-pt-2xl;
+        @extend .ons-u-pb-2xl;
+
         width: 100%;
         &__input {
             border-bottom: 1px solid var(--ons-color-ocean-blue);
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
-            padding-left: 0;
+            @extend .ons-u-mb-2xl;
+            @extend .ons-u-pb-2xl;
+
             row-gap: 1rem;
         }
     }

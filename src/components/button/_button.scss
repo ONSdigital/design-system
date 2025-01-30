@@ -590,11 +590,7 @@ $button-shadow-size: 3px;
     &--search-icon & {
         &__inner {
             background: rgb(0 0 0 / 0%);
-            border: 0;
-            border-radius: 0;
             box-shadow: none;
-            color: var(--ons-color-text-link);
-            font-weight: 700;
             padding: 0;
             .ons-icon {
                 fill: var(--ons-color-text-link);
@@ -615,16 +611,10 @@ $button-shadow-size: 3px;
         border-color: var(--ons-color-text-link-hover);
     }
 
-    &--search-icon:focus & {
-        &__inner {
-            background: none;
-            box-shadow: none;
-        }
-    }
-
     &--search-icon:focus:hover:not(:active, .active) {
         .ons-btn__inner {
             background: none;
+            box-shadow: none;
         }
     }
 
