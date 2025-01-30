@@ -581,6 +581,7 @@ $button-shadow-size: 3px;
         display: flex;
         height: 67px;
         padding: 0 1.5rem;
+        border-bottom: 4px solid rgb(0 0 0 / 0%);
         @include mq(l) {
             height: 72px;
         }
@@ -604,6 +605,16 @@ $button-shadow-size: 3px;
         }
     }
 
+    &--search-icon:focus {
+        background-color: var(--ons-color-focus);
+        border-color: var(--ons-color-black);
+    }
+
+    &--search-icon:hover {
+        background-color: var(--ons-color-focus);
+        border-color: var(--ons-color-text-link-hover);
+    }
+
     &--search-icon:focus & {
         &__inner {
             background: none;
@@ -619,7 +630,9 @@ $button-shadow-size: 3px;
 
     &--search-icon:active,
     &--search-icon[aria-expanded='true'] {
+        border-bottom: none;
         background-color: var(--ons-color-branded-tint);
+        border-color: var(--ons-color-text-link-hover);
     }
 
     &--search-icon:hover &,
