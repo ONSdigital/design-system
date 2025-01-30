@@ -94,8 +94,8 @@ describe('macro: hero', () => {
     });
 
     it('renders circles when variant is `pale blue bubbles`', () => {
-        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'pale-blue-bubbles' }));
-        expect($('.ons-hero--pale-blue-bubbles .ons-hero__circles').length).toBe(1);
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'pale-blue' }));
+        expect($('.ons-hero--pale-blue .ons-hero__circles').length).toBe(1);
     });
 
     it('outputs the correct topic when set', () => {
