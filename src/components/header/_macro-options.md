@@ -17,7 +17,7 @@
 | button                | object`<SignOutButton>`                           | false                                                       | Settings for the [sign out button](#signoutbutton) in the header used to exit a transactional service                                          |
 | navigation            | array`<Navigation>`                               | false                                                       | Settings for the [main menu links](#navigation)                                                                                                |
 | siteSearchAutosuggest | `Autosuggest` [_(ref)_](/components/autosuggest)  | false                                                       | Sets the autosuggest functionality in the header                                                                                               |
-| navLinks              | object`<ServiceLinks>`                            | false                                                       | Settings for the [menu button navigation](#navLinks) in the masthead                                                                           |
+| menuNavLinks          | object`<MenuNavLinks>`                            | false                                                       | Settings for the [menu button navigation](#menuNavLinks) in the masthead                                                                       |
 
 ## MastheadLogo
 
@@ -62,7 +62,7 @@
 | itemsList            | array`<Item>`          | true     | Settings for an array of [list items](#item) for each navigation link                                                                 |
 | toggleServicesButton | object`<ToggleButton>` | true     | Settings for the [mobile service links toggle button](#togglebutton)                                                                  |
 
-## NavLinks
+## MenuNavLinks
 
 | Name            | Type                   | Required | Description                                                                                                                           |
 | --------------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -70,8 +70,8 @@
 | classes         | string                 | false    | Classes to add to the `<nav>` element                                                                                                 |
 | ariaLabel       | string                 | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Menu links navigation”.                                         |
 | ariaListLabel   | string                 | false    | The `aria-label` attribute added to the `<ul>` element. Defaults to “Menu links”.                                                     |
-| keyLinksList    | array`<Item>`          | true     | Settings for an array of [key list items](#keyitem) for each navigation link                                                          |
-| itemsList       | array`<Item>`          | true     | Settings for an array of [list items](#item) for each navigation link                                                                 |
+| keyLinks        | array`<KeyItem>`       | true     | Settings for an array of [key list items](#keyitem) for each navigation link                                                          |
+| menuLinks       | array`<menuGroup>`     | true     | Settings for an array of [list items](#item) for each navigation link                                                                 |
 | toggleNavButton | object`<ToggleButton>` | true     | Settings for the [menu toggle button](#toggleButton)                                                                                  |
 
 ## Language
@@ -121,7 +121,6 @@
 | ariaLabel | string | false    | The `aria-label` for the item.                                                                                                                                     |
 | title     | string | false    | The title text for the list item element                                                                                                                           |
 | iconType  | string | false    | Adds an icon to a service link item when set to the name of one of the [available icons](/foundations/icons#a-to-z). This is not compatible with navigation links. |
-| children  | string | false    | Settings for an array of [sub items](#subitem) for each list item                                                                                                  |
 
 ## SignOutButton
 
@@ -141,6 +140,14 @@
 | itemsList              | array`<Item>`             | true     | Settings for an array of [list items](#item) for each navigation link                                                          |
 | currentPath            | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
 | removeHorizontalSubNav | boolean                   | false    | Set to “true” to remove the sub navigation                                                                                     |
+
+## menuGroup
+
+| Name     | Type             | Required | Description                                                           |
+| -------- | ---------------- | -------- | --------------------------------------------------------------------- |
+| text     | string           | true     | The text label for the link                                           |
+| url      | string           | false    | The URL for the HTML `href` attribute for the path to the linked page |
+| children | array`<SubItem>` | false    | Settings for an array of [sub items](#subitem) for each list item     |
 
 ## KeyItem
 

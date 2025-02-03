@@ -180,21 +180,21 @@
                             {% endif %}
                         </div>
                     {% endif %}
-                    {% if params.navLinks %}
+                    {% if params.menuNavLinks %}
                         <div class="ons-header__links ons-grid__col ons-u-ml-auto">
-                            {% if params.navLinks %}
+                            {% if params.menuNavLinks %}
                                 <div class="ons-grid__col ons-col-auto">
                                     {{
                                         onsButton({
-                                            "text": params.navLinks.toggleNavButton.text | default("Menu"),
+                                            "text": params.menuNavLinks.toggleNavButton.text | default("Menu"),
                                             "classes": "ons-u-fs-s--b ons-js-toggle-services button-nav",
                                             "type": "button",
                                             "variants": "menu",
                                             "iconType": "chevron",
                                             "iconPosition": "before",
                                             "attributes": {
-                                                "aria-label": params.navLinks.toggleNavButton.ariaLabel | default("Toggle menu"),
-                                                "aria-controls": params.navLinks.id,
+                                                "aria-label": params.menuNavLinks.toggleNavButton.ariaLabel | default("Toggle menu"),
+                                                "aria-controls": params.menuNavLinks.id,
                                                 "aria-expanded": "false"
                                             }
                                         })
@@ -240,28 +240,28 @@
                     {% endif %}
                 </nav>
             {% endif %}
-            {% if params.navLinks %}
+            {% if params.menuNavLinks %}
                 <nav
-                    class="ons-u-d-no ons-js-services-mobile-nav ons-header-nav-menu"
-                    id="{{ params.navLinks.id }}"
-                    aria-label="{{ params.navLinks.ariaLabel | default("Menu navigation") }}"
+                    class="ons-u-d-no ons-js-services-mobile-nav ons-header-nav-menu ons-u-mb-s ons-u-pt-2xl"
+                    id="{{ params.menuNavLinks.id }}"
+                    aria-label="{{ params.menuNavLinks.ariaLabel | default("Menu navigation") }}"
                 >
-                    {% if params.navLinks.keyLinksList %}
+                    {% if params.menuNavLinks.keyLinks %}
                         <div class="ons-container">
                             <ul class="ons-grid ons-header-nav-menu__key-list">
-                                {% for item in params.navLinks.keyLinksList %}
-                                    {% if item.text %}
+                                {% for keyLink in params.menuNavLinks.keyLinks %}
+                                    {% if keyLink.text %}
                                         <li class="ons-grid__col ons-col-4@m">
                                             <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
-                                                {% if item.url %}
-                                                    <a href="{{ item.url }}" class="ons-header-nav-menu__link">{{ item.text }}</a>
+                                                {% if keyLink.url %}
+                                                    <a href="{{ keyLink.url }}" class="ons-header-nav-menu__link">{{ keyLink.text }}</a>
                                                 {% else %}
-                                                    {{ item.text }}
+                                                    {{ keyLink.text }}
                                                 {% endif %}
                                             </h2>
-                                            {% if item.description %}
+                                            {% if keyLink.description %}
                                                 <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">
-                                                    {{ item.description }}
+                                                    {{ keyLink.description }}
                                                 </p>
                                             {% endif %}
                                         </li>
@@ -270,24 +270,26 @@
                             </ul>
                         </div>
                     {% endif %}
-                    {% if params.navLinks.itemsList %}
+                    {% if params.menuNavLinks.menuLinks %}
                         <div class="ons-container">
                             <ul class="ons-grid ons-list ons-list--bare">
-                                {% for item in params.navLinks.itemsList %}
+                                {% for menuLink in params.menuNavLinks.menuLinks %}
                                     <li class="ons-grid__col ons-col-4@m">
-                                        {% for link in item.linksList %}
-                                            {% if link.text %}
+                                        {% for menuItem in menuLink.menuGroup %}
+                                            {% if menuItem.text %}
                                                 <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
-                                                    {% if item.url %}
-                                                        <a href="{{ item.url }}" class="ons-header-nav-menu__link">{{ link.text }}</a>
+                                                    {% if menuItem.url %}
+                                                        <a href="{{ menuItem.url }}" class="ons-header-nav-menu__link"
+                                                            >{{ menuItem.text }}</a
+                                                        >
                                                     {% else %}
-                                                        {{ link.text }}
+                                                        {{ menuItem.text }}
                                                     {% endif %}
                                                 </h2>
                                             {% endif %}
-                                            {% if link.children %}
+                                            {% if menuItem.children %}
                                                 <ul class="ons-list ons-list--bare ons-header-nav-menu__child-list">
-                                                    {% for child in link.children %}
+                                                    {% for child in menuItem.children %}
                                                         {% if child.text %}
                                                             <li class="ons-u-mb-no">
                                                                 <p class="ons-u-fs-s ons-header-nav-menu_text">
