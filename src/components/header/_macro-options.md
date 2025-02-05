@@ -143,24 +143,22 @@
 
 ## menuGroup
 
-| Name     | Type             | Required | Description                                                           |
-| -------- | ---------------- | -------- | --------------------------------------------------------------------- |
-| text     | string           | true     | The text label for the link                                           |
-| url      | string           | false    | The URL for the HTML `href` attribute for the path to the linked page |
-| children | array`<SubItem>` | false    | Settings for an array of [sub items](#subitem) for each list item     |
+| Name     | Type             | Required | Description                                                       |
+| -------- | ---------------- | -------- | ----------------------------------------------------------------- |
+| heading  | string           | true     | The heading label for the menu group                              |
+| subItems | array`<SubItem>` | false    | Settings for an array of [sub items](#subitem) for each list item |
 
 ## KeyItem
 
-| Name        | Type   | Required | Description                                                           |
-| ----------- | ------ | -------- | --------------------------------------------------------------------- |
-| url         | string | false    | The URL for the HTML `href` attribute for the path to the linked page |
-| text        | string | true     | The text label for the heading                                        |
-| id          | string | false    | The HTML `id` of the link                                             |
-| description | string | false    | The description for the item                                          |
+| Name    | Type   | Required | Description                                                           |
+| ------- | ------ | -------- | --------------------------------------------------------------------- |
+| heading | string | true     | The heading for the item                                              |
+| text    | string | true     | The text label for the item                                           |
+| url     | string | false    | The URL for the HTML `href` attribute for the path to the linked page |
 
 ## SubItem
 
 | Name | Type   | Required | Description                                                           |
 | ---- | ------ | -------- | --------------------------------------------------------------------- |
-| text | string | false    | The text for the toggle button label. Defaults to “Menu”              |
-| url  | string | true     | The URL for the HTML `href` attribute for the path to the linked page |
+| text | string | true     | The text label for the sub-item                                       |
+| url  | string | false    | The URL for the HTML `href` attribute for the path to the linked page |

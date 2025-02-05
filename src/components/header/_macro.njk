@@ -250,18 +250,16 @@
                         <div class="ons-container">
                             <ul class="ons-grid ons-header-nav-menu__key-list">
                                 {% for keyLink in params.menuNavLinks.keyLinks %}
-                                    {% if keyLink.text %}
+                                    {% if keyLink.heading %}
                                         <li class="ons-grid__col ons-col-4@m">
-                                            <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
-                                                {% if keyLink.url %}
-                                                    <a href="{{ keyLink.url }}" class="ons-header-nav-menu__link">{{ keyLink.text }}</a>
-                                                {% else %}
-                                                    {{ keyLink.text }}
-                                                {% endif %}
-                                            </h2>
-                                            {% if keyLink.description %}
-                                                <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">
-                                                    {{ keyLink.description }}
+                                            <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">{{ keyLink.heading }}</h2>
+                                            {% if keyLink.text %}
+                                                <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__text">
+                                                    {% if keyLink.url %}
+                                                        <a href="{{ keyLink.url }}" class="ons-header-nav-menu__link">{{ keyLink.text }}</a>
+                                                    {% else %}
+                                                        {{ keyLink.text }}
+                                                    {% endif %}
                                                 </p>
                                             {% endif %}
                                         </li>
@@ -274,22 +272,14 @@
                         <div class="ons-container">
                             <ul class="ons-grid ons-list ons-list--bare">
                                 {% for menuLink in params.menuNavLinks.menuLinks %}
-                                    <li class="ons-grid__col ons-col-4@m">
+                                    <li class="ons-grid__col ons-col-4@m ons-u-mb-no">
                                         {% for menuItem in menuLink.menuGroup %}
-                                            {% if menuItem.text %}
-                                                <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
-                                                    {% if menuItem.url %}
-                                                        <a href="{{ menuItem.url }}" class="ons-header-nav-menu__link"
-                                                            >{{ menuItem.text }}</a
-                                                        >
-                                                    {% else %}
-                                                        {{ menuItem.text }}
-                                                    {% endif %}
-                                                </h2>
+                                            {% if menuItem.heading %}
+                                                <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">{{ menuItem.heading }}</h2>
                                             {% endif %}
-                                            {% if menuItem.children %}
+                                            {% if menuItem.subItems %}
                                                 <ul class="ons-list ons-list--bare ons-header-nav-menu__child-list">
-                                                    {% for child in menuItem.children %}
+                                                    {% for child in menuItem.subItems %}
                                                         {% if child.text %}
                                                             <li class="ons-u-mb-no">
                                                                 <p class="ons-u-fs-s ons-header-nav-menu_text">
