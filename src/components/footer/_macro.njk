@@ -207,7 +207,7 @@
                 </div>
                 {% if params.copyrightDeclaration %}
                     <!-- Copyright -->
-                    {% set copyrightDeclaration = '&copy; ' + params.copyrightDeclaration.copyright + '<br /> ' + params.copyrightDeclaration.text %}
+                    {% set copyrightDeclaration = '&copy; ' ~ params.copyrightDeclaration.copyright ~ '<br /> ' ~ params.copyrightDeclaration.text %}
                     <div class="ons-grid ons-grid-flex ons-grid-flex--between">
                         <div class="ons-grid__col">
                             <p class="ons-u-fs-s ons-u-mb-l ons-footer__copyright">{{- copyrightDeclaration | safe -}}</p>
