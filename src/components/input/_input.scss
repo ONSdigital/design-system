@@ -88,6 +88,8 @@
 
 .ons-input__header-search {
     border-radius: 0;
+    height: 56px;
+    border: 2px solid var(--ons-color-ocean-blue);
 }
 
 .ons-input--select {
@@ -155,6 +157,7 @@
 
 .ons-input_header-search-button {
     gap: 0;
+    height: 100%;
 }
 
 .ons-input-search {

@@ -41,9 +41,16 @@ $button-shadow-size: 3px;
     &--header-search:active:focus &,
     &--header-search.active:focus & {
         &__inner {
+            padding: 0.875rem !important;
+            border: 0;
             border-radius: 0;
             background: var(--ons-color-ocean-blue) !important;
-            box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow) !important;
+            box-shadow: none !important;
+            .ons-icon {
+                fill: var(--ons-color-text-inverse);
+                height: 28px;
+                width: 28px;
+            }
         }
     }
 
@@ -594,9 +601,9 @@ $button-shadow-size: 3px;
             padding: 0;
             .ons-icon {
                 fill: var(--ons-color-text-link);
-                height: 1rem;
+                height: 1.5rem;
                 margin-top: 0;
-                width: 1rem;
+                width: 1.5rem;
             }
         }
     }

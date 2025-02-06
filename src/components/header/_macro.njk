@@ -245,7 +245,7 @@
                     {% if params.searchLinks %}
                         <div class="ons-container">
                             <div class="ons-header-nav-search__input">
-                                <h2 class="ons-u-fs-s--b ons-u-mb-s ons-header-nav-search__heading">Search the ONS</h2>
+                                <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">Search the ONS</h2>
                                 {% from "components/input/_macro.njk" import onsInput %}
                                 {{
                                     onsInput({
@@ -265,7 +265,7 @@
                     {% endif %}
                     {% if params.searchLinks.popularSearches %}
                         <div class="ons-container">
-                            <h2 class="ons-u-fs-s--b ons-u-mb-s ons-header-nav-search__heading">Popular Searches</h2>
+                            <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">Popular Searches</h2>
                             <ul class="ons-list ons-list--bare ons-list--inline">
                                 {% for item in params.searchLinks.popularSearches %}
                                     {# Limiting the popular searches to 5 #}
@@ -273,11 +273,11 @@
                                         <li class="ons-list__item">
                                             {% if item.text %}
                                                 {% if item.url %}
-                                                    <a href="{{ item.url }}" class="ons-u-fs-s ons-header-nav-search__text"
+                                                    <a href="{{ item.url }}" class="ons-u-fs-r ons-header-nav-search__text"
                                                         >{{ item.text }}
                                                     </a>
                                                 {% else %}
-                                                    <p class="ons-u-fs-s ons-header-nav-search__text">{{ item.text }}</p>
+                                                    <p class="ons-u-fs-r ons-header-nav-search__text">{{ item.text }}</p>
                                                 {% endif %}
                                             {% endif %}
                                         </li>
