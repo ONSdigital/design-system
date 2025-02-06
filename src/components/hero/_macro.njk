@@ -12,8 +12,7 @@
                     <div class="ons-hero__circle-{{ i }}"></div>
                 {% endfor %}
             </div>
-        {% endif %}
-        {% if params.variants == 'pale-blue' %}
+        {% elif params.variants == 'pale-blue' %}
             <div class="ons-hero__circles" aria-hidden="true">
                 {% for i in range(1, 4) %}
                     <div class="ons-hero__circle-{{ i }}"></div>
