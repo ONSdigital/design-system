@@ -163,7 +163,7 @@
 | url        | string             | false    | The URL for the HTML `href` attribute for the path to the linked page |
 | groupItems | array`<groupItem>` | false    | Settings for an array of [sub items](#groupitem) for each list item   |
 
-## Groupitem
+## GroupItem
 
 | Name | Type   | Required | Description                                                           |
 | ---- | ------ | -------- | --------------------------------------------------------------------- |
