@@ -70,7 +70,7 @@
 | classes         | string                 | false    | Classes to add to the `<nav>` element                                                                                                 |
 | ariaLabel       | string                 | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Menu links navigation”.                                         |
 | ariaListLabel   | string                 | false    | The `aria-label` attribute added to the `<ul>` element. Defaults to “Menu links”.                                                     |
-| keyLinks        | array`<KeyItem>`       | true     | Settings for an array of [key list items](#keyitem)                                                                                   |
+| keyLinks        | array`<KeyLink>`       | true     | Settings for an array of [key list items](#keylink)                                                                                   |
 | columns         | array`<Column>`       | true     | Settings for list of [columns](#column) that contain menu links                                                                       |
 | toggleNavButton | object`<ToggleButton>` | true     | Settings for the [menu toggle button](#toggleButton)                                                                                  |
 
