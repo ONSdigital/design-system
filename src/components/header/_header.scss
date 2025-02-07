@@ -256,11 +256,12 @@
 
         &__link,
         &__heading,
-        &__text {
+        &__text,
+        &__description {
             line-height: 1.714 !important;
         }
 
-        &__child-list:not(:last-of-type) {
+        &__groupItem-list:not(:last-of-type) {
             margin-bottom: 2rem !important;
         }
 

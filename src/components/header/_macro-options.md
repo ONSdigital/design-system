@@ -71,7 +71,7 @@
 | ariaLabel       | string                 | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Menu links navigation”.                                         |
 | ariaListLabel   | string                 | false    | The `aria-label` attribute added to the `<ul>` element. Defaults to “Menu links”.                                                     |
 | keyLinks        | array`<KeyItem>`       | true     | Settings for an array of [key list items](#keyitem) for each navigation link                                                          |
-| menuLinks       | array`<menuGroup>`     | true     | Settings for an array of [list items](#item) for each navigation link                                                                 |
+| menuLinks       | array`<menuCol>`       | true     | Settings for an array of [list items](#menucol) for each navigation link                                                              |
 | toggleNavButton | object`<ToggleButton>` | true     | Settings for the [menu toggle button](#toggleButton)                                                                                  |
 
 ## Language
@@ -141,24 +141,25 @@
 | currentPath            | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
 | removeHorizontalSubNav | boolean                   | false    | Set to “true” to remove the sub navigation                                                                                     |
 
-## menuGroup
-
-| Name     | Type             | Required | Description                                                       |
-| -------- | ---------------- | -------- | ----------------------------------------------------------------- |
-| heading  | string           | true     | The heading label for the menu group                              |
-| subItems | array`<SubItem>` | false    | Settings for an array of [sub items](#subitem) for each list item |
-
 ## KeyItem
 
-| Name    | Type   | Required | Description                                                           |
-| ------- | ------ | -------- | --------------------------------------------------------------------- |
-| heading | string | true     | The heading for the item                                              |
-| text    | string | true     | The text label for the item                                           |
-| url     | string | false    | The URL for the HTML `href` attribute for the path to the linked page |
+| Name        | Type   | Required | Description                                                           |
+| ----------- | ------ | -------- | --------------------------------------------------------------------- |
+| heading     | string | true     | The heading for the item                                              |
+| url         | string | false    | The URL for the HTML `href` attribute for the path to the linked page |
+| description | string | true     | The description label for the item                                    |
 
-## SubItem
+## menuCol
+
+| Name       | Type               | Required | Description                                                           |
+| ---------- | ------------------ | -------- | --------------------------------------------------------------------- |
+| heading    | string             | true     | The heading label for the menu group                                  |
+| url        | string             | false    | The URL for the HTML `href` attribute for the path to the linked page |
+| groupItems | array`<groupItem>` | false    | Settings for an array of [sub items](#groupItem) for each list item   |
+
+## groupItem
 
 | Name | Type   | Required | Description                                                           |
 | ---- | ------ | -------- | --------------------------------------------------------------------- |
-| text | string | true     | The text label for the sub-item                                       |
+| text | string | true     | The text label for the group-item                                     |
 | url  | string | false    | The URL for the HTML `href` attribute for the path to the linked page |
