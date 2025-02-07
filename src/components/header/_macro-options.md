@@ -71,7 +71,7 @@
 | ariaLabel       | string                 | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Menu links navigation”.                                         |
 | ariaListLabel   | string                 | false    | The `aria-label` attribute added to the `<ul>` element. Defaults to “Menu links”.                                                     |
 | keyLinks        | array`<KeyItem>`       | true     | Settings for an array of [key list items](#keyitem) for each navigation link                                                          |
-| columns         | array`<Columns>`       | true     | Settings for an array of [#columns](#column)                                                                                          |
+| columns         | array`<Columns>`       | true     | Settings for an array of [columns](#column)                                                                                           |
 | toggleNavButton | object`<ToggleButton>` | true     | Settings for the [menu toggle button](#toggleButton)                                                                                  |
 
 ## Language
@@ -151,9 +151,9 @@
 
 ## Column
 
-| Name   | Type           | Required | Description                                    |
-| ------ | -------------- | -------- | ---------------------------------------------- |
-| groups | array`<group>` | true     | settings for array [groups](#group) in column. |
+| Name   | Type           | Required | Description                                       |
+| ------ | -------------- | -------- | ------------------------------------------------- |
+| groups | array`<group>` | true     | settings for array of [groups](#group) in column. |
 
 ## group
 
@@ -161,9 +161,9 @@
 | ---------- | ------------------ | -------- | --------------------------------------------------------------------- |
 | heading    | string             | true     | The heading label for the menu group                                  |
 | url        | string             | false    | The URL for the HTML `href` attribute for the path to the linked page |
-| groupItems | array`<groupItem>` | false    | Settings for an array of [group items](#groupItem) in a group.        |
+| groupItems | array`<groupItem>` | false    | Settings for an array of [sub items](#groupitem) for each list item   |
 
-## groupItem
+## Groupitem
 
 | Name | Type   | Required | Description                                                           |
 | ---- | ------ | -------- | --------------------------------------------------------------------- |
