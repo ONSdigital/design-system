@@ -141,7 +141,7 @@
 | currentPath            | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
 | removeHorizontalSubNav | boolean                   | false    | Set to “true” to remove the sub navigation                                                                                     |
 
-## KeyItem
+## KeyLink
 
 | Name        | Type   | Required | Description                                                           |
 | ----------- | ------ | -------- | --------------------------------------------------------------------- |
