@@ -17,7 +17,7 @@
 | button                | object`<SignOutButton>`                           | false                                                       | Settings for the [sign out button](#signoutbutton) in the header used to exit a transactional service                                          |
 | navigation            | array`<Navigation>`                               | false                                                       | Settings for the [main menu links](#navigation)                                                                                                |
 | siteSearchAutosuggest | `Autosuggest` [_(ref)_](/components/autosuggest)  | false                                                       | Sets the autosuggest functionality in the header                                                                                               |
-| menuNavLinks          | object`<MenuNavLinks>`                            | false                                                       | Settings for the [menu button navigation](#menuNavLinks) in the masthead                                                                       |
+| menuLinks             | object`<MenuLinks>`                               | false                                                       | Settings for the [menu button navigation](#menuLinks) in the masthead                                                                          |
 
 ## MastheadLogo
 
@@ -62,7 +62,7 @@
 | itemsList            | array`<Item>`          | true     | Settings for an array of [list items](#item) for each navigation link                                                                 |
 | toggleServicesButton | object`<ToggleButton>` | true     | Settings for the [mobile service links toggle button](#togglebutton)                                                                  |
 
-## MenuNavLinks
+## MenuLinks
 
 | Name            | Type                   | Required | Description                                                                                                                           |
 | --------------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -71,7 +71,7 @@
 | ariaLabel       | string                 | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Menu links navigation”.                                         |
 | ariaListLabel   | string                 | false    | The `aria-label` attribute added to the `<ul>` element. Defaults to “Menu links”.                                                     |
 | keyLinks        | array`<KeyItem>`       | true     | Settings for an array of [key list items](#keyitem) for each navigation link                                                          |
-| menuLinks       | array`<menuCol>`       | true     | Settings for an array of [list items](#menucol) for each navigation link                                                              |
+| columns         | array`<Columns>`       | true     | Settings for an array of [#columns](#column)                                                                                          |
 | toggleNavButton | object`<ToggleButton>` | true     | Settings for the [menu toggle button](#toggleButton)                                                                                  |
 
 ## Language
@@ -149,13 +149,19 @@
 | url         | string | false    | The URL for the HTML `href` attribute for the path to the linked page |
 | description | string | true     | The description label for the item                                    |
 
-## menuCol
+## Column
+
+| Name   | Type           | Required | Description                                    |
+| ------ | -------------- | -------- | ---------------------------------------------- |
+| groups | array`<group>` | true     | settings for array [groups](#group) in column. |
+
+## group
 
 | Name       | Type               | Required | Description                                                           |
 | ---------- | ------------------ | -------- | --------------------------------------------------------------------- |
 | heading    | string             | true     | The heading label for the menu group                                  |
 | url        | string             | false    | The URL for the HTML `href` attribute for the path to the linked page |
-| groupItems | array`<groupItem>` | false    | Settings for an array of [sub items](#groupItem) for each list item   |
+| groupItems | array`<groupItem>` | false    | Settings for an array of [group items](#groupItem) in a group.        |
 
 ## groupItem
 
