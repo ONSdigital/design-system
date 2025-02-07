@@ -71,7 +71,7 @@
 | ariaLabel       | string                 | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Menu links navigation”.                                         |
 | ariaListLabel   | string                 | false    | The `aria-label` attribute added to the `<ul>` element. Defaults to “Menu links”.                                                     |
 | keyLinks        | array`<KeyItem>`       | true     | Settings for an array of [key list items](#keyitem)                                                                                   |
-| columns         | array`<Columns>`       | true     | Settings for list of [columns](#column) that contain menu links                                                                       |
+| columns         | array`<Column>`       | true     | Settings for list of [columns](#column) that contain menu links                                                                       |
 | toggleNavButton | object`<ToggleButton>` | true     | Settings for the [menu toggle button](#toggleButton)                                                                                  |
 
 ## Language
