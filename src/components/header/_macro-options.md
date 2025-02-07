@@ -151,9 +151,9 @@
 
 ## Column
 
-| Name   | Type           | Required | Description                                       |
-| ------ | -------------- | -------- | ------------------------------------------------- |
-| groups | array`<group>` | true     | settings for array of [groups](#group) in column. |
+| Name   | Type           | Required | Description                                      |
+| ------ | -------------- | -------- | ------------------------------------------------ |
+| groups | array`<group>` | true     | settings for array of [groups](#group) in column |
 
 ## group
 
