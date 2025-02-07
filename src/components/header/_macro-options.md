@@ -147,7 +147,7 @@
 | ----------- | ------ | -------- | --------------------------------------------------------------------- |
 | heading     | string | true     | The heading for the item                                              |
 | url         | string | false    | The URL for the HTML `href` attribute for the path to the linked page |
-| description | string | true     | The description label for the item                                    |
+| description | string | true     | The description label for the link                                    |
 
 ## Column
 
