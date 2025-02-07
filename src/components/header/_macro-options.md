@@ -141,13 +141,13 @@
 | currentPath            | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
 | removeHorizontalSubNav | boolean                   | false    | Set to “true” to remove the sub navigation                                                                                     |
 
-## KeyItem
+## KeyLink
 
 | Name        | Type   | Required | Description                                                           |
 | ----------- | ------ | -------- | --------------------------------------------------------------------- |
-| heading     | string | true     | The heading for the item                                              |
+| heading     | string | true     | The heading for the link                                              |
 | url         | string | false    | The URL for the HTML `href` attribute for the path to the linked page |
-| description | string | true     | The description label for the item                                    |
+| description | string | true     | The description label for the link                                    |
 
 ## Column
 
