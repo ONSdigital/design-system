@@ -72,7 +72,7 @@
 | ariaListLabel   | string                 | false    | The `aria-label` attribute added to the `<ul>` element. Defaults to “Menu links”.                                                     |
 | keyLinks        | array`<KeyItem>`       | true     | Settings for an array of [key list items](#keyitem) for each navigation link                                                          |
 | columns         | array`<Columns>`       | true     | Settings for an array of [#columns](#column)                                                                                          |
-| toggleNavButton | object`<ToggleButton>` | true     | Settings for the [menu toggle button](#toggleButton)                                                                                  |
+| toggleNavButton | object`<ToggleButton>` | true     | Settings for the [menu toggle button](#togglebutton)                                                                                  |
 
 ## Language
 
