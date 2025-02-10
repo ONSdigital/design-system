@@ -48,7 +48,7 @@
 
 | Name       | Type    | Required | Description                                                                                                                          |
 | ---------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| iso        | string  | true     | ISO format meachine-readable date, for example, `2020-05-20`                                                                         |
+| iso        | string  | true     | ISO format machine-readable date, for example, `2020-05-20`                                                                          |
 | short      | string  | true     | Displayed short format of the date, for example, “20 May 2020”                                                                       |
 | prefix     | string  | false    | Label to prefix the date for context, for example, “Last updated” (Defaults to “Published”). Is automatically suffixed with a colon. |
 | showPrefix | boolean | false    | Displays the `prefix` when set to `true`. Otherwise it will be hidden. Use when context is required.                                 |
