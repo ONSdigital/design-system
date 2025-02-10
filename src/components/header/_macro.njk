@@ -180,6 +180,29 @@
                             {% endif %}
                         </div>
                     {% endif %}
+                    {% if params.menuLinks %}
+                        <div class="ons-header__links ons-grid__col ons-u-ml-auto">
+                            {% if params.menuLinks %}
+                                <div class="ons-grid__col ons-col-auto">
+                                    {{
+                                        onsButton({
+                                            "text": params.menuLinks.toggleNavButton.text | default("Menu"),
+                                            "classes": "ons-u-fs-s--b ons-js-toggle-services button-nav",
+                                            "type": "button",
+                                            "variants": "menu",
+                                            "iconType": "chevron",
+                                            "iconPosition": "before",
+                                            "attributes": {
+                                                "aria-label": params.menuLinks.toggleNavButton.ariaLabel | default("Toggle menu"),
+                                                "aria-controls": params.menuLinks.id,
+                                                "aria-expanded": "false"
+                                            }
+                                        })
+                                    }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
             {% if params.serviceLinks %}
@@ -214,6 +237,78 @@
                     {% if params.language %}
                         {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                         {{ onsLanguageSelector(params.language) }}
+                    {% endif %}
+                </nav>
+            {% endif %}
+            {% if params.menuLinks %}
+                <nav
+                    class="ons-u-d-no ons-js-services-mobile-nav ons-header-nav-menu ons-u-mb-s ons-u-pt-2xl"
+                    id="{{ params.menuLinks.id }}"
+                    aria-label="{{ params.menuLinks.ariaLabel | default("Menu navigation") }}"
+                >
+                    {% if params.menuLinks.keyLinks %}
+                        <div class="ons-container">
+                            <ul class="ons-grid ons-header-nav-menu__key-list">
+                                {% for keyLink in params.menuLinks.keyLinks %}
+                                    {% if keyLink.heading %}
+                                        <li class="ons-grid__col ons-col-4@m">
+                                            <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
+                                                {% if keyLink.url %}
+                                                    <a href="{{ keyLink.url }}" class="ons-header-nav-menu__link">{{ keyLink.heading }}</a>
+                                                {% else %}
+                                                    {{ keyLink.heading }}
+                                                {% endif %}
+                                            </h2>
+                                            {% if keyLink.description %}
+                                                <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">
+                                                    {{ keyLink.description }}
+                                                </p>
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    {% if params.menuLinks.columns %}
+                        <div class="ons-container">
+                            <ul class="ons-grid ons-list ons-list--bare">
+                                {% for column in params.menuLinks.columns %}
+                                    <li class="ons-grid__col ons-col-4@m ons-u-mb-no">
+                                        {% for group in column.groups %}
+                                            {% if group.heading %}
+                                                <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
+                                                    {% if group.url %}
+                                                        <a href="{{ group.url }}" class="ons-header-nav-menu__link">{{ group.heading }}</a>
+                                                    {% else %}
+                                                        {{ group.heading }}
+                                                    {% endif %}
+                                                </h2>
+                                            {% endif %}
+                                            {% if group.groupItems %}
+                                                <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
+                                                    {% for groupItem in group.groupItems %}
+                                                        {% if groupItem.text %}
+                                                            <li class="ons-u-mb-no">
+                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                    {% if groupItem.url %}
+                                                                        <a href="{{ groupItem.url }}" class="ons-header-nav-menu__link">
+                                                                            {{ groupItem.text }}
+                                                                        </a>
+                                                                    {% else %}
+                                                                        {{ groupItem.text }}
+                                                                    {% endif %}
+                                                                </p>
+                                                            </li>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     {% endif %}
                 </nav>
             {% endif %}
