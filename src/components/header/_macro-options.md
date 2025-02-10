@@ -161,7 +161,7 @@
 | ---------- | ------------------ | -------- | --------------------------------------------------------------------- |
 | heading    | string             | true     | The heading label for the menu group                                  |
 | url        | string             | false    | The URL for the HTML `href` attribute for the path to the linked page |
-| groupItems | array`<groupItem>` | false    | Settings for an array of [sub items](#groupitem) for each list item   |
+| groupItems | array`<groupItem>` | false    | Settings for an array of [group items](#groupitem) for each list item   |
 
 ## GroupItem
 
