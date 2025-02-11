@@ -1,3 +1,5 @@
+{% from "components/icon/_macro.njk" import onsIcon %}
+
 {% macro onsHero(params) %}
 
     {# Set number of columns used for hero content after medium breakpoint #}
@@ -42,9 +44,11 @@
                             <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
                         {% endif %}
                     </header>
+                    {% if params.text %}
+                        <p class="ons-hero__text">{{ params.text | safe }}</p>
+                    {% endif %}
                     {% if params.officialStatisticsBadge == true %}
-                        {% from "components/icon/_macro.njk" import onsIcon %}
-                        <div class="ons-hero__badge">
+                        <div class="ons-hero__badge ons-u-mb-s">
                             {{-
                                 onsIcon({
                                     "iconType": 'official-statistics'
@@ -52,10 +56,16 @@
                             -}}
                         </div>
                     {% endif %}
-                    {% if params.text %}
-                        <p class="ons-hero__text">{{ params.text | safe }}</p>
-                    {% endif %}
                 </div>
+                {% if params.censusLogo == true %}
+                    <div class="ons-hero__census-logo ons-u-mb-s">
+                        {{-
+                            onsIcon({
+                                "iconType": 'census-logo'
+                            })
+                        -}}
+                    </div>
+                {% endif %}
 
                 {% if params.button %}
                     {% from "components/button/_macro.njk" import onsButton %}

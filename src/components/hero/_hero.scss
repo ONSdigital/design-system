@@ -65,7 +65,7 @@
             }
         }
     }
-    &__badge {
+    &__text {
         @include mq(xs, l) {
             margin-top: 2.5rem;
             margin-bottom: 1rem;
@@ -428,6 +428,16 @@
 
             &.ons-hero__title-badge {
                 grid-template-columns: 1fr auto;
+            }
+
+            .ons-hero__text {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .ons-hero__badge {
+                grid-column: 2;
+                grid-row: 1;
             }
         }
     }
