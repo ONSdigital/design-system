@@ -44,9 +44,6 @@
                             <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
                         {% endif %}
                     </header>
-                    {% if params.text %}
-                        <p class="ons-hero__text">{{ params.text | safe }}</p>
-                    {% endif %}
                     {% if params.officialStatisticsBadge == true %}
                         <div class="ons-hero__badge ons-u-mb-s">
                             {{-
@@ -55,6 +52,9 @@
                                 })
                             -}}
                         </div>
+                    {% endif %}
+                    {% if params.text %}
+                        <p class="ons-hero__text">{{ params.text | safe }}</p>
                     {% endif %}
                 </div>
                 {% if params.censusLogo == true %}
