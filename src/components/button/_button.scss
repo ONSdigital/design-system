@@ -672,7 +672,8 @@ $button-shadow-size: 3px;
         }
     }
 
-    &--search-icon {
+    &--search-icon,
+    &--close {
         border-bottom: 4px solid transparent;
         align-items: center;
         display: flex;
@@ -683,7 +684,8 @@ $button-shadow-size: 3px;
         }
     }
 
-    &--search-icon & {
+    &--search-icon &,
+    &--close & {
         &__inner {
             background: rgb(0 0 0 / 0%);
             box-shadow: none;
@@ -711,8 +713,15 @@ $button-shadow-size: 3px;
         }
     }
 
-    &--search-icon:active,
-    &--search-icon[aria-expanded='true'] {
+    &--close:focus:hover:not(:active, .active) {
+        .ons-btn__inner {
+            background: none;
+            box-shadow: none;
+        }
+    }
+
+    &--close:active,
+    &--close[aria-expanded='true'] {
         border-bottom: 4px solid transparent;
         background-color: var(--ons-color-branded-tint);
     }
@@ -737,6 +746,22 @@ $button-shadow-size: 3px;
     &--search-icon.active:focus & {
         &__inner {
             background: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+
+    &--close:focus &,
+    &--close:hover &,
+    &--close:active &,
+    &--close.active &,
+    &--close.active:focus &,
+    &--close:active:focus & {
+        &__inner {
+            background: none !important;
+            box-shadow: none;
             color: var(--ons-color-text-link-hover);
             .ons-icon {
                 fill: var(--ons-color-text-link-hover);

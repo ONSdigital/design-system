@@ -180,10 +180,11 @@
                             {% endif %}
                         </div>
                     {% endif %}
-                    {% if params.menuLinks %}
-                        <div class="ons-header__links ons-grid__col ons-u-ml-auto">
-                            {% if params.menuLinks %}
-                                <div class="ons-grid__col ons-col-auto">
+
+                    <div class="ons-grid__col ons-col-auto">
+                        {% if params.menuLinks %}
+                            <div class="ons-header__links ons-grid__col ons-u-ml-auto">
+                                {% if params.menuLinks %}
                                     {{
                                         onsButton({
                                             "text": params.menuLinks.toggleNavButton.text | default("Menu"),
@@ -199,28 +200,39 @@
                                             }
                                         })
                                     }}
-                                </div>
-                            {% endif %}
-                        </div>
-                    {% endif %}
-                    {% if params.searchLinks %}
-                        <div class="ons-header__links ons-grid__col ons-u-ml-auto">
-                            <div class="ons-grid__col ons-col-auto">
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        {% if params.searchLinks %}
+                            <div class="ons-header__links ons-grid__col ons-u-ml-auto ons-js-toggle-header-search">
                                 {{
                                     onsButton({
-                                        "classes": "ons-u-fs-s--b ons-js-toggle-services",
+                                        "classes": "ons-u-fs-s--b",
                                         "type": "button",
                                         "variants": "search-icon",
                                         "iconType": "search",
                                         "attributes": {
-                                            "aria-label": params.searchLinks.toggleSearchButton.ariaLabel | default("Toggle search"),
+                                            "aria-label": params.searchLinks.toggleSearchButton.ariaLabel | default("Open search"),
+                                            "aria-controls": params.searchLinks.id,
                                             "aria-expanded": "false"
                                         }
                                     })
                                 }}
+                                {{
+                                    onsButton({
+                                        "classes": "ons-u-fs-s--b ons-u-vh",
+                                        "type": "button",
+                                        "variants": "close",
+                                        "iconType": "close",
+                                        "attributes": {
+                                            "aria-label": params.searchLinks.toggleSearchButton.ariaLabel | default("Close search"),
+                                            "aria-controls": params.searchLinks.id
+                                        }
+                                    })
+                                }}
                             </div>
-                        </div>
-                    {% endif %}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             {% if params.serviceLinks %}
@@ -330,10 +342,9 @@
                     {% endif %}
                 </nav>
             {% endif %}
-
             {% if params.searchLinks %}
                 <nav
-                    class="ons-u-d-no ons-js-services-mobile-nav ons-header-nav-search"
+                    class="ons-u-d-no ons-js-navigation-search ons-header-nav-search"
                     id="{{ params.searchLinks.id }}"
                     aria-label="{{ params.searchLinks.ariaLabel | default("Search navigation") }}"
                 >
@@ -470,8 +481,7 @@
                                                 "iconPosition": "only",
                                                 "attributes": {
                                                     "aria-label": "Toggle search" ,
-                                                    "aria-controls": "ons-site-search",
-                                                    "aria-expanded": "false"
+                                                    "aria-controls": "ons-site-search"
                                                 }
                                             })
                                         }}

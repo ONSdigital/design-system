@@ -4,10 +4,13 @@ const attrExpanded = 'aria-expanded';
 const attrHidden = 'aria-hidden';
 
 export default class NavigationToggle {
-    constructor(toggle, navigation, hideClass) {
+    constructor(toggle, navigation, hideClass, openIcon, closeIcon) {
         this.toggle = toggle;
         this.navigation = navigation;
         this.hideClass = hideClass;
+        this.closeIcon = closeIcon;
+        this.openIcon = openIcon;
+
         this.toggle.classList.remove('ons-u-d-no');
         this.setAria();
         onViewportChange(this.setAria.bind(this));
@@ -33,6 +36,14 @@ export default class NavigationToggle {
         if (input) {
             input.focus();
         }
+
+        if (this.openIcon) {
+            this.openIcon.classList.add('ons-u-vh');
+        }
+        if (this.closeIcon) {
+            this.closeIcon.classList.remove('ons-u-vh');
+            this.closeIcon.setAttribute(attrExpanded, 'true');
+        }
     }
 
     closeNav() {
@@ -40,6 +51,12 @@ export default class NavigationToggle {
         this.toggle.classList.remove('active');
         this.navigation.setAttribute(attrHidden, 'true');
         this.navigation.classList.add(this.hideClass);
+
+        if (this.openIcon) this.openIcon.classList.remove('ons-u-vh');
+        if (this.closeIcon) {
+            this.closeIcon.classList.add('ons-u-vh');
+            this.closeIcon.setAttribute(attrExpanded, 'false');
+        }
     }
 
     isHidden(el) {
