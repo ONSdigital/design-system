@@ -17,6 +17,7 @@
 | button                | object`<SignOutButton>`                           | false                                                       | Settings for the [sign out button](#signoutbutton) in the header used to exit a transactional service                                          |
 | navigation            | array`<Navigation>`                               | false                                                       | Settings for the [main menu links](#navigation)                                                                                                |
 | siteSearchAutosuggest | `Autosuggest` [_(ref)_](/components/autosuggest)  | false                                                       | Sets the autosuggest functionality in the header                                                                                               |
+| menuLinks             | object`<MenuLinks>`                               | false                                                       | Settings for the [menu button navigation](#menuLinks) in the masthead                                                                          |
 | searchLinks           | object`<SearchLinks>`                             | false                                                       | Settings for the [search button navigation](#searchLinks) in the masthead                                                                      |
 
 ## MastheadLogo
@@ -61,6 +62,18 @@
 | ariaListLabel        | string                 | false    | The `aria-label` attribute added to the `<ul>` element. Defaults to “Service links”.                                                  |
 | itemsList            | array`<Item>`          | true     | Settings for an array of [list items](#item) for each navigation link                                                                 |
 | toggleServicesButton | object`<ToggleButton>` | true     | Settings for the [mobile service links toggle button](#togglebutton)                                                                  |
+
+## MenuLinks
+
+| Name            | Type                   | Required | Description                                                                                                                           |
+| --------------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| id              | string                 | true     | The HTML `id` of the `<nav>` element. Used for the `aria-controls` attribute for the menu toggle button displayed on small viewports. |
+| classes         | string                 | false    | Classes to add to the `<nav>` element                                                                                                 |
+| ariaLabel       | string                 | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Menu links navigation”.                                         |
+| ariaListLabel   | string                 | false    | The `aria-label` attribute added to the `<ul>` element. Defaults to “Menu links”.                                                     |
+| keyLinks        | array`<KeyLink>`       | true     | Settings for an array of [key list items](#keylink)                                                                                   |
+| columns         | array`<Column>`        | true     | Settings for list of [columns](#column) that contain menu links                                                                       |
+| toggleNavButton | object`<ToggleButton>` | true     | Settings for the [menu toggle button](#toggleButton)                                                                                  |
 
 ## SearchLinks
 
@@ -145,3 +158,32 @@
 | itemsList              | array`<Item>`             | true     | Settings for an array of [list items](#item) for each navigation link                                                          |
 | currentPath            | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
 | removeHorizontalSubNav | boolean                   | false    | Set to “true” to remove the sub navigation                                                                                     |
+
+## KeyLink
+
+| Name        | Type   | Required | Description                                                           |
+| ----------- | ------ | -------- | --------------------------------------------------------------------- |
+| heading     | string | true     | The heading for the link                                              |
+| url         | string | false    | The URL for the HTML `href` attribute for the path to the linked page |
+| description | string | true     | The description label for the link                                    |
+
+## Column
+
+| Name   | Type           | Required | Description                                      |
+| ------ | -------------- | -------- | ------------------------------------------------ |
+| groups | array`<group>` | true     | settings for array of [groups](#group) in column |
+
+## Group
+
+| Name       | Type               | Required | Description                                                           |
+| ---------- | ------------------ | -------- | --------------------------------------------------------------------- |
+| heading    | string             | true     | The heading label for the menu group                                  |
+| url        | string             | false    | The URL for the HTML `href` attribute for the path to the linked page |
+| groupItems | array`<groupItem>` | false    | Settings for an array of [group items](#groupitem) for each list item |
+
+## GroupItem
+
+| Name | Type   | Required | Description                                                           |
+| ---- | ------ | -------- | --------------------------------------------------------------------- |
+| text | string | true     | The text label for the group-item                                     |
+| url  | string | false    | The URL for the HTML `href` attribute for the path to the linked page |

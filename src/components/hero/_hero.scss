@@ -28,6 +28,26 @@
         }
     }
 
+    &--pale-blue {
+        background-color: var(--ons-color-soft-blue-grey);
+        margin-bottom: 2.5rem;
+        &::before {
+            background-color: var(--ons-color-pale-blue);
+            border-radius: 0 0 50% 50%;
+            content: '';
+            height: 100%;
+            inset: 0;
+            left: -40%;
+            position: absolute;
+            width: 150%;
+            @include mq(l) {
+                border-radius: 0 0 80% 50%;
+                left: -25%;
+                width: 130%;
+            }
+        }
+    }
+
     &--grey {
         background-color: var(--ons-color-grey-10);
         &::before {
@@ -325,6 +345,77 @@
                 position: absolute;
                 right: 125px;
                 width: 59px;
+            }
+        }
+    }
+
+    &--pale-blue & {
+        &__details {
+            padding-bottom: 6rem;
+            @include mq(l) {
+                padding-bottom: 4rem;
+            }
+        }
+
+        &__circle-1 {
+            @include mq(l) {
+                background-color: var(--ons-color-soft-blue-grey);
+                border-radius: 50%;
+                height: 440px;
+                position: absolute;
+                right: 59px;
+                top: -339px;
+                width: 440px;
+            }
+        }
+
+        &__circle-2 {
+            background-color: var(--ons-color-light-orange);
+            border-radius: 50%;
+            bottom: 4%;
+            height: 40px;
+            position: absolute;
+            right: 15%;
+            width: 40px;
+            @include mq(xl) {
+                bottom: 30%;
+                height: 72px;
+                right: 346px;
+                width: 72px;
+            }
+            @include mq(l, 1299px) {
+                bottom: 30%;
+                height: 72px;
+                right: 25%;
+                width: 72px;
+            }
+            @include mq(m, 979px) {
+                bottom: 8%;
+                right: 10%;
+            }
+        }
+
+        &__circle-3 {
+            background-color: var(--ons-color-ocean-blue);
+            border-radius: 50%;
+            bottom: 7%;
+            height: 80px;
+            position: absolute;
+            right: -26px;
+            width: 80px;
+
+            @include mq(xl) {
+                right: 43px;
+            }
+
+            @include mq(l) {
+                height: 156px;
+                right: 2%;
+                width: 156px;
+            }
+
+            @include mq(m) {
+                bottom: 9%;
             }
         }
     }
