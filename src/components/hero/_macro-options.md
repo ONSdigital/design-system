@@ -12,6 +12,7 @@
 | officialStatisticsBadge | boolean                                                   | false    | Set to “true” display the official statistics badge in the hero                                                                    |
 | topic                   | string                                                    | false    | Topic for the hero                                                                                                                 |
 | breadcrumbs             | `Breadcrumbs` [_(ref)_](/components/breadcrumbs)          | false    | Settings to set the Breadcrumbs component within the HTML `<hero>` element                                                         |
+| censusLogo              | boolean                                                   | false    | Set to “true” display the census 2021 logo in the hero                                                                             |
 
 ## Button
 
