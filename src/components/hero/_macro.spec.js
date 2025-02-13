@@ -78,7 +78,7 @@ describe('macro: hero', () => {
 
         faker.renderComponent('hero', { ...EXAMPLE_HERO, variants: 'dark' });
 
-        expect(buttonSpy.occurrences[0]).toHaveProperty('classes', ' ons-btn--ghost');
+        expect(buttonSpy.occurrences[0]).toHaveProperty('classes', 'ons-u-mt-s ons-btn--ghost');
     });
 
     it('calls with content', () => {
@@ -86,5 +86,98 @@ describe('macro: hero', () => {
 
         const content = $('.ons-hero__additional-content').text().trim();
         expect(content).toEqual(expect.stringContaining('Example content...'));
+    });
+
+    it('renders circles when variant is `navy blue`', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'navy-blue' }));
+        expect($('.ons-hero--navy-blue .ons-hero__circles').length).toBe(1);
+    });
+
+    it('renders circles when variant is `pale blue`', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'pale-blue' }));
+        expect($('.ons-hero--pale-blue .ons-hero__circles').length).toBe(1);
+    });
+
+    it('outputs the correct topic when set', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, topic: 'Topic Text' }));
+
+        const content = $('.ons-hero--topic').text().trim();
+        expect(content).toBe('Topic Text');
+    });
+
+    it('outputs the official statistics badge when officialStatisticsBadge is set to true', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, officialStatisticsBadge: true }));
+
+        expect($('.ons-hero__badge').length).toBe(1);
+        expect($('.ons-hero__badge svg title').text().trim()).toBe('Offical Statistics Badge');
+    });
+
+    it('renders curved gradient when variant is `grey`', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'grey' }));
+        expect($('.ons-hero--grey').length).toBe(1);
+    });
+
+    it('outputs the correct breadcrumbs', () => {
+        const $ = cheerio.load(
+            renderComponent('hero', {
+                ...EXAMPLE_HERO,
+                variants: 'grey',
+                breadcrumbs: {
+                    ariaLabel: 'Breadcrumbs',
+                    itemsList: [
+                        {
+                            url: '/breadcrumb-1',
+                            text: 'Breadcrumbs 1',
+                        },
+                        {
+                            url: '/breadcrumb-2',
+                            text: 'Breadcrumbs 2',
+                        },
+                    ],
+                },
+            }),
+        );
+
+        const breadcrumbs = $('.ons-breadcrumbs__link');
+        expect($(breadcrumbs).length).toBe(2);
+        expect($(breadcrumbs[0]).attr('href')).toBe('/breadcrumb-1');
+        expect($(breadcrumbs[0]).text().trim()).toBe('Breadcrumbs 1');
+        expect($(breadcrumbs[1]).attr('href')).toBe('/breadcrumb-2');
+        expect($(breadcrumbs[1]).text().trim()).toBe('Breadcrumbs 2');
+    });
+
+    it('outputs the correct description list value', () => {
+        const $ = cheerio.load(
+            renderComponent('hero', {
+                ...EXAMPLE_HERO,
+                variants: 'grey',
+                descriptionList: {
+                    termCol: '4',
+                    descriptionCol: '8',
+                    itemsList: [
+                        {
+                            term: 'term1:',
+                            descriptions: [
+                                {
+                                    description: 'description1',
+                                },
+                            ],
+                        },
+                        {
+                            term: 'term2:',
+                            descriptions: [
+                                {
+                                    description: 'description2',
+                                },
+                            ],
+                        },
+                    ],
+                },
+            }),
+        );
+
+        const descriptionText = $('.ons-description-list__value');
+        expect($(descriptionText[0]).text().trim()).toBe('description1');
+        expect($(descriptionText[1]).text().trim()).toBe('description2');
     });
 });

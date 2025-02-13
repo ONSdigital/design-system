@@ -16,7 +16,6 @@ const EXAMPLE_AUTOSUGGEST = {
     ariaYouHaveSelected: 'You have selected',
     ariaMinChars: 'Enter 3 or more characters for suggestions.',
     minChars: 3,
-    ariaResultsLabel: 'Country suggestions',
     ariaOneResult: 'There is one suggestion available.',
     ariaNResults: 'There are {n} suggestions available.',
     ariaLimitedResults: 'Type more characters to improve your search',
@@ -40,7 +39,6 @@ const EXAMPLE_AUTOSUGGEST_WITH_LANGUAGE = {
     ariaYouHaveSelected: 'You have selected',
     ariaMinChars: 'Enter 3 or more characters for suggestions.',
     minChars: 3,
-    ariaResultsLabel: 'Country suggestions',
     ariaOneResult: 'There is one suggestion available.',
     ariaNResults: 'There are {n} suggestions available.',
     ariaLimitedResults: 'Type more characters to improve your search',
@@ -597,7 +595,7 @@ describe('script: autosuggest', () => {
                         ...EXAMPLE_AUTOSUGGEST,
                         errorTitle: 'There is a problem with your answer',
                         errorMessage: 'Enter an address ',
-                        errorMessageAPI: 'Sorry, there is a problem.',
+                        errorMessageApi: 'Sorry, there is a problem.',
                     }),
                 );
 
@@ -609,6 +607,8 @@ describe('script: autosuggest', () => {
                 expect(resultsItemCount).toBe(1);
                 const warningText = await page.$eval('.ons-autosuggest__warning', (node) => node.textContent);
                 expect(warningText.trim()).toBe('!Sorry, there is a problem.');
+                const warningContainer = await page.$eval('.ons-autosuggest__warning', (node) => node.id);
+                expect(warningContainer).toBe('country-of-birth-listbox');
             });
 
             it('the list and results element should be removed from the page', async () => {
@@ -657,7 +657,7 @@ describe('script: autosuggest', () => {
                 await page.type('.ons-js-autosuggest-input', 'England', { delay: 20 });
                 await page.keyboard.press('ArrowUp');
                 await page.keyboard.press('Enter');
-                // Defocus the autosuggest input.
+                // Unfocus the autosuggest input
                 await page.keyboard.press('Tab');
                 await page.focus('.ons-js-autosuggest-input');
 

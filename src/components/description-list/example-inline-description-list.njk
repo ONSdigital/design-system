@@ -1,0 +1,59 @@
+{% from "components/description-list/_macro.njk" import onsDescriptionList %}
+{{
+    onsDescriptionList({
+        "classes": "ons-u-mb-no",
+        "descriptionListLabel": "Information about this business and its survey requirements",
+        "variant": 'inline',
+        "termCol": "4",
+        "descriptionCol": "8",
+        "itemsList": [
+            {
+                "term": "Survey:",
+                "descriptions": [
+                    {
+                        "description": "Bricks & Blocks"
+                    }
+                ]
+            },
+            {
+                "term": "RU Refs:",
+                "descriptions": [
+                    {
+                        "description": "49900000118"
+                    },
+                    {
+                        "description": "49300005832"
+                    }
+                ]
+            },
+            {
+                "term": "Business:",
+                "descriptions": [
+                    {
+                        "description": "Bolts & Ratchets Ltd."
+                    }
+                ]
+            },
+            {
+                "term": "Trading as:",
+                "descriptions": [
+                    {
+                        "description": "Bolts & Ratchets"
+                    }
+                ]
+            },
+            {
+                "term": "To:",
+                "descriptions": [
+                    {
+                        "description": "Jacky Turner"
+                    },
+                    {
+                        "description": "Louise Goodland",
+                        'url': '#'
+                    }
+                ]
+            }
+        ]
+    })
+}}

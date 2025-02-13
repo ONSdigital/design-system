@@ -22,7 +22,7 @@
                     {% endif %}
                     <ul class="ons-section-nav__list">
                         {% for item in section.itemsList %}
-                            {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title | lower) %}
+                            {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.text | lower) %}
                                 {% set isCurrent = true %}
                             {% else %}
                                 {% set isCurrent = false %}
@@ -31,18 +31,21 @@
                                 class="ons-section-nav__item{{ ' ' + item.classes if item.classes else '' }}{{ ' ons-section-nav__item--active' if isCurrent == true }}"
                             >
                                 {% if isCurrent == true %}
-                                    {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
-                                    class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}"
-                                    aria-current="location">{{ item.title }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
+                                    <a
+                                        class="ons-section-nav__link ons-section-nav__item-header"
+                                        href="{{ item.url }}"
+                                        aria-current="location"
+                                        >{{ item.text }}</a
+                                    >
                                 {% else %}
-                                    <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
+                                    <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.text }}</a>
                                 {% endif %}
                                 {% if item.anchors and isCurrent == true %}
-                                    <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs">
+                                    <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-2xs ons-u-mb-2xs">
                                         {% for anchor in item.anchors %}
                                             <li class="ons-section-nav__item ons-list__item">
                                                 <a href="{{ anchor.url }}" class="ons-section-nav__link ons-list__link"
-                                                    >{{ anchor.title }}</a
+                                                    >{{ anchor.text }}</a
                                                 >
                                             </li>
                                         {% endfor %}
@@ -62,7 +65,7 @@
             <ul class="ons-section-nav__list">
                 {% for item in params.itemsList %}
                     {% set sectionItemHeadingLevel = headingLevel + 2 if params.title else headingLevel + 1 %}
-                    {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.title | lower) %}
+                    {% if (params.currentPath and item.url == params.currentPath) or (params.tabQuery and params.tabQuery == item.text | lower) %}
                         {% set isCurrent = true %}
                     {% else %}
                         {% set isCurrent = false %}
@@ -71,17 +74,17 @@
                         class="ons-section-nav__item{{ ' ' + item.classes if item.classes else '' }}{% if isCurrent == true %}{{ ' ' }}ons-section-nav__item--active{% endif %}"
                     >
                         {% if isCurrent == true %}
-                            {{ openingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
-                            class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}"
-                            aria-current="location">{{ item.title }}{{ closingHeadingTag | replace(headingLevel, sectionItemHeadingLevel | string) | safe }}
+                            <a class="ons-section-nav__link ons-section-nav__item-header" href="{{ item.url }}" aria-current="location"
+                                >{{ item.text }}</a
+                            >
                         {% else %}
-                            <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.title }}</a>
+                            <a class="ons-section-nav__link" href="{{ item.url }}">{{ item.text }}</a>
                         {% endif %}
                         {% if item.anchors %}
-                            <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs">
+                            <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-2xs ons-u-mb-2xs">
                                 {% for anchor in item.anchors %}
                                     <li class="ons-section-nav__item ons-list__item">
-                                        <a href="{{ anchor.url }}" class="ons-section-nav__link ons-list__link">{{ anchor.title }}</a>
+                                        <a href="{{ anchor.url }}" class="ons-section-nav__link ons-list__link">{{ anchor.text }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>

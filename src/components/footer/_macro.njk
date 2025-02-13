@@ -7,12 +7,12 @@
     {% else %}
         {% set lang = 'en' %}
     {% endif %}
-
+    {% set extraLogo = params.footerLogo.logos.logo2 %}
     {% set onsLogo %}
         {% if params.lang == 'cy' %}
             {{-
                 onsIcon({
-                    "iconType": 'ons-logo-cy',
+                    "iconType": 'ons-logo-stacked-cy' if extraLogo else 'ons-logo-cy',
                     "altText": 'Swyddfa Ystadegau Gwladol',
                     "altTextId": 'ons-logo-cy-footer-alt'
                 })
@@ -20,7 +20,7 @@
         {% else %}
             {{-
                 onsIcon({
-                    "iconType": 'ons-logo-en',
+                    "iconType": 'ons-logo-stacked-en' if extraLogo else 'ons-logo-en' ,
                     "altText": 'Office for National Statistics',
                     "altTextId": 'ons-logo-en-footer-alt'
                 })
@@ -69,18 +69,20 @@
             data-analytics="footer"
             {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
         >
-            <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+            <div
+                class="ons-container{{ ' ons-container--full-width' if params.fullWidth else "" }}{{ ' ons-container--wide' if params.wide else "" }}"
+            >
                 <div class="ons-grid">
                     {% if params.newTabWarning %}
                         <div class="ons-grid__col">
-                            <p class="ons-u-fs-s ons-u-mb-m ons-footer__new-tab-warning">{{ params.newTabWarning | safe }}</p>
+                            <p class="ons-u-fs-s ons-u-mb-l ons-footer__new-tab-warning">{{ params.newTabWarning | safe }}</p>
                         </div>
                     {% endif %}
 
                     {% if params.cols %}
                         {% for col in params.cols %}
                             <!-- Full footer columns -->
-                            <div class="ons-grid__col ons-col-4@m{{ ' ons-u-mt-m@xxs@m' if loop.index > 1 }}">
+                            <div class="ons-grid__col ons-col-4@m{{ ' ons-u-mt-l@2xs@m' if loop.index > 1 }}">
                                 {% if col.title %}
                                     <h2 class="ons-footer__heading ons-u-fs-r--b">{{ col.title }}</h2>
                                 {% endif %}
@@ -109,13 +111,13 @@
                     {% endif %}
 
                     {% if (params.cols) or (params.rows) %}
-                        <div class="ons-grid__col ons-u-mb-m">
+                        <div class="ons-grid__col ons-u-mb-l">
                             <hr class="ons-footer__hr" />
                         </div>
                     {% endif %}
                 </div>
 
-                <div class="ons-grid ons-grid--flex ons-grid--vertical-top ons-grid--between">
+                <div class="ons-grid{{ ' ons-grid-flex' if params.crest else "" }} ons-grid-flex--vertical-top ons-grid-flex--between">
                     <div class="ons-grid__col">
                         {% if params.legal %}
                             <!-- Legal -->
@@ -130,50 +132,71 @@
                             {% endfor %}
                         {% endif %}
 
-                        {% if params.OGLLink %}
+                        {% if params.oglLink %}
                             <!-- OGL -->
-                            <div class="ons-footer__license ons-u-mb-m">
+                            <div class="ons-footer__license ons-u-mb-l">
                                 {{-
                                     onsIcon({
                                         "iconType": 'ogl'
                                     })
                                 -}}
-                                {% if params.OGLLink.HTML %}
-                                    {{ params.OGLLink.HTML | safe }}
-                                {% elif params.OGLLink %}
+                                {% if params.oglLink.html %}
+                                    {{ params.oglLink.html | safe }}
+                                {% elif params.oglLink %}
                                     {% from "components/external-link/_macro.njk" import onsExternalLink %}
                                     {% if params.lang == 'cy' %}
-                                        {{ params.OGLLink.pre | default('Mae’r holl gynnwys ar gael o dan y') }}
+                                        {{ params.oglLink.pre | default('Mae’r holl gynnwys ar gael o dan y') }}
                                         {{
                                             onsExternalLink({
-                                                "url": params.OGLLink.url | default('https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'),
-                                                "linkText": params.OGLLink.link | default('Drwydded Llywodraeth Leol v3.0')
+                                                "url": params.oglLink.url | default('https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'),
+                                                "text": params.oglLink.text | default('Drwydded Llywodraeth Leol v3.0')
                                             })
-                                        }}{{ params.OGLLink.post | default(', oni bai y nodir fel arall') }}
+                                        }}{{ params.oglLink.post | default(', oni bai y nodir fel arall') }}
                                     {% else %}
-                                        {{ params.OGLLink.pre | default('All content is available under the') }}
+                                        {{ params.oglLink.pre | default('All content is available under the') }}
                                         {{
                                             onsExternalLink({
-                                                "url": params.OGLLink.url | default('https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'),
-                                                "linkText": params.OGLLink.link | default('Open Government Licence v3.0')
+                                                "url": params.oglLink.url | default('https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'),
+                                                "text": params.oglLink.text | default('Open Government Licence v3.0')
                                             })
-                                        }}{{ params.OGLLink.post | default(', except where otherwise stated') }}
+                                        }}{{ params.oglLink.post | default(', except where otherwise stated') }}
                                     {% endif %}
                                 {% endif %}
                             </div>
                         {% endif %}
-                        {% if not params.poweredBy %}
-                            <a
-                                class="ons-footer__poweredBy-link"
-                                {% if lang == "cy" %}href="https://cy.ons.gov.uk/"{% else %}href="https://www.ons.gov.uk/"{% endif %}
-                            >
-                                <div class="ons-footer__poweredby-logo ons-u-mb-m">{{ onsLogo | safe }}</div>
-                            </a>
+
+                        {% if not params.footerLogo.logos.logo1 %}
+                            {%
+                                set logo1 = {
+                                    'logoUrl': 'https://cy.ons.gov.uk/' if lang == 'cy' else 'https://www.ons.gov.uk/',
+                                    'logoImage': onsLogo | safe
+                                }
+                            %}
+                            {% set logos = [logo1, params.footerLogo.logos.logo2] %}
+                        {% else %}
+                            {% set logos = [params.footerLogo.logos.logo1, params.footerLogo.logos.logo2] %}
                         {% endif %}
+
+                        <div
+                            class="ons-footer__logo-container ons-u-mb-l ons-grid-flex ons-grid-flex--vertical-top{{ ' ons-grid-flex--between' if params.footerLogo.display == 'split' else "" }}"
+                        >
+                            {% for logo in logos %}
+                                {%- if logo.logoUrl -%}
+                                    <a
+                                        class="ons-footer__logo-link{{ ' ons-u-mr-s' if extraLogo and loop.index == 1 else "" }}"
+                                        href="{{ logo.logoUrl }}"
+                                        >{{ logo.logoImage | safe }}</a
+                                    >
+                                {%- else -%}
+
+                                    {{ logo.logoImage | safe }}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
                     {% if params.crest %}
                         <!-- Crest -->
-                        <div class="ons-grid__col ons-footer__crest ons-u-mb-m@xxs@l">
+                        <div class="ons-grid__col ons-footer__crest ons-u-mb-l@2xs@l">
                             {{-
                                 onsIcon({
                                     "iconType": 'crest'
@@ -182,15 +205,12 @@
                         </div>
                     {% endif %}
                 </div>
-                {% if params.poweredBy %}
-                    {{ params.poweredBy | safe }}
-                {% endif %}
                 {% if params.copyrightDeclaration %}
                     <!-- Copyright -->
-                    {% set copyrightDeclaration = '&copy; ' + params.copyrightDeclaration.copyright + '<br /> ' + params.copyrightDeclaration.text %}
-                    <div class="ons-grid ons-grid--flex ons-grid--vertical-bottom ons-grid--between">
+                    {% set copyrightDeclaration = '&copy; ' ~ params.copyrightDeclaration.copyright ~ '<br /> ' ~ params.copyrightDeclaration.text %}
+                    <div class="ons-grid ons-grid-flex ons-grid-flex--between">
                         <div class="ons-grid__col">
-                            <p class="ons-u-fs-s ons-u-mb-no ons-footer__copyright">{{- copyrightDeclaration | safe -}}</p>
+                            <p class="ons-u-fs-s ons-u-mb-l ons-footer__copyright">{{- copyrightDeclaration | safe -}}</p>
                         </div>
                     </div>
                 {% endif %}

@@ -59,7 +59,7 @@ describe('macro: table-of-contents', () => {
     it('renders a default aria label', () => {
         const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_SINGLE));
 
-        expect($('.ons-toc').attr('aria-label')).toBe('Table of contents');
+        expect($('.ons-table-of-contents').attr('aria-label')).toBe('Table of contents');
     });
 
     it('renders the provided `ariaLabel`', () => {
@@ -70,13 +70,13 @@ describe('macro: table-of-contents', () => {
             }),
         );
 
-        expect($('.ons-toc').attr('aria-label')).toBe('Contents');
+        expect($('.ons-table-of-contents').attr('aria-label')).toBe('Contents');
     });
 
     it('renders title as heading element', () => {
         const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_SINGLE));
 
-        expect($('.ons-toc__title').text().trim()).toBe('Contents');
+        expect($('.ons-table-of-contents__title').text().trim()).toBe('Contents');
     });
 
     describe('skip to content when `skipLink` is provided', () => {
@@ -116,7 +116,7 @@ describe('macro: table-of-contents', () => {
 
             expect(listsSpy.occurrences[0]).toEqual({
                 element: 'ol',
-                classes: 'ons-u-mb-m',
+                classes: 'ons-u-mb-l',
                 variants: 'dashed',
                 itemsList: EXAMPLE_TABLE_OF_CONTENTS_SINGLE.itemsList,
             });
@@ -155,13 +155,13 @@ describe('macro: table-of-contents', () => {
 
             expect(listsSpy.occurrences[0]).toEqual({
                 element: 'ol',
-                classes: 'ons-u-mb-m',
+                classes: 'ons-u-mb-l',
                 variants: 'dashed',
                 itemsList: EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE.lists[0].itemsList,
             });
             expect(listsSpy.occurrences[1]).toEqual({
                 element: 'ol',
-                classes: 'ons-u-mb-m',
+                classes: 'ons-u-mb-l',
                 variants: 'dashed',
                 itemsList: EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE.lists[1].itemsList,
             });

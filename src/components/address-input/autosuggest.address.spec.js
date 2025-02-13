@@ -15,7 +15,6 @@ const EXAMPLE_ADDRESS_INPUT = {
     ariaYouHaveSelected: 'You have selected',
     ariaMinChars: 'Enter 3 or more characters for suggestions.',
     minChars: 3,
-    ariaResultsLabel: 'Country suggestions',
     ariaOneResult: 'There is one suggestion available.',
     ariaNResults: 'There are {n} suggestions available.',
     ariaLimitedResults: 'Type more characters to improve your search',
@@ -30,8 +29,8 @@ const EXAMPLE_ADDRESS_INPUT = {
     errorTitle: 'There is a problem with your answer',
     errorMessageEnter: 'Enter an address',
     errorMessageSelect: 'Select an address',
-    errorMessageAPI: 'Sorry, there is a problem loading addresses',
-    errorMessageAPILinkText: 'Enter address manually',
+    errorMessageApi: 'Sorry, there is a problem loading addresses',
+    errorMessageApiLinkText: 'Enter address manually',
     options: {
         regionCode: 'gb-eng',
         addressType: 'residential',
@@ -52,20 +51,21 @@ const EXAMPLE_ADDRESS_INPUT = {
         label: 'Postcode',
     },
     searchButton: 'Search for an address',
+    manualLinkUrl: '#0',
     manualLinkText: 'Manually enter address',
 };
 
 const EXAMPLE_ADDRESS_INPUT_WITH_API = {
     ...EXAMPLE_ADDRESS_INPUT,
-    APIDomain: '/fake/api',
-    APIDomainBearerToken: 'someToken',
+    apiDomain: '/fake/api',
+    apiDomainBearerToken: 'someToken',
     externalInitialiser: true,
 };
 
 const { setTimeout } = require('node:timers/promises');
 
 describe('script: address-input', () => {
-    const apiFaker = new PuppeteerEndpointFaker(EXAMPLE_ADDRESS_INPUT_WITH_API.APIDomain);
+    const apiFaker = new PuppeteerEndpointFaker(EXAMPLE_ADDRESS_INPUT_WITH_API.apiDomain);
 
     apiFaker.setOverrides(
         [
@@ -188,7 +188,7 @@ describe('script: address-input', () => {
             await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
             await setTimeout(50);
 
-            expect(apiFaker.getRequestCount('/addresses/eq?input=cf142&limit=10')).toBe(1);
+            expect(await apiFaker.getRequestCount('/addresses/eq?input=cf142&limit=10')).toBe(1);
         });
 
         describe('when api status is okay', () => {
@@ -256,8 +256,9 @@ describe('script: address-input', () => {
 
             await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = '196 coll'));
             await page.type('.ons-js-autosuggest-input', 'e');
+            await setTimeout(50);
 
-            expect(apiFaker.getRequestCount('/addresses/eq?input=196%20colle&limit=10')).toBe(1);
+            expect(await apiFaker.getRequestCount('/addresses/eq?input=196%20colle&limit=10')).toBe(1);
         });
 
         describe('when the value is a full postcode', () => {
@@ -266,14 +267,15 @@ describe('script: address-input', () => {
 
                 await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = 'CF14 2N'));
                 await page.type('.ons-js-autosuggest-input', 'T');
+
+                await setTimeout(100);
             });
 
             it('provides expected parameters to the address API where `limit` is 100', async () => {
-                expect(apiFaker.getRequestCount('/addresses/eq?input=cf14%202nt&limit=100&groupfullpostcodes=combo')).toBe(1);
+                expect(await apiFaker.getRequestCount('/addresses/eq?input=cf14%202nt&limit=100&groupfullpostcodes=combo')).toBe(1);
             });
 
             it('has expected suggestion entries', async () => {
-                await setTimeout(100);
                 const suggestions = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.map((node) => node.textContent.trim()));
                 expect(suggestions).toEqual(['196 College Road, Birmingham, B44 8HF', '196 College Road, Whitchurch, Cardiff, CF14 2NZ']);
             });
@@ -313,7 +315,7 @@ describe('script: address-input', () => {
 
             it('provides expected parameters to the address API', async () => {
                 expect(
-                    apiFaker.getRequestCount(
+                    await apiFaker.getRequestCount(
                         '/addresses/eq?input=penlline%20road%20whitchurch%20cardiff%20cf14%202nz&limit=100&groupfullpostcodes=combo',
                     ),
                 ).toBe(1);
@@ -335,7 +337,7 @@ describe('script: address-input', () => {
                 });
 
                 it('makes expected request when a suggestion is selected', async () => {
-                    expect(apiFaker.getRequestCount('/addresses/eq/uprn/100070332099?addresstype=paf')).toBe(1);
+                    expect(await apiFaker.getRequestCount('/addresses/eq/uprn/100070332099?addresstype=paf')).toBe(1);
                 });
 
                 it('populates manual input fields with address from selection', async () => {
@@ -359,7 +361,7 @@ describe('script: address-input', () => {
             });
 
             it('provides expected parameters to the address API', async () => {
-                expect(apiFaker.getRequestCount('/addresses/eq?input=cf14%202&limit=10')).toBe(1);
+                expect(await apiFaker.getRequestCount('/addresses/eq?input=cf14%202&limit=10')).toBe(1);
             });
 
             it('has expected suggestion entries', async () => {
@@ -379,7 +381,7 @@ describe('script: address-input', () => {
 
                 it('makes expected request', async () => {
                     expect(
-                        apiFaker.getRequestCount(
+                        await apiFaker.getRequestCount(
                             '/addresses/eq/bucket?postcode=CF14%202AA&streetname=Penlline%20Road&townname=Whitchurch&groupfullpostcodes=combo',
                         ),
                     ).toBe(1);
@@ -602,13 +604,17 @@ describe('script: address-input', () => {
         beforeEach(async () => {
             await setTestPage('/test', renderComponent('address-input', EXAMPLE_ADDRESS_INPUT_WITH_API));
             await page.evaluate(() => document.documentElement.setAttribute('lang', 'cy'));
+
+            await setTimeout(50);
         });
 
         it('then the fetch url should contain the favour Welsh parameter', async () => {
             await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = '196 coll'));
             await page.type('.ons-js-autosuggest-input', 'e');
 
-            expect(apiFaker.getRequestCount('/addresses/eq?input=196%20colle&limit=10&favourwelsh=true')).toBe(1);
+            await setTimeout(50);
+
+            expect(await apiFaker.getRequestCount('/addresses/eq?input=196%20colle&limit=10&favourwelsh=true')).toBe(1);
         });
     });
 
@@ -626,7 +632,7 @@ describe('script: address-input', () => {
             });
 
             it('then the retrieveAddress function will be called', async () => {
-                expect(apiFaker.getRequestCount('/addresses/eq/uprn/100070332099?addresstype=paf')).toBe(1);
+                expect(await apiFaker.getRequestCount('/addresses/eq/uprn/100070332099?addresstype=paf')).toBe(1);
             });
         });
 
@@ -732,10 +738,9 @@ describe('script: address-input', () => {
         it('provides expected parameters to the address API', async () => {
             await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = '196 coll'));
             await page.type('.ons-js-autosuggest-input', 'e');
-
             await setTimeout(50);
 
-            expect(apiFaker.getRequestCount(searchEndpoint)).toBe(1);
+            expect(await apiFaker.getRequestCount(searchEndpoint)).toBe(1);
         });
 
         it('requests further information for the selected address from the API with the expected parameters', async () => {
@@ -743,10 +748,9 @@ describe('script: address-input', () => {
             await page.type('.ons-js-autosuggest-input', 'e', { delay: 20 });
             await page.keyboard.press('ArrowDown');
             await page.keyboard.press('Enter');
-
             await setTimeout(50);
 
-            expect(apiFaker.getRequestCount(uprnEndpoint)).toBe(1);
+            expect(await apiFaker.getRequestCount(uprnEndpoint)).toBe(1);
         });
     });
 });

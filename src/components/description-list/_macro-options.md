@@ -6,6 +6,7 @@
 | termCol              | number        | true     | The number of grid columns used for the `<dt>` elements above medium breakpoint                                |
 | descriptionCol       | number        | true     | The number of grid columns used for the `<dd>` elements above medium breakpoint                                |
 | itemsList            | array`<Item>` | true     | Settings for the terms and descriptions of the [description list items](#item)                                 |
+| variant              | string        | false    | Set to "inline" to display the description list inline                                                         |
 
 ## Item
 
@@ -20,3 +21,4 @@
 | ----------- | ------ | -------- | ----------------------------------------------------- |
 | id          | string | false    | The HTML `id` for the description of the related term |
 | description | string | true     | The value of the description of the related term      |
+| url         | string | false    | The url of the description of the related term        |

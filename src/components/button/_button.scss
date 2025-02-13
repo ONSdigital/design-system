@@ -7,9 +7,8 @@ $button-shadow-size: 3px;
     cursor: pointer;
     display: inline-block;
     font-family: inherit;
-    font-size: 1rem;
-    font-weight: $font-weight-bold;
-    line-height: 1.35;
+    @extend .ons-u-fs-r--b;
+
     margin: 0;
     padding: 0;
     position: relative;
@@ -29,8 +28,9 @@ $button-shadow-size: 3px;
 
     &--search {
         .ons-icon {
-            @include mq(s, l) {
-                margin-right: 0.5rem;
+            margin: 0.125rem 0.5rem 0.125rem 0;
+            @include mq(xs, s) {
+                margin-right: 0;
             }
         }
     }
@@ -38,19 +38,17 @@ $button-shadow-size: 3px;
     &__inner {
         background: var(--ons-color-button);
         border-radius: $input-radius;
-        box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
+        box-shadow: 0 rems($button-shadow-size) 0 var(--ons-color-button-shadow);
         color: var(--ons-color-text-inverse);
-        display: inherit;
-        padding: 0.7em 1em 0.8em;
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
         // Required for Google Tag Manager
         pointer-events: none;
         position: relative;
-
         .ons-icon {
             fill: var(--ons-color-text-inverse);
             height: 18px;
-            margin-top: -$button-shadow-size;
-            vertical-align: middle;
             width: 18px;
         }
     }
@@ -106,12 +104,12 @@ $button-shadow-size: 3px;
     // Small buttons
     &--small,
     &--mobile {
-        font-size: 0.9rem;
+        line-height: 1.25rem !important;
     }
 
     &--small & {
         &__inner {
-            padding: 0.5em 0.7em;
+            padding: 0.5rem 0.75rem;
             .ons-icon {
                 height: 16px;
                 width: 16px;
@@ -122,7 +120,7 @@ $button-shadow-size: 3px;
     &--small.ons-btn--ghost &,
     &--mobile & {
         &__inner {
-            padding: 0.5em 0.7em;
+            padding: 0.5rem 0.75rem;
         }
     }
 
@@ -391,6 +389,9 @@ $button-shadow-size: 3px;
                 transition: opacity 0.3s ease-in-out;
                 width: 27px;
             }
+            .ons-btn__text {
+                margin-left: 0;
+            }
         }
     }
 
@@ -405,7 +406,8 @@ $button-shadow-size: 3px;
         &__inner {
             color: transparent;
             .ons-icon {
-                margin-left: 0 !important;
+                @extend .ons-u-ml-no;
+
                 opacity: 1;
             }
         }
@@ -429,7 +431,8 @@ $button-shadow-size: 3px;
     }
 
     &--mobile[aria-expanded='true'],
-    &--text-link[aria-expanded='true'] {
+    &--text-link[aria-expanded='true'],
+    &--menu[aria-expanded='true'] {
         .ons-icon {
             transform: rotate(270deg);
         }
@@ -482,7 +485,6 @@ $button-shadow-size: 3px;
             box-shadow: none;
             color: var(--ons-color-branded-text);
             display: block;
-            font-size: 1rem;
             font-weight: $font-weight-regular;
             padding: 0.6rem 1rem;
             text-align: left;
@@ -490,7 +492,7 @@ $button-shadow-size: 3px;
             .ons-icon {
                 fill: var(--ons-color-branded-text);
                 float: right;
-                margin-top: 3px;
+                margin-top: 0.25rem;
             }
         }
     }
@@ -550,10 +552,95 @@ $button-shadow-size: 3px;
             }
         }
     }
+
+    &--menu {
+        align-items: center;
+        display: flex;
+        padding: 1.5rem;
+        border-bottom: 4px solid rgb(0 0 0 / 0%);
+        .ons-icon {
+            transform: rotate(90deg);
+        }
+    }
+
+    &--menu & {
+        &__inner {
+            background: rgb(0 0 0 / 0%);
+            box-shadow: none;
+            color: var(--ons-color-text-link);
+            padding: 0;
+            .ons-icon {
+                fill: var(--ons-color-text-link);
+                height: 1rem;
+                margin-top: 0;
+                width: 1rem;
+            }
+        }
+    }
+
+    &--menu:focus {
+        background-color: var(--ons-color-focus);
+        border-color: var(--ons-color-black);
+    }
+
+    &--menu:hover {
+        border-color: var(--ons-color-text-link-hover);
+    }
+
+    &--menu:focus & {
+        &__inner {
+            box-shadow: none;
+        }
+    }
+
+    &--menu:focus:hover:not(:active, .active) {
+        .ons-btn__inner {
+            background: none;
+        }
+    }
+
+    &--menu:active,
+    &--menu[aria-expanded='true'] {
+        background-color: var(--ons-color-branded-tint);
+        border-color: var(--ons-color-text-link-hover);
+    }
+
+    &--menu:hover &,
+    &--menu:active &,
+    &--menu.active & {
+        &__inner {
+            background: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+
+    &--menu:active &,
+    &--menu:active:focus &,
+    &--menu.active &,
+    &--menu.active:focus & {
+        &__inner {
+            background: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+}
+
+.ons-search__btn {
+    height: 92.5%; //this is to allow the button to be fully aligned with the input by accounting for the shadow box of 3px
+    .ons-btn__inner:has(> .ons-icon) {
+        padding-right: 0.75rem;
+        height: 100%;
+    }
 }
 
 .ons-btn-group {
-    @extend .ons-u-mb-m;
+    @extend .ons-u-mb-l;
 
     align-items: baseline;
     display: flex;
@@ -561,6 +648,6 @@ $button-shadow-size: 3px;
 
     .ons-btn,
     a {
-        margin: 0 1rem 1rem 0;
+        margin: 0 1.5rem 1rem 0;
     }
 }

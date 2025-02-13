@@ -50,15 +50,16 @@
                 <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Announcement: ") }}</span>
             {% endif %}
 
-            {% if params.title %}
+            {% if params.title and (params.variant not in ['bare', 'warn', 'warn-branded', 'announcement'] ) %}
                 {% if params.variant == 'error' %}
-                    {% set defaultTitleTag = "h2" %}
+                    {% set defaultTitleTag = "h" ~ 2 %}
                 {% else %}
                     {% set defaultTitleTag = "div" %}
                 {% endif %}
-                {% set titleTag = params.titleTag | default(defaultTitleTag) %}
-                {% set openingTag = "<" + titleTag %}
-                {% set closingTag = "</" + titleTag + ">" %}
+                {% set headingLevel = "h" ~ params.headingLevel if params.headingLevel else undefined %}
+                {% set titleTag = headingLevel | default(defaultTitleTag) %}
+                {% set openingTag = "<" ~ titleTag %}
+                {% set closingTag = "</" ~ titleTag ~ ">" %}
                 <div class="ons-panel__header">
                     {{ openingTag | safe }} id="alert"{% if params.variant %}data-qa="{{ params.variant }}-header"{% endif %}
                     class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}{{ closingTag | safe }}

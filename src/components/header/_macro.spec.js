@@ -14,9 +14,9 @@ import {
     EXAMPLE_HEADER_LANGUAGE_CONFIG,
     EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG,
     EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST,
-} from './_test_examples';
+} from './_test-examples';
 
-describe('FOR: Header', () => {
+describe('FOR: Macro: Header', () => {
     describe('GIVEN: Params: none', () => {
         describe('WHEN: All params are at default state', () => {
             const $ = cheerio.load(
@@ -41,6 +41,16 @@ describe('FOR: Header', () => {
             test('THEN: renders with variant style classes matching variant provided', () => {
                 expect($('.ons-header--variant-a').length).toBe(1);
                 expect($('.ons-header--variant-b').length).toBe(1);
+            });
+        });
+        describe('WHEN: variants is set to basic', () => {
+            test('THEN: does not render the main part of the header', () => {
+                const $ = cheerio.load(
+                    renderComponent('header', {
+                        variants: 'basic',
+                    }),
+                );
+                expect($('.ons-header > .ons-header__main').length).toBe(0);
             });
         });
     });
@@ -140,7 +150,7 @@ describe('FOR: Header', () => {
         });
     });
     describe('GIVEN: Params: multipleLogos', () => {
-        describe('WHEN: logoImage parameter is set to "ONS Logo"', () => {
+        describe('WHEN: image parameter is set to "ONS Logo"', () => {
             const faker = templateFaker();
             const iconsSpy = faker.spy('icon');
 
@@ -149,7 +159,7 @@ describe('FOR: Header', () => {
                 mastheadLogo: {
                     multipleLogos: {
                         logo1: {
-                            logoImage: 'ONS Logo',
+                            image: 'ONS Logo',
                         },
                     },
                 },
@@ -158,15 +168,15 @@ describe('FOR: Header', () => {
                 expect(iconsSpy.occurrences[0].iconType).toBe('ons-logo-stacked-en');
             });
         });
-        describe('WHEN: logoURL parameter is set ', () => {
+        describe('WHEN: url parameter is set ', () => {
             const $ = cheerio.load(
                 renderComponent('header', {
                     ...EXAMPLE_HEADER_BASIC,
                     mastheadLogo: {
                         multipleLogos: {
                             logo1: {
-                                logoImage: '<img src="a-logo.svg">',
-                                logoURL: '#0',
+                                image: '<img src="a-logo.svg">',
+                                url: '#0',
                             },
                         },
                     },
@@ -183,13 +193,13 @@ describe('FOR: Header', () => {
                     mastheadLogo: {
                         multipleLogos: {
                             logo1: {
-                                logoImage: '<img src="a-logo.svg">',
+                                image: '<img src="a-logo.svg">',
                             },
                             logo2: {
-                                logoImage: '<img src="a-second-logo.svg">',
+                                image: '<img src="a-second-logo.svg">',
                             },
                             logo3: {
-                                logoImage: '<img src="a-third-logo.svg">',
+                                image: '<img src="a-third-logo.svg">',
                             },
                         },
                     },
@@ -209,7 +219,7 @@ describe('FOR: Header', () => {
                         large: '<img src="big-logo.svg">',
                         multipleLogos: {
                             logo1: {
-                                logoImage: '<img src="a-logo.svg">',
+                                image: '<img src="a-logo.svg">',
                             },
                         },
                     },
@@ -329,7 +339,7 @@ describe('FOR: Header', () => {
             test('THEN: renders button with provided parameters', () => {
                 expect(buttonSpy.occurrences).toContainEqual({
                     text: 'Save and sign out',
-                    classes: 'ons-u-d-no@xxs@m',
+                    classes: 'ons-u-d-no@2xs@m',
                     variants: 'ghost',
                     name: 'button-name',
                     attributes: {
@@ -407,7 +417,7 @@ describe('FOR: Header', () => {
             faker.renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE);
 
             test('THEN: renders with correct display class on large screen', () => {
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@m')).toBe(true);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@m')).toBe(true);
             });
             test('THEN: renders button on small screen', () => {
                 expect(buttonSpy.occurrences).toContainEqual({
@@ -426,8 +436,8 @@ describe('FOR: Header', () => {
         describe('WHEN: one item is provided to the itemsList parameter', () => {
             const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_SINGLE));
             test('THEN: renders without multiple link display class on large screen', () => {
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@m')).toBe(false);
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@xs')).toBe(false);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@m')).toBe(false);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@xs')).toBe(false);
             });
             test('THEN: does not render button on small screen', () => {
                 expect($('.ons-js-toggle-services').length).toBe(0);
@@ -515,7 +525,7 @@ describe('FOR: Header', () => {
                 }),
             );
             test('THEN: renders with correct display class', () => {
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@xs')).toBe(true);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@xs')).toBe(true);
             });
         });
     });
@@ -574,7 +584,7 @@ describe('FOR: Header', () => {
             test('THEN: renders button to toggle menu on small screen', () => {
                 expect(buttonSpy.occurrences[0]).toEqual({
                     text: 'Menu',
-                    classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
+                    classes: 'ons-u-ml-2xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
                     variants: ['mobile', 'ghost'],
                     attributes: {
                         'aria-label': 'Toggle main menu',
@@ -647,7 +657,7 @@ describe('FOR: Header', () => {
             test('THEN: renders button to toggle search on small screen', () => {
                 expect(buttonSpy.occurrences[0]).toEqual({
                     text: 'Search',
-                    classes: 'ons-btn--search ons-u-ml-xs ons-u-d-no ons-js-toggle-search',
+                    classes: 'ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search',
                     variants: ['small', 'ghost'],
                     iconType: 'search',
                     iconPosition: 'only',
@@ -713,7 +723,6 @@ describe('FOR: Header', () => {
                     ariaMinChars: 'Enter 3 or more characters for suggestions.',
                     ariaNResults: 'There are {n} suggestions available.',
                     ariaOneResult: 'There is one suggestion available.',
-                    ariaResultsLabel: 'Country suggestions',
                     ariaYouHaveSelected: 'You have selected',
                     containerClasses: 'ons-autosuggest--header',
                     id: 'ons-site-search',
@@ -722,7 +731,7 @@ describe('FOR: Header', () => {
                         autocomplete: 'off',
                         classes: 'ons-input-search ons-input-search--icon',
                         label: {
-                            classes: 'ons-u-pl-l ons-label--white',
+                            classes: 'ons-u-pl-xl ons-label--white',
                             id: 'ons-site-search-label',
                             text: 'label',
                         },

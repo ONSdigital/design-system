@@ -1,4 +1,4 @@
-$details-caret-width: 1.5rem;
+$details-caret-width: 1.75rem;
 
 .ons-details {
     &--initialised & {
@@ -58,7 +58,6 @@ $details-caret-width: 1.5rem;
 
         &__title {
             display: inline-block;
-            font-size: 1rem;
             font-weight: $font-weight-bold;
             margin-bottom: 0;
             text-underline-position: under;
@@ -69,7 +68,6 @@ $details-caret-width: 1.5rem;
 
     &--open & {
         &__icon {
-            left: -0.1rem;
             top: 0.2rem;
             transform: rotate(90deg);
         }
@@ -77,8 +75,8 @@ $details-caret-width: 1.5rem;
         &__content {
             border-left: 4px solid var(--ons-color-borders-indent);
             display: block;
-            margin: 1rem 0 0;
-            padding: 0 0 0 1.3em;
+            margin: 1rem 0 0 0.5rem;
+            padding: 0 0 0 1.5rem;
         }
     }
 
@@ -86,8 +84,8 @@ $details-caret-width: 1.5rem;
         &__heading {
             border-top: 1px solid var(--ons-color-borders);
             margin: 0;
-            padding-bottom: 0.9rem;
-            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-top: 15px; // set to 15px to allow for the 1px border top
             width: 100%;
 
             &:focus {
@@ -117,7 +115,7 @@ $details-caret-width: 1.5rem;
         &__content {
             border-left: 0;
             margin: 0;
-            padding: 0;
+            padding: 0 0 1rem;
         }
     }
 

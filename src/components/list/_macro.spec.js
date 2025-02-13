@@ -178,20 +178,46 @@ describe('macro: list', () => {
             const $ = cheerio.load(
                 renderComponent('list', {
                     element: 'ol',
-                    itemsList: [{ text: 'Only item' }],
+                    attributes: {
+                        a: 123,
+                        b: 456,
+                    },
+                    itemsList: [
+                        {
+                            text: 'Only item',
+                            attributes: {
+                                c: 789,
+                                d: 123,
+                            },
+                        },
+                    ],
                 }),
             );
 
-            it('renders a <p> element', () => {
-                expect($('.ons-list')[0].tagName).toBe('p');
+            it('renders the list as a <div> container element', () => {
+                expect($('.ons-list')[0].tagName).toBe('div');
             });
 
-            it('has `ons-list--p` modifier class', () => {
+            it('renders the list item as a <p> element', () => {
+                expect($('.ons-list__item')[0].tagName).toBe('p');
+            });
+
+            it('the list has `ons-list--p` modifier class', () => {
                 expect($('.ons-list').hasClass('ons-list--p')).toBe(true);
             });
 
             it('does not output any <li> elements', () => {
                 expect($('.ons-list li').length).toBe(0);
+            });
+
+            it('has additionally provided list `attributes` on the <div>', () => {
+                expect($('.ons-list').attr('a')).toBe('123');
+                expect($('.ons-list').attr('b')).toBe('456');
+            });
+
+            it('has additionally provided list item `attributes` on the <p>', () => {
+                expect($('.ons-list--p > .ons-list__item').attr('c')).toBe('789');
+                expect($('.ons-list--p > .ons-list__item').attr('d')).toBe('123');
             });
         });
 
@@ -246,6 +272,25 @@ describe('macro: list', () => {
                 );
 
                 expect($('a').length).toBe(0);
+            });
+
+            it('has additionally provided `attributes`', () => {
+                const $ = cheerio.load(
+                    renderComponent('list', {
+                        itemsList: [
+                            {
+                                ...item,
+                                attributes: {
+                                    a: 123,
+                                    b: 456,
+                                },
+                            },
+                        ],
+                    }),
+                );
+
+                expect($('.ons-list__item').attr('a')).toBe('123');
+                expect($('.ons-list__item').attr('b')).toBe('456');
             });
         });
 
@@ -380,7 +425,7 @@ describe('macro: list', () => {
                 expect($('.ons-list__link .ons-u-vh').text()).toBe(' (opens in a new tab)');
             });
 
-            it('has additionally provided `attributes`', () => {
+            it('list item has additionally provided `attributes`', () => {
                 const $ = cheerio.load(
                     renderComponent('list', {
                         itemsList: [
@@ -396,8 +441,8 @@ describe('macro: list', () => {
                     }),
                 );
 
-                expect($('.ons-list__link').attr('a')).toBe('123');
-                expect($('.ons-list__link').attr('b')).toBe('456');
+                expect($('.ons-list__item').attr('a')).toBe('123');
+                expect($('.ons-list__item').attr('b')).toBe('456');
             });
 
             it('renders visually hidden prefix', () => {
@@ -451,7 +496,7 @@ describe('macro: list', () => {
 
                 expect(externalLinkSpy.occurrences[0]).toEqual({
                     url: 'https://example.com/external-link',
-                    linkText: expectedItemText,
+                    text: expectedItemText,
                 });
             });
 
@@ -603,12 +648,12 @@ describe('macro: list', () => {
                 itemsList: [{ text: 'First item' }, { text: 'Second item', iconType: 'print' }, { text: 'Third item' }],
                 iconPosition,
                 iconType: 'check',
-                iconSize: 'xxl',
+                iconSize: '2xl',
             });
 
-            expect(iconsSpy.occurrences[0]).toEqual({ iconType: 'check', iconSize: 'xxl' });
-            expect(iconsSpy.occurrences[1]).toEqual({ iconType: 'print', iconSize: 'xxl' });
-            expect(iconsSpy.occurrences[2]).toEqual({ iconType: 'check', iconSize: 'xxl' });
+            expect(iconsSpy.occurrences[0]).toEqual({ iconType: 'check', iconSize: '2xl' });
+            expect(iconsSpy.occurrences[1]).toEqual({ iconType: 'print', iconSize: '2xl' });
+            expect(iconsSpy.occurrences[2]).toEqual({ iconType: 'check', iconSize: '2xl' });
         });
 
         it('renders the icon before the item text', () => {

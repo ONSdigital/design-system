@@ -6,11 +6,11 @@
     {% set titleTag = "h1" if params.titleAsH1 else "div" %}
     {% set openingTag = "<" + titleTag %}
     {% set closingTag = "</" + titleTag + ">" %}
-    {% set currentLanguageISOCode = "en" %}
+    {% set currentLanguageIsoCode = "en" %}
 
     {% if params.language and params.language.languages %}
         {% set currentLanguage = params.language.languages | selectattr("current") | first %}
-        {% set currentLanguageISOCode = currentLanguage.ISOCode %}
+        {% set currentLanguageIsoCode = currentLanguage.isoCode %}
     {% endif %}
 
     <header
@@ -19,7 +19,7 @@
     >
         {{
             onsBrowserBanner({
-                "lang": currentLanguageISOCode,
+                "lang": currentLanguageIsoCode,
                 "wide": params.wide,
                 "fullWidth": params.fullWidth
             })
@@ -39,7 +39,7 @@
         <div class="ons-header__top">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div
-                    class="ons-header__grid-top ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center{{ ' '+ params.mastheadLogo.classes if params.mastheadLogo.classes }}{{ ' ons-grid--no-wrap ons-grid--gutterless' if not params.mastheadLogo.multipleLogos }}"
+                    class="ons-header__grid-top ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center{{ ' '+ params.mastheadLogo.classes if params.mastheadLogo.classes }}{{ ' ons-grid-flex--no-wrap ons-grid--gutterless' if not params.mastheadLogo.multipleLogos }}"
                 >
                     <div class="ons-grid__col ons-col-auto">
                         {%- if not params.mastheadLogo.multipleLogos -%}
@@ -51,7 +51,7 @@
                                     {% else %}
                                         {{-
                                             onsIcon({
-                                                "iconType": 'ons-logo-' + currentLanguageISOCode,
+                                                "iconType": 'ons-logo-' + currentLanguageIsoCode,
                                                 "altText": 'Office for National Statistics homepage'
                                             })
                                         -}}
@@ -65,7 +65,7 @@
                                     {% else %}
                                         {{-
                                             onsIcon({
-                                                "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                                "iconType": 'ons-logo-stacked-' + currentLanguageIsoCode,
                                                 "altText": 'Office for National Statistics logo'
                                             })
                                         -}}
@@ -83,19 +83,19 @@
                                 {% set logos = [params.mastheadLogo.multipleLogos.logo1, params.mastheadLogo.multipleLogos.logo2, params.mastheadLogo.multipleLogos.logo3] %}
                                 {% for logo in logos %}
                                     {% set mastheadLogo %}
-                                        {% if logo.logoImage != "ONS Logo" %}
-                                            {{ logo.logoImage | safe }}
+                                        {% if logo.image != "ONS Logo" %}
+                                            {{ logo.image | safe }}
                                         {% else %}
                                             {{-
                                                 onsIcon({
-                                                    "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                                    "iconType": 'ons-logo-stacked-' + currentLanguageIsoCode,
                                                     "altText": 'Office for National Statistics logo'
                                                 })
                                             -}}
                                         {% endif %}
                                     {% endset %}
-                                    {% if logo.logoURL %}
-                                        <a class="ons-header__org-logo-link" href="{{ logo.logoURL }}">{{ mastheadLogo | safe }}</a>
+                                    {% if logo.url %}
+                                        <a class="ons-header__org-logo-link" href="{{ logo.url }}">{{ mastheadLogo | safe }}</a>
                                     {% else %}
                                         {{ mastheadLogo | safe }}
                                     {% endif %}
@@ -106,7 +106,7 @@
                     {% if params.language or params.serviceLinks %}
                         <div class="ons-header__links ons-grid__col ons-u-ml-auto">
                             {% if params.language %}
-                                <div class="ons-grid__col ons-col-auto{{ ' ons-u-mr-s ons-u-d-no@xxs@xs' if params.serviceLinks }}">
+                                <div class="ons-grid__col ons-col-auto{{ ' ons-u-mr-s ons-u-d-no@2xs@xs' if params.serviceLinks }}">
                                     {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                                     {{ onsLanguageSelector(params.language) }}
                                 </div>
@@ -122,7 +122,7 @@
                                     {% set controlVisibility = false %}
                                 {% endif %}
                                 <div
-                                    class="ons-grid__col ons-col-auto{% if controlVisibility == true %}{{ ' ' }}ons-u-d-no@xxs@{{ breakpoint }}{% endif %}"
+                                    class="ons-grid__col ons-col-auto{% if controlVisibility == true %}{{ ' ' }}ons-u-d-no@2xs@{{ breakpoint }}{% endif %}"
                                 >
                                     <nav
                                         class="ons-header-service-nav ons-header-service-nav--main{{ ' ' + params.serviceLinks.classes if params.serviceLinks.classes else '' }}"
@@ -180,6 +180,29 @@
                             {% endif %}
                         </div>
                     {% endif %}
+                    {% if params.menuLinks %}
+                        <div class="ons-header__links ons-grid__col ons-u-ml-auto">
+                            {% if params.menuLinks %}
+                                <div class="ons-grid__col ons-col-auto">
+                                    {{
+                                        onsButton({
+                                            "text": params.menuLinks.toggleNavButton.text | default("Menu"),
+                                            "classes": "ons-u-fs-s--b ons-js-toggle-services button-nav",
+                                            "type": "button",
+                                            "variants": "menu",
+                                            "iconType": "chevron",
+                                            "iconPosition": "before",
+                                            "attributes": {
+                                                "aria-label": params.menuLinks.toggleNavButton.ariaLabel | default("Toggle menu"),
+                                                "aria-controls": params.menuLinks.id,
+                                                "aria-expanded": "false"
+                                            }
+                                        })
+                                    }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
             {% if params.serviceLinks %}
@@ -217,119 +240,193 @@
                     {% endif %}
                 </nav>
             {% endif %}
-        </div>
-        <div class="ons-header__main">
-            <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
-                <div
-                    class="ons-grid ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{{ ' ons-grid--gutterless' if not params.button }}"
+            {% if params.menuLinks %}
+                <nav
+                    class="ons-u-d-no ons-js-services-mobile-nav ons-header-nav-menu ons-u-mb-s ons-u-pt-2xl"
+                    id="{{ params.menuLinks.id }}"
+                    aria-label="{{ params.menuLinks.ariaLabel | default("Menu navigation") }}"
                 >
-                    <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
-                        {% if params.titleLogo.large %}
-
-                            {% set title %}
-                                <div
-                                    class="ons-header__title-logo ons-header__title-logo--large{{ ' ' + params.titleLogo.classes if params.titleLogo.classes else '' }}{{ ' ons-u-d-no@xxs@s' if params.titleLogo.small }}"
-                                >
-                                    {{ params.titleLogo.large | safe }}
-                                </div>
-                                {% if params.titleLogo.small %}
-                                    <div
-                                        class="ons-header__title-logo ons-header__title-logo--small ons-u-d-no@s{{ ' ' + params.titleLogo.classes if params.titleLogo.classes else '' }}"
-                                    >
-                                        {{ params.titleLogo.small | safe }}
-                                    </div>
-                                {% endif %}
-                            {% endset %}
-
-                            {% if params.titleUrl %}
-                                <a class="ons-header__title-logo-link" href="{{ params.titleUrl }}">{{ title | safe }}</a>
-                            {% else %}
-                                {{ title | safe }}
-                            {% endif %}
-                        {% else %}
-
-                            {% set title %}
-                                {{ openingTag | safe }}
-                                class="ons-header__title">{{ params.title }}{{ closingTag | safe }}
-                            {% endset %}
-
-                            {% if params.titleUrl %}
-                                <a class="ons-header__title-link" href="{{ params.titleUrl }}">{{ title | safe }}</a>
-                            {% else %}
-                                {{ title | safe }}
-                            {% endif %}
-                        {% endif %}
-                        {% if params.description %}
-                            <p class="ons-header__description">{{ params.description }}</p>
-                        {% endif %}
-                    </div>
-
-                    {% if params.button %}
-                        {% if params.variants == 'neutral' %}
-                            {% set buttonVariant = "ghost-dark" %}
-                        {% else %}
-                            {% set buttonVariant = "ghost" %}
-                        {% endif %}
-                        <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
-                            {{
-                                onsButton({
-                                    "text": params.button.text,
-                                    "classes": "ons-u-d-no@xxs@l" if params.navigation else "ons-u-d-no@xxs@m",
-                                    "variants": buttonVariant,
-                                    "name": params.button.name,
-                                    "attributes": params.button.attributes,
-                                    "url": params.button.url,
-                                    "iconType": "exit",
-                                    "iconPosition": "after"
-                                })
-                            }}
+                    {% if params.menuLinks.keyLinks %}
+                        <div class="ons-container">
+                            <ul class="ons-grid ons-header-nav-menu__key-list">
+                                {% for keyLink in params.menuLinks.keyLinks %}
+                                    {% if keyLink.heading %}
+                                        <li class="ons-grid__col ons-col-4@m">
+                                            <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
+                                                {% if keyLink.url %}
+                                                    <a href="{{ keyLink.url }}" class="ons-header-nav-menu__link">{{ keyLink.heading }}</a>
+                                                {% else %}
+                                                    {{ keyLink.heading }}
+                                                {% endif %}
+                                            </h2>
+                                            {% if keyLink.description %}
+                                                <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">
+                                                    {{ keyLink.description }}
+                                                </p>
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
                         </div>
                     {% endif %}
-                    {% if params.navigation or params.siteSearchAutosuggest %}
-                        <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
-                            {% if params.siteSearchAutosuggest %}
-                                {% if params.variants == 'neutral' %}
-                                    {% set buttonVariant = ["small", "ghost-dark"] %}
+                    {% if params.menuLinks.columns %}
+                        <div class="ons-container">
+                            <ul class="ons-grid ons-list ons-list--bare">
+                                {% for column in params.menuLinks.columns %}
+                                    <li class="ons-grid__col ons-col-4@m ons-u-mb-no">
+                                        {% for group in column.groups %}
+                                            {% if group.heading %}
+                                                <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
+                                                    {% if group.url %}
+                                                        <a href="{{ group.url }}" class="ons-header-nav-menu__link">{{ group.heading }}</a>
+                                                    {% else %}
+                                                        {{ group.heading }}
+                                                    {% endif %}
+                                                </h2>
+                                            {% endif %}
+                                            {% if group.groupItems %}
+                                                <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
+                                                    {% for groupItem in group.groupItems %}
+                                                        {% if groupItem.text %}
+                                                            <li class="ons-u-mb-no">
+                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                    {% if groupItem.url %}
+                                                                        <a href="{{ groupItem.url }}" class="ons-header-nav-menu__link">
+                                                                            {{ groupItem.text }}
+                                                                        </a>
+                                                                    {% else %}
+                                                                        {{ groupItem.text }}
+                                                                    {% endif %}
+                                                                </p>
+                                                            </li>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </nav>
+            {% endif %}
+        </div>
+        {% if params.variants != "basic" %}
+            <div class="ons-header__main">
+                <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+                    <div
+                        class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap{{ ' ons-grid--gutterless' if not params.button }}"
+                    >
+                        <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
+                            {% if params.titleLogo.large %}
+
+                                {% set title %}
+                                    <div
+                                        class="ons-header__title-logo ons-header__title-logo--large{{ ' ' + params.titleLogo.classes if params.titleLogo.classes else '' }}{{ ' ons-u-d-no@2xs@s' if params.titleLogo.small }}"
+                                    >
+                                        {{ params.titleLogo.large | safe }}
+                                    </div>
+                                    {% if params.titleLogo.small %}
+                                        <div
+                                            class="ons-header__title-logo ons-header__title-logo--small ons-u-d-no@s{{ ' ' + params.titleLogo.classes if params.titleLogo.classes else '' }}"
+                                        >
+                                            {{ params.titleLogo.small | safe }}
+                                        </div>
+                                    {% endif %}
+                                {% endset %}
+
+                                {% if params.titleUrl %}
+                                    <a class="ons-header__title-logo-link" href="{{ params.titleUrl }}">{{ title | safe }}</a>
                                 {% else %}
-                                    {% set buttonVariant = ["small", "ghost"] %}
+                                    {{ title | safe }}
                                 {% endif %}
-                                <span class="ons-grid ons-u-d-no@xxs@xs ons-u-ml-no ons-u-d-no@l">
+                            {% else %}
+
+                                {% set title %}
+                                    {{ openingTag | safe }}
+                                    class="ons-header__title">{{ params.title }}{{ closingTag | safe }}
+                                {% endset %}
+
+                                {% if params.titleUrl %}
+                                    <a class="ons-header__title-link" href="{{ params.titleUrl }}">{{ title | safe }}</a>
+                                {% else %}
+                                    {{ title | safe }}
+                                {% endif %}
+                            {% endif %}
+                            {% if params.description %}
+                                <p class="ons-header__description">{{ params.description }}</p>
+                            {% endif %}
+                        </div>
+
+                        {% if params.button %}
+                            {% if params.variants == 'neutral' %}
+                                {% set buttonVariant = "ghost-dark" %}
+                            {% else %}
+                                {% set buttonVariant = "ghost" %}
+                            {% endif %}
+                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
+                                {{
+                                    onsButton({
+                                        "text": params.button.text,
+                                        "classes": "ons-u-d-no@2xs@l" if params.navigation else "ons-u-d-no@2xs@m",
+                                        "variants": buttonVariant,
+                                        "name": params.button.name,
+                                        "attributes": params.button.attributes,
+                                        "url": params.button.url,
+                                        "iconType": "exit",
+                                        "iconPosition": "after"
+                                    })
+                                }}
+                            </div>
+                        {% endif %}
+                        {% if params.navigation or params.siteSearchAutosuggest %}
+                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
+                                {% if params.siteSearchAutosuggest %}
+                                    {% if params.variants == 'neutral' %}
+                                        {% set buttonVariant = ["small", "ghost-dark"] %}
+                                    {% else %}
+                                        {% set buttonVariant = ["small", "ghost"] %}
+                                    {% endif %}
+                                    <span class="ons-grid ons-u-d-no@2xs@xs ons-u-ml-no ons-u-d-no@l">
+                                        {{
+                                            onsButton({
+                                                "text": "Search",
+                                                "classes": "ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search",
+                                                "variants": buttonVariant,
+                                                "iconType": "search",
+                                                "iconPosition": "only",
+                                                "attributes": {
+                                                    "aria-label": "Toggle search" ,
+                                                    "aria-controls": "ons-site-search",
+                                                    "aria-expanded": "false"
+                                                }
+                                            })
+                                        }}
+                                    </span>
+                                {% endif %}
+                                {% if params.navigation.toggleNavigationButton %}
+                                    {% set buttonVariant = ["mobile", "ghost"] %}
                                     {{
                                         onsButton({
-                                            "text": "Search",
-                                            "classes": "ons-btn--search ons-u-ml-xs ons-u-d-no ons-js-toggle-search",
+                                            "text": params.navigation.toggleNavigationButton.text,
+                                            "classes": "ons-u-ml-2xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l",
                                             "variants": buttonVariant,
-                                            "iconType": "search",
-                                            "iconPosition": "only",
                                             "attributes": {
-                                                "aria-label": "Toggle search" ,
-                                                "aria-controls": "ons-site-search",
+                                                "aria-label": params.navigation.toggleNavigationButton.ariaLabel | default("Toggle main menu") ,
+                                                "aria-controls": params.navigation.id,
                                                 "aria-expanded": "false"
                                             }
                                         })
                                     }}
-                                </span>
-                            {% endif %}
-                            {% if params.navigation.toggleNavigationButton %}
-                                {% set buttonVariant = ["mobile", "ghost"] %}
-                                {{
-                                    onsButton({
-                                        "text": params.navigation.toggleNavigationButton.text,
-                                        "classes": "ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l",
-                                        "variants": buttonVariant,
-                                        "attributes": {
-                                            "aria-label": params.navigation.toggleNavigationButton.ariaLabel | default("Toggle main menu") ,
-                                            "aria-controls": params.navigation.id,
-                                            "aria-expanded": "false"
-                                        }
-                                    })
-                                }}
-                            {% endif %}
-                        </div>
-                    {% endif %}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
         {% if params.navigation %}
             {{ onsNavigation(params) }}
         {% endif %}
