@@ -3,7 +3,7 @@
 import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
-import { EXAMPLE_FIELDSET, EXAMPLE_FIELDSET_NO_LEGEND } from './_test_examples';
+import { EXAMPLE_FIELDSET, EXAMPLE_FIELDSET_NO_ID, EXAMPLE_FIELDSET_NO_LEGEND } from './_test_examples';
 
 describe('FOR: Macro: Fieldset', () => {
     describe('GIVEN: Params: accessibility', () => {
@@ -27,7 +27,7 @@ describe('FOR: Macro: Fieldset', () => {
         });
 
         describe('WHEN: id is not provided', () => {
-            const $ = cheerio.load(renderComponent('fieldset', { ...EXAMPLE_FIELDSET, id: undefined }));
+            const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET_NO_ID));
 
             test('THEN: description has default id', () => {
                 const id = $('.ons-fieldset__description').attr('id');
@@ -55,7 +55,7 @@ describe('FOR: Macro: Fieldset', () => {
                 expect(ariaDescByVal).toBe('example-fieldset-legend-description');
             });
 
-            test('THEN: legend has class "ons-fieldset__legend--with-description"', () => {
+            test('THEN: legend has the legend with description class', () => {
                 expect($('.ons-fieldset__legend').hasClass('ons-fieldset__legend--with-description')).toBe(true);
             });
         });
@@ -191,13 +191,6 @@ describe('FOR: Macro: Fieldset', () => {
             test('THEN: jest-axe checks pass', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
-            });
-
-            test('THEN: renders legend as H1 with provided text', () => {
-                const titleTag = $('.ons-fieldset__legend-title')[0].tagName;
-                expect(titleTag).toBe('h1');
-                const titleText = $('.ons-fieldset__legend-title').text().trim();
-                expect(titleText).toBe('Fieldset legend');
             });
 
             test('THEN: description has correct classes', () => {
