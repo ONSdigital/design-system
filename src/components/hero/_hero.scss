@@ -64,11 +64,17 @@
                 width: 100%;
             }
         }
+        .ons-hero__title-container {
+            @include mq(l) {
+                width: 85%;
+            }
+        }
     }
     &__badge {
-        @include mq('2xs', l) {
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
+        @include mq(l) {
+            position: absolute;
+            right: 0;
+            top: 85px;
         }
     }
 
@@ -425,10 +431,6 @@
             display: grid;
             align-items: start;
             justify-content: space-between;
-
-            &.ons-hero__title-badge {
-                grid-template-columns: 1fr auto;
-            }
         }
     }
 }

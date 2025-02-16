@@ -37,28 +37,28 @@
                 {% if params.topic %}
                     <h2 class="ons-hero--topic">{{ params.topic | safe }}</h2>
                 {% endif %}
-                <div class="ons-hero__title-container {% if params.officialStatisticsBadge %}ons-hero__title-badge{% endif %}">
+                <div class="ons-hero__title-container">
                     <header>
                         <h1 class="ons-hero__title ons-u-fs-3xl">{{ params.title }}</h1>
                         {% if params.subtitle %}
                             <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
                         {% endif %}
                     </header>
-                    {% if params.officialStatisticsBadge == true %}
-                        <div class="ons-hero__badge ons-u-mb-s">
-                            {{-
-                                onsIcon({
-                                    "iconType": 'official-statistics'
-                                })
-                            -}}
-                        </div>
-                    {% endif %}
                     {% if params.text %}
                         <p class="ons-hero__text">{{ params.text | safe }}</p>
                     {% endif %}
                 </div>
+                {% if params.officialStatisticsBadge == true %}
+                    <div class="ons-hero__badge ons-u-mb-s">
+                        {{-
+                            onsIcon({
+                                "iconType": 'official-statistics'
+                            })
+                        -}}
+                    </div>
+                {% endif %}
                 {% if params.censusLogo == true %}
-                    <div class="ons-hero__census-logo ons-u-mb-s">
+                    <div class="ons-hero__census-logo">
                         {{-
                             onsIcon({
                                 "iconType": 'census-logo'
@@ -90,7 +90,7 @@
                     {% from "components/description-list/_macro.njk" import onsDescriptionList %}
                     {{
                         onsDescriptionList({
-                            "classes": "ons-u-mb-no",
+                            "classes": "ons-u-mb-no ons-u-mt-s ons-u-mt-l@l",
                             "variant": 'inline',
                             "termCol": params.descriptionList.termCol,
                             "descriptionCol": params.descriptionList.descriptionCol,
