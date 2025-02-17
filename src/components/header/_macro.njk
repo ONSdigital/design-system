@@ -181,58 +181,60 @@
                         </div>
                     {% endif %}
 
-                    <div class="ons-grid__col ons-col-auto">
-                        {% if params.menuLinks %}
-                            <div class="ons-header__links ons-grid__col ons-u-ml-auto">
-                                {% if params.menuLinks %}
+                    {% if params.variants == "basic" %}
+                        <div class="ons-grid__col ons-col-auto">
+                            {% if params.menuLinks %}
+                                <div class="ons-header__links ons-grid__col ons-u-ml-auto">
+                                    {% if params.menuLinks %}
+                                        {{
+                                            onsButton({
+                                                "text": params.menuLinks.toggleNavButton.text | default("Menu"),
+                                                "classes": "ons-u-fs-s--b ons-js-toggle-services button-nav",
+                                                "type": "button",
+                                                "variants": "menu",
+                                                "iconType": "chevron",
+                                                "iconPosition": "before",
+                                                "attributes": {
+                                                    "aria-label": params.menuLinks.toggleNavButton.ariaLabel | default("Toggle menu"),
+                                                    "aria-controls": params.menuLinks.id,
+                                                    "aria-expanded": "false"
+                                                }
+                                            })
+                                        }}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                            {% if params.searchLinks %}
+                                <div class="ons-header__links ons-grid__col ons-u-ml-auto ons-js-toggle-header-search">
                                     {{
                                         onsButton({
-                                            "text": params.menuLinks.toggleNavButton.text | default("Menu"),
-                                            "classes": "ons-u-fs-s--b ons-js-toggle-services button-nav",
+                                            "classes": "ons-u-fs-s--b",
                                             "type": "button",
-                                            "variants": "menu",
-                                            "iconType": "chevron",
-                                            "iconPosition": "before",
+                                            "variants": "search-icon",
+                                            "iconType": "search",
                                             "attributes": {
-                                                "aria-label": params.menuLinks.toggleNavButton.ariaLabel | default("Toggle menu"),
-                                                "aria-controls": params.menuLinks.id,
+                                                "aria-label": params.searchLinks.toggleSearchButton.ariaLabel | default("Open search"),
+                                                "aria-controls": params.searchLinks.id,
                                                 "aria-expanded": "false"
                                             }
                                         })
                                     }}
-                                {% endif %}
-                            </div>
-                        {% endif %}
-                        {% if params.searchLinks %}
-                            <div class="ons-header__links ons-grid__col ons-u-ml-auto ons-js-toggle-header-search">
-                                {{
-                                    onsButton({
-                                        "classes": "ons-u-fs-s--b",
-                                        "type": "button",
-                                        "variants": "search-icon",
-                                        "iconType": "search",
-                                        "attributes": {
-                                            "aria-label": params.searchLinks.toggleSearchButton.ariaLabel | default("Open search"),
-                                            "aria-controls": params.searchLinks.id,
-                                            "aria-expanded": "false"
-                                        }
-                                    })
-                                }}
-                                {{
-                                    onsButton({
-                                        "classes": "ons-u-fs-s--b ons-u-vh",
-                                        "type": "button",
-                                        "variants": "close",
-                                        "iconType": "close",
-                                        "attributes": {
-                                            "aria-label": params.searchLinks.toggleSearchButton.ariaLabel | default("Close search"),
-                                            "aria-controls": params.searchLinks.id
-                                        }
-                                    })
-                                }}
-                            </div>
-                        {% endif %}
-                    </div>
+                                    {{
+                                        onsButton({
+                                            "classes": "ons-u-fs-s--b ons-u-vh",
+                                            "type": "button",
+                                            "variants": "close",
+                                            "iconType": "close",
+                                            "attributes": {
+                                                "aria-label": params.searchLinks.toggleSearchButton.ariaLabel | default("Close search"),
+                                                "aria-controls": params.searchLinks.id
+                                            }
+                                        })
+                                    }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
             {% if params.serviceLinks %}
@@ -270,7 +272,8 @@
                     {% endif %}
                 </nav>
             {% endif %}
-            {% if params.menuLinks %}
+
+            {% if params.variants == "basic" and params.menuLinks %}
                 <nav
                     class="ons-u-d-no ons-js-services-mobile-nav ons-header-nav-menu ons-u-mb-s ons-u-pt-2xl"
                     id="{{ params.menuLinks.id }}"
@@ -342,33 +345,36 @@
                     {% endif %}
                 </nav>
             {% endif %}
-            {% if params.searchLinks %}
+
+            {% if params.variants == "basic" and params.searchLinks %}
                 <nav
                     class="ons-u-d-no ons-js-navigation-search ons-header-nav-search"
                     id="{{ params.searchLinks.id }}"
                     aria-label="{{ params.searchLinks.ariaLabel | default("Search navigation") }}"
                 >
-                    {% if params.searchLinks %}
-                        <div class="ons-container">
-                            <div class="ons-header-nav-search__input">
-                                <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">Search the ONS</h2>
-                                {% from "components/input/_macro.njk" import onsInput %}
-                                {{
-                                    onsInput({
-                                        "id": 'search-field',
-                                        "width": 'full',
-                                        "searchButton": {
-                                            "visuallyHideButtonText": true,
-                                            "text": 'Search',
-                                            "iconType": 'search',
-                                            'variant': 'header'
+                    <div class="ons-container">
+                        <div class="ons-header-nav-search__input">
+                            {# <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">Search the ONS</h2> #}
+                            {% from "components/input/_macro.njk" import onsInput %}
+                            {{
+                                onsInput({
+                                    "id": 'search-field',
+                                    "width": 'full',
+                                    "label": {
+                                        "text": 'Search the ONS',
+                                        "id": params.searchLinks + "-label"
+                                    },
+                                    "searchButton": {
+                                        "visuallyHideButtonText": true,
+                                        "text": 'Search',
+                                        "iconType": 'search',
+                                        'variant': 'header'
 
-                                        }
-                                    })
-                                }}
-                            </div>
+                                    }
+                                })
+                            }}
                         </div>
-                    {% endif %}
+                    </div>
                     {% if params.searchLinks.popularSearches %}
                         <div class="ons-container">
                             <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">Popular Searches</h2>
@@ -481,7 +487,8 @@
                                                 "iconPosition": "only",
                                                 "attributes": {
                                                     "aria-label": "Toggle search" ,
-                                                    "aria-controls": "ons-site-search"
+                                                    "aria-controls": "ons-site-search",
+                                                    "aria-expanded": "false"
                                                 }
                                             })
                                         }}

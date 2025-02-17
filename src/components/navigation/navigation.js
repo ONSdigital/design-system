@@ -28,7 +28,6 @@ export default class NavigationToggle {
     openNav() {
         const input = [...this.navigation.getElementsByTagName('INPUT')][0];
 
-        this.toggle.setAttribute(attrExpanded, 'true');
         this.toggle.classList.add('active');
         this.navigation.setAttribute(attrHidden, 'false');
         this.navigation.classList.remove(this.hideClass);
@@ -43,11 +42,12 @@ export default class NavigationToggle {
         if (this.closeIcon) {
             this.closeIcon.classList.remove('ons-u-vh');
             this.closeIcon.setAttribute(attrExpanded, 'true');
+        } else {
+            this.toggle.setAttribute(attrExpanded, 'true');
         }
     }
 
     closeNav() {
-        this.toggle.setAttribute(attrExpanded, 'false');
         this.toggle.classList.remove('active');
         this.navigation.setAttribute(attrHidden, 'true');
         this.navigation.classList.add(this.hideClass);
@@ -56,6 +56,8 @@ export default class NavigationToggle {
         if (this.closeIcon) {
             this.closeIcon.classList.add('ons-u-vh');
             this.closeIcon.setAttribute(attrExpanded, 'false');
+        } else {
+            this.toggle.setAttribute(attrExpanded, 'false');
         }
     }
 

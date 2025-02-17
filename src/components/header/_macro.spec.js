@@ -787,21 +787,23 @@ describe('FOR: Macro: Header', () => {
     });
     describe('GIVEN: Params: searchLinks', () => {
         describe('WHEN: searchLinks are provided with a toggle search button', () => {
-            const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SEARCH_LINKS));
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
 
             const faker = templateFaker();
             const buttonSpy = faker.spy('button', { suppressOutput: true });
-            faker.renderComponent('header', EXAMPLE_HEADER_SEARCH_LINKS);
+            faker.renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' });
 
             test('THEN: renders search icon button on small screen', () => {
+                console.log(buttonSpy.occurrences);
                 expect(buttonSpy.occurrences).toContainEqual({
                     iconType: 'search',
-                    classes: 'ons-u-fs-s--b ons-js-toggle-services',
+                    classes: 'ons-u-fs-s--b',
                     type: 'button',
                     variants: 'search-icon',
                     attributes: {
                         'aria-label': 'Toggle search',
                         'aria-expanded': 'false',
+                        'aria-controls': 'search-links-id',
                     },
                 });
             });
@@ -816,7 +818,7 @@ describe('FOR: Macro: Header', () => {
         });
 
         describe('WHEN: popular searches are provided in searchLinks', () => {
-            const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SEARCH_LINKS));
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
 
             test('THEN: renders popular searches list', () => {
                 const popularSearches = $('.ons-list--bare .ons-list__item').length;
@@ -847,6 +849,14 @@ describe('FOR: Macro: Header', () => {
 
             test('THEN: does not render popular searches', () => {
                 expect($('.ons-list--bare').length).toBe(0);
+            });
+        });
+
+        describe('WHEN: searchLinks are provided and the header variant is not basic', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'neutral' }));
+
+            test('THEN: does not render the search icon button', () => {
+                expect($('.ons-js-toggle-services').length).toBe(0);
             });
         });
     });

@@ -729,7 +729,9 @@ $button-shadow-size: 3px;
     &--search-icon:focus &,
     &--search-icon:hover &,
     &--search-icon:active &,
-    &--search-icon.active & {
+    &--search-icon:active:focus &,
+    &--search-icon.active &,
+    &--search-icon.active:focus & {
         &__inner {
             background: none;
             box-shadow: none;
@@ -740,17 +742,14 @@ $button-shadow-size: 3px;
         }
     }
 
-    &--search-icon:active &,
-    &--search-icon:active:focus &,
-    &--search-icon.active &,
-    &--search-icon.active:focus & {
-        &__inner {
-            background: none;
-            color: var(--ons-color-text-link-hover);
-            .ons-icon {
-                fill: var(--ons-color-text-link-hover);
-            }
-        }
+    &--search-icon:focus {
+        background-color: var(--ons-color-focus);
+        border-color: var(--ons-color-black);
+    }
+
+    &--search-icon:active {
+        background-color: var(--ons-color-branded-tint);
+        border-color: var(--ons-color-text-link-hover);
     }
 
     &--close:focus &,

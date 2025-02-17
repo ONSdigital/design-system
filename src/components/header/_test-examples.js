@@ -153,7 +153,7 @@ export const EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST = {
 
 export const EXAMPLE_HEADER_SEARCH_LINKS = {
     searchLinks: {
-        id: 'nav-links-external',
+        id: 'search-links-id',
         ariaLabel: 'Nav Search',
         toggleSearchButton: {
             text: 'Search',
