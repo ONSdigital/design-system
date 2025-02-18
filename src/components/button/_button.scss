@@ -722,6 +722,8 @@ $button-shadow-size: 3px;
 
     &--close:active,
     &--close[aria-expanded='true'] {
+        @extend .ons-u-ml-no;
+
         border-bottom: 4px solid transparent;
         background-color: var(--ons-color-branded-tint);
     }

@@ -36,15 +36,14 @@ export default class NavigationToggle {
             input.focus();
         }
 
-        if (this.openIcon) {
-            this.openIcon.classList.add('ons-u-vh');
-        }
+        if (this.openIcon) this.openIcon.classList.add('ons-u-vh');
         if (this.closeIcon) {
             this.closeIcon.classList.remove('ons-u-vh');
             this.closeIcon.setAttribute(attrExpanded, 'true');
         } else {
             this.toggle.setAttribute(attrExpanded, 'true');
         }
+        this.toggleMenuAndSearch();
     }
 
     closeNav() {
@@ -81,6 +80,35 @@ export default class NavigationToggle {
             } else {
                 this.closeNav();
             }
+        }
+    }
+
+    toggleMenuAndSearch() {
+        console.log('toggleMenuAndSearch');
+        const menuBtn = document.querySelector('.ons-js-toggle-nav-menu');
+        const menuEl = document.querySelector('.ons-js-nav-menu');
+        const searchToggle = document.querySelector('.ons-js-toggle-header-search');
+        const searchBtn = document.querySelector('.ons-js-search-btn-close');
+        const searchBtnOpen = document.querySelector('.ons-js-search-btn-open');
+        const searchEl = document.querySelector('.ons-js-header-search');
+
+        const isMenuOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+        const isSearchOpen = searchBtn.getAttribute('aria-expanded') === 'true';
+
+        if (isMenuOpen && this.toggle == menuBtn) {
+            searchBtn.setAttribute('aria-expanded', 'false');
+            searchBtn.classList.add('ons-u-vh');
+            searchBtnOpen.classList.remove('ons-u-vh');
+            searchEl.setAttribute('aria-hidden', 'true');
+            searchEl.classList.add('ons-u-d-no');
+            searchToggle.classList.remove('active');
+        }
+
+        if (isSearchOpen && this.toggle == searchToggle) {
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuEl.setAttribute('aria-hidden', 'true');
+            menuEl.classList.add('ons-u-d-no');
+            menuBtn.classList.remove('active');
         }
     }
 }

@@ -797,7 +797,7 @@ describe('FOR: Macro: Header', () => {
                 console.log(buttonSpy.occurrences);
                 expect(buttonSpy.occurrences).toContainEqual({
                     iconType: 'search',
-                    classes: 'ons-u-fs-s--b',
+                    classes: 'ons-u-fs-s--b ons-js-search-btn-open',
                     type: 'button',
                     variants: 'search-icon',
                     attributes: {
