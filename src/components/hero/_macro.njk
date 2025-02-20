@@ -48,23 +48,25 @@
                         <p class="ons-hero__text">{{ params.text | safe }}</p>
                     {% endif %}
                 </div>
-                {% if params.variants == "grey" and params.officialStatisticsBadge == true %}
-                    <div class="ons-hero__badge ons-u-mb-s">
-                        {{-
-                            onsIcon({
-                                "iconType": 'official-statistics'
-                            })
-                        -}}
-                    </div>
-                {% endif %}
-                {% if params.variants == "grey" and params.censusLogo == true %}
-                    <div class="ons-hero__census-logo">
-                        {{-
-                            onsIcon({
-                                "iconType": 'census-logo'
-                            })
-                        -}}
-                    </div>
+                {% if params.variants == "grey" %}
+                    {% if params.officialStatisticsBadge == true %}
+                        <div class="ons-hero__badge ons-u-mb-s">
+                            {{-
+                                onsIcon({
+                                    "iconType": 'official-statistics'
+                                })
+                            -}}
+                        </div>
+                    {% endif %}
+                    {% if params.censusLogo == true %}
+                        <div class="ons-hero__census-logo">
+                            {{-
+                                onsIcon({
+                                    "iconType": 'census-logo'
+                                })
+                            -}}
+                        </div>
+                    {% endif %}
                 {% endif %}
 
                 {% if params.button %}
