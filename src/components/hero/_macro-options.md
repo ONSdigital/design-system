@@ -9,10 +9,10 @@
 | html                    | string                                                    | false    | Allows arbitrary HTML for additional content to be added to the component                                                          |
 | detailsColumns          | integer                                                   | false    | Number of grid columns for the hero to span on screens larger than the medium breakpoint, defaults to 8                            |
 | descriptionList         | `DescriptionList` [_(ref)_](/components/description-list) | false    | Settings to set the DescriptionList component within the HTML `<hero>` element                                                     |
-| officialStatisticsBadge | boolean                                                   | false    | Set to “true” display the official statistics badge in the hero                                                                    |
+| officialStatisticsBadge | boolean                                                   | false    | Set to “true” display the official statistics badge in the "grey" hero variant                                                     |
 | topic                   | string                                                    | false    | Topic for the hero                                                                                                                 |
 | breadcrumbs             | `Breadcrumbs` [_(ref)_](/components/breadcrumbs)          | false    | Settings to set the Breadcrumbs component within the HTML `<hero>` element                                                         |
-| censusLogo              | boolean                                                   | false    | Set to “true” display the census 2021 logo in the hero                                                                             |
+| censusLogo              | boolean                                                   | false    | Set to “true” display the census 2021 logo in the "grey" hero variant                                                              |
 
 ## Button
 

@@ -105,15 +105,15 @@ describe('macro: hero', () => {
         expect(content).toBe('Topic Text');
     });
 
-    it('outputs the official statistics badge when officialStatisticsBadge is set to true', () => {
-        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, officialStatisticsBadge: true }));
+    it('outputs the official statistics badge when officialStatisticsBadge is set to true and variants is `grey`', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'grey', officialStatisticsBadge: true }));
 
         expect($('.ons-hero__badge').length).toBe(1);
         expect($('.ons-hero__badge svg title').text().trim()).toBe('Offical Statistics Badge');
     });
 
-    it('outputs the Census 2021 Logo when censusLogo is set to true', () => {
-        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, censusLogo: true }));
+    it('outputs the Census 2021 Logo when censusLogo is set to true and variants is `grey`', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'grey', censusLogo: true }));
 
         expect($('.ons-hero__census-logo').length).toBe(1);
         expect($('.ons-hero__census-logo svg title').text().trim()).toBe('Census 2021 Logo');

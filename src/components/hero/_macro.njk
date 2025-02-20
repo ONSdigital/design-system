@@ -48,7 +48,7 @@
                         <p class="ons-hero__text">{{ params.text | safe }}</p>
                     {% endif %}
                 </div>
-                {% if params.officialStatisticsBadge == true %}
+                {% if params.variants == "grey" and params.officialStatisticsBadge == true %}
                     <div class="ons-hero__badge ons-u-mb-s">
                         {{-
                             onsIcon({
@@ -57,7 +57,7 @@
                         -}}
                     </div>
                 {% endif %}
-                {% if params.censusLogo == true %}
+                {% if params.variants == "grey" and params.censusLogo == true %}
                     <div class="ons-hero__census-logo">
                         {{-
                             onsIcon({
