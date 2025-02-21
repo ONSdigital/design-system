@@ -125,7 +125,7 @@ describe('macro: hero', () => {
         expect($('.ons-hero__badge').length).toBe(0);
     });
 
-    it('does not render the Census 2021 Logo when censusLogo is set to true for all variants except `grey`', () => {
+    it('does not render the Census 2021 Logo when censusLogo is set to true and variants is not set', () => {
         const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, censusLogo: true }));
 
         expect($('.ons-hero__census-logo').length).toBe(0);
