@@ -112,7 +112,7 @@ describe('macro: hero', () => {
         expect($('.ons-hero__badge svg title').text().trim()).toBe('Offical Statistics Badge');
     });
 
-    it('outputs the Census 2021 Logo when censusLogo is set to true for `grey` variant', () => {
+    it('outputs the Census 2021 Logo when censusLogo is set to true and variants is set to "grey"', () => {
         const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'grey', censusLogo: true }));
 
         expect($('.ons-hero__census-logo').length).toBe(1);
