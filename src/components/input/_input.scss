@@ -90,6 +90,10 @@
     border-radius: 0;
     height: 56px;
     border: 2px solid var(--ons-color-ocean-blue);
+
+    &:focus {
+        border: 2px solid var(--ons-color-input-border);
+    }
 }
 
 .ons-input--select {

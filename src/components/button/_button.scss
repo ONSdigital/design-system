@@ -37,20 +37,19 @@ $button-shadow-size: 3px;
 
     &--header-search & {
         &__inner {
-            background: var(--ons-color-ocean-blue) !important;
+            background: var(--ons-color-ocean-blue);
         }
     }
 
     &--header-search &,
     &--header-search:active &,
     &--header-search.active &,
-    &--header-search:active:focus &,
-    &--header-search.active:focus & {
+    &--header-search:active:focus & {
         &__inner {
             padding: 0.875rem !important;
             border: 0;
             border-radius: 0;
-            box-shadow: none !important;
+            box-shadow: none;
             .ons-icon {
                 fill: var(--ons-color-text-inverse) !important;
                 height: 28px;
@@ -681,9 +680,6 @@ $button-shadow-size: 3px;
         align-items: center;
         display: flex;
         padding: 1rem;
-        @include mq(l) {
-            height: 72px;
-        }
     }
 
     &--search-icon &,
@@ -693,11 +689,10 @@ $button-shadow-size: 3px;
             box-shadow: none;
             padding: 0;
             .ons-icon {
-                @extend .ons-u-mr-no;
+                @extend .ons-u-m-no;
 
                 fill: var(--ons-color-text-link);
                 height: 1.5rem;
-                margin-top: 0;
                 width: 1.5rem;
             }
         }
@@ -730,7 +725,6 @@ $button-shadow-size: 3px;
         background-color: var(--ons-color-branded-tint);
     }
 
-    &--search-icon:focus &,
     &--search-icon:hover &,
     &--search-icon:active &,
     &--search-icon:active:focus &,
@@ -748,7 +742,17 @@ $button-shadow-size: 3px;
 
     &--search-icon:focus {
         background-color: var(--ons-color-focus);
-        border-color: var(--ons-color-black);
+        border-color: var(--ons-color-text-link-focus);
+    }
+
+    &--search-icon:focus & {
+        &__inner {
+            background: none;
+            box-shadow: none;
+            .ons-icon {
+                fill: var(--ons-color-text-link-focus);
+            }
+        }
     }
 
     &--search-icon:active {

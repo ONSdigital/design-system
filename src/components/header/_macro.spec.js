@@ -797,9 +797,9 @@ describe('FOR: Macro: Header', () => {
                 console.log(buttonSpy.occurrences);
                 expect(buttonSpy.occurrences).toContainEqual({
                     iconType: 'search',
-                    classes: 'ons-u-fs-s--b ons-js-search-btn-open',
+                    classes: 'ons-u-fs-s--b ons-js-search-btn-open ons-btn--search-icon',
                     type: 'button',
-                    variants: 'search-icon',
+                    variants: 'search',
                     attributes: {
                         'aria-label': 'Toggle search',
                         'aria-expanded': 'false',
