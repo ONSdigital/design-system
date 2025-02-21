@@ -598,7 +598,7 @@ $button-shadow-size: 3px;
     &--menu {
         align-items: center;
         display: flex;
-        padding: 1.5rem;
+        padding: 1rem;
         border-bottom: 4px solid rgb(0 0 0 / 0%);
         .ons-icon {
             transform: rotate(90deg);
@@ -616,6 +616,9 @@ $button-shadow-size: 3px;
                 height: 1rem;
                 margin-top: 0;
                 width: 1rem;
+            }
+            .ons-btn__text {
+                height: 24px;
             }
         }
     }
@@ -677,8 +680,7 @@ $button-shadow-size: 3px;
         border-bottom: 4px solid transparent;
         align-items: center;
         display: flex;
-        height: 67px;
-        padding: 0 1.5rem;
+        padding: 1rem;
         @include mq(l) {
             height: 72px;
         }
