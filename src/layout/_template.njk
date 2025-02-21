@@ -130,6 +130,8 @@
         {% endblock %}
     </head>
     <body {% if pageConfig.bodyClasses %}class="{{ pageConfig.bodyClasses }}"{% endif %}>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
         <!-- prettier-ignore-start -->
         <script {% if pageConfig.cspNonce %}nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %}nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         <!-- prettier-ignore-end -->

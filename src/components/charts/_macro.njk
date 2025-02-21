@@ -1,0 +1,23 @@
+{% macro onsChart(params) %}
+    <div
+        data-highcharts-base-chart
+        data-highcharts-type="{{ params.chartType }}"
+        data-highcharts-theme="{{ params.theme }}"
+        data-highcharts-title="{{ params.title }}"
+        data-highcharts-uuid="{{ params.uuid }}"
+    >
+        <figure id="{{ params.figId }}">
+            <h3>{{ params.title }}</h3>
+            <h4>{{ params.subtitle }}</h4>
+            <div data-highcharts-chart></div>
+            {% if params.caption %}
+                <figcaption>{{ params.caption }}</figcaption>
+            {% endif %}
+        </figure>
+
+        <!-- Set scripts to pass the config and annotations values as json to the javascript -->
+        {# <script type="application/json" data-highcharts-config--{{ params.uuid }}>
+            {{ params.config | dump | safe }}
+        </script> #}
+    </div>
+{% endmacro %}
