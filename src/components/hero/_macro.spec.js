@@ -105,7 +105,7 @@ describe('macro: hero', () => {
         expect(content).toBe('Topic Text');
     });
 
-    it('outputs the official statistics badge when officialStatisticsBadge is set to true for `grey` variant', () => {
+    it('outputs the official statistics badge when officialStatisticsBadge is set to true and variants is set to "grey"', () => {
         const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'grey', officialStatisticsBadge: true }));
 
         expect($('.ons-hero__badge').length).toBe(1);
