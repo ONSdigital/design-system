@@ -41,19 +41,14 @@ class ChartOptions {
             title: {
                 text: '',
             },
-            lang: {
-                accessibility: {
-                    chartContainerLabel: title,
-                },
-            },
             credits: {
                 // Remove Highcharts watermark
                 enabled: false,
             },
-            // disabled the download button for now
-            navigation: {
-                buttonOptions: {
-                    enabled: false,
+            accessibility: {
+                enabled: true,
+                screenReaderSection: {
+                    beforeChartFormat: '<h5>{title}</h5><div>{chartSubtitle}</div><div>{chartLongdesc}</div>',
                 },
             },
             yAxis: {

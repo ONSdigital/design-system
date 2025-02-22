@@ -138,7 +138,11 @@
             "chart": {
                 "type": 'line'
             },
+            "accessibility": {
+                "description": "Line chart showing the annual rate of inflation for the Consumer Prices Index including owner occupiers’ housing costs (CPIH) and its components."
+            },
             "legend": {
+                "enabled": true,
                 "symbolWidth": 20,
                 "symbolHeight": 3
             },
@@ -148,10 +152,12 @@
                 },
                 "labels": {
                     "format": '{value:,.f}'
-                },
-                "opposite": false
+                }
             },
             "xAxis": {
+                "title": {
+                    "text": 'Year'
+                },
                 "categories": [
                     'Oct 2014',
                     'Nov 2014',
@@ -275,8 +281,7 @@
                     'Sep 2024',
                     'Oct 2024'
                 ],
-                "tickInterval": 12,
-                "opposite": false
+                "tickInterval": 0
             },
             "series": [
                 {

@@ -45,8 +45,6 @@ exports[`base page template matches the body block override snapshot 1`] = `
         
     </head>
     <body>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
         <!-- prettier-ignore-start -->
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         <!-- prettier-ignore-end -->
@@ -121,8 +119,6 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
         
     </head>
     <body>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
         <!-- prettier-ignore-start -->
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         <!-- prettier-ignore-end -->
@@ -366,8 +362,6 @@ exports[`base page template matches the footer block override snapshot 1`] = `
         
     </head>
     <body>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
         <!-- prettier-ignore-start -->
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         <!-- prettier-ignore-end -->
@@ -632,8 +626,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </head><body class="custom-class">Some head content
     
     
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
         <!-- prettier-ignore-start -->
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         <!-- prettier-ignore-end -->
@@ -1902,8 +1894,6 @@ exports[`base page template matches the meta block override snapshot 1`] = `
         
     </head>
     <body>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
         <!-- prettier-ignore-start -->
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         <!-- prettier-ignore-end -->
@@ -2131,8 +2121,6 @@ exports[`base page template matches the social block override snapshot 1`] = `
         
     </head>
     <body>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
         <!-- prettier-ignore-start -->
         <script>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         <!-- prettier-ignore-end -->
