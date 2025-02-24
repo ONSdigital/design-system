@@ -1,6 +1,6 @@
 /* this contains global options for all charts */
-class ChartOptions {
-    constructor(theme, title, type) {
+class CommonChartOptions {
+    constructor() {
         this.constants = {
             primaryTheme: ['#206095', '#27a0cc', '#003c57', '#118c7b', '#a8bd3a', '#871a5b', '#f66068', '#746cb1', '#22d0b6'],
             // Alternate theme colours from https://service-manual.ons.gov.uk/data-visualisation/colours/using-colours-in-charts
@@ -16,25 +16,11 @@ class ChartOptions {
 
         // These options can be set globally for all charts
         this.options = {
-            colors: theme === 'primary' ? this.constants.primaryTheme : this.constants.alternateTheme,
             chart: {
                 backgroundColor: 'transparent',
                 style: {
                     fontFamily: '"OpenSans", "Helvetica Neue", arial, sans-serif',
                     color: '#222222',
-                },
-            },
-            legend: {
-                align: 'left',
-                verticalAlign: 'top',
-                layout: 'horizontal',
-                symbolWidth: type === 'line' ? 20 : 12,
-                symbolHeight: type === 'line' ? 3 : 12,
-                margin: 30,
-                itemStyle: {
-                    color: this.constants.labelColor,
-                    fontSize: this.constants.desktopFontSize,
-                    fontWeight: 'normal',
                 },
             },
             // chart title is rendered in wagtail
@@ -115,4 +101,4 @@ class ChartOptions {
     getOptions = () => this.options;
 }
 
-export default ChartOptions;
+export default CommonChartOptions;
