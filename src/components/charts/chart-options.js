@@ -37,7 +37,7 @@ class ChartOptions {
                     fontWeight: 'normal',
                 },
             },
-            // chart title is rendered in wagtail
+            // Remove chart title
             title: {
                 text: '',
             },
@@ -47,9 +47,6 @@ class ChartOptions {
             },
             accessibility: {
                 enabled: true,
-                screenReaderSection: {
-                    beforeChartFormat: '<h5>{title}</h5><div>{chartSubtitle}</div><div>{chartLongdesc}</div>',
-                },
             },
             yAxis: {
                 labels: {

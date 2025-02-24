@@ -31,6 +31,4 @@ import '../components/timeout-modal/timeout-modal.dom';
 import '../components/timeout-panel/timeout-panel.dom';
 import '../components/video/video.dom';
 import '../components/charts/chart';
-import '../components/charts/chart-options';
-import '../components/charts/line-chart';
 import '../components/charts/chart.dom';

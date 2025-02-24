@@ -1,7 +1,6 @@
 import ChartOptions from './chart-options';
 import LineChartPlotOptions from './line-chart';
 import Highcharts from 'highcharts';
-import Accessibility from 'highcharts/modules/accessibility';
 
 class HighchartsBaseChart {
     static selector() {
@@ -22,8 +21,6 @@ class HighchartsBaseChart {
         this.commonChartOptions = new ChartOptions(this.theme, this.title, this.chartType);
 
         this.setCommonChartOptions();
-        console.log(Highcharts.getOptions());
-        Accessibility.Highcharts = Highcharts;
         Highcharts.chart(chartNode, this.config);
     }
 
