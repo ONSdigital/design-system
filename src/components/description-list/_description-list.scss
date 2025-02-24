@@ -48,6 +48,8 @@
         @include mq(l) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-auto-flow: column;
             gap: 0.5rem 2.5rem;
 
             .ons-description-list__value {
