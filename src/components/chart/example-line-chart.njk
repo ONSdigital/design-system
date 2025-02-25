@@ -1,15 +1,21 @@
-{% from "components/charts/_macro.njk" import onsChart %}
+{% from "components/chart/_macro.njk" import onsChart %}
 
 {{
     onsChart({
         "chartType": "line",
-        "figId": "line-chart",
         "description": "Line chart showing the annual rate of inflation for the Consumer Prices Index including owner occupiers’ housing costs (CPIH) and its components.",
         "theme": "alternate",
         "title": "Sales volumes and values saw moderate growth in July 2024",
         "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
         "uuid": "uuid",
         "caption": "Source: Monthly Business Survey, Retails Sales Inquiry from the Office for National Statistics",
+        "downloadTitle": "Download Figure 1 data",
+        "downloadImage": "#",
+        "downloadImageSize": "18KB",
+        "downloadCsv": "#",
+        "downloadCsvSize": "25KB",
+        "downloadExcel": "#",
+        "downloadExcelSize": "25KB",
         "config": {
             "chart": {
                 "type": 'line'
@@ -152,7 +158,7 @@
                     'Sep 2024',
                     'Oct 2024'
                 ],
-                "tickInterval": 0
+                "tickInterval": 6
             },
             "series": [
                 {

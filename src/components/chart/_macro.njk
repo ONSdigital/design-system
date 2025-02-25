@@ -1,0 +1,65 @@
+{% from "components/list/_macro.njk" import onsList %}
+
+{% macro onsChart(params) %}
+    <div
+        data-highcharts-base-chart
+        data-highcharts-type="{{ params.chartType }}"
+        data-highcharts-theme="{{ params.theme }}"
+        data-highcharts-title="{{ params.title }}"
+        data-highcharts-uuid="{{ params.uuid }}"
+    >
+        <figure class="ons-chart">
+            <h3>{{ params.title }}</h3>
+            <h4>{{ params.subtitle }}</h4>
+            <h5 class="ons-u-vh">{{ params.description }}</h5>
+            <div data-highcharts-chart></div>
+            {% if params.caption %}
+                <figcaption>{{ params.caption }}</figcaption>
+            {% endif %}
+        </figure>
+
+        {% if params.downloadTitle and (params.downloadImage or params.downloadCsv or params.downloadExcel) %}
+            {% if params.downloadTitle %}<h6 class="ons-chart__download-title">{{ params.downloadTitle }}</h6>{% endif %}
+
+            {% if params.downloadExcel %}
+                {% set excel_text = "Excel spreadsheet (XLSX format" %}
+                {% if params.downloadExcelSize %}
+                    {% set excel_text = excel_text ~ ", " ~ params.downloadExcelSize %}
+                {% endif %}
+                {% set excel_text = excel_text ~ ")" %}
+            {% endif %}
+
+            {% if params.downloadCsv %}
+                {% set csv_text = "Simple text file (CSV format" %}
+                {% if params.downloadCsvSize %}
+                    {% set csv_text = csv_text ~ ", " ~ params.downloadCsvSize %}
+                {% endif %}
+                {% set csv_text = csv_text ~ ")" %}
+            {% endif %}
+
+            {% if params.downloadImage %}
+                {% set image_text = "Image (PNG format" %}
+                {% if params.downloadImageSize %}
+                    {% set image_text = image_text ~ ", " ~ params.downloadImageSize %}
+                {% endif %}
+                {% set image_text = image_text ~ ")" %}
+            {% endif %}
+
+            {{
+                onsList({
+                    "element": 'ol',
+                    "itemsList": [
+                        {"text": csv_text, "url": params.downloadCsv },
+                        { "text": image_text, "url": params.downloadImage },
+                        { "text": excel_text, "url": params.downloadExcel}
+                    ]
+                })
+            }}
+        {% endif %}
+
+        <!-- Set scripts to pass the config values as json to the javascript -->
+        {# <script type="application/json" data-highcharts-config--{{ params.uuid }}>
+            {{ params.config | dump | safe }}
+        </script> #}
+    </div>
+{% endmacro %}
