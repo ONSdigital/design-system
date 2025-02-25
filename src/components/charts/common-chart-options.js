@@ -17,7 +17,7 @@ class CommonChartOptions {
                     color: '#222222',
                 },
             },
-            // Remove chart title
+            // Remove the chart title as rendered by Highcharts, as this is rendered in the surrounding component
             title: {
                 text: '',
             },
