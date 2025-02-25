@@ -1,4 +1,5 @@
-import ChartOptions from './chart-options';
+import CommonChartOptions from './common-chart-options';
+import SpecificChartOptions from './specific-chart-options';
 import LineChartPlotOptions from './line-chart';
 import Highcharts from 'highcharts';
 
@@ -18,20 +19,33 @@ class HighchartsBaseChart {
 
         this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.uuid}]`).textContent);
 
-        this.commonChartOptions = new ChartOptions(this.theme, this.title, this.chartType);
+        this.commonChartOptions = new CommonChartOptions();
+        this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType);
 
-        this.setCommonChartOptions();
+        if (window.isCommonChartOptionsDefined === undefined) {
+            this.setCommonChartOptions();
+            window.isCommonChartOptionsDefined = true;
+        }
+
+        this.setSpecificChartOptions();
+
         Highcharts.chart(chartNode, this.config);
     }
 
     // Set up the global Highcharts options
     setCommonChartOptions = () => {
         const chartOptions = this.commonChartOptions.getOptions();
-        chartOptions.plotOptions = {
+        Highcharts.setOptions(chartOptions);
+    };
+
+    setSpecificChartOptions = () => {
+        const specificChartOptions = this.specificChartOptions.getOptions();
+        for (const option in specificChartOptions) {
+            this.config[option] = specificChartOptions[option];
+        }
+        this.config.plotOptions = {
             line: new LineChartPlotOptions().plotOptions.line,
         };
-
-        Highcharts.setOptions(chartOptions);
     };
 }
 

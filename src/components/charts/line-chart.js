@@ -10,9 +10,6 @@ class LineChartPlotOptions {
                 linecap: 'round',
                 marker: {
                     enabled: false,
-                    radius: 4, // Sets circle radius to 4px (8px diameter)
-                    // currently the marker style is configurable but this may change
-                    // symbol: 'circle',
                 },
                 states: {
                     hover: {
