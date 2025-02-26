@@ -352,7 +352,6 @@
                 >
                     <div class="ons-container">
                         <div class="ons-header-nav-search__input">
-                            {# <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">Search the ONS</h2> #}
                             {% from "components/input/_macro.njk" import onsInput %}
                             {{
                                 onsInput({
@@ -373,11 +372,11 @@
                             }}
                         </div>
                     </div>
-                    {% if params.searchLinks.popularSearches %}
+                    {% if params.searchLinks %}
                         <div class="ons-container">
-                            <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">Popular Searches</h2>
+                            <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">{{ params.searchLinks.heading }}</h2>
                             <ul class="ons-list ons-list--bare ons-list--inline">
-                                {% for item in params.searchLinks.popularSearches %}
+                                {% for item in params.searchLinks.itemsList %}
                                     {# Limiting the popular searches to 5 #}
                                     {% if loop.index <= 5 %}
                                         <li class="ons-list__item">

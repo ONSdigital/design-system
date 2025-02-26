@@ -159,7 +159,8 @@ export const EXAMPLE_HEADER_SEARCH_LINKS = {
             text: 'Search',
             ariaLabel: 'Toggle search',
         },
-        popularSearches: [
+        heading: 'Popular Search',
+        itemsList: [
             {
                 url: '#1',
                 text: 'Popular Search 1',

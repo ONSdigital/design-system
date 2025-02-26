@@ -82,15 +82,16 @@
 | id                 | string                 | true     | The HTML `id` of the `search button` element. Used for the `aria-controls` attribute for the search toggle button displayed on small viewports. |
 | classes            | string                 | false    | Classes to add to the `search button` element                                                                                                   |
 | ariaLabel          | string                 | false    | The `aria-label` attribute added to the `search button` element. Defaults to Search navigation”.                                                |
-| popularSearches    | array`<SearchItem>`    | true     | Settings for an array of [popular searches](#searchitem) for each search link                                                                   |
-| toggleSearchButton | object`<ToggleButton>` | true     | Settings for the [search toggle button](#toggleButton)                                                                                          |
+| toggleSearchButton | object`<ToggleButton>` | false    | Settings for the [search toggle button](#toggleButton)                                                                                          |
+| heading            | string                 | true     | The heading label for the search items list                                                                                                     |
+| itemsList          | array`<SearchItem>`    | true     | Settings for an array of [searches](#searchitem) associated with each search link. The list can contain a maximum of 5 items.                   |
 
 ## SearchItem
 
-| Name | Type   | Required | Description                           |
-| ---- | ------ | -------- | ------------------------------------- |
-| text | string | false    | The text for the popular search item. |
-| url  | string | true     | The URL for the popular search item   |
+| Name | Type   | Required | Description                   |
+| ---- | ------ | -------- | ----------------------------- |
+| text | string | true     | The text for the search item. |
+| url  | string | true     | The URL for the search item   |
 
 ## Language
 
