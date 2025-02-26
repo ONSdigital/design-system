@@ -18,41 +18,12 @@
             {% endif %}
         </figure>
 
-        {% if params.downloadTitle and (params.downloadImage or params.downloadCsv or params.downloadExcel) %}
-            {% if params.downloadTitle %}<h6 class="ons-chart__download-title">{{ params.downloadTitle }}</h6>{% endif %}
-
-            {% if params.downloadExcel %}
-                {% set excel_text = "Excel spreadsheet (XLSX format" %}
-                {% if params.downloadExcelSize %}
-                    {% set excel_text = excel_text ~ ", " ~ params.downloadExcelSize %}
-                {% endif %}
-                {% set excel_text = excel_text ~ ")" %}
-            {% endif %}
-
-            {% if params.downloadCsv %}
-                {% set csv_text = "Simple text file (CSV format" %}
-                {% if params.downloadCsvSize %}
-                    {% set csv_text = csv_text ~ ", " ~ params.downloadCsvSize %}
-                {% endif %}
-                {% set csv_text = csv_text ~ ")" %}
-            {% endif %}
-
-            {% if params.downloadImage %}
-                {% set image_text = "Image (PNG format" %}
-                {% if params.downloadImageSize %}
-                    {% set image_text = image_text ~ ", " ~ params.downloadImageSize %}
-                {% endif %}
-                {% set image_text = image_text ~ ")" %}
-            {% endif %}
-
+        {% if params.download.title and params.download.itemsList | length > 0 %}
+            <h6 class="ons-chart__download-title">{{ params.download.title }}</h6>
             {{
                 onsList({
-                    "element": 'ol',
-                    "itemsList": [
-                        {"text": csv_text, "url": params.downloadCsv },
-                        { "text": image_text, "url": params.downloadImage },
-                        { "text": excel_text, "url": params.downloadExcel}
-                    ]
+                    "element": "ol",
+                    "itemsList": params.download.itemsList
                 })
             }}
         {% endif %}

@@ -35,16 +35,26 @@ class CommonChartOptions {
                         fontSize: this.constants.desktopFontSize,
                     },
                 },
+                title: {
+                    align: 'high',
+                    offset: 0,
+                    rotation: 0,
+                    y: -25,
+                },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,
                 zeroLineColor: this.constants.zeroLineColor,
             },
             xAxis: {
                 labels: {
+                    rotation: 0,
                     style: {
                         color: this.constants.axisLabelColor,
                         fontSize: this.constants.desktopFontSize,
                     },
+                },
+                title: {
+                    align: 'high',
                 },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,

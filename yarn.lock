@@ -6176,11 +6176,6 @@ he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-highcharts-accessibility@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/highcharts-accessibility/-/highcharts-accessibility-0.1.7.tgz#6d212546b1113760a28cffacfd8e7a3f7c1040a7"
-  integrity sha512-2hfAuQN8NtGCiq4+F4fG45LT6cwr9YJWAviMZdIlFUEMqn15MRzhuLtJthQU0UM5rfkjBe01/z6zfb7p1b9N4w==
-
 highcharts@^12.1.2:
   version "12.1.2"
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-12.1.2.tgz#826114935b3ffb6b99dc906da00f137667a67fbb"

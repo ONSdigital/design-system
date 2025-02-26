@@ -9,13 +9,22 @@
         "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
         "uuid": "uuid",
         "caption": "Source: Monthly Business Survey, Retails Sales Inquiry from the Office for National Statistics",
-        "downloadTitle": "Download Figure 1 data",
-        "downloadImage": "#",
-        "downloadImageSize": "18KB",
-        "downloadCsv": "#",
-        "downloadCsvSize": "25KB",
-        "downloadExcel": "#",
-        "downloadExcelSize": "25KB",
+        "download": {
+            'title': 'Download Figure 1 data',
+            'itemsList': [
+            {
+                "text": "Excel spreadsheet (XLSX format, 18KB)",
+                "url": "#"
+            },
+            {
+                "text": "Simple text file (CSV format, 25KB)",
+                "url": "#" },
+            {
+
+                "text": "Image (PNG format, 25KB)",
+                "url": "#"
+            }
+        ]},
         "config": {
             "chart": {
                 "type": 'line'
@@ -25,7 +34,7 @@
             },
             "yAxis": {
                 "title": {
-                    "text": '%'
+                    "text": 'Sales'
                 },
                 'reversed': true,
                 "labels": {
@@ -159,10 +168,7 @@
                     'Sep 2024',
                     'Oct 2024'
                 ],
-                'labels': {
-                    'rotation': 0
-                },
-                "tickInterval": 6,
+                "tickInterval": 4,
                 'type': 'linear'
             },
             "series": [

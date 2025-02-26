@@ -1,20 +1,28 @@
-| Name              | Type   | Required | Description                                                                                |
-| ----------------- | ------ | -------- | ------------------------------------------------------------------------------------------ |
-| chartType         | string | true     | The type of chart to render (e.g., 'line', 'bar', etc.).                                   |
-| theme             | string | true     | The theme to apply to the chart. Either `primary` or `alternate`.                          |
-| title             | string | true     | The main title of the chart.                                                               |
-| subtitle          | string | true     | A subtitle that appears under the main title.                                              |
-| uuid              | string | true     | A unique identifier for the chart instance.                                                |
-| caption           | string | false    | A caption providing additional context for the chart.                                      |
-| description       | string | false    | A textual description of the chart for screen readers.                                     |
-| downloadTitle     | string | false    | The title displayed above the download options.                                            |
-| downloadImage     | string | false    | URL for downloading the chart image in PNG format.                                         |
-| downloadImageSize | string | false    | The file size of the downloadable image.                                                   |
-| downloadCsv       | string | false    | URL for downloading the chart data as a CSV file.                                          |
-| downloadCsvSize   | string | false    | The file size of the downloadable CSV.                                                     |
-| downloadExcel     | string | false    | URL for downloading the chart data as an Excel file.                                       |
-| downloadExcelSize | string | false    | The file size of the downloadable Excel file.                                              |
-| config            | object | true     | The full [configuration](#config) object passed to Highcharts, defining axes, series, etc. |
+| Name        | Type   | Required | Description                                                                                |
+| ----------- | ------ | -------- | ------------------------------------------------------------------------------------------ |
+| chartType   | string | true     | The type of chart to render (e.g., 'line', 'bar', etc.).                                   |
+| theme       | string | true     | The theme to apply to the chart. Either `primary` or `alternate`.                          |
+| title       | string | true     | The main title of the chart.                                                               |
+| subtitle    | string | true     | A subtitle that appears under the main title.                                              |
+| uuid        | string | true     | A unique identifier for the chart instance.                                                |
+| caption     | string | false    | A caption providing additional context for the chart.                                      |
+| description | string | false    | A textual description of the chart for screen readers.                                     |
+| download    | object | false    | Object for (download)[#download] options.                                                  |
+| config      | object | true     | The full [configuration](#config) object passed to Highcharts, defining axes, series, etc. |
+
+### Download
+
+| Property  | Type   | Required | Description                                                                                  |
+| --------- | ------ | -------- | -------------------------------------------------------------------------------------------- |
+| title     | string | false    | The title displayed above the download options.                                              |
+| itemsList | array  | false    | An array of items available for download, each described by a (DownloadItem)[#DownloadItem]. |
+
+### DownloadItem
+
+| Property | Type   | Required | Description                                        |
+| -------- | ------ | -------- | -------------------------------------------------- |
+| `text`   | string | true     | The label or description of the downloadable item. |
+| `url`    | string | true     | The URL to the downloadable resource.              |
 
 ### Config
 
@@ -43,22 +51,22 @@
 
 ### Y_Axis
 
-| Name          | Type    | Required | Description                                                           |
-| ------------- | ------- | -------- | --------------------------------------------------------------------- |
-| title         | object  | true     | Defines the [title](#title) of the y-axis.                            |
-| reversed      | boolean | false    | Sets the axis so that the highest number is closest to the origin.    |
-| labels        | object  | false    | The axis [labels](#labels) show the number or category for each tick. |
-| gridLineWidth | number  | false    | The width of grid lines for the y-axis. Defaults to `1`.              |
+| Name     | Type    | Required | Description                                                           |
+| -------- | ------- | -------- | --------------------------------------------------------------------- |
+| title    | object  | true     | Defines the [title](#title) of the y-axis.                            |
+| reversed | boolean | false    | Sets the axis so that the highest number is closest to the origin.    |
+| labels   | object  | false    | The axis [labels](#labels) show the number or category for each tick. |
 
 ### X_Axis
 
-| Name       | Type    | Required | Description                                                                        |
-| ---------- | ------- | -------- | ---------------------------------------------------------------------------------- |
-| title      | object  | true     | Defines the [title](#title) of the x-axis.                                         |
-| categories | array   | false    | Labels for each tick mark along the x-axis.                                        |
-| reversed   | boolean | false    | Sets the axis so that the highest number is closest to the origin.                 |
-| type       | string  | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. |
-| labels     | object  | false    | The axis [labels](#labels) show the number or category for each tick.              |
+| Name         | Type    | Required | Description                                                                        |
+| ------------ | ------- | -------- | ---------------------------------------------------------------------------------- |
+| title        | object  | true     | Defines the [title](#title) of the x-axis.                                         |
+| categories   | array   | false    | Labels for each tick mark along the x-axis.                                        |
+| reversed     | boolean | false    | Sets the axis so that the highest number is closest to the origin.                 |
+| type         | string  | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. |
+| labels       | object  | false    | The axis [labels](#labels) show the number or category for each tick.              |
+| tickInterval | number  | false    | The interval of the tick marks in axis units                                       |
 
 ### Title
 
