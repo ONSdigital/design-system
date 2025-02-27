@@ -64,6 +64,19 @@ class CommonChartOptions {
                 tickLength: 6,
                 tickColor: this.constants.gridLineColor,
             },
+            plotOptions: {
+                series: {
+                    // disabes the tooltip on hover
+                    enableMouseTracking: false,
+
+                    // disables the legend item hover
+                    states: {
+                        inactive: {
+                            enabled: false,
+                        },
+                    },
+                },
+            },
             // Adjust font size for smaller width of chart
             // Note this is not the same as the viewport width
             responsive: {
