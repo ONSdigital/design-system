@@ -745,7 +745,8 @@ $button-shadow-size: 3px;
         border-color: var(--ons-color-text-link-focus);
     }
 
-    &--search-icon:focus & {
+    &--search-icon:focus &,
+    &--close:focus & {
         &__inner {
             background: none;
             box-shadow: none;
@@ -755,12 +756,15 @@ $button-shadow-size: 3px;
         }
     }
 
+    &--close:focus {
+        background: var(--ons-color-focus);
+    }
+
     &--search-icon:active {
         background-color: var(--ons-color-branded-tint);
         border-color: var(--ons-color-text-link-hover);
     }
 
-    &--close:focus &,
     &--close:hover &,
     &--close:active &,
     &--close.active &,
