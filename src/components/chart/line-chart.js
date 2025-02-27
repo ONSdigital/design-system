@@ -11,11 +11,6 @@ class LineChartPlotOptions {
                 marker: {
                     enabled: false,
                 },
-                states: {
-                    hover: {
-                        lineWidth: 3,
-                    },
-                },
             },
         };
     }
