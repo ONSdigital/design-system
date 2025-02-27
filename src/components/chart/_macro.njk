@@ -1,0 +1,36 @@
+{% from "components/list/_macro.njk" import onsList %}
+
+{% macro onsChart(params) %}
+    <div
+        data-highcharts-base-chart
+        data-highcharts-type="{{ params.chartType }}"
+        data-highcharts-theme="{{ params.theme }}"
+        data-highcharts-title="{{ params.title }}"
+        data-highcharts-uuid="{{ params.uuid }}"
+    >
+        <figure class="ons-chart">
+            <h3>{{ params.title }}</h3>
+            <h4>{{ params.subtitle }}</h4>
+            <h5 class="ons-u-vh">{{ params.description }}</h5>
+            <div data-highcharts-chart></div>
+            {% if params.caption %}
+                <figcaption>{{ params.caption }}</figcaption>
+            {% endif %}
+        </figure>
+
+        {% if params.download.title and params.download.itemsList | length > 0 %}
+            <h6 class="ons-chart__download-title">{{ params.download.title }}</h6>
+            {{
+                onsList({
+                    "element": "ol",
+                    "itemsList": params.download.itemsList
+                })
+            }}
+        {% endif %}
+
+        <!-- Set scripts to pass the config values as json to the javascript -->
+        {# <script type="application/json" data-highcharts-config--{{ params.uuid }}>
+            {{ params.config | dump | safe }}
+        </script> #}
+    </div>
+{% endmacro %}
