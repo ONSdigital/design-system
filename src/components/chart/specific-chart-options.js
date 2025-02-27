@@ -22,6 +22,14 @@ class SpecificChartOptions {
                     fontSize: this.constants.desktopFontSize,
                     fontWeight: 'normal',
                 },
+                // Disable click event on legend
+                // There is currently an issue because the legend items are still buttons
+                // and therefore the screen reader still announces that they can be clicked
+                events: {
+                    itemClick: () => {
+                        return false;
+                    },
+                },
             },
         };
     }

@@ -43,7 +43,10 @@ class HighchartsBaseChart {
         for (const option in specificChartOptions) {
             this.config[option] = specificChartOptions[option];
         }
+        // Add the line chart plotOptions to the config - merge with
+        // any existing plotOptions
         this.config.plotOptions = {
+            ...(Highcharts.getOptions()?.plotOptions || {}),
             line: new LineChartPlotOptions().plotOptions.line,
         };
     };
