@@ -13,6 +13,13 @@ domready(async () => {
     const toggleServicesBtn = document.querySelector('.ons-js-toggle-services');
     const servicesEl = document.querySelector('.ons-js-services-mobile-nav');
     const servicesHideClass = 'ons-u-d-no';
+    const toggleHeaderSearchBtn = document.querySelector('.ons-js-toggle-header-search');
+    const headerSearchHideClass = 'ons-u-d-no';
+    const headerSearchEl = document.querySelector('.ons-js-header-search');
+    const openIcon = document.querySelector('.ons-btn--search-icon');
+    const closeIcon = document.querySelector('.ons-btn--close');
+    const menuEl = document.querySelector('.ons-js-nav-menu');
+    const toggleNavMenuBtn = document.querySelector('.ons-js-toggle-nav-menu');
 
     if (toggleNavigationBtn) {
         const NavigationToggle = (await import('./navigation')).default;
@@ -29,6 +36,18 @@ domready(async () => {
         const searchToggle = (await import('./navigation')).default;
 
         new searchToggle(toggleSearchBtn, searchEl, searchHideClass).registerEvents();
+    }
+
+    if (toggleHeaderSearchBtn) {
+        const searchToggle = (await import('./navigation')).default;
+
+        new searchToggle(toggleHeaderSearchBtn, headerSearchEl, headerSearchHideClass, openIcon, closeIcon).registerEvents();
+    }
+
+    if (toggleNavMenuBtn) {
+        const searchToggle = (await import('./navigation')).default;
+
+        new searchToggle(toggleNavMenuBtn, menuEl, headerSearchHideClass).registerEvents();
     }
 
     if (toggleServicesBtn) {

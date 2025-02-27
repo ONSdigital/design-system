@@ -18,6 +18,7 @@
 | navigation            | array`<Navigation>`                               | false                                                       | Settings for the [main menu links](#navigation)                                                                                                |
 | siteSearchAutosuggest | `Autosuggest` [_(ref)_](/components/autosuggest)  | false                                                       | Sets the autosuggest functionality in the header                                                                                               |
 | menuLinks             | object`<MenuLinks>`                               | false                                                       | Settings for the [menu button navigation](#menuLinks) in the masthead                                                                          |
+| searchLinks           | object`<SearchLinks>`                             | false                                                       | Settings for the [search button navigation](#searchLinks) in the masthead                                                                      |
 
 ## MastheadLogo
 
@@ -71,8 +72,26 @@
 | ariaLabel       | string                 | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Menu links navigation”.                                         |
 | ariaListLabel   | string                 | false    | The `aria-label` attribute added to the `<ul>` element. Defaults to “Menu links”.                                                     |
 | keyLinks        | array`<KeyLink>`       | true     | Settings for an array of [key list items](#keylink)                                                                                   |
-| columns         | array`<Column>`       | true     | Settings for list of [columns](#column) that contain menu links                                                                       |
+| columns         | array`<Column>`        | true     | Settings for list of [columns](#column) that contain menu links                                                                       |
 | toggleNavButton | object`<ToggleButton>` | true     | Settings for the [menu toggle button](#toggleButton)                                                                                  |
+
+## SearchLinks
+
+| Name               | Type                   | Required | Description                                                                                                                                     |
+| ------------------ | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                 | string                 | true     | The HTML `id` of the `search button` element. Used for the `aria-controls` attribute for the search toggle button displayed on small viewports. |
+| classes            | string                 | false    | Classes to add to the `search button` element                                                                                                   |
+| ariaLabel          | string                 | false    | The `aria-label` attribute added to the `search button` element. Defaults to Search navigation”.                                                |
+| toggleSearchButton | object`<ToggleButton>` | false    | Settings for the [search toggle button](#toggleButton)                                                                                          |
+| heading            | string                 | true     | The heading label for the search items list                                                                                                     |
+| itemsList          | array`<SearchItem>`    | true     | Settings for an array of [searches](#searchitem) associated with each search link. The list can contain a maximum of 5 items.                   |
+
+## SearchItem
+
+| Name | Type   | Required | Description                   |
+| ---- | ------ | -------- | ----------------------------- |
+| text | string | true     | The text for the search item. |
+| url  | string | true     | The URL for the search item   |
 
 ## Language
 
@@ -161,7 +180,7 @@
 | ---------- | ------------------ | -------- | --------------------------------------------------------------------- |
 | heading    | string             | true     | The heading label for the menu group                                  |
 | url        | string             | false    | The URL for the HTML `href` attribute for the path to the linked page |
-| groupItems | array`<groupItem>` | false    | Settings for an array of [group items](#groupitem) for each list item   |
+| groupItems | array`<groupItem>` | false    | Settings for an array of [group items](#groupitem) for each list item |
 
 ## GroupItem
 

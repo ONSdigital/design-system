@@ -25,7 +25,7 @@
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="ons-input ons-input--text ons-input-type__input{{ ' ons-input--error' if params.error }}{{ ' ons-search__input' if params.searchButton }}{{ ' ' + params.classes if params.classes else '' }}{% if params.width %}{{ ' ' }}ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            class="ons-input ons-input--text ons-input-type__input{{ ' ons-input--error' if params.error }}{{ ' ons-search__input' if params.searchButton }}{{ ' ons-input__header-search' if params.searchButton.variant == 'header' }}{{ ' ' + params.classes if params.classes else '' }}{% if params.width %}{{ ' ' }}ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix and params.prefix.id and not params.prefix.title %}aria-labelledby="{{ params.prefix.id }}"{% elif params.suffix and params.suffix.id and not params.suffix.title %}aria-labelledby="{{ params.suffix.id }}"{% endif %}
             {% if params.prefix and params.prefix.id %}
                 aria-labelledby="{{ params.id }} {{ params.prefix.id }}"
@@ -110,7 +110,7 @@
             {% endif %}
         {% elif params.searchButton %}
             <span
-                class="ons-grid-flex ons-grid-flex--vertical-top ons-input_search-button{{ ' ons-input--with-text-description' if params.label.description }}"
+                class="ons-grid-flex ons-grid-flex--vertical-top ons-input_search-button{{ ' ons-input_header-search-button' if params.searchButton.variant == 'header' }}{{ ' ons-input--with-text-description' if params.label.description }}"
             >
                 {% if params.accessiblePlaceholder %}
                     {{
@@ -142,8 +142,8 @@
                         "html": buttonLabel,
                         "text": params.searchButton.text,
                         "id": params.searchButton.id,
-                        "variants": 'small',
-                        "classes": 'ons-search__btn' + (" " + params.searchButton.classes if params.searchButton.classes else ""),
+                        "variants": 'header-search' if params.searchButton.variant == 'header' else 'small',
+                        "classes": 'ons-search__btn' + (" " + params.searchButton.classes if params.searchButton.classes else "") + (" ons-search__header-btn" if params.searchButton.variant == 'header' else "")  ,
                         "attributes": params.searchButton.attributes,
                         "iconType": params.searchButton.iconType,
                         "iconPosition": 'only' if params.searchButton.visuallyHideButtonText == true else 'before'
