@@ -37,7 +37,7 @@ class CommonChartOptions {
                 },
                 title: {
                     align: 'high',
-                    offset: 0,
+                    offset: 15,
                     rotation: 0,
                     y: -25,
                 },
@@ -97,9 +97,19 @@ class CommonChartOptions {
                                         fontSize: this.constants.mobileFontSize,
                                     },
                                 },
+                                title: {
+                                    style: {
+                                        fontSize: this.constants.mobileFontSize,
+                                    },
+                                },
                             },
                             yAxis: {
                                 labels: {
+                                    style: {
+                                        fontSize: this.constants.mobileFontSize,
+                                    },
+                                },
+                                title: {
                                     style: {
                                         fontSize: this.constants.mobileFontSize,
                                     },

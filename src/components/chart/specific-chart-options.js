@@ -16,7 +16,7 @@ class SpecificChartOptions {
                 layout: 'horizontal',
                 symbolWidth: type === 'line' ? 20 : 12,
                 symbolHeight: type === 'line' ? 3 : 12,
-                margin: 30,
+                margin: 50,
                 itemStyle: {
                     color: this.constants.labelColor,
                     fontSize: this.constants.desktopFontSize,
@@ -28,6 +28,51 @@ class SpecificChartOptions {
                 events: {
                     itemClick: () => {
                         return false;
+                    },
+                },
+            },
+            chart: {
+                //marginRight: 250,
+                events: {
+                    load: (event) => {
+                        if (type === 'line') {
+                            const currentChart = event.target;
+
+                            currentChart.series.forEach((series) => {
+                                const points = series.points;
+                                console.log(series.name);
+                                if (points && points.length > 0) {
+                                    // Show only the last point marker
+                                    const lastPoint = points[points.length - 1];
+                                    lastPoint.update(
+                                        {
+                                            marker: {
+                                                enabled: true,
+                                                radius: 4,
+                                                symbol: 'circle',
+                                                fillColor: series.color,
+                                                lineWidth: 0,
+                                            },
+                                            // dataLabels: {
+                                            //     enabled: true,
+                                            //     format: `{series.name}`,
+                                            //     align: 'left',
+                                            //     verticalAlign: 'center',
+                                            //     color: series.color,
+                                            //     x: 5,
+                                            //     y: 2,
+                                            //     allowOverlap: true,
+                                            //     crop: false,
+                                            //     overflow: 'none',
+                                            // },
+                                        },
+                                        false,
+                                    );
+                                }
+                            });
+
+                            currentChart.redraw();
+                        }
                     },
                 },
             },
