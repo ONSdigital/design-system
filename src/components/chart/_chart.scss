@@ -1,0 +1,7 @@
+.ons-chart {
+    margin: 0;
+    &__download-title {
+        @extend .ons-u-pt-l;
+        @extend .ons-u-fs-r--b;
+    }
+}
