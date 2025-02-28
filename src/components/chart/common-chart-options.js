@@ -16,6 +16,8 @@ class CommonChartOptions {
                     fontFamily: '"OpenSans", "Helvetica Neue", arial, sans-serif',
                     color: '#222222',
                 },
+                // experiment with height relative to the width
+                height: (9 / 16) * 100 + '%', // 16:9 ratio
             },
             // Remove the chart title as rendered by Highcharts, as this is rendered in the surrounding component
             title: {
@@ -75,6 +77,14 @@ class CommonChartOptions {
                             enabled: false,
                         },
                     },
+
+                    // doesn't seem to work as expected
+                    // states: {
+                    //     hover: {
+                    //         enabled: false,
+                    //     },
+                    // },
+                    // },
                 },
             },
             // Adjust font size for smaller width of chart
@@ -86,6 +96,10 @@ class CommonChartOptions {
                             maxWidth: 400,
                         },
                         chartOptions: {
+                            chart: {
+                                // Unset the responsive height at mobile
+                                height: '150%',
+                            },
                             legend: {
                                 itemStyle: {
                                     fontSize: this.constants.mobileFontSize,
