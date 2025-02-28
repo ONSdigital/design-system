@@ -87,7 +87,6 @@
 | name       | string | true     | The name of the series.                                                                     |
 | data       | array  | true     | The data values for the series. Each value corresponds to a category on the x-axis.         |
 | dataLabels | object | false    | Configuration options for displaying labels on the data points.                             |
-| marker     | object | false    | Configuration options for the series (markers)[#markers].                                   |
 | tooltip    | object | false    | Customization options for the (tooltip)[#tooltip] displayed when hovering over data points. |
 | animation  | object | false    | Defines (animation)[#animation] options for rendering the series. Defaults to false.        |
 
@@ -97,18 +96,11 @@
 | ------- | ------- | -------- | -------------------------------------------------------- |
 | enabled | boolean | false    | Whether the DataLabel is displayed. Defaults to `false`. |
 
-### Marker
-
-| Name    | Type    | Required | Description                                                       |
-| ------- | ------- | -------- | ----------------------------------------------------------------- |
-| enabled | boolean | false    | Whether markers are displayed for the series. Defaults to `true`. |
-| symbol  | string  | false    | The shape of the marker (`circle`, `square`, `diamond`, etc.).    |
-
 ### Tooltip
 
-| Name        | Type   | Required | Description                                                  |
-| ----------- | ------ | -------- | ------------------------------------------------------------ |
-| valueSuffix | string | false    | A string to append to each tooltip value (e.g., '°C', 'kg'). |
+| Name        | Type   | Required | Description                               |
+| ----------- | ------ | -------- | ----------------------------------------- |
+| valueSuffix | string | false    | A string to append to each tooltip value. |
 
 #### Animation
 
