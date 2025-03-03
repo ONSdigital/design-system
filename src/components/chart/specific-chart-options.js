@@ -35,12 +35,20 @@ class SpecificChartOptions {
                 //marginRight: 250,
                 events: {
                     load: (event) => {
-                        if (type === 'line') {
-                            const currentChart = event.target;
+                        const currentChart = event.target;
+                        currentChart.update(
+                            {
+                                chart: {
+                                    marginTop: currentChart.legend.display ? undefined : 50, // Only set marginTop when legend is off
+                                },
+                            },
+                            false,
+                            false,
+                        );
 
+                        if (type === 'line') {
                             currentChart.series.forEach((series) => {
                                 const points = series.points;
-                                console.log(series.name);
                                 if (points && points.length > 0) {
                                     // Show only the last point marker
                                     const lastPoint = points[points.length - 1];
