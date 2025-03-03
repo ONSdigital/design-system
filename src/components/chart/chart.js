@@ -40,11 +40,21 @@ class HighchartsBaseChart {
 
     setSpecificChartOptions = () => {
         const specificChartOptions = this.specificChartOptions.getOptions();
-        for (const option in specificChartOptions) {
-            this.config[option] = specificChartOptions[option];
-        }
-        // Add the line chart plotOptions to the config - merge with
-        // any existing plotOptions
+
+        // Merge specificChartOptions with the existing config
+        this.config = {
+            ...this.config,
+            ...Object.keys(specificChartOptions).reduce((mergedOptions, optionKey) => {
+                if (typeof this.config[optionKey] === 'object' && typeof specificChartOptions[optionKey] === 'object') {
+                    mergedOptions[optionKey] = { ...this.config[optionKey], ...specificChartOptions[optionKey] };
+                } else {
+                    mergedOptions[optionKey] = specificChartOptions[optionKey];
+                }
+                return mergedOptions;
+            }, {}),
+        };
+
+        //Add the line chart plotOptions to the config - merge with any existing plotOptions
         this.config.plotOptions = {
             ...(Highcharts.getOptions()?.plotOptions || {}),
             line: new LineChartPlotOptions().plotOptions.line,

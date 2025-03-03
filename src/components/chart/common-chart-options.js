@@ -40,6 +40,10 @@ class CommonChartOptions {
                     offset: 15,
                     rotation: 0,
                     y: -25,
+                    style: {
+                        color: this.constants.axisLabelColor,
+                        fontSize: this.constants.desktopFontSize,
+                    },
                 },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,

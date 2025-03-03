@@ -11,7 +11,9 @@
         <figure class="ons-chart">
             <h3>{{ params.title }}</h3>
             <h4>{{ params.subtitle }}</h4>
-            <h5 class="ons-u-vh">{{ params.description }}</h5>
+            {% if params.description %}
+                <h5 class="ons-u-vh">{{ params.description }}</h5>
+            {% endif %}
             <div data-highcharts-chart></div>
             {% if params.caption %}
                 <figcaption>{{ params.caption }}</figcaption>
