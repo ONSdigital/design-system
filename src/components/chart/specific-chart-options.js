@@ -32,7 +32,6 @@ class SpecificChartOptions {
                 },
             },
             chart: {
-                //marginRight: 250,
                 events: {
                     load: (event) => {
                         const currentChart = event.target;
@@ -61,18 +60,6 @@ class SpecificChartOptions {
                                                 fillColor: series.color,
                                                 lineWidth: 0,
                                             },
-                                            // dataLabels: {
-                                            //     enabled: true,
-                                            //     format: `{series.name}`,
-                                            //     align: 'left',
-                                            //     verticalAlign: 'center',
-                                            //     color: series.color,
-                                            //     x: 5,
-                                            //     y: 2,
-                                            //     allowOverlap: true,
-                                            //     crop: false,
-                                            //     overflow: 'none',
-                                            // },
                                         },
                                         false,
                                     );
