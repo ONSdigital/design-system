@@ -72,6 +72,7 @@ class CommonChartOptions {
                 series: {
                     // disabes the tooltip on hover
                     enableMouseTracking: false,
+                    animation: false,
 
                     // disables the legend item hover
                     states: {
