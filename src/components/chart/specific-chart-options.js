@@ -43,6 +43,7 @@ class SpecificChartOptions {
                             },
                             false,
                             false,
+                            false,
                         );
 
                         if (type === 'line') {
@@ -66,7 +67,7 @@ class SpecificChartOptions {
                                 }
                             });
 
-                            currentChart.redraw();
+                            currentChart.redraw(false);
                         }
                     },
                 },
