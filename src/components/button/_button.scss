@@ -43,8 +43,7 @@ $button-shadow-size: 3px;
 
     &--header-search &,
     &--header-search:active &,
-    &--header-search.active &,
-    &--header-search:active:focus & {
+    &--header-search.active & {
         &__inner {
             padding: 0.875rem !important;
             border: 0;
