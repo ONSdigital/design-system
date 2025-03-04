@@ -88,7 +88,6 @@
 | data       | array  | true     | The data values for the series. Each value corresponds to a category on the x-axis.         |
 | dataLabels | object | false    | Configuration options for displaying labels on the data points.                             |
 | tooltip    | object | false    | Customization options for the (tooltip)[#tooltip] displayed when hovering over data points. |
-| animation  | object | false    | Defines (animation)[#animation] options for rendering the series. Defaults to false.        |
 
 ### DataLabel
 
@@ -101,9 +100,3 @@
 | Name        | Type   | Required | Description                               |
 | ----------- | ------ | -------- | ----------------------------------------- |
 | valueSuffix | string | false    | A string to append to each tooltip value. |
-
-#### Animation
-
-| Name     | Type   | Required | Description                                                   |
-| -------- | ------ | -------- | ------------------------------------------------------------- |
-| duration | number | false    | Duration of the animation in milliseconds. Default is `1000`. |
