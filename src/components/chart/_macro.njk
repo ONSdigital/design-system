@@ -32,8 +32,10 @@
         {% endif %}
 
         <!-- Set scripts to pass the config values as json to the javascript -->
-        {# <script type="application/json" data-highcharts-config--{{ params.uuid }}>
+        <!-- prettier-ignore-start -->
+        <script type="application/json" data-highcharts-config--{{ params.uuid }}>
             {{ params.config | dump | safe }}
-        </script> #}
+        </script>
+        <!-- prettier-ignore-end -->
     </div>
 {% endmacro %}
