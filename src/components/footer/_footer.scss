@@ -64,13 +64,13 @@
     }
 
     &__logo-large {
-        @include mq('2xs', 454px) {
+        @include mq('2xs', 414px) {
             display: none;
         }
     }
 
     &__logo-small {
-        @include mq(455px) {
+        @include mq(415px) {
             display: none;
         }
     }
