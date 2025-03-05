@@ -51,7 +51,6 @@ class CommonChartOptions {
             },
             xAxis: {
                 labels: {
-                    rotation: 0,
                     style: {
                         color: this.constants.axisLabelColor,
                         fontSize: this.constants.desktopFontSize,
