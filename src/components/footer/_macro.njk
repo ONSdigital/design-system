@@ -9,23 +9,44 @@
     {% endif %}
     {% set extraLogo = params.footerLogo.logos.logo2 %}
     {% set onsLogo %}
-        {% if params.lang == 'cy' %}
-            {{-
-                onsIcon({
-                    "iconType": 'ons-logo-stacked-cy' if extraLogo else 'ons-logo-cy',
-                    "altText": 'Swyddfa Ystadegau Gwladol',
-                    "altTextId": 'ons-logo-cy-footer-alt'
-                })
-            -}}
-        {% else %}
-            {{-
-                onsIcon({
-                    "iconType": 'ons-logo-stacked-en' if extraLogo else 'ons-logo-en' ,
-                    "altText": 'Office for National Statistics',
-                    "altTextId": 'ons-logo-en-footer-alt'
-                })
-            -}}
-        {% endif %}
+        <div class="ons-footer__logo-large">
+            {% if params.lang == 'cy' %}
+                {{-
+                    onsIcon({
+                        "iconType": 'ons-logo-stacked-cy' if extraLogo else 'ons-logo-cy',
+                        "altText": 'Swyddfa Ystadegau Gwladol',
+                        "altTextId": 'ons-logo-cy-footer-alt'
+                    })
+                -}}
+            {% else %}
+                {{-
+                    onsIcon({
+                        "iconType": 'ons-logo-stacked-en' if extraLogo else 'ons-logo-en' ,
+                        "altText": 'Office for National Statistics',
+                        "altTextId": 'ons-logo-en-footer-alt'
+                    })
+                -}}
+            {% endif %}
+        </div>
+        <div class="ons-footer__logo-small">
+            {% if params.lang == 'cy' %}
+                {{-
+                    onsIcon({
+                        "iconType": 'ons-logo-stacked-cy',
+                        "altText": 'Swyddfa Ystadegau Gwladol',
+                        "altTextId": 'ons-logo-cy-footer-alt'
+                    })
+                -}}
+            {% else %}
+                {{-
+                    onsIcon({
+                        "iconType": 'ons-logo-stacked-en' ,
+                        "altText": 'Office for National Statistics',
+                        "altTextId": 'ons-logo-en-footer-alt'
+                    })
+                -}}
+            {% endif %}
+        </div>
     {% endset %}
 
     <footer class="ons-footer">

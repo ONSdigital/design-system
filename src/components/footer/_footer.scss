@@ -62,4 +62,16 @@
             @extend .ons-u-mb-2xs;
         }
     }
+
+    &__logo-large {
+        @include mq('2xs', 454px) {
+            display: none;
+        }
+    }
+
+    &__logo-small {
+        @include mq(455px) {
+            display: none;
+        }
+    }
 }
