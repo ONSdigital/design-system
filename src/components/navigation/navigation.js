@@ -36,10 +36,14 @@ export default class NavigationToggle {
             input.focus();
         }
 
-        if (this.openIcon) this.openIcon.classList.add('ons-u-vh');
+        if (this.openIcon) {
+            this.openIcon.setAttribute('tabindex', '-1');
+            this.openIcon.classList.add('ons-u-vh');
+        }
         if (this.closeIcon) {
             this.closeIcon.classList.remove('ons-u-vh');
             this.closeIcon.setAttribute(attrExpanded, 'true');
+            document.querySelector('.ons-js-search-btn-close').focus();
         } else {
             this.toggle.setAttribute(attrExpanded, 'true');
         }
@@ -51,7 +55,11 @@ export default class NavigationToggle {
         this.navigation.setAttribute(attrHidden, 'true');
         this.navigation.classList.add(this.hideClass);
 
-        if (this.openIcon) this.openIcon.classList.remove('ons-u-vh');
+        if (this.openIcon) {
+            this.openIcon.removeAttribute('tabindex');
+            document.querySelector('.ons-js-search-btn-open').focus();
+            this.openIcon.classList.remove('ons-u-vh');
+        }
         if (this.closeIcon) {
             this.closeIcon.classList.add('ons-u-vh');
             this.closeIcon.setAttribute(attrExpanded, 'false');
