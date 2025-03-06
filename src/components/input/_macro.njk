@@ -143,7 +143,7 @@
                         "text": params.searchButton.text,
                         "id": params.searchButton.id,
                         "variants": 'header-search' if params.searchButton.variant == 'header' else 'small',
-                        "classes": 'ons-search__btn' + (" " + params.searchButton.classes if params.searchButton.classes else "") + (" ons-search__header-btn" if params.searchButton.variant == 'header' else "")  ,
+                        "classes": 'ons-search__btn' + (" " + params.searchButton.classes if params.searchButton.classes else "") + (" ons-search__header-btn" if params.searchButton.variant == 'header' else ""),
                         "attributes": params.searchButton.attributes,
                         "iconType": params.searchButton.iconType,
                         "iconPosition": 'only' if params.searchButton.visuallyHideButtonText == true else 'before'
