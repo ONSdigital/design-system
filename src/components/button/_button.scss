@@ -70,8 +70,12 @@ $button-shadow-size: 3px;
 
     &--header-search:focus & {
         &__inner {
+            box-shadow:
+                0 0 0 1px var(--ons-color-black),
+                0 0 0 4px var(--ons-color-focus) !important;
+            outline: 3px solid rgb(0 0 0 / 0%);
+            outline-offset: 1px;
             z-index: 4;
-            outline: 4px solid var(--ons-color-focus);
             border: 2px solid var(--ons-color-black);
         }
     }
@@ -623,7 +627,7 @@ $button-shadow-size: 3px;
     }
 
     &--menu:focus {
-        background-color: var(--ons-color-focus);
+        background-color: var(--ons-color-focus) !important;
         border-color: var(--ons-color-black);
     }
 
@@ -721,7 +725,7 @@ $button-shadow-size: 3px;
     &--close[aria-expanded='true'] {
         @extend .ons-u-ml-no;
 
-        border-bottom: 4px solid rgb(0 0 0 / 0%);
+        border-color: var(--ons-color-text-link-hover);
         background-color: var(--ons-color-branded-tint);
     }
 
