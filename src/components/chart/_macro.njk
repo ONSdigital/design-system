@@ -10,14 +10,14 @@
         id="{{ params.uuid }}"
     >
         <figure class="ons-chart">
-            <h3>{{ params.title }}</h3>
-            <h4>{{ params.subtitle }}</h4>
+            <h3 class="ons-chart__title">{{ params.title }}</h3>
+            <h4 class="ons-chart__subtitle">{{ params.subtitle }}</h4>
             {% if params.description %}
                 <h5 class="ons-u-vh">{{ params.description }}</h5>
             {% endif %}
             <div data-highcharts-chart></div>
             {% if params.caption %}
-                <figcaption>{{ params.caption }}</figcaption>
+                <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
             {% endif %}
         </figure>
 
