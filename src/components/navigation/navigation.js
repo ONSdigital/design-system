@@ -57,7 +57,8 @@ export default class NavigationToggle {
 
         if (this.openIcon) {
             this.openIcon.removeAttribute('tabindex');
-            document.querySelector('.ons-js-search-btn-open').focus();
+            document.activeElement.previousElementSibling.focus();
+            //document.querySelector('.ons-js-search-btn-open').focus();
             this.openIcon.classList.remove('ons-u-vh');
         }
         if (this.closeIcon) {

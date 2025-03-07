@@ -35,9 +35,14 @@ $button-shadow-size: 3px;
         }
     }
 
-    &--header-search & {
+    &--header-search &,
+    &--header-search:focus &,
+    &--header-search:active &,
+    &--header-search.active &,
+    &--header-search:active:focus &,
+    &--header-search.active:focus & {
         &__inner {
-            background: var(--ons-color-ocean-blue);
+            background: var(--ons-color-ocean-blue) !important;
         }
     }
 
@@ -45,8 +50,8 @@ $button-shadow-size: 3px;
     &--header-search:active &,
     &--header-search.active & {
         &__inner {
-            padding: 0.875rem;
-            border: 0;
+            padding: 0.75rem 1rem !important;
+            border: 2px solid var(--ons-color-ocean-blue);
             border-radius: 0;
             box-shadow: none;
             .ons-icon {
@@ -57,12 +62,7 @@ $button-shadow-size: 3px;
         }
     }
 
-    &--header-search:focus &,
-    &--header-search:hover &,
-    &--header-search:active &,
-    &--header-search.active &,
-    &--header-search:active:focus &,
-    &--header-search.active:focus & {
+    &--header-search:hover & {
         &__inner {
             background: var(--ons-color-night-blue) !important;
         }
@@ -72,6 +72,7 @@ $button-shadow-size: 3px;
         &__inner {
             z-index: 4;
             outline: 4px solid var(--ons-color-focus);
+            border: 2px solid var(--ons-color-black);
         }
     }
 
@@ -720,7 +721,7 @@ $button-shadow-size: 3px;
     &--close[aria-expanded='true'] {
         @extend .ons-u-ml-no;
 
-        border-bottom: 4px solid transparent;
+        border-bottom: 4px solid rgb(0 0 0 / 0%);
         background-color: var(--ons-color-branded-tint);
     }
 
@@ -757,6 +758,7 @@ $button-shadow-size: 3px;
 
     &--close:focus {
         background: var(--ons-color-focus);
+        border-color: var(--ons-color-black);
     }
 
     &--search-icon:active {
