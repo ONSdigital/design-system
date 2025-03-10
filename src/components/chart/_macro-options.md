@@ -1,14 +1,15 @@
-| Name        | Type   | Required | Description                                                                                |
-| ----------- | ------ | -------- | ------------------------------------------------------------------------------------------ |
-| chartType   | string | true     | The type of chart to render (e.g., 'line', 'bar', etc.).                                   |
-| theme       | string | true     | The theme to apply to the chart. Either `primary` or `alternate`.                          |
-| title       | string | true     | The main title of the chart.                                                               |
-| subtitle    | string | true     | A subtitle that appears under the main title.                                              |
-| uuid        | string | true     | A unique identifier for the chart instance.                                                |
-| caption     | string | false    | A caption providing additional context for the chart.                                      |
-| description | string | false    | A textual description of the chart for screen readers.                                     |
-| download    | object | false    | Object for (download)[#download] options.                                                  |
-| config      | object | true     | The full [configuration](#config) object passed to Highcharts, defining axes, series, etc. |
+| Name             | Type    | Required | Description                                                                                 |
+| ---------------- | ------- | -------- | ------------------------------------------------------------------------------------------- |
+| chartType        | string  | true     | The type of chart to render (e.g., 'line', 'bar', etc.).                                    |
+| theme            | string  | true     | The theme to apply to the chart. Either `primary` or `alternate`.                           |
+| title            | string  | true     | The main title of the chart.                                                                |
+| subtitle         | string  | true     | A subtitle that appears under the main title.                                               |
+| uuid             | string  | true     | A unique identifier for the chart instance.                                                 |
+| caption          | string  | false    | A caption providing additional context for the chart.                                       |
+| description      | string  | false    | A textual description of the chart for screen readers.                                      |
+| download         | object  | false    | Object for (download)[#download] options.                                                   |
+| useStackedLayout | boolean | false    | Determines whether the chart should use a stacked layout. It is useful only for bar charts. |
+| config           | object  | true     | The full [configuration](#config) object passed to Highcharts, defining axes, series, etc.  |
 
 ### Download
 

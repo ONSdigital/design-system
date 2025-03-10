@@ -1,13 +1,8 @@
+import ChartConstants from './chart-constants';
+
 class CommonChartOptions {
     constructor() {
-        this.constants = {
-            axisLabelColor: '#707071',
-            gridLineColor: '#d9d9d9',
-            zeroLineColor: '#b3b3b3',
-            // Responsive font sizes
-            mobileFontSize: '0.875rem',
-            desktopFontSize: '1rem',
-        };
+        this.constants = ChartConstants.constants();
 
         this.options = {
             chart: {
@@ -47,7 +42,19 @@ class CommonChartOptions {
                 },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,
-                zeroLineColor: this.constants.zeroLineColor,
+                // Add zero line
+                plotLines: [
+                    {
+                        color: this.constants.zeroLineColor,
+                        width: 1,
+                        value: 0,
+                        zIndex: 2,
+                    },
+                ],
+                // Add tick marks
+                tickWidth: 1,
+                tickLength: 6,
+                tickColor: this.constants.gridLineColor,
             },
             xAxis: {
                 labels: {
@@ -61,7 +68,6 @@ class CommonChartOptions {
                 },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,
-                zeroLineColor: this.constants.zeroLineColor,
                 // Add tick marks
                 tickWidth: 1,
                 tickLength: 6,
