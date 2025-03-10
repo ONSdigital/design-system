@@ -1,13 +1,8 @@
+import ChartConstants from './chart-constants';
+
 class CommonChartOptions {
     constructor() {
-        this.constants = {
-            axisLabelColor: '#707071',
-            gridLineColor: '#d9d9d9',
-            zeroLineColor: '#b3b3b3',
-            // Responsive font sizes
-            mobileFontSize: '0.875rem',
-            desktopFontSize: '1rem',
-        };
+        this.constants = ChartConstants.constants();
 
         this.options = {
             chart: {
