@@ -1,6 +1,7 @@
 import CommonChartOptions from './common-chart-options';
 import SpecificChartOptions from './specific-chart-options';
 import LineChartPlotOptions from './line-chart';
+import BarChartPlotOptions from './bar-chart';
 import Highcharts from 'highcharts';
 
 class HighchartsBaseChart {
@@ -14,13 +15,12 @@ class HighchartsBaseChart {
         this.theme = this.node.dataset.highchartsTheme;
         this.title = this.node.dataset.highchartsTitle;
         const chartNode = this.node.querySelector('[data-highcharts-chart]');
-
         this.uuid = this.node.dataset.highchartsUuid;
-
+        this.useStackedLayout = this.node.hasAttribute('data-highcharts-use-stacked-layout');
         this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.uuid}]`).textContent);
 
         this.commonChartOptions = new CommonChartOptions();
-        this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType);
+        this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.useStackedLayout, this.config);
 
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
@@ -54,10 +54,11 @@ class HighchartsBaseChart {
             }, {}),
         };
 
-        //Add the line chart plotOptions to the config - merge with any existing plotOptions
+        // Add the line chart plotOptions to the config - merge with any existing plotOptions
         this.config.plotOptions = {
             ...(Highcharts.getOptions()?.plotOptions || {}),
             line: new LineChartPlotOptions().plotOptions.line,
+            bar: new BarChartPlotOptions().plotOptions.bar,
         };
     };
 }
