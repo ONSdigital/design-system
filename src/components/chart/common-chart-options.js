@@ -51,6 +51,10 @@ class CommonChartOptions {
                         zIndex: 2,
                     },
                 ],
+                // Add tick marks
+                tickWidth: 1,
+                tickLength: 6,
+                tickColor: this.constants.gridLineColor,
             },
             xAxis: {
                 labels: {

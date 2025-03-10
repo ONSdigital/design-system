@@ -92,6 +92,10 @@ class SpecificChartOptions {
                         color: this.type === 'bar' ? this.constants.categoryLabelColor : this.constants.axisLabelColor,
                     },
                 },
+                // remove the tick marks for bar charts
+                tickWidth: this.type === 'bar' ? 0 : 1,
+                tickLength: this.type === 'bar' ? 0 : 6,
+                tickColor: this.type === 'bar' ? 'transparent' : this.constants.gridLineColor,
             },
             yAxis: {
                 title: {
