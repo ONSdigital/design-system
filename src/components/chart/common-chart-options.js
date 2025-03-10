@@ -42,7 +42,15 @@ class CommonChartOptions {
                 },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,
-                zeroLineColor: this.constants.zeroLineColor,
+                // Add zero line
+                plotLines: [
+                    {
+                        color: this.constants.zeroLineColor,
+                        width: 1,
+                        value: 0,
+                        zIndex: 2,
+                    },
+                ],
             },
             xAxis: {
                 labels: {
@@ -56,7 +64,6 @@ class CommonChartOptions {
                 },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,
-                zeroLineColor: this.constants.zeroLineColor,
                 // Add tick marks
                 tickWidth: 1,
                 tickLength: 6,

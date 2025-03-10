@@ -93,6 +93,14 @@ class SpecificChartOptions {
                     },
                 },
             },
+            yAxis: {
+                title: {
+                    align: 'high',
+                    offset: this.type != 'bar' ? 15 : undefined,
+                    rotation: 0,
+                    y: this.type != 'bar' ? -25 : 0,
+                },
+            },
         };
     }
 
