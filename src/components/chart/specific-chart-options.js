@@ -32,6 +32,7 @@ class SpecificChartOptions {
                 },
             },
             chart: {
+                type: type,
                 events: {
                     load: (event) => {
                         const currentChart = event.target;
