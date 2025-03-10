@@ -44,22 +44,20 @@
 
 ### Y_Axis
 
-| Name     | Type    | Required | Description                                                           |
-| -------- | ------- | -------- | --------------------------------------------------------------------- |
-| title    | object  | true     | Defines the [title](#title) of the y-axis.                            |
-| reversed | boolean | false    | Sets the axis so that the highest number is closest to the origin.    |
-| labels   | object  | false    | The axis [labels](#labels) show the number or category for each tick. |
+| Name   | Type   | Required | Description                                                           |
+| ------ | ------ | -------- | --------------------------------------------------------------------- |
+| title  | object | true     | Defines the [title](#title) of the y-axis.                            |
+| labels | object | false    | The axis [labels](#labels) show the number or category for each tick. |
 
 ### X_Axis
 
-| Name         | Type    | Required | Description                                                                        |
-| ------------ | ------- | -------- | ---------------------------------------------------------------------------------- |
-| title        | object  | true     | Defines the [title](#title) of the x-axis.                                         |
-| categories   | array   | false    | Labels for each tick mark along the x-axis.                                        |
-| reversed     | boolean | false    | Sets the axis so that the highest number is closest to the origin.                 |
-| type         | string  | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. |
-| labels       | object  | false    | The axis [labels](#labels) show the number or category for each tick.              |
-| tickInterval | number  | false    | The interval of the tick marks in axis units                                       |
+| Name         | Type   | Required | Description                                                                        |
+| ------------ | ------ | -------- | ---------------------------------------------------------------------------------- |
+| title        | object | true     | Defines the [title](#title) of the x-axis.                                         |
+| categories   | array  | false    | Labels for each tick mark along the x-axis.                                        |
+| type         | string | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. |
+| labels       | object | false    | The axis [labels](#labels) show the number or category for each tick.              |
+| tickInterval | number | false    | The interval of the tick marks in axis units                                       |
 
 ### Title
 
