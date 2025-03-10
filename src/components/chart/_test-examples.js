@@ -1,4 +1,4 @@
-export const EXAMPLE_CHART_REQUIRED_PARAMS = {
+export const EXAMPLE_LINE_CHART_REQUIRED_PARAMS = {
     chartType: 'line',
     theme: 'primary',
     title: 'Example Line Chart',
@@ -15,7 +15,7 @@ export const EXAMPLE_CHART_REQUIRED_PARAMS = {
     },
 };
 
-export const EXAMPLE_CHART_WITH_CONFIG_PARAMS = {
+export const EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS = {
     chartType: 'bar',
     theme: 'alternate',
     title: 'Example Bar Chart',
