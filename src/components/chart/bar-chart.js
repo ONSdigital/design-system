@@ -65,8 +65,11 @@ class BarChart {
     // Updates the config to move the data labels inside the bars, but only if the bar is wide enough
     // This may also need to run when the chart is resized
     postLoadDataLabels = (currentChart) => {
-        const options = {
+        const insideOptions = {
             dataLabels: this.getBarChartLabelsInsideOptions(),
+        };
+        const outsideOptions = {
+            dataLabels: this.getBarChartLabelsOutsideOptions(),
         };
 
         currentChart.series.forEach((series) => {
@@ -76,7 +79,9 @@ class BarChart {
                 const labelWidth = point.dataLabel && point.dataLabel.getBBox().width;
                 // Move the data labels inside the bar if the bar is wider than the label plus some padding
                 if (point.shapeArgs.height > labelWidth + 20) {
-                    point.update(options, false);
+                    point.update(insideOptions, false);
+                } else {
+                    point.update(outsideOptions, false);
                 }
             });
         });
@@ -91,6 +96,19 @@ class BarChart {
         style: {
             color: 'white',
             fontWeight: 'bold',
+        },
+    });
+
+    getBarChartLabelsOutsideOptions = () => ({
+        inside: false,
+        align: undefined,
+        verticalAlign: undefined,
+        style: {
+            textOutline: 'none',
+            // there is no semibold font weight available in the design system fonts, so we use 700 instead
+            fontWeight: '700',
+            color: this.constants.labelColor,
+            fontSize: this.constants.mobileFontSize,
         },
     });
 
