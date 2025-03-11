@@ -1,5 +1,6 @@
 import ChartConstants from './chart-constants';
 
+// Options that are common to all chart types - these are set once in the Highcharts.setOptions() method
 class CommonChartOptions {
     constructor() {
         this.constants = ChartConstants.constants();
@@ -10,6 +11,28 @@ class CommonChartOptions {
                 style: {
                     fontFamily: '"OpenSans", "Helvetica Neue", arial, sans-serif',
                     color: '#222222',
+                },
+            },
+            legend: {
+                align: 'left',
+                verticalAlign: 'top',
+                layout: 'horizontal',
+                // Symbol width and height in the legend. May be overridden for individual chart types
+                symbolWidth: 12,
+                symbolHeight: 12,
+                margin: 50,
+                itemStyle: {
+                    color: this.constants.labelColor,
+                    fontSize: this.constants.desktopFontSize,
+                    fontWeight: 'normal',
+                },
+                // Disable click event on legend
+                // There is currently an issue because the legend items are still buttons
+                // and therefore the screen reader still announces that they can be clicked
+                events: {
+                    itemClick: () => {
+                        return false;
+                    },
                 },
             },
             // Remove the chart title as rendered by Highcharts, as this is rendered in the surrounding component
