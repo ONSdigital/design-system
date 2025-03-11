@@ -104,11 +104,10 @@
                                             </dd>
                                         {% endif %}
                                         {% if item.actions %}
-                                            <dd class="ons-summary__actions">
+                                            <dd class="ons-summary__actions" {% if item.id %}id="{{ item.id }}"{% endif %}>
                                                 {% for action in item.actions %}
                                                     {% if loop.index > 1 %}<span class="ons-summary__spacer"></span>{% endif %}
                                                     <a
-                                                        {% if action.id %}id="{{ action.id }}"{% endif %}
                                                         href="{{ action.url }}"
                                                         class="ons-summary__button"
                                                         {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
