@@ -31,8 +31,8 @@ class HighchartsBaseChart {
         this.setSpecificChartOptions();
         this.setLoadEvent();
         this.hideDataLabels = this.checkHideDataLabels();
-
-        Highcharts.chart(chartNode, this.config);
+        this.setWindowResizeEvent();
+        this.chart = Highcharts.chart(chartNode, this.config);
     }
 
     // Set up the global Highcharts options which are used for all charts
@@ -84,7 +84,9 @@ class HighchartsBaseChart {
 
     // Create the load event for various chart types
     setLoadEvent = () => {
-        this.config.chart.events = {};
+        if (!this.config.chart.events) {
+            this.config.chart.events = {};
+        }
         this.config.chart.events.load = (event) => {
             const currentChart = event.target;
             if (this.chartType === 'line') {
@@ -100,6 +102,20 @@ class HighchartsBaseChart {
             }
             currentChart.redraw(false);
         };
+    };
+
+    // Update the data labels when the window is resized
+    setWindowResizeEvent = () => {
+        if (this.chartType === 'bar' && !this.hideDataLabels) {
+            window.addEventListener('resize', () => {
+                clearTimeout(this.resizeTimeout);
+                this.resizeTimeout = setTimeout(() => {
+                    // Get the current rendered chart instance
+                    const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
+                    this.barChart.postLoadDataLabels(currentChart);
+                }, 100);
+            });
+        }
     };
 }
 
