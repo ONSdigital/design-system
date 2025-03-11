@@ -23,6 +23,7 @@ const EXAMPLE_SUMMARY_ROWS = {
                     },
                     iconType: 'check',
                     iconVisuallyHiddenText: 'Section completed',
+                    id: 'item-id-1',
                     valueList: [
                         {
                             text: 'row value 1',
@@ -40,6 +41,7 @@ const EXAMPLE_SUMMARY_ROWS = {
             errorMessage: 'there are errors',
             itemsList: [
                 {
+                    id: 'item-id-2',
                     valueList: [
                         {
                             text: 'row value 2',
@@ -47,7 +49,6 @@ const EXAMPLE_SUMMARY_ROWS = {
                     ],
                     actions: [
                         {
-                            id: 'Action 1',
                             text: 'Action 1',
                             visuallyHiddenText: 'action 1 for row title 2',
                             attributes: {
@@ -57,7 +58,6 @@ const EXAMPLE_SUMMARY_ROWS = {
                             url: '#1',
                         },
                         {
-                            id: 'Action 2',
                             text: 'Action 2',
                             visuallyHiddenText: 'action 2 for row title 2',
                             url: '#2',
@@ -72,6 +72,7 @@ const EXAMPLE_SUMMARY_ROWS = {
             title: 'row title 3',
             itemsList: [
                 {
+                    id: 'item-id-3',
                     valueList: [
                         {
                             text: 'row value 3',
@@ -98,6 +99,7 @@ const EXAMPLE_SUMMARY_ROWS = {
             total: true,
             itemsList: [
                 {
+                    id: 'item-id-5',
                     valueList: [
                         {
                             text: '£234,000.00',
@@ -512,19 +514,11 @@ describe('macro: summary', () => {
                 ).toBe('Action 2');
             });
 
-            it('has the correct action `id` for each action provided', () => {
+            it('has the correct `id` added to the actions', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-                expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').attr(
-                        'id',
-                    ),
-                ).toBe('Action 1');
-                expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').attr(
-                        'id',
-                    ),
-                ).toBe('Action 2');
+                expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions').attr('id')).toBe('item-id-1');
+                expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions').attr('id')).toBe('item-id-2');
             });
 
             it('has the correct visually hidden <span> text', () => {
