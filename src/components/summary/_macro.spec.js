@@ -476,7 +476,7 @@ describe('macro: summary', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_SINGLE_GROUP));
 
                 expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__action:nth-of-type(1)').classList.contains(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions').hasClass(
                         'ons-summary__column-size--2',
                     ),
                 ).toBe(true);
@@ -556,9 +556,7 @@ describe('macro: summary', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_SINGLE_GROUP));
 
                 expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__values:nth-of-type(1)').classList.contains(
-                        'ons-summary__column-size--2',
-                    ),
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__values').hasClass('ons-summary__column-size--2'),
                 ).toBe(true);
             });
         });
