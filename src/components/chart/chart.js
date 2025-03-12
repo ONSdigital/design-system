@@ -62,7 +62,7 @@ class HighchartsBaseChart {
     setSpecificChartOptions = () => {
         const specificChartOptions = this.specificChartOptions.getOptions();
         const lineChartOptions = this.lineChart.getLineChartOptions();
-        const barChartOptions = this.barChart.getBarChartOptions();
+        const barChartOptions = this.barChart.getBarChartOptions(this.useStackedLayout);
         const columnChartOptions = this.columnChart.getColumnChartOptions();
         // Merge specificChartOptions with the existing config
         this.config = this.mergeConfigs(this.config, specificChartOptions);
@@ -99,9 +99,7 @@ class HighchartsBaseChart {
                 this.lineChart.updateLastPointMarker(currentChart);
             }
             if (this.chartType === 'bar') {
-                if (this.useStackedLayout === false) {
-                    this.barChart.updateBarChartHeight(this.config, currentChart);
-                }
+                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
                 }
