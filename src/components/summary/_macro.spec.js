@@ -196,9 +196,6 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
             itemsList: [
                 {
                     title: 'row item 4',
-                },
-                {
-                    title: 'row item 5',
                     actions: [
                         {
                             text: 'Change',
@@ -208,18 +205,18 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
                     ],
                 },
                 {
-                    title: 'row item 6',
+                    title: 'row item 5',
                     valueList: [
                         {
-                            text: 'list item 6',
+                            text: 'list item 5',
                         },
                     ],
                 },
                 {
-                    title: 'row item 7',
+                    title: 'row item 6',
                     valueList: [
                         {
-                            text: 'list item 7',
+                            text: 'list item 6',
                         },
                     ],
                     actions: [
