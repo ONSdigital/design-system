@@ -2,6 +2,7 @@ import CommonChartOptions from './common-chart-options';
 import SpecificChartOptions from './specific-chart-options';
 import LineChart from './line-chart';
 import BarChart from './bar-chart';
+import ColumnChart from './column-chart';
 import Highcharts from 'highcharts';
 
 class HighchartsBaseChart {
@@ -23,6 +24,7 @@ class HighchartsBaseChart {
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.config);
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
+        this.columnChart = new ColumnChart();
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
             window.isCommonChartOptionsDefined = true;
@@ -61,7 +63,7 @@ class HighchartsBaseChart {
         const specificChartOptions = this.specificChartOptions.getOptions();
         const lineChartOptions = this.lineChart.getLineChartOptions();
         const barChartOptions = this.barChart.getBarChartOptions();
-
+        const columnChartOptions = this.columnChart.getColumnChartOptions();
         // Merge specificChartOptions with the existing config
         this.config = this.mergeConfigs(this.config, specificChartOptions);
 
@@ -73,6 +75,10 @@ class HighchartsBaseChart {
         if (this.chartType === 'bar') {
             // Merge the bar chart options with the existing config
             this.config = this.mergeConfigs(this.config, barChartOptions);
+        }
+        if (this.chartType === 'column') {
+            // Merge the column chart options with the existing config
+            this.config = this.mergeConfigs(this.config, columnChartOptions);
         }
     };
 
@@ -100,19 +106,29 @@ class HighchartsBaseChart {
                     this.barChart.postLoadDataLabels(currentChart);
                 }
             }
+            if (this.chartType === 'column') {
+                this.columnChart.updatePointPadding(this.config, currentChart);
+            }
             currentChart.redraw(false);
         };
     };
 
-    // Update the data labels when the window is resized
+    // Set resize events - throttled to 100ms
     setWindowResizeEvent = () => {
-        if (this.chartType === 'bar' && !this.hideDataLabels) {
+        if (this.chartType === 'column' || this.chartType === 'bar') {
             window.addEventListener('resize', () => {
                 clearTimeout(this.resizeTimeout);
                 this.resizeTimeout = setTimeout(() => {
                     // Get the current rendered chart instance
                     const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
-                    this.barChart.postLoadDataLabels(currentChart);
+                    // Update the data labels when the window is resized
+                    if (this.chartType === 'bar' && !this.hideDataLabels) {
+                        this.barChart.postLoadDataLabels(currentChart);
+                    }
+                    // Update the point padding for column charts when the window is resized
+                    if (this.chartType === 'column') {
+                        this.columnChart.updatePointPadding(this.config, currentChart);
+                    }
                 }, 100);
             });
         }
