@@ -5,18 +5,25 @@
         @extend .ons-u-fs-r--b;
     }
     &__title {
-        font-size: 20px;
-        line-height: 26px;
+        font-size: 26px;
+        @include mq('2xs', 464px) {
+            font-size: 20px;
+        }
     }
 
     &__subtitle {
-        font-size: 16px;
-        line-height: 20.8px;
+        font-size: 20.8px;
+        @include mq('2xs', 464px) {
+            font-size: 16px;
+        }
     }
 
     &__caption {
-        font-size: 16px;
-        line-height: 19.2px;
+        font-size: 19.2px;
+        @include mq('2xs', 464px) {
+            font-size: 16px;
+        }
+
         color: var(--ons-color-grey-75);
     }
 }
