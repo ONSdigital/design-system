@@ -409,9 +409,9 @@ describe('macro: summary', () => {
             it('displays the row `title` text', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-                expect($('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__item--text').text().trim()).toBe(
-                    'row title 1',
-                );
+                expect(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__item--text:nth-of-type(1)').text().trim(),
+                ).toBe('row title 1');
             });
 
             it('has a custom icon `iconType`', () => {
@@ -476,7 +476,7 @@ describe('macro: summary', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_SINGLE_GROUP));
 
                 expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__values').classList.contains(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__action:nth-of-type(1)').classList.contains(
                         'ons-summary__column-size--2',
                     ),
                 ).toBe(true);
@@ -556,7 +556,7 @@ describe('macro: summary', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_SINGLE_GROUP));
 
                 expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions').classList.contains(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__values:nth-of-type(1)').classList.contains(
                         'ons-summary__column-size--2',
                     ),
                 ).toBe(true);
