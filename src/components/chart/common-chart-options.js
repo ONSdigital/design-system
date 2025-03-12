@@ -88,6 +88,10 @@ class CommonChartOptions {
                 },
                 title: {
                     align: 'high',
+                    style: {
+                        color: this.constants.axisLabelColor,
+                        fontSize: this.constants.desktopFontSize,
+                    },
                 },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,
