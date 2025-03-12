@@ -5,7 +5,7 @@ class SpecificChartOptions {
             // Alternate theme colours from https://service-manual.ons.gov.uk/data-visualisation/colours/using-colours-in-charts
             alternateTheme: ['#206095', '#27A0CC', '#871A5B', '#A8BD3A', '#F66068'],
             labelColor: '#414042',
-            desktopFontSize: '1rem',
+            desktopFontSize: '16.8px',
         };
 
         this.options = {
@@ -17,7 +17,11 @@ class SpecificChartOptions {
                 symbolWidth: type === 'line' ? 20 : 12,
                 symbolHeight: type === 'line' ? 3 : 12,
                 margin: 50,
+                itemHoverStyle: {
+                    color: this.constants.labelColor, // Prevents the text from changing color on hover
+                },
                 itemStyle: {
+                    cursor: 'default', // ensures that it does not change to a hand (pointer) on hover.
                     color: this.constants.labelColor,
                     fontSize: this.constants.desktopFontSize,
                     fontWeight: 'normal',

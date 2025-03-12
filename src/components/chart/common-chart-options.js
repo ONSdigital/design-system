@@ -5,8 +5,8 @@ class CommonChartOptions {
             gridLineColor: '#d9d9d9',
             zeroLineColor: '#b3b3b3',
             // Responsive font sizes
-            mobileFontSize: '0.875rem',
-            desktopFontSize: '1rem',
+            mobileFontSize: '14px',
+            desktopFontSize: '16.8px',
         };
 
         this.options = {
@@ -58,6 +58,10 @@ class CommonChartOptions {
                 },
                 title: {
                     align: 'high',
+                    style: {
+                        color: this.constants.axisLabelColor,
+                        fontSize: this.constants.desktopFontSize,
+                    },
                 },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,
@@ -76,7 +80,11 @@ class CommonChartOptions {
                     // disables the legend item hover
                     states: {
                         inactive: {
+                            opacity: 1, // Prevent dimming of other series
                             enabled: false,
+                        },
+                        hover: {
+                            enabled: false, // Disable the hover effect
                         },
                     },
                 },
