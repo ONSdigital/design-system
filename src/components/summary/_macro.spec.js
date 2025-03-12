@@ -196,31 +196,9 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
             itemsList: [
                 {
                     title: 'row item 4',
-                    valueList: [
-                        {
-                            text: 'list item 4',
-                        },
-                    ],
-                    actions: [
-                        {
-                            text: 'Change',
-                            visuallyHiddenText: 'change answer',
-                            url: '#0',
-                        },
-                        {
-                            text: 'Remove',
-                            visuallyHiddenText: 'remove list item',
-                            url: '#0',
-                        },
-                    ],
                 },
                 {
                     title: 'row item 5',
-                    valueList: [
-                        {
-                            text: 'list item 5',
-                        },
-                    ],
                     actions: [
                         {
                             text: 'Change',
@@ -234,6 +212,14 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
                     valueList: [
                         {
                             text: 'list item 6',
+                        },
+                    ],
+                },
+                {
+                    title: 'row item 7',
+                    valueList: [
+                        {
+                            text: 'list item 7',
                         },
                     ],
                     actions: [
@@ -449,6 +435,16 @@ describe('macro: summary', () => {
                 expect($('.ons-summary__values').attr('a')).toBe('aaa');
                 expect($('.ons-summary__values').attr('b')).toBe('bbb');
             });
+
+            it('adds the `ons-summary__column-size--3` class if no `valueList` and action is provided', () => {
+                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_HOUSEHOLD_GROUP));
+
+                expect(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__item-title').classList.contains(
+                        'ons-summary__column-size--3',
+                    ),
+                );
+            });
         });
 
         describe('part: item value', () => {
@@ -472,6 +468,16 @@ describe('macro: summary', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect($('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__values ul').length).toBe(1);
+            });
+
+            it('adds the `ons-summary__column-size--2` class if no `valueList` is provided', () => {
+                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_HOUSEHOLD_GROUP));
+
+                expect(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__values').classList.contains(
+                        'ons-summary__column-size--2',
+                    ),
+                );
             });
         });
 
@@ -542,6 +548,16 @@ describe('macro: summary', () => {
                         'b',
                     ),
                 ).toBe('def');
+            });
+
+            it('adds the `ons-summary__column-size--2` class if no action is provided', () => {
+                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_HOUSEHOLD_GROUP));
+
+                expect(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__actions').classList.contains(
+                        'ons-summary__column-size--2',
+                    ),
+                );
             });
         });
     });

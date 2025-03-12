@@ -38,7 +38,7 @@
 | ---------------------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------- |
 | iconType               | string                 | false    | Adds an icon before the row title, by setting the [icon type](/foundations/icons#icon-type) |
 | iconVisuallyHiddenText | string                 | false    | Visually hidden text in a span under the icon to add more context for screen readers        |
-| title                  | string                 | false    | The title for the row item                                                                  |
+| title                  | string                 | true     | The title for the row item                                                                  |
 | titleAttributes        | object                 | false    | HTML attributes (for example, data attributes) to add to the row title                      |
 | valueList              | Array`<SummaryValue>`  | false    | An array of [value(s)](#summaryvalue) for the row item                                      |
 | actions                | Array`<SummaryAction>` | false    | Settings for the row [action links](#summaryaction)                                         |
