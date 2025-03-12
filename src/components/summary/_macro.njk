@@ -77,7 +77,7 @@
                                         </dt>
                                         {% if item.valueList %}
                                             <dd
-                                                class="ons-summary__values{{ ' ons-summary__values--2' if not item.actions }}"
+                                                class="ons-summary__values{{ ' ons-summary__column-size--2' if not item.actions }}"
                                                 {% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                             >
                                                 {% if item.valueList | length == 1 %}
@@ -104,7 +104,7 @@
                                             </dd>
                                         {% endif %}
                                         {% if item.actions %}
-                                            <dd class="ons-summary__actions">
+                                            <dd class="ons-summary__actions{{ ' ons-summary__column-size--2' if not item.valueList }}">
                                                 {% for action in item.actions %}
                                                     {% if loop.index > 1 %}<span class="ons-summary__spacer"></span>{% endif %}
                                                     <a
