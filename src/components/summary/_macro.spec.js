@@ -290,6 +290,21 @@ const EXAMPLE_SUMMARY_MULTIPLE_GROUPS = {
     ],
 };
 
+const EXAMPLE_SUMMARY_SINGLE_GROUP = {
+    summaries: [
+        {
+            title: 'summary title',
+            groups: [
+                {
+                    id: 'group-id-1',
+                    title: 'group title',
+                    ...EXAMPLE_SUMMARY_HOUSEHOLD_GROUP,
+                },
+            ],
+        },
+    ],
+};
+
 // To address a DAC issue, we've disabled specific axe definition list rules causing test failures.
 // While resolving it would require a significant refactor, the failures are deemed non-critical for accessibility,
 // leading to their removal in this context. [https://github.com/ONSdigital/design-system/issues/3027]
@@ -435,16 +450,6 @@ describe('macro: summary', () => {
                 expect($('.ons-summary__values').attr('a')).toBe('aaa');
                 expect($('.ons-summary__values').attr('b')).toBe('bbb');
             });
-
-            it('adds the `ons-summary__column-size--3` class if no `valueList` and action is provided', () => {
-                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_HOUSEHOLD_GROUP));
-
-                expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__item-title').classList.contains(
-                        'ons-summary__column-size--3',
-                    ),
-                );
-            });
         });
 
         describe('part: item value', () => {
@@ -471,13 +476,13 @@ describe('macro: summary', () => {
             });
 
             it('adds the `ons-summary__column-size--2` class if no `valueList` is provided', () => {
-                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_HOUSEHOLD_GROUP));
+                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_SINGLE_GROUP));
 
                 expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__values').classList.contains(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__values').classList.contains(
                         'ons-summary__column-size--2',
                     ),
-                );
+                ).toBe(true);
             });
         });
 
@@ -551,13 +556,13 @@ describe('macro: summary', () => {
             });
 
             it('adds the `ons-summary__column-size--2` class if no action is provided', () => {
-                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_HOUSEHOLD_GROUP));
+                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_SINGLE_GROUP));
 
                 expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__actions').classList.contains(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions').classList.contains(
                         'ons-summary__column-size--2',
                     ),
-                );
+                ).toBe(true);
             });
         });
     });

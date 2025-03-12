@@ -45,7 +45,7 @@
 
                                     {% for item in row.itemsList %}
                                         <dt
-                                            class="ons-summary__item-title{{ ' ons-summary__column-size--3' if not item.valueList and not item.actions }}"
+                                            class="ons-summary__item-title"
                                             {% if item.titleAttributes %}{% for attribute, value in (item.titleAttributes.items() if item.titleAttributes is mapping and item.titleAttributes.items else item.titleAttributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
                                         >
                                             {% if item.iconType %}

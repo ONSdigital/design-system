@@ -196,10 +196,6 @@ $hub-row-spacing: 1.3rem;
             flex: 10.5 1 66%;
         }
 
-        &__column-size--3 {
-            flex: 0 0 100%;
-        }
-
         &--hub & {
             &__item-title,
             &__values,
