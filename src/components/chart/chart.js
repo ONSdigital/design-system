@@ -45,17 +45,36 @@ class HighchartsBaseChart {
 
     // Utility function to merge two configs together
     mergeConfigs = (baseConfig, newConfig) => {
-        return {
-            ...baseConfig,
-            ...Object.keys(newConfig).reduce((mergedOptions, optionKey) => {
-                if (typeof baseConfig[optionKey] === 'object' && typeof newConfig[optionKey] === 'object') {
-                    mergedOptions[optionKey] = { ...baseConfig[optionKey], ...newConfig[optionKey] };
-                } else {
-                    mergedOptions[optionKey] = newConfig[optionKey];
-                }
-                return mergedOptions;
-            }, {}),
-        };
+        // If newConfig is null/undefined, return baseConfig
+        if (!newConfig) return baseConfig;
+
+        // Create a new object to store the merged result
+        const merged = { ...baseConfig };
+
+        // Iterate through all keys in newConfig
+        Object.keys(newConfig).forEach((key) => {
+            // Get values from both configs for this key
+            const baseValue = merged[key];
+            const newValue = newConfig[key];
+
+            // If both values are objects (and not null), recursively merge them
+            if (
+                baseValue &&
+                newValue &&
+                typeof baseValue === 'object' &&
+                typeof newValue === 'object' &&
+                !Array.isArray(baseValue) &&
+                !Array.isArray(newValue)
+            ) {
+                merged[key] = this.mergeConfigs(baseValue, newValue);
+            } else {
+                // For non-objects and arrays use the new value
+                // If the new value is null/undefined, use the base value
+                merged[key] = newValue ?? baseValue;
+            }
+        });
+
+        return merged;
     };
 
     // Set up options for specific charts and chart types
