@@ -65,6 +65,7 @@ $button-shadow-size: 3px;
     &--header-search:hover & {
         &__inner {
             background: var(--ons-color-night-blue) !important;
+            border-color: var(--ons-color-text-link-hover);
         }
     }
 
@@ -727,6 +728,11 @@ $button-shadow-size: 3px;
 
         border-color: var(--ons-color-text-link-hover);
         background-color: var(--ons-color-branded-tint);
+        .ons-btn__inner {
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
     }
 
     &--search-icon:hover &,
