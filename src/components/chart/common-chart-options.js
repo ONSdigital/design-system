@@ -5,8 +5,8 @@ class CommonChartOptions {
             gridLineColor: '#d9d9d9',
             zeroLineColor: '#b3b3b3',
             // Responsive font sizes
-            mobileFontSize: '14px',
-            desktopFontSize: '16.8px',
+            mobileFontSize: '0.875rem',
+            desktopFontSize: '1.05rem',
         };
 
         this.options = {
