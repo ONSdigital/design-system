@@ -21,7 +21,11 @@ class CommonChartOptions {
                 symbolWidth: 12,
                 symbolHeight: 12,
                 margin: 50,
+                itemHoverStyle: {
+                    color: this.constants.labelColor, // Prevents the text from changing color on hover
+                },
                 itemStyle: {
+                    cursor: 'default', // ensures that it does not change to a hand (pointer) on hover.
                     color: this.constants.labelColor,
                     fontSize: this.constants.desktopFontSize,
                     fontWeight: 'normal',
@@ -111,7 +115,11 @@ class CommonChartOptions {
                     // disables the legend item hover
                     states: {
                         inactive: {
+                            opacity: 1, // Prevent dimming of other series
                             enabled: false,
+                        },
+                        hover: {
+                            enabled: false, // Disable the hover effect
                         },
                     },
                 },

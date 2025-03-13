@@ -29,17 +29,10 @@
 
 | Name   | Type   | Required | Description                                                                               |
 | ------ | ------ | -------- | ----------------------------------------------------------------------------------------- |
-| chart  | object | true     | Defines the [chart's](#chart) overall behavior and appearance.                            |
 | legend | object | false    | Controls the appearance and behavior of the [legend](#legend).                            |
 | yAxis  | object | true     | Defines the vertical axis [y-axis](#y_axis) properties, including labels and title.       |
 | xAxis  | object | true     | Defines the horizontal axis [x-axis](#x_axis) properties, including categories and title. |
 | series | array  | true     | The data [series](#series) to be plotted, including labels and values.                    |
-
-### Chart
-
-| Name | Type   | Required | Description                                              |
-| ---- | ------ | -------- | -------------------------------------------------------- |
-| type | string | true     | The type of chart (e.g., `'line'`, `'bar'`, `'column'`). |
 
 ### Legend
 
@@ -52,22 +45,20 @@
 
 ### Y_Axis
 
-| Name     | Type    | Required | Description                                                           |
-| -------- | ------- | -------- | --------------------------------------------------------------------- |
-| title    | object  | true     | Defines the [title](#title) of the y-axis.                            |
-| reversed | boolean | false    | Sets the axis so that the highest number is closest to the origin.    |
-| labels   | object  | false    | The axis [labels](#labels) show the number or category for each tick. |
+| Name   | Type   | Required | Description                                                           |
+| ------ | ------ | -------- | --------------------------------------------------------------------- |
+| title  | object | true     | Defines the [title](#title) of the y-axis.                            |
+| labels | object | false    | The axis [labels](#labels) show the number or category for each tick. |
 
 ### X_Axis
 
-| Name         | Type    | Required | Description                                                                        |
-| ------------ | ------- | -------- | ---------------------------------------------------------------------------------- |
-| title        | object  | true     | Defines the [title](#title) of the x-axis.                                         |
-| categories   | array   | false    | Labels for each tick mark along the x-axis.                                        |
-| reversed     | boolean | false    | Sets the axis so that the highest number is closest to the origin.                 |
-| type         | string  | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. |
-| labels       | object  | false    | The axis [labels](#labels) show the number or category for each tick.              |
-| tickInterval | number  | false    | The interval of the tick marks in axis units                                       |
+| Name         | Type   | Required | Description                                                                        |
+| ------------ | ------ | -------- | ---------------------------------------------------------------------------------- |
+| title        | object | true     | Defines the [title](#title) of the x-axis.                                         |
+| categories   | array  | false    | Labels for each tick mark along the x-axis.                                        |
+| type         | string | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. |
+| labels       | object | false    | The axis [labels](#labels) show the number or category for each tick.              |
+| tickInterval | number | false    | The interval of the tick marks in axis units                                       |
 
 ### Title
 
