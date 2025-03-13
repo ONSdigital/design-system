@@ -629,7 +629,7 @@ $button-shadow-size: 3px;
 
     &--menu:focus {
         background-color: var(--ons-color-focus) !important;
-        border-color: var(--ons-color-black);
+        border-color: var(--ons-color-black) !important;
     }
 
     &--menu:hover {
@@ -638,6 +638,13 @@ $button-shadow-size: 3px;
 
     &--menu:focus & {
         &__inner {
+            .ons-icon {
+                fill: var(--ons-color-text-link-focus) !important;
+            }
+            .ons-btn__text {
+                color: var(--ons-color-text-link-focus);
+            }
+
             box-shadow: none;
         }
     }
@@ -761,7 +768,7 @@ $button-shadow-size: 3px;
             background: none;
             box-shadow: none;
             .ons-icon {
-                fill: var(--ons-color-text-link-focus);
+                fill: var(--ons-color-text-link-focus) !important;
             }
         }
     }

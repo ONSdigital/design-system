@@ -108,7 +108,9 @@ export default class NavigationToggle {
         if (isMenuOpen && this.toggle == menuBtn) {
             searchBtn.setAttribute('aria-expanded', 'false');
             searchBtn.classList.add('ons-u-vh');
+            searchBtn.setAttribute('tabindex', '-1');
             searchBtnOpen.classList.remove('ons-u-vh');
+            searchBtnOpen.removeAttribute('tabindex');
             searchEl.setAttribute('aria-hidden', 'true');
             searchEl.classList.add('ons-u-d-no');
             searchToggle.classList.remove('active');
