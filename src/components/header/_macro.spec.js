@@ -794,7 +794,6 @@ describe('FOR: Macro: Header', () => {
             faker.renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' });
 
             test('THEN: renders search icon button on small screen', () => {
-                console.log(buttonSpy.occurrences);
                 expect(buttonSpy.occurrences).toContainEqual({
                     iconType: 'search',
                     classes: 'ons-u-fs-s--b ons-js-search-btn-open ons-btn--search-icon',

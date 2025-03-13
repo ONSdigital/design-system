@@ -19,7 +19,7 @@ domready(async () => {
     const openIcon = document.querySelector('.ons-btn--search-icon');
     const closeIcon = document.querySelector('.ons-btn--close');
     const menuEl = document.querySelector('.ons-js-nav-menu');
-    const toggleNavMenuBtn = document.querySelector('.ons-js-toggle-nav-menu');
+    const toggleHeaderMenuBtn = document.querySelector('.ons-js-toggle-nav-menu');
 
     if (toggleNavigationBtn) {
         const NavigationToggle = (await import('./navigation')).default;
@@ -44,10 +44,10 @@ domready(async () => {
         new searchToggle(toggleHeaderSearchBtn, headerSearchEl, headerSearchHideClass, openIcon, closeIcon).registerEvents();
     }
 
-    if (toggleNavMenuBtn) {
+    if (toggleHeaderMenuBtn) {
         const searchToggle = (await import('./navigation')).default;
 
-        new searchToggle(toggleNavMenuBtn, menuEl, headerSearchHideClass).registerEvents();
+        new searchToggle(toggleHeaderMenuBtn, menuEl, headerSearchHideClass).registerEvents();
     }
 
     if (toggleServicesBtn) {

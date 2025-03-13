@@ -94,7 +94,6 @@ export default class NavigationToggle {
     }
 
     toggleMenuAndSearch() {
-        console.log('toggleMenuAndSearch');
         const menuBtn = document.querySelector('.ons-js-toggle-nav-menu');
         const menuEl = document.querySelector('.ons-js-nav-menu');
         const searchToggle = document.querySelector('.ons-js-toggle-header-search');

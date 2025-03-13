@@ -184,17 +184,17 @@
                     {% if params.variants == "basic" %}
                         <div class="ons-grid__col ons-col-auto">
                             {% if params.menuLinks %}
-                                <div class="ons-header__links ons-grid__col ons-u-ml-auto">
+                                <div class="ons-header__links ons-grid__col">
                                     {{
                                         onsButton({
-                                            "text": params.menuLinks.toggleNavButton.text | default("Menu"),
+                                            "text": params.menuLinks.toggleMenuButton.text | default("Menu"),
                                             "classes": "ons-u-fs-s--b ons-js-toggle-nav-menu button-nav",
                                             "type": "button",
                                             "variants": "menu",
                                             "iconType": "chevron",
                                             "iconPosition": "before",
                                             "attributes": {
-                                                "aria-label": params.menuLinks.toggleNavButton.ariaLabel | default("Toggle menu"),
+                                                "aria-label": params.menuLinks.toggleMenuButton.ariaLabel | default("Toggle menu"),
                                                 "aria-controls": params.menuLinks.id,
                                                 "aria-expanded": "false"
                                             }
@@ -203,7 +203,7 @@
                                 </div>
                             {% endif %}
                             {% if params.searchLinks %}
-                                <div class="ons-header__links ons-grid__col ons-u-ml-auto ons-js-toggle-header-search">
+                                <div class="ons-header__links ons-grid__col ons-js-toggle-header-search">
                                     {{
                                         onsButton({
                                             "classes": "ons-u-fs-s--b ons-js-search-btn-open ons-btn--search-icon",

@@ -86,7 +86,7 @@
     margin-top: 0.25rem;
 }
 
-.ons-input__header-search {
+.ons-input--header-search {
     border-radius: 0;
     height: 56px;
     border: 2px solid var(--ons-color-ocean-blue);
@@ -159,7 +159,7 @@
     height: 2.5rem;
 }
 
-.ons-input_header-search-button {
+.ons-input__button--header-search {
     gap: 0;
     height: 100%;
 }
