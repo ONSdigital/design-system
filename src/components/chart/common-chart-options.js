@@ -7,7 +7,6 @@ class CommonChartOptions {
 
         this.options = {
             chart: {
-                type: type,
                 backgroundColor: 'transparent',
                 style: {
                     fontFamily: '"OpenSans", "Helvetica Neue", arial, sans-serif',

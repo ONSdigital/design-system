@@ -21,7 +21,7 @@ class HighchartsBaseChart {
         this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.uuid}]`).textContent);
 
         this.commonChartOptions = new CommonChartOptions();
-        this.specificChartOptions = new SpecificChartOptions(this.theme, this.config);
+        this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
         this.columnChart = new ColumnChart();
