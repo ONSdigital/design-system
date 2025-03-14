@@ -29,10 +29,9 @@ class HighchartsBaseChart {
             this.setCommonChartOptions();
             window.isCommonChartOptionsDefined = true;
         }
-
+        this.hideDataLabels = this.checkHideDataLabels();
         this.setSpecificChartOptions();
         this.setLoadEvent();
-        this.hideDataLabels = this.checkHideDataLabels();
         this.setWindowResizeEvent();
         this.chart = Highcharts.chart(chartNode, this.config);
     }
@@ -94,6 +93,9 @@ class HighchartsBaseChart {
         if (this.chartType === 'bar') {
             // Merge the bar chart options with the existing config
             this.config = this.mergeConfigs(this.config, barChartOptions);
+            if (this.hideDataLabels) {
+                this.barChart.hideDataLabels(this.config);
+            }
         }
         if (this.chartType === 'column') {
             // Merge the column chart options with the existing config

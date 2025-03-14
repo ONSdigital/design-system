@@ -3,7 +3,6 @@ import ChartConstants from './chart-constants';
 class BarChart {
     constructor() {
         this.constants = ChartConstants.constants();
-        //this.hideDataLabels = false;
     }
 
     getBarChartOptions = () => {
