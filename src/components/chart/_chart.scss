@@ -5,25 +5,18 @@
         @extend .ons-u-fs-r--b;
     }
     &__title {
-        font-size: 1.625rem;
-        @include mq('2xs', 464px) {
-            font-size: 1.25rem;
-        }
+        font-size: 1.25rem;
+        line-height: 1.625rem;
     }
 
     &__subtitle {
-        font-size: 1.3rem;
-        @include mq('2xs', 464px) {
-            font-size: 1rem;
-        }
+        font-size: 1rem;
+        line-height: 1.3rem;
     }
 
     &__caption {
-        font-size: 1.2rem;
-        @include mq('2xs', 464px) {
-            font-size: 1rem;
-        }
-
+        font-size: 1rem;
+        line-height: 1.2rem;
         color: var(--ons-color-grey-75);
     }
 }
