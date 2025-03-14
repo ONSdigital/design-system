@@ -17,6 +17,10 @@ describe('Macro: Chart', () => {
                     expect(results).toHaveNoViolations();
                 });
 
+                test('THEN: it renders the subtitle', () => {
+                    expect($('.ons-chart__subtitle').text()).toBe('A sample subtitle');
+                });
+
                 test('THEN: it renders the chart container with the correct data attributes', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('line');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('primary');
@@ -26,7 +30,6 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it includes the Highcharts JSON config', () => {
                     const configScript = $(`script[data-highcharts-config--chart-123]`).html();
-                    expect(configScript).toContain('"type":"line"');
                     expect(configScript).toContain('"text":"X Axis Title"');
                     expect(configScript).toContain('"text":"Y Axis Title"');
                 });
@@ -41,19 +44,32 @@ describe('Macro: Chart', () => {
         describe('GIVEN: Params: Config', () => {
             describe('WHEN: config params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
+                const configScript = $(`script[data-highcharts-config--chart-456]`).html();
 
                 test('THEN: it renders the legend when enabled', () => {
-                    const configScript = $(`script[data-highcharts-config--chart-456]`).html();
                     expect(configScript).toContain('"enabled":true');
                     expect(configScript).toContain('"align":"right"');
                     expect(configScript).toContain('"verticalAlign":"top"');
                     expect(configScript).toContain('"layout":"vertical"');
                 });
 
-                test('THEN: it includes correct xAxis and yAxis titles', () => {
-                    const configScript = $(`script[data-highcharts-config--chart-456]`).html();
+                test('THEN: it includes correct xAxis properties', () => {
                     expect(configScript).toContain('"text":"X Axis Label"');
+                    expect(configScript).toContain('"categories":["A","B","C"]');
+                    expect(configScript).toContain('"tickInterval":12');
+                    expect(configScript).toContain('"type":"linear"');
+                });
+
+                test('THEN: it includes correct yAxis properties', () => {
                     expect(configScript).toContain('"text":"Y Axis Label"');
+                    expect(configScript).toContain('"labels":{"format":"{value:,.f}"}');
+                });
+
+                test('THEN: it includes correct series data', () => {
+                    expect(configScript).toContain('"name":"Category 1"');
+                    expect(configScript).toContain('"data":[5,15,25]');
+                    expect(configScript).toContain('"name":"Category 2"');
+                    expect(configScript).toContain('"data":[10,20,30]');
                 });
             });
         });
