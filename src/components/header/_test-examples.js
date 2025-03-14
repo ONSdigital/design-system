@@ -154,12 +154,13 @@ export const EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST = {
 export const EXAMPLE_HEADER_SEARCH_LINKS = {
     searchLinks: {
         id: 'search-links-id',
-        ariaLabel: 'Nav Search',
+        ariaLabel: 'Header Search',
+        classes: 'custom-class',
         toggleSearchButton: {
             text: 'Search',
             ariaLabel: 'Toggle search',
         },
-        heading: 'Popular Search',
+        heading: 'Header Search',
         itemsList: [
             {
                 url: '#1',

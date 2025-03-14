@@ -346,7 +346,7 @@
 
             {% if params.variants == "basic" and params.searchLinks %}
                 <nav
-                    class="ons-u-d-no ons-js-header-search ons-header-nav-search"
+                    class="ons-u-d-no ons-js-header-search ons-header-nav-search {{ params.searchLinks.classes }}"
                     id="{{ params.searchLinks.id }}"
                     aria-label="{{ params.searchLinks.ariaLabel | default("Search navigation") }}"
                 >
