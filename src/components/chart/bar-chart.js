@@ -49,10 +49,11 @@ class BarChart {
             },
             yAxis: {
                 title: {
-                    // Todo: stop this overriding the other title properties
                     // Override the y Axis title settings for bar charts where the y axis is horizontal
+                    textAlign: 'right',
                     offset: undefined,
                     y: 0,
+                    reserveSpace: true,
                 },
             },
         };
