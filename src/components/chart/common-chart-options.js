@@ -59,6 +59,8 @@ class CommonChartOptions {
                 },
                 title: {
                     align: 'high',
+                    textAlign: 'middle',
+                    reserveSpace: false,
                     offset: 15,
                     rotation: 0,
                     y: -25,

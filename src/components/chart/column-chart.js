@@ -1,5 +1,5 @@
 class ColumnChart {
-    getColumnChartOptions = () => {
+    getColumnChartOptions = (useStackedLayout) => {
         return {
             plotOptions: {
                 column: {
@@ -7,6 +7,9 @@ class ColumnChart {
                     groupPadding: 0,
                     borderRadius: 0,
                     borderWidth: 0,
+                },
+                series: {
+                    stacking: useStackedLayout ? 'normal' : null,
                 },
             },
         };
