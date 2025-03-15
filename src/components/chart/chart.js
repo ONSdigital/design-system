@@ -2,6 +2,7 @@ import CommonChartOptions from './common-chart-options';
 import SpecificChartOptions from './specific-chart-options';
 import LineChartPlotOptions from './line-chart';
 import Highcharts from 'highcharts';
+import 'highcharts/modules/accessibility';
 
 class HighchartsBaseChart {
     static selector() {
