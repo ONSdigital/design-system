@@ -7,7 +7,7 @@
         data-highcharts-theme="{{ params.theme }}"
         data-highcharts-title="{{ params.title }}"
         data-highcharts-uuid="{{ params.uuid }}"
-        {% if params.useStackedLayout %}data-highcharts-use-stacked-layout{% endif %}
+        {% if params.useStackedLayout %}data-highcharts-use-stacked-layout="{{ params.useStackedLayout }}"{% endif %}
         id="{{ params.uuid }}"
     >
         <figure class="ons-chart">

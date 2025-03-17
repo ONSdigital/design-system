@@ -252,6 +252,25 @@ describe('Macro: Chart', () => {
                 });
             });
         });
+
+        describe('GIVEN: Stacked Bar Chart', () => {
+            describe('WHEN: Stacked layout is enabled', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BAR_CHART_PARAMS,
+                        useStackedLayout: true,
+                    }),
+                );
+
+                test('THEN: it includes stacking in the config', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-use-stacked-layout')).toBe('true');
+                });
+
+                test('THEN: it renders a bar chart with stacked series', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('bar');
+                });
+            });
+        });
     });
 
     describe('FOR: Column Chart', () => {
@@ -366,6 +385,25 @@ describe('Macro: Chart', () => {
                     expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
                     expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
                     expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
+                });
+            });
+        });
+
+        describe('GIVEN: Stacked Column Chart', () => {
+            describe('WHEN: Stacked layout is enabled', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_COLUMN_CHART_PARAMS,
+                        useStackedLayout: true,
+                    }),
+                );
+
+                test('THEN: it includes stacking in the config', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-use-stacked-layout')).toBe('true');
+                });
+
+                test('THEN: it renders a column chart with stacked series', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('column');
                 });
             });
         });
