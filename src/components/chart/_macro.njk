@@ -1,6 +1,8 @@
 {% from "components/list/_macro.njk" import onsList %}
 
 {% macro onsChart(params) %}
+    {% set supportedChartTypes = ['line', 'bar'] %}
+
     <div
         data-highcharts-base-chart
         data-highcharts-type="{{ params.chartType }}"
@@ -9,17 +11,19 @@
         data-highcharts-uuid="{{ params.uuid }}"
         id="{{ params.uuid }}"
     >
-        <figure class="ons-chart">
-            <h3 class="ons-chart__title">{{ params.title }}</h3>
-            <h4 class="ons-chart__subtitle">{{ params.subtitle }}</h4>
-            {% if params.description %}
-                <h5 class="ons-u-vh">{{ params.description }}</h5>
-            {% endif %}
-            <div data-highcharts-chart></div>
-            {% if params.caption %}
-                <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
-            {% endif %}
-        </figure>
+        {% if params.chartType in supportedChartTypes %}
+            <figure class="ons-chart">
+                <h3 class="ons-chart__title">{{ params.title }}</h3>
+                <h4 class="ons-chart__subtitle">{{ params.subtitle }}</h4>
+                {% if params.description %}
+                    <h5 class="ons-u-vh">{{ params.description }}</h5>
+                {% endif %}
+                <div data-highcharts-chart></div>
+                {% if params.caption %}
+                    <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
+                {% endif %}
+            </figure>
+        {% endif %}
 
         {% if params.download.title and params.download.itemsList | length > 0 %}
             <h6 class="ons-chart__download-title">{{ params.download.title }}</h6>
