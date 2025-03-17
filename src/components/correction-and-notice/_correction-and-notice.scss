@@ -1,0 +1,113 @@
+.ons-correction-notice {
+    background-color: var(--ons-color-ocean-blue);
+    padding: 1rem 2rem;
+    &--initialised & {
+        &__content {
+            display: none;
+        }
+    }
+
+    &--open {
+        .ons-banner__details {
+            .ons-icon {
+                transform: rotate(270deg);
+            }
+        }
+        .ons-banner__details-heading {
+            background-color: var(--ons-color-focus);
+            box-shadow:
+                0 0 var(--ons-color-focus),
+                0 5px var(--ons-color-text-link-focus);
+            color: var(--ons-color-text-link-focus);
+        }
+        .ons-banner__details-title {
+            text-decoration: none;
+        }
+    }
+}
+
+.ons-correction-notice.ons-correction-notice--initialised ~ .ons-banner-details-content {
+    display: none;
+}
+
+.ons-correction-notice.ons-correction-notice--open ~ .ons-banner-details-content {
+    display: block;
+    background-color: var(--ons-color-branded-tint);
+    width: 100%;
+}
+
+.ons-banner {
+    display: flex;
+    &__title {
+        color: var(--ons-color-white);
+    }
+    &__icon {
+        background: var(--ons-color-white);
+        border-radius: 50%;
+        color: var(--ons-color-ocean-blue);
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 2rem;
+        height: 2rem;
+        width: 2rem;
+        text-align: center;
+    }
+
+    &__details-heading {
+        color: var(--ons-color-white);
+        cursor: pointer;
+        display: flex;
+        pointer-events: initial;
+        width: fit-content;
+        .ons-icon {
+            width: 1rem;
+            height: 1rem;
+            transform: rotate(90deg);
+        }
+    }
+
+    &__details-title {
+        text-decoration: underline solid var(--ons-color-white) 2px;
+        margin: 0;
+    }
+}
+
+.ons-banner-details-content {
+    background-color: var(--ons-color-branded-tint);
+    width: 100%;
+    padding-bottom: 2.5rem;
+    padding-top: 2rem;
+
+    &__items {
+        list-style: none;
+    }
+
+    &__item {
+        @include mq(m) {
+            align-items: flex-start;
+            display: flex;
+            margin-left: -25px;
+        }
+
+        margin-left: 10px;
+        border-bottom: 1px solid var(--ons-color-borders-light);
+        margin-bottom: 1.5rem;
+        &:last-of-type {
+            border-bottom: 0;
+        }
+
+        &-heading {
+            margin-right: 5rem;
+            margin-bottom: 2rem;
+        }
+
+        &-title {
+            margin: 0;
+        }
+
+        &-date {
+            display: block;
+            width: 265px;
+        }
+    }
+}

@@ -7,8 +7,14 @@ export default class Details {
         // Elements
         this.details = detailsElement;
         this.detailsHeader = this.details.querySelector('.ons-js-details-heading');
-        this.content = this.details.querySelector('.ons-js-details-content');
-
+        this.bannerContent = document.querySelector('.ons-js-banner-details-content');
+        this.correctionNotice = document.querySelector('.ons-correction-notice');
+        if (this.bannerContent) {
+            this.content = this.bannerContent;
+            this.bannerTitle = this.details.querySelector('.ons-banner__details-title');
+        } else {
+            this.content = this.details.querySelector('.ons-js-details-content');
+        }
         // Initialise
         const detailsId = detailsElement.getAttribute('id');
 
@@ -25,7 +31,12 @@ export default class Details {
 
         this.detailsHeader.addEventListener('click', this.toggle.bind(this));
         this.detailsHeader.addEventListener('keydown', this.keyboardInteraction.bind(this));
-        this.details.classList.add('ons-details--initialised');
+        if (this.bannerContent) {
+            this.correctionNotice.classList.add('ons-correction-notice--initialised');
+            this.bannerTitle.textContent = 'Show detail';
+        } else {
+            this.details.classList.add('ons-details--initialised');
+        }
     }
 
     toggle(event) {
@@ -38,10 +49,16 @@ export default class Details {
             const action = open ? 'Open' : 'Close';
             const cls = open ? 'add' : 'remove';
             const openAttribute = open ? 'set' : 'remove';
+            const setText = open ? 'Close detail' : 'Show detail';
 
             this.isOpen = open;
             this.details[`${openAttribute}Attribute`]('open', '');
-            this.details.classList[cls]('ons-details--open');
+            if (this.bannerContent) {
+                this.correctionNotice.classList[cls]('ons-correction-notice--open');
+                this.bannerTitle.textContent = setText;
+            } else {
+                this.details.classList[cls]('ons-details--open');
+            }
             this.detailsHeader.setAttribute('aria-expanded', open);
             this.content.setAttribute('aria-hidden', !open);
             this.detailsHeader.setAttribute('data-ga-action', `${action} panel`);

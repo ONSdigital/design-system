@@ -1,0 +1,47 @@
+{% macro onsCorrectionAndNotice(params) %}
+    <div class="ons-correction-notice">
+        <div class="ons-container">
+            <div class="ons-banner">
+                <span class="ons-banner__icon ons-u-mr-2xs" aria-hidden="true">i</span>
+                <div class="ons-banner__body">
+                    <h3 class="ons-banner__title ons-u-mb-2xs">Correction and Notice</h3>
+                    <div id="{{ params.id }}" class="ons-banner__details ons-js-details">
+                        <div class="ons-banner__details-heading ons-js-details-heading">
+                            <p class="ons-banner__details-title ons-u-mr-2xs ons-u-fs-r">Show detail</p>
+                            <span class="ons-banner__details-icon">
+                                {% from "components/icon/_macro.njk" import onsIcon %}
+                                {{-
+                                    onsIcon({
+                                        "iconType": "chevron"
+                                    })
+                                -}}</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ons-banner-details-content ons-js-banner-details-content">
+        <div class="ons-container">
+            <ul class="ons-banner-details-content__items">
+                {% for item in params.content %}
+                    <li class="ons-banner-details-content__item">
+                        <div class="ons-banner-details-content__item-heading">
+                            <p class="ons-banner-details-content__item-title ons-u-fs-r--b">{{ item.title }}</p>
+                            <time class="ons-banner-details-content__item-date" datetime="{{ item.date.iso }}">{{ item.date.short }}</time>
+                        </div>
+                        <div class="ons-banner-details-content__item-description">
+                            <div class="ons-banner-details-content__item-description-text">{{ item.description | safe }}</div>
+                            {% if item.title == 'Correction' %}
+                                <div class="ons-correction-notice__item-description-link ons-u-mb-xl">
+                                    <a class="ons-correction-notices__item-url" href="{{ item.link.url }}">{{ item.link.text }}</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endmacro %}

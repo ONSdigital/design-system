@@ -1,0 +1,30 @@
+{% from "components/correction-and-notice/_macro.njk" import onsCorrectionAndNotice %}
+{{
+    onsCorrectionAndNotice({
+        "id": "details-example",
+        "content": [
+            {
+                "title":'Correction',
+                "date": {
+                    "iso": '2025-01-22T16:30Z',
+                    "short": '22nd Janauary 2025,4:30PM'
+                },
+                "description": '<p>The Non-Financial Business Economy publication uses estimates from the Annual Business Survey (ABS). A weighting error means these data have now been revised, with the overall impact being minimal.</p>
+                                <p>ONS apologises for any inconvenience caused.</p>',
+                "link":{
+                  "text": 'View superceded Version',
+                  "url": '#0'
+                }
+            },
+            {
+                "title":'Notice',
+                 "date": {
+                        "iso": '2025-01-22',
+                        "short": '22nd Janauary 2025'
+                    },
+                "description": '<p>The Non-Financial Business Economy publication uses estimates from the Annual Business Survey (ABS). A weighting error means these data have now been revised, with the overall impact being minimal.</p>
+                                <p>ONS apologises for any inconvenience caused.</p>'
+            }
+        ]
+    })
+}}
