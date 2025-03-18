@@ -786,14 +786,12 @@ describe('FOR: Macro: Header', () => {
         });
     });
     describe('GIVEN: Params: searchLinks', () => {
-        describe('WHEN: searchLinks are provided with a toggle search button', () => {
-            //const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
-
+        describe('WHEN: searchLinks are provided', () => {
             const faker = templateFaker();
             const buttonSpy = faker.spy('button', { suppressOutput: true });
             faker.renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' });
 
-            test('THEN: renders search icon button on small screen', () => {
+            test('THEN: renders search icon button', () => {
                 expect(buttonSpy.occurrences).toContainEqual({
                     iconType: 'search',
                     classes: 'ons-u-fs-s--b ons-js-search-btn-open ons-btn--search-icon',
@@ -806,22 +804,6 @@ describe('FOR: Macro: Header', () => {
                     },
                 });
             });
-
-            // test('THEN: renders search input form when clicked', () => {
-            //     document.querySelector('.ons-header-search-button')?.click();
-
-            //     const $searchNav = $('.ons-header-nav-search');
-            //     const $searchInput = $('.ons-header-nav-search__input');
-
-            //     expect($searchNav.hasClass('ons-u-d-no')).toBe(false);
-            //     expect($searchInput.hasClass('ons-u-d-no')).toBe(false);
-            // });
-
-            // test('THEN: renders the search field with full width', () => {
-            //     const $searchInput = $('.ons-header-nav-search__input .ons-input');
-
-            //     expect($searchInput.hasClass('ons-input--w-full')).toBe(true);
-            // });
         });
 
         describe('WHEN: itemsList are provided in searchLinks', () => {
