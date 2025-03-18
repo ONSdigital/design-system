@@ -16,9 +16,9 @@ class HighchartsBaseChart {
         this.title = this.node.dataset.highchartsTitle;
         const chartNode = this.node.querySelector('[data-highcharts-chart]');
 
-        this.uuid = this.node.dataset.highchartsUuid;
+        this.id = this.node.dataset.highchartsId;
 
-        this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.uuid}]`).textContent);
+        this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.id}]`).textContent);
 
         this.commonChartOptions = new CommonChartOptions();
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType);

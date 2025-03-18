@@ -8,8 +8,8 @@
         data-highcharts-type="{{ params.chartType }}"
         data-highcharts-theme="{{ params.theme }}"
         data-highcharts-title="{{ params.title }}"
-        data-highcharts-uuid="{{ params.uuid }}"
-        id="{{ params.uuid }}"
+        data-highcharts-id="{{ params.id }}"
+        id="{{ params.id }}"
     >
         {% if params.chartType in supportedChartTypes %}
             <figure class="ons-chart">
@@ -40,7 +40,7 @@
                 set series = series.concat({
                     "name": item.name if item.name else '',
                     "data": item.data if item.data else [],
-                    "markers":{
+                    "marker":{
                         enabled: item.markers if item.markers else false
                     },
                     "tooltip": {
@@ -78,7 +78,7 @@
 
         <!-- Set scripts to pass the config values as json to the javascript -->
         <!-- prettier-ignore-start -->
-        <script type="application/json" data-highcharts-config--{{ params.uuid }}>
+        <script type="application/json" data-highcharts-config--{{ params.id }}>
             {{ config | dump | safe }}
         </script>
         <!-- prettier-ignore-end -->

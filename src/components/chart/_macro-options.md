@@ -4,7 +4,7 @@
 | theme       | string  | true     | The theme to apply to the chart. Either `primary` or `alternate`.       |
 | title       | string  | true     | The main title of the chart.                                            |
 | subtitle    | string  | true     | A subtitle that appears under the main title.                           |
-| uuid        | string  | true     | A unique identifier for the chart instance.                             |
+| id          | string  | true     | A unique identifier for the chart instance.                             |
 | caption     | string  | false    | A caption providing additional context for the chart.                   |
 | description | string  | false    | A textual description of the chart for screen readers.                  |
 | download    | object  | false    | Object for (download)[#download] options.                               |
@@ -60,4 +60,4 @@
 | data          | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.  |
 | dataLabels    | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`.                 |
 | tooltipSuffix | string  | false    | A string to append to each tooltip when hovering over data points.                   |
-| markers       | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. |
+| marker        | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. |

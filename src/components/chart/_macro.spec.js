@@ -25,7 +25,7 @@ describe('Macro: Chart', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('line');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('primary');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-title')).toBe('Example Line Chart');
-                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-uuid')).toBe('chart-123');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('chart-123');
                 });
 
                 test('THEN: it includes the Highcharts JSON config', () => {
