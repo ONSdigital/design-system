@@ -173,7 +173,6 @@ export const EXAMPLE_HEADER_SEARCH_LINKS = {
             {
                 url: '#3',
                 text: 'Popular Search 3',
-                external: true,
             },
         ],
     },
