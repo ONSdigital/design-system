@@ -126,7 +126,7 @@ class HighchartsBaseChart {
                 }
             }
             if (this.chartType === 'column') {
-                this.columnChart.updatePointPadding(this.config, currentChart);
+                this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
             }
             currentChart.redraw(false);
         };
@@ -146,7 +146,7 @@ class HighchartsBaseChart {
                     }
                     // Update the point padding for column charts when the window is resized
                     if (this.chartType === 'column') {
-                        this.columnChart.updatePointPadding(this.config, currentChart);
+                        this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
                     }
                 }, 100);
             });

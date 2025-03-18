@@ -15,29 +15,31 @@ class ColumnChart {
         };
     };
 
-    // Set the spacing between each bar to be 10px (a point padding that equates to 5px on each side)
-    // For charts with fewer than 5 categories, we use a wider point padding equivalent to 7px (14px gap between bars)
+    // Set the spacing between each bar to be 2px (a point padding that equates to 1px on each side)
+    // For charts with fewer than 5 categories, we use a wider point padding equivalent to 5px (10px gap between bars)
     // For cluster charts we use 0 for the point padding and a group padding equivalent to 7px (14px gap between bars)
-    updatePointPadding = (config, currentChart) => {
+    updatePointPadding = (config, currentChart, stackedLayout) => {
         const numberOfCategories = config.xAxis.categories.length;
         const numberOfSeries = currentChart.series.length; // Get number of bar series
         const chartWidth = currentChart.plotBox.width;
-        const widthOfEachColumn = chartWidth / numberOfCategories;
+        let unitWidth = chartWidth / numberOfCategories;
+
         // Work out the poing padding decimal value
         let pointPadding = 0;
         let groupPadding = 0;
-        // non-clustered charts
-        if (numberOfSeries == 1) {
+        // non-clustered charts or stacked charts
+        if (numberOfSeries === 1 || stackedLayout === true) {
             if (numberOfCategories > 5) {
-                pointPadding = 5 / widthOfEachColumn;
+                pointPadding = 1 / unitWidth;
             } else {
-                pointPadding = 7 / widthOfEachColumn;
+                pointPadding = 5 / unitWidth;
             }
         } else {
             // clustered charts
-            groupPadding = 7 / widthOfEachColumn;
+            groupPadding = 7 / unitWidth;
         }
-        // update the point padding
+
+        // update the point width and padding
         currentChart.series.forEach((series) => {
             series.update({
                 pointPadding: pointPadding,
