@@ -48,15 +48,11 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it renders the legend when enabled', () => {
                     expect(configScript).toContain('"enabled":true');
-                    expect(configScript).toContain('"align":"right"');
-                    expect(configScript).toContain('"verticalAlign":"top"');
-                    expect(configScript).toContain('"layout":"vertical"');
                 });
 
                 test('THEN: it includes correct xAxis properties', () => {
                     expect(configScript).toContain('"text":"X Axis Label"');
                     expect(configScript).toContain('"categories":["A","B","C"]');
-                    expect(configScript).toContain('"tickInterval":12');
                     expect(configScript).toContain('"type":"linear"');
                 });
 

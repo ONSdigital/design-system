@@ -51,7 +51,9 @@
         {% endfor %}
         {%
             set config = {
-                "legend": params.legend,
+                "legend": {
+                    "enabled" : params.legend
+                },
                 "yAxis": {
                     "title": {
                         "text": params.yAxis.title
