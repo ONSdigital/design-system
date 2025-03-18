@@ -35,12 +35,9 @@
 
 ### Legend
 
-| Name          | Type    | Required | Description                                                     |
-| ------------- | ------- | -------- | --------------------------------------------------------------- |
-| enabled       | boolean | false    | Whether the legend is displayed. Defaults to `true`.            |
-| align         | string  | false    | Horizontal alignment of the legend (`left`, `center`, `right`). |
-| verticalAlign | string  | false    | Vertical alignment of the legend (`top`, `middle`, `bottom`).   |
-| layout        | string  | false    | Legend layout (`horizontal` or `vertical`).                     |
+| Name    | Type    | Required | Description                                          |
+| ------- | ------- | -------- | ---------------------------------------------------- |
+| enabled | boolean | false    | Whether the legend is displayed. Defaults to `true`. |
 
 ### Y_Axis
 
@@ -51,13 +48,12 @@
 
 ### X_Axis
 
-| Name         | Type   | Required | Description                                                                        |
-| ------------ | ------ | -------- | ---------------------------------------------------------------------------------- |
-| title        | object | true     | Defines the [title](#title) of the x-axis.                                         |
-| categories   | array  | false    | Labels for each tick mark along the x-axis.                                        |
-| type         | string | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. |
-| labels       | object | false    | The axis [labels](#labels) show the number or category for each tick.              |
-| tickInterval | number | false    | The interval of the tick marks in axis units                                       |
+| Name       | Type   | Required | Description                                                                        |
+| ---------- | ------ | -------- | ---------------------------------------------------------------------------------- |
+| title      | object | true     | Defines the [title](#title) of the x-axis.                                         |
+| categories | array  | false    | Labels for each tick mark along the x-axis.                                        |
+| type       | string | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. |
+| labels     | object | false    | The axis [labels](#labels) show the number or category for each tick.              |
 
 ### Title
 
@@ -79,12 +75,19 @@
 | data       | array  | true     | The data values for the series. Each value corresponds to a category on the x-axis.         |
 | dataLabels | object | false    | Configuration options for displaying labels on the data points.                             |
 | tooltip    | object | false    | Customization options for the (tooltip)[#tooltip] displayed when hovering over data points. |
+| markers    | object | false    | Configuration options for displaying markers on the data points.                            |
 
 ### DataLabel
 
 | Name    | Type    | Required | Description                                              |
 | ------- | ------- | -------- | -------------------------------------------------------- |
 | enabled | boolean | false    | Whether the DataLabel is displayed. Defaults to `false`. |
+
+### Marker
+
+| Name    | Type    | Required | Description                                           |
+| ------- | ------- | -------- | ----------------------------------------------------- |
+| enabled | boolean | false    | Whether the Marker is displayed. Defaults to `false`. |
 
 ### Tooltip
 
