@@ -34,11 +34,50 @@
                 })
             }}
         {% endif %}
+        {% set series = [] %}
+        {% for item in params.series %}
+            {%
+                set series = series.concat({
+                    "name": item.name if item.name else '',
+                    "data": item.data if item.data else [],
+                    "markers":{
+                        enabled: item.markers if item.markers else false
+                    },
+                    "tooltip": {
+                        "valueSuffix": item.tooltip.valueSuffix if item.tooltip.valueSuffix else ''
+                    }
+                })
+            %}
+        {% endfor %}
+        {%
+            set config = {
+                "legend": params.legend,
+                "yAxis": {
+                    "title": {
+                        "text": params.yAxis.title
+                    },
+                    "labels": {
+                        "format": params.yAxis.labelFormat
+                    }
+                },
+                "xAxis": {
+                    "title": {
+                        "text": params.xAxis.title
+                    },
+                    "categories": params.xAxis.categories,
+                    "type": params.xAxis.type,
+                    "labels": {
+                        "format": params.xAxis.labelFormat
+                    }
+                },
+                "series": series
+            }
+        %}
 
         <!-- Set scripts to pass the config values as json to the javascript -->
         <!-- prettier-ignore-start -->
         <script type="application/json" data-highcharts-config--{{ params.uuid }}>
-            {{ params.config | dump | safe }}
+            {{ config | dump | safe }}
         </script>
         <!-- prettier-ignore-end -->
     </div>
