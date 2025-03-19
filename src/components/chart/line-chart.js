@@ -8,9 +8,6 @@ class LineChartPlotOptions {
             line: {
                 lineWidth: 3,
                 linecap: 'round',
-                marker: {
-                    enabled: false,
-                },
             },
         };
     }

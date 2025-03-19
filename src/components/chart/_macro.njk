@@ -40,8 +40,8 @@
                 set series = series.concat({
                     "name": item.name if item.name else '',
                     "data": item.data if item.data else [],
-                    "marker":{
-                        enabled: item.markers if item.markers else false
+                    "marker": {
+                        "enabled": item.marker if item.marker else false
                     },
                     "tooltip": {
                         "valueSuffix": item.tooltip.valueSuffix if item.tooltip.valueSuffix else ''

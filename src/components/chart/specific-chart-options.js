@@ -53,18 +53,37 @@ class SpecificChartOptions {
 
                         if (type === 'line') {
                             currentChart.series.forEach((series) => {
-                                const points = series.points;
-                                if (points && points.length > 0) {
-                                    // Show only the last point marker
-                                    const lastPoint = points[points.length - 1];
-                                    lastPoint.update(
+                                if (series.options.marker.enabled === 'true') {
+                                    series.update(
                                         {
                                             marker: {
-                                                enabled: true,
-                                                radius: 4,
-                                                symbol: 'circle',
-                                                fillColor: series.color,
-                                                lineWidth: 0,
+                                                enabled: false,
+                                            },
+                                        },
+                                        false,
+                                    );
+                                    const points = series.points;
+                                    if (points && points.length > 0) {
+                                        // Show only the last point marker
+                                        const lastPoint = points[points.length - 1];
+                                        lastPoint.update(
+                                            {
+                                                marker: {
+                                                    enabled: true,
+                                                    radius: 4,
+                                                    symbol: 'circle',
+                                                    fillColor: series.color,
+                                                    lineWidth: 0,
+                                                },
+                                            },
+                                            false,
+                                        );
+                                    }
+                                } else {
+                                    series.update(
+                                        {
+                                            marker: {
+                                                enabled: false,
                                             },
                                         },
                                         false,
