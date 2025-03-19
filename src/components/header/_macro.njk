@@ -203,29 +203,17 @@
                                 </div>
                             {% endif %}
                             {% if params.searchLinks %}
-                                <div class="ons-header__links ons-grid__col ons-js-toggle-header-search">
+                                <div class="ons-header__links ons-grid__col">
                                     {{
                                         onsButton({
-                                            "classes": "ons-u-fs-s--b ons-js-search-btn-open ons-btn--search-icon",
+                                            "classes": "ons-u-fs-s--b ons-js-toggle-header-search ons-btn--search-icon",
                                             "type": "button",
                                             "variants": "search",
                                             "iconType": "search",
                                             "attributes": {
-                                                "aria-label": params.searchLinks.toggleSearchButton.ariaLabel | default("Open search"),
+                                                "aria-label": params.searchLinks.toggleSearchButton.ariaLabel | default("Toggle search"),
                                                 "aria-controls": params.searchLinks.id,
                                                 "aria-expanded": "false"
-                                            }
-                                        })
-                                    }}
-                                    {{
-                                        onsButton({
-                                            "classes": "ons-u-fs-s--b ons-u-vh ons-js-search-btn-close",
-                                            "type": "button",
-                                            "variants": "close",
-                                            "iconType": "close",
-                                            "attributes": {
-                                                "aria-label": params.searchLinks.toggleSearchButton.ariaLabel | default("Close search"),
-                                                "aria-controls": params.searchLinks.id
                                             }
                                         })
                                     }}

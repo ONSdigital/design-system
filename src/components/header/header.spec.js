@@ -9,7 +9,7 @@ describe('script: header', () => {
 
     describe('WHEN: the search button is clicked', () => {
         beforeEach(async () => {
-            await page.click('.ons-btn--search');
+            await page.click('.ons-js-toggle-header-search');
         });
 
         it('THEN: the search input form is displayed', async () => {
@@ -18,18 +18,12 @@ describe('script: header', () => {
             expect(isSearchNavVisible).toBe(true);
         });
 
-        it('THEN: the search button is hidden', async () => {
-            const isSearchButtonHidden = await page.$eval('.ons-btn--search', (el) => el.classList.contains('ons-u-vh'));
-            expect(isSearchButtonHidden).toBe(true);
-        });
-
-        it('THEN: the close button appears and is visible', async () => {
-            await page.waitForSelector('.ons-btn--close');
-            const attributes = await getNodeAttributes(page, '.ons-btn--close');
+        it('THEN: the button switches to the close icon', async () => {
+            const attributes = await getNodeAttributes(page, '.ons-js-toggle-header-search');
             expect(attributes['aria-expanded']).toBe('true');
 
-            const isCloseBtnVisible = await page.$eval('.ons-btn--close', (el) => !el.classList.contains('ons-u-vh'));
-            expect(isCloseBtnVisible).toBe(true);
+            const hasCloseIcon = await page.$eval('.ons-js-toggle-header-search svg', (el) => el.classList.contains('ons-icon--close'));
+            expect(hasCloseIcon).toBe(true);
         });
 
         it('THEN: the search field has full width', async () => {
@@ -47,17 +41,22 @@ describe('script: header', () => {
             expect(isSearchNavHidden).toBe(true);
         });
 
-        it('THEN: the close button is hidden', async () => {
-            const isCloseButtonHidden = await page.$eval('.ons-btn--close', (el) => el.classList.contains('ons-u-vh'));
-            expect(isCloseButtonHidden).toBe(true);
+        it('THEN: the button displays the search icon', async () => {
+            const hasSearchIcon = await page.$eval('.ons-js-toggle-header-search svg', (el) => el.classList.contains('ons-icon--search'));
+            expect(hasSearchIcon).toBe(true);
+        });
+
+        it('THEN: the button has aria-expanded="false"', async () => {
+            const attributes = await getNodeAttributes(page, '.ons-js-toggle-header-search');
+            expect(attributes['aria-expanded']).toBe('false');
         });
     });
 
-    describe('WHEN: the close button is clicked', () => {
+    describe('WHEN: the search button is clicked again (to close)', () => {
         beforeEach(async () => {
-            await page.click('.ons-btn--search');
-            await page.waitForSelector('.ons-btn--close');
-            await page.click('.ons-btn--close');
+            await page.click('.ons-js-toggle-header-search'); // Open
+            await page.waitForSelector('.ons-header-nav-search');
+            await page.click('.ons-js-toggle-header-search'); // Close
         });
 
         it('THEN: the search form is hidden', async () => {
@@ -65,14 +64,14 @@ describe('script: header', () => {
             expect(isSearchNavHidden).toBe(true);
         });
 
-        it('THEN: the close button is hidden', async () => {
-            const isCloseButtonHidden = await page.$eval('.ons-btn--close', (el) => el.classList.contains('ons-u-vh'));
-            expect(isCloseButtonHidden).toBe(true);
+        it('THEN: the button switches back to the search icon', async () => {
+            const hasSearchIcon = await page.$eval('.ons-js-toggle-header-search svg', (el) => el.classList.contains('ons-icon--search'));
+            expect(hasSearchIcon).toBe(true);
         });
 
-        it('THEN: the search button is visible again', async () => {
-            const isSearchButtonVisible = await page.$eval('.ons-btn--search', (el) => !el.classList.contains('ons-u-vh'));
-            expect(isSearchButtonVisible).toBe(true);
+        it('THEN: the button has aria-expanded="false"', async () => {
+            const attributes = await getNodeAttributes(page, '.ons-js-toggle-header-search');
+            expect(attributes['aria-expanded']).toBe('false');
         });
     });
 

@@ -16,8 +16,6 @@ domready(async () => {
     const toggleHeaderSearchBtn = document.querySelector('.ons-js-toggle-header-search');
     const headerSearchHideClass = 'ons-u-d-no';
     const headerSearchEl = document.querySelector('.ons-js-header-search');
-    const openIcon = document.querySelector('.ons-btn--search-icon');
-    const closeIcon = document.querySelector('.ons-btn--close');
     const menuEl = document.querySelector('.ons-js-nav-menu');
     const toggleHeaderMenuBtn = document.querySelector('.ons-js-toggle-nav-menu');
 
@@ -41,7 +39,7 @@ domready(async () => {
     if (toggleHeaderSearchBtn) {
         const searchToggle = (await import('./navigation')).default;
 
-        new searchToggle(toggleHeaderSearchBtn, headerSearchEl, headerSearchHideClass, openIcon, closeIcon).registerEvents();
+        new searchToggle(toggleHeaderSearchBtn, headerSearchEl, headerSearchHideClass).registerEvents();
     }
 
     if (toggleHeaderMenuBtn) {
