@@ -1,17 +1,18 @@
-| Name        | Type    | Required | Description                                                             |
-| ----------- | ------- | -------- | ----------------------------------------------------------------------- |
-| chartType   | string  | true     | The type of chart to render. Supported types include: 'line' and 'bar'. |
-| theme       | string  | true     | The theme to apply to the chart. Either `primary` or `alternate`.       |
-| title       | string  | true     | The main title of the chart.                                            |
-| subtitle    | string  | true     | A subtitle that appears under the main title.                           |
-| id          | string  | true     | A unique identifier for the chart instance.                             |
-| caption     | string  | false    | A caption providing additional context for the chart.                   |
-| description | string  | false    | A textual description of the chart for screen readers.                  |
-| download    | object  | false    | Object for (download)[#download] options.                               |
-| legend      | boolean | false    | Whether the legend is displayed. Defaults to `true`.                    |
-| yAxis       | object  | true     | Defines the vertical axis [y-axis](#y_axis) configuration parameters    |
-| xAxis       | object  | true     | Defines the horizontal axis [x-axis](#x_axis) configuration parameters  |
-| series      | array   | true     | The data [series](#series) to be plotted, including labels and values.  |
+| Name         | Type    | Required | Description                                                                                                                                |
+| ------------ | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| chartType    | string  | true     | The type of chart to render. Supported types include: 'line' and 'bar'.                                                                    |
+| theme        | string  | true     | The theme to apply to the chart. Either `primary` or `alternate`.                                                                          |
+| headingLevel | number  | false    | Number used to determine the heading level of the title. Use to ensure the title has a correct semantic order on the page. Defaults to `2` |
+| title        | string  | true     | The main title of the chart.                                                                                                               |
+| subtitle     | string  | true     | A subtitle that appears under the main title.                                                                                              |
+| id           | string  | true     | A unique identifier for the chart instance.                                                                                                |
+| caption      | string  | false    | A caption providing additional context for the chart.                                                                                      |
+| description  | string  | false    | A textual description of the chart for screen readers.                                                                                     |
+| download     | object  | false    | Object for (download)[#download] options.                                                                                                  |
+| legend       | boolean | false    | Whether the legend is displayed. Defaults to `true`.                                                                                       |
+| yAxis        | object  | true     | Defines the vertical axis [y-axis](#y_axis) configuration parameters                                                                       |
+| xAxis        | object  | true     | Defines the horizontal axis [x-axis](#x_axis) configuration parameters                                                                     |
+| series       | array   | true     | The data [series](#series) to be plotted, including labels and values.                                                                     |
 
 ### Download
 
@@ -54,10 +55,9 @@
 
 ### Series
 
-| Name          | Type    | Required | Description                                                                          |
-| ------------- | ------- | -------- | ------------------------------------------------------------------------------------ |
-| name          | string  | true     | The name of the series.                                                              |
-| data          | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.  |
-| dataLabels    | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`.                 |
-| tooltipSuffix | string  | false    | A string to append to each tooltip when hovering over data points.                   |
-| marker        | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. |
+| Name       | Type    | Required | Description                                                                          |
+| ---------- | ------- | -------- | ------------------------------------------------------------------------------------ |
+| name       | string  | true     | The name of the series.                                                              |
+| data       | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.  |
+| dataLabels | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`.                 |
+| marker     | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. |

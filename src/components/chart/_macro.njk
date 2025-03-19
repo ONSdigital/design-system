@@ -2,6 +2,13 @@
 
 {% macro onsChart(params) %}
     {% set supportedChartTypes = ['line', 'bar'] %}
+    {% set headingLevel = params.headingLevel | default(2) %}
+    {% set openingTitleTag = "<h" ~ headingLevel %}
+    {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
+    {% set openingSubtitleTag = "<h" ~  (headingLevel + 1) %}
+    {% set closingSubtitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
+    {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 2) %}
+    {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
 
     <div
         data-highcharts-base-chart
@@ -13,10 +20,11 @@
     >
         {% if params.chartType in supportedChartTypes %}
             <figure class="ons-chart">
-                <h3 class="ons-chart__title">{{ params.title }}</h3>
-                <h4 class="ons-chart__subtitle">{{ params.subtitle }}</h4>
+                {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
+                {{ openingSubtitleTag | safe }}
+                class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
                 {% if params.description %}
-                    <h5 class="ons-u-vh">{{ params.description }}</h5>
+                    <p class="ons-u-vh">{{ params.description }}</p>
                 {% endif %}
                 <div data-highcharts-chart></div>
                 {% if params.caption %}
@@ -26,7 +34,8 @@
         {% endif %}
 
         {% if params.download.title and params.download.itemsList | length > 0 %}
-            <h6 class="ons-chart__download-title">{{ params.download.title }}</h6>
+            {{ openingDownloadTitleTag | safe }}
+            class="ons-chart__download-title">{{ params.download.title }}{{ closingDownloadTitleTag | safe }}
             {{
                 onsList({
                     "element": "ol",
@@ -42,9 +51,6 @@
                     "data": item.data if item.data else [],
                     "marker": {
                         "enabled": item.marker if item.marker else false
-                    },
-                    "tooltip": {
-                        "valueSuffix": item.tooltip.valueSuffix if item.tooltip.valueSuffix else ''
                     }
                 })
             %}
