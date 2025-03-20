@@ -9,7 +9,7 @@ class SpecificChartOptions {
         };
 
         this.options = {
-            colors: theme === 'primary' ? this.constants.primaryTheme : theme === 'alternate' ? this.constants.alternateTheme : undefined,
+            colors: theme === 'alternate' ? this.constants.alternateTheme : this.constants.primaryTheme,
             legend: {
                 align: 'left',
                 verticalAlign: 'top',
