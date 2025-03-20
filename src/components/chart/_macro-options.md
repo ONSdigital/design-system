@@ -1,7 +1,7 @@
 | Name             | Type    | Required | Description                                                                                                                                |
 | ---------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | chartType        | string  | true     | The type of chart to render. Supported types include: 'line', 'bar' and 'column'.                                                          |
-| theme            | string  | true     | The theme to apply to the chart. Either `primary` or `alternate`.                                                                          |
+| theme            | string  | false    | The theme to apply to the chart. Either `primary` or `alternate`. Default to `primary`.                                                    |
 | headingLevel     | number  | false    | Number used to determine the heading level of the title. Use to ensure the title has a correct semantic order on the page. Defaults to `2` |
 | title            | string  | true     | The main title of the chart.                                                                                                               |
 | subtitle         | string  | true     | A subtitle that appears under the main title.                                                                                              |

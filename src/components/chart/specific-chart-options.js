@@ -8,7 +8,7 @@ class SpecificChartOptions {
         this.config = config;
 
         this.options = {
-            colors: this.theme === 'primary' ? this.constants.primaryTheme : this.constants.alternateTheme,
+            colors: this.theme === 'alternate' ? this.constants.alternateTheme : this.constants.primaryTheme,
             chart: {
                 type: type,
                 marginTop: this.config.legend.enabled ? undefined : 50,
