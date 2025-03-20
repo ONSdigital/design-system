@@ -2,7 +2,12 @@
 
 {% macro onsChart(params) %}
     {% set supportedChartTypes = ['line', 'bar'] %}
-    {% set headingLevel = params.headingLevel | default(2) %}
+
+    {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
+        {% set headingLevel = params.headingLevel %}
+    {% else %}
+        {% set headingLevel = 2 %}
+    {% endif %}
     {% set openingTitleTag = "<h" ~ headingLevel %}
     {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
     {% set openingSubtitleTag = "<h" ~  (headingLevel + 1) %}

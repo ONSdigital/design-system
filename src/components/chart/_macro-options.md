@@ -1,18 +1,18 @@
-| Name         | Type    | Required | Description                                                                                                                                |
-| ------------ | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| chartType    | string  | true     | The type of chart to render. Supported types include: 'line' and 'bar'.                                                                    |
-| theme        | string  | false    | The theme to apply to the chart. Either `primary` or `alternate`. Default to `primary`.                                                    |
-| headingLevel | number  | false    | Number used to determine the heading level of the title. Use to ensure the title has a correct semantic order on the page. Defaults to `2` |
-| title        | string  | true     | The main title of the chart.                                                                                                               |
-| subtitle     | string  | true     | A subtitle that appears under the main title.                                                                                              |
-| id           | string  | true     | A unique identifier for the chart instance.                                                                                                |
-| caption      | string  | false    | A caption providing additional context for the chart.                                                                                      |
-| description  | string  | false    | A textual description of the chart for screen readers.                                                                                     |
-| download     | object  | false    | Object for (download)[#download] options.                                                                                                  |
-| legend       | boolean | false    | Whether the legend is displayed. Defaults to `true`.                                                                                       |
-| yAxis        | object  | true     | Defines the vertical axis [y-axis](#y_axis) configuration parameters                                                                       |
-| xAxis        | object  | true     | Defines the horizontal axis [x-axis](#x_axis) configuration parameters                                                                     |
-| series       | array   | true     | The data [series](#series) to be plotted, including labels and values.                                                                     |
+| Name         | Type    | Required | Description                                                                                                                                                                                  |
+| ------------ | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| chartType    | string  | true     | The type of chart to render. Supported types include: 'line' and 'bar'.                                                                                                                      |
+| theme        | string  | false    | The theme to apply to the chart. Either `primary` or `alternate`. Default to `primary`.                                                                                                      |
+| headingLevel | number  | false    | Number used to determine the heading level of the title. Use to ensure the title has a correct semantic order on the page. Accepts a value between 1 and 4, defaulting to 2 if not provided. |
+| title        | string  | true     | The main title of the chart.                                                                                                                                                                 |
+| subtitle     | string  | true     | A subtitle that appears under the main title.                                                                                                                                                |
+| id           | string  | true     | A unique identifier for the chart instance.                                                                                                                                                  |
+| caption      | string  | false    | A caption providing additional context for the chart.                                                                                                                                        |
+| description  | string  | false    | A textual description of the chart for screen readers.                                                                                                                                       |
+| download     | object  | false    | Object for (download)[#download] options.                                                                                                                                                    |
+| legend       | boolean | false    | Whether the legend is displayed. Defaults to `true`.                                                                                                                                         |
+| yAxis        | object  | true     | Defines the vertical axis [y-axis](#y_axis) configuration parameters                                                                                                                         |
+| xAxis        | object  | true     | Defines the horizontal axis [x-axis](#x_axis) configuration parameters                                                                                                                       |
+| series       | array   | true     | The data [series](#series) to be plotted, including labels and values.                                                                                                                       |
 
 ### Download
 
