@@ -53,15 +53,8 @@ class SpecificChartOptions {
 
                         if (type === 'line') {
                             currentChart.series.forEach((series) => {
-                                if (series.options.marker.enabled === 'true') {
-                                    series.update(
-                                        {
-                                            marker: {
-                                                enabled: false,
-                                            },
-                                        },
-                                        false,
-                                    );
+                                // If markers are disabled, hide them all but the last point marker
+                                if (series.options.marker.enabled.enabled === undefined) {
                                     const points = series.points;
                                     if (points && points.length > 0) {
                                         // Show only the last point marker
@@ -70,24 +63,11 @@ class SpecificChartOptions {
                                             {
                                                 marker: {
                                                     enabled: true,
-                                                    radius: 4,
-                                                    symbol: 'circle',
-                                                    fillColor: series.color,
-                                                    lineWidth: 0,
                                                 },
                                             },
                                             false,
                                         );
                                     }
-                                } else {
-                                    series.update(
-                                        {
-                                            marker: {
-                                                enabled: false,
-                                            },
-                                        },
-                                        false,
-                                    );
                                 }
                             });
 
