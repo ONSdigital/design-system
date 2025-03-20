@@ -1,9 +1,11 @@
 .ons-chart {
     margin: 0;
+
     &__download-title {
         @extend .ons-u-pt-l;
         @extend .ons-u-fs-r--b;
     }
+
     &__title {
         font-size: 1.25rem;
         line-height: 1.625rem;
