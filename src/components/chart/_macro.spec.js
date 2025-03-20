@@ -30,7 +30,7 @@ describe('Macro: Chart', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('line');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('primary');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-title')).toBe('Example Line Chart');
-                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-uuid')).toBe('chart-123');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('chart-123');
                 });
 
                 test('THEN: it includes the Highcharts JSON config', () => {
@@ -53,15 +53,11 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it renders the legend when enabled', () => {
                     expect(configScript).toContain('"enabled":true');
-                    expect(configScript).toContain('"align":"right"');
-                    expect(configScript).toContain('"verticalAlign":"top"');
-                    expect(configScript).toContain('"layout":"vertical"');
                 });
 
                 test('THEN: it includes correct xAxis properties', () => {
                     expect(configScript).toContain('"text":"X Axis Label"');
                     expect(configScript).toContain('"categories":["A","B","C"]');
-                    expect(configScript).toContain('"tickInterval":12');
                     expect(configScript).toContain('"type":"linear"');
                 });
 
@@ -151,7 +147,7 @@ describe('Macro: Chart', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('bar');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('alternate');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-title')).toBe('Example Bar Chart');
-                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-uuid')).toBe('bar-chart-123');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('bar-chart-123');
                 });
 
                 test('THEN: it does NOT render optional fields', () => {
@@ -287,7 +283,7 @@ describe('Macro: Chart', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('column');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('alternate');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-title')).toBe('Example Column Chart');
-                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-uuid')).toBe('column-chart-123');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('column-chart-123');
                 });
 
                 test('THEN: it does NOT render optional fields', () => {

@@ -7,7 +7,7 @@
         "theme": "alternate",
         "title": "Clothing stores fell back, following three months of growth",
         "subtitle": "Volume sales, monthly percentage change, seasonally adjusted, Great Britain, October 2024",
-        "uuid": "uuid",
+        "id": "uuid",
         "caption": "Source: Monthly Business Survey, Retail Sales Inquiry from the Office for National Statistics",
         "download": {
             'title': 'Download Figure 1 data',
@@ -26,76 +26,48 @@
                 }
             ]
         },
-        "config": {
-            "chart": {
-                "type": "column"
-            },
-            "legend": {
+        "legend": {
                 "enabled": true
             },
-            "series": [
-                {
-                    "animation": false,
-                    "data": [6.2, 1.5, 15.9, 1.7],
-                    "dataLabels": {
-                        "enabled": false
-                    },
-                    "name": "2022"
-                },
-                {
-                    "animation": false,
-                    "data": [2.9, -2.7, 2.9, 3.5],
-                    "dataLabels": {
-                        "enabled": false
-                    },
-                    "name": "2023"
-                },
-                {
-                    "animation": false,
-                    "data": [-1.6, 1.2, 3.2, 3.8],
-                    "dataLabels": {
-                        "enabled": false
-                    },
-                    "name": "2024"
-                },
-                {
-                    "animation": false,
-                    "data": [3.0, 2, 5.6, 2.1],
-                    "dataLabels": {
-                        "enabled": false
-                    },
-                    "name": "2025"
-                },
-                {
-                    "animation": false,
-                    "data": [2.0, 2, 3, 4],
-                    "dataLabels": {
-                        "enabled": false
-                    },
-                    "name": "2026"
-                }
-            ],
-            "xAxis": {
-                "categories": [
-                    "Food stores",
-                    "Non-food stores",
-                    "Non-store retailing ",
-                    "Automotive fuel"
-                ],
-                "reversed": false,
-                "title": {
-                    "enabled": true,
-                    "text": ""
-                },
-                "type": "linear"
+        "series": [
+            {
+                "data": [6.2, 1.5, 15.9, 1.7],
+                "dataLabels": false,
+                "name": "2022"
             },
-            "yAxis": {
-                "reversed": false,
-                "title": {
-                    "enabled": true,
-                    "text": "2022"
-                }
+            {
+                "data": [2.9, -2.7, 2.9, 3.5],
+                "dataLabels": false,
+                "name": "2023"
+            },
+            {
+                "data": [-1.6, 1.2, 3.2, 3.8],
+                "dataLabels": false,
+                "name": "2024"
+            },
+            {
+                "data": [3.0, 2, 5.6, 2.1],
+                "dataLabels": false,
+                "name": "2025"
+            },
+            {
+                "data": [2.0, 2, 3, 4],
+                "dataLabels": false,
+                "name": "2026"
             }
+        ],
+        "xAxis": {
+            "categories": [
+                "Food stores",
+                "Non-food stores",
+                "Non-store retailing ",
+                "Automotive fuel"
+            ],
+            "title": "",
+            "type": "linear"
+        },
+        "yAxis": {
+            "title": "2022"
         }
     })
 }}

@@ -7,7 +7,7 @@
         "theme": "primary",
         "title": "Food stores showed a strong rise on the month, while non-food stores fell",
         "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
-        "uuid": "uuid",
+        "id": "uuid",
         "caption": "Source: Monthly Business Survey, Retail Sales Inquiry from the Office for National Statistics",
         "download": {
             'title': 'Download Figure 1 data',
@@ -26,48 +26,36 @@
                 "url": "#"
             }
         ]},
-        "config": {
-            "chart": { "type": "bar" },
-            "legend": { "enabled": true },
-            "series": [
-                {
-                    "animation": false,
-                    "data": [-6.2, 1.5, -15.9, 1.7],
-                    "dataLabels": {"enabled": false},
-                    "name": "2022"
-                },
-                {
-                    "animation": false,
-                    "data": [-2.9, -2.7, -2.9, -3.5],
-                    "dataLabels": {"enabled": false},
-                    "name": "2023"
-                },
-                {
-                    "animation": false,
-                    "data": [-1.6, 1.2, 3.2, 3.8],
-                    "dataLabels": {"enabled": false},
-                    "name": "2024"
-                }
-            ],
-            "xAxis": {
-                "categories": [
-                    "Food stores",
-                    "Non-food stores",
-                    "Non-store retailing ",
-                    "Automotive fuel"
-                ],
-                "title": {
-                    "enabled": true,
-                    "text": ""
-                },
-                "type": "linear"
+        "legend": true,
+        "series": [
+            {
+                "data": [-6.2, 1.5, -15.9, 1.7],
+                "dataLabels":  false,
+                "name": "2022"
             },
-            "yAxis": {
-                "title": {
-                    "enabled": true,
-                    "text": "Percent (%)"
-                }
+            {
+                "data": [-2.9, -2.7, -2.9, -3.5],
+                "dataLabels": false,
+                "name": "2023"
+            },
+            {
+                "data": [-1.6, 1.2, 3.2, 3.8],
+                "dataLabels":  false,
+                "name": "2024"
             }
+        ],
+        "xAxis": {
+            "categories": [
+                "Food stores",
+                "Non-food stores",
+                "Non-store retailing ",
+                "Automotive fuel"
+            ],
+            "title":  "",
+            "type": "linear"
+        },
+        "yAxis": {
+            "title": "Percent (%)"
         }
     })
 }}

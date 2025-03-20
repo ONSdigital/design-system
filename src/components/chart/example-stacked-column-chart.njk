@@ -6,7 +6,7 @@
         "theme": "primary",
         "title": "Food stores showed a strong rise on the month, while non-food stores fell",
         "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
-        "uuid": "uuid",
+        "id": "uuid",
         "useStackedLayout": true,
         "caption": "Source: Monthly Business Survey, Retail Sales Inquiry from the Office for National Statistics",
         "download": {
@@ -25,52 +25,40 @@
                 "url": "#"
             }
         ]},
-        "config": {
-            "chart": { "type": "column" },
-            "legend": { "enabled": true },
-            "series": [
-                {
-                    "animation": false,
-                    "data": [5, 3, 4, 6, 2, 2, 3, 7],
-                    "dataLabels": {"enabled": false},
-                    "name": "2022"
-                },
-                {
-                    "animation": false,
-                    "data": [2, 2, 3, 7, 3, 4, 4, 1],
-                    "dataLabels": {"enabled": false},
-                    "name": "2023"
-                },
-                {
-                    "animation": false,
-                    "data": [3, 4, 4, 1, 5, 3, 4, 6],
-                    "dataLabels": {"enabled": false},
-                    "name": "2024"
-                }
-            ],
-            "xAxis": {
-                "categories": [
-                    "Food stores",
-                    "Non-food stores",
-                    "Non-store retailing ",
-                    "Automotive fuel",
-                    "Household goods stores",
-                    "Clothing stores",
-                    "Other stores",
-                    "All retailing"
-                ],
-                "title": {
-                    "enabled": true,
-                    "text": "Items"
-                },
-                "type": "linear"
+        "legend": true,
+        "series": [
+            {
+                "data": [5, 3, 4, 6, 2, 2, 3, 7],
+                "dataLabels": false,
+                "name": "2022"
             },
-            "yAxis": {
-                "title": {
-                    "enabled": true,
-                    "text": "Percentage of GDP (%)"
-                }
+            {
+                "data": [2, 2, 3, 7, 3, 4, 4, 1],
+                "dataLabels": false,
+                "name": "2023"
+            },
+            {
+                "data": [3, 4, 4, 1, 5, 3, 4, 6],
+                "dataLabels": false,
+                "name": "2024"
             }
+        ],
+        "xAxis": {
+            "categories": [
+                "Food stores",
+                "Non-food stores",
+                "Non-store retailing ",
+                "Automotive fuel",
+                "Household goods stores",
+                "Clothing stores",
+                "Other stores",
+                "All retailing"
+            ],
+            "title": "Items",
+            "type": "linear"
+        },
+        "yAxis": {
+            "title": "Percentage of GDP (%)"
         }
     })
 }}

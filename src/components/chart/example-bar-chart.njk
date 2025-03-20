@@ -7,7 +7,7 @@
         "theme": "primary",
         "title": "Food stores showed a strong rise on the month, while non-food stores fell",
         "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
-        "uuid": "uuid",
+        "id": "uuid",
         "caption": "Source: Monthly Business Survey, Retail Sales Inquiry from the Office for National Statistics",
         "download": {
             'title': 'Download Figure 1 data',
@@ -26,40 +26,31 @@
                 "url": "#"
             }
         ]},
-        "config": {
-            "chart": { "type": "bar" },
-            "legend": { "enabled": true },
-            "series": [
-                {
-                    "animation": false,
-                    "data": [1.7, 2.1, 5.6, 0, -0.6, -2.7, -1.7, 2.4, -1.2],
-                    "dataLabels": { "enabled": true },
-                    "name": "Jan-25"
-                }
+        "legend": true,
+        "xAxis": {
+            "categories": [
+                "All retailing",
+                "All retailing excluding Automotive fuel",
+                "Food stores",
+                "Department stores",
+                "Other non-food stores",
+                "Textile clothing \u0026 footwear stores",
+                "Household goods stores",
+                "Non-store retailing",
+                "Automotive fuel"
             ],
-            "xAxis": {
-                "categories": [
-                    "All retailing",
-                    "All retailing excluding Automotive fuel",
-                    "Food stores",
-                    "Department stores",
-                    "Other non-food stores",
-                    "Textile clothing \u0026 footwear stores",
-                    "Household goods stores",
-                    "Non-store retailing",
-                    "Automotive fuel"
-                ],
-                "reversed": false,
-                "title": { "enabled": true, "text": "" },
-                "type": "linear"
-            },
-            "yAxis": {
-                "reversed": false,
-                "title": {
-                    "enabled": true,
-                    "text": "Percent (%)"
-                }
+            "title": "",
+            "type": "linear"
+        },
+        "yAxis": {
+            "title": "Percent (%)"
+        },
+        "series": [
+            {
+                "data": [1.7, 2.1, 5.6, 0, -0.6, -2.7, -1.7, 2.4, -1.2],
+                "dataLabels": true,
+                "name": "Jan-25"
             }
-        }
+        ]
     })
 }}
