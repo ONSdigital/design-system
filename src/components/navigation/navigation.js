@@ -112,7 +112,7 @@ export default class NavigationToggle {
         const menuBtn = document.querySelector('.ons-js-toggle-nav-menu');
         const menuEl = document.querySelector('.ons-js-nav-menu');
         const searchToggle = document.querySelector('.ons-js-toggle-header-search');
-        const searchBtn = document.querySelector('.ons-js-search-btn-open');
+        const searchBtn = document.querySelector('.ons-btn--search');
         const searchEl = document.querySelector('.ons-js-header-search');
 
         const isMenuOpen = menuBtn.getAttribute('aria-expanded') === 'true';
