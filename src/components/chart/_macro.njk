@@ -1,0 +1,97 @@
+{% from "components/list/_macro.njk" import onsList %}
+
+{% macro onsChart(params) %}
+    {% set supportedChartTypes = ['line', 'bar'] %}
+
+    {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
+        {% set headingLevel = params.headingLevel %}
+    {% else %}
+        {% set headingLevel = 2 %}
+    {% endif %}
+    {% set openingTitleTag = "<h" ~ headingLevel %}
+    {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
+    {% set openingSubtitleTag = "<h" ~  (headingLevel + 1) %}
+    {% set closingSubtitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
+    {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 2) %}
+    {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
+
+    <div
+        data-highcharts-base-chart
+        data-highcharts-type="{{ params.chartType }}"
+        data-highcharts-theme="{{ params.theme }}"
+        data-highcharts-title="{{ params.title }}"
+        data-highcharts-id="{{ params.id }}"
+        id="{{ params.id }}"
+    >
+        {% if params.chartType in supportedChartTypes %}
+            <figure class="ons-chart">
+                {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
+                {{ openingSubtitleTag | safe }}
+                class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+                {% if params.description %}
+                    <p class="ons-u-vh">{{ params.description }}</p>
+                {% endif %}
+                <div data-highcharts-chart></div>
+                {% if params.caption %}
+                    <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
+                {% endif %}
+            </figure>
+        {% endif %}
+
+        {% if params.download.title and params.download.itemsList | length > 0 %}
+            {{ openingDownloadTitleTag | safe }}
+            class="ons-chart__download-title">{{ params.download.title }}{{ closingDownloadTitleTag | safe }}
+            {{
+                onsList({
+                    "element": "ol",
+                    "itemsList": params.download.itemsList
+                })
+            }}
+        {% endif %}
+        {% set series = [] %}
+        {% for item in params.series %}
+            {%
+                set series = series.concat({
+                    "name": item.name if item.name else '',
+                    "data": item.data if item.data else [],
+                    "marker": {
+                        "enabled": item.marker if item.marker else false
+                    }
+                })
+            %}
+        {% endfor %}
+        {%
+            set config = {
+                "legend": {
+                    "enabled" : params.legend
+                },
+                "yAxis": {
+                    "title": {
+                        "text": params.yAxis.title
+                    },
+                    "labels": {
+                        "format": params.yAxis.labelFormat
+                    }
+                },
+                "xAxis": {
+                    "title": {
+                        "text": params.xAxis.title
+                    },
+                    "categories": params.xAxis.categories,
+                    "type": params.xAxis.type,
+                    "labels": {
+                        "format": params.xAxis.labelFormat
+                    }
+                },
+                "series": series
+            }
+        %}
+
+        <!-- Set scripts to pass the config values as json to the javascript -->
+        <!-- prettier-ignore-start -->
+        <script type="application/json" data-highcharts-config--{{ params.id }}>
+            {{ config | dump | safe }}
+        </script>
+        <!-- prettier-ignore-end -->
+    </div>
+{% endmacro %}
