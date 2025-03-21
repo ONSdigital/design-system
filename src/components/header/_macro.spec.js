@@ -836,7 +836,7 @@ describe('FOR: Macro: Header', () => {
                 expect($('.ons-header-nav-search').length).toBe(0);
             });
 
-            test('THEN: does not render items List', () => {
+            test('THEN: does not render items list', () => {
                 expect($('.ons-list--bare').length).toBe(0);
             });
         });
