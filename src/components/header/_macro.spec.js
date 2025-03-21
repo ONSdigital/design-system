@@ -9,6 +9,7 @@ import { mapAll } from '../../tests/helpers/cheerio';
 import {
     EXAMPLE_HEADER_BASIC,
     EXAMPLE_SERVICE_LINKS_CONFIG,
+    EXAMPLE_HEADER_SEARCH_LINKS,
     EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE,
     EXAMPLE_HEADER_SERVICE_LINKS_SINGLE,
     EXAMPLE_HEADER_LANGUAGE_CONFIG,
@@ -781,6 +782,102 @@ describe('FOR: Macro: Header', () => {
                     const suggestionCount = $('.ons-autosuggest__option').length;
                     expect(suggestionCount).toBe(1);
                 }, 20);
+            });
+        });
+    });
+    describe('GIVEN: Params: searchLinks', () => {
+        describe('WHEN: searchLinks are provided', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' });
+
+            test('THEN: renders search icon button', () => {
+                expect(buttonSpy.occurrences[0]).toEqual({
+                    iconType: 'search',
+                    classes: 'ons-u-fs-s--b ons-js-toggle-header-search ons-btn--search ons-btn--search-icon',
+                    type: 'button',
+                    variants: 'search',
+                    attributes: {
+                        'aria-label': 'Example aria label',
+                        'aria-expanded': 'false',
+                        'aria-controls': 'search-links-id',
+                    },
+                });
+            });
+        });
+
+        describe('WHEN: itemsList are provided in searchLinks', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: renders items list', () => {
+                const itemsList = $('.ons-list--bare .ons-list__item').length;
+                expect(itemsList).toBeGreaterThan(0);
+            });
+
+            test('THEN: renders correct links for items list', () => {
+                const searchItemsLinks = mapAll($('.ons-list--bare .ons-list__item a'), (node) => node.attr('href'));
+                expect(searchItemsLinks).toEqual(['#1', '#2', '#3']);
+            });
+
+            test('THEN: renders correct text for items list', () => {
+                const searchItemsText = mapAll($('.ons-list--bare .ons-list__item a'), (node) => node.text().trim());
+                expect(searchItemsText).toEqual(['Popular Search 1', 'Popular Search 2', 'Popular Search 3']);
+            });
+        });
+
+        describe('WHEN: searchLinks parameter is missing', () => {
+            const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_BASIC));
+
+            test('THEN: does not render search icon button', () => {
+                expect($('.ons-js-toggle-services').length).toBe(0);
+            });
+
+            test('THEN: does not render search input form', () => {
+                expect($('.ons-header-nav-search').length).toBe(0);
+            });
+
+            test('THEN: does not render items list', () => {
+                expect($('.ons-list--bare').length).toBe(0);
+            });
+        });
+
+        describe('WHEN: searchLinks are provided and the header variant is not basic', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'neutral' }));
+
+            test('THEN: does not render the search icon button', () => {
+                expect($('.ons-js-toggle-services').length).toBe(0);
+            });
+        });
+
+        describe('WHEN: heading parameter is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: it renders heading with provided text', () => {
+                expect($('.ons-header-nav-search__heading').text()).toBe('Header Search');
+            });
+        });
+
+        describe('WHEN: id parameter is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: applies id to search links ', () => {
+                expect($('#search-links-id').length).toBe(1);
+            });
+        });
+
+        describe('WHEN: ariaLabel parameter is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: applies aria label to the search links', () => {
+                expect($('.ons-header-nav-search').attr('aria-label')).toBe('Header Search');
+            });
+        });
+
+        describe('WHEN: classes parameter is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: it renders classes with provided value', () => {
+                expect($('.ons-header-nav-search').hasClass('custom-class')).toBe(true);
             });
         });
     });
