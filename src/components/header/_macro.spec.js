@@ -865,7 +865,7 @@ describe('FOR: Macro: Header', () => {
             });
         });
 
-        describe('WHEN: aria label parameter is provided', () => {
+        describe('WHEN: ariaLabel parameter is provided', () => {
             const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
 
             test('THEN: applies aria label to the search links', () => {
