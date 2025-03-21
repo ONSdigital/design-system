@@ -97,7 +97,7 @@ describe('script: header', () => {
         });
     });
 
-    describe('WHEN: the menu button is NOT clicked', () => {
+    describe('WHEN: the menu button is not clicked', () => {
         it('THEN: the navigation menu is hidden', async () => {
             const isMenuNavHidden = await page.$eval('.ons-header-nav-menu', (el) => el.classList.contains('ons-u-d-no'));
             expect(isMenuNavHidden).toBe(true);
