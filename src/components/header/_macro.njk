@@ -211,7 +211,7 @@
                                             "variants": "search",
                                             "iconType": "search",
                                             "attributes": {
-                                                "aria-label": params.searchLinks.toggleSearchButton.ariaLabel | default("Toggle search"),
+                                                "aria-label": params.searchLinks.searchButtonAriaLabel | default("Toggle search"),
                                                 "aria-controls": params.searchLinks.id,
                                                 "aria-expanded": "false"
                                             }
@@ -336,7 +336,7 @@
                 <nav
                     class="ons-u-d-no ons-js-header-search ons-header-nav-search {{ params.searchLinks.classes }}"
                     id="{{ params.searchLinks.id }}"
-                    aria-label="{{ params.searchLinks.ariaLabel | default("Search navigation") }}"
+                    aria-label="{{ params.searchLinks.searchNavigationAriaLabel | default('Search navigation') }}"
                 >
                     <div class="ons-container">
                         <div class="ons-header-nav-search__input">
