@@ -80,6 +80,7 @@ export default class NavigationToggle {
             this.toggle.innerHTML = closeIconSVG;
         }
         if (!isOpen) {
+            toggle.classList.remove('ons-btn--close');
             toggle.classList.add('ons-btn--search-icon');
             toggle.innerHTML = searchIconSVG;
         }
