@@ -12,18 +12,25 @@ describe('script: header', () => {
             await page.click('.ons-js-toggle-header-search');
         });
 
-        it('THEN: the search input form is displayed', async () => {
+        it('THEN: the search input form is visible and does not have the ons-u-d-no class', async () => {
             await page.waitForSelector('.ons-header-nav-search');
             const isSearchNavVisible = await page.$eval('.ons-header-nav-search', (el) => !el.classList.contains('ons-u-d-no'));
             expect(isSearchNavVisible).toBe(true);
         });
 
         it('THEN: the button switches to the close icon', async () => {
-            const attributes = await getNodeAttributes(page, '.ons-js-toggle-header-search');
-            expect(attributes['aria-expanded']).toBe('true');
-
             const hasCloseIcon = await page.$eval('.ons-js-toggle-header-search svg', (el) => el.classList.contains('ons-icon--close'));
             expect(hasCloseIcon).toBe(true);
+        });
+
+        it('THEN: the button has aria-expanded="true"', async () => {
+            const attributes = await getNodeAttributes(page, '.ons-js-toggle-header-search');
+            expect(attributes['aria-expanded']).toBe('true');
+        });
+
+        it('THEN: the button has aria-hidden="false"', async () => {
+            const attributes = await getNodeAttributes(page, '.ons-js-header-search');
+            expect(attributes['aria-hidden']).toBe('false');
         });
 
         it('THEN: the search field has full width', async () => {
@@ -49,6 +56,11 @@ describe('script: header', () => {
         it('THEN: the button has aria-expanded="false"', async () => {
             const attributes = await getNodeAttributes(page, '.ons-js-toggle-header-search');
             expect(attributes['aria-expanded']).toBe('false');
+        });
+
+        it('THEN: the button has aria-hidden="true"', async () => {
+            const attributes = await getNodeAttributes(page, '.ons-js-header-search');
+            expect(attributes['aria-hidden']).toBe('true');
         });
     });
 

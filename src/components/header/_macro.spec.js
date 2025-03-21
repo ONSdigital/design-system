@@ -794,7 +794,7 @@ describe('FOR: Macro: Header', () => {
             test('THEN: renders search icon button', () => {
                 expect(buttonSpy.occurrences[0]).toEqual({
                     iconType: 'search',
-                    classes: 'ons-u-fs-s--b ons-js-toggle-header-search ons-btn--search-icon',
+                    classes: 'ons-u-fs-s--b ons-js-toggle-header-search ons-btn--search ons-btn--search-icon',
                     type: 'button',
                     variants: 'search',
                     attributes: {
