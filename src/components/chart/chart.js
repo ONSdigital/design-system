@@ -146,10 +146,6 @@ class HighchartsBaseChart {
                     if (this.chartType === 'bar' && !this.hideDataLabels) {
                         this.barChart.postLoadDataLabels(currentChart);
                     }
-                    // Update the point padding for column charts when the window is resized
-                    if (this.chartType === 'column') {
-                        this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
-                    }
                 }, 100);
             });
         }
