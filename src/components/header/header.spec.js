@@ -35,7 +35,7 @@ describe('script: header', () => {
         });
     });
 
-    describe('WHEN: the search button is NOT clicked', () => {
+    describe('WHEN: the search button is not clicked', () => {
         it('THEN: the search form is hidden', async () => {
             const isSearchNavHidden = await page.$eval('.ons-header-nav-search', (el) => el.classList.contains('ons-u-d-no'));
             expect(isSearchNavHidden).toBe(true);
