@@ -798,7 +798,7 @@ describe('FOR: Macro: Header', () => {
                     type: 'button',
                     variants: 'search',
                     attributes: {
-                        'aria-label': 'Toggle search',
+                        'aria-label': 'Example aria label',
                         'aria-expanded': 'false',
                         'aria-controls': 'search-links-id',
                     },

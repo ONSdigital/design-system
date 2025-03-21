@@ -157,8 +157,7 @@ export const EXAMPLE_HEADER_SEARCH_LINKS = {
         ariaLabel: 'Header Search',
         classes: 'custom-class',
         toggleSearchButton: {
-            text: 'Search',
-            ariaLabel: 'Toggle search',
+            ariaLabel: 'Example aria label',
         },
         heading: 'Header Search',
         itemsList: [
