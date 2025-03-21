@@ -1,7 +1,7 @@
 {% from "components/list/_macro.njk" import onsList %}
 
 {% macro onsChart(params) %}
-    {% set supportedChartTypes = ['line', 'bar'] %}
+    {% set supportedChartTypes = ['line', 'bar', 'column'] %}
 
     {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
         {% set headingLevel = params.headingLevel %}
@@ -21,6 +21,7 @@
         data-highcharts-theme="{{ params.theme }}"
         data-highcharts-title="{{ params.title }}"
         data-highcharts-id="{{ params.id }}"
+        {% if params.useStackedLayout %}data-highcharts-use-stacked-layout="{{ params.useStackedLayout }}"{% endif %}
         id="{{ params.id }}"
     >
         {% if params.chartType in supportedChartTypes %}
@@ -56,6 +57,9 @@
                     "data": item.data if item.data else [],
                     "marker": {
                         "enabled": item.marker if item.marker else false
+                    },
+                    "dataLabels": {
+                        "enabled": item.dataLabels if item.dataLabels else false
                     }
                 })
             %}

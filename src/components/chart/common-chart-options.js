@@ -1,13 +1,9 @@
+import ChartConstants from './chart-constants';
+
+// Options that are common to all chart types - these are set once in the Highcharts.setOptions() method
 class CommonChartOptions {
     constructor() {
-        this.constants = {
-            axisLabelColor: '#707071',
-            gridLineColor: '#d9d9d9',
-            zeroLineColor: '#b3b3b3',
-            // Responsive font sizes
-            mobileFontSize: '0.75rem', // 12px
-            desktopFontSize: '0.875rem', // 14px
-        };
+        this.constants = ChartConstants.constants();
 
         this.options = {
             chart: {
@@ -15,6 +11,32 @@ class CommonChartOptions {
                 style: {
                     fontFamily: '"OpenSans", "Helvetica Neue", arial, sans-serif',
                     color: '#222222',
+                },
+            },
+            legend: {
+                align: 'left',
+                verticalAlign: 'top',
+                layout: 'horizontal',
+                // Symbol width and height in the legend. May be overridden for individual chart types
+                symbolWidth: 12,
+                symbolHeight: 12,
+                margin: 50,
+                itemHoverStyle: {
+                    color: this.constants.labelColor, // Prevents the text from changing color on hover
+                },
+                itemStyle: {
+                    cursor: 'default', // ensures that it does not change to a hand (pointer) on hover.
+                    color: this.constants.labelColor,
+                    fontSize: this.constants.desktopFontSize,
+                    fontWeight: 'normal',
+                },
+                // Disable click event on legend
+                // There is currently an issue because the legend items are still buttons
+                // and therefore the screen reader still announces that they can be clicked
+                events: {
+                    itemClick: () => {
+                        return false;
+                    },
                 },
             },
             // Remove the chart title as rendered by Highcharts, as this is rendered in the surrounding component
@@ -37,6 +59,8 @@ class CommonChartOptions {
                 },
                 title: {
                     align: 'high',
+                    textAlign: 'middle',
+                    reserveSpace: false,
                     offset: 15,
                     rotation: 0,
                     y: -25,
@@ -47,7 +71,19 @@ class CommonChartOptions {
                 },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,
-                zeroLineColor: this.constants.zeroLineColor,
+                // Add zero line
+                plotLines: [
+                    {
+                        color: this.constants.zeroLineColor,
+                        width: 1,
+                        value: 0,
+                        zIndex: 2,
+                    },
+                ],
+                // Add tick marks
+                tickWidth: 1,
+                tickLength: 6,
+                tickColor: this.constants.gridLineColor,
             },
             xAxis: {
                 labels: {
@@ -65,7 +101,6 @@ class CommonChartOptions {
                 },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,
-                zeroLineColor: this.constants.zeroLineColor,
                 // Add tick marks
                 tickWidth: 1,
                 tickLength: 6,
