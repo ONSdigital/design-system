@@ -1,6 +1,5 @@
 export const EXAMPLE_LINE_CHART_REQUIRED_PARAMS = {
     chartType: 'line',
-    theme: 'primary',
     title: 'Example Line Chart',
     subtitle: 'A sample subtitle',
     id: 'chart-123',

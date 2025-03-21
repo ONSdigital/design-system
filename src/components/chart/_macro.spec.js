@@ -28,7 +28,6 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it renders the chart container with the correct data attributes', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('line');
-                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('primary');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-title')).toBe('Example Line Chart');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('chart-123');
                 });
@@ -42,6 +41,51 @@ describe('Macro: Chart', () => {
                 test('THEN: it does NOT render optional fields', () => {
                     expect($('figcaption').length).toBe(0);
                     expect($('.ons-chart__download-title').length).toBe(0);
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Theme', () => {
+            describe('WHEN: theme is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        theme: 'primary',
+                    }),
+                );
+
+                test('THEN: it renders the chart container with the correct theme', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('primary');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Heading Level', () => {
+            describe('WHEN: heading level is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        headingLevel: 3,
+                        download: {
+                            title: 'Download Chart Data',
+                            itemsList: [
+                                { text: 'Download as PNG', url: 'https://example.com/chart.png' },
+                                { text: 'Download as CSV', url: 'https://example.com/chart.csv' },
+                            ],
+                        },
+                    }),
+                );
+
+                test('THEN: renders title with correct tag', () => {
+                    expect($('.ons-chart__title')[0].tagName).toBe('h3');
+                });
+
+                test('THEN: renders subtitle with correct tag', () => {
+                    expect($('.ons-chart__subtitle')[0].tagName).toBe('h4');
+                });
+
+                test('THEN: renders download title with correct tag', () => {
+                    expect($('.ons-chart__download-title')[0].tagName).toBe('h5');
                 });
             });
         });
