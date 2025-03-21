@@ -1,9 +1,9 @@
 {% from "components/chart/_macro.njk" import onsChart %}
 {{
     onsChart({
-        "chartType": "column",
+        "chartType": "bar",
         "description": "Volume sales, seasonally adjusted, Great Britain, January 2022 to January 2025",
-        "theme": "primary",
+        "theme": "alternate",
         "title": "Food stores showed a strong rise on the month, while non-food stores fell",
         "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
         "id": "uuid",
@@ -25,21 +25,24 @@
                 "url": "#"
             }
         ]},
-        "legend": false,
+        "legend": true,
         "series": [
             {
-                "data": [5, 3, 4, 6, 2, 2, 3, 7],
-                "dataLabels": false,
+                "data": [5, 3, 4, 6],
+                "dataLabels": true,
+                "marker": true,
                 "name": "2022"
             },
             {
-                "data": [2, 2, 3, 7, 3, 4, 4, 1],
-                "dataLabels": false,
+                "data": [2, 2, 3, 7],
+                "dataLabels": true,
+                "marker": true,
                 "name": "2023"
             },
             {
-                "data": [3, 4, 4, 1, 5, 3, 4, 6],
-                "dataLabels": false,
+                "data": [3, 4, 4, 1],
+                "dataLabels": true,
+                "marker": true,
                 "name": "2024"
             }
         ],
@@ -48,17 +51,13 @@
                 "Food stores",
                 "Non-food stores",
                 "Non-store retailing ",
-                "Automotive fuel",
-                "Household goods stores",
-                "Clothing stores",
-                "Other stores",
-                "All retailing"
+                "Automotive fuel"
             ],
-            "title": "Items",
+            "title": "Years (2022-2024)",
             "type": "linear"
         },
         "yAxis": {
-            "title": "Percentage of GDP (%)"
+            "title": "Percent (%)"
         }
     })
 }}
