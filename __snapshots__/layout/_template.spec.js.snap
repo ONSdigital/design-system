@@ -230,10 +230,14 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                             
                         </div>
                     
+
                     
                 </div>
             </div>
             
+
+            
+
             
         </div>
         
@@ -473,10 +477,14 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                             
                         </div>
                     
+
                     
                 </div>
             </div>
             
+
+            
+
             
         </div>
         
@@ -848,6 +856,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             
                         </div>
                     
+
                     
                 </div>
             </div>
@@ -890,6 +899,9 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     
                 </nav>
             
+
+            
+
             
         </div>
         
@@ -2023,10 +2035,14 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                             
                         </div>
                     
+
                     
                 </div>
             </div>
             
+
+            
+
             
         </div>
         
@@ -2250,10 +2266,14 @@ exports[`base page template matches the social block override snapshot 1`] = `
                             
                         </div>
                     
+
                     
                 </div>
             </div>
             
+
+            
+
             
         </div>
         
