@@ -10,6 +10,12 @@ class ColumnChart {
                 },
                 series: {
                     stacking: useStackedLayout ? 'normal' : null,
+                    dataLabels: {
+                        useHTML: true,
+                        style: {
+                            color: 'white',
+                        },
+                    },
                 },
             },
         };
