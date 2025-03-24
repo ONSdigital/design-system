@@ -108,7 +108,7 @@ class HighchartsBaseChart {
     // Check if the data labels should be hidden
     // They should be hidden for clustered bar charts with more than 2 series, and also for stacked bar charts
     checkHideDataLabels = () => {
-        this.hideDataLabels = (this.chartType === 'bar' && this.config.series.length > 2) || this.useStackedLayout === true;
+        return (this.chartType === 'bar' && this.config.series.length > 2) || this.useStackedLayout === true;
     };
 
     // Create the load event for various chart types
@@ -120,6 +120,7 @@ class HighchartsBaseChart {
             const currentChart = event.target;
             if (this.chartType === 'line') {
                 this.lineChart.updateLastPointMarker(currentChart);
+                this.lineChart.hideDataLabels(currentChart);
             }
             if (this.chartType === 'bar') {
                 this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
@@ -129,6 +130,7 @@ class HighchartsBaseChart {
             }
             if (this.chartType === 'column') {
                 this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
+                this.columnChart.hideDataLabels(currentChart);
             }
             currentChart.redraw(false);
         };
