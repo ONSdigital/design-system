@@ -23,7 +23,7 @@ class BarChart {
                         inside: false,
                         style: {
                             textOutline: 'none',
-                            // there is no semibold font weight available in the design system fonts, so we use 700 instead
+                            // there is no semibold font weight available in the design system fonts, so we use 700(bold) instead
                             fontWeight: '700',
                             color: this.constants.labelColor,
                             fontSize: this.constants.mobileFontSize,
@@ -102,7 +102,7 @@ class BarChart {
         verticalAlign: undefined,
         style: {
             textOutline: 'none',
-            // there is no semibold font weight available in the design system fonts, so we use 700 instead
+            // there is no semibold font weight available in the design system fonts, so we use 700(bold) instead
             fontWeight: '700',
             color: this.constants.labelColor,
             fontSize: this.constants.mobileFontSize,

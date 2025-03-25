@@ -38,6 +38,11 @@ class CommonChartOptions {
                         return false;
                     },
                 },
+                accessibility: {
+                    keyboardNavigation: {
+                        enabled: false, // Prevents focus on legend items while keeping screen reader support
+                    },
+                },
             },
             // Remove the chart title as rendered by Highcharts, as this is rendered in the surrounding component
             title: {
@@ -108,7 +113,7 @@ class CommonChartOptions {
             },
             plotOptions: {
                 series: {
-                    // disabes the tooltip on hover
+                    // disables the tooltip on hover
                     enableMouseTracking: false,
                     animation: false,
 
@@ -179,6 +184,14 @@ class CommonChartOptions {
                 },
             });
         });
+    };
+
+    disableLegendForSingleSeries = (currentChart) => {
+        if (currentChart.series.length === 1) {
+            currentChart.legend.update({
+                enabled: false,
+            });
+        }
     };
 }
 

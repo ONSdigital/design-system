@@ -114,6 +114,8 @@ class HighchartsBaseChart {
         }
         this.config.chart.events.load = (event) => {
             const currentChart = event.target;
+            // Disable the legend for single series charts
+            this.commonChartOptions.disableLegendForSingleSeries(currentChart);
             if (this.chartType === 'line') {
                 this.lineChart.updateLastPointMarker(currentChart);
                 this.commonChartOptions.hideDataLabels(currentChart);
