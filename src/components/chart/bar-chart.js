@@ -59,14 +59,6 @@ class BarChart {
         };
     };
 
-    hideDataLabels = (config) => {
-        config.series.forEach((series) => {
-            series.dataLabels = {
-                enabled: false,
-            };
-        });
-    };
-
     // Updates the config to move the data labels inside the bars, but only if the bar is wide enough
     // This may also need to run when the chart is resized
     postLoadDataLabels = (currentChart) => {

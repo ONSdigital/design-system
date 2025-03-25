@@ -15,16 +15,6 @@ class ColumnChart {
         };
     };
 
-    hideDataLabels = (currentChart) => {
-        currentChart.series.forEach((series) => {
-            series.update({
-                dataLabels: {
-                    enabled: false,
-                },
-            });
-        });
-    };
-
     // Set the point padding between each bar to be 3% (an overall gap of 6%)
     // For charts with fewer than 5 categories, we use a wider point padding of 4% (8% gap between bars)
     // For cluster charts we use 0 for the point padding and a group padding of 4% (8% gap between bars)

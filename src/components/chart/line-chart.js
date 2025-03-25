@@ -22,16 +22,6 @@ class LineChart {
         };
     };
 
-    hideDataLabels = (currentChart) => {
-        currentChart.series.forEach((series) => {
-            series.update({
-                dataLabels: {
-                    enabled: false,
-                },
-            });
-        });
-    };
-
     updateLastPointMarker = (currentChart) => {
         currentChart.series.forEach((series) => {
             // If markers are disabled, hide them all but the last point marker

@@ -15,7 +15,6 @@ class HighchartsBaseChart {
         this.node = node;
         this.chartType = this.node.dataset.highchartsType;
         this.theme = this.node.dataset.highchartsTheme;
-        this.title = this.node.dataset.highchartsTitle;
         const chartNode = this.node.querySelector('[data-highcharts-chart]');
 
         this.id = this.node.dataset.highchartsId;
@@ -95,9 +94,6 @@ class HighchartsBaseChart {
         if (this.chartType === 'bar') {
             // Merge the bar chart options with the existing config
             this.config = this.mergeConfigs(this.config, barChartOptions);
-            if (this.hideDataLabels) {
-                this.barChart.hideDataLabels(this.config);
-            }
         }
         if (this.chartType === 'column') {
             // Merge the column chart options with the existing config
@@ -120,17 +116,19 @@ class HighchartsBaseChart {
             const currentChart = event.target;
             if (this.chartType === 'line') {
                 this.lineChart.updateLastPointMarker(currentChart);
-                this.lineChart.hideDataLabels(currentChart);
+                this.commonChartOptions.hideDataLabels(currentChart);
             }
             if (this.chartType === 'bar') {
                 this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
+                } else {
+                    this.commonChartOptions.hideDataLabels(currentChart);
                 }
             }
             if (this.chartType === 'column') {
                 this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
-                this.columnChart.hideDataLabels(currentChart);
+                this.commonChartOptions.hideDataLabels(currentChart);
             }
             currentChart.redraw(false);
         };
