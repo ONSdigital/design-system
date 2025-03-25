@@ -115,7 +115,7 @@ class BarChart {
         const numberOfCategories = config.xAxis.categories.length;
         const numberOfSeries = currentChart.series.length; // Get number of bar series
         let barHeight = 30; // Height of each individual bar - set in bar-chart-plot-options
-        let groupSpacing = 0; // Space we want between category groups, or betweeen series groups for cluster charts
+        let groupSpacing = 0; // Space we want between category groups, or between series groups for cluster charts
         let categoriesTotalHeight = 0;
         let totalSpaceHeight = 0;
         if (useStackedLayout == false && numberOfSeries > 1) {
