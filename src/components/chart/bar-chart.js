@@ -119,7 +119,7 @@ class BarChart {
         let categoriesTotalHeight = 0;
         let totalSpaceHeight = 0;
         if (useStackedLayout == false && numberOfSeries > 1) {
-            // slighly lower bar height for cluster charts
+            // slightly lower bar height for cluster charts
             barHeight = 28;
             // for cluster charts there is no space between the bars within a series, and 14px between each series
             groupSpacing = 14;
