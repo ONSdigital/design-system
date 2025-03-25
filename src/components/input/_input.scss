@@ -86,6 +86,16 @@
     margin-top: 0.25rem;
 }
 
+.ons-input--header-search {
+    border-radius: 0;
+    height: 56px;
+    border: 2px solid var(--ons-color-ocean-blue);
+
+    &:focus {
+        border: 2px solid var(--ons-color-input-border);
+    }
+}
+
 .ons-input--select {
     appearance: none;
     background: var(--ons-color-input-bg)
@@ -147,6 +157,11 @@
     flex-flow: row nowrap !important;
     gap: 0.5rem;
     height: 2.5rem;
+}
+
+.ons-input__button--header-search {
+    gap: 0;
+    height: 100%;
 }
 
 .ons-input-search {
