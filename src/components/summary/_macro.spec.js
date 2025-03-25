@@ -514,6 +514,12 @@ describe('macro: summary', () => {
                 ).toBe('Action 2');
             });
 
+            it('has the correct `id` added to the actions', () => {
+                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
+
+                expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions').attr('id')).toBe('item-id-2');
+            });
+
             it('has the correct visually hidden <span> text', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
