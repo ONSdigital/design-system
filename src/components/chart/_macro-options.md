@@ -40,7 +40,7 @@
 
 | Name        | Type   | Required | Description                                                                                                                                               |
 | ----------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title       | string | true     | The title text displayed on the x-axis                                                                                                                    |
+| title       | string | false    | The title text displayed on the x-axis                                                                                                                    |
 | labelFormat | string | false    | A format string for the x-axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating). |
 | categories  | array  | false    | Labels for each tick mark along the x-axis.                                                                                                               |
 | type        | string | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. Defaults to linear.                                                    |

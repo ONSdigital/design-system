@@ -63,6 +63,7 @@ class CommonChartOptions {
                     },
                 },
                 title: {
+                    text: '', // Remove the default title rendered by Highcharts if not provided
                     align: 'high',
                     textAlign: 'middle',
                     reserveSpace: false,
