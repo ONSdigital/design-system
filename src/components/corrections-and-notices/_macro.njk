@@ -34,7 +34,9 @@
                     <div class="ons-corrections-notices__item">
                         <div class="ons-corrections-notices__content-meta">
                             <h3 class="ons-u-fs-r--b ons-corrections-notices__content-heading">Correction</h3>
-                            <time class="ons-corrections-notices__content-date">{{ correction.date }}</time>
+                            <time class="ons-corrections-notices__content-date" datetime="{{ correction.date.iso }}"
+                                >{{ correction.date.short }}</time
+                            >
                         </div>
                         <div class="ons-corrections-notices__content-description">
                             <div class="ons-corrections-notices__content-text ons-u-mb-s">{{ correction.text }}</div>
@@ -48,7 +50,9 @@
                     <div class="ons-corrections-notices__item ons-corrections-notices__item">
                         <div class="ons-corrections-notices__content-meta">
                             <h2 class="ons-u-fs-r--b ons-corrections-notices__content-heading">Notice</h2>
-                            <time class="ons-corrections-notices__content-date">{{ notice.date }}</time>
+                            <time class="ons-corrections-notices__content-date" datetime="{{ notice.date.iso }}"
+                                >{{ notice.date.short }}</time
+                            >
                         </div>
                         <div class="ons-corrections-notices__content-text">{{ notice.text }}</div>
                     </div>

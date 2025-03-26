@@ -18,13 +18,13 @@ describe('FOR: Macro: Corrections and Notices', () => {
             });
             test('THEN: has correct date', () => {
                 const dateText = $('.ons-corrections-notices__content-date').text().trim();
-                expect(dateText).toBe('22nd Janauary 2025,4:30PM');
+                expect(dateText).toBe('22nd Janauary 2025, 4:30PM');
             });
             test('THEN: has correct description text', () => {
                 const contentdescriptionText = $('.ons-corrections-notices__content-text').text().trim();
                 expect(contentdescriptionText).toBe('description1');
             });
-            test('THEN: correction has the provided link, () => {
+            test('THEN: correction has the provided link', () => {
                 const correctionLinkUrl = $('.ons-corrections-notices__content-url').attr('href');
                 expect(correctionLinkUrl).toBe('#0');
             });
