@@ -23,7 +23,7 @@ class BarChart {
                         inside: false,
                         style: {
                             textOutline: 'none',
-                            // there is no semibold font weight available in the design system fonts, so we use 700 instead
+                            // there is no semibold font weight available in the design system fonts, so we use 700(bold) instead
                             fontWeight: '700',
                             color: this.constants.labelColor,
                             fontSize: this.constants.mobileFontSize,
@@ -57,14 +57,6 @@ class BarChart {
                 },
             },
         };
-    };
-
-    hideDataLabels = (config) => {
-        config.series.forEach((series) => {
-            series.dataLabels = {
-                enabled: false,
-            };
-        });
     };
 
     // Updates the config to move the data labels inside the bars, but only if the bar is wide enough
@@ -110,7 +102,7 @@ class BarChart {
         verticalAlign: undefined,
         style: {
             textOutline: 'none',
-            // there is no semibold font weight available in the design system fonts, so we use 700 instead
+            // there is no semibold font weight available in the design system fonts, so we use 700(bold) instead
             fontWeight: '700',
             color: this.constants.labelColor,
             fontSize: this.constants.mobileFontSize,
@@ -123,11 +115,11 @@ class BarChart {
         const numberOfCategories = config.xAxis.categories.length;
         const numberOfSeries = currentChart.series.length; // Get number of bar series
         let barHeight = 30; // Height of each individual bar - set in bar-chart-plot-options
-        let groupSpacing = 0; // Space we want between category groups, or betweeen series groups for cluster charts
+        let groupSpacing = 0; // Space we want between category groups, or between series groups for cluster charts
         let categoriesTotalHeight = 0;
         let totalSpaceHeight = 0;
         if (useStackedLayout == false && numberOfSeries > 1) {
-            // slighly lower bar height for cluster charts
+            // slightly lower bar height for cluster charts
             barHeight = 28;
             // for cluster charts there is no space between the bars within a series, and 14px between each series
             groupSpacing = 14;

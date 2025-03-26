@@ -18,7 +18,6 @@ class HighchartsBaseChart {
         this.node = node;
         this.chartType = this.node.dataset.highchartsType;
         this.theme = this.node.dataset.highchartsTheme;
-        this.title = this.node.dataset.highchartsTitle;
         const chartNode = this.node.querySelector('[data-highcharts-chart]');
         this.id = this.node.dataset.highchartsId;
         this.useStackedLayout = this.node.hasAttribute('data-highcharts-use-stacked-layout');
@@ -102,9 +101,6 @@ class HighchartsBaseChart {
         if (this.chartType === 'bar') {
             // Merge the bar chart options with the existing config
             this.config = this.mergeConfigs(this.config, barChartOptions);
-            if (this.hideDataLabels) {
-                this.barChart.hideDataLabels(this.config);
-            }
         }
         if (this.chartType === 'column') {
             // Merge the column chart options with the existing config
@@ -115,7 +111,7 @@ class HighchartsBaseChart {
     // Check if the data labels should be hidden
     // They should be hidden for clustered bar charts with more than 2 series, and also for stacked bar charts
     checkHideDataLabels = () => {
-        this.hideDataLabels = (this.chartType === 'bar' && this.config.series.length > 2) || this.useStackedLayout === true;
+        return (this.chartType === 'bar' && this.config.series.length > 2) || this.useStackedLayout === true;
     };
 
     // Adjust font size and annotations for smaller width of chart
@@ -159,17 +155,23 @@ class HighchartsBaseChart {
         }
         this.config.chart.events.load = (event) => {
             const currentChart = event.target;
+            // Disable the legend for single series charts
+            this.commonChartOptions.disableLegendForSingleSeries(currentChart);
             if (this.chartType === 'line') {
                 this.lineChart.updateLastPointMarker(currentChart);
+                this.commonChartOptions.hideDataLabels(currentChart);
             }
             if (this.chartType === 'bar') {
                 this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
+                } else {
+                    this.commonChartOptions.hideDataLabels(currentChart);
                 }
             }
             if (this.chartType === 'column') {
                 this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
+                this.commonChartOptions.hideDataLabels(currentChart);
             }
             currentChart.redraw(false);
         };

@@ -38,6 +38,11 @@ class CommonChartOptions {
                         return false;
                     },
                 },
+                accessibility: {
+                    keyboardNavigation: {
+                        enabled: false, // Prevents focus on legend items while keeping screen reader support
+                    },
+                },
             },
             // Remove the chart title as rendered by Highcharts, as this is rendered in the surrounding component
             title: {
@@ -58,6 +63,7 @@ class CommonChartOptions {
                     },
                 },
                 title: {
+                    text: '', // Remove the default title rendered by Highcharts if not provided
                     align: 'high',
                     textAlign: 'middle',
                     reserveSpace: false,
@@ -108,7 +114,7 @@ class CommonChartOptions {
             },
             plotOptions: {
                 series: {
-                    // disabes the tooltip on hover
+                    // disables the tooltip on hover
                     enableMouseTracking: false,
                     animation: false,
 
@@ -161,6 +167,24 @@ class CommonChartOptions {
                 },
             },
         };
+    };
+
+    hideDataLabels = (currentChart) => {
+        currentChart.series.forEach((series) => {
+            series.update({
+                dataLabels: {
+                    enabled: false,
+                },
+            });
+        });
+    };
+
+    disableLegendForSingleSeries = (currentChart) => {
+        if (currentChart.series.length === 1) {
+            currentChart.legend.update({
+                enabled: false,
+            });
+        }
     };
 }
 
