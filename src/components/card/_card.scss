@@ -2,6 +2,11 @@
     margin: 0 0 2rem;
     width: 100%;
 
+    &--headline {
+        background-color: var(--ons-color-banner-bg);
+        padding: 2rem;
+    }
+
     &__link {
         display: flex;
         flex-direction: column;
