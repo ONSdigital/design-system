@@ -67,6 +67,7 @@ class CommonChartOptions {
                     align: 'high',
                     textAlign: 'middle',
                     reserveSpace: false,
+                    useHTML: true,
                     offset: 15,
                     rotation: 0,
                     y: -25,

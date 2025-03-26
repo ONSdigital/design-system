@@ -45,7 +45,7 @@ class BarChart {
                 tickWidth: 0,
                 tickLength: 0,
                 tickColor: 'transparent',
-                title: { align: 'high', textAlign: 'middle', reserveSpace: false, rotation: 0, y: -25 },
+                title: { align: 'high', textAlign: 'middle', reserveSpace: false, rotation: 0, y: -25, useHTML: true },
             },
             yAxis: {
                 title: {
@@ -54,6 +54,7 @@ class BarChart {
                     offset: undefined,
                     y: 0,
                     reserveSpace: true,
+                    useHTML: false,
                 },
             },
         };
