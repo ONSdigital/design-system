@@ -1,7 +1,7 @@
-| Name        | Type                | Required | Description                                     |
-| ----------- | ------------------- | -------- | ----------------------------------------------- |
-| Corrections | array`<correction>` | false    | Settings for the [Correction item](#correction) |
-| Notices     | array`<notice>`     | false    | Settings for the [Notice item](#notice)         |
+| Name        | Type                | Required                             | Description                                     |
+| ----------- | ------------------- | ------------------------------------ | ----------------------------------------------- |
+| Corrections | array`<correction>` | false(if Notices is set to true)     | Settings for the [Correction item](#correction) |
+| Notices     | array`<notice>`     | false(if Corrections is set to true) | Settings for the [Notice item](#notice)         |
 
 ## Correction
 
