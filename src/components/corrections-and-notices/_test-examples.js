@@ -11,7 +11,7 @@ export const EXAMPLE_CORRECTIONS = {
 export const EXAMPLE_NOTICES = {
     notices: [
         {
-            date: '22nd Janauary 2025',
+            date: '22nd January 2025',
             text: 'description2',
         },
     ],
