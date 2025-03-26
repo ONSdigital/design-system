@@ -14,6 +14,7 @@
 | xAxis            | object  | true     | Defines the horizontal axis [x-axis](#x_axis) configuration parameters                                                                                                                       |
 | series           | array   | true     | The data [series](#series) to be plotted, including labels and values.                                                                                                                       |
 | useStackedLayout | boolean | false    | Determines whether the chart should use a stacked layout. It is useful only for bar charts.                                                                                                  |
+| annotations      | array   | false    | An array of annotations.                                                                                                                                                                     |
 
 ### Download
 
@@ -53,3 +54,27 @@
 | data       | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.  |
 | dataLabels | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`.                 |
 | marker     | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. |
+
+### Annotations
+
+| Name                           | Type   | Required | Description                                                                    |
+| ------------------------------ | ------ | -------- | ------------------------------------------------------------------------------ |
+| text                           | string | true     | The annotation text.                                                           |
+| coordinatePointAnnotation      | object | false    | An annotation for use on a chart that has 2 value axes                         |
+| categorisedDataPointAnnotation | object | false    | An annotation for use on a chart that has one value axis and one category axis |
+| labelOffsetX (px)              | int    | true     | The x offset in px of the label from the annotation point                      |
+| labelOffsetY (px)              | int    | true     | The y offset in px of the label from the annotation point                      |
+
+### Co-ordinate point annotation
+
+| Name   | Type  | Required | Description                        |
+| ------ | ----- | -------- | ---------------------------------- |
+| xValue | float | true     | The x axis value of the annotation |
+| yValue | float | true     | The y axis value of the annotation |
+
+### Categorised data point annotation
+
+| Name   | Type  | Required | Description                                                                           |
+| ------ | ----- | -------- | ------------------------------------------------------------------------------------- |
+| xValue | float | true     | Category index for the annotation - a zero based index of the x axis categories array |
+| yValue | float | true     | The y axis value for the annotation                                                   |

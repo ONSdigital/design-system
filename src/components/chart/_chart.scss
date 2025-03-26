@@ -1,5 +1,6 @@
 .ons-chart {
     margin: 0;
+    container-type: inline-size;
 
     &__download-title {
         @extend .ons-u-pt-l;
@@ -20,5 +21,54 @@
         font-size: 1rem;
         line-height: 1.2rem;
         color: var(--ons-color-grey-75);
+    }
+
+    &__footnote-number {
+        display: flex;
+        flex-shrink: 0;
+        flex-grow: 0;
+        align-items: center;
+        justify-content: center;
+        min-width: 1.125rem; // 18px
+        min-height: 1.125rem; // 18px
+        padding: 3px;
+        aspect-ratio: 1;
+        border: 1px solid var(--ons-color-grey-100);
+        border-radius: 50%;
+        font-size: 0.875rem; // 14px
+        line-height: 0;
+        background-color: var(--ons-color-white);
+        color: var(--ons-color-grey-100);
+    }
+
+    /* Override Highcharts styling */
+    &__footnote-number span {
+        position: static !important;
+        transform-origin: 0 0 !important;
+        font-size: inherit !important;
+        color: inherit !important;
+        top: 0 !important;
+        left: 0 !important;
+    }
+
+    &__footnotes {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1rem;
+
+        // We need to use a container query here in order to match the responsive rules for Highcharts
+        // which is based on the width that the chart renders not the viewport
+        // Update this is the Highcharts responsive rules change
+        @container (min-width: 401px) {
+            display: none;
+        }
+    }
+
+    &__footnote_item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem; // 14px
+        color: var(--ons-color-grey-100);
     }
 }
