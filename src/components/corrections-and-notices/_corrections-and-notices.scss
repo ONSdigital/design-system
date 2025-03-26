@@ -38,8 +38,15 @@
 
     &__banner-detail-reveal {
         width: fit-content;
+
         #{$root}[open] & {
             display: none;
+        }
+
+        #{$root}__banner:focus & {
+            background: var(--ons-color-focus);
+            box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-text-link-focus);
+            color: var(--ons-color-text-link-focus);
         }
     }
 
@@ -47,20 +54,14 @@
         display: none;
         width: fit-content;
 
-        &__banner-detail-text {
-            text-decoration: none;
-        }
-
         #{$root}[open] & {
             display: block;
-            background-color: var(--ons-color-focus);
-            box-decoration-break: clone;
-            box-shadow:
-                0 -2px var(--ons-color-focus),
-                0 4px var(--ons-color-text-link-focus);
+        }
+
+        #{$root}__banner:focus & {
+            background: var(--ons-color-focus);
+            box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-text-link-focus);
             color: var(--ons-color-text-link-focus);
-            outline: 3px solid transparent;
-            outline-offset: 1px;
         }
     }
 
@@ -69,11 +70,13 @@
             width: 16px;
             height: 16px;
         }
+
         &--show {
             .ons-icon {
                 transform: rotate(90deg);
             }
         }
+
         &--hide {
             .ons-icon {
                 transform: rotate(270deg);
