@@ -3,7 +3,7 @@
 | title   | `Object<Title>`           | true     | An object containing title attributes for [the card’s title](#title).                                                                                 |
 | image   | `Object<Image>` or `true` | false    | An object containing path attributes for [the card’s image](#image). If value is `true` will show placeholder with root as `placeholderURL` base path |
 | body    | `Object<Body>`            | true     | An object containing body attributes for [the card’s body](#body).                                                                                    |
-| variant | string                    | false    | A single value to adjust the component using available variants: “headline”                                                                           |
+| variant | string                    | false    | A single value to adjust the component using available variants: “feature”                                                                            |
 
 ## Image
 
