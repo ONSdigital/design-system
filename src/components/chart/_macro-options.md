@@ -66,7 +66,7 @@
 
 ### Point
 
-| Name   | Type        | Required | Description                                                                                                                                                |
-| ------ | ----------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| xValue | float / int | true     | The x axis value of the annotation. For category axes this is the zero based index of the x axis categories array. It must be an integer in this scenario. |
-| yValue | float       | true     | The y axis value of the annotation                                                                                                                         |     |
+| Name   | Type         | Required | Description                                                                                                                                                |
+| ------ | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| xValue | float or int | true     | The x axis value of the annotation. For category axes this is the zero based index of the x axis categories array. It must be an integer in this scenario. |
+| yValue | float        | true     | The y axis value of the annotation                                                                                                                         |
