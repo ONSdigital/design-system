@@ -41,7 +41,6 @@ class HighchartsBaseChart {
         this.setLoadEvent();
         this.setWindowResizeEvent();
         this.chart = Highcharts.chart(chartNode, this.config);
-        console.log(this.config);
     }
 
     // Set up the global Highcharts options which are used for all charts
@@ -119,7 +118,6 @@ class HighchartsBaseChart {
     // All responsive rules should be defined here to avoid overriding existing rules
     setResponsiveOptions = () => {
         const mobileCommonChartOptions = this.commonChartOptions.getMobileOptions();
-        console.log(mobileCommonChartOptions);
         if (!this.config.responsive) {
             this.config.responsive = {};
         }
@@ -144,7 +142,6 @@ class HighchartsBaseChart {
             },
         ];
         this.config.responsive.rules = rules;
-        console.log(this.config);
     };
 
     // Create the load event for various chart types
