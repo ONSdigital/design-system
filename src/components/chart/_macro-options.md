@@ -52,4 +52,4 @@
 | name       | string  | true     | The name of the series.                                                                                                                   |
 | data       | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.                                                       |
 | dataLabels | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`. This option is only available for bar chart and clustered bar charts |
-| marker     | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`.                                                      |
+| marker     | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. This option is only available for line charts.       |
