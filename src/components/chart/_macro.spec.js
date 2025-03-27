@@ -201,7 +201,6 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it includes the Highcharts JSON config', () => {
                     const configScript = $(`script[data-highcharts-config--bar-chart-123]`).html();
-                    expect(configScript).toContain('"type":"bar"');
                     expect(configScript).toContain('"text":"X Axis Title"');
                     expect(configScript).toContain('"text":"Y Axis Title"');
                 });
@@ -213,19 +212,13 @@ describe('Macro: Chart', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_BAR_CHART_PARAMS,
-                        config: {
-                            ...EXAMPLE_BAR_CHART_PARAMS.config,
-                            legend: { enabled: true, align: 'right', verticalAlign: 'top', layout: 'vertical' },
-                        },
+                        legend: true,
                     }),
                 );
 
                 test('THEN: it renders the legend when enabled', () => {
                     const configScript = $(`script[data-highcharts-config--bar-chart-123]`).html();
                     expect(configScript).toContain('"enabled":true');
-                    expect(configScript).toContain('"align":"right"');
-                    expect(configScript).toContain('"verticalAlign":"top"');
-                    expect(configScript).toContain('"layout":"vertical"');
                 });
 
                 test('THEN: it includes correct xAxis and yAxis titles', () => {
@@ -337,7 +330,6 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it includes the Highcharts JSON config', () => {
                     const configScript = $(`script[data-highcharts-config--column-chart-123]`).html();
-                    expect(configScript).toContain('"type":"column"');
                     expect(configScript).toContain('"text":"X Axis Title"');
                     expect(configScript).toContain('"text":"Y Axis Title"');
                 });
@@ -349,19 +341,13 @@ describe('Macro: Chart', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_COLUMN_CHART_PARAMS,
-                        config: {
-                            ...EXAMPLE_COLUMN_CHART_PARAMS.config,
-                            legend: { enabled: true, align: 'right', verticalAlign: 'top', layout: 'vertical' },
-                        },
+                        legend: true,
                     }),
                 );
 
                 test('THEN: it renders the legend when enabled', () => {
                     const configScript = $(`script[data-highcharts-config--column-chart-123]`).html();
                     expect(configScript).toContain('"enabled":true');
-                    expect(configScript).toContain('"align":"right"');
-                    expect(configScript).toContain('"verticalAlign":"top"');
-                    expect(configScript).toContain('"layout":"vertical"');
                 });
 
                 test('THEN: it includes correct xAxis and yAxis titles', () => {

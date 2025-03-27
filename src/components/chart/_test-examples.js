@@ -50,15 +50,12 @@ export const EXAMPLE_BAR_CHART_PARAMS = {
     title: 'Example Bar Chart',
     subtitle: 'A sample subtitle',
     id: 'bar-chart-123',
-    config: {
-        chart: { type: 'bar' },
-        xAxis: { title: { text: 'X Axis Title' }, categories: ['Jan', 'Feb', 'Mar'] },
-        yAxis: { title: { text: 'Y Axis Title' } },
-        series: [
-            { name: 'Series 1', data: [10, 20, 30] },
-            { name: 'Series 2', data: [15, 25, 35] },
-        ],
-    },
+    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
+    yAxis: { title: 'Y Axis Title' },
+    series: [
+        { name: 'Series 1', data: [10, 20, 30] },
+        { name: 'Series 2', data: [15, 25, 35] },
+    ],
 };
 
 export const EXAMPLE_COLUMN_CHART_PARAMS = {
@@ -67,13 +64,10 @@ export const EXAMPLE_COLUMN_CHART_PARAMS = {
     title: 'Example Column Chart',
     subtitle: 'A sample subtitle',
     id: 'column-chart-123',
-    config: {
-        chart: { type: 'column' },
-        xAxis: { title: { text: 'X Axis Title' }, categories: ['Jan', 'Feb', 'Mar'] },
-        yAxis: { title: { text: 'Y Axis Title' } },
-        series: [
-            { name: 'Series 1', data: [10, 20, 30] },
-            { name: 'Series 2', data: [15, 25, 35] },
-        ],
-    },
+    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
+    yAxis: { title: 'Y Axis Title' },
+    series: [
+        { name: 'Series 1', data: [10, 20, 30] },
+        { name: 'Series 2', data: [15, 25, 35] },
+    ],
 };
