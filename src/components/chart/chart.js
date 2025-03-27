@@ -129,12 +129,22 @@ class HighchartsBaseChart {
                 },
                 chartOptions: {
                     ...mobileCommonChartOptions,
+                },
+            },
+            // We are using a slightly wider breakpoint for annotations
+            // to try and reduce the likelihood of them being automatically
+            // hidden by Highcharts
+            {
+                condition: {
+                    maxWidth: 600,
+                },
+                chartOptions: {
                     annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsMobile() : undefined,
                 },
             },
             {
                 condition: {
-                    minWidth: 401,
+                    minWidth: 601,
                 },
                 chartOptions: {
                     annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsDesktop() : undefined,

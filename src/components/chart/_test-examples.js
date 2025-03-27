@@ -104,3 +104,53 @@ export const EXAMPLE_LINE_CHART_WITH_ANNOTATIONS_PARAMS = {
         },
     ],
 };
+
+export const EXAMPLE_BAR_CHART_WITH_ANNOTATIONS_PARAMS = {
+    chartType: 'bar',
+    theme: 'alternate',
+    title: 'Example Bar Chart',
+    subtitle: 'A sample subtitle',
+    id: 'bar-chart-123',
+    config: {
+        chart: { type: 'bar' },
+        xAxis: { title: { text: 'X Axis Title' }, categories: ['Jan', 'Feb', 'Mar'] },
+        yAxis: { title: { text: 'Y Axis Title' } },
+        series: [
+            { name: 'Series 1', data: [10, 20, 30] },
+            { name: 'Series 2', data: [15, 25, 35] },
+        ],
+        annotations: [
+            {
+                text: 'A test annotation',
+                point: { x: 2, y: 3 },
+                labelOffsetX: 10,
+                labelOffsetY: -50,
+            },
+        ],
+    },
+};
+
+export const EXAMPLE_COLUMN_CHART_WITH_ANNOTATIONS_PARAMS = {
+    chartType: 'column',
+    theme: 'alternate',
+    title: 'Example Column Chart',
+    subtitle: 'A sample subtitle',
+    id: 'column-chart-123',
+    config: {
+        chart: { type: 'column' },
+        xAxis: { title: { text: 'X Axis Title' }, categories: ['Jan', 'Feb', 'Mar'] },
+        yAxis: { title: { text: 'Y Axis Title' } },
+        series: [
+            { name: 'Series 1', data: [10, 20, 30] },
+            { name: 'Series 2', data: [15, 25, 35] },
+        ],
+    },
+    annotations: [
+        {
+            text: 'A test annotation',
+            point: { x: 11, y: 31.8 },
+            labelOffsetX: 10,
+            labelOffsetY: -50,
+        },
+    ],
+};

@@ -57,24 +57,16 @@
 
 ### Annotations
 
-| Name                           | Type   | Required | Description                                                                    |
-| ------------------------------ | ------ | -------- | ------------------------------------------------------------------------------ |
-| text                           | string | true     | The annotation text.                                                           |
-| coordinatePointAnnotation      | object | false    | An annotation for use on a chart that has 2 value axes                         |
-| categorisedDataPointAnnotation | object | false    | An annotation for use on a chart that has one value axis and one category axis |
-| labelOffsetX (px)              | int    | true     | The x offset in px of the label from the annotation point                      |
-| labelOffsetY (px)              | int    | true     | The y offset in px of the label from the annotation point                      |
+| Name              | Type   | Required | Description                                               |
+| ----------------- | ------ | -------- | --------------------------------------------------------- |
+| text              | string | true     | The annotation text.                                      |
+| point             | object | false    | The x and y coordinates for the annotation                |
+| labelOffsetX (px) | int    | true     | The x offset in px of the label from the annotation point |
+| labelOffsetY (px) | int    | true     | The y offset in px of the label from the annotation point |
 
-### Co-ordinate point annotation
+### Point
 
-| Name   | Type  | Required | Description                        |
-| ------ | ----- | -------- | ---------------------------------- |
-| xValue | float | true     | The x axis value of the annotation |
-| yValue | float | true     | The y axis value of the annotation |
-
-### Categorised data point annotation
-
-| Name   | Type  | Required | Description                                                                           |
-| ------ | ----- | -------- | ------------------------------------------------------------------------------------- |
-| xValue | float | true     | Category index for the annotation - a zero based index of the x axis categories array |
-| yValue | float | true     | The y axis value for the annotation                                                   |
+| Name   | Type        | Required | Description                                                                                                                                                |
+| ------ | ----------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| xValue | float / int | true     | The x axis value of the annotation. For category axes this is the zero based index of the x axis categories array. It must be an integer in this scenario. |
+| yValue | float       | true     | The y axis value of the annotation                                                                                                                         |     |
