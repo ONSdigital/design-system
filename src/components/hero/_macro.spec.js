@@ -157,8 +157,8 @@ describe('macro: hero', () => {
                 expect($('.ons-hero__information').length).toBe(1);
                 expect($('.ons-hero__panel').length).toBe(1);
                 expect($('.ons-hero__panel').text().trim()).toBe('Some panel text');
-                expect($('.ons-hero__link').text().trim()).toBe('Some link text');
-                expect($('.ons-hero__link').attr('href')).toBe('#0');
+                expect($('.ons-hero__link > a').text().trim()).toBe('Some link text');
+                expect($('.ons-hero__link > a').attr('href')).toBe('#0');
             });
         });
 
