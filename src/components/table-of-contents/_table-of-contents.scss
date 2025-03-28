@@ -3,10 +3,19 @@
         border-bottom: 1px solid var(--ons-color-grey-15);
         margin-bottom: 2rem;
         padding-bottom: 1rem;
+
+        &--no-border {
+            border-bottom: 0;
+        }
     }
 
     &__link-active {
         color: var(--ons-color-text-link-hover);
         text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
+    }
+
+    &__related-links,
+    &__button {
+        border-top: 3px solid var(--ons-color-ocean-blue);
     }
 }

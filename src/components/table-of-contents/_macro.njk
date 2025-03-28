@@ -1,8 +1,12 @@
 {% macro onsTableOfContents(params) %}
     {% from "components/list/_macro.njk" import onsList %}
     {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
+    {% from "components/button/_macro.njk" import onsButton %}
 
-    <aside class="ons-table-of-contents-container" role="complementary">
+    <aside
+        class="ons-table-of-contents-container {% if (params.relatedLinks or params.printButton) %}ons-table-of-contents-container--no-border{% endif %}"
+        role="complementary"
+    >
         {% if params.skipLink %}
             {{
                 onsSkipToContent({
@@ -41,5 +45,32 @@
                 }}
             {% endif %}
         </nav>
+
+        {% if params.relatedLinks %}
+            <nav
+                class="ons-table-of-contents__related-links ons-u-pb-2xs ons-u-mt-xl ons-u-mb-l ons-u-pt-xl"
+                aria-label="{{ params.relatedLinks.ariaLabel | default('Related links') }}"
+            >
+                <h2 class="ons-table-of-contents__title ons-u-fs-r--b ons-u-mb-s">{{ params.relatedLinks.title }}</h2>
+
+                {{
+                    onsList({
+                        "variants": 'bare',
+                        "itemsList": params.relatedLinks.itemsList
+                    })
+                }}
+            </nav>
+        {% endif %}
+
+        {% if params.printButton %}
+            <div class="ons-table-of-contents__button ons-u-pt-2xl">
+                {{
+                    onsButton({
+                        "text": params.printButton.text | default('Save or print this page'),
+                        "variants": ['print', 'small', 'secondary']
+                    })
+                }}
+            </div>
+        {% endif %}
     </aside>
 {% endmacro %}
