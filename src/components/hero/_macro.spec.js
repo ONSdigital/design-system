@@ -136,6 +136,31 @@ describe('macro: hero', () => {
         expect($('.ons-hero--grey').length).toBe(1);
     });
 
+    describe('when `informationPanel` is provided and the variant is set to `grey`', () => {
+        it('renders information panel and link`', () => {
+            const $ = cheerio.load(
+                renderComponent('hero', {
+                    ...EXAMPLE_HERO,
+                    variants: 'grey',
+                    informationPanel: {
+                        panelLink: {
+                            text: 'View previous releases',
+                            url: '#0',
+                        },
+                        panelText: 'Latest release',
+                        panelType: 'ons-green',
+                    },
+                }),
+            );
+
+            expect($('.ons-hero__information').length).toBe(1);
+            expect($('.ons-hero__panel').length).toBe(1);
+            expect($('.ons-hero__panel').length).toBe(1);
+            expect($('.ons-hero__link').length).toBe(1);
+            expect($('.ons-hero__link').attr('href')).toBe('#0');
+        });
+    });
+
     it('outputs the correct breadcrumbs', () => {
         const $ = cheerio.load(
             renderComponent('hero', {
