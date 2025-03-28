@@ -22,7 +22,9 @@
                         </h3>
                     {% endif %}
                     <div class="ons-details-panel__banner-detail ons-js-details-heading">
-                        <span class="ons-details-panel__banner-detail-title ons-js-corrections-details-title">Show detail</span>
+                        <span class="ons-details-panel__banner-detail-title ons-js-corrections-details-title ons-u-mr-3xs"
+                            >Show detail</span
+                        >
                         <span class="ons-details-panel__banner-detail-icon">
                             {% from "components/icon/_macro.njk" import onsIcon %}
                             {{
@@ -38,7 +40,7 @@
         <div class="ons-container ons-details-panel__content ons-js-details-content ons-u-pt-xl ons-u-pb-3xl">
             {% for group in params.groups %}
                 {% for groupItem in group.groupItems %}
-                    <div class="ons-details-panel__item">
+                    <div class="ons-details-panel__item ons-u-pb-xl">
                         <div class="ons-details-panel__content-meta">
                             <h3 class="ons-u-fs-r--b ons-details-panel__content-heading">{{ group.singleTitle }}</h3>
                             <time class="ons-details-panel__content-date" datetime="{{ groupItem.date.iso }}"
