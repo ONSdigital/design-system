@@ -20,3 +20,16 @@
 | ---- | ------ | -------- | -------------------------------------------------- |
 | url  | string | true     | The URL or path for the page or heading to link to |
 | text | string | true     | Text for the list item                             |
+
+## relatedLinks
+
+| Name      | Type               | Required | Description                                        |
+| --------- | ------------------ | -------- | -------------------------------------------------- |
+| url       | string             | true     | The URL or path for the page or heading to link to |
+| itemsList | array`<itemsList>` | false    | An array of [list item links](#itemslist)          |
+
+## printButton
+
+| Name | Type   | Required | Description            |
+| ---- | ------ | -------- | ---------------------- |
+| text | string | true     | Text for the list item |
