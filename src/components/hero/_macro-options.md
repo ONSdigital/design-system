@@ -27,9 +27,9 @@
 
 | Name      | Type                | Required | Description                                                                                                      |
 | --------- | ------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| PanelLink | `Object<PanelLink>` | false    | Settings for the panel link                                                                                      |
 | panelText | string              | false    | Text for the panel                                                                                               |
 | panelType | string              | false    | A single value to the colour of the information panel. Available colours: "ons-red", "ons-orange" or "ons-green" |
+| PanelLink | `Object<PanelLink>` | false    | Settings for the panel link                                                                                      |
 
 ## PanelLink
 

@@ -137,27 +137,60 @@ describe('macro: hero', () => {
     });
 
     describe('when `informationPanel` is provided and the variant is set to `grey`', () => {
-        it('renders information panel and link`', () => {
+        describe('and `panelType` is set to `ons-green`', () => {
+            it('renders information panel and link`', () => {
+                const $ = cheerio.load(
+                    renderComponent('hero', {
+                        ...EXAMPLE_HERO,
+                        variants: 'grey',
+                        informationPanel: {
+                            panelText: 'Some panel text',
+                            panelType: 'ons-green',
+                            panelLink: {
+                                text: 'Some link text',
+                                url: '#0',
+                            },
+                        },
+                    }),
+                );
+
+                expect($('.ons-hero__information').length).toBe(1);
+                expect($('.ons-hero__panel').length).toBe(1);
+                expect($('.ons-hero__panel').text().trim()).toBe('Some panel text');
+                expect($('.ons-hero__panel').hasClass('ons-hero__panel--ons-green')).toBe(true);
+                expect($('.ons-hero__link').text().trim()).toBe('Some link text');
+                expect($('.ons-hero__link').attr('href')).toBe('#0');
+            });
+        });
+
+        describe('and `panelType` is set to `ons-red`', () => {
             const $ = cheerio.load(
                 renderComponent('hero', {
                     ...EXAMPLE_HERO,
                     variants: 'grey',
                     informationPanel: {
-                        panelLink: {
-                            text: 'View previous releases',
-                            url: '#0',
-                        },
-                        panelText: 'Latest release',
-                        panelType: 'ons-green',
+                        panelText: 'Some panel text',
+                        panelType: 'ons-red',
                     },
                 }),
             );
 
-            expect($('.ons-hero__information').length).toBe(1);
-            expect($('.ons-hero__panel').length).toBe(1);
-            expect($('.ons-hero__panel').length).toBe(1);
-            expect($('.ons-hero__link').length).toBe(1);
-            expect($('.ons-hero__link').attr('href')).toBe('#0');
+            expect($('.ons-hero__panel').hasClass('ons-hero__panel--ons-red')).toBe(true);
+        });
+
+        describe('and `panelType` is set to `ons-orange`', () => {
+            const $ = cheerio.load(
+                renderComponent('hero', {
+                    ...EXAMPLE_HERO,
+                    variants: 'grey',
+                    informationPanel: {
+                        panelText: 'Some panel text',
+                        panelType: 'ons-orange',
+                    },
+                }),
+            );
+
+            expect($('.ons-hero__panel').hasClass('ons-hero__panel--ons-orange')).toBe(true);
         });
     });
 
