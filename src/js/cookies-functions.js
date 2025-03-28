@@ -74,8 +74,9 @@ export function getConsentCookie() {
 }
 
 export function setConsentCookie(options) {
-    const domain = getDomain(document.domain);
+    const domain = getDomain(document.location.hostname);
 
+    console.log(domain);
     let cookieConsent = getConsentCookie();
     if (!cookieConsent) {
         cookieConsent = JSON.parse(JSON.stringify(DEFAULT_COOKIE_CONSENT).replace(/'/g, '"'));
@@ -129,7 +130,7 @@ export function checkConsentCookie(cookieName, cookieValue) {
 
 export function setCookie(name, value, options) {
     const domain = getDomain(document.location.hostname);
-    let setDomain = '';
+    let setDomain = '; domain=' + 'service-manual.ons.gov.uk';
 
     if (domain.indexOf('localhost') === -1) {
         setDomain = '; domain=' + domain;
