@@ -22,3 +22,8 @@
         color: var(--ons-color-grey-75);
     }
 }
+
+// This is a workaround to position the axis title to the left
+.highcharts-axis-title {
+    width: 100%;
+}
