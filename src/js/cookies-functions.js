@@ -74,8 +74,8 @@ export function getConsentCookie() {
 }
 
 export function setConsentCookie(options) {
-    const domain = getDomain(document.domain);
-
+    const domain = getDomain(window.location.hostname);
+    console.log(domain);
     let cookieConsent = getConsentCookie();
     if (!cookieConsent) {
         cookieConsent = JSON.parse(JSON.stringify(DEFAULT_COOKIE_CONSENT).replace(/'/g, '"'));
@@ -128,7 +128,7 @@ export function checkConsentCookie(cookieName, cookieValue) {
 }
 
 export function setCookie(name, value, options) {
-    const domain = getDomain(document.domain);
+    const domain = getDomain(window.location.hostname);
     let setDomain = '';
 
     if (domain.indexOf('localhost') === -1) {
@@ -169,6 +169,9 @@ export function getCookie(name) {
 }
 
 export function getDomain(domain) {
+    if (domain.startsWith('www.')) {
+        domain = domain.substring(4);
+    }
     let i = 0,
         domainName = domain,
         p = domainName.split('.'),
