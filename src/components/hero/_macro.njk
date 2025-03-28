@@ -67,6 +67,16 @@
                             -}}
                         </div>
                     {% endif %}
+                    {% if params.informationPanel %}
+                        <div class="ons-hero__information ons-u-mt-s">
+                            <div class="ons-hero__panel ons-hero__panel--{{ params.informationPanel.panelType }}">
+                                {{- params.informationPanel.panelText -}}
+                            </div>
+                            <div class="ons-hero__link">
+                                <a href="{{ params.informationPanel.panelLink.url }}">{{ params.informationPanel.panelLink.text }}</a>
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endif %}
 
                 {% if params.button %}
