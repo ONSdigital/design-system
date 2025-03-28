@@ -6,11 +6,10 @@
 
 ## group
 
-| Name          | Type               | Required | Description                                                                                                                                                                                                 |
-| ------------- | ------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| singleTitle   | string             | true     | Heading for the content items and also title of the the details panel when there is one item in groupItems. <br> Example: "Correction" (for one item), "Correction and Notice" (for one item in each group) |
-| mulitpleTitle | string             | true     | Title of details panel where there are multiple items <br> Eg "Corrections"(for multiple items), "Corrections and Notices(for multiple items in each group)"                                                |
-| groupItems    | `array<groupItem>` | true     | Settings for the array of [group items](#groupItem) within the group                                                                                                                                        |
+| Name       | Type               | Required | Description                                                                                                                                                                                                                                        |
+| ---------- | ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title      | string             | true     | Heading for the groupItem and also title of the the details panel when there is one item in groupItems. <br> Example: "Correction" (for one item),"Corrections"(for multiple items) "Corrections and Notices" (multiple items and multiple groups) |
+| groupItems | `array<groupItem>` | true     | Settings for the array of [group items](#groupItem) within the group                                                                                                                                                                               |
 
 ## groupItem
 

@@ -7,12 +7,12 @@
                     {% if params.groups | length == 1 %}
                         {% set group = params.groups[0] %}
                         <h3 class="ons-details-panel__banner-title ons-u-mb-2xs">
-                            {{ group.multipleTitle if group.groupItems | length > 1 else group.singleTitle }}
+                            {{ group.title + 's' if group.groupItems | length > 1 else group.title }}
                         </h3>
                     {% else %}
                         <h3 class="ons-details-panel__banner-title ons-u-mb-2xs">
                             {% for group in params.groups %}
-                                {% set title = group.multipleTitle if group.groupItems | length > 1 else group.singleTitle %}
+                                {% set title = group.title + 's' if group.groupItems | length > 1 else group.title %}
                                 {% if loop.index == params.groups.length %}
                                     and {{ title }}
                                 {% else %}
@@ -42,7 +42,7 @@
                 {% for groupItem in group.groupItems %}
                     <div class="ons-details-panel__item ons-u-pb-xl">
                         <div class="ons-details-panel__content-meta">
-                            <h3 class="ons-u-fs-r--b ons-details-panel__content-heading">{{ group.singleTitle }}</h3>
+                            <h3 class="ons-u-fs-r--b ons-details-panel__content-heading">{{ group.title }}</h3>
                             <time class="ons-details-panel__content-date" datetime="{{ groupItem.date.iso }}"
                                 >{{ groupItem.date.short }}</time
                             >

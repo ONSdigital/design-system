@@ -2,8 +2,7 @@ export const EXAMPLE_DETAILS_PANEL_SINGLE_GROUP = {
     id: 'example-id',
     groups: [
         {
-            singleTitle: 'Correction',
-            multipleTitle: 'Corrections',
+            title: 'Correction',
             groupItems: [
                 {
                     date: {
@@ -22,8 +21,7 @@ export const EXAMPLE_DETAILS_PANEL_MULTIPLE_GROUPS = {
     id: 'example-id',
     groups: [
         {
-            singleTitle: 'Correction',
-            multipleTitle: 'Corrections',
+            title: 'Correction',
             groupItems: [
                 {
                     date: {
@@ -36,8 +34,7 @@ export const EXAMPLE_DETAILS_PANEL_MULTIPLE_GROUPS = {
             ],
         },
         {
-            singleTitle: 'Notice',
-            multipleTitle: 'Notices',
+            title: 'Notice',
             groupItems: [
                 {
                     date: {
@@ -55,8 +52,7 @@ export const EXAMPLE_DETAILS_PANEL_MULTIPLE_GROUPS_AND_GROUP_ITEMS = {
     id: 'example-id',
     groups: [
         {
-            singleTitle: 'Correction',
-            multipleTitle: 'Corrections',
+            title: 'Correction',
             groupItems: [
                 {
                     date: {
@@ -77,8 +73,7 @@ export const EXAMPLE_DETAILS_PANEL_MULTIPLE_GROUPS_AND_GROUP_ITEMS = {
             ],
         },
         {
-            singleTitle: 'Notice',
-            multipleTitle: 'Notices',
+            title: 'Notice',
             groupItems: [
                 {
                     date: {
