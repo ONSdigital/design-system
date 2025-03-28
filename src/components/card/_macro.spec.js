@@ -36,6 +36,20 @@ const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH = {
     },
 };
 
+const EXAMPLE_CARD_FEATURE_VARIANT = {
+    variant: 'feature',
+    title: {
+        text: 'Feature card title',
+        url: 'http://example.com',
+        subtitle: 'Optional subtitle',
+    },
+    body: {
+        figure: '123,456',
+        text: 'Example feature card text',
+        id: 'example-feature-text-id',
+    },
+};
+
 describe('macro: card', () => {
     describe('mode: without image', () => {
         it('passes jest-axe checks', async () => {
@@ -265,6 +279,50 @@ describe('macro: card', () => {
 
                 expect($('.ons-card__image').attr('alt')).toBe('');
             });
+        });
+    });
+
+    describe('variant: feature', () => {
+        it('renders the `feature` variant with correct class', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+            expect($('.ons-card').hasClass('ons-card--feature')).toBe(true);
+        });
+
+        it('has the provided `title` text', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+
+            expect($('.ons-card__title').text().trim()).toBe('Feature card title');
+        });
+
+        it('has the provided `subitle` text', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+
+            expect($('.ons-card__subtitle').text().trim()).toBe('Optional subtitle');
+        });
+
+        it('outputs a hyperlink with the provided `url`', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+
+            expect($('.ons-card__link').attr('href')).toBe('http://example.com');
+        });
+
+        it('has the provided `figure`', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+
+            expect($('.ons-card__figure').text().trim()).toBe('123,456');
+        });
+
+        it('has the provided `text` accessible via the `textId` identifier', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+
+            expect($('#example-feature-text-id').text().trim()).toBe('Example feature card text');
+        });
+
+        it('passes jest-axe checks', async () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+
+            const results = await axe($.html());
+            expect(results).toHaveNoViolations();
         });
     });
 });

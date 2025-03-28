@@ -126,13 +126,22 @@
             padding-left: $grid-gutters * 2;
         }
 
+        &--flex {
+            display: flex;
+        }
+
+        &--flex-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &--stretch {
+            align-self: stretch;
+        }
+
         .ons-grid-flex & {
             width: auto;
         }
-    }
-
-    &_col--flex {
-        display: flex;
     }
 }
 
