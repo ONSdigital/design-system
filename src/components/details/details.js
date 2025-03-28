@@ -8,6 +8,7 @@ export default class Details {
         this.details = detailsElement;
         this.detailsHeader = this.details.querySelector('.ons-js-details-heading');
         this.content = this.details.querySelector('.ons-js-details-content');
+        this.detailsTitle = this.details.querySelector('.ons-js-corrections-details-title');
 
         // Initialise
         const detailsId = detailsElement.getAttribute('id');
@@ -38,6 +39,7 @@ export default class Details {
             const action = open ? 'Open' : 'Close';
             const cls = open ? 'add' : 'remove';
             const openAttribute = open ? 'set' : 'remove';
+            const setText = open ? 'Close detail' : 'Show detail';
 
             this.isOpen = open;
             this.details[`${openAttribute}Attribute`]('open', '');
@@ -45,6 +47,9 @@ export default class Details {
             this.detailsHeader.setAttribute('aria-expanded', open);
             this.content.setAttribute('aria-hidden', !open);
             this.detailsHeader.setAttribute('data-ga-action', `${action} panel`);
+            if (this.detailsTitle) {
+                this.detailsTitle.textContent = setText;
+            }
 
             if (this.onOpen && this.onClose) {
                 if (open) {
