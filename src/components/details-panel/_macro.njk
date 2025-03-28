@@ -1,0 +1,59 @@
+{% macro onsDetailsPanel(params) %}
+    <div id="{{ params.id }}" class="ons-details-panel ons-js-details" {% if params.open %}{{ ' ' }}data-open="true"{% endif %}>
+        <div class="ons-details-panel__banner ons-u-pt-s ons-u-pb-s">
+            <div class="ons-container ons-details-panel__banner-contents">
+                <span class="ons-details-panel__info-icon ons-u-mr-2xs" aria-hidden="true">i</span>
+                <div class="ons-details-panel__banner-body">
+                    {% if params.groups | length == 1 %}
+                        {% set group = params.groups[0] %}
+                        <h3 class="ons-details-panel__banner-title ons-u-mb-2xs">
+                            {{ group.multipleTitle if group.groupItems | length > 1 else group.singleTitle }}
+                        </h3>
+                    {% else %}
+                        <h3 class="ons-details-panel__banner-title ons-u-mb-2xs">
+                            {% for group in params.groups %}
+                                {% set title = group.multipleTitle if group.groupItems | length > 1 else group.singleTitle %}
+                                {% if loop.index == params.groups.length %}
+                                    and {{ title }}
+                                {% else %}
+                                    {{ title }}{% if loop.index < params.groups.length - 1 %},{% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </h3>
+                    {% endif %}
+                    <div class="ons-details-panel__banner-detail ons-js-details-heading">
+                        <span class="ons-details-panel__banner-detail-title ons-js-corrections-details-title">Show detail</span>
+                        <span class="ons-details-panel__banner-detail-icon">
+                            {% from "components/icon/_macro.njk" import onsIcon %}
+                            {{
+                                onsIcon({
+                                    "iconType": "chevron"
+                                })
+                            }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ons-container ons-details-panel__content ons-js-details-content ons-u-pt-xl ons-u-pb-3xl">
+            {% for group in params.groups %}
+                {% for groupItem in group.groupItems %}
+                    <div class="ons-details-panel__item">
+                        <div class="ons-details-panel__content-meta">
+                            <h3 class="ons-u-fs-r--b ons-details-panel__content-heading">{{ group.singleTitle }}</h3>
+                            <time class="ons-details-panel__content-date" datetime="{{ groupItem.date.iso }}"
+                                >{{ groupItem.date.short }}</time
+                            >
+                        </div>
+                        <div class="ons-details-panel__content-description">
+                            <div class="ons-details-panel__content-text ons-u-mb-s">{{ groupItem.text }}</div>
+                            {% if groupItem.url or group.singleTitle == 'Content' %}
+                                <a class="ons-details-panel__content-url" href="{{ groupItem.url }}"> View superseded version</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}
