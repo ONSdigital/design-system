@@ -4,7 +4,7 @@
     {% set closingHeadingTag = "</h" + headingLevel + ">" %}
     {% set placeholderSrcset = (params.image.placeholderUrl if params.image.placeholderUrl else "") + "/img/small/placeholder-card.png 1x, " + (params.image.placeholderUrl if params.image.placeholderUrl else "") + "/img/large/placeholder-card.png 2x" %}
 
-    <div class="ons-card{% if params.variant == "feature" %}ons-card--feature ons-u-flex-grow{% endif %}">
+    <div class="ons-card {% if params.variant == "feature" %}ons-card--feature ons-u-flex-grow{% endif %}">
         <a href="{{ params.title.url }}" class="ons-card__link {% if params.title.subtitle %}ons-u-mb-xs{% endif %}">
             {%- if params.image -%}
                 {% if params.image.smallSrc %}
