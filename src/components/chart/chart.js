@@ -34,6 +34,8 @@ class HighchartsBaseChart {
         this.setSpecificChartOptions();
         this.setLoadEvent();
         this.setWindowResizeEvent();
+        this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
+        this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
         this.chart = Highcharts.chart(chartNode, this.config);
     }
 
@@ -132,25 +134,29 @@ class HighchartsBaseChart {
                 this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
                 this.commonChartOptions.hideDataLabels(currentChart);
             }
+            if (this.chartType != 'bar') {
+                this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+            }
             currentChart.redraw(false);
         };
     };
 
-    // Set resize events - throttled to 100ms
+    // Set resize events - throttled to 50ms
     setWindowResizeEvent = () => {
-        if (this.chartType === 'column' || this.chartType === 'bar') {
-            window.addEventListener('resize', () => {
-                clearTimeout(this.resizeTimeout);
-                this.resizeTimeout = setTimeout(() => {
-                    // Get the current rendered chart instance
-                    const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
-                    // Update the data labels when the window is resized
-                    if (this.chartType === 'bar' && !this.hideDataLabels) {
-                        this.barChart.postLoadDataLabels(currentChart);
-                    }
-                }, 100);
-            });
-        }
+        window.addEventListener('resize', () => {
+            clearTimeout(this.resizeTimeout);
+            this.resizeTimeout = setTimeout(() => {
+                // Get the current rendered chart instance
+                const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
+                // Update the data labels when the window is resized
+                if (this.chartType === 'bar' && !this.hideDataLabels) {
+                    this.barChart.postLoadDataLabels(currentChart);
+                }
+                if (this.chartType != 'bar') {
+                    this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+                }
+            }, 50);
+        });
     };
 }
 

@@ -23,6 +23,8 @@
         data-highcharts-id="{{ params.id }}"
         {% if params.useStackedLayout %}data-highcharts-use-stacked-layout="{{ params.useStackedLayout }}"{% endif %}
         id="{{ params.id }}"
+        data-highcharts-percentage-height-desktop="{{ params.percentageHeightDesktop }}"
+        data-highcharts-percentage-height-mobile="{{ params.percentageHeightMobile }}"
     >
         {% if params.chartType in supportedChartTypes %}
             <figure class="ons-chart">
