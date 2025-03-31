@@ -17,7 +17,7 @@
 | ---- | -------------- | ---------------------------------------------- | ------------------------------------------------------- |
 | date | `Object<Date>` | true                                           | An object for [Date](#date) set for the correction item |
 | text | string         | true                                           | Description of the correction item                      |
-| url  | string         | falue(unless singleTitle is set to Correction) | Link to view superseded version                         |
+| url  | string         | false(unless title is set to Correction) | Link to view superseded version                         |
 
 #### Date
 
