@@ -51,6 +51,7 @@
             height: 1rem;
             transform: rotate(90deg);
         }
+        
         #{$root}[open] & {
             .ons-icon {
                 transform: rotate(270deg);
