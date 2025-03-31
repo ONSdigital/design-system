@@ -27,10 +27,6 @@
         display: flex;
     }
 
-    &__banner-title {
-        margin: 0;
-    }
-
     &__banner-detail {
         width: fit-content;
 
@@ -79,7 +75,6 @@
     &__item {
         display: flex;
         flex-direction: column;
-        padding-bottom: 2rem;
         margin-left: 0.625rem;
         border-bottom: 1px solid var(--ons-color-borders);
         margin-bottom: 1.5rem;
