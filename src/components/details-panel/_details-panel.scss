@@ -47,7 +47,7 @@
             height: 1rem;
             transform: rotate(90deg);
         }
-        
+
         #{$root}[open] & {
             .ons-icon {
                 transform: rotate(270deg);
@@ -68,7 +68,7 @@
         #{$root}[open] & {
             display: block;
         }
-        
+
         .ons-details--initialised & {
             display: none;
         }
@@ -79,7 +79,6 @@
         flex-direction: column;
         margin-left: 0.625rem;
         border-bottom: 1px solid var(--ons-color-borders);
-        margin-bottom: 1.5rem;
 
         @include mq('m') {
             flex-direction: row;

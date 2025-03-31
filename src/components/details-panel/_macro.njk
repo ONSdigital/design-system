@@ -40,7 +40,7 @@
         <div class="ons-container ons-details-panel__content ons-js-details-content ons-u-pt-xl ons-u-pb-3xl">
             {% for group in params.groups %}
                 {% for groupItem in group.groupItems %}
-                    <div class="ons-details-panel__item ons-u-pb-xl">
+                    <div class="ons-details-panel__item ons-u-pb-xl ons-u-mb-l">
                         <div class="ons-details-panel__content-meta">
                             <h3 class="ons-u-fs-r--b ons-details-panel__content-heading">{{ group.title }}</h3>
                             <time class="ons-details-panel__content-date" datetime="{{ groupItem.date.iso }}"
