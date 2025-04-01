@@ -75,7 +75,6 @@ export function getConsentCookie() {
 
 export function setConsentCookie(options) {
     const domain = getDomain(window.location.hostname);
-    console.log(domain);
     let cookieConsent = getConsentCookie();
     if (!cookieConsent) {
         cookieConsent = JSON.parse(JSON.stringify(DEFAULT_COOKIE_CONSENT).replace(/'/g, '"'));
