@@ -30,15 +30,19 @@
     &__banner-detail {
         width: fit-content;
 
-        &__banner-detail-title {
-            text-decoration: none;
-        }
-
         &:focus {
             background: var(--ons-color-focus);
             box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-text-link-focus);
             color: var(--ons-color-text-link-focus);
         }
+    }
+
+    &__banner-detail-title {
+        text-decoration: underline var(--ons-color-white) 2px;
+    }
+
+    &__banner-detail:focus &__banner-detail-title {
+        text-decoration: none;
     }
 
     &__banner-detail-icon {
