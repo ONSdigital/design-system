@@ -76,7 +76,7 @@ export const EXAMPLE_LINE_CHART_WITH_ANNOTATIONS_PARAMS = {
     chartType: 'line',
     title: 'Example Line Chart with annotations',
     subtitle: 'A sample subtitle',
-    id: 'chart-123',
+    id: 'line-chart-annotations-123',
     xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
     yAxis: { title: 'Y Axis Title' },
     series: [
@@ -104,7 +104,7 @@ export const EXAMPLE_BAR_CHART_WITH_ANNOTATIONS_PARAMS = {
     theme: 'alternate',
     title: 'Example Bar Chart',
     subtitle: 'A sample subtitle',
-    id: 'bar-chart-123',
+    id: 'bar-chart-annotations-123',
     config: {
         chart: { type: 'bar' },
         xAxis: { title: { text: 'X Axis Title' }, categories: ['Jan', 'Feb', 'Mar'] },
@@ -113,15 +113,15 @@ export const EXAMPLE_BAR_CHART_WITH_ANNOTATIONS_PARAMS = {
             { name: 'Series 1', data: [10, 20, 30] },
             { name: 'Series 2', data: [15, 25, 35] },
         ],
-        annotations: [
-            {
-                text: 'A test annotation',
-                point: { x: 2, y: 3 },
-                labelOffsetX: 10,
-                labelOffsetY: -50,
-            },
-        ],
     },
+    annotations: [
+        {
+            text: 'A test annotation',
+            point: { x: 2, y: 3 },
+            labelOffsetX: 10,
+            labelOffsetY: -50,
+        },
+    ],
 };
 
 export const EXAMPLE_COLUMN_CHART_WITH_ANNOTATIONS_PARAMS = {
@@ -129,7 +129,7 @@ export const EXAMPLE_COLUMN_CHART_WITH_ANNOTATIONS_PARAMS = {
     theme: 'alternate',
     title: 'Example Column Chart',
     subtitle: 'A sample subtitle',
-    id: 'column-chart-123',
+    id: 'column-chart-annotations-123',
     config: {
         chart: { type: 'column' },
         xAxis: { title: { text: 'X Axis Title' }, categories: ['Jan', 'Feb', 'Mar'] },

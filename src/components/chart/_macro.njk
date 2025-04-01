@@ -106,11 +106,11 @@
         <!-- Set scripts to pass the config values as json to the javascript -->
         <!-- prettier-ignore-start -->
         <script type="application/json" data-highcharts-config--{{ params.id }}>
-            {{ config | dump | safe }}
+            {{ config | tojson }}
         </script>
         {% if params.annotations %}
             <script type="application/json" data-highcharts-annotations--{{ params.id }}>
-                {{ params.annotations | dump | safe }}
+                {{ params.annotations | tojson }}
             </script>
         {% endif %}
         <!-- prettier-ignore-end -->
