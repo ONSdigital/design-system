@@ -8,6 +8,7 @@ import {
     EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
     EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
     EXAMPLE_BAR_CHART_PARAMS,
+    EXAMPLE_BAR_CHART_WITH_PERCENTAGE_HEIGHT_PARAMS,
     EXAMPLE_COLUMN_CHART_PARAMS,
 } from './_test-examples';
 
@@ -119,6 +120,24 @@ describe('Macro: Chart', () => {
             });
         });
 
+        describe('GIVEN: Params: Percentage Height Desktop', () => {
+            describe('WHEN: percentage height desktop is provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
+                test('THEN: it includes correct percentage height desktop', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-percentage-height-desktop')).toBe('50');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Percentage Height Mobile', () => {
+            describe('WHEN: percentage height mobile is provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
+                test('THEN: it includes correct percentage height mobile', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-percentage-height-mobile')).toBe('120');
+                });
+            });
+        });
+
         describe('GIVEN: Params: Caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(
@@ -225,6 +244,24 @@ describe('Macro: Chart', () => {
                     const configScript = $(`script[data-highcharts-config--bar-chart-123]`).html();
                     expect(configScript).toContain('"text":"X Axis Title"');
                     expect(configScript).toContain('"text":"Y Axis Title"');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Percentage Height Desktop', () => {
+            describe('WHEN: percentage height desktop is provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_WITH_PERCENTAGE_HEIGHT_PARAMS));
+                test('THEN: it does not include percentage height desktop', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-percentage-height-desktop')).toBe(undefined);
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Percentage Height Mobile', () => {
+            describe('WHEN: percentage height mobile is provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_WITH_PERCENTAGE_HEIGHT_PARAMS));
+                test('THEN: it does not include percentage height mobile', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-percentage-height-mobile')).toBe(undefined);
                 });
             });
         });
@@ -354,6 +391,24 @@ describe('Macro: Chart', () => {
                     const configScript = $(`script[data-highcharts-config--column-chart-123]`).html();
                     expect(configScript).toContain('"text":"X Axis Title"');
                     expect(configScript).toContain('"text":"Y Axis Title"');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Percentage Height Desktop', () => {
+            describe('WHEN: percentage height desktop is provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_PARAMS));
+                test('THEN: it includes correct percentage height desktop', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-percentage-height-desktop')).toBe('50');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Percentage Height Mobile', () => {
+            describe('WHEN: percentage height mobile is provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_PARAMS));
+                test('THEN: it includes correct percentage height mobile', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-percentage-height-mobile')).toBe('120');
                 });
             });
         });
