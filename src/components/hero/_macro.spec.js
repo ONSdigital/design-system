@@ -112,6 +112,22 @@ describe('macro: hero', () => {
         expect($('.ons-hero__badge svg title').text().trim()).toBe('Offical Statistics Badge');
     });
 
+    it('outputs the statistics badge as a link when officialStatisticsBadgeUrl is provided', () => {
+        const $ = cheerio.load(
+            renderComponent('hero', {
+                ...EXAMPLE_HERO,
+                variants: 'grey',
+                officialStatisticsBadge: true,
+                officialStatisticsBadgeUrl: 'https://example.com/badge',
+            }),
+        );
+
+        expect($('.ons-hero__badge-link').length).toBe(1);
+        expect($('.ons-hero__badge-link').attr('href')).toBe('https://example.com/badge');
+        expect($('.ons-hero__badge-link').attr('target')).toBe('_blank');
+        expect($('.ons-hero__badge-link').attr('rel')).toBe('noopener noreferrer');
+    });
+
     it('outputs the Census 2021 Logo when censusLogo is set to true and variants is set to "grey"', () => {
         const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'grey', censusLogo: true }));
 
