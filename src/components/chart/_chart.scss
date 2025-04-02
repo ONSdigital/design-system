@@ -58,7 +58,7 @@
 
         // We need to use a container query here in order to match the responsive rules for Highcharts
         // which is based on the width that the chart renders not the viewport
-        // Update this is the Highcharts responsive rules change
+        // Update the breakpoint value here if the Highcharts responsive rules change
         @container (min-width: 601px) {
             display: none;
         }
