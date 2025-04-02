@@ -67,25 +67,28 @@ const EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON = {
             text: 'Who should take part and why',
         },
     ],
-    relatedLinks: {
-        title: 'Related publications',
-        itemsList: [
-            {
-                url: '#0',
-                text: 'Example publication title',
-            },
-            {
-                url: '#0',
-                text: 'Example publication title 2',
-            },
-            {
-                url: '#0',
-                text: 'Example publication title 3',
-            },
-        ],
-    },
-    printButton: {
+    relatedLinksTitle: 'Related publications',
+    relatedLinksList: [
+        {
+            itemsList: [
+                {
+                    url: '#0',
+                    text: 'Example publication title',
+                },
+                {
+                    url: '#0',
+                    text: 'Example publication title 2',
+                },
+                {
+                    url: '#0',
+                    text: 'Example publication title 3',
+                },
+            ],
+        },
+    ],
+    button: {
         text: 'Save or print this page',
+        variants: ['print', 'small', 'secondary'],
     },
 };
 
@@ -224,7 +227,7 @@ describe('macro: table-of-contents', () => {
 
             expect(listsSpy.occurrences[1]).toEqual({
                 variants: 'bare',
-                itemsList: EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON.relatedLinks.itemsList,
+                itemsList: EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON.relatedLinksList,
             });
         });
 
@@ -244,12 +247,6 @@ describe('macro: table-of-contents', () => {
                 text: 'Save or print this page',
                 variants: ['print', 'small', 'secondary'],
             });
-        });
-
-        it('adds no-border modifier class to container when related links or print button are present', () => {
-            const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON));
-
-            expect($('.ons-table-of-contents-container').hasClass('ons-table-of-contents-container--no-border')).toBe(true);
         });
     });
 });

@@ -46,31 +46,24 @@
             {% endif %}
         </nav>
 
-        {% if params.relatedLinks %}
+        {% if params.relatedLinksList %}
             <nav
-                class="ons-table-of-contents__related-links ons-u-pb-2xs ons-u-mt-xl ons-u-mb-l ons-u-pt-xl"
-                aria-label="{{ params.relatedLinks.ariaLabel | default('Related links') }}"
+                class="ons-table-of-contents__related-links ons-u-pb-s ons-u-pt-l ons-u-mt-s"
+                aria-label="{{ params.relatedLinksAriaLabel | default('Related links') }}"
             >
-                <h2 class="ons-table-of-contents__title ons-u-fs-r--b ons-u-mb-s">{{ params.relatedLinks.title }}</h2>
+                <h2 class="ons-table-of-contents__title ons-u-fs-r--b ons-u-mb-s">{{ params.relatedLinksTitle }}</h2>
 
                 {{
                     onsList({
                         "variants": 'bare',
-                        "itemsList": params.relatedLinks.itemsList
+                        "itemsList": params.relatedLinksList
                     })
                 }}
             </nav>
         {% endif %}
 
-        {% if params.printButton %}
-            <div class="ons-table-of-contents__button ons-u-pt-2xl">
-                {{
-                    onsButton({
-                        "text": params.printButton.text | default('Save or print this page'),
-                        "variants": ['print', 'small', 'secondary']
-                    })
-                }}
-            </div>
+        {% if params.button %}
+            <div class="ons-table-of-contents__button ons-u-pt-l">{{ onsButton(params.button) }}</div>
         {% endif %}
     </aside>
 {% endmacro %}
