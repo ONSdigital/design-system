@@ -102,11 +102,7 @@ class HighchartsBaseChart {
 
         this.config.series = this.config.series.map((series) => {
             if (series.type === 'line') {
-                return {
-                    ...series, // Preserve existing series properties
-                    ...lineChartOptions, // add line chart options
-                    //...lineChartOptions.legend, // add legend options
-                };
+                this.config.plotOptions.line = lineChartOptions.plotOptions.line;
             }
             return series;
         });
@@ -143,15 +139,48 @@ class HighchartsBaseChart {
                 this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
                 this.commonChartOptions.hideDataLabels(currentChart.series);
             }
-            // If the chart is a line chart, hide the data labels for all series
+            // If the series is a line, add the line chart options to the config
             currentChart.series.forEach((series) => {
                 if (series.type === 'line') {
                     this.lineChart.updateLastPointMarker([series]);
                     this.commonChartOptions.hideDataLabels([series]);
+
+                    this.updateLegendForLineSeries(currentChart);
                 }
             });
             currentChart.redraw(false);
         };
+    };
+
+    updateLegendForLineSeries = (chart) => {
+        chart.series.forEach((series) => {
+            if (series.type !== 'line') return;
+
+            this.lineChart.updateLastPointMarker([series]);
+            this.commonChartOptions.hideDataLabels([series]);
+
+            chart.legend.allItems.forEach((item) => {
+                const { legendItem, userOptions } = item;
+                if (userOptions?.type === 'line') {
+                    const { symbol, label, line } = legendItem || {};
+
+                    // Hide default legend symbol for line series
+                    symbol?.hide();
+
+                    // Update the legend length and width
+                    line?.attr({
+                        d: 'M 1.5 15 L 18.5 15', // Extend the legend line
+                        'stroke-width': 3, // Custom thickness for better visibility
+                    });
+
+                    // Adjust legend text position
+                    label?.attr({
+                        x: 25,
+                        y: 19,
+                    });
+                }
+            });
+        });
     };
 
     // Set resize events - throttled to 100ms

@@ -61,7 +61,7 @@
                     "dataLabels": {
                         "enabled": item.dataLabels if item.dataLabels else false
                     },
-                    "type": item.type if item.type and item.type == 'line' else params.chartType
+                    "type": item.type if item.type and item.type == 'line' else undefined
                 })
             %}
         {% endfor %}
