@@ -178,8 +178,8 @@ class CommonChartOptions {
 
     getOptions = () => this.options;
 
-    hideDataLabels = (currentChart) => {
-        currentChart.series.forEach((series) => {
+    hideDataLabels = (series) => {
+        series.forEach((series) => {
             series.update({
                 dataLabels: {
                     enabled: false,

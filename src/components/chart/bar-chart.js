@@ -76,10 +76,12 @@ class BarChart {
                 // Get the actual width of the data label
                 const labelWidth = point.dataLabel && point.dataLabel.getBBox().width;
                 // Move the data labels inside the bar if the bar is wider than the label plus some padding
-                if (point.shapeArgs.height > labelWidth + 20) {
-                    point.update(insideOptions, false);
-                } else {
-                    point.update(outsideOptions, false);
+                if (series.type === 'bar') {
+                    if (point.shapeArgs.height > labelWidth + 20) {
+                        point.update(insideOptions, false);
+                    } else {
+                        point.update(outsideOptions, false);
+                    }
                 }
             });
         });

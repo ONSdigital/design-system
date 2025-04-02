@@ -99,6 +99,17 @@ class HighchartsBaseChart {
             // Merge the column chart options with the existing config
             this.config = this.mergeConfigs(this.config, columnChartOptions);
         }
+
+        this.config.series = this.config.series.map((series) => {
+            if (series.type === 'line') {
+                return {
+                    ...series, // Preserve existing series properties
+                    ...lineChartOptions, // add line chart options
+                    //...lineChartOptions.legend, // add legend options
+                };
+            }
+            return series;
+        });
     };
 
     // Check if the data labels should be hidden
@@ -117,21 +128,28 @@ class HighchartsBaseChart {
             // Disable the legend for single series charts
             this.commonChartOptions.disableLegendForSingleSeries(currentChart);
             if (this.chartType === 'line') {
-                this.lineChart.updateLastPointMarker(currentChart);
-                this.commonChartOptions.hideDataLabels(currentChart);
+                this.lineChart.updateLastPointMarker(currentChart.series);
+                this.commonChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'bar') {
                 this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
                 } else {
-                    this.commonChartOptions.hideDataLabels(currentChart);
+                    this.commonChartOptions.hideDataLabels(currentChart.series);
                 }
             }
             if (this.chartType === 'column') {
                 this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
-                this.commonChartOptions.hideDataLabels(currentChart);
+                this.commonChartOptions.hideDataLabels(currentChart.series);
             }
+            // If the chart is a line chart, hide the data labels for all series
+            currentChart.series.forEach((series) => {
+                if (series.type === 'line') {
+                    this.lineChart.updateLastPointMarker([series]);
+                    this.commonChartOptions.hideDataLabels([series]);
+                }
+            });
             currentChart.redraw(false);
         };
     };
