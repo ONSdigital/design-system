@@ -11,10 +11,9 @@
 | descriptionList            | `DescriptionList` [_(ref)_](/components/description-list) | false    | Settings to set the DescriptionList component within the HTML `<hero>` element                                                     |
 | officialStatisticsBadge    | boolean                                                   | false    | Set to “true” display the official statistics badge (only available for the "grey" hero variant)                                   |
 | officialStatisticsBadgeUrl | string                                                    | false    | URL for the Statistics Badge                                                                                                       |
-
-| topic | string | false | Topic for the hero |
-| breadcrumbs | `Breadcrumbs` [_(ref)_](/components/breadcrumbs) | false | Settings to set the Breadcrumbs component within the HTML `<hero>` element |
-| censusLogo | boolean | false | Set to “true” display the census 2021 logo (only available for the "grey" hero variant) |
+| topic                      | string                                                    | false    | Topic for the hero                                                                                                                 |
+| breadcrumbs                | `Breadcrumbs` [_(ref)_](/components/breadcrumbs)          | false    | Settings to set the Breadcrumbs component within the HTML `<hero>` element                                                         |
+| censusLogo                 | boolean                                                   | false    | Set to “true” display the census 2021 logo (only available for the "grey" hero variant)                                            |
 
 ## Button
 

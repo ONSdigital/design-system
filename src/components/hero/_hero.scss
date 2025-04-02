@@ -115,7 +115,7 @@
     }
 
     &__details:has(.ons-breadcrumbs) {
-        padding-top: 1rem;
+        padding-top: 1rem !important;
     }
 
     &--dark & {
@@ -137,12 +137,19 @@
         }
     }
     &--navy-blue & {
+        .ons-breadcrumbs__item {
+            color: var(--ons-color-white);
+        }
         &__details {
             color: var(--ons-color-text-inverse);
             padding: 2rem 0 6rem;
             @include mq(l) {
                 padding: 4rem 0;
             }
+        }
+
+        &--topic {
+            color: var(--ons-color-sky-blue);
         }
 
         &__circle-1 {
