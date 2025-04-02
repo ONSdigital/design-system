@@ -54,18 +54,26 @@
 
                     {% if params.variants == "grey" and params.officialStatisticsBadge == true %}
                         <div class="ons-hero__badge ons-u-mb-s">
-                            <a
-                                href="https://uksa.statisticsauthority.gov.uk/about-the-authority/uk-statistical-system/types-of-official-statistics/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="ons-hero__badge-link"
-                            >
+                            {% if params.officialStatisticsBadgeUrl %}
+                                <a
+                                    href="{{ params.officialStatisticsBadgeUrl }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="ons-hero__badge-link"
+                                >
+                                    {{-
+                                        onsIcon({
+                                            "iconType": 'official-statistics'
+                                        })
+                                    -}}
+                                </a>
+                            {% else %}
                                 {{-
                                     onsIcon({
                                         "iconType": 'official-statistics'
                                     })
                                 -}}
-                            </a>
+                            {% endif %}
                         </div>
                     {% endif %}
                 </div>
