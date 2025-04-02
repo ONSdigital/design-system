@@ -19,7 +19,6 @@
         list-style: none;
         background-color: var(--ons-color-ocean-blue);
         color: var(--ons-color-white);
-        cursor: pointer;
         border: 1px solid var(--ons-color-ocean-blue);
     }
 
@@ -29,11 +28,13 @@
 
     &__banner-detail {
         width: fit-content;
+        cursor: pointer;
 
         &:focus {
             background: var(--ons-color-focus);
             box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-text-link-focus);
             color: var(--ons-color-text-link-focus);
+            outline: none;
         }
     }
 
