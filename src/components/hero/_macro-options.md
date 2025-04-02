@@ -9,8 +9,8 @@
 | html                       | string                                                    | false    | Allows arbitrary HTML for additional content to be added to the component                                                          |
 | detailsColumns             | integer                                                   | false    | Number of grid columns for the hero to span on screens larger than the medium breakpoint, defaults to 8                            |
 | descriptionList            | `DescriptionList` [_(ref)_](/components/description-list) | false    | Settings to set the DescriptionList component within the HTML `<hero>` element                                                     |
-| officialStatisticsBadge    | string                                                    | false    | URL for the Statistics Badge                                                                                                       |
-| officialStatisticsBadgeUrl | boolean                                                   | false    | Set to “true” display the official statistics badge (only available for the "grey" hero variant)                                   |
+| officialStatisticsBadge    | boolean                                                   | false    | Set to “true” display the official statistics badge (only available for the "grey" hero variant)                                   |
+| officialStatisticsBadgeUrl | string                                                    | false    | URL for the Statistics Badge                                                                                                       |
 
 | topic | string | false | Topic for the hero |
 | breadcrumbs | `Breadcrumbs` [_(ref)_](/components/breadcrumbs) | false | Settings to set the Breadcrumbs component within the HTML `<hero>` element |
