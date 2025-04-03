@@ -37,27 +37,47 @@
                 {% if params.topic %}
                     <h2 class="ons-hero--topic">{{ params.topic | safe }}</h2>
                 {% endif %}
-                <div class="ons-hero__title-container">
-                    <header>
-                        <h1 class="ons-hero__title ons-u-fs-3xl">{{ params.title }}</h1>
-                        {% if params.subtitle %}
-                            <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
+
+                <div class="ons-hero__content">
+                    <div class="ons-hero__title-container">
+                        <header>
+                            <h1 class="ons-hero__title ons-u-fs-3xl">{{ params.title }}</h1>
+                            {% if params.subtitle %}
+                                <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
+                            {% endif %}
+                        </header>
+
+                        {% if params.text %}
+                            <p class="ons-hero__text">{{ params.text | safe }}</p>
                         {% endif %}
-                    </header>
-                    {% if params.text %}
-                        <p class="ons-hero__text">{{ params.text | safe }}</p>
+                    </div>
+
+                    {% if params.variants == "grey" and params.officialStatisticsBadge == true %}
+                        <div class="ons-hero__badge ons-u-mb-s">
+                            {% if params.officialStatisticsBadgeUrl %}
+                                <a
+                                    href="{{ params.officialStatisticsBadgeUrl }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="ons-hero__badge-link"
+                                >
+                                    {{-
+                                        onsIcon({
+                                            "iconType": 'official-statistics'
+                                        })
+                                    -}}
+                                </a>
+                            {% else %}
+                                {{-
+                                    onsIcon({
+                                        "iconType": 'official-statistics'
+                                    })
+                                -}}
+                            {% endif %}
+                        </div>
                     {% endif %}
                 </div>
                 {% if params.variants == "grey" %}
-                    {% if params.officialStatisticsBadge == true %}
-                        <div class="ons-hero__badge ons-u-mb-s">
-                            {{-
-                                onsIcon({
-                                    "iconType": 'official-statistics'
-                                })
-                            -}}
-                        </div>
-                    {% endif %}
                     {% if params.censusLogo == true %}
                         <div class="ons-hero__census-logo">
                             {{-
@@ -65,6 +85,16 @@
                                     "iconType": 'census-logo'
                                 })
                             -}}
+                        </div>
+                    {% endif %}
+                    {% if params.informationPanel %}
+                        <div class="ons-hero__information ons-u-mt-s">
+                            <div class="ons-hero__panel ons-hero__panel--{{ params.informationPanel.panelType }}">
+                                {{- params.informationPanel.panelText -}}
+                            </div>
+                            <div class="ons-hero__link">
+                                <a href="{{ params.informationPanel.panelLink.url }}">{{ params.informationPanel.panelLink.text }}</a>
+                            </div>
                         </div>
                     {% endif %}
                 {% endif %}
