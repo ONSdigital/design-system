@@ -1,0 +1,60 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+
+{{
+    onsChart({
+        "chartType": "bar",
+        "description": "Volume sales, seasonally adjusted, Great Britain, January 2022 to January 2025",
+        "theme": "primary",
+        "title": "Food stores showed a strong rise on the month, while non-food stores fell",
+        "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
+        "id": "uuid",
+        "caption": "Source: Monthly Business Survey, Retail Sales Inquiry from the Office for National Statistics",
+        "download": {
+            'title': 'Download Figure 1 data',
+            'itemsList': [
+                {
+                    "text": "Excel spreadsheet (XLSX format, 18KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Simple text file (CSV format, 25KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Image (PNG format, 25KB)",
+                    "url": "#"
+                }
+            ]
+        },
+        "legend": true,
+        "series": [
+            {
+                "data": [-6.2, 1.5, -15.9, 1.7],
+                "dataLabels": false,
+                "name": "2022"
+            },
+            {
+                "data": [-2.9, -2.7, -2.9, -3.5],
+                "dataLabels": false,
+                "name": "2023"
+            },
+            {
+                "data": [-1.6, 1.2, 3.2, 3.8],
+                "dataLabels": false,
+                "name": "2024"
+            }
+        ],
+        "xAxis": {
+            "categories": [
+                "Food stores",
+                "Non-food stores",
+                "Non-store retailing ",
+                "Automotive fuel"
+            ],
+            "type": "linear"
+        },
+        "yAxis": {
+            "title": "Percent (%)"
+        }
+    })
+}}
