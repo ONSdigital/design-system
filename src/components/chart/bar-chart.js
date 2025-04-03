@@ -76,12 +76,14 @@ class BarChart {
                 // Get the actual width of the data label
                 const labelWidth = point.dataLabel && point.dataLabel.getBBox().width;
                 // Move the data labels inside the bar if the bar is wider than the label plus some padding
-                if (series.type === 'bar') {
-                    if (point.shapeArgs.height > labelWidth + 20) {
-                        point.update(insideOptions, false);
-                    } else {
-                        point.update(outsideOptions, false);
-                    }
+                if (series.type && series.type == 'line') {
+                    // If we have a bar chart with an extra line, exit early for the line series
+                    return;
+                }
+                if (point.shapeArgs.height > labelWidth + 20) {
+                    point.update(insideOptions, false);
+                } else {
+                    point.update(outsideOptions, false);
                 }
             });
         });
@@ -114,9 +116,10 @@ class BarChart {
 
     // This updates the height of the vertical axis and overall chart to fit the number of categories
     // Note that the vertical axis on a bar chart is the x axis
-    updateBarChartHeight = (config, currentChart, useStackedLayout) => {
+    // If there are extra lines, we need to subtract the number of extra lines from the number of series
+    updateBarChartHeight = (config, currentChart, useStackedLayout, numberOfExtraLines) => {
         const numberOfCategories = config.xAxis.categories.length;
-        const numberOfSeries = currentChart.series.length; // Get number of bar series
+        const numberOfSeries = currentChart.series.length - numberOfExtraLines; // Get number of bar series
         let barHeight = 30; // Height of each individual bar - set in bar-chart-plot-options
         let groupSpacing = 0; // Space we want between category groups, or between series groups for cluster charts
         let categoriesTotalHeight = 0;
