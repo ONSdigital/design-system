@@ -152,6 +152,84 @@ describe('macro: hero', () => {
         expect($('.ons-hero--grey').length).toBe(1);
     });
 
+    describe('when `informationPanel` is provided and the variant is set to `grey`', () => {
+        describe('and `panelText` and `panelLink` are provided', () => {
+            it('renders the information panel with correct text and link`', () => {
+                const $ = cheerio.load(
+                    renderComponent('hero', {
+                        ...EXAMPLE_HERO,
+                        variants: 'grey',
+                        informationPanel: {
+                            panelText: 'Some panel text',
+                            panelType: 'ons-green',
+                            panelLink: {
+                                text: 'Some link text',
+                                url: '#0',
+                            },
+                        },
+                    }),
+                );
+
+                expect($('.ons-hero__information').length).toBe(1);
+                expect($('.ons-hero__panel').length).toBe(1);
+                expect($('.ons-hero__panel').text().trim()).toBe('Some panel text');
+                expect($('.ons-hero__link > a').text().trim()).toBe('Some link text');
+                expect($('.ons-hero__link > a').attr('href')).toBe('#0');
+            });
+        });
+
+        describe('and `panelType` is set to `ons-green`', () => {
+            it('renders the green information panel`', () => {
+                const $ = cheerio.load(
+                    renderComponent('hero', {
+                        ...EXAMPLE_HERO,
+                        variants: 'grey',
+                        informationPanel: {
+                            panelText: 'Some panel text',
+                            panelType: 'ons-green',
+                        },
+                    }),
+                );
+
+                expect($('.ons-hero__panel').hasClass('ons-hero__panel--ons-green')).toBe(true);
+            });
+        });
+
+        describe('and `panelType` is set to `ons-red`', () => {
+            it('renders the red information panel`', () => {
+                const $ = cheerio.load(
+                    renderComponent('hero', {
+                        ...EXAMPLE_HERO,
+                        variants: 'grey',
+                        informationPanel: {
+                            panelText: 'Some panel text',
+                            panelType: 'ons-red',
+                        },
+                    }),
+                );
+
+                expect($('.ons-hero__panel').hasClass('ons-hero__panel--ons-red')).toBe(true);
+            });
+        });
+
+        describe('and `panelType` is set to `ons-orange`', () => {
+            it('renders the orange information panel`', () => {
+                const $ = cheerio.load(
+                    renderComponent('hero', {
+                        ...EXAMPLE_HERO,
+                        variants: 'grey',
+                        informationPanel: {
+                            panelText: 'Some panel text',
+                            panelType: 'ons-orange',
+                        },
+                    }),
+                );
+
+                expect($('.ons-hero__panel').hasClass('ons-hero__panel--ons-orange')).toBe(true);
+            });
+        });
+    });
+
     it('outputs the correct breadcrumbs', () => {
         const $ = cheerio.load(
             renderComponent('hero', {
