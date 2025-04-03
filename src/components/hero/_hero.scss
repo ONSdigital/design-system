@@ -70,12 +70,9 @@
             }
         }
     }
-    &__badge {
-        @include mq(l) {
-            position: absolute;
-            right: 0;
-            top: 85px;
-        }
+
+    &__badge-link {
+        display: block;
     }
 
     &--topic {
@@ -95,7 +92,11 @@
     }
 
     &__content {
-        height: 100%;
+        @include mq(l) {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
     }
 
     &__pre-title {

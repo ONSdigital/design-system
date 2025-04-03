@@ -1,0 +1,29 @@
+.ons-chart {
+    margin: 0;
+
+    &__download-title {
+        @extend .ons-u-pt-l;
+        @extend .ons-u-fs-r--b;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        line-height: 1.625rem;
+    }
+
+    &__subtitle {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    &__caption {
+        font-size: 1rem;
+        line-height: 1.2rem;
+        color: var(--ons-color-grey-75);
+    }
+}
+
+// This is a workaround to position the axis title to the left
+.highcharts-axis-title {
+    width: 100%;
+}
