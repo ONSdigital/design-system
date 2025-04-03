@@ -178,8 +178,8 @@ class CommonChartOptions {
 
     getOptions = () => this.options;
 
-    hideDataLabels = (currentChart) => {
-        currentChart.series.forEach((series) => {
+    hideDataLabels = (series) => {
+        series.forEach((series) => {
             series.update({
                 dataLabels: {
                     enabled: false,
@@ -194,6 +194,33 @@ class CommonChartOptions {
                 enabled: false,
             });
         }
+    };
+
+    updateLegendForLineSeries = (chart) => {
+        chart.series.forEach((series) => {
+            if (series.type !== 'line') return;
+
+            chart.legend.allItems.forEach((item) => {
+                const { legendItem, userOptions } = item;
+                if (userOptions?.type === 'line') {
+                    const { symbol, label, line } = legendItem || {};
+
+                    // Hide default legend symbol for line series
+                    symbol?.hide();
+
+                    // Update the legend length and width
+                    line?.attr({
+                        d: 'M 1.5 15 L 18.5 15', // Extend the legend line
+                        'stroke-width': 3, // Custom thickness for better visibility
+                    });
+                    // Adjust legend text position
+                    label?.attr({
+                        x: 25,
+                        y: 19,
+                    });
+                }
+            });
+        });
     };
 }
 

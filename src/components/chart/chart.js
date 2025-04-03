@@ -26,6 +26,7 @@ class HighchartsBaseChart {
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
         this.columnChart = new ColumnChart();
+        this.extraLines = this.checkForExtraLines();
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
             window.isCommonChartOptionsDefined = true;
@@ -36,6 +37,11 @@ class HighchartsBaseChart {
         this.setWindowResizeEvent();
         this.chart = Highcharts.chart(chartNode, this.config);
     }
+
+    // Check for the number of extra line series in the config
+    checkForExtraLines = () => {
+        return this.config.series.filter((series) => series.type === 'line').length;
+    };
 
     // Set up the global Highcharts options which are used for all charts
     setCommonChartOptions = () => {
@@ -99,6 +105,16 @@ class HighchartsBaseChart {
             // Merge the column chart options with the existing config
             this.config = this.mergeConfigs(this.config, columnChartOptions);
         }
+
+        if (this.extraLines > 0) {
+            this.config = this.mergeConfigs(this.config, this.lineChart.getPlotOptionsOnly());
+            if (this.chartType === 'column') {
+                this.config = this.mergeConfigs(this.config, columnChartOptions);
+            }
+            if (this.chartType === 'bar') {
+                this.config = this.mergeConfigs(this.config, barChartOptions);
+            }
+        }
     };
 
     // Check if the data labels should be hidden
@@ -117,20 +133,32 @@ class HighchartsBaseChart {
             // Disable the legend for single series charts
             this.commonChartOptions.disableLegendForSingleSeries(currentChart);
             if (this.chartType === 'line') {
-                this.lineChart.updateLastPointMarker(currentChart);
-                this.commonChartOptions.hideDataLabels(currentChart);
+                this.lineChart.updateLastPointMarker(currentChart.series);
+                this.commonChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'bar') {
-                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
+                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout, this.extraLines);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
                 } else {
-                    this.commonChartOptions.hideDataLabels(currentChart);
+                    this.commonChartOptions.hideDataLabels(currentChart.series);
                 }
             }
             if (this.chartType === 'column') {
-                this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
-                this.commonChartOptions.hideDataLabels(currentChart);
+                this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout, this.extraLines);
+                this.commonChartOptions.hideDataLabels(currentChart.series);
+            }
+
+            // If the chart has an extra line or lines, hide the data labels for for
+            // that series, update the last point marker
+            if (this.extraLines > 0) {
+                currentChart.series.forEach((series) => {
+                    if (series.type && series.type === 'line') {
+                        this.lineChart.updateLastPointMarker([series]);
+                        this.commonChartOptions.hideDataLabels([series]);
+                        this.commonChartOptions.updateLegendForLineSeries(currentChart);
+                    }
+                });
             }
             currentChart.redraw(false);
         };
