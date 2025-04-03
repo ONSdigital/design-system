@@ -26,6 +26,7 @@ class HighchartsBaseChart {
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
         this.columnChart = new ColumnChart();
+        this.extraLines = this.checkForExtraLines();
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
             window.isCommonChartOptionsDefined = true;
@@ -36,6 +37,11 @@ class HighchartsBaseChart {
         this.setWindowResizeEvent();
         this.chart = Highcharts.chart(chartNode, this.config);
     }
+
+    // Check for the number of extra line series in the config
+    checkForExtraLines = () => {
+        return this.config.series.filter((series) => series.type === 'line').length;
+    };
 
     // Set up the global Highcharts options which are used for all charts
     setCommonChartOptions = () => {
@@ -100,12 +106,15 @@ class HighchartsBaseChart {
             this.config = this.mergeConfigs(this.config, columnChartOptions);
         }
 
-        this.config.series = this.config.series.map((series) => {
-            if (series.type === 'line') {
-                this.config.plotOptions.line = lineChartOptions.plotOptions.line;
+        if (this.extraLines > 0) {
+            this.config = this.mergeConfigs(this.config, this.lineChart.getPlotOptionsOnly());
+            if (this.chartType === 'column') {
+                this.config = this.mergeConfigs(this.config, columnChartOptions);
             }
-            return series;
-        });
+            if (this.chartType === 'bar') {
+                this.config = this.mergeConfigs(this.config, barChartOptions);
+            }
+        }
     };
 
     // Check if the data labels should be hidden
@@ -128,7 +137,7 @@ class HighchartsBaseChart {
                 this.commonChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'bar') {
-                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
+                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout, this.extraLines);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
                 } else {
@@ -136,51 +145,23 @@ class HighchartsBaseChart {
                 }
             }
             if (this.chartType === 'column') {
-                this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
+                this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout, this.extraLines);
                 this.commonChartOptions.hideDataLabels(currentChart.series);
             }
-            // If the series is a line, add the line chart options to the config
-            currentChart.series.forEach((series) => {
-                if (series.type === 'line') {
-                    this.lineChart.updateLastPointMarker([series]);
-                    this.commonChartOptions.hideDataLabels([series]);
 
-                    this.updateLegendForLineSeries(currentChart);
-                }
-            });
+            // If the chart has an extra line or lines, hide the data labels for for
+            // that series, update the last point marker
+            if (this.extraLines > 0) {
+                currentChart.series.forEach((series) => {
+                    if (series.type && series.type === 'line') {
+                        this.lineChart.updateLastPointMarker([series]);
+                        this.commonChartOptions.hideDataLabels([series]);
+                        this.commonChartOptions.updateLegendForLineSeries(currentChart);
+                    }
+                });
+            }
             currentChart.redraw(false);
         };
-    };
-
-    updateLegendForLineSeries = (chart) => {
-        chart.series.forEach((series) => {
-            if (series.type !== 'line') return;
-
-            this.lineChart.updateLastPointMarker([series]);
-            this.commonChartOptions.hideDataLabels([series]);
-
-            chart.legend.allItems.forEach((item) => {
-                const { legendItem, userOptions } = item;
-                if (userOptions?.type === 'line') {
-                    const { symbol, label, line } = legendItem || {};
-
-                    // Hide default legend symbol for line series
-                    symbol?.hide();
-
-                    // Update the legend length and width
-                    line?.attr({
-                        d: 'M 1.5 15 L 18.5 15', // Extend the legend line
-                        'stroke-width': 3, // Custom thickness for better visibility
-                    });
-
-                    // Adjust legend text position
-                    label?.attr({
-                        x: 25,
-                        y: 19,
-                    });
-                }
-            });
-        });
     };
 
     // Set resize events - throttled to 100ms

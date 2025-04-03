@@ -22,6 +22,10 @@ class LineChart {
         };
     };
 
+    getPlotOptionsOnly = () => {
+        return this.getLineChartOptions().plotOptions;
+    };
+
     updateLastPointMarker = (series) => {
         series.forEach((series) => {
             // If markers are disabled, hide them all but the last point marker
