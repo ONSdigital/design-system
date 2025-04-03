@@ -1,30 +1,35 @@
 /** @jest-environment jsdom */
+
 import { getDomain } from './cookies-functions';
 
-describe('script: cookies-function', () => {
-    function mockURL(url) {
-        Object.defineProperty(window, 'location', {
-            value: new URL(url),
-            writable: true,
-        });
-    }
+describe('script: getDomain()', () => {
+    let mockCookieStore = {};
 
-    test('should service-manual.ons.gov.uk', () => {
-        mockURL('http://service-manual.ons.gov.uk/path');
-        expect(window.location.hostname).toBe('service-manual.ons.gov.uk');
-        expect(getDomain(window.location.hostname)).toBe('service-manual.ons.gov.uk');
+    Object.defineProperty(document, 'cookie', {
+        get: () =>
+            Object.entries(mockCookieStore)
+                .map(([key, value]) => `${key}=${value}`)
+                .join('; '),
+        set: (value) => {
+            if (value.includes('service-manual.example.com')) return;
+            let [key, val] = value.split('=');
+            mockCookieStore[key] = val.split(';')[0];
+        },
+        configurable: true,
     });
 
-    test('should nwp-prototype.ons.gov.uk ', () => {
-        mockURL('http://nwp-prototype.ons.gov.uk/path');
-        expect(window.location.hostname).toBe('nwp-prototype.ons.gov.uk');
-        expect(getDomain(window.location.hostname)).toBe('nwp-prototype.ons.gov.uk');
+    test('should return domain name if cookie is set at is subdomain', () => {
+        const result = getDomain('service-manual.ons.gov.uk');
+        expect(result).toBe('service-manual.ons.gov.uk');
     });
 
-    test('should return ons.gov.uk for www.ons.gov.uk', () => {
-        mockURL('https://www.ons.gov.uk');
+    test('should remove `www` from the domain name', () => {
+        const result = getDomain('www.ons.gov.uk');
+        expect(result).toBe('ons.gov.uk');
+    });
 
-        expect(window.location.hostname).toBe('www.ons.gov.uk');
-        expect(getDomain(window.location.hostname)).toBe('ons.gov.uk');
+    test('should return a wider domain name if the cookie is not set at subdomain', () => {
+        const result = getDomain('service-manual.example.com');
+        expect(result).toBe('example.com');
     });
 });

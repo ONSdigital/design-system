@@ -127,7 +127,7 @@ export function checkConsentCookie(cookieName, cookieValue) {
 }
 
 export function setCookie(name, value, options) {
-    const domain = getDomain(window.location.hostname);
+    const domain = getDomain(document.domain);
     let setDomain = '';
 
     if (domain.indexOf('localhost') === -1) {
@@ -148,6 +148,7 @@ export function setCookie(name, value, options) {
         if (document.location.protocol === 'https:') {
             cookieString = cookieString + '; Secure';
         }
+        cookieString = cookieString + '; Secure';
         document.cookie = cookieString;
     }
 }
@@ -176,8 +177,10 @@ export function getDomain(domain) {
         p = domainName.split('.'),
         s = '_gd' + new Date().getTime();
     while (i < p.length - 1 && document.cookie.indexOf(s + '=' + s) == -1) {
-        domainName = p.slice(-1 - ++i).join('.');
+        domainName = p.slice(i, p.length).join('.');
         document.cookie = s + '=' + s + ';domain=' + domainName + ';';
+
+        i++;
     }
     document.cookie = s + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + domainName + ';';
     return domainName;
