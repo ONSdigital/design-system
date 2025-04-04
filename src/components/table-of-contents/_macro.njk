@@ -45,7 +45,7 @@
 
         {% if params.relatedLinks %}
             <nav
-                class="ons-table-of-contents__related-links ons-u-pb-2xs ons-u-mt-xl ons-u-mb-l ons-u-pt-xl"
+                class="ons-table-of-contents__related-links ons-u-pb-s ons-u-pt-l ons-u-mt-s"
                 aria-label="{{ params.relatedLinks.ariaLabel | default('Related links') }}"
             >
                 <h2 class="ons-table-of-contents__title ons-u-fs-r--b ons-u-mb-s">{{ params.relatedLinks.title }}</h2>
@@ -60,13 +60,23 @@
         {% endif %}
 
         {% if params.button %}
-            <div class="ons-table-of-contents__button ons-u-pt-2xl">
-                {% set userVariants = params.button.variants %}
+            <div class="ons-table-of-contents__button ons-u-pt-l">
+                {% set allVariants = ['small', 'secondary'] %}
+
+                {% if params.button.variants %}
+                    {% if params.button.variants is string %}
+                        {% set allVariants = (allVariants.push(params.button.variants), allVariants) %}
+                    {% else %}
+                        {% for variant in params.button.variants %}
+                            {% set allVariants = (allVariants.push(variant), allVariants) %}
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
 
                 {{
                     onsButton({
                         "text": params.button.text | default('Save or print this page'),
-                        "variants": ['small', 'secondary', 'print']
+                        "variants": allVariants
                     })
                 }}
             </div>

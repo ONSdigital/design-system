@@ -67,28 +67,18 @@ const EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON = {
             text: 'Who should take part and why',
         },
     ],
-    relatedLinksTitle: 'Related publications',
-    relatedLinksList: [
-        {
-            itemsList: [
-                {
-                    url: '#0',
-                    text: 'Example publication title',
-                },
-                {
-                    url: '#0',
-                    text: 'Example publication title 2',
-                },
-                {
-                    url: '#0',
-                    text: 'Example publication title 3',
-                },
-            ],
-        },
-    ],
+    relatedLinks: {
+        title: 'Related publications',
+        itemsList: [
+            {
+                url: '#0',
+                text: 'Example publication title',
+            },
+        ],
+    },
     button: {
         text: 'Save or print this page',
-        variants: ['print', 'small', 'secondary'],
+        variants: ['print'],
     },
 };
 
@@ -227,7 +217,7 @@ describe('macro: table-of-contents', () => {
 
             expect(listsSpy.occurrences[1]).toEqual({
                 variants: 'bare',
-                itemsList: EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON.relatedLinksList,
+                itemsList: EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON.relatedLinks.itemsList,
             });
         });
 
@@ -245,7 +235,7 @@ describe('macro: table-of-contents', () => {
 
             expect(buttonSpy.occurrences[0]).toEqual({
                 text: 'Save or print this page',
-                variants: ['print', 'small', 'secondary'],
+                variants: ['small', 'secondary', 'print'],
             });
         });
     });
