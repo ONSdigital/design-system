@@ -17,9 +17,7 @@ class CommonChartOptions {
                 align: 'left',
                 verticalAlign: 'top',
                 layout: 'horizontal',
-                // Symbol width and height in the legend. May be overridden for individual chart types
-                symbolWidth: 12,
-                symbolHeight: 12,
+                // Symbol width and height are set in a postLoad event, depending on the series type
                 margin: 50,
                 itemHoverStyle: {
                     color: this.constants.labelColor, // Prevents the text from changing color on hover
@@ -196,31 +194,36 @@ class CommonChartOptions {
         }
     };
 
-    updateLegendForLineSeries = (chart) => {
-        chart.series.forEach((series) => {
-            if (series.type !== 'line') return;
+    updateLegendSymbols = (chart) => {
+        chart.legend.allItems.forEach((item) => {
+            const { legendItem, userOptions } = item;
+            const seriesType = userOptions?.type;
+            // symbol is defined for bar / column series, and line is defined for line series
+            // if symbol is defined for a line series, it is the marker symbol
+            const { label, symbol, line } = legendItem || {};
 
-            chart.legend.allItems.forEach((item) => {
-                const { legendItem, userOptions } = item;
-                if (userOptions?.type === 'line') {
-                    const { symbol, label, line } = legendItem || {};
+            if (seriesType === 'line') {
+                line.attr({
+                    d: 'M 1.5 15 L 18.5 15', // Extend the legend line
+                    'stroke-width': 3, // Custom thickness for better visibility
+                    y: 3,
+                });
 
-                    // Hide default legend symbol for line series
-                    symbol?.hide();
+                symbol?.attr({
+                    x: 16, // Position the marker to the right of the line
+                });
 
-                    // Update the legend length and width
-                    line?.attr({
-                        d: 'M 1.5 15 L 18.5 15', // Extend the legend line
-                        'stroke-width': 3, // Custom thickness for better visibility
-                    });
-
-                    // Adjust legend text position
-                    label?.attr({
-                        x: 25,
-                        y: 19,
-                    });
-                }
-            });
+                // to do: figure out how to adjust the offset of the overall legend item to account for the longer line
+                label?.attr({
+                    x: 30, // Adjust label position to account for longer line
+                });
+            } else {
+                symbol.attr({
+                    width: 12,
+                    height: 12,
+                    y: 8,
+                });
+            }
         });
     };
 }

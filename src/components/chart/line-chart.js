@@ -1,29 +1,6 @@
 class LineChart {
     getLineChartOptions = () => {
         return {
-            legend: {
-                // Specific legend symbol width and height for line charts
-                symbolWidth: 20,
-                symbolHeight: 3,
-            },
-            plotOptions: {
-                line: {
-                    lineWidth: 3,
-                    linecap: 'round',
-                    // In a later PR we will update the marker styles
-                    marker: {
-                        enabled: false,
-                        radius: 4,
-                        symbol: 'circle',
-                        lineWidth: 0,
-                    },
-                },
-            },
-        };
-    };
-
-    getPlotOptionsOnly = () => {
-        return {
             plotOptions: {
                 line: {
                     lineWidth: 3,
