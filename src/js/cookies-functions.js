@@ -74,7 +74,7 @@ export function getConsentCookie() {
 }
 
 export function setConsentCookie(options) {
-    const domain = getDomain(window.location.hostname);
+    const domain = getDomain(document.domain);
     let cookieConsent = getConsentCookie();
     if (!cookieConsent) {
         cookieConsent = JSON.parse(JSON.stringify(DEFAULT_COOKIE_CONSENT).replace(/'/g, '"'));
@@ -148,7 +148,6 @@ export function setCookie(name, value, options) {
         if (document.location.protocol === 'https:') {
             cookieString = cookieString + '; Secure';
         }
-        cookieString = cookieString + '; Secure';
         document.cookie = cookieString;
     }
 }

@@ -11,27 +11,25 @@ describe('script: getDomain()', () => {
                 .map(([key, value]) => `${key}=${value}`)
                 .join('; '),
         set: (value) => {
-            const url = new URL(value);
-            const allowedHosts = ['service-manual.example.com'];
-            if (allowedHosts.includes(url.host)) return;
+            if (value.includes('new-website.example.com')) return; //Prevent setting cookies at 'new-website.example.com'
             let [key, val] = value.split('=');
             mockCookieStore[key] = val.split(';')[0];
         },
         configurable: true,
     });
 
-    test('should return domain name if cookie is set at is subdomain', () => {
+    test('should return service-manual.ons.gov.uk as the domain name when cookies can be set at the full subdomain', () => {
         const result = getDomain('service-manual.ons.gov.uk');
         expect(result).toBe('service-manual.ons.gov.uk');
     });
 
-    test('should remove `www` from the domain name', () => {
+    test('should remove `www` from the domain name www.ons.gov.uk', () => {
         const result = getDomain('www.ons.gov.uk');
         expect(result).toBe('ons.gov.uk');
     });
 
-    test('should return a wider domain name if the cookie is not set at subdomain', () => {
-        const result = getDomain('service-manual.example.com');
+    test('returns `example.com` as the domain name when cookies was not set at subdomain `new-website.example.com`', () => {
+        const result = getDomain('new-website.example.com');
         expect(result).toBe('example.com');
     });
 });
