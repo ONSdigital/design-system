@@ -75,14 +75,6 @@ $breadcrumb-chevron-height: 0.65rem;
         color: var(--ons-color-text);
         text-decoration: underline;
 
-        .ons-hero--navy-blue & {
-            color: var(--ons-color-text-inverse);
-
-            &:hover {
-                color: var(--ons-color-text-inverse);
-            }
-        }
-
         &:hover {
             color: var(--ons-color-text);
         }
