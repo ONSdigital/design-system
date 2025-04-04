@@ -36,6 +36,18 @@
                 width: 100%;
             }
         }
+        .ons-breadcrumbs__link {
+            color: var(--ons-color-text-inverse);
+
+            &:hover {
+                color: var(--ons-color-text-inverse);
+                text-decoration: underline solid var(--ons-color-text-inverse) 2px;
+            }
+            &:focus:hover {
+                color: var(--ons-color-text);
+                text-decoration: underline solid var(--ons-color-text) 2px;
+            }
+        }
     }
 
     &--pale-blue {
@@ -142,7 +154,7 @@
     }
 
     &__details:has(.ons-breadcrumbs) {
-        padding-top: 1rem;
+        padding-top: 1rem !important;
     }
 
     &--dark & {
@@ -170,6 +182,10 @@
             @include mq(l) {
                 padding: 4rem 0;
             }
+        }
+
+        &--topic {
+            color: var(--ons-color-grey-20);
         }
 
         &__circle-1 {
