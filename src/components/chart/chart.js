@@ -40,7 +40,7 @@ class HighchartsBaseChart {
 
     // Check for the number of extra line series in the config
     checkForExtraLines = () => {
-        return this.config.series.filter((series) => series.type === 'line').length;
+        return this.chartType === 'line' ? 0 : this.config.series.filter((series) => series.type === 'line').length;
     };
 
     // Set up the global Highcharts options which are used for all charts
@@ -149,7 +149,7 @@ class HighchartsBaseChart {
                 this.commonChartOptions.hideDataLabels(currentChart.series);
             }
 
-            // If the chart has an extra line or lines, hide the data labels for for
+            // If the chart has an extra line or lines, hide the data labels for
             // that series, update the last point marker
             if (this.extraLines > 0) {
                 currentChart.series.forEach((series) => {
