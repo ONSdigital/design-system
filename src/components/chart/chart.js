@@ -107,7 +107,7 @@ class HighchartsBaseChart {
         }
 
         if (this.extraLines > 0) {
-            this.config = this.mergeConfigs(this.config, this.lineChart.getPlotOptionsOnly());
+            this.config = this.mergeConfigs(this.config, this.lineChart.getLineChartOptions());
             if (this.chartType === 'column') {
                 this.config = this.mergeConfigs(this.config, columnChartOptions);
             }
@@ -156,10 +156,11 @@ class HighchartsBaseChart {
                     if (series.type && series.type === 'line') {
                         this.lineChart.updateLastPointMarker([series]);
                         this.commonChartOptions.hideDataLabels([series]);
-                        this.commonChartOptions.updateLegendForLineSeries(currentChart);
                     }
                 });
             }
+            // Update the legend items for all charts
+            this.commonChartOptions.updateLegendSymbols(currentChart);
             currentChart.redraw(false);
         };
     };

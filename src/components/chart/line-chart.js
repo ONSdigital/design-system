@@ -1,11 +1,6 @@
 class LineChart {
     getLineChartOptions = () => {
         return {
-            legend: {
-                // Specific legend symbol width and height for line charts
-                symbolWidth: 20,
-                symbolHeight: 3,
-            },
             plotOptions: {
                 line: {
                     lineWidth: 3,
@@ -20,10 +15,6 @@ class LineChart {
                 },
             },
         };
-    };
-
-    getPlotOptionsOnly = () => {
-        return this.getLineChartOptions().plotOptions;
     };
 
     updateLastPointMarker = (series) => {

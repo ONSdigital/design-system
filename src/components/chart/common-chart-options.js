@@ -17,10 +17,11 @@ class CommonChartOptions {
                 align: 'left',
                 verticalAlign: 'top',
                 layout: 'horizontal',
-                // Symbol width and height in the legend. May be overridden for individual chart types
-                symbolWidth: 12,
-                symbolHeight: 12,
+                // Symbol width and height are set in a postLoad event, depending on the series type
+                // Default to the line width to ensure there is enough space for the overall legend item for line symbols
+                symbolWidth: 20,
                 margin: 50,
+                itemDistance: 30,
                 itemHoverStyle: {
                     color: this.constants.labelColor, // Prevents the text from changing color on hover
                 },
@@ -196,30 +197,33 @@ class CommonChartOptions {
         }
     };
 
-    updateLegendForLineSeries = (chart) => {
-        chart.series.forEach((series) => {
-            if (series.type !== 'line') return;
+    updateLegendSymbols = (chart) => {
+        if (chart.series.length === 1) {
+            return; // No need to update legend symbols for single series since we hide the legend
+        }
+        chart.legend.allItems.forEach((item) => {
+            const { legendItem, userOptions } = item;
+            const seriesType = userOptions?.type;
+            // symbol is defined for bar / column series, and line is defined for line series
+            // if symbol is defined for a line series, it is the marker symbol
+            const { label, symbol } = legendItem || {};
 
-            chart.legend.allItems.forEach((item) => {
-                const { legendItem, userOptions } = item;
-                if (userOptions?.type === 'line') {
-                    const { symbol, label, line } = legendItem || {};
+            if (seriesType === 'line') {
+                symbol?.attr({
+                    x: 16, // Position the marker to the right of the line
+                });
 
-                    // Hide default legend symbol for line series
-                    symbol?.hide();
-
-                    // Update the legend length and width
-                    line?.attr({
-                        d: 'M 1.5 15 L 18.5 15', // Extend the legend line
-                        'stroke-width': 3, // Custom thickness for better visibility
-                    });
-                    // Adjust legend text position
-                    label?.attr({
-                        x: 25,
-                        y: 19,
-                    });
-                }
-            });
+                label?.attr({
+                    x: 30, // Adjust label position to account for longer line
+                });
+            } else {
+                // Set the symbol size for bar / column series
+                symbol.attr({
+                    width: 12,
+                    height: 12,
+                    y: 8,
+                });
+            }
         });
     };
 }
