@@ -5,13 +5,16 @@ import { getDomain } from './cookies-functions';
 describe('script: getDomain()', () => {
     let mockCookieStore = {};
 
+    // Mocking a Cookie
     Object.defineProperty(document, 'cookie', {
         get: () =>
             Object.entries(mockCookieStore)
                 .map(([key, value]) => `${key}=${value}`)
                 .join('; '),
         set: (value) => {
-            if (value.includes('new-website.example.com')) return; //Prevent setting cookies at 'new-website.example.com'
+            const domainMatch = value.match(/domain=([^;]+)/i);
+            const domain = domainMatch?.[1]?.trim();
+            if (domain === 'new-website.example.com') return; //Prevent setting cookies at 'new-website.example.com'
             let [key, val] = value.split('=');
             mockCookieStore[key] = val.split(';')[0];
         },
