@@ -12,7 +12,7 @@
                     {% else %}
                         <h3 class="ons-details-panel__banner-title ons-u-mb-2xs">
                             {% for group in params.groups %}
-                                {% set title = group.title + 's' if group.groupItems | length > 1 else group.title %}
+                                {% set title = group.titlePlural + 's' if group.groupItems | length > 1 else group.title %}
                                 {% if loop.index == params.groups.length %}
                                     and {{ title }}
                                 {% else %}
