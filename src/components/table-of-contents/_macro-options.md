@@ -5,6 +5,7 @@
 | skipLink  | `Skip to content` [_(ref)_](/components/skip-to-content) | false                         | Settings for the skip to content link that allows users to avoid reading out the table of contents on each page. Required for any table of contents repeated on multiple pages, such as a [guide](/patterns/guide) |
 | lists     | array`<list>`                                            | true (unless `itemsList` set) | An array of [lists](#lists) for the component                                                                                                                                                                      |
 | itemsList | array`<itemsList>`                                       | true (unless `lists` set)     | An array of [list items](#itemslist) for the component                                                                                                                                                             |
+| button    | `Button` [_(ref)_](/components/button)                   | false                         | Optional settings for the button component                                                                                                                                                                         |
 
 ## List
 
@@ -20,3 +21,10 @@
 | ---- | ------ | -------- | -------------------------------------------------- |
 | url  | string | true     | The URL or path for the page or heading to link to |
 | text | string | true     | Text for the list item                             |
+
+## relatedLinks
+
+| Name      | Type               | Required | Description                                        |
+| --------- | ------------------ | -------- | -------------------------------------------------- |
+| url       | string             | true     | The URL or path for the page or heading to link to |
+| itemsList | array`<itemsList>` | false    | An array of [list item links](#itemslist)          |
