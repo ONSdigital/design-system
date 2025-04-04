@@ -14,6 +14,7 @@
 | topic                      | string                                                    | false    | Topic for the hero                                                                                                                 |
 | breadcrumbs                | `Breadcrumbs` [_(ref)_](/components/breadcrumbs)          | false    | Settings to set the Breadcrumbs component within the HTML `<hero>` element                                                         |
 | censusLogo                 | boolean                                                   | false    | Set to “true” display the census 2021 logo (only available for the "grey" hero variant)                                            |
+| informationPanel           | `Object<InformationPanel>`                                | false    | Settings for the information panel (only available for the "grey" hero variant)                                                    |
 
 ## Button
 
@@ -22,3 +23,18 @@
 | text    | string | true     | Text for the button label    |
 | url     | string | true     | URL for the button           |
 | classes | string | false    | Classes to add to the button |
+
+## InformationPanel
+
+| Name      | Type                | Required | Description                                                                                                      |
+| --------- | ------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| panelText | string              | false    | Text for the panel                                                                                               |
+| panelType | string              | false    | A single value to the colour of the information panel. Available colours: "ons-red", "ons-orange" or "ons-green" |
+| PanelLink | `Object<PanelLink>` | false    | Settings for the panel link                                                                                      |
+
+## PanelLink
+
+| Name | Type   | Required | Description             |
+| ---- | ------ | -------- | ----------------------- |
+| text | string | false    | Text for the panel link |
+| url  | string | false    | URL for the panel link  |
