@@ -28,7 +28,7 @@ describe('script: getDomain()', () => {
         expect(result).toBe('ons.gov.uk');
     });
 
-    test('returns `example.com` as the domain name when cookies was not set at subdomain `new-website.example.com`', () => {
+    test('returns `example.com` as the domain name when cookies can not be set at subdomain `new-website.example.com`', () => {
         const result = getDomain('new-website.example.com');
         expect(result).toBe('example.com');
     });
