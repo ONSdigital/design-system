@@ -18,7 +18,10 @@ class CommonChartOptions {
                 verticalAlign: 'top',
                 layout: 'horizontal',
                 // Symbol width and height are set in a postLoad event, depending on the series type
+                // Default to the line width to ensure there is enough space for the overall legend item for line symbols
+                symbolWidth: 20,
                 margin: 50,
+                itemDistance: 30,
                 itemHoverStyle: {
                     color: this.constants.labelColor, // Prevents the text from changing color on hover
                 },
@@ -200,24 +203,18 @@ class CommonChartOptions {
             const seriesType = userOptions?.type;
             // symbol is defined for bar / column series, and line is defined for line series
             // if symbol is defined for a line series, it is the marker symbol
-            const { label, symbol, line } = legendItem || {};
+            const { label, symbol } = legendItem || {};
 
             if (seriesType === 'line') {
-                line.attr({
-                    d: 'M 1.5 15 L 18.5 15', // Extend the legend line
-                    'stroke-width': 3, // Custom thickness for better visibility
-                    y: 3,
-                });
-
                 symbol?.attr({
                     x: 16, // Position the marker to the right of the line
                 });
 
-                // to do: figure out how to adjust the offset of the overall legend item to account for the longer line
                 label?.attr({
                     x: 30, // Adjust label position to account for longer line
                 });
             } else {
+                // Set the symbol size for bar / column series
                 symbol.attr({
                     width: 12,
                     height: 12,
