@@ -135,52 +135,44 @@ class CommonChartOptions {
                     },
                 },
             },
-            // Adjust font size for smaller width of chart
-            // Note this is not the same as the viewport width
-            responsive: {
-                rules: [
-                    {
-                        condition: {
-                            maxWidth: 400,
-                        },
-                        chartOptions: {
-                            legend: {
-                                itemStyle: {
-                                    fontSize: this.constants.mobileFontSize,
-                                },
-                            },
-                            xAxis: {
-                                labels: {
-                                    style: {
-                                        fontSize: this.constants.mobileFontSize,
-                                    },
-                                },
-                                title: {
-                                    style: {
-                                        fontSize: this.constants.mobileFontSize,
-                                    },
-                                },
-                            },
-                            yAxis: {
-                                labels: {
-                                    style: {
-                                        fontSize: this.constants.mobileFontSize,
-                                    },
-                                },
-                                title: {
-                                    style: {
-                                        fontSize: this.constants.mobileFontSize,
-                                    },
-                                },
-                            },
-                        },
-                    },
-                ],
-            },
         };
     }
 
     getOptions = () => this.options;
+
+    getMobileOptions = () => {
+        return {
+            legend: {
+                itemStyle: {
+                    fontSize: this.constants.mobileFontSize,
+                },
+            },
+            xAxis: {
+                labels: {
+                    style: {
+                        fontSize: this.constants.mobileFontSize,
+                    },
+                },
+                title: {
+                    style: {
+                        fontSize: this.constants.mobileFontSize,
+                    },
+                },
+            },
+            yAxis: {
+                labels: {
+                    style: {
+                        fontSize: this.constants.mobileFontSize,
+                    },
+                },
+                title: {
+                    style: {
+                        fontSize: this.constants.mobileFontSize,
+                    },
+                },
+            },
+        };
+    };
 
     hideDataLabels = (currentChart) => {
         currentChart.series.forEach((series) => {

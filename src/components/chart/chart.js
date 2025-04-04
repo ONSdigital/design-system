@@ -1,10 +1,13 @@
+import Highcharts from 'highcharts';
+import 'highcharts/modules/accessibility';
+import 'highcharts/modules/annotations';
+
 import CommonChartOptions from './common-chart-options';
 import SpecificChartOptions from './specific-chart-options';
 import LineChart from './line-chart';
 import BarChart from './bar-chart';
 import ColumnChart from './column-chart';
-import Highcharts from 'highcharts';
-import 'highcharts/modules/accessibility';
+import AnnotationsOptions from './annotations-options';
 
 class HighchartsBaseChart {
     static selector() {
@@ -16,11 +19,13 @@ class HighchartsBaseChart {
         this.chartType = this.node.dataset.highchartsType;
         this.theme = this.node.dataset.highchartsTheme;
         const chartNode = this.node.querySelector('[data-highcharts-chart]');
-
         this.id = this.node.dataset.highchartsId;
         this.useStackedLayout = this.node.hasAttribute('data-highcharts-use-stacked-layout');
         this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.id}]`).textContent);
-
+        if (this.node.querySelector(`[data-highcharts-annotations--${this.id}]`)) {
+            const annotations = JSON.parse(this.node.querySelector(`[data-highcharts-annotations--${this.id}]`).textContent);
+            this.annotationsOptions = new AnnotationsOptions(annotations);
+        }
         this.commonChartOptions = new CommonChartOptions();
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
@@ -32,6 +37,7 @@ class HighchartsBaseChart {
         }
         this.hideDataLabels = this.checkHideDataLabels();
         this.setSpecificChartOptions();
+        this.setResponsiveOptions();
         this.setLoadEvent();
         this.setWindowResizeEvent();
         this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
@@ -109,7 +115,49 @@ class HighchartsBaseChart {
         return (this.chartType === 'bar' && this.config.series.length > 2) || this.useStackedLayout === true;
     };
 
+    // Adjust font size and annotations for smaller width of chart
+    // Note this is not the same as the viewport width
+    // All responsive rules should be defined here to avoid overriding existing rules
+    setResponsiveOptions = () => {
+        const mobileCommonChartOptions = this.commonChartOptions.getMobileOptions();
+        if (!this.config.responsive) {
+            this.config.responsive = {};
+        }
+        // If these conditions change, the styling for the footnotes container query in _chart.scss needs to be updated
+        let rules = [
+            {
+                condition: {
+                    maxWidth: 400,
+                },
+                chartOptions: {
+                    ...mobileCommonChartOptions,
+                },
+            },
+            // We are using a slightly wider breakpoint for annotations
+            // to try and reduce the likelihood of them being automatically
+            // hidden by Highcharts
+            {
+                condition: {
+                    maxWidth: 600,
+                },
+                chartOptions: {
+                    annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsMobile() : undefined,
+                },
+            },
+            {
+                condition: {
+                    minWidth: 601,
+                },
+                chartOptions: {
+                    annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsDesktop() : undefined,
+                },
+            },
+        ];
+        this.config.responsive.rules = rules;
+    };
+
     // Create the load event for various chart types
+    // All load events should be defined here to avoid overriding existing events
     setLoadEvent = () => {
         if (!this.config.chart.events) {
             this.config.chart.events = {};
@@ -141,7 +189,8 @@ class HighchartsBaseChart {
         };
     };
 
-    // Set resize events - throttled to 50ms
+    // Set resize events - throttled to 100ms
+    // All resize events should be defined here to avoid overriding existing events
     setWindowResizeEvent = () => {
         window.addEventListener('resize', () => {
             clearTimeout(this.resizeTimeout);

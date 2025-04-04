@@ -16,6 +16,8 @@
 | useStackedLayout        | boolean | false    | Determines whether the chart should use a stacked layout. It is useful only for bar charts.                                                                                                  |
 | percentageHeightDesktop | integer | false    | Sets the percentage plot height at desktop, relative to the width. If undefined the chart will fall back to the default height of 400px at desktop. Does not apply to bar charts.            |
 | percentageHeightMobile  | integer | false    | Sets the percentage plot height at mobile, relative to the width. If undefined the chart will fall back to the default height of 400px at mobile. Does not apply to bar charts.              |
+|                         |
+| annotations             | array   | false    | An array of annotations.                                                                                                                                                                     |
 
 ### Download
 
@@ -55,3 +57,19 @@
 | data       | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.                                                       |
 | dataLabels | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`. This option is only available for bar chart and clustered bar charts |
 | marker     | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. This option is only available for line charts.       |
+
+### Annotations
+
+| Name              | Type   | Required | Description                                               |
+| ----------------- | ------ | -------- | --------------------------------------------------------- |
+| text              | string | true     | The annotation text.                                      |
+| point             | object | false    | The x and y coordinates for the annotation                |
+| labelOffsetX (px) | int    | true     | The x offset in px of the label from the annotation point |
+| labelOffsetY (px) | int    | true     | The y offset in px of the label from the annotation point |
+
+### Point
+
+| Name   | Type         | Required | Description                                                                                                                                                |
+| ------ | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| xValue | float or int | true     | The x axis value of the annotation. For category axes this is the zero based index of the x axis categories array. It must be an integer in this scenario. |
+| yValue | float        | true     | The y axis value of the annotation                                                                                                                         |
