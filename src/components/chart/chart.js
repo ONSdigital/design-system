@@ -26,6 +26,8 @@ class HighchartsBaseChart {
             const annotations = JSON.parse(this.node.querySelector(`[data-highcharts-annotations--${this.id}]`).textContent);
             this.annotationsOptions = new AnnotationsOptions(annotations);
         }
+        this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
+        this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
         this.commonChartOptions = new CommonChartOptions();
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
@@ -40,8 +42,6 @@ class HighchartsBaseChart {
         this.setResponsiveOptions();
         this.setLoadEvent();
         this.setWindowResizeEvent();
-        this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
-        this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
         this.chart = Highcharts.chart(chartNode, this.config);
     }
 
@@ -189,7 +189,7 @@ class HighchartsBaseChart {
         };
     };
 
-    // Set resize events - throttled to 100ms
+    // Set resize events - throttled to 50ms
     // All resize events should be defined here to avoid overriding existing events
     setWindowResizeEvent = () => {
         window.addEventListener('resize', () => {
