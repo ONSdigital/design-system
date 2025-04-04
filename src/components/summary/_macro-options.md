@@ -36,6 +36,7 @@
 
 | Name                   | Type                   | Required | Description                                                                                 |
 | ---------------------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------- |
+| id                     | string                 | false    | `id` of the action links                                                                    |
 | iconType               | string                 | false    | Adds an icon before the row title, by setting the [icon type](/foundations/icons#icon-type) |
 | iconVisuallyHiddenText | string                 | false    | Visually hidden text in a span under the icon to add more context for screen readers        |
 | title                  | string                 | false    | The title for the row item                                                                  |
