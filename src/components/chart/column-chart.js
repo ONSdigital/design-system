@@ -20,10 +20,8 @@ class ColumnChart {
     // For cluster charts we use 0 for the point padding and a group padding of 4% (8% gap between bars)
     // If there are extra lines, we need to subtract the number of extra lines from the number of series
     updatePointPadding = (config, currentChart, stackedLayout, numberOfExtraLines) => {
-        console.log('updatePointPadding');
         const numberOfCategories = config.xAxis.categories.length;
         const numberOfSeries = currentChart.series.length - numberOfExtraLines; // Get number of column series
-        console.log(numberOfSeries);
         let pointPadding = 0;
         let groupPadding = 0;
         // non-clustered charts or stacked charts
