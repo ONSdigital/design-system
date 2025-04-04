@@ -189,11 +189,11 @@ class CommonChartOptions {
         });
     };
 
-    disableLegendForSingleSeries = (currentChart) => {
-        if (currentChart.series.length === 1) {
-            currentChart.legend.update({
+    disableLegendForSingleSeries = (config) => {
+        if (config.series.length === 1) {
+            config.legend = {
                 enabled: false,
-            });
+            };
         }
     };
 

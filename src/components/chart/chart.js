@@ -114,6 +114,8 @@ class HighchartsBaseChart {
                 this.config = this.mergeConfigs(this.config, barChartOptions);
             }
         }
+        // Disable the legend for single series charts
+        this.commonChartOptions.disableLegendForSingleSeries(this.config);
     };
 
     // Check if the data labels should be hidden
@@ -129,8 +131,6 @@ class HighchartsBaseChart {
         }
         this.config.chart.events.load = (event) => {
             const currentChart = event.target;
-            // Disable the legend for single series charts
-            this.commonChartOptions.disableLegendForSingleSeries(currentChart);
             if (this.chartType === 'line') {
                 this.lineChart.updateLastPointMarker(currentChart.series);
                 this.commonChartOptions.hideDataLabels(currentChart.series);
