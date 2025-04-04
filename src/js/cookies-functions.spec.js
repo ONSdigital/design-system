@@ -11,7 +11,9 @@ describe('script: getDomain()', () => {
                 .map(([key, value]) => `${key}=${value}`)
                 .join('; '),
         set: (value) => {
-            if (value.includes('service-manual.example.com')) return;
+            const url = new URL(value);
+            const allowedHosts = ['service-manual.example.com'];
+            if (allowedHosts.includes(url.host)) return;
             let [key, val] = value.split('=');
             mockCookieStore[key] = val.split(';')[0];
         },
