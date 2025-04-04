@@ -194,34 +194,37 @@ class CommonChartOptions {
             config.legend = {
                 enabled: false,
             };
+            config.chart.marginTop = 50;
         }
     };
 
     updateLegendSymbols = (chart) => {
-        chart.legend.allItems.forEach((item) => {
-            const { legendItem, userOptions } = item;
-            const seriesType = userOptions?.type;
-            // symbol is defined for bar / column series, and line is defined for line series
-            // if symbol is defined for a line series, it is the marker symbol
-            const { label, symbol } = legendItem || {};
+        if (chart.legend.options.enabled) {
+            chart.legend.allItems.forEach((item) => {
+                const { legendItem, userOptions } = item;
+                const seriesType = userOptions?.type;
+                // symbol is defined for bar / column series, and line is defined for line series
+                // if symbol is defined for a line series, it is the marker symbol
+                const { label, symbol } = legendItem || {};
 
-            if (seriesType === 'line') {
-                symbol?.attr({
-                    x: 16, // Position the marker to the right of the line
-                });
+                if (seriesType === 'line') {
+                    symbol?.attr({
+                        x: 16, // Position the marker to the right of the line
+                    });
 
-                label?.attr({
-                    x: 30, // Adjust label position to account for longer line
-                });
-            } else {
-                // Set the symbol size for bar / column series
-                symbol.attr({
-                    width: 12,
-                    height: 12,
-                    y: 8,
-                });
-            }
-        });
+                    label?.attr({
+                        x: 30, // Adjust label position to account for longer line
+                    });
+                } else {
+                    // Set the symbol size for bar / column series
+                    symbol.attr({
+                        width: 12,
+                        height: 12,
+                        y: 8,
+                    });
+                }
+            });
+        }
     };
 }
 
