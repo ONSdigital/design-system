@@ -46,7 +46,7 @@ class HighchartsBaseChart {
 
     // Check for the number of extra line series in the config
     checkForExtraLines = () => {
-        return this.config.series.filter((series) => series.type === 'line').length;
+        return this.chartType === 'line' ? 0 : this.config.series.filter((series) => series.type === 'line').length;
     };
 
     // Utility function to merge two configs together
@@ -151,7 +151,7 @@ class HighchartsBaseChart {
             // that series, update the last point marker
             if (this.extraLines > 0) {
                 currentChart.series.forEach((series) => {
-                    if (series.type && series.type === 'line') {
+                    if (series.type === 'line') {
                         this.lineChart.updateLastPointMarker([series]);
                         this.commonChartOptions.hideDataLabels([series]);
                     }
