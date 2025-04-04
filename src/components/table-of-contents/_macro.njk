@@ -3,10 +3,7 @@
     {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
     {% from "components/button/_macro.njk" import onsButton %}
 
-    <aside
-        class="ons-table-of-contents-container {% if (params.relatedLinks or params.printButton) %}ons-table-of-contents-container--no-border{% endif %}"
-        role="complementary"
-    >
+    <aside class="ons-table-of-contents-container" role="complementary">
         {% if params.skipLink %}
             {{
                 onsSkipToContent({
@@ -46,24 +43,33 @@
             {% endif %}
         </nav>
 
-        {% if params.relatedLinksList %}
+        {% if params.relatedLinks %}
             <nav
-                class="ons-table-of-contents__related-links ons-u-pb-s ons-u-pt-l ons-u-mt-s"
-                aria-label="{{ params.relatedLinksAriaLabel | default('Related links') }}"
+                class="ons-table-of-contents__related-links ons-u-pb-2xs ons-u-mt-xl ons-u-mb-l ons-u-pt-xl"
+                aria-label="{{ params.relatedLinks.ariaLabel | default('Related links') }}"
             >
-                <h2 class="ons-table-of-contents__title ons-u-fs-r--b ons-u-mb-s">{{ params.relatedLinksTitle }}</h2>
+                <h2 class="ons-table-of-contents__title ons-u-fs-r--b ons-u-mb-s">{{ params.relatedLinks.title }}</h2>
 
                 {{
                     onsList({
                         "variants": 'bare',
-                        "itemsList": params.relatedLinksList
+                        "itemsList": params.relatedLinks.itemsList
                     })
                 }}
             </nav>
         {% endif %}
 
         {% if params.button %}
-            <div class="ons-table-of-contents__button ons-u-pt-l">{{ onsButton(params.button) }}</div>
+            <div class="ons-table-of-contents__button ons-u-pt-2xl">
+                {% set userVariants = params.button.variants %}
+
+                {{
+                    onsButton({
+                        "text": params.button.text | default('Save or print this page'),
+                        "variants": ['small', 'secondary', 'print']
+                    })
+                }}
+            </div>
         {% endif %}
     </aside>
 {% endmacro %}
