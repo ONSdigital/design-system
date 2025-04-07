@@ -195,8 +195,8 @@ describe('macro: table-of-contents', () => {
         });
     });
 
-    describe('related links and print button', () => {
-        it('passes jest-axe checks with related links and print button', async () => {
+    describe('related links and button', () => {
+        it('passes jest-axe checks with related links and button', async () => {
             const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON));
 
             const results = await axe($.html());
@@ -221,7 +221,7 @@ describe('macro: table-of-contents', () => {
             });
         });
 
-        it('renders print button with correct text', () => {
+        it('renders button with correct text', () => {
             const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON));
 
             expect($('.ons-table-of-contents__button .ons-btn').text().trim()).toBe('Save or print this page');

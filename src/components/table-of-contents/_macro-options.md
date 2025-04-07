@@ -24,7 +24,7 @@
 
 ## relatedLinks
 
-| Name      | Type               | Required | Description                                        |
-| --------- | ------------------ | -------- | -------------------------------------------------- |
-| url       | string             | true     | The URL or path for the page or heading to link to |
-| itemsList | array`<itemsList>` | false    | An array of [list item links](#itemslist)          |
+| Name      | Type               | Required | Description                               |
+| --------- | ------------------ | -------- | ----------------------------------------- |
+| title     | string             | true     | Text for the related links title          |
+| itemsList | array`<itemsList>` | false    | An array of [list item links](#itemslist) |
