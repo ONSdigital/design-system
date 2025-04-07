@@ -202,7 +202,7 @@ class HighchartsBaseChart {
             // that series, update the last point marker
             if (this.extraLines > 0) {
                 currentChart.series.forEach((series) => {
-                    if (series.type && series.type === 'line') {
+                    if (series.type === 'line') {
                         this.lineChart.updateLastPointMarker([series]);
                         this.commonChartOptions.hideDataLabels([series]);
                     }
