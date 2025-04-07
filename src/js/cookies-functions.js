@@ -176,6 +176,7 @@ export function getDomain(domain) {
         p = domainName.split('.'),
         s = '_gd' + new Date().getTime();
     while (i < p.length - 1 && document.cookie.indexOf(s + '=' + s) == -1) {
+        // Loop until we find a valid cookie set at the domain or until we've checked all possible domains
         domainName = p.slice(i, p.length).join('.');
         document.cookie = s + '=' + s + ';domain=' + domainName + ';';
 
