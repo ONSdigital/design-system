@@ -10,16 +10,7 @@
                             {{ group.title + 's' if group.groupItems | length > 1 else group.title }}
                         </h3>
                     {% else %}
-                        <h3 class="ons-details-panel__banner-title ons-u-mb-2xs">
-                            {% for group in params.groups %}
-                                {% set title = group.titlePlural + 's' if group.groupItems | length > 1 else group.title %}
-                                {% if loop.index == params.groups.length %}
-                                    and {{ title }}
-                                {% else %}
-                                    {{ title }}{% if loop.index < params.groups.length - 1 %},{% endif %}
-                                {% endif %}
-                            {% endfor %}
-                        </h3>
+                        <h3 class="ons-details-panel__banner-title ons-u-mb-2xs">{{ params.title }}</h3>
                     {% endif %}
                     <div class="ons-details-panel__banner-detail ons-js-details-heading">
                         <span class="ons-details-panel__banner-detail-title ons-js-corrections-details-title ons-u-mr-3xs"
@@ -39,22 +30,18 @@
         </div>
         <div class="ons-container ons-details-panel__content ons-js-details-content ons-u-pt-xl ons-u-pb-3xl">
             {% for group in params.groups %}
-                {% for groupItem in group.groupItems %}
-                    <div class="ons-details-panel__item ons-u-pb-xl ons-u-mb-l">
-                        <div class="ons-details-panel__content-meta">
-                            <h3 class="ons-u-fs-r--b ons-details-panel__content-heading">{{ group.title }}</h3>
-                            <time class="ons-details-panel__content-date" datetime="{{ groupItem.date.iso }}"
-                                >{{ groupItem.date.short }}</time
-                            >
-                        </div>
-                        <div class="ons-details-panel__content-description">
-                            <div class="ons-details-panel__content-text ons-u-mb-s">{{ groupItem.text }}</div>
-                            {% if groupItem.url or group.singleTitle == 'Content' %}
-                                <a class="ons-details-panel__content-url" href="{{ groupItem.url }}"> View superseded version</a>
-                            {% endif %}
-                        </div>
+                <div class="ons-details-panel__item ons-u-pb-xl ons-u-mb-l">
+                    <div class="ons-details-panel__content-meta">
+                        <h3 class="ons-u-fs-r--b ons-details-panel__content-heading">{{ group.text }}</h3>
+                        <time class="ons-details-panel__content-date" datetime="{{ group.date.iso }}">{{ group.date.short }}</time>
                     </div>
-                {% endfor %}
+                    <div class="ons-details-panel__content-description">
+                        <div class="ons-details-panel__content-text ons-u-mb-s">{{ group.description }}</div>
+                        {% if group.url or group.text == 'Content' %}
+                            <a class="ons-details-panel__content-url" href="{{ groupItem.url }}"> View superseded version</a>
+                        {% endif %}
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </div>

@@ -1,96 +1,22 @@
-export const EXAMPLE_DETAILS_PANEL_SINGLE_GROUP = {
+export const EXAMPLE_DETAILS_PANEL = {
     id: 'example-id',
+    title: 'Correction and Notice',
     groups: [
         {
-            title: 'Correction',
-            groupItems: [
-                {
-                    date: {
-                        iso: '2025-01-22T16:30Z',
-                        short: '22nd January 2025, 4:30PM',
-                    },
-                    text: 'description1',
-                    url: '#0',
-                },
-            ],
-        },
-    ],
-};
-
-export const EXAMPLE_DETAILS_PANEL_MULTIPLE_GROUPS = {
-    id: 'example-id',
-    groups: [
-        {
-            title: 'Correction',
-            groupItems: [
-                {
-                    date: {
-                        iso: '2025-01-22T16:30Z',
-                        short: '22nd January 2025, 4:30PM',
-                    },
-                    text: 'description1',
-                    url: '#0',
-                },
-            ],
+            text: 'Correction',
+            date: {
+                iso: '2025-01-22T16:30Z',
+                short: '22nd January 2025, 4:30PM',
+            },
+            description: 'description1',
+            url: '#0',
         },
         {
-            title: 'Notice',
-            groupItems: [
-                {
-                    date: {
-                        iso: '2025-01-22T16:30Z',
-                        short: '22nd January 2025, 4:30PM',
-                    },
-                    text: 'description1',
-                },
-            ],
-        },
-    ],
-};
-
-export const EXAMPLE_DETAILS_PANEL_MULTIPLE_GROUPS_AND_GROUP_ITEMS = {
-    id: 'example-id',
-    groups: [
-        {
-            title: 'Correction',
-            groupItems: [
-                {
-                    date: {
-                        iso: '2025-01-22T16:30Z',
-                        short: '22nd January 2025, 4:30PM',
-                    },
-                    text: 'description1',
-                    url: '#0',
-                },
-                {
-                    date: {
-                        iso: '2025-01-22T16:30Z',
-                        short: '22nd January 2025, 4:30PM',
-                    },
-                    text: 'description1',
-                    url: '#0',
-                },
-            ],
-        },
-        {
-            title: 'Notice',
-            groupItems: [
-                {
-                    date: {
-                        iso: '2025-01-22T16:30Z',
-                        short: '22nd January 2025, 4:30PM',
-                    },
-                    text: 'description1',
-                },
-                {
-                    date: {
-                        iso: '2025-01-22T16:30Z',
-                        short: '22nd January 2025, 4:30PM',
-                    },
-                    text: 'description2',
-                    url: '#0',
-                },
-            ],
+            text: 'Notice',
+            date: {
+                iso: '2025-01-22T16:30Z',
+                short: '22nd January 2025, 4:30PM',
+            },
         },
     ],
 };
