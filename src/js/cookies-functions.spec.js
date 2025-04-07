@@ -2,7 +2,7 @@
 
 import { getDomain } from './cookies-functions';
 
-// Mocking document.cookie before the tests
+// Mocking document.cookie which is used in getting the domain name
 beforeAll(() => {
     let mockCookieStore = {};
     Object.defineProperty(document, 'cookie', {
