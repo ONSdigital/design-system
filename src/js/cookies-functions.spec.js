@@ -2,10 +2,9 @@
 
 import { getDomain } from './cookies-functions';
 
-describe('script: getDomain()', () => {
+// Mocking document.cookie before the tests
+beforeAll(() => {
     let mockCookieStore = {};
-
-    // Mocking a Cookie
     Object.defineProperty(document, 'cookie', {
         get: () =>
             Object.entries(mockCookieStore)
@@ -14,13 +13,15 @@ describe('script: getDomain()', () => {
         set: (value) => {
             const domainMatch = value.match(/domain=([^;]+)/i);
             const domain = domainMatch?.[1]?.trim();
-            if (domain === 'new-website.example.com') return; //Prevent setting cookies at 'new-website.example.com'
+            if (domain === 'new-website.ons.gov.uk') return; // Prevent setting cookies at 'new-website.ons.gov.uk'
             let [key, val] = value.split('=');
             mockCookieStore[key] = val.split(';')[0];
         },
         configurable: true,
     });
+});
 
+describe('script: getDomain()', () => {
     test('should return service-manual.ons.gov.uk as the domain name when cookies can be set at the full subdomain', () => {
         const result = getDomain('service-manual.ons.gov.uk');
         expect(result).toBe('service-manual.ons.gov.uk');
@@ -31,8 +32,8 @@ describe('script: getDomain()', () => {
         expect(result).toBe('ons.gov.uk');
     });
 
-    test('returns `example.com` as the domain name when cookies can not be set at subdomain `new-website.example.com`', () => {
-        const result = getDomain('new-website.example.com');
-        expect(result).toBe('example.com');
+    test('returns `ons.gov.uk` as the domain name when cookies can not be set at subdomain `new-website.ons.gov.uk`', () => {
+        const result = getDomain('new-website.ons.gov.uk');
+        expect(result).toBe('ons.gov.uk');
     });
 });
