@@ -1,4 +1,14 @@
 // Default
+@mixin panel-variant($name, $color, $color-bg) {
+    .ons-hero__panel {
+        &--#{$name} {
+            background: $color-bg;
+            border-color: $color !important;
+            outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
+        }
+    }
+}
+
 .ons-hero {
     background-color: var(--ons-color-hero-bg);
     display: flex;
@@ -70,12 +80,10 @@
             }
         }
     }
-    &__badge {
-        @include mq(l) {
-            position: absolute;
-            right: 0;
-            top: 85px;
-        }
+
+    &__badge-link {
+        display: block;
+        width: fit-content;
     }
 
     &--topic {
@@ -95,7 +103,27 @@
     }
 
     &__content {
-        height: 100%;
+        @include mq(l) {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    }
+
+    &__information {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 1rem;
+
+        & .ons-hero__panel {
+            padding: 0.5rem 1rem;
+            border-left: 5px solid transparent;
+            @extend .ons-u-fs-r--b;
+        }
+
+        & .ons-hero__link {
+            padding: 0.5rem 0;
+        }
     }
 
     &__pre-title {
@@ -434,3 +462,7 @@
         }
     }
 }
+
+@include panel-variant(ons-red, var(--ons-color-errors), var(--ons-color-errors-tint));
+@include panel-variant(ons-green, var(--ons-color-success), var(--ons-color-success-tint));
+@include panel-variant(ons-orange, var(--ons-color-pending), var(--ons-color-pending-tint));
