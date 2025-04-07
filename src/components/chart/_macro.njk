@@ -33,6 +33,18 @@
                     <p class="ons-u-vh">{{ params.description }}</p>
                 {% endif %}
                 <div data-highcharts-chart></div>
+                {#
+                    Footnotes for the annotations at mobile
+                    Hidden from screen readers because the full text will be read out where they appear in the chart
+                #}
+                <ul class="ons-chart__footnotes" aria-hidden="true">
+                    {% for annotation in params.annotations %}
+                        <li class="ons-chart__footnote_item">
+                            <span class="ons-chart__footnote-number">{{ loop.index }}</span>
+                            {{ annotation.text }}
+                        </li>
+                    {% endfor %}
+                </ul>
                 {% if params.caption %}
                     <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
                 {% endif %}
@@ -95,8 +107,13 @@
         <!-- Set scripts to pass the config values as json to the javascript -->
         <!-- prettier-ignore-start -->
         <script type="application/json" data-highcharts-config--{{ params.id }}>
-            {{ config | dump | safe }}
+            {{ config | tojson }}
         </script>
+        {% if params.annotations %}
+            <script type="application/json" data-highcharts-annotations--{{ params.id }}>
+                {{ params.annotations | tojson }}
+            </script>
+        {% endif %}
         <!-- prettier-ignore-end -->
     </div>
 {% endmacro %}

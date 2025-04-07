@@ -14,6 +14,7 @@
 | xAxis            | object  | true     | Defines the horizontal axis [x-axis](#x_axis) configuration parameters                                                                                                                       |
 | series           | array   | true     | The data [series](#series) to be plotted, including labels and values.                                                                                                                       |
 | useStackedLayout | boolean | false    | Determines whether the chart should use a stacked layout. It is useful only for bar and column charts.                                                                                       |
+| annotations      | array   | false    | An array of annotations.                                                                                                                                                                     |
 
 ### Download
 
@@ -54,3 +55,19 @@
 | dataLabels | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`. This option is only available for bar chart and clustered bar charts                                                                                                                 |
 | marker     | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. This option is only available for line charts.                                                                                                                       |
 | type       | string  | false    | Specifies the configuration type to apply to the series. Supported types include 'line'. By default, it aligns with the chart type, but this is used when combining multiple chart types within a single chart (e.g., bar with line or column with line). |
+
+### Annotations
+
+| Name              | Type   | Required | Description                                               |
+| ----------------- | ------ | -------- | --------------------------------------------------------- |
+| text              | string | true     | The annotation text.                                      |
+| point             | object | false    | The x and y coordinates for the annotation                |
+| labelOffsetX (px) | int    | true     | The x offset in px of the label from the annotation point |
+| labelOffsetY (px) | int    | true     | The y offset in px of the label from the annotation point |
+
+### Point
+
+| Name   | Type         | Required | Description                                                                                                                                                |
+| ------ | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| xValue | float or int | true     | The x axis value of the annotation. For category axes this is the zero based index of the x axis categories array. It must be an integer in this scenario. |
+| yValue | float        | true     | The y axis value of the annotation                                                                                                                         |

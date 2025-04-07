@@ -9,6 +9,9 @@ import {
     EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
     EXAMPLE_BAR_CHART_PARAMS,
     EXAMPLE_COLUMN_CHART_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_ANNOTATIONS_PARAMS,
+    EXAMPLE_BAR_CHART_WITH_ANNOTATIONS_PARAMS,
+    EXAMPLE_COLUMN_CHART_WITH_ANNOTATIONS_PARAMS,
     EXAMPLE_BAR_WITH_LINE_CHART_PARAMS,
     EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
 } from './_test-examples';
@@ -432,6 +435,94 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it renders a column chart with stacked series', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('column');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with annotations', () => {
+        describe('GIVEN: Params: Annotations', () => {
+            describe('WHEN: annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_ANNOTATIONS_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the footnotes', () => {
+                    expect($('.ons-chart__footnotes').text()).toContain('1');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test annotation');
+                    expect($('.ons-chart__footnotes').text()).toContain('2');
+                    expect($('.ons-chart__footnotes').text()).toContain('Another test annotation');
+                });
+
+                test('THEN: the footnotes are hidden from screen readers', () => {
+                    expect($('.ons-chart__footnotes').attr('aria-hidden')).toBe('true');
+                });
+
+                test('THEN: it includes the Annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-annotations--line-chart-annotations-123]`).html();
+                    expect(configScript).toContain('"text":"A test annotation"');
+                    expect(configScript).toContain('"point":{"x":10,"y":1.3}');
+                    expect(configScript).toContain('"labelOffsetX":10,"labelOffsetY":-50');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Bar chart with annotations', () => {
+        describe('GIVEN: Params: Annotations', () => {
+            describe('WHEN: annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_WITH_ANNOTATIONS_PARAMS));
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the footnotes', () => {
+                    expect($('.ons-chart__footnotes').text()).toContain('1');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test annotation');
+                });
+
+                test('THEN: the footnotes are hidden from screen readers', () => {
+                    expect($('.ons-chart__footnotes').attr('aria-hidden')).toBe('true');
+                });
+
+                test('THEN: it includes the Annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-annotations--bar-chart-annotations-123]`).html();
+                    expect(configScript).toContain('"text":"A test annotation"');
+                    expect(configScript).toContain('"point":{"x":2,"y":3}');
+                    expect(configScript).toContain('"labelOffsetX":10,"labelOffsetY":-50');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Column chart with annotations', () => {
+        describe('GIVEN: Params: Annotations', () => {
+            describe('WHEN: annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_WITH_ANNOTATIONS_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the footnotes', () => {
+                    expect($('.ons-chart__footnotes').text()).toContain('1');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test annotation');
+                });
+
+                test('THEN: the footnotes are hidden from screen readers', () => {
+                    expect($('.ons-chart__footnotes').attr('aria-hidden')).toBe('true');
+                });
+
+                test('THEN: it includes the Annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-annotations--column-chart-annotations-123]`).html();
+                    expect(configScript).toContain('"text":"A test annotation"');
+                    expect(configScript).toContain('"point":{"x":11,"y":31.8}');
+                    expect(configScript).toContain('"labelOffsetX":10,"labelOffsetY":-50');
                 });
             });
         });
