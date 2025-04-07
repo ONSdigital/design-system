@@ -167,7 +167,7 @@ export function getCookie(name) {
     return null;
 }
 
-export function getDomain(domain) {
+export function getDomain(domain, cookieHandler = document) {
     if (domain.startsWith('www.')) {
         domain = domain.substring(4);
     }
@@ -175,13 +175,13 @@ export function getDomain(domain) {
         domainName = domain,
         p = domainName.split('.'),
         s = '_gd' + new Date().getTime();
-    while (i < p.length - 1 && document.cookie.indexOf(s + '=' + s) == -1) {
+    while (i < p.length - 1 && cookieHandler.cookie.indexOf(s + '=' + s) == -1) {
         // Loop until we find a valid cookie set at the domain or until we've checked all possible domains
         domainName = p.slice(i, p.length).join('.');
-        document.cookie = s + '=' + s + ';domain=' + domainName + ';';
+        cookieHandler.cookie = s + '=' + s + ';domain=' + domainName + ';';
 
         i++;
     }
-    document.cookie = s + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + domainName + ';';
+    cookieHandler.cookie = s + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + domainName + ';';
     return domainName;
 }
