@@ -5,16 +5,16 @@
 | groups | array`<group>` | true     | Settings for the array of [group items](#group)         |
 | open   | boolean        | false    | Forces the details panel to be open when the page loads |
 
-## group
+## Group
 
 | Name        | Type           | Required                                | Description                                  |
 | ----------- | -------------- | --------------------------------------- | -------------------------------------------- |
-| text        | string         | true                                    | Name of the item                             |
-| date        | `Object<Date>` | true                                    | An object for [Date](#date) set for the item |
-| description | string         | true                                    | Description for the item                     |
-| url         | string         | false(unless text is set to Correction) | Link to view superseded version              |
+| text        | string         | true                                     | Name of the item                             |
+| date        | `Object<Date>` | true                                     | An object for [Date](#date) set for the item |
+| description | string         | true                                     | Description for the item                     |
+| url         | string         | false (unless text is set to Correction) | Link to view superseded version              |
 
-#### Date
+## Date
 
 | Name  | Type   | Required | Description                                                    |
 | ----- | ------ | -------- | -------------------------------------------------------------- |
