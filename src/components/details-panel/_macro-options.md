@@ -5,7 +5,7 @@
 | groups | array`<group>` | true     | Settings for the array of [group items](#group)         |
 | open   | boolean        | false    | Forces the details panel to be open when the page loads |
 
-## group
+## Group
 
 | Name        | Type           | Required                                | Description                                  |
 | ----------- | -------------- | --------------------------------------- | -------------------------------------------- |
