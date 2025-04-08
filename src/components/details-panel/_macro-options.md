@@ -14,7 +14,7 @@
 | description | string         | true                                     | Description for the item                     |
 | url         | string         | false (unless text is set to Correction) | Link to view superseded version              |
 
-#### Date
+## Date
 
 | Name  | Type   | Required | Description                                                    |
 | ----- | ------ | -------- | -------------------------------------------------------------- |
