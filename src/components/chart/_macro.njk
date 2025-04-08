@@ -64,7 +64,7 @@
         {% set series = [] %}
         {% for item in params.series %}
             {%
-                set series = series.concat({
+                set seriesItem = {
                     "name": item.name if item.name else '',
                     "data": item.data if item.data else [],
                     "marker": {
@@ -73,8 +73,10 @@
                     "dataLabels": {
                         "enabled": item.dataLabels if item.dataLabels else false
                     }
-                })
+                }
             %}
+            {# Use `set` tag to avoid printing the return value of extend #}
+            {% set _ = extend(series, seriesItem) %}
         {% endfor %}
         {%
             set config = {
