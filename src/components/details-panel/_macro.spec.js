@@ -25,7 +25,7 @@ describe('FOR: Macro: Details Panel', () => {
     });
 
     describe('GIVEN: Params: groups', () => {
-        describe('WHEN: groups are provided', () => {
+        describe('WHEN: groups is provided', () => {
             const $ = cheerio.load(renderComponent('details-panel', EXAMPLE_DETAILS_PANEL));
             test('THEN: jest-axe tests pass', async () => {
                 const results = await axe($.html());
