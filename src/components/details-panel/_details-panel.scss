@@ -40,6 +40,7 @@
 
     &__banner-detail-title {
         text-decoration: underline var(--ons-color-white) 2px;
+        text-underline-position: under;
     }
 
     &__banner-detail:focus &__banner-detail-title {
