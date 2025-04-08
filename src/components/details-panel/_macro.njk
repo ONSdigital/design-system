@@ -36,7 +36,7 @@
                         <time class="ons-details-panel__content-date" datetime="{{ group.date.iso }}">{{ group.date.short }}</time>
                     </div>
                     <div class="ons-details-panel__content-description">
-                        <div class="ons-details-panel__content-text ons-u-mb-s">{{ group.description }}</div>
+                        <div class="ons-details-panel__content-text ons-u-mb-s">{{ group.description | safe }}</div>
                         {% if group.url or group.text == 'Content' %}
                             <a class="ons-details-panel__content-url" href="{{ group.url }}"> View superseded version</a>
                         {% endif %}
