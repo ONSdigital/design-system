@@ -55,6 +55,33 @@ const EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE = {
     ],
 };
 
+const EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON = {
+    title: 'Contents',
+    itemsList: [
+        {
+            url: '#overview',
+            text: 'Overview',
+        },
+        {
+            url: '#who-should-take-part-and-why',
+            text: 'Who should take part and why',
+        },
+    ],
+    relatedLinks: {
+        title: 'Related publications',
+        itemsList: [
+            {
+                url: '#0',
+                text: 'Example publication title',
+            },
+        ],
+    },
+    button: {
+        text: 'Save or print this page',
+        variants: ['print'],
+    },
+};
+
 describe('macro: table-of-contents', () => {
     it('renders a default aria label', () => {
         const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_SINGLE));
@@ -164,6 +191,51 @@ describe('macro: table-of-contents', () => {
                 classes: 'ons-u-mb-l',
                 variants: 'dashed',
                 itemsList: EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE.lists[1].itemsList,
+            });
+        });
+    });
+
+    describe('related links and button', () => {
+        it('passes jest-axe checks with related links and button', async () => {
+            const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON));
+
+            const results = await axe($.html());
+            expect(results).toHaveNoViolations();
+        });
+
+        it('renders related links section with correct title', () => {
+            const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON));
+
+            expect($('.ons-table-of-contents__related-links h2').text().trim()).toBe('Related publications');
+        });
+
+        it('outputs `lists` component for related links with expected parameters', () => {
+            const faker = templateFaker();
+            const listsSpy = faker.spy('list');
+
+            faker.renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON);
+
+            expect(listsSpy.occurrences[1]).toEqual({
+                variants: 'bare',
+                itemsList: EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON.relatedLinks.itemsList,
+            });
+        });
+
+        it('renders button with correct text', () => {
+            const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON));
+
+            expect($('.ons-table-of-contents__button .ons-btn').text().trim()).toBe('Save or print this page');
+        });
+
+        it('outputs `button` component with expected parameters', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button');
+
+            faker.renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON);
+
+            expect(buttonSpy.occurrences[0]).toEqual({
+                text: 'Save or print this page',
+                variants: ['small', 'secondary', 'print'],
             });
         });
     });
