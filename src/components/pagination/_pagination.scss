@@ -16,6 +16,7 @@ $pagination-item-width: 2.5rem;
 
         &--previous,
         &--next {
+            margin: 0 $pagination-item-padding * -1;
             display: inline-block;
         }
 
@@ -25,9 +26,9 @@ $pagination-item-width: 2.5rem;
             }
         }
 
-        &--previous {
-            .ons-pagination__link {
-                padding-left: 0;
+        @include mq('2xs', m) {
+            &--previous ~ &--next {
+                margin: 0;
             }
         }
     }
