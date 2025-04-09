@@ -10,6 +10,8 @@
 }
 
 .ons-hero {
+    $root: &;
+
     background-color: var(--ons-color-hero-bg);
     display: flex;
     overflow: hidden;
@@ -45,7 +47,7 @@
             }
             &:focus:hover {
                 color: var(--ons-color-text);
-                text-decoration: underline solid var(--ons-color-text) 2px;
+                text-decoration: none;
             }
         }
     }
@@ -151,10 +153,9 @@
         padding-top: 2rem;
         position: relative;
         z-index: 5;
-    }
-
-    &__details:has(.ons-breadcrumbs) {
-        padding-top: 1rem !important;
+        #{$root}--with-breadcrumbs & {
+            padding-top: 1rem !important;
+        }
     }
 
     &--dark & {
@@ -185,7 +186,7 @@
         }
 
         &--topic {
-            color: var(--ons-color-grey-20);
+            color: var(--ons-color-light-blue-grey);
         }
 
         &__circle-1 {
