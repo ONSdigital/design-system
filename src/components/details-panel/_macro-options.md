@@ -1,11 +1,11 @@
-| Name   | Type           | Required | Description                                             |
-| ------ | -------------- | -------- | ------------------------------------------------------- |
-| id     | string         | true     | HTML `id` attribute for the details panel               |
-| title  | string         | true     | Title of the component                                  |
-| groups | array`<group>` | true     | Settings for the array of [group items](#group)         |
-| open   | boolean        | false    | Forces the details panel to be open when the page loads |
+| Name         | Type                 | Required | Description                                             |
+| ------------ | -------------------- | -------- | ------------------------------------------------------- |
+| id           | string               | true     | HTML `id` attribute for the details panel               |
+| title        | string               | true     | Title for the details panel                             |
+| DetailsItems | array`<DetailsItem>` | true     | Settings for the array of [Details Item](#DetailsItem)  |
+| open         | boolean              | false    | Forces the details panel to be open when the page loads |
 
-## Group
+## DetailsItem
 
 | Name        | Type           | Required                                 | Description                                  |
 | ----------- | -------------- | ---------------------------------------- | -------------------------------------------- |

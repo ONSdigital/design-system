@@ -1,7 +1,7 @@
 export const EXAMPLE_DETAILS_PANEL = {
     id: 'example-id',
     title: 'Correction and Notice',
-    groups: [
+    detailsItems: [
         {
             text: 'Correction',
             date: {

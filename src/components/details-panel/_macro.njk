@@ -29,16 +29,16 @@
             </div>
         </div>
         <div class="ons-container ons-details-panel__content ons-js-details-content ons-u-pt-xl ons-u-pb-3xl">
-            {% for group in params.groups %}
+            {% for item in params.detailsItems %}
                 <div class="ons-details-panel__item ons-u-pb-xl ons-u-mb-l">
                     <div class="ons-details-panel__content-meta">
-                        <h3 class="ons-u-fs-r--b ons-details-panel__content-heading">{{ group.text }}</h3>
-                        <time class="ons-details-panel__content-date" datetime="{{ group.date.iso }}">{{ group.date.short }}</time>
+                        <h3 class="ons-u-fs-r--b ons-details-panel__content-heading">{{ item.text }}</h3>
+                        <time class="ons-details-panel__content-date" datetime="{{ item.date.iso }}">{{ item.date.short }}</time>
                     </div>
                     <div class="ons-details-panel__content-description">
-                        <div class="ons-details-panel__content-text ons-u-mb-s">{{ group.description | safe }}</div>
-                        {% if group.url or group.text == 'Content' %}
-                            <a class="ons-details-panel__content-url" href="{{ group.url }}"> View superseded version</a>
+                        <div class="ons-details-panel__content-text ons-u-mb-s">{{ item.description | safe }}</div>
+                        {% if item.url or item.text == 'Content' %}
+                            <a class="ons-details-panel__content-url" href="{{ item.url }}"> View superseded version</a>
                         {% endif %}
                     </div>
                 </div>
