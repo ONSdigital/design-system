@@ -1,0 +1,55 @@
+{
+    chart: {
+        type: "column"
+    },
+    legend: {
+        enabled: true
+    },
+    series: [
+        {
+            animation: false,
+            data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            dataLabels: {
+                enabled: false
+            },
+            name: "Values",
+            stacking: "normal"
+        },
+        {
+            data: [
+                ["One", 6],
+                ["Two", 4],
+                ["Three", 5],
+                ["Four", 7],
+                ["Five", 2],
+                ["Six", 9],
+                ["Seven", 3],
+                ["Eight", 8],
+                ["Nine", 2],
+                ["Ten", 1]
+            ],
+            marker: {
+                enabled: false,
+                symbol: "undefined"
+            },
+            name: "Another test data source",
+            type: "line"
+        }
+    ],
+    xAxis: {
+        categories: ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"],
+        reversed: false,
+        title: {
+            enabled: true,
+            text: "Labels"
+        },
+        type: "linear"
+    },
+    yAxis: {
+        reversed: false,
+        title: {
+            enabled: true,
+            text: "Values"
+        }
+    }
+}
