@@ -72,7 +72,9 @@
                     },
                     "dataLabels": {
                         "enabled": item.dataLabels if item.dataLabels else false
-                    }
+                    },
+                    "connectNulls": item.connectNulls if item.connectNulls else true
+
                 })
             %}
         {% endfor %}

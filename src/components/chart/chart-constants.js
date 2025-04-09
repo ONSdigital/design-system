@@ -12,6 +12,63 @@ class ChartConstants {
             // Responsive font sizes
             mobileFontSize: '0.75rem', // 12px
             desktopFontSize: '0.875rem', // 14px
+            lineMarkerStyles: [
+                {
+                    radius: 4,
+                    symbol: 'square',
+                },
+                {
+                    radius: 4,
+                    symbol: 'circle',
+                },
+                {
+                    radius: 4,
+                    symbol: 'diamond',
+                },
+                {
+                    radius: 4,
+                    symbol: 'triangle',
+                },
+                {
+                    radius: 4,
+                    symbol: 'triangle-down',
+                },
+                {
+                    radius: 4,
+                    symbol: 'square',
+                    fillColor: 'white',
+                    lineWidth: 2.5,
+                    lineColor: null,
+                },
+                {
+                    radius: 4,
+                    symbol: 'circle',
+                    fillColor: 'white',
+                    lineWidth: 2.5,
+                    lineColor: null,
+                },
+                {
+                    radius: 4,
+                    symbol: 'diamond',
+                    fillColor: 'white',
+                    lineWidth: 2.5,
+                    lineColor: null,
+                },
+                {
+                    radius: 4,
+                    symbol: 'triangle',
+                    fillColor: 'white',
+                    lineWidth: 2.5,
+                    lineColor: null,
+                },
+                {
+                    radius: 4,
+                    symbol: 'triangle-down',
+                    fillColor: 'white',
+                    lineWidth: 2.5,
+                    lineColor: null,
+                },
+            ],
         };
 
         return constants;
