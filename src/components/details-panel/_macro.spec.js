@@ -5,15 +5,6 @@ import { renderComponent } from '../../tests/helpers/rendering';
 import { EXAMPLE_DETAILS_PANEL } from './_test-examples';
 
 describe('FOR: Macro: Details Panel', () => {
-    describe('GIVEN: Params: id', () => {
-        describe('WHEN: id is provided', () => {
-            test('THEN: the id attribute has the provided id', () => {
-                const $ = cheerio.load(renderComponent('details-panel', EXAMPLE_DETAILS_PANEL));
-                expect($('.ons-details-panel').attr('id')).toBe('example-id');
-            });
-        });
-    });
-
     describe('GIVEN: Params: title', () => {
         describe('WHEN: title param is provided', () => {
             const $ = cheerio.load(renderComponent('details-panel', EXAMPLE_DETAILS_PANEL));

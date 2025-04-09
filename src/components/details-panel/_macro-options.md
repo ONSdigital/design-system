@@ -1,6 +1,5 @@
 | Name         | Type                 | Required | Description                                             |
 | ------------ | -------------------- | -------- | ------------------------------------------------------- |
-| id           | string               | true     | HTML `id` attribute for the details panel               |
 | title        | string               | true     | Title for the details panel                             |
 | DetailsItems | array`<DetailsItem>` | true     | Settings for the array of [Details Item](#DetailsItem)  |
 | open         | boolean              | false    | Forces the details panel to be open when the page loads |

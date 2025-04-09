@@ -1,5 +1,4 @@
 export const EXAMPLE_DETAILS_PANEL = {
-    id: 'example-id',
     title: 'Correction and Notice',
     detailsItems: [
         {
