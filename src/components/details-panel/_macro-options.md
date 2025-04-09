@@ -7,8 +7,8 @@
 
 ## Group
 
-| Name        | Type           | Required                                | Description                                  |
-| ----------- | -------------- | --------------------------------------- | -------------------------------------------- |
+| Name        | Type           | Required                                 | Description                                  |
+| ----------- | -------------- | ---------------------------------------- | -------------------------------------------- |
 | text        | string         | true                                     | Name of the item                             |
 | date        | `Object<Date>` | true                                     | An object for [Date](#date) set for the item |
 | description | string         | true                                     | Description for the item                     |
