@@ -61,15 +61,6 @@
         }
     }
 
-    &__banner-details {
-        display: none;
-
-        @include mq('l') {
-            display: block;
-            margin-left: 0.625rem;
-        }
-    }
-
     &__content {
         #{$root}[open] & {
             display: block;
