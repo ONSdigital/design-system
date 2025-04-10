@@ -7,11 +7,6 @@ class LineChart {
 
     getLineChartOptions = () => {
         return {
-            legend: {
-                // Specific legend symbol width and height for line charts
-                symbolWidth: 20,
-                symbolHeight: 3,
-            },
             plotOptions: {
                 line: {
                     lineWidth: 3,
@@ -21,8 +16,8 @@ class LineChart {
         };
     };
 
-    updateLastPointMarker = (currentChart) => {
-        currentChart.series.forEach((series, i) => {
+    updateLastPointMarker = (series) => {
+        series.forEach((series, i) => {
             const points = series.points;
             if (points && points.length > 0) {
                 // Show only the last point marker
