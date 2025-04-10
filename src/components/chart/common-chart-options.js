@@ -17,14 +17,15 @@ class CommonChartOptions {
                 align: 'left',
                 verticalAlign: 'top',
                 layout: 'horizontal',
-                // Symbol width and height in the legend. May be overridden for individual chart types
-                symbolWidth: 12,
-                symbolHeight: 12,
+                // Symbol width and height are set in a postLoad event, depending on the series type
+                // Default to the line width to ensure there is enough space for the overall legend item for line symbols
+                symbolWidth: 20,
                 margin: 50,
                 navigation: {
                     // ensures that when the legend is long, there is no pagination or scrollbar
                     enabled: false,
                 },
+                itemDistance: 30,
                 itemHoverStyle: {
                     color: this.constants.labelColor, // Prevents the text from changing color on hover
                 },
@@ -174,8 +175,8 @@ class CommonChartOptions {
         };
     };
 
-    hideDataLabels = (currentChart) => {
-        currentChart.series.forEach((series) => {
+    hideDataLabels = (series) => {
+        series.forEach((series) => {
             series.update({
                 dataLabels: {
                     enabled: false,
@@ -184,10 +185,40 @@ class CommonChartOptions {
         });
     };
 
-    disableLegendForSingleSeries = (currentChart) => {
-        if (currentChart.series.length === 1) {
-            currentChart.legend.update({
+    disableLegendForSingleSeries = (config) => {
+        if (config.series.length === 1) {
+            config.legend = {
                 enabled: false,
+            };
+            config.chart.marginTop = 50;
+        }
+    };
+
+    updateLegendSymbols = (chart) => {
+        if (chart.legend.options.enabled) {
+            chart.legend.allItems.forEach((item) => {
+                const { legendItem, userOptions } = item;
+                const seriesType = userOptions?.type;
+                // symbol is defined for bar / column series, and line is defined for line series
+                // if symbol is defined for a line series, it is the marker symbol
+                const { label, symbol } = legendItem || {};
+
+                if (seriesType === 'line') {
+                    symbol?.attr({
+                        x: 16, // Position the marker to the right of the line
+                    });
+
+                    label?.attr({
+                        x: 30, // Adjust label position to account for longer line
+                    });
+                } else {
+                    // Set the symbol size for bar / column series
+                    symbol.attr({
+                        width: 12,
+                        height: 12,
+                        y: 8,
+                    });
+                }
             });
         }
     };
