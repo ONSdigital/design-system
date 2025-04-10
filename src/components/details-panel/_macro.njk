@@ -4,14 +4,7 @@
             <div class="ons-container ons-details-panel__banner-contents">
                 <span class="ons-details-panel__info-icon ons-u-mr-2xs" aria-hidden="true">i</span>
                 <div class="ons-details-panel__banner-body">
-                    {% if params.groups | length == 1 %}
-                        {% set group = params.groups[0] %}
-                        <h3 class="ons-details-panel__banner-title ons-u-mb-2xs">
-                            {{ group.title + 's' if group.groupItems | length > 1 else group.title }}
-                        </h3>
-                    {% else %}
-                        <h3 class="ons-details-panel__banner-title ons-u-mb-2xs">{{ params.title }}</h3>
-                    {% endif %}
+                    <h3 class="ons-details-panel__banner-title ons-u-mb-2xs">{{ params.title }}</h3>
                     <div class="ons-details-panel__banner-detail ons-js-details-heading">
                         <span class="ons-details-panel__banner-detail-title ons-js-corrections-details-title ons-u-mr-3xs"
                             >Show detail</span
