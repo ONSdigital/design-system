@@ -76,6 +76,20 @@ export const EXAMPLE_BAR_CHART_WITH_PERCENTAGE_HEIGHT_PARAMS = {
     percentageHeightMobile: 120,
 };
 
+export const EXAMPLE_BAR_WITH_LINE_CHART_PARAMS = {
+    chartType: 'bar',
+    theme: 'alternate',
+    title: 'Example Bar Chart',
+    subtitle: 'A sample subtitle',
+    id: 'bar-chart-123',
+    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
+    yAxis: { title: 'Y Axis Title' },
+    series: [
+        { name: 'Series 1', data: [10, 20, 30] },
+        { name: 'Series 2', data: [15, 25, 35], type: 'line' },
+    ],
+};
+
 export const EXAMPLE_COLUMN_CHART_PARAMS = {
     chartType: 'column',
     theme: 'alternate',
@@ -166,5 +180,19 @@ export const EXAMPLE_COLUMN_CHART_WITH_ANNOTATIONS_PARAMS = {
             labelOffsetX: 10,
             labelOffsetY: -50,
         },
+    ],
+};
+
+export const EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS = {
+    chartType: 'column',
+    theme: 'alternate',
+    title: 'Example Column Chart',
+    subtitle: 'A sample subtitle',
+    id: 'column-chart-123',
+    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
+    yAxis: { title: 'Y Axis Title' },
+    series: [
+        { name: 'Series 1', data: [10, 20, 30] },
+        { name: 'Series 2', data: [15, 25, 35], type: 'line' },
     ],
 };
