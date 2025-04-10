@@ -99,6 +99,8 @@ class CommonChartOptions {
             },
             xAxis: {
                 labels: {
+                    rotation: 0,
+                    //tickInterval: 1,
                     style: {
                         color: this.constants.axisLabelColor,
                         fontSize: this.constants.desktopFontSize,
@@ -193,6 +195,42 @@ class CommonChartOptions {
             config.chart.marginTop = 50;
         }
     };
+
+    setResponsiveTickInterval(chart) {
+        if (!chart.xAxis || !chart.xAxis[0]) return;
+
+        const isMobile = window.innerWidth < 768;
+
+        const categories = chart.xAxis[0].categories;
+        const plotWidth = chart.plotWidth;
+
+        // Minimum label width (smaller for mobile to fit better)
+        const minLabelWidth = isMobile ? 40 : 60;
+
+        // add extra space between labels to avoid overlap
+        const paddingMultiplier = isMobile ? 1.5 : 1.2;
+
+        const fontSize = isMobile ? 12 : 14;
+
+        if (!categories || !categories.length) return;
+
+        // Find the longest label in the categories array
+        const longestLabel = categories.reduce((a, b) => (a.length > b.length ? a : b), '');
+
+        // Estimate the width of a label:
+        // Length of the longest label × average character width × padding multiplier
+        let estimatedLabelWidth = longestLabel.length * (fontSize * 0.6) * paddingMultiplier;
+
+        // Ensure the estimated width is not smaller than our defined minimum
+        estimatedLabelWidth = Math.max(estimatedLabelWidth, minLabelWidth);
+
+        // Total categories divided by how many labels can fit in the available width
+        const calculatedTickInterval = Math.max(1, Math.ceil(categories.length / (plotWidth / estimatedLabelWidth)));
+
+        chart.xAxis[0].update({
+            tickInterval: calculatedTickInterval,
+        });
+    }
 
     updateLegendSymbols = (chart) => {
         if (chart.legend.options.enabled) {

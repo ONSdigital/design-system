@@ -215,6 +215,7 @@ class HighchartsBaseChart {
             }
             // Update the legend items for all charts
             this.commonChartOptions.updateLegendSymbols(currentChart);
+            this.commonChartOptions.setResponsiveTickInterval(currentChart);
             currentChart.redraw(false);
         };
     };
@@ -234,6 +235,8 @@ class HighchartsBaseChart {
                 if (this.chartType != 'bar') {
                     this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
                 }
+
+                this.commonChartOptions.setResponsiveTickInterval(currentChart);
             }, 50);
         });
     };
