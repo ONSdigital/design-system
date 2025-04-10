@@ -61,6 +61,15 @@
         }
     }
 
+    &__banner-details {
+        display: none;
+
+        @include mq('l') {
+            display: block;
+            margin-left: 0.625rem;
+        }
+    }
+
     &__content {
         #{$root}[open] & {
             display: block;
@@ -75,6 +84,9 @@
         display: flex;
         flex-direction: column;
         border-bottom: 1px solid var(--ons-color-borders);
+        @extend .ons-u-pb-xl;
+        @extend .ons-u-mb-l;
+        @extend .ons-u-ml-2xs;
 
         @include mq('m') {
             flex-direction: row;
@@ -88,6 +100,7 @@
     }
 
     &__content-meta {
+        @extend .ons-u-mb-no;
         @include mq('m') {
             flex-basis: 25%;
             min-width: 16.5rem;
@@ -96,5 +109,8 @@
 
     &__content-heading {
         color: var(--ons-color-black);
+        margin-bottom: 0;
+        @extend .ons-u-fs-r--b;
+        @extend .ons-u-mb-no;
     }
 }
