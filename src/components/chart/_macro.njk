@@ -1,7 +1,7 @@
 {% from "components/list/_macro.njk" import onsList %}
 
 {% macro onsChart(params) %}
-    {% set supportedChartTypes = ['line', 'bar', 'column'] %}
+    {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area'] %}
 
     {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
         {% set headingLevel = params.headingLevel %}
@@ -73,7 +73,7 @@
                     "dataLabels": {
                         "enabled": item.dataLabels if item.dataLabels else false
                     },
-                    "connectNulls": item.connectNulls if item.connectNulls else true
+                    "connectNulls": item.connectNulls if item.connectNulls else false
 
                 })
             %}
@@ -81,7 +81,7 @@
         {%
             set config = {
                 "legend": {
-                    "enabled" : params.legend
+                    "enabled" : params.legend if params.legend else false
                 },
                 "yAxis": {
                     "title": {

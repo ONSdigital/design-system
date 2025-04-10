@@ -54,7 +54,7 @@
 | data         | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.                                                       |
 | dataLabels   | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`. This option is only available for bar chart and clustered bar charts |
 | marker       | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. This option is only available for line charts.       |
-| connectNulls | boolean | true     | Whether to connect lines that have a data point missing                                                                                   |
+| connectNulls | boolean | false    | Whether to connect lines that have a data point missing                                                                                   |
 
 ### Annotations
 

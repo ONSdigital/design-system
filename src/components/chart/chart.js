@@ -7,6 +7,7 @@ import SpecificChartOptions from './specific-chart-options';
 import LineChart from './line-chart';
 import BarChart from './bar-chart';
 import ColumnChart from './column-chart';
+import ScatterChart from './scatter-chart';
 import AnnotationsOptions from './annotations-options';
 
 class HighchartsBaseChart {
@@ -31,6 +32,7 @@ class HighchartsBaseChart {
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
         this.columnChart = new ColumnChart();
+        this.scatterChart = new ScatterChart();
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
             window.isCommonChartOptionsDefined = true;
@@ -89,6 +91,7 @@ class HighchartsBaseChart {
         const lineChartOptions = this.lineChart.getLineChartOptions();
         const barChartOptions = this.barChart.getBarChartOptions(this.useStackedLayout);
         const columnChartOptions = this.columnChart.getColumnChartOptions(this.useStackedLayout);
+        const scatterChartOptions = this.scatterChart.getScatterChartOptions();
         // Merge specificChartOptions with the existing config
         this.config = this.mergeConfigs(this.config, specificChartOptions);
 
@@ -104,6 +107,10 @@ class HighchartsBaseChart {
         if (this.chartType === 'column') {
             // Merge the column chart options with the existing config
             this.config = this.mergeConfigs(this.config, columnChartOptions);
+        }
+        if (this.chartType === 'scatter') {
+            // Merge the scatter chart options with the existing config
+            this.config = this.mergeConfigs(this.config, scatterChartOptions);
         }
     };
 
@@ -179,6 +186,9 @@ class HighchartsBaseChart {
             if (this.chartType === 'column') {
                 this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
                 this.commonChartOptions.hideDataLabels(currentChart);
+            }
+            if (this.chartType === 'scatter') {
+                this.scatterChart.updateMarkers(currentChart);
             }
             currentChart.redraw(false);
         };

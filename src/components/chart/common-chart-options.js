@@ -82,7 +82,7 @@ class CommonChartOptions {
                 plotLines: [
                     {
                         color: this.constants.zeroLineColor,
-                        width: 1,
+                        width: 1.5,
                         value: 0,
                         zIndex: 2,
                     },
