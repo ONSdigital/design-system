@@ -1,6 +1,7 @@
 .ons-chart {
     margin: 0;
     container-type: inline-size;
+    max-width: $grid-max-width;
 
     &__download-title {
         @extend .ons-u-pt-l;

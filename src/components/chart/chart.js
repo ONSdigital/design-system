@@ -26,6 +26,8 @@ class HighchartsBaseChart {
             const annotations = JSON.parse(this.node.querySelector(`[data-highcharts-annotations--${this.id}]`).textContent);
             this.annotationsOptions = new AnnotationsOptions(annotations);
         }
+        this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
+        this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
         this.commonChartOptions = new CommonChartOptions();
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
@@ -197,6 +199,9 @@ class HighchartsBaseChart {
                 this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout, this.extraLines);
                 this.commonChartOptions.hideDataLabels(currentChart.series);
             }
+            if (this.chartType != 'bar') {
+                this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+            }
 
             // If the chart has an extra line or lines, hide the data labels for
             // that series, update the last point marker
@@ -214,22 +219,23 @@ class HighchartsBaseChart {
         };
     };
 
-    // Set resize events - throttled to 100ms
+    // Set resize events - throttled to 50ms
     // All resize events should be defined here to avoid overriding existing events
     setWindowResizeEvent = () => {
-        if (this.chartType === 'column' || this.chartType === 'bar') {
-            window.addEventListener('resize', () => {
-                clearTimeout(this.resizeTimeout);
-                this.resizeTimeout = setTimeout(() => {
-                    // Get the current rendered chart instance
-                    const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
-                    // Update the data labels when the window is resized
-                    if (this.chartType === 'bar' && !this.hideDataLabels) {
-                        this.barChart.postLoadDataLabels(currentChart);
-                    }
-                }, 100);
-            });
-        }
+        window.addEventListener('resize', () => {
+            clearTimeout(this.resizeTimeout);
+            this.resizeTimeout = setTimeout(() => {
+                // Get the current rendered chart instance
+                const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
+                // Update the data labels when the window is resized
+                if (this.chartType === 'bar' && !this.hideDataLabels) {
+                    this.barChart.postLoadDataLabels(currentChart);
+                }
+                if (this.chartType != 'bar') {
+                    this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+                }
+            }, 50);
+        });
     };
 }
 
