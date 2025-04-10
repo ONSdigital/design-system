@@ -196,6 +196,10 @@ $hub-row-spacing: 1.3rem;
             flex: 10.5 1 66%;
         }
 
+        &__actions ~ &__values.ons-summary__column-size--2 {
+            padding-right: 10rem;
+        }
+
         &--hub & {
             &__item-title,
             &__values,
