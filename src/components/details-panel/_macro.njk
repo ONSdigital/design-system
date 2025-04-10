@@ -23,9 +23,9 @@
         </div>
         <div class="ons-container ons-details-panel__content ons-js-details-content ons-u-pt-xl ons-u-pb-3xl">
             {% for item in params.detailsItems %}
-                <div class="ons-details-panel__item ons-u-pb-xl ons-u-mb-l">
-                    <div class="ons-details-panel__content-meta">
-                        <h3 class="ons-u-fs-r--b ons-details-panel__content-heading">{{ item.text }}</h3>
+                <div class="ons-details-panel__item ons-u-pb-xl ons-u-mb-l ons-u-ml-2xs">
+                    <div class="ons-details-panel__content-meta ons-u-mb-l@2xs@m ons-u-mb-no">
+                        <h3 class="ons-u-fs-r--b ons-u-mb-no ons-details-panel__content-heading ons-u-mb-no">{{ item.text }}</h3>
                         <time class="ons-details-panel__content-date" datetime="{{ item.date.iso }}">{{ item.date.short }}</time>
                     </div>
                     <div class="ons-details-panel__content-description">
