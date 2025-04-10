@@ -160,6 +160,8 @@
             "title": "Sales",
             "labelFormat": "{value:,.f}"
         },
+        "percentageHeightDesktop": 35,
+        "percentageHeightMobile": 90,
         "series": [
             {
                 "name": 'CPIH',
@@ -215,7 +217,19 @@
                 ]
             }
         ],
-        "percentageHeightDesktop": 35,
-        "percentageHeightMobile": 90
+        "annotations": [
+            {
+                "text": "A test annotation",
+                "point": {"x": 10, "y": 1.3},
+                "labelOffsetX": 10,
+                "labelOffsetY": -50
+            },
+            {
+                "text": "Another test annotation",
+                "point": {"x": 48, "y": 1.8},
+                "labelOffsetX": 30,
+                "labelOffsetY": -70
+            }
+        ]
     })
 }}

@@ -21,6 +21,10 @@ class CommonChartOptions {
                 symbolWidth: 12,
                 symbolHeight: 12,
                 margin: 50,
+                navigation: {
+                    // ensures that when the legend is long, there is no pagination or scrollbar
+                    enabled: false,
+                },
                 itemHoverStyle: {
                     color: this.constants.labelColor, // Prevents the text from changing color on hover
                 },
@@ -131,52 +135,44 @@ class CommonChartOptions {
                     },
                 },
             },
-            // Adjust font size for smaller width of chart
-            // Note this is not the same as the viewport width
-            responsive: {
-                rules: [
-                    {
-                        condition: {
-                            maxWidth: 400,
-                        },
-                        chartOptions: {
-                            legend: {
-                                itemStyle: {
-                                    fontSize: this.constants.mobileFontSize,
-                                },
-                            },
-                            xAxis: {
-                                labels: {
-                                    style: {
-                                        fontSize: this.constants.mobileFontSize,
-                                    },
-                                },
-                                title: {
-                                    style: {
-                                        fontSize: this.constants.mobileFontSize,
-                                    },
-                                },
-                            },
-                            yAxis: {
-                                labels: {
-                                    style: {
-                                        fontSize: this.constants.mobileFontSize,
-                                    },
-                                },
-                                title: {
-                                    style: {
-                                        fontSize: this.constants.mobileFontSize,
-                                    },
-                                },
-                            },
-                        },
-                    },
-                ],
-            },
         };
     }
 
     getOptions = () => this.options;
+
+    getMobileOptions = () => {
+        return {
+            legend: {
+                itemStyle: {
+                    fontSize: this.constants.mobileFontSize,
+                },
+            },
+            xAxis: {
+                labels: {
+                    style: {
+                        fontSize: this.constants.mobileFontSize,
+                    },
+                },
+                title: {
+                    style: {
+                        fontSize: this.constants.mobileFontSize,
+                    },
+                },
+            },
+            yAxis: {
+                labels: {
+                    style: {
+                        fontSize: this.constants.mobileFontSize,
+                    },
+                },
+                title: {
+                    style: {
+                        fontSize: this.constants.mobileFontSize,
+                    },
+                },
+            },
+        };
+    };
 
     hideDataLabels = (currentChart) => {
         currentChart.series.forEach((series) => {
@@ -193,6 +189,26 @@ class CommonChartOptions {
             currentChart.legend.update({
                 enabled: false,
             });
+        }
+    };
+
+    adjustChartHeight = (currentChart, percentageHeightDesktop, percentageHeightMobile) => {
+        // get height and width of the plot area
+        const plotHeight = currentChart.plotHeight;
+        const plotWidth = currentChart.plotWidth;
+        // calculate the new plot height based on the percentage height
+        // default to the current height
+        let newPlotHeight = plotHeight;
+        if (plotWidth > 400) {
+            newPlotHeight = plotWidth * (percentageHeightDesktop / 100);
+        } else {
+            newPlotHeight = plotWidth * (percentageHeightMobile / 100);
+        }
+        const totalHeight = currentChart.plotTop + newPlotHeight + currentChart.marginBottom;
+
+        // set the new size of the chart
+        if (totalHeight !== currentChart.chartHeight) {
+            currentChart.setSize(null, totalHeight, false);
         }
     };
 }
