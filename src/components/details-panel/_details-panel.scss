@@ -87,6 +87,7 @@
         &:last-child {
             border-bottom: 0;
             @extend .ons-u-mb-no;
+            @extend .ons-u-pb-no;
         }
     }
 
