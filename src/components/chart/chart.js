@@ -1,10 +1,13 @@
+import Highcharts from 'highcharts';
+import 'highcharts/modules/accessibility';
+import 'highcharts/modules/annotations';
+
 import CommonChartOptions from './common-chart-options';
 import SpecificChartOptions from './specific-chart-options';
 import LineChart from './line-chart';
 import BarChart from './bar-chart';
 import ColumnChart from './column-chart';
-import Highcharts from 'highcharts';
-import 'highcharts/modules/accessibility';
+import AnnotationsOptions from './annotations-options';
 
 class HighchartsBaseChart {
     static selector() {
@@ -16,11 +19,15 @@ class HighchartsBaseChart {
         this.chartType = this.node.dataset.highchartsType;
         this.theme = this.node.dataset.highchartsTheme;
         const chartNode = this.node.querySelector('[data-highcharts-chart]');
-
         this.id = this.node.dataset.highchartsId;
         this.useStackedLayout = this.node.hasAttribute('data-highcharts-use-stacked-layout');
         this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.id}]`).textContent);
-
+        if (this.node.querySelector(`[data-highcharts-annotations--${this.id}]`)) {
+            const annotations = JSON.parse(this.node.querySelector(`[data-highcharts-annotations--${this.id}]`).textContent);
+            this.annotationsOptions = new AnnotationsOptions(annotations);
+        }
+        this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
+        this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
         this.commonChartOptions = new CommonChartOptions();
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
@@ -32,6 +39,7 @@ class HighchartsBaseChart {
         }
         this.hideDataLabels = this.checkHideDataLabels();
         this.setSpecificChartOptions();
+        this.setResponsiveOptions();
         this.setLoadEvent();
         this.setWindowResizeEvent();
         this.chart = Highcharts.chart(chartNode, this.config);
@@ -107,7 +115,49 @@ class HighchartsBaseChart {
         return (this.chartType === 'bar' && this.config.series.length > 2) || this.useStackedLayout === true;
     };
 
+    // Adjust font size and annotations for smaller width of chart
+    // Note this is not the same as the viewport width
+    // All responsive rules should be defined here to avoid overriding existing rules
+    setResponsiveOptions = () => {
+        const mobileCommonChartOptions = this.commonChartOptions.getMobileOptions();
+        if (!this.config.responsive) {
+            this.config.responsive = {};
+        }
+        // If these conditions change, the styling for the footnotes container query in _chart.scss needs to be updated
+        let rules = [
+            {
+                condition: {
+                    maxWidth: 400,
+                },
+                chartOptions: {
+                    ...mobileCommonChartOptions,
+                },
+            },
+            // We are using a slightly wider breakpoint for annotations
+            // to try and reduce the likelihood of them being automatically
+            // hidden by Highcharts
+            {
+                condition: {
+                    maxWidth: 600,
+                },
+                chartOptions: {
+                    annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsMobile() : undefined,
+                },
+            },
+            {
+                condition: {
+                    minWidth: 601,
+                },
+                chartOptions: {
+                    annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsDesktop() : undefined,
+                },
+            },
+        ];
+        this.config.responsive.rules = rules;
+    };
+
     // Create the load event for various chart types
+    // All load events should be defined here to avoid overriding existing events
     setLoadEvent = () => {
         if (!this.config.chart.events) {
             this.config.chart.events = {};
@@ -132,25 +182,30 @@ class HighchartsBaseChart {
                 this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
                 this.commonChartOptions.hideDataLabels(currentChart);
             }
+            if (this.chartType != 'bar') {
+                this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+            }
             currentChart.redraw(false);
         };
     };
 
-    // Set resize events - throttled to 100ms
+    // Set resize events - throttled to 50ms
+    // All resize events should be defined here to avoid overriding existing events
     setWindowResizeEvent = () => {
-        if (this.chartType === 'column' || this.chartType === 'bar') {
-            window.addEventListener('resize', () => {
-                clearTimeout(this.resizeTimeout);
-                this.resizeTimeout = setTimeout(() => {
-                    // Get the current rendered chart instance
-                    const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
-                    // Update the data labels when the window is resized
-                    if (this.chartType === 'bar' && !this.hideDataLabels) {
-                        this.barChart.postLoadDataLabels(currentChart);
-                    }
-                }, 100);
-            });
-        }
+        window.addEventListener('resize', () => {
+            clearTimeout(this.resizeTimeout);
+            this.resizeTimeout = setTimeout(() => {
+                // Get the current rendered chart instance
+                const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
+                // Update the data labels when the window is resized
+                if (this.chartType === 'bar' && !this.hideDataLabels) {
+                    this.barChart.postLoadDataLabels(currentChart);
+                }
+                if (this.chartType != 'bar') {
+                    this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+                }
+            }, 50);
+        });
     };
 }
 
