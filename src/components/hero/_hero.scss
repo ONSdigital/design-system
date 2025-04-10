@@ -95,72 +95,14 @@
         }
     }
 
-    &__badge-link {
-        display: block;
-        width: fit-content;
-    }
-
     &--topic {
         color: var(--ons-color-branded);
         @extend .ons-u-mb-no;
     }
 
-    &__container {
-        align-items: center;
-        display: flex;
-        min-height: 300px;
-        position: relative;
-
-        &--has-details {
-            align-items: flex-start; // Prevents undesired shift if not enough content
-        }
-    }
-
-    &__content {
-        @include mq(l) {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-    }
-
-    &__information {
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 1rem;
-
-        & .ons-hero__panel {
-            padding: 0.5rem 1rem;
-            border-left: 5px solid transparent;
-            @extend .ons-u-fs-r--b;
-        }
-
-        & .ons-hero__link {
-            padding: 0.5rem 0;
-        }
-    }
-
-    &__pre-title {
-        margin-bottom: 0.5rem;
-
-        @include mq('2xs', m) {
-            max-width: 145px;
-        }
-    }
-
-    &__details {
-        padding-bottom: 3.5rem;
-        padding-top: 2rem;
-        position: relative;
-        z-index: 5;
-        #{$root}--with-breadcrumbs & {
-            padding-top: 1rem !important;
-        }
-    }
-
     &--dark & {
         &__details {
-            color: var(--ons-color-text-inverse) !important;
+            color: var(--ons-color-text-inverse);
 
             a {
                 color: inherit;
@@ -468,6 +410,64 @@
             @include mq(m) {
                 bottom: 9%;
             }
+        }
+    }
+
+    &__badge-link {
+        display: block;
+        width: fit-content;
+    }
+
+    &__container {
+        align-items: center;
+        display: flex;
+        min-height: 300px;
+        position: relative;
+
+        &--has-details {
+            align-items: flex-start; // Prevents undesired shift if not enough content
+        }
+    }
+
+    &__content {
+        @include mq(l) {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    }
+
+    &__information {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 1rem;
+
+        & .ons-hero__panel {
+            padding: 0.5rem 1rem;
+            border-left: 5px solid transparent;
+            @extend .ons-u-fs-r--b;
+        }
+
+        & .ons-hero__link {
+            padding: 0.5rem 0;
+        }
+    }
+
+    &__pre-title {
+        margin-bottom: 0.5rem;
+
+        @include mq('2xs', m) {
+            max-width: 145px;
+        }
+    }
+
+    &__details {
+        padding-bottom: 3.5rem;
+        padding-top: 2rem;
+        position: relative;
+        z-index: 5;
+        #{$root}--with-breadcrumbs & {
+            padding-top: 1rem;
         }
     }
 
