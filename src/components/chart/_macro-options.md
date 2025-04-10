@@ -13,7 +13,8 @@
 | yAxis                   | object  | true     | Defines the vertical axis [y-axis](#y_axis) configuration parameters                                                                                                                         |
 | xAxis                   | object  | true     | Defines the horizontal axis [x-axis](#x_axis) configuration parameters                                                                                                                       |
 | series                  | array   | true     | The data [series](#series) to be plotted, including labels and values.                                                                                                                       |
-| useStackedLayout        | boolean | false    | Determines whether the chart should use a stacked layout. It is useful only for bar charts.                                                                                                  |
+| useStackedLayout        | boolean | false    | Determines whether the chart should use a stacked layout. It is useful only for bar and column charts.                                                                                       |
+| annotations             | array   | false    | An array of annotations.                                                                                                                                                                     |
 | percentageHeightDesktop | integer | false    | Sets the percentage plot height at desktop, relative to the width. If undefined the chart will fall back to the default height of 400px at desktop. Does not apply to bar charts.            |
 | percentageHeightMobile  | integer | false    | Sets the percentage plot height at mobile, relative to the width. If undefined the chart will fall back to the default height of 400px at mobile. Does not apply to bar charts.              |
 |                         |
@@ -51,12 +52,13 @@
 
 ### Series
 
-| Name       | Type    | Required | Description                                                                                                                               |
-| ---------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| name       | string  | true     | The name of the series.                                                                                                                   |
-| data       | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.                                                       |
-| dataLabels | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`. This option is only available for bar chart and clustered bar charts |
-| marker     | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. This option is only available for line charts.       |
+| Name       | Type    | Required | Description                                                                                                                                                                                                                                               |
+| ---------- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name       | string  | true     | The name of the series.                                                                                                                                                                                                                                   |
+| data       | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.                                                                                                                                                                       |
+| dataLabels | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`. This option is only available for bar chart and clustered bar charts                                                                                                                 |
+| marker     | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. This option is only available for line charts.                                                                                                                       |
+| type       | string  | false    | Specifies the configuration type to apply to the series. Supported types include 'line'. By default, it aligns with the chart type, but this is used when combining multiple chart types within a single chart (e.g., bar with line or column with line). |
 
 ### Annotations
 
