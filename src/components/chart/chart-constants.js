@@ -9,9 +9,7 @@ class ChartConstants {
             categoryLabelColor: '#414042',
             gridLineColor: '#d9d9d9',
             zeroLineColor: '#b3b3b3',
-            // Responsive font sizes
-            mobileFontSize: '0.75rem', // 12px
-            desktopFontSize: '0.875rem', // 14px
+            defaultFontSize: '0.875rem', // 14px
             lineMarkerStyles: [
                 {
                     radius: 4,

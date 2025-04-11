@@ -30,9 +30,9 @@ class CommonChartOptions {
                     color: this.constants.labelColor, // Prevents the text from changing color on hover
                 },
                 itemStyle: {
-                    cursor: 'default', // ensures that it does not change to a hand (pointer) on hover.
+                    cursor: 'auto', // ensures that it does not change to a hand (pointer) on hover.
                     color: this.constants.labelColor,
-                    fontSize: this.constants.desktopFontSize,
+                    fontSize: this.constants.defaultFontSize,
                     fontWeight: 'normal',
                 },
                 // Disable click event on legend
@@ -64,7 +64,7 @@ class CommonChartOptions {
                 labels: {
                     style: {
                         color: this.constants.axisLabelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                     },
                 },
                 title: {
@@ -78,7 +78,7 @@ class CommonChartOptions {
                     y: -25,
                     style: {
                         color: this.constants.axisLabelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                     },
                 },
                 lineColor: this.constants.gridLineColor,
@@ -101,14 +101,14 @@ class CommonChartOptions {
                 labels: {
                     style: {
                         color: this.constants.axisLabelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                     },
                 },
                 title: {
                     align: 'high',
                     style: {
                         color: this.constants.axisLabelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                     },
                 },
                 lineColor: this.constants.gridLineColor,
@@ -140,40 +140,6 @@ class CommonChartOptions {
     }
 
     getOptions = () => this.options;
-
-    getMobileOptions = () => {
-        return {
-            legend: {
-                itemStyle: {
-                    fontSize: this.constants.mobileFontSize,
-                },
-            },
-            xAxis: {
-                labels: {
-                    style: {
-                        fontSize: this.constants.mobileFontSize,
-                    },
-                },
-                title: {
-                    style: {
-                        fontSize: this.constants.mobileFontSize,
-                    },
-                },
-            },
-            yAxis: {
-                labels: {
-                    style: {
-                        fontSize: this.constants.mobileFontSize,
-                    },
-                },
-                title: {
-                    style: {
-                        fontSize: this.constants.mobileFontSize,
-                    },
-                },
-            },
-        };
-    };
 
     hideDataLabels = (series) => {
         series.forEach((series) => {
