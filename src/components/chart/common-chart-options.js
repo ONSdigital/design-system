@@ -197,11 +197,13 @@ class CommonChartOptions {
     };
 
     setResponsiveTickInterval(chart) {
-        if (!chart.xAxis || !chart.xAxis[0]) return;
+        const targetAxis = chart.userOptions.chart.type === 'bar' ? chart.yAxis[0] : chart.xAxis[0];
+
+        if (!targetAxis) return;
 
         const isMobile = window.innerWidth < 768;
 
-        const categories = chart.xAxis[0].categories;
+        const categories = targetAxis.categories;
         const plotWidth = chart.plotWidth;
 
         // Minimum label width (smaller for mobile to fit better)
@@ -227,7 +229,7 @@ class CommonChartOptions {
         // Total categories divided by how many labels can fit in the available width
         const calculatedTickInterval = Math.max(1, Math.ceil(categories.length / (plotWidth / estimatedLabelWidth)));
 
-        chart.xAxis[0].update({
+        targetAxis.update({
             tickInterval: calculatedTickInterval,
         });
     }
