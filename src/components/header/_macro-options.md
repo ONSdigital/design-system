@@ -170,19 +170,19 @@
 
 ## Column
 
-| Name   | Type           | Required | Description                                      |
-| ------ | -------------- | -------- | ------------------------------------------------ |
-| groups | array`<group>` | true     | settings for array of [groups](#group) in column |
+| Name      | Type           | Required | Description                                     |
+| --------- | -------------- | -------- | ----------------------------------------------- |
+| linksList | array`<links>` | true     | settings for array of [links](#links) in column |
 
-## Group
+## Links
 
-| Name       | Type               | Required | Description                                                           |
-| ---------- | ------------------ | -------- | --------------------------------------------------------------------- |
-| heading    | string             | true     | The heading label for the menu group                                  |
-| url        | string             | false    | The URL for the HTML `href` attribute for the path to the linked page |
-| groupItems | array`<groupItem>` | false    | Settings for an array of [group items](#groupitem) for each list item |
+| Name     | Type                  | Required | Description                                                               |
+| -------- | --------------------- | -------- | ------------------------------------------------------------------------- |
+| heading  | string                | true     | The heading label for the menu group                                      |
+| url      | string                | false    | The URL for the HTML `href` attribute for the path to the linked page     |
+| children | array`<linkChildren>` | false    | Settings for an array of [linkChildren](#linkchildren) for each list item |
 
-## GroupItem
+## LinkChildren
 
 | Name | Type   | Required | Description                                                           |
 | ---- | ------ | -------- | --------------------------------------------------------------------- |
