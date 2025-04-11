@@ -196,20 +196,10 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
             itemsList: [
                 {
                     title: 'row item 4',
-                    valueList: [
-                        {
-                            text: 'list item 4',
-                        },
-                    ],
                     actions: [
                         {
                             text: 'Change',
-                            visuallyHiddenText: 'change answer',
-                            url: '#0',
-                        },
-                        {
-                            text: 'Remove',
-                            visuallyHiddenText: 'remove list item',
+                            visuallyHiddenText: 'change list item',
                             url: '#0',
                         },
                     ],
@@ -219,13 +209,6 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
                     valueList: [
                         {
                             text: 'list item 5',
-                        },
-                    ],
-                    actions: [
-                        {
-                            text: 'Change',
-                            visuallyHiddenText: 'change list item',
-                            url: '#0',
                         },
                     ],
                 },
@@ -298,6 +281,21 @@ const EXAMPLE_SUMMARY_MULTIPLE_GROUPS = {
                     id: 'group-id-3',
                     title: 'group title',
                     ...EXAMPLE_SUMMARY_ROWS,
+                },
+            ],
+        },
+    ],
+};
+
+const EXAMPLE_SUMMARY_SINGLE_GROUP = {
+    summaries: [
+        {
+            title: 'summary title',
+            groups: [
+                {
+                    id: 'group-id-1',
+                    title: 'group title',
+                    ...EXAMPLE_SUMMARY_HOUSEHOLD_GROUP,
                 },
             ],
         },
@@ -411,9 +409,9 @@ describe('macro: summary', () => {
             it('displays the row `title` text', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-                expect($('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__item--text').text().trim()).toBe(
-                    'row title 1',
-                );
+                expect(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__item--text:nth-of-type(1)').text().trim(),
+                ).toBe('row title 1');
             });
 
             it('has a custom icon `iconType`', () => {
@@ -472,6 +470,16 @@ describe('macro: summary', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect($('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__values ul').length).toBe(1);
+            });
+
+            it('adds the `ons-summary__column-size--2` class if no `valueList` is provided', () => {
+                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_SINGLE_GROUP));
+
+                expect(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions').hasClass(
+                        'ons-summary__column-size--2',
+                    ),
+                ).toBe(true);
             });
         });
 
@@ -548,6 +556,14 @@ describe('macro: summary', () => {
                         'b',
                     ),
                 ).toBe('def');
+            });
+
+            it('adds the `ons-summary__column-size--2` class if no action is provided', () => {
+                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_SINGLE_GROUP));
+
+                expect(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__values').hasClass('ons-summary__column-size--2'),
+                ).toBe(true);
             });
         });
     });
