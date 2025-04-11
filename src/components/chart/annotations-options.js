@@ -16,7 +16,7 @@ class AnnotationsOptions {
                     padding: 3,
                     style: {
                         color: this.constants.labelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                         width: 150,
                         textAlign: 'left',
                     },
