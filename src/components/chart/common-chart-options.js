@@ -99,6 +99,7 @@ class CommonChartOptions {
             },
             xAxis: {
                 labels: {
+                    rotation: 0,
                     style: {
                         color: this.constants.axisLabelColor,
                         fontSize: this.constants.desktopFontSize,
@@ -221,6 +222,25 @@ class CommonChartOptions {
                 }
             });
         }
+    };
+
+    formatAxisLabels = (chart) => {
+        const targetAxis = chart.userOptions.chart.type === 'bar' ? chart.yAxis : chart.xAxis;
+        targetAxis.forEach((axis) => {
+            axis.update({
+                labels: {
+                    useHTML: true,
+                    formatter: function () {
+                        return `<span style="
+                            display: block;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        ">${this.value}</span>`;
+                    },
+                },
+            });
+        });
     };
 
     adjustChartHeight = (currentChart, percentageHeightDesktop, percentageHeightMobile) => {

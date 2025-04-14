@@ -50,6 +50,7 @@ class BarChart {
             yAxis: {
                 title: {
                     // Override the y Axis title settings for bar charts where the y axis is horizontal
+                    rotation: 0,
                     textAlign: 'right',
                     offset: undefined,
                     y: 0,

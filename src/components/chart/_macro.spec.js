@@ -96,6 +96,24 @@ describe('Macro: Chart', () => {
             });
         });
 
+        describe('GIVEN: Params: Tick Interval', () => {
+            describe('WHEN: tick interval is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        xAxis: {
+                            ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS.xAxis,
+                            tickInterval: 2,
+                        },
+                    }),
+                );
+                test('THEN: it includes the tick interval in the config', () => {
+                    const configScript = $(`script[data-highcharts-config--chart-123]`).html();
+                    expect(configScript).toContain('"tickInterval":2');
+                });
+            });
+        });
+
         describe('GIVEN: Params: Config', () => {
             describe('WHEN: config params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
