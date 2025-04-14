@@ -21,6 +21,7 @@ class AnnotationsOptions {
                         textAlign: 'left',
                     },
                 },
+                draggable: '',
             },
         ];
         this.annotations.forEach((annotation) => {
@@ -50,6 +51,7 @@ class AnnotationsOptions {
                     useHTML: true,
                     className: 'ons-chart__footnote-number',
                 },
+                draggable: '',
             },
         ];
         this.annotations.forEach((annotation, index) => {

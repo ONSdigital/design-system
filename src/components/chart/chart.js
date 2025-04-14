@@ -26,11 +26,14 @@ class HighchartsBaseChart {
             const annotations = JSON.parse(this.node.querySelector(`[data-highcharts-annotations--${this.id}]`).textContent);
             this.annotationsOptions = new AnnotationsOptions(annotations);
         }
+        this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
+        this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
         this.commonChartOptions = new CommonChartOptions();
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
         this.columnChart = new ColumnChart();
+        this.extraLines = this.checkForExtraLines();
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
             window.isCommonChartOptionsDefined = true;
@@ -42,6 +45,11 @@ class HighchartsBaseChart {
         this.setWindowResizeEvent();
         this.chart = Highcharts.chart(chartNode, this.config);
     }
+
+    // Check for the number of extra line series in the config
+    checkForExtraLines = () => {
+        return this.chartType === 'line' ? 0 : this.config.series.filter((series) => series.type === 'line').length;
+    };
 
     // Set up the global Highcharts options which are used for all charts
     setCommonChartOptions = () => {
@@ -105,6 +113,19 @@ class HighchartsBaseChart {
             // Merge the column chart options with the existing config
             this.config = this.mergeConfigs(this.config, columnChartOptions);
         }
+
+        if (this.extraLines > 0) {
+            this.config = this.mergeConfigs(this.config, this.lineChart.getLineChartOptions());
+            if (this.chartType === 'column') {
+                this.config = this.mergeConfigs(this.config, columnChartOptions);
+            }
+            if (this.chartType === 'bar') {
+                this.config = this.mergeConfigs(this.config, barChartOptions);
+            }
+        }
+
+        // Disable the legend for single series charts
+        this.commonChartOptions.disableLegendForSingleSeries(this.config);
     };
 
     // Check if the data labels should be hidden
@@ -162,44 +183,59 @@ class HighchartsBaseChart {
         }
         this.config.chart.events.load = (event) => {
             const currentChart = event.target;
-            // Disable the legend for single series charts
-            this.commonChartOptions.disableLegendForSingleSeries(currentChart);
             if (this.chartType === 'line') {
-                this.lineChart.updateLastPointMarker(currentChart);
-                this.commonChartOptions.hideDataLabels(currentChart);
+                this.lineChart.updateLastPointMarker(currentChart.series);
+                this.commonChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'bar') {
-                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
+                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout, this.extraLines);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
                 } else {
-                    this.commonChartOptions.hideDataLabels(currentChart);
+                    this.commonChartOptions.hideDataLabels(currentChart.series);
                 }
             }
             if (this.chartType === 'column') {
-                this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout);
-                this.commonChartOptions.hideDataLabels(currentChart);
+                this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout, this.extraLines);
+                this.commonChartOptions.hideDataLabels(currentChart.series);
             }
+            if (this.chartType != 'bar') {
+                this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+            }
+
+            // If the chart has an extra line or lines, hide the data labels for
+            // that series, update the last point marker
+            if (this.extraLines > 0) {
+                currentChart.series.forEach((series) => {
+                    if (series.type === 'line') {
+                        this.lineChart.updateLastPointMarker([series]);
+                        this.commonChartOptions.hideDataLabels([series]);
+                    }
+                });
+            }
+            // Update the legend items for all charts
+            this.commonChartOptions.updateLegendSymbols(currentChart);
             currentChart.redraw(false);
         };
     };
 
-    // Set resize events - throttled to 100ms
+    // Set resize events - throttled to 50ms
     // All resize events should be defined here to avoid overriding existing events
     setWindowResizeEvent = () => {
-        if (this.chartType === 'column' || this.chartType === 'bar') {
-            window.addEventListener('resize', () => {
-                clearTimeout(this.resizeTimeout);
-                this.resizeTimeout = setTimeout(() => {
-                    // Get the current rendered chart instance
-                    const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
-                    // Update the data labels when the window is resized
-                    if (this.chartType === 'bar' && !this.hideDataLabels) {
-                        this.barChart.postLoadDataLabels(currentChart);
-                    }
-                }, 100);
-            });
-        }
+        window.addEventListener('resize', () => {
+            clearTimeout(this.resizeTimeout);
+            this.resizeTimeout = setTimeout(() => {
+                // Get the current rendered chart instance
+                const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
+                // Update the data labels when the window is resized
+                if (this.chartType === 'bar' && !this.hideDataLabels) {
+                    this.barChart.postLoadDataLabels(currentChart);
+                }
+                if (this.chartType != 'bar') {
+                    this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+                }
+            }, 50);
+        });
     };
 }
 
