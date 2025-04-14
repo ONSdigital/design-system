@@ -20,18 +20,6 @@
 
     &--dark {
         background-color: var(--ons-color-hero-bg-dark);
-        .ons-breadcrumbs__link {
-            color: var(--ons-color-text-inverse);
-
-            &:hover {
-                color: var(--ons-color-text-inverse);
-                text-decoration: underline solid var(--ons-color-text-inverse) 2px;
-            }
-            &:focus:hover {
-                color: var(--ons-color-text);
-                text-decoration: none;
-            }
-        }
     }
 
     &--navy-blue {
@@ -127,6 +115,22 @@
 
             .ons-details__heading {
                 color: inherit;
+            }
+
+            .ons-breadcrumbs__link {
+                color: var(--ons-color-text-inverse);
+
+                &:hover {
+                    color: var(--ons-color-text-inverse);
+                    text-decoration: underline solid var(--ons-color-text-inverse) 2px;
+                }
+                &:focus {
+                    color: var(--ons-color-text);
+                }
+                &:focus:hover {
+                    color: var(--ons-color-text);
+                    text-decoration: none;
+                }
             }
         }
         &--topic {
