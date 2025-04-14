@@ -23,7 +23,7 @@ class ScatterChart {
         };
     };
 
-    // Set a different
+    // Use a different set of marker styles for scatter charts
     updateMarkers = (currentChart) => {
         currentChart.series.forEach((series, i) => {
             series.update({ marker: this.markerStyles[i] != undefined ? this.markerStyles[i] : this.markerStyles[0] }, false);
