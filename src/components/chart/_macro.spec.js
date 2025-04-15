@@ -103,13 +103,27 @@ describe('Macro: Chart', () => {
                         ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
                         xAxis: {
                             ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS.xAxis,
-                            tickInterval: 2,
+                            tickIntervalMobile: 2,
+                            tickIntervalDesktop: 5,
                         },
                     }),
                 );
                 test('THEN: it includes the tick interval in the config', () => {
-                    const configScript = $(`script[data-highcharts-config--chart-123]`).html();
-                    expect(configScript).toContain('"tickInterval":2');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-x-axis-tick-interval-mobile')).toBe('2');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-x-axis-tick-interval-desktop')).toBe('5');
+                });
+            });
+            describe('WHEN: tick interval is not provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                    }),
+                );
+                test('THEN: it does not include the tick interval in the config', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-x-axis-tick-interval-mobile')).toBe(undefined);
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-x-axis-tick-interval-desktop')).toBe(undefined);
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-y-axis-tick-interval-desktop')).toBe(undefined);
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-y-axis-tick-interval-mobile')).toBe(undefined);
                 });
             });
         });
