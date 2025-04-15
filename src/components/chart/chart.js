@@ -215,7 +215,6 @@ class HighchartsBaseChart {
             }
             // Update the legend items for all charts
             this.commonChartOptions.updateLegendSymbols(currentChart);
-            this.commonChartOptions.formatAxisLabels(currentChart);
             currentChart.redraw(false);
         };
     };

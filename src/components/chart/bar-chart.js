@@ -48,9 +48,16 @@ class BarChart {
                 title: { align: 'high', textAlign: 'middle', reserveSpace: false, rotation: 0, y: -25, useHTML: true },
             },
             yAxis: {
+                labels: {
+                    rotation: 0,
+                    useHTML: true,
+                    style: {
+                        whiteSpace: 'nowrap',
+                        color: this.constants.categoryLabelColor,
+                    },
+                },
                 title: {
                     // Override the y Axis title settings for bar charts where the y axis is horizontal
-                    rotation: 0,
                     textAlign: 'right',
                     offset: undefined,
                     y: 0,
