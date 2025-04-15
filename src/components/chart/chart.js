@@ -28,6 +28,10 @@ class HighchartsBaseChart {
         }
         this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
         this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
+        this.xAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsXAxisTickIntervalMobile);
+        this.xAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsXAxisTickIntervalDesktop);
+        this.yAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsYAxisTickIntervalMobile);
+        this.yAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop);
         this.commonChartOptions = new CommonChartOptions();
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
@@ -124,6 +128,7 @@ class HighchartsBaseChart {
             }
         }
 
+        this.commonChartOptions.updateDesktopTickIntervals(this.config, this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
         // Disable the legend for single series charts
         this.commonChartOptions.disableLegendForSingleSeries(this.config);
     };
@@ -138,7 +143,10 @@ class HighchartsBaseChart {
     // Note this is not the same as the viewport width
     // All responsive rules should be defined here to avoid overriding existing rules
     setResponsiveOptions = () => {
-        const mobileCommonChartOptions = this.commonChartOptions.getMobileOptions();
+        const mobileCommonChartOptions = this.commonChartOptions.getMobileOptions(
+            this.xAxisTickIntervalMobile,
+            this.yAxisTickIntervalMobile,
+        );
         if (!this.config.responsive) {
             this.config.responsive = {};
         }

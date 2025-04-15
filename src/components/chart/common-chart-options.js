@@ -144,7 +144,7 @@ class CommonChartOptions {
 
     getOptions = () => this.options;
 
-    getMobileOptions = () => {
+    getMobileOptions = (xAxisTickInterval, yAxisTickInterval) => {
         return {
             legend: {
                 itemStyle: {
@@ -162,6 +162,7 @@ class CommonChartOptions {
                         fontSize: this.constants.mobileFontSize,
                     },
                 },
+                tickInterval: xAxisTickInterval,
             },
             yAxis: {
                 labels: {
@@ -174,8 +175,14 @@ class CommonChartOptions {
                         fontSize: this.constants.mobileFontSize,
                     },
                 },
+                tickInterval: yAxisTickInterval,
             },
         };
+    };
+
+    updateDesktopTickIntervals = (config, xAxisTickInterval, yAxisTickInterval) => {
+        config.xAxis.tickInterval = xAxisTickInterval;
+        config.yAxis.tickInterval = yAxisTickInterval;
     };
 
     hideDataLabels = (series) => {
