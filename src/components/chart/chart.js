@@ -145,11 +145,20 @@ class HighchartsBaseChart {
     // Note this is not the same as the viewport width
     // All responsive rules should be defined here to avoid overriding existing rules
     setResponsiveOptions = () => {
+        const mobileCommonChartOptions = this.commonChartOptions.getMobileOptions();
         if (!this.config.responsive) {
             this.config.responsive = {};
         }
 
         let rules = [
+            {
+                condition: {
+                    maxWidth: 400,
+                },
+                chartOptions: {
+                    ...mobileCommonChartOptions,
+                },
+            },
             {
                 // If these conditions change, the styling for the footnotes container query in _chart.scss needs to be updated
                 // We are using a slightly wider breakpoint for annotations

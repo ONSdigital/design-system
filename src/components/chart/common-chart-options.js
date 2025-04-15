@@ -150,6 +150,10 @@ class CommonChartOptions {
         });
     };
 
+    getMobileOptions = () => {
+        return {};
+    };
+
     disableLegendForSingleSeries = (config) => {
         if (config.series.length === 1) {
             config.legend = {
