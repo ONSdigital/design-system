@@ -122,6 +122,9 @@ describe('Macro: Chart', () => {
                     expect(configScript).toContain('"data":[5,15,25]');
                     expect(configScript).toContain('"name":"Category 2"');
                     expect(configScript).toContain('"data":[10,20,30]');
+                    expect(configScript).toContain('"connectNulls":true');
+                    expect(configScript).toContain('"marker":{"enabled":true}');
+                    expect(configScript).toContain('"dataLabels":{"enabled":true}');
                 });
             });
         });

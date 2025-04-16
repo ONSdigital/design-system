@@ -39,8 +39,8 @@ export const EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS = {
         labelFormat: '{value:,.f}',
     },
     series: [
-        { name: 'Category 1', data: [5, 15, 25], dataLabels: true, tooltipSuffix: 'kg', marker: true },
-        { name: 'Category 2', data: [10, 20, 30], dataLabels: true, tooltipSuffix: 'kg', marker: true },
+        { name: 'Category 1', data: [5, 15, 25], dataLabels: true, tooltipSuffix: 'kg', marker: true, connectNulls: true },
+        { name: 'Category 2', data: [10, 20, 30], dataLabels: true, tooltipSuffix: 'kg', marker: true, connectNulls: true },
     ],
     percentageHeightDesktop: 50,
     percentageHeightMobile: 120,
