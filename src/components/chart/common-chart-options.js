@@ -29,7 +29,6 @@ class CommonChartOptions {
                     color: this.constants.labelColor, // Prevents the text from changing color on hover
                 },
                 itemStyle: {
-                    //cursor: 'auto', // ensures that it does not change to a hand (pointer) on hover.
                     color: this.constants.labelColor,
                     fontSize: this.constants.defaultFontSize,
                     fontWeight: 'normal',
