@@ -7,7 +7,14 @@ $pagination-item-width: 2.5rem;
     }
 
     &__items {
+        margin: 0 $pagination-item-padding * -1;
         padding: 0;
+
+        &--no-previous {
+            @include mq(m) {
+                margin: 0;
+            }
+        }
     }
 
     &__item {
@@ -16,19 +23,12 @@ $pagination-item-width: 2.5rem;
 
         &--previous,
         &--next {
-            margin: 0 $pagination-item-padding * -1;
             display: inline-block;
         }
 
         @include mq(m) {
             &:not(&--previous) {
                 display: inline-block;
-            }
-        }
-
-        @include mq('2xs', m) {
-            &--previous ~ &--next {
-                margin: 0;
             }
         }
     }
