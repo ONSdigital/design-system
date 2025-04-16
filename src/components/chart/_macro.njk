@@ -70,7 +70,7 @@
         {% set series = [] %}
         {% for item in params.series %}
             {%
-                set series = series.concat({
+                set seriesItem = {
                     "name": item.name if item.name else '',
                     "data": item.data if item.data else [],
                     "marker": {
@@ -81,8 +81,10 @@
                     },
                     "connectNulls": item.connectNulls if item.connectNulls else false,
                     "type": item.type if item.type and item.type == 'line' else params.chartType
-                })
+                }
             %}
+            {# Use `set` tag to avoid printing the return value of extend #}
+            {% set _ = extend(series, seriesItem) %}
         {% endfor %}
         {%
             set config = {
