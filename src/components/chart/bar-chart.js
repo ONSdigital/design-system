@@ -40,6 +40,7 @@ class BarChart {
                     style: {
                         color: this.constants.categoryLabelColor,
                     },
+                    useHTML: false,
                 },
                 // remove the tick marks for bar charts
                 tickWidth: 0,

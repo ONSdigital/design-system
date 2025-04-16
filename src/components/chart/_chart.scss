@@ -79,6 +79,7 @@
     width: 100%;
 }
 
-.highcharts-axis-labels span {
+.highcharts-xaxis-labels span {
     display: block !important;
+    white-space: 'nowrap' !important;
 }

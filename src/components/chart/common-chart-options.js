@@ -102,7 +102,6 @@ class CommonChartOptions {
                     useHTML: true,
                     rotation: 0,
                     style: {
-                        whiteSpace: 'nowrap',
                         color: this.constants.axisLabelColor,
                         fontSize: this.constants.desktopFontSize,
                     },
