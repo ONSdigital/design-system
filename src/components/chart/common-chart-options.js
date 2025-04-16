@@ -2,7 +2,7 @@ import ChartConstants from './chart-constants';
 
 // Options that are common to all chart types - these are set once in the Highcharts.setOptions() method
 class CommonChartOptions {
-    constructor() {
+    constructor(xAxisTickInterval, yAxisTickInterval) {
         this.constants = ChartConstants.constants();
 
         this.options = {
@@ -96,6 +96,7 @@ class CommonChartOptions {
                 tickWidth: 1,
                 tickLength: 6,
                 tickColor: this.constants.gridLineColor,
+                tickInterval: yAxisTickInterval,
             },
             xAxis: {
                 labels: {
@@ -119,6 +120,7 @@ class CommonChartOptions {
                 tickWidth: 1,
                 tickLength: 6,
                 tickColor: this.constants.gridLineColor,
+                tickInterval: xAxisTickInterval,
             },
             plotOptions: {
                 series: {
@@ -177,11 +179,6 @@ class CommonChartOptions {
                 tickInterval: yAxisTickInterval,
             },
         };
-    };
-
-    updateDesktopTickIntervals = (config, xAxisTickInterval, yAxisTickInterval) => {
-        config.xAxis.tickInterval = xAxisTickInterval;
-        config.yAxis.tickInterval = yAxisTickInterval;
     };
 
     hideDataLabels = (series) => {

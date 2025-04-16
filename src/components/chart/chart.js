@@ -32,7 +32,7 @@ class HighchartsBaseChart {
         this.xAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsXAxisTickIntervalDesktop);
         this.yAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsYAxisTickIntervalMobile);
         this.yAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop);
-        this.commonChartOptions = new CommonChartOptions();
+        this.commonChartOptions = new CommonChartOptions(this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
@@ -128,7 +128,6 @@ class HighchartsBaseChart {
             }
         }
 
-        this.commonChartOptions.updateDesktopTickIntervals(this.config, this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
         // Disable the legend for single series charts
         this.commonChartOptions.disableLegendForSingleSeries(this.config);
     };
