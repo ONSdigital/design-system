@@ -78,3 +78,8 @@
 .highcharts-axis-title {
     width: 100%;
 }
+
+.highcharts-xaxis-labels span {
+    display: block !important;
+    white-space: nowrap !important;
+}

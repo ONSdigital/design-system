@@ -96,6 +96,38 @@ describe('Macro: Chart', () => {
             });
         });
 
+        describe('GIVEN: Params: Tick Interval', () => {
+            describe('WHEN: tick interval is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        xAxis: {
+                            ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS.xAxis,
+                            tickIntervalMobile: 2,
+                            tickIntervalDesktop: 5,
+                        },
+                    }),
+                );
+                test('THEN: it includes the tick interval in the config', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-x-axis-tick-interval-mobile')).toBe('2');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-x-axis-tick-interval-desktop')).toBe('5');
+                });
+            });
+            describe('WHEN: tick interval is not provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                    }),
+                );
+                test('THEN: it does not include the tick interval in the config', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-x-axis-tick-interval-mobile')).toBe(undefined);
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-x-axis-tick-interval-desktop')).toBe(undefined);
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-y-axis-tick-interval-desktop')).toBe(undefined);
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-y-axis-tick-interval-mobile')).toBe(undefined);
+                });
+            });
+        });
+
         describe('GIVEN: Params: Config', () => {
             describe('WHEN: config params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
