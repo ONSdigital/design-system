@@ -123,9 +123,6 @@ class HighchartsBaseChart {
             if (this.chartType === 'column') {
                 this.config = this.mergeConfigs(this.config, columnChartOptions);
             }
-            if (this.chartType === 'bar') {
-                this.config = this.mergeConfigs(this.config, barChartOptions);
-            }
         }
 
         // Disable the legend for single series charts

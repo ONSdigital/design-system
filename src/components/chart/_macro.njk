@@ -2,6 +2,7 @@
 
 {% macro onsChart(params) %}
     {% set supportedChartTypes = ['line', 'bar', 'column'] %}
+    {% set supportedChartTypesWithLine = ['column'] %}
 
     {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
         {% set headingLevel = params.headingLevel %}
@@ -91,7 +92,7 @@
                     "dataLabels": {
                         "enabled": item.dataLabels if item.dataLabels else false
                     },
-                    "type": item.type if item.type and item.type == 'line' else params.chartType
+                    "type": item.type if item.type and item.type == 'line' and params.chartType in supportedChartTypesWithLine else params.chartType
                 }
             %}
             {# Use `set` tag to avoid printing the return value of extend #}
