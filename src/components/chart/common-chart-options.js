@@ -2,7 +2,7 @@ import ChartConstants from './chart-constants';
 
 // Options that are common to all chart types - these are set once in the Highcharts.setOptions() method
 class CommonChartOptions {
-    constructor() {
+    constructor(xAxisTickInterval, yAxisTickInterval) {
         this.constants = ChartConstants.constants();
 
         this.options = {
@@ -95,9 +95,12 @@ class CommonChartOptions {
                 tickWidth: 1,
                 tickLength: 6,
                 tickColor: this.constants.gridLineColor,
+                tickInterval: yAxisTickInterval,
             },
             xAxis: {
                 labels: {
+                    useHTML: true,
+                    rotation: 0,
                     style: {
                         color: this.constants.axisLabelColor,
                         fontSize: this.constants.defaultFontSize,
@@ -116,6 +119,7 @@ class CommonChartOptions {
                 tickWidth: 1,
                 tickLength: 6,
                 tickColor: this.constants.gridLineColor,
+                tickInterval: xAxisTickInterval,
             },
             plotOptions: {
                 series: {
@@ -140,6 +144,42 @@ class CommonChartOptions {
 
     getOptions = () => this.options;
 
+    getMobileOptions = (xAxisTickInterval, yAxisTickInterval) => {
+        return {
+            legend: {
+                itemStyle: {
+                    fontSize: this.constants.mobileFontSize,
+                },
+            },
+            xAxis: {
+                labels: {
+                    style: {
+                        fontSize: this.constants.mobileFontSize,
+                    },
+                },
+                title: {
+                    style: {
+                        fontSize: this.constants.mobileFontSize,
+                    },
+                },
+                tickInterval: xAxisTickInterval,
+            },
+            yAxis: {
+                labels: {
+                    style: {
+                        fontSize: this.constants.mobileFontSize,
+                    },
+                },
+                title: {
+                    style: {
+                        fontSize: this.constants.mobileFontSize,
+                    },
+                },
+                tickInterval: yAxisTickInterval,
+            },
+        };
+    };
+
     hideDataLabels = (series) => {
         series.forEach((series) => {
             series.update({
@@ -148,10 +188,6 @@ class CommonChartOptions {
                 },
             });
         });
-    };
-
-    getMobileOptions = () => {
-        return {};
     };
 
     disableLegendForSingleSeries = (config) => {
