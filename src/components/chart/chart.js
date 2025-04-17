@@ -28,7 +28,11 @@ class HighchartsBaseChart {
         }
         this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
         this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
-        this.commonChartOptions = new CommonChartOptions();
+        this.xAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsXAxisTickIntervalMobile);
+        this.xAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsXAxisTickIntervalDesktop);
+        this.yAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsYAxisTickIntervalMobile);
+        this.yAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop);
+        this.commonChartOptions = new CommonChartOptions(this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
@@ -138,7 +142,10 @@ class HighchartsBaseChart {
     // Note this is not the same as the viewport width
     // All responsive rules should be defined here to avoid overriding existing rules
     setResponsiveOptions = () => {
-        const mobileCommonChartOptions = this.commonChartOptions.getMobileOptions();
+        const mobileCommonChartOptions = this.commonChartOptions.getMobileOptions(
+            this.xAxisTickIntervalMobile,
+            this.yAxisTickIntervalMobile,
+        );
         if (!this.config.responsive) {
             this.config.responsive = {};
         }
