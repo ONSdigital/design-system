@@ -192,8 +192,12 @@ $hub-row-spacing: 1.3rem;
             text-align: right;
         }
 
-        &__values--2 {
+        &__column-size--2 {
             flex: 10.5 1 66%;
+        }
+
+        &__actions ~ &__values.ons-summary__column-size--2 {
+            padding-right: 33%;
         }
 
         &--hub & {
