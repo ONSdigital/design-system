@@ -26,7 +26,7 @@ class BarChart {
                             // The design system does not include a semibold font weight, so we use 700 (bold) as an alternative.
                             fontWeight: '700',
                             color: this.constants.labelColor,
-                            fontSize: this.constants.mobileFontSize,
+                            fontSize: this.constants.defaultFontSize,
                         },
                     },
                 },
@@ -119,7 +119,7 @@ class BarChart {
             // The design system does not include a semibold font weight, so we use 700 (bold) as an alternative.
             fontWeight: '700',
             color: this.constants.labelColor,
-            fontSize: this.constants.mobileFontSize,
+            fontSize: this.constants.defaultFontSize,
         },
     });
 

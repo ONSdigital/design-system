@@ -22,7 +22,6 @@ class CommonChartOptions {
                 symbolWidth: 20,
                 margin: 50,
                 navigation: {
-                    // ensures that when the legend is long, there is no pagination or scrollbar
                     enabled: false,
                 },
                 itemDistance: 30,
@@ -30,9 +29,9 @@ class CommonChartOptions {
                     color: this.constants.labelColor, // Prevents the text from changing color on hover
                 },
                 itemStyle: {
-                    cursor: 'default', // ensures that it does not change to a hand (pointer) on hover.
+                    //cursor: 'auto', // ensures that it does not change to a hand (pointer) on hover.
                     color: this.constants.labelColor,
-                    fontSize: this.constants.desktopFontSize,
+                    fontSize: this.constants.defaultFontSize,
                     fontWeight: 'normal',
                 },
                 // Disable click event on legend
@@ -64,7 +63,7 @@ class CommonChartOptions {
                 labels: {
                     style: {
                         color: this.constants.axisLabelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                     },
                 },
                 title: {
@@ -78,7 +77,7 @@ class CommonChartOptions {
                     y: -25,
                     style: {
                         color: this.constants.axisLabelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                     },
                 },
                 lineColor: this.constants.gridLineColor,
@@ -87,7 +86,7 @@ class CommonChartOptions {
                 plotLines: [
                     {
                         color: this.constants.zeroLineColor,
-                        width: 1,
+                        width: 1.5,
                         value: 0,
                         zIndex: 2,
                     },
@@ -104,14 +103,14 @@ class CommonChartOptions {
                     rotation: 0,
                     style: {
                         color: this.constants.axisLabelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                     },
                 },
                 title: {
                     align: 'high',
                     style: {
                         color: this.constants.axisLabelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                     },
                 },
                 lineColor: this.constants.gridLineColor,
