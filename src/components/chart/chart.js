@@ -234,6 +234,10 @@ class HighchartsBaseChart {
             this.resizeTimeout = setTimeout(() => {
                 // Get the current rendered chart instance
                 const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
+                // Update the point spacing when the window is resized
+                if (this.chartType === 'column') {
+                    this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout, this.extraLines, true);
+                }
                 // Update the data labels when the window is resized
                 if (this.chartType === 'bar' && !this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);

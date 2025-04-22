@@ -25,14 +25,18 @@ class ColumnChart {
         let groupPadding = 0;
         // non-clustered charts or stacked charts
         if (numberOfSeries === 1 || stackedLayout === true) {
-            if (numberOfCategories > 5) {
-                pointPadding = 0.03;
+            if (numberOfCategories >= 20) {
+                pointPadding = 0.1;
             } else {
-                pointPadding = 0.04;
+                pointPadding = 0.2;
             }
         } else {
             // clustered charts
-            groupPadding = 0.04;
+            if (numberOfCategories >= 20) {
+                groupPadding = 0.1;
+            } else {
+                groupPadding = 0.2;
+            }
         }
 
         // update the point width and padding
@@ -40,6 +44,38 @@ class ColumnChart {
             series.update({
                 pointPadding: pointPadding,
                 groupPadding: groupPadding,
+                maxPointWidth: 75,
+            });
+        });
+    };
+
+    // Set the point padding between each bar
+    // For charts with fewer than 5 categories, we use a wider point padding of 2%
+    // For cluster charts we use 0 for the point padding and a group padding of 2%
+    updatePointPadding = (config, currentChart, stackedLayout, numberOfExtraLines, isMobile = false) => {
+        const numberOfCategories = config.xAxis.categories.length;
+        const numberOfSeries = currentChart.series.length - numberOfExtraLines; // Get number of column series
+        // Guidelines
+        const categoryThreshold = isMobile ? 10 : 20;
+        const maxPointWidth = isMobile ? 55 : 75;
+
+        let pointPadding = 0;
+        let groupPadding = 0;
+
+        // non-clustered charts or stacked charts
+        if (numberOfSeries === 1 || stackedLayout === true) {
+            pointPadding = numberOfCategories >= categoryThreshold ? 0.1 : 0.2;
+        } else {
+            // clustered charts
+            groupPadding = numberOfCategories >= categoryThreshold ? 0.1 : 0.2;
+        }
+
+        // update the point width and padding
+        currentChart.series.forEach((series) => {
+            series.update({
+                pointPadding: pointPadding,
+                groupPadding: groupPadding,
+                maxPointWidth: maxPointWidth,
             });
         });
     };
