@@ -145,35 +145,10 @@ class CommonChartOptions {
 
     getMobileOptions = (xAxisTickInterval, yAxisTickInterval) => {
         return {
-            legend: {
-                itemStyle: {
-                    fontSize: this.constants.mobileFontSize,
-                },
-            },
             xAxis: {
-                labels: {
-                    style: {
-                        fontSize: this.constants.mobileFontSize,
-                    },
-                },
-                title: {
-                    style: {
-                        fontSize: this.constants.mobileFontSize,
-                    },
-                },
                 tickInterval: xAxisTickInterval,
             },
             yAxis: {
-                labels: {
-                    style: {
-                        fontSize: this.constants.mobileFontSize,
-                    },
-                },
-                title: {
-                    style: {
-                        fontSize: this.constants.mobileFontSize,
-                    },
-                },
                 tickInterval: yAxisTickInterval,
             },
         };
