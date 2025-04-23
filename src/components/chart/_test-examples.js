@@ -212,3 +212,10 @@ export const EXAMPLE_AREA_CHART_PARAMS = {
     percentageHeightDesktop: 50,
     percentageHeightMobile: 120,
 };
+
+export const EXAMPLE_INVALID_CHART_PARAMS = {
+    chartType: 'invalid',
+    title: 'Example Invalid Chart',
+    subtitle: 'A sample subtitle',
+    id: 'invalid-chart-123',
+};

@@ -30,34 +30,34 @@
             data-highcharts-percentage-height-mobile="{{ params.percentageHeightMobile }}"
         {% endif %}
     >
-        {% if params.chartType in supportedChartTypes %}
-            <figure class="ons-chart">
-                {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
-                {{ openingSubtitleTag | safe }}
-                class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
-                {% if params.description %}
-                    <p class="ons-u-vh">{{ params.description }}</p>
-                {% endif %}
+        <figure class="ons-chart">
+            {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
+            {{ openingSubtitleTag | safe }}
+            class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+            {% if params.description %}
+                <p class="ons-u-vh">{{ params.description }}</p>
+            {% endif %}
+            {% if params.chartType in supportedChartTypes %}
                 <div data-highcharts-chart></div>
-                {#
-                    Footnotes for the annotations at mobile
-                    Hidden from screen readers because the full text will be read out where they appear in the chart
-                #}
-                <ul class="ons-chart__footnotes" aria-hidden="true">
-                    {% for annotation in params.annotations %}
-                        <li class="ons-chart__footnote_item">
-                            <span class="ons-chart__footnote-number">{{ loop.index }}</span>
-                            {{ annotation.text }}
-                        </li>
-                    {% endfor %}
-                </ul>
-                {% if params.caption %}
-                    <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
-                {% endif %}
-            </figure>
-        {% else %}
-            <p><b>Chart type "{{ params.chartType }}" is not supported</b></p>
-        {% endif %}
+            {% else %}
+                <p data-invalid-chart-type><b>Chart type "{{ params.chartType }}" is not supported</b></p>
+            {% endif %}
+            {#
+                Footnotes for the annotations at mobile
+                Hidden from screen readers because the full text will be read out where they appear in the chart
+            #}
+            <ul class="ons-chart__footnotes" aria-hidden="true">
+                {% for annotation in params.annotations %}
+                    <li class="ons-chart__footnote_item">
+                        <span class="ons-chart__footnote-number">{{ loop.index }}</span>
+                        {{ annotation.text }}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% if params.caption %}
+                <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
+            {% endif %}
+        </figure>
 
         {% if params.download.title and params.download.itemsList | length > 0 %}
             {{ openingDownloadTitleTag | safe }}

@@ -16,6 +16,7 @@ import {
     EXAMPLE_BAR_WITH_LINE_CHART_PARAMS,
     EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
     EXAMPLE_AREA_CHART_PARAMS,
+    EXAMPLE_INVALID_CHART_PARAMS,
 } from './_test-examples';
 
 describe('Macro: Chart', () => {
@@ -917,6 +918,22 @@ describe('Macro: Chart', () => {
                     expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
                     expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
                     expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Invalid Chart', () => {
+        describe('GIVEN: Invalid chart type', () => {
+            describe('WHEN: an invalid chart type is provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_INVALID_CHART_PARAMS));
+
+                test('THEN: it does not render the chart', () => {
+                    expect($('[data-highcharts-chart]').length).toBe(0);
+                });
+
+                test('THEN: it renders the error message', () => {
+                    expect($('[data-invalid-chart-type]').text()).toBe('Chart type "invalid" is not supported');
                 });
             });
         });
