@@ -24,6 +24,12 @@ class ColumnChart {
         };
     };
 
+    // Set spacing between bars based on screen size and number of categories:
+    // - For charts with enough categories (≥ 10 on mobile, ≥ 20 on desktop), use 5% spacing (0.05), i.e. 10% total gap between bars
+    // - For charts with fewer categories, use 10% spacing (0.1), i.e. 20% total gap
+    // - For non-clustered or stacked charts, spacing is applied as pointPadding
+    // - For clustered charts, spacing is applied as groupPadding
+    // - Max bar width: 75px (desktop), 55px (mobile)
     getPointPadding = (config, stackedLayout, numberOfExtraLines, isMobile) => {
         const numberOfCategories = config.xAxis.categories.length;
         const numberOfSeries = config.series.length - numberOfExtraLines; // Get number of column series
