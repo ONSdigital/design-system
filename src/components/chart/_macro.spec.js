@@ -30,6 +30,10 @@ describe('Macro: Chart', () => {
                     expect(results).toHaveNoViolations();
                 });
 
+                test('THEN: it renders the title', () => {
+                    expect($('.ons-chart__title').text()).toBe('Example Line Chart');
+                });
+
                 test('THEN: it renders the subtitle', () => {
                     expect($('.ons-chart__subtitle').text()).toBe('A sample subtitle');
                 });
@@ -966,6 +970,19 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it renders the error message', () => {
                     expect($('[data-invalid-chart-type]').text()).toBe('Chart type "invalid" is not supported');
+                });
+
+                test('THEN: it does not include the Highcharts JSON config', () => {
+                    const configScript = $(`script[data-highcharts-config--invalid-chart-123]`).html();
+                    expect(configScript).toBeNull();
+                });
+
+                test('THEN: it still renders the title', () => {
+                    expect($('.ons-chart__title').text()).toBe('Example Invalid Chart');
+                });
+
+                test('THEN: it still renders the subtitle', () => {
+                    expect($('.ons-chart__subtitle').text()).toBe('A sample subtitle');
                 });
             });
         });

@@ -81,6 +81,7 @@
                 })
             }}
         {% endif %}
+        {% if params.chartType in supportedChartTypes %}
         {% set series = [] %}
         {% for item in params.series %}
             {%
@@ -128,9 +129,10 @@
 
         <!-- Set scripts to pass the config values as json to the javascript -->
         <!-- prettier-ignore-start -->
-        <script type="application/json" data-highcharts-config--{{ params.id }}>
-            {{ config | tojson }}
-        </script>
+            <script type="application/json" data-highcharts-config--{{ params.id }}>
+                {{ config | tojson }}
+            </script>
+        {% endif %}
         {% if params.annotations %}
             <script type="application/json" data-highcharts-annotations--{{ params.id }}>
                 {{ params.annotations | tojson }}
