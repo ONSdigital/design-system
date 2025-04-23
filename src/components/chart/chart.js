@@ -47,6 +47,7 @@ class HighchartsBaseChart {
         this.setResponsiveOptions();
         this.setLoadEvent();
         this.setWindowResizeEvent();
+        console.log(this.config);
         this.chart = Highcharts.chart(chartNode, this.config);
     }
 
@@ -100,7 +101,7 @@ class HighchartsBaseChart {
         const specificChartOptions = this.specificChartOptions.getOptions();
         const lineChartOptions = this.lineChart.getLineChartOptions();
         const barChartOptions = this.barChart.getBarChartOptions(this.useStackedLayout);
-        const columnChartOptions = this.columnChart.getColumnChartOptions(this.useStackedLayout);
+        const columnChartOptions = this.columnChart.getColumnChartOptions(this.config, this.useStackedLayout, this.extraLines);
         // Merge specificChartOptions with the existing config
         this.config = this.mergeConfigs(this.config, specificChartOptions);
 
@@ -142,10 +143,15 @@ class HighchartsBaseChart {
     // Note this is not the same as the viewport width
     // All responsive rules should be defined here to avoid overriding existing rules
     setResponsiveOptions = () => {
-        const mobileCommonChartOptions = this.commonChartOptions.getMobileOptions(
-            this.xAxisTickIntervalMobile,
-            this.yAxisTickIntervalMobile,
-        );
+        let mobileChartOptions = this.commonChartOptions.getMobileOptions(this.xAxisTickIntervalMobile, this.yAxisTickIntervalMobile);
+        if (this.chartType === 'column') {
+            const mobileColumnChartOptions = this.columnChart.getColumnChartMobileOptions(
+                this.config,
+                this.useStackedLayout,
+                this.extraLines,
+            );
+            mobileChartOptions = this.mergeConfigs(mobileChartOptions, mobileColumnChartOptions);
+        }
         if (!this.config.responsive) {
             this.config.responsive = {};
         }
@@ -156,7 +162,7 @@ class HighchartsBaseChart {
                     maxWidth: 400,
                 },
                 chartOptions: {
-                    ...mobileCommonChartOptions,
+                    ...mobileChartOptions,
                 },
             },
             // We are using a slightly wider breakpoint for annotations
@@ -203,7 +209,6 @@ class HighchartsBaseChart {
                 }
             }
             if (this.chartType === 'column') {
-                this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout, this.extraLines);
                 this.commonChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType != 'bar') {
@@ -234,10 +239,6 @@ class HighchartsBaseChart {
             this.resizeTimeout = setTimeout(() => {
                 // Get the current rendered chart instance
                 const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
-                // Update the point spacing when the window is resized
-                if (this.chartType === 'column') {
-                    this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout, this.extraLines, true);
-                }
                 // Update the data labels when the window is resized
                 if (this.chartType === 'bar' && !this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
