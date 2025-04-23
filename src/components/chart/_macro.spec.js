@@ -984,6 +984,18 @@ describe('Macro: Chart', () => {
                 test('THEN: it still renders the subtitle', () => {
                     expect($('.ons-chart__subtitle').text()).toBe('A sample subtitle');
                 });
+
+                test('THEN: it still renders the description', () => {
+                    expect($('.ons-u-vh').text()).toBe('A detailed description');
+                });
+
+                test('THEN: it still renders the caption', () => {
+                    expect($('figcaption').text()).toBe('A detailed caption');
+                });
+
+                test('THEN: it still renders the download', () => {
+                    expect($('.ons-chart__download-title').text()).toBe('Download this chart');
+                });
             });
         });
     });

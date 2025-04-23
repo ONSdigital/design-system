@@ -218,4 +218,19 @@ export const EXAMPLE_INVALID_CHART_PARAMS = {
     title: 'Example Invalid Chart',
     subtitle: 'A sample subtitle',
     id: 'invalid-chart-123',
+    description: 'A detailed description',
+    caption: 'A detailed caption',
+    download: {
+        title: 'Download this chart',
+        itemsList: [
+            {
+                text: 'Download as PNG',
+                url: '#',
+            },
+            {
+                text: 'Download as JPEG',
+                url: '#',
+            },
+        ],
+    },
 };
