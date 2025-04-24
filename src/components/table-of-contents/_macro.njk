@@ -61,17 +61,7 @@
 
         {% if params.button %}
             <div class="ons-table-of-contents__button ons-u-pt-l">
-                {% set allVariants = ['small', 'secondary'] %}
-
-                {% if params.button.variants %}
-                    {% if params.button.variants is string %}
-                        {% set _ = extend(allVariants, params.button.variants) %}
-                    {% else %}
-                        {% for variant in params.button.variants %}
-                            {% set _ = extend(allVariants, variant) %}
-                        {% endfor %}
-                    {% endif %}
-                {% endif %}
+                {% set allVariants = ['small', 'secondary', 'print'] %}
 
                 {{
                     onsButton({
