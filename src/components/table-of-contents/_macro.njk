@@ -65,10 +65,10 @@
 
                 {% if params.button.variants %}
                     {% if params.button.variants is string %}
-                        {% set allVariants = (allVariants.push(params.button.variants), allVariants) %}
+                        {% set _ = extend(allVariants, params.button.variants) %}
                     {% else %}
                         {% for variant in params.button.variants %}
-                            {% set allVariants = (allVariants.push(variant), allVariants) %}
+                            {% set _ = extend(allVariants, variant) %}
                         {% endfor %}
                     {% endif %}
                 {% endif %}
