@@ -39,7 +39,7 @@ class ColumnChart {
 
         let pointPadding = 0;
         let groupPadding = 0;
-        let spacing = numberOfCategories >= categoryThreshold ? 0.05 : 0.1;
+        let spacing = numberOfCategories >= categoryThreshold ? 0.1 : 0.2;
 
         // non-clustered charts or stacked charts
         if (numberOfSeries === 1 || stackedLayout === true) {
