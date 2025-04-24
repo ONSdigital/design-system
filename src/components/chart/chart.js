@@ -7,6 +7,7 @@ import SpecificChartOptions from './specific-chart-options';
 import LineChart from './line-chart';
 import BarChart from './bar-chart';
 import ColumnChart from './column-chart';
+import ScatterChart from './scatter-chart';
 import AnnotationsOptions from './annotations-options';
 
 class HighchartsBaseChart {
@@ -37,6 +38,7 @@ class HighchartsBaseChart {
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
         this.columnChart = new ColumnChart();
+        this.scatterChart = new ScatterChart();
         this.extraLines = this.checkForExtraLines();
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
@@ -101,6 +103,7 @@ class HighchartsBaseChart {
         const lineChartOptions = this.lineChart.getLineChartOptions();
         const barChartOptions = this.barChart.getBarChartOptions(this.useStackedLayout);
         const columnChartOptions = this.columnChart.getColumnChartOptions(this.config, this.useStackedLayout, this.extraLines);
+        const scatterChartOptions = this.scatterChart.getScatterChartOptions();
         // Merge specificChartOptions with the existing config
         this.config = this.mergeConfigs(this.config, specificChartOptions);
 
@@ -116,6 +119,10 @@ class HighchartsBaseChart {
         if (this.chartType === 'column') {
             // Merge the column chart options with the existing config
             this.config = this.mergeConfigs(this.config, columnChartOptions);
+        }
+        if (this.chartType === 'scatter') {
+            // Merge the scatter chart options with the existing config
+            this.config = this.mergeConfigs(this.config, scatterChartOptions);
         }
 
         if (this.extraLines > 0) {
@@ -155,7 +162,7 @@ class HighchartsBaseChart {
         if (!this.config.responsive) {
             this.config.responsive = {};
         }
-        // If these conditions change, the styling for the footnotes container query in _chart.scss needs to be updated
+
         let rules = [
             {
                 condition: {
@@ -165,10 +172,11 @@ class HighchartsBaseChart {
                     ...mobileChartOptions,
                 },
             },
-            // We are using a slightly wider breakpoint for annotations
-            // to try and reduce the likelihood of them being automatically
-            // hidden by Highcharts
             {
+                // If these conditions change, the styling for the footnotes container query in _chart.scss needs to be updated
+                // We are using a slightly wider breakpoint for annotations
+                // to try and reduce the likelihood of them being automatically
+                // hidden by Highcharts
                 condition: {
                     maxWidth: 600,
                 },
@@ -210,6 +218,9 @@ class HighchartsBaseChart {
             }
             if (this.chartType === 'column') {
                 this.commonChartOptions.hideDataLabels(currentChart.series);
+            }
+            if (this.chartType === 'scatter') {
+                this.scatterChart.updateMarkers(currentChart);
             }
             if (this.chartType != 'bar') {
                 this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
