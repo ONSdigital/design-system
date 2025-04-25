@@ -15,6 +15,7 @@ import {
     EXAMPLE_COLUMN_CHART_WITH_ANNOTATIONS_PARAMS,
     EXAMPLE_BAR_WITH_LINE_CHART_PARAMS,
     EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
+    EXAMPLE_SCATTER_CHART_PARAMS,
     EXAMPLE_AREA_CHART_PARAMS,
     EXAMPLE_INVALID_CHART_PARAMS,
 } from './_test-examples';
@@ -159,6 +160,9 @@ describe('Macro: Chart', () => {
                     expect(configScript).toContain('"data":[5,15,25]');
                     expect(configScript).toContain('"name":"Category 2"');
                     expect(configScript).toContain('"data":[10,20,30]');
+                    expect(configScript).toContain('"connectNulls":true');
+                    expect(configScript).toContain('"marker":{"enabled":true}');
+                    expect(configScript).toContain('"dataLabels":{"enabled":true}');
                 });
             });
         });
@@ -856,6 +860,26 @@ describe('Macro: Chart', () => {
                     expect(configScript).not.toContain('"type":"scatter"');
                     expect(configScript).toContain('"type":"column"');
                     expect(configScript).toContain('"type":"line"');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Scatter chart', () => {
+        describe('GIVEN: Params: required', () => {
+            describe('WHEN: required params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_SCATTER_CHART_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the chart container with correct data attributes', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('scatter');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('primary');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-title')).toBe('Example Scatter Chart');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('scatter-chart-123');
                 });
             });
         });
