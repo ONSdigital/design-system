@@ -83,3 +83,8 @@
     display: block !important;
     white-space: nowrap !important;
 }
+
+// Enforce cursor as auto in the legend
+.highcharts-a11y-proxy-group-legend button {
+    cursor: auto !important;
+}
