@@ -237,7 +237,6 @@ class HighchartsBaseChart {
             if (this.extraLines > 0) {
                 currentChart.series.forEach((series) => {
                     if (series.type === 'line') {
-                        this.lineChart.updateLastPointMarker([series]);
                         this.commonChartOptions.hideDataLabels([series]);
                     }
                 });
