@@ -31,7 +31,7 @@ class ColumnChart {
     // - For clustered charts, spacing is applied as groupPadding
     // - Max bar width: 75px (desktop), 55px (mobile)
     getPointPadding = (config, stackedLayout, numberOfExtraLines, isMobile) => {
-        const numberOfCategories = config.xAxis.categories.length;
+        const numberOfCategories = config.xAxis.categories ? config.xAxis.categories.length : 0;
         const numberOfSeries = config.series.length - numberOfExtraLines; // Get number of column series
 
         const categoryThreshold = isMobile ? 10 : 20;
