@@ -9,9 +9,90 @@ class ChartConstants {
             categoryLabelColor: '#414042',
             gridLineColor: '#d9d9d9',
             zeroLineColor: '#b3b3b3',
-            // Responsive font sizes
-            mobileFontSize: '0.75rem', // 12px
-            desktopFontSize: '0.875rem', // 14px
+            defaultFontSize: '0.875rem', // 14px
+            lineMarkerStyles: [
+                {
+                    radius: 4,
+                    symbol: 'circle',
+                },
+                {
+                    radius: 4,
+                    symbol: 'square',
+                },
+                {
+                    radius: 5,
+                    symbol: 'diamond',
+                },
+                {
+                    radius: 5,
+                    symbol: 'triangle',
+                },
+                {
+                    radius: 5,
+                    symbol: 'triangle-down',
+                },
+                {
+                    radius: 4,
+                    symbol: 'circle',
+                    fillColor: 'white',
+                    lineWidth: 2.5,
+                    lineColor: null,
+                },
+                {
+                    radius: 4,
+                    symbol: 'square',
+                    fillColor: 'white',
+                    lineWidth: 2.5,
+                    lineColor: null,
+                },
+                {
+                    radius: 5,
+                    symbol: 'diamond',
+                    fillColor: 'white',
+                    lineWidth: 2.5,
+                    lineColor: null,
+                },
+                {
+                    radius: 5,
+                    symbol: 'triangle',
+                    fillColor: 'white',
+                    lineWidth: 2.5,
+                    lineColor: null,
+                },
+                {
+                    radius: 5,
+                    symbol: 'triangle-down',
+                    fillColor: 'white',
+                    lineWidth: 2.5,
+                    lineColor: null,
+                },
+            ],
+            scatterMarkerStyles: [
+                {
+                    radius: 5,
+                    symbol: 'circle',
+                    lineWidth: 1,
+                    lineColor: '#ffffff',
+                },
+                {
+                    radius: 5,
+                    symbol: 'square',
+                    lineWidth: 1,
+                    lineColor: '#ffffff',
+                },
+                {
+                    radius: 6,
+                    symbol: 'diamond',
+                    lineWidth: 1,
+                    lineColor: '#ffffff',
+                },
+                {
+                    radius: 6,
+                    symbol: 'triangle',
+                    lineWidth: 1,
+                    lineColor: '#ffffff',
+                },
+            ],
         };
 
         return constants;

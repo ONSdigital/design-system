@@ -39,8 +39,8 @@ export const EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS = {
         labelFormat: '{value:,.f}',
     },
     series: [
-        { name: 'Category 1', data: [5, 15, 25], dataLabels: true, tooltipSuffix: 'kg', marker: true },
-        { name: 'Category 2', data: [10, 20, 30], dataLabels: true, tooltipSuffix: 'kg', marker: true },
+        { name: 'Category 1', data: [5, 15, 25], dataLabels: true, tooltipSuffix: 'kg', marker: true, connectNulls: true },
+        { name: 'Category 2', data: [10, 20, 30], dataLabels: true, tooltipSuffix: 'kg', marker: true, connectNulls: true },
     ],
     percentageHeightDesktop: 50,
     percentageHeightMobile: 120,
@@ -181,4 +181,73 @@ export const EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS = {
         { name: 'Series 1', data: [10, 20, 30] },
         { name: 'Series 2', data: [15, 25, 35], type: 'line' },
     ],
+};
+
+export const EXAMPLE_SCATTER_CHART_PARAMS = {
+    chartType: 'scatter',
+    theme: 'primary',
+    title: 'Example Scatter Chart',
+    subtitle: 'A sample subtitle',
+    id: 'scatter-chart-123',
+    legend: true,
+    xAxis: { title: 'X Axis Title' },
+    yAxis: { title: 'Y Axis Title' },
+    series: [
+        {
+            name: 'Female',
+            data: [
+                [161.2, 51.6],
+                [167.5, 59.0],
+                [159.5, 49.2],
+                [157.0, 63.0],
+            ],
+        },
+        {
+            name: 'Male',
+            data: [
+                [174.0, 65.6],
+                [175.3, 71.8],
+                [193.5, 80.7],
+                [186.5, 72.6],
+            ],
+        },
+    ],
+};
+
+export const EXAMPLE_AREA_CHART_PARAMS = {
+    chartType: 'area',
+    theme: 'primary',
+    title: 'Example Area Chart',
+    subtitle: 'A sample subtitle',
+    id: 'area-chart-123',
+    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
+    yAxis: { title: 'Y Axis Title' },
+    series: [
+        { name: 'Series 1', data: [10, 20, 30] },
+        { name: 'Series 2', data: [15, 25, 35] },
+    ],
+    percentageHeightDesktop: 50,
+    percentageHeightMobile: 120,
+};
+
+export const EXAMPLE_INVALID_CHART_PARAMS = {
+    chartType: 'invalid',
+    title: 'Example Invalid Chart',
+    subtitle: 'A sample subtitle',
+    id: 'invalid-chart-123',
+    description: 'A detailed description',
+    caption: 'A detailed caption',
+    download: {
+        title: 'Download this chart',
+        itemsList: [
+            {
+                text: 'Download as PNG',
+                url: '#',
+            },
+            {
+                text: 'Download as JPEG',
+                url: '#',
+            },
+        ],
+    },
 };
