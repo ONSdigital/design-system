@@ -9,10 +9,7 @@
             {% set closingTag = "</h" ~ titleTag ~ ">" %}
             {% set documentItem %}
                 {% if document.thumbnail %}
-                    <div
-                        class="ons-document-list__item-image{{ ' ons-document-list__item-image--file' if document.metadata.file }}"
-                        aria-hidden="true"
-                    >
+                    <div class="ons-document-list__item-image{{ ' ons-document-list__item-image--file' if document.metadata.file }}" inert>
                         <a
                             class="ons-document-list__image-link{{ ' ons-document-list__image-link--placeholder' if not document.thumbnail.smallSrc }}"
                             href="{{ document.title.url }}"
