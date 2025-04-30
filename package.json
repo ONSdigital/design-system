@@ -45,7 +45,7 @@
             "prettier --write",
             "yarn run stylelint-fix"
         ],
-        "*.{yml,yaml,html}": [
+        "*.{yml,yaml,njk,html}": [
             "prettier --write"
         ]
     },
