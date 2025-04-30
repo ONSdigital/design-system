@@ -1,23 +1,37 @@
-class LineChartPlotOptions {
-    static plotOptions() {
-        return this.plotOptions;
+import ChartConstants from './chart-constants';
+class LineChart {
+    constructor() {
+        this.chartConstants = ChartConstants.constants();
+        this.markerStyles = this.chartConstants.lineMarkerStyles;
     }
 
-    constructor() {
-        this.plotOptions = {
-            line: {
-                lineWidth: 3,
-                linecap: 'round',
-                // In a later PR we will update the marker styles
-                marker: {
-                    enabled: false,
-                    radius: 4,
-                    symbol: 'circle',
-                    lineWidth: 0,
+    getLineChartOptions = () => {
+        return {
+            plotOptions: {
+                line: {
+                    lineWidth: 3,
+                    linecap: 'round',
                 },
             },
         };
-    }
+    };
+
+    updateLastPointMarker = (series) => {
+        series.forEach((series, i) => {
+            const points = series.points;
+            if (points && points.length > 0) {
+                // Show only the last point marker
+                const lastPoint = points[points.length - 1];
+                lastPoint.update({
+                    marker: {
+                        enabled: true,
+                    },
+                });
+                // Update the marker styles to use for each series
+                series.update({ marker: this.markerStyles[i] != undefined ? this.markerStyles[i] : this.markerStyles[0] }, false);
+            }
+        });
+    };
 }
 
-export default LineChartPlotOptions;
+export default LineChart;
