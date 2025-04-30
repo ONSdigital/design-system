@@ -104,10 +104,7 @@
                                             </dd>
                                         {% endif %}
                                         {% if item.actions %}
-                                            <dd
-                                                class="ons-summary__actions{{ ' ons-summary__column-size--2' if not item.valueList }}"
-                                                {% if item.id %}id="{{ item.id }}"{% endif %}
-                                            >
+                                            <dd class="ons-summary__actions{{ ' ons-summary__column-size--2' if not item.valueList }}" {% if item.id %}id="{{ item.id }}"{% endif %}>
                                                 {% for action in item.actions %}
                                                     {% if loop.index > 1 %}<span class="ons-summary__spacer"></span>{% endif %}
                                                     <a
