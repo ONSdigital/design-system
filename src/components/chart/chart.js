@@ -217,7 +217,7 @@ class HighchartsBaseChart {
                 this.commonChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'bar') {
-                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout, this.extraLines);
+                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
                 } else {
