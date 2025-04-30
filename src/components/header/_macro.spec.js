@@ -794,13 +794,13 @@ describe('FOR: Macro: Header', () => {
             test('THEN: renders search icon button', () => {
                 expect(buttonSpy.occurrences[0]).toEqual({
                     iconType: 'search',
-                    classes: 'ons-u-fs-s--b ons-js-toggle-header-search ons-btn--search ons-btn--search-icon',
+                    classes: 'ons-u-fs-s--b ons-js-toggle-header-search ons-btn--search ons-btn--search-icon active',
                     type: 'button',
                     variants: 'search',
                     attributes: {
-                        'aria-label': 'Example aria label',
-                        'aria-expanded': 'false',
                         'aria-controls': 'search-links-id',
+                        'aria-expanded': 'true',
+                        'aria-label': 'Example aria label',
                     },
                 });
             });
