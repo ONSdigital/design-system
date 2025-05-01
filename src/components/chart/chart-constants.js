@@ -93,6 +93,16 @@ class ChartConstants {
                     lineColor: '#ffffff',
                 },
             ],
+            confidenceLevelMarkerStyles: [
+                {
+                    radius: 8,
+                    symbol: 'diamond',
+                    lineWidth: 2,
+                    lineColor: '#222',
+                    outline: true,
+                    fillColor: 'white',
+                },
+            ],
         };
 
         return constants;

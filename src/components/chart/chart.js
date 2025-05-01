@@ -46,6 +46,7 @@ class HighchartsBaseChart {
         this.areaChart = new AreaChart();
         this.scatterChart = new ScatterChart();
         this.extraLines = this.checkForExtraLines();
+        this.extraScatter = this.checkForExtraScatter();
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
             window.isCommonChartOptionsDefined = true;
@@ -61,6 +62,11 @@ class HighchartsBaseChart {
     // Check for the number of extra line series in the config
     checkForExtraLines = () => {
         return this.chartType === 'line' ? 0 : this.config.series.filter((series) => series.type === 'line').length;
+    };
+
+    // Check for the number of extra line series in the config
+    checkForExtraScatter = () => {
+        return this.chartType === 'scatter' ? 0 : this.config.series.filter((series) => series.type === 'scatter').length;
     };
 
     // Set up the global Highcharts options which are used for all charts
@@ -140,6 +146,12 @@ class HighchartsBaseChart {
             this.config = this.mergeConfigs(this.config, this.lineChart.getLineChartOptions());
             if (this.chartType === 'column') {
                 this.config = this.mergeConfigs(this.config, columnChartOptions);
+            }
+        }
+        if (this.extraScatter > 0) {
+            this.config = this.mergeConfigs(this.config, this.scatterChart.getScatterChartOptions());
+            if (this.chartType === 'bar') {
+                this.config = this.mergeConfigs(this.config, barChartOptions);
             }
         }
 
@@ -222,6 +234,10 @@ class HighchartsBaseChart {
                     this.barChart.postLoadDataLabels(currentChart);
                 } else {
                     this.commonChartOptions.hideDataLabels(currentChart.series);
+                }
+                if (this.extraScatter > 0) {
+                    const scatterSeries = currentChart.series.filter((series) => series.type === 'scatter');
+                    this.scatterChart.updateMarkersForConfidenceLevels(scatterSeries);
                 }
             }
             if (this.chartType === 'column') {
