@@ -141,9 +141,6 @@ class HighchartsBaseChart {
             if (this.chartType === 'column') {
                 this.config = this.mergeConfigs(this.config, columnChartOptions);
             }
-            if (this.chartType === 'bar') {
-                this.config = this.mergeConfigs(this.config, barChartOptions);
-            }
         }
 
         // Disable the legend for single series charts
@@ -220,7 +217,7 @@ class HighchartsBaseChart {
                 this.commonChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'bar') {
-                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout, this.extraLines);
+                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
                 } else {
