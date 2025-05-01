@@ -32,7 +32,7 @@ describe('macro: panel', () => {
             expect(results).toHaveNoViolations();
         });
 
-        it('has correct class', () => {
+        it('has correct panel variant class', () => {
             const $ = cheerio.load(
                 renderComponent('panel', {
                     ...EXAMPLE_PANEL_BASIC,
@@ -170,6 +170,20 @@ describe('macro: panel', () => {
 
             const titleText = $('.ons-panel__title').text();
             expect(titleText).toBe('Panel title');
+        });
+    });
+
+    describe.each(['bare', 'warn', 'warn-branded', 'announcement'])('mode: %s', (panelVariant) => {
+        it('does not render a title when `title` is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('panel', {
+                    ...EXAMPLE_PANEL_BASIC,
+                    title: 'Panel title',
+                    variant: panelVariant,
+                }),
+            );
+
+            expect($('.ons-panel__title').length).toBe(0);
         });
     });
 

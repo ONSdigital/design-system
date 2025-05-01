@@ -1,23 +1,37 @@
 {% macro onsDescriptionList(params) %}
     <dl
-        class="ons-description-list ons-description-list__items ons-grid ons-grid--gutterless ons-u-cf{{ " " + params.classes if params.classes else "" }}"
-        {% if params.id %}id="{{ params.id }}"{% endif %}{% if params.descriptionListLabel %}
+        class="ons-description-list ons-description-list__items ons-grid ons-grid--gutterless{{ ' ons-description-list--inline' if params.variant == 'inline' else ' ons-u-cf' }}{{ ' ' + params.classes if params.classes else '' }}"
+        {% if params.id %}id="{{ params.id }}"{% endif %}
+        {% if params.descriptionListLabel %}
             title="{{ params.descriptionListLabel }}" aria-label="{{ params.descriptionListLabel }}"
         {% endif %}
     >
         {% for item in params.itemsList %}
-            {% if item.term | length %}
-                <dt class="ons-description-list__term ons-grid__col ons-col-{{ params.termCol }}@m">{{ item.term }}</dt>
-            {% endif %}
-            {% for descriptionItem in item.descriptions %}
-                {% if descriptionItem.description | length %}
-                    <dd
-                        {% if descriptionItem.id %}id="{{ descriptionItem.id }}"{% endif %}class="ons-description-list__value ons-grid__col ons-col-{{ params.descriptionCol }}@m"
+            <div class="ons-description-list__item">
+                {% if item.term | length %}
+                    <dt
+                        class="ons-description-list__term ons-grid__col ons-col-{{ params.termCol }}@{{ 'xs@l' if params.variant == 'inline' else 'm' }}"
                     >
-                        {{- descriptionItem.description -}}
-                    </dd>
+                        {{- item.term -}}
+                    </dt>
                 {% endif %}
-            {% endfor %}
+                {% for descriptionItem in item.descriptions %}
+                    {% if descriptionItem.description | length %}
+                        <dd
+                            {% if descriptionItem.id %}id="{{ descriptionItem.id }}"{% endif %}
+                            class="ons-description-list__value ons-grid__col ons-col-{{ params.descriptionCol }}@{{ 'xs@l' if params.variant == 'inline' else 'm' }}"
+                        >
+                            {%- if descriptionItem.url -%}
+                                <a class="ons-description-list__link" href="{{ descriptionItem.url }}">
+                                    {{- descriptionItem.description -}}
+                                </a>
+                            {%- else -%}
+                                {{- descriptionItem.description -}}
+                            {%- endif -%}
+                        </dd>
+                    {% endif %}
+                {% endfor %}
+            </div>
         {% endfor %}
     </dl>
 {% endmacro %}
