@@ -28,3 +28,17 @@ export const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH = {
         placeholderUrl: '/placeholder-image-url',
     },
 };
+
+export const EXAMPLE_CARD_FEATURE_VARIANT = {
+    variant: 'feature',
+    title: {
+        text: 'Feature card title',
+        url: 'http://example.com',
+        subtitle: 'Optional subtitle',
+    },
+    body: {
+        figure: '123,456',
+        text: 'Example feature card text',
+        id: 'example-feature-text-id',
+    },
+};
