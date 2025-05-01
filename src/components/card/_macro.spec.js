@@ -10,9 +10,10 @@ import {
     EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE,
     EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH,
 } from './_test_examples';
+
 describe('FOR: Macro: Card', () => {
-    describe('GIVEN: a card config WITHOUT an image', () => {
-        describe('WHEN: the card is rendered', () => {
+    describe('GIVEN: Params: required', () => {
+        describe('WHEN: an image is not provided', () => {
             let $;
 
             beforeEach(() => {
@@ -20,25 +21,25 @@ describe('FOR: Macro: Card', () => {
                 $ = cheerio.load(html);
             });
 
-            test('THEN: it passes jest-axe checks', async () => {
+            test('THEN: jest-axe text pass', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
 
-            test('THEN: it has the provided `title` text', () => {
+            test('THEN: it has the provided title text', () => {
                 expect($('.ons-card__title').text().trim()).toBe('Example card title');
             });
 
-            test('THEN: the provided `text` is accessible via the `textId` identifier', () => {
+            test('THEN: the provided text has the provided id', () => {
                 expect($('#example-text-id').text().trim()).toBe('Example card text.');
             });
         });
 
-        describe('WHEN: heading levels are tested', () => {
+        describe('WHEN: headingLevel is provided', () => {
             it.each([
                 [1, 'h1'],
                 [4, 'h4'],
-            ])('THEN: it has the correct element headingLevel tag %i outputs <%s> tags', (headingLevel, expectedTag) => {
+            ])('THEN: it renders with headings with the correct heading tag (%i -> <%s>)', (headingLevel, expectedTag) => {
                 const $ = cheerio.load(
                     renderComponent('card', {
                         title: {
@@ -55,8 +56,8 @@ describe('FOR: Macro: Card', () => {
             });
         });
 
-        describe('WHEN: `itemsList` is provided in `body`', () => {
-            test('THEN: the `list` component is rendered with the provided items', () => {
+        describe('WHEN: itemsList is provided in the body', () => {
+            test('THEN: renders the list with the provided items', () => {
                 const faker = templateFaker();
                 const listsSpy = faker.spy('list');
 
@@ -78,8 +79,8 @@ describe('FOR: Macro: Card', () => {
             });
         });
 
-        describe('WHEN: `title.url` is provided', () => {
-            test('THEN: a hyperlink is created with the correct href', () => {
+        describe('WHEN: title url is provided', () => {
+            test('THEN: renders with the provided href', () => {
                 const $ = cheerio.load(
                     renderComponent('card', {
                         title: {
@@ -147,24 +148,6 @@ describe('FOR: Macro: Card', () => {
             });
         });
 
-        describe('WHEN: `title.url` is provided', () => {
-            test('THEN: a hyperlink is created with the provided URL', () => {
-                const $ = cheerio.load(
-                    renderComponent('card', {
-                        title: {
-                            text: 'Example card title',
-                            url: 'https://example.com',
-                        },
-                        body: {
-                            text: 'Example card text.',
-                            id: 'example-text-id',
-                        },
-                    }),
-                );
-                expect($('.ons-card__link').attr('href')).toBe('https://example.com');
-            });
-        });
-
         describe('WHEN: custom image params are provided', () => {
             let $;
 
@@ -173,19 +156,19 @@ describe('FOR: Macro: Card', () => {
                 $ = cheerio.load(html);
             });
 
-            test('THEN: it outputs an `img` element', () => {
+            test('THEN: it outputs an image element', () => {
                 expect($('.ons-card__image')[0].tagName).toBe('img');
             });
 
-            test('THEN: the `img` has the expected `srcset`', () => {
+            test('THEN: the image has the expected large source set', () => {
                 expect($('.ons-card__image').attr('srcset')).toBe('example-small.png 1x, example-large.png 2x');
             });
 
-            test('THEN: the `img` has the expected `src`', () => {
+            test('THEN: the image has the expected small source set', () => {
                 expect($('.ons-card__image').attr('src')).toBe('example-small.png');
             });
 
-            test('THEN: the `img` has the expected `alt` text', () => {
+            test('THEN: the image has the expected alt text', () => {
                 // In the original example, alt is pulled from `image.alt`
                 expect($('.ons-card__image').attr('alt')).toBe('Example alt text');
             });
@@ -193,7 +176,7 @@ describe('FOR: Macro: Card', () => {
     });
 
     describe('GIVEN: a card config with a default placeholder image', () => {
-        describe('WHEN: `image` is set to true (default placeholder)', () => {
+        describe('WHEN: image is set to true (default placeholder)', () => {
             let $;
 
             beforeEach(() => {
@@ -201,24 +184,24 @@ describe('FOR: Macro: Card', () => {
                 $ = cheerio.load(html);
             });
 
-            test('THEN: it outputs an `img` element', () => {
+            test('THEN: it outputs an image element', () => {
                 expect($('.ons-card__image')[0].tagName).toBe('img');
             });
 
-            test('THEN: the `img` has the expected `srcset`', () => {
+            test('THEN: the image has the expected source set', () => {
                 expect($('.ons-card__image').attr('srcset')).toBe('/img/small/placeholder-card.png 1x, /img/large/placeholder-card.png 2x');
             });
 
-            test('THEN: the `img` has the expected `src`', () => {
+            test('THEN: the image has the expected source set', () => {
                 expect($('.ons-card__image').attr('src')).toBe('/img/small/placeholder-card.png');
             });
 
-            test('THEN: the `img` has an empty alt attribute', () => {
+            test('THEN: the image has an empty alt attribute', () => {
                 expect($('.ons-card__image').attr('alt')).toBe('');
             });
         });
 
-        describe('WHEN: `image.placeholderUrl` is provided', () => {
+        describe('WHEN: an image placeholder url is provided', () => {
             let $;
 
             beforeEach(() => {
@@ -226,21 +209,21 @@ describe('FOR: Macro: Card', () => {
                 $ = cheerio.load(html);
             });
 
-            test('THEN: it outputs an `img` element', () => {
+            test('THEN: it outputs an image element', () => {
                 expect($('.ons-card__image')[0].tagName).toBe('img');
             });
 
-            test('THEN: the `img` has the expected `srcset` with the custom path', () => {
+            test('THEN: the image has the expected source set with the custom path', () => {
                 expect($('.ons-card__image').attr('srcset')).toBe(
                     '/placeholder-image-url/img/small/placeholder-card.png 1x, /placeholder-image-url/img/large/placeholder-card.png 2x',
                 );
             });
 
-            test('THEN: the `img` has the expected `src` with the custom path', () => {
+            test('THEN: the image has the expected source with the custom path', () => {
                 expect($('.ons-card__image').attr('src')).toBe('/placeholder-image-url/img/small/placeholder-card.png');
             });
 
-            test('THEN: the `img` has an empty alt attribute', () => {
+            test('THEN: the image has an empty alt attribute', () => {
                 expect($('.ons-card__image').attr('alt')).toBe('');
             });
         });
