@@ -20,7 +20,8 @@ export default class CharLimit {
 
     updateLimitReadout(event, firstRun) {
         const value = this.input.value;
-        const remaining = this.maxLength - value.length;
+        const lineBreaks = (value.match(/\n/g) || []).length;
+        const remaining = this.maxLength - (value.length + lineBreaks);
         const message = remaining === 1 ? this.singularMessage : this.pluralMessage;
         // Prevent aria live announcement when component initialises
         if (!firstRun && event.inputType) {
