@@ -6,17 +6,6 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 import { EXAMPLE_FIELDSET, EXAMPLE_FIELDSET_NO_ID, EXAMPLE_FIELDSET_NO_LEGEND } from './_test_examples';
 
 describe('FOR: Macro: Fieldset', () => {
-    describe('GIVEN: Params: accessibility', () => {
-        describe('WHEN: all necessary params are provided', () => {
-            const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET));
-
-            test('THEN: jest-axe checks pass', async () => {
-                const results = await axe($.html());
-                expect(results).toHaveNoViolations();
-            });
-        });
-    });
-
     describe('GIVEN: Params: id', () => {
         describe('WHEN: id is provided', () => {
             const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET));
@@ -44,6 +33,11 @@ describe('FOR: Macro: Fieldset', () => {
     describe('GIVEN: Params: legend', () => {
         describe('WHEN: legend is provided', () => {
             const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET));
+
+            test('THEN: jest-axe checks pass', async () => {
+                const results = await axe($.html());
+                expect(results).toHaveNoViolations();
+            });
 
             test('THEN: renders legend with provided text', () => {
                 const title = $('.ons-fieldset__legend-title').text().trim();
