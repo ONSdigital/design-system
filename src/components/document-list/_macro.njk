@@ -9,14 +9,11 @@
             {% set closingTag = "</h" ~ titleTag ~ ">" %}
             {% set documentItem %}
                 {% if document.thumbnail %}
-                    <div
-                        class="ons-document-list__item-image{{ ' ons-document-list__item-image--file' if document.metadata.file }}"
-                        aria-label="{{ document.title.text }}"
-                    >
+                    <div class="ons-document-list__item-image{{ ' ons-document-list__item-image--file' if document.metadata.file }}">
                         <a
                             class="ons-document-list__image-link{{ ' ons-document-list__image-link--placeholder' if not document.thumbnail.smallSrc }}"
                             href="{{ document.title.url }}"
-                            tabindex="-1"
+                            aria-label="{{ document.title.text }}"
                         >
                             {% if document.thumbnail.smallSrc and document.thumbnail.largeSrc %}
                                 <img
