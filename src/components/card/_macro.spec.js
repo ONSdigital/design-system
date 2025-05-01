@@ -9,6 +9,7 @@ import {
     EXAMPLE_CARD_WITH_IMAGE,
     EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE,
     EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH,
+    EXAMPLE_CARD_FEATURE_VARIANT,
 } from './_test_examples';
 
 describe('FOR: Macro: Card', () => {
@@ -225,6 +226,46 @@ describe('FOR: Macro: Card', () => {
 
             test('THEN: the image has an empty alt attribute', () => {
                 expect($('.ons-card__image').attr('alt')).toBe('');
+            });
+        });
+    });
+
+    describe('GIVEN: variant: feature', () => {
+        describe('WHEN: a feature card is rendered', () => {
+            let $;
+
+            beforeEach(() => {
+                const html = renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT);
+                $ = cheerio.load(html);
+            });
+
+            test('THEN: it renders the feature variant with the correct modifier class', () => {
+                expect($('.ons-card').hasClass('ons-card--feature')).toBe(true);
+            });
+
+            test('THEN: it renders the provided title text', () => {
+                expect($('.ons-card__title').text().trim()).toBe('Feature card title');
+            });
+
+            test('THEN: it renders the provided subtitle text', () => {
+                expect($('.ons-card__subtitle').text().trim()).toBe('Optional subtitle');
+            });
+
+            test('THEN: it renders a link with the provided URL', () => {
+                expect($('.ons-card__link').attr('href')).toBe('http://example.com');
+            });
+
+            test('THEN: it renders the provided figure', () => {
+                expect($('.ons-card__figure').text().trim()).toBe('123,456');
+            });
+
+            test('THEN: it renders the provided body text via the textId', () => {
+                expect($('#example-feature-text-id').text().trim()).toBe('Example feature card text');
+            });
+
+            test('THEN: it passes jest-axe accessibility checks', async () => {
+                const results = await axe($.html());
+                expect(results).toHaveNoViolations();
             });
         });
     });
