@@ -188,7 +188,7 @@
                                     {{
                                         onsButton({
                                             "text": params.menuLinks.toggleMenuButton.text | default("Menu"),
-                                            "classes": "ons-u-fs-s--b ons-js-toggle-nav-menu button-nav active",
+                                            "classes": "ons-u-fs-s--b ons-js-toggle-nav-menu button-nav active disabled",
                                             "type": "button",
                                             "variants": "menu",
                                             "iconType": "chevron",
@@ -202,11 +202,12 @@
                                     }}
                                 </div>
                             {% endif %}
+
                             {% if params.searchLinks %}
                                 <div class="ons-header__links ons-grid__col">
                                     {{
                                         onsButton({
-                                            "classes": "ons-u-fs-s--b ons-js-toggle-header-search ons-btn--close ons-btn--search-icon active",
+                                            "classes": "ons-u-fs-s--b ons-js-toggle-header-search ons-btn--close ons-btn--search-icon active disabled",
                                             "type": "button",
                                             "variants": "search",
                                             "iconType": "search",

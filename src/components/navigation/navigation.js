@@ -15,6 +15,7 @@ export default class NavigationToggle {
         this.searchEl = document.querySelector('.ons-js-header-search');
 
         this.toggle.classList.remove('ons-u-d-no');
+        this.toggle.classList.remove('disabled');
         this.setAria();
         onViewportChange(this.setAria.bind(this));
     }
