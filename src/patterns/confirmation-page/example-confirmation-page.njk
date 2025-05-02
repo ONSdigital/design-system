@@ -34,17 +34,18 @@ layout: ~
 
 {% block main %}
     <div class="ons-page__body">
-        {{
-            onsPanel({
-                "variant": "success",
+        {%
+            call onsPanel({
+                "variant": 'success',
                 "id": "survey-success",
-                "iconType": "check",
+                "iconType": 'check',
                 "iconSize": "xl",
-                "classes": "ons-u-mb-m",
-                "body": "<h1>Thank you for completing the survey</h1>
-                Your answers have been submitted"
+                "classes": "ons-u-mb-m"
             })
-        }}
+        %}
+            <h1>Thank you for completing the survey</h1>
+            <p>Your answers have been submitted</p>
+        {% endcall %}
 
         {%
             call onsPanel({

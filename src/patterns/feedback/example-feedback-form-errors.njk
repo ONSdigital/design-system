@@ -47,17 +47,18 @@ layout: ~
         }}
     {% endcall %}
 
-    {{
-        onsPanel({
-            "variant": "success",
-            "id": "survey-success",
-            "iconType": "check",
-            "iconSize": "xl",
-            "classes": "ons-u-mb-m",
-            "body": "<h1>Thank you for completing the survey</h1>
-            Your answers have been submitted"
+    {%
+        call onsQuestion ({
+           "variant": "success",
+                "id": "survey-success",
+                "iconType": "check",
+                "iconSize": "xl",
+                "classes": "ons-u-mb-m"
         })
-    }}
+    %}
+        <h1>Thank you for completing the survey</h1>
+        <p>Your answers have been submitted</p>
+    {% endcall %}
 
     <div class="ons-feedback">
         <h1>Give feedback about this service</h1>
