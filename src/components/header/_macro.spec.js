@@ -801,6 +801,7 @@ describe('FOR: Macro: Header', () => {
                         'aria-controls': 'search-links-id',
                         'aria-expanded': 'true',
                         'aria-label': 'Example aria label',
+                        'aria-disabled': 'true',
                     },
                 });
             });

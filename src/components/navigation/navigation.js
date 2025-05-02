@@ -2,6 +2,7 @@ import onViewportChange from '../../js/utils/viewport-change';
 
 const attrExpanded = 'aria-expanded';
 const attrHidden = 'aria-hidden';
+const attrDisabled = 'aria-disabled';
 
 export default class NavigationToggle {
     constructor(toggle, navigation, hideClass) {
@@ -92,6 +93,11 @@ export default class NavigationToggle {
 
     setAria() {
         const isToggleHidden = this.isHidden(this.toggle);
+        this.toggle.setAttribute(attrDisabled, 'false');
+
+        if (this.searchToggleBtn) {
+            this.searchToggleBtn.setAttribute(attrDisabled, 'false');
+        }
 
         if (!isToggleHidden) {
             // JS is active - always hide by default
