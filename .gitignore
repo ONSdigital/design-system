@@ -15,6 +15,10 @@ backstop_data/bitmaps_test/
 backstop_data/html_report/
 backstop.config-for-docker.json
 
+# Generated from lighthouse tests
+.lighthouseci/
+lighthouse/urls.json
+
 # npm package folders
 /components/
 /page-templates/

@@ -2,14 +2,17 @@
 title: "Example: 'Page not found' error"
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
-{% set pageConfig = {
-    "header": {
-        "title": "Service name"
-    },
-    "footer": {
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Service name"
+        },
+        "footer": {
+        }
     }
-} %}
+%}
 {% block main %}
     <h1>Page not found</h1>
     <p>If you entered a web address, check it is correct.</p>

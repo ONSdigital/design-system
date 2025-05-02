@@ -46,28 +46,28 @@ describe('PuppeteerEndpointFaker', () => {
     });
 
     const TEST_HTML_REQUEST_DATA_FROM_ENDPOINT = `
-    <div id="output"></div>
-    <script>
-      fetch('/test/fake/api/json/abc')
-        .then(async (response) => {
-          const data = await response.json();
-          const el = document.getElementById('output');
-          el.innerHTML = response.status + ':' + data.value;
-          el.classList.add('test');
-        });
-    </script>
-  `;
+        <div id="output"></div>
+        <script>
+            fetch('/test/fake/api/json/abc')
+                .then(async (response) => {
+                    const data = await response.json();
+                    const el = document.getElementById('output');
+                    el.innerHTML = response.status + ':' + data.value;
+                    el.classList.add('test');
+                });
+        </script>
+    `;
 
     describe('get requestHistory()', () => {
         it('has faked requests in history', async () => {
             await setTestPage(
                 '/test',
                 `
-          <script>
-            fetch('/test/fake/api/text?abc=123');
-            fetch('/test/fake/api/json?abc=456');
-          </script>
-        `,
+                    <script>
+                        fetch('/test/fake/api/text?abc=123');
+                        fetch('/test/fake/api/json?abc=456');
+                    </script>
+                `,
             );
 
             const paths = apiFaker.requestHistory.map((entry) => entry.path);
@@ -78,13 +78,13 @@ describe('PuppeteerEndpointFaker', () => {
             await setTestPage(
                 '/test',
                 `
-          <script>
-            fetch('/test/fake/api/text?abc=123');
-            fetch('/test/fake/api/text?abc=789');
-            fetch('/test/fake/api/other');
-            fetch('/test/fake/api/json?abc=456');
-          </script>
-        `,
+                    <script>
+                        fetch('/test/fake/api/text?abc=123');
+                        fetch('/test/fake/api/text?abc=789');
+                        fetch('/test/fake/api/other');
+                        fetch('/test/fake/api/json?abc=456');
+                    </script>
+                `,
             );
 
             const paths = apiFaker.requestHistory.map((entry) => entry.path);
@@ -95,12 +95,12 @@ describe('PuppeteerEndpointFaker', () => {
             await setTestPage(
                 '/test',
                 `
-          <script>
-            fetch('/test/fake/api/text?abc=123');
-            fetch('/test');
-            fetch('/test/fake/api/json?abc=456');
-          </script>
-        `,
+                    <script>
+                        fetch('/test/fake/api/text?abc=123');
+                        fetch('/test');
+                        fetch('/test/fake/api/json?abc=456');
+                    </script>
+                `,
             );
 
             const paths = apiFaker.requestHistory.map((entry) => entry.path);
@@ -111,10 +111,10 @@ describe('PuppeteerEndpointFaker', () => {
             await setTestPage(
                 '/test',
                 `
-          <script>
-            fetch('/test/fake/api/text?abc=123');
-          </script>
-        `,
+                    <script>
+                        fetch('/test/fake/api/text?abc=123');
+                    </script>
+                `,
             );
 
             const entry = apiFaker.requestHistory.find((entry) => entry.path === '/text?abc=123');
@@ -125,14 +125,14 @@ describe('PuppeteerEndpointFaker', () => {
             await setTestPage(
                 '/test',
                 `
-          <script>
-            fetch('/test/fake/api/text?abc=123', {
-              headers: {
-                'foo': '123',
-              }
-            });
-          </script>
-        `,
+                    <script>
+                        fetch('/test/fake/api/text?abc=123', {
+                            headers: {
+                                'foo': '123',
+                            }
+                        });
+                    </script>
+                `,
             );
 
             const entry = apiFaker.requestHistory.find((entry) => entry.path === '/text?abc=123');
@@ -145,13 +145,13 @@ describe('PuppeteerEndpointFaker', () => {
             await setTestPage(
                 '/test',
                 `
-          <script>
-            fetch('/test/fake/api/text?abc=123');
-            fetch('/test/fake/api/text?abc=789');
-            fetch('/test/fake/api/other');
-            fetch('/test/fake/api/json?abc=456');
-          </script>
-        `,
+                    <script>
+                        fetch('/test/fake/api/text?abc=123');
+                        fetch('/test/fake/api/text?abc=789');
+                        fetch('/test/fake/api/other');
+                        fetch('/test/fake/api/json?abc=456');
+                    </script>
+                `,
             );
 
             expect(apiFaker.requestedPaths).toEqual(['/text?abc=123', '/text?abc=789', '/other', '/json?abc=456']);
@@ -171,11 +171,11 @@ describe('PuppeteerEndpointFaker', () => {
             await setTestPage(
                 '/test',
                 `
-          <script>
-            fetch('/test/fake/api/text?abc=123');
-            fetch('/test/fake/api/json?abc=456');
-          </script>
-        `,
+                    <script>
+                        fetch('/test/fake/api/text?abc=123');
+                        fetch('/test/fake/api/json?abc=456');
+                    </script>
+                `,
             );
             await apiFaker.reset();
 
@@ -299,12 +299,12 @@ describe('PuppeteerEndpointFaker', () => {
             await setTestPage(
                 '/test',
                 `
-          <script>
-            fetch('/test/fake/api/text?abc=123');
-            fetch('/test/fake/api/json?abc=456');
-            fetch('/test/fake/api/json?abc=456');
-          </script>
-        `,
+                    <script>
+                        fetch('/test/fake/api/text?abc=123');
+                        fetch('/test/fake/api/json?abc=456');
+                        fetch('/test/fake/api/json?abc=456');
+                    </script>
+                `,
             );
 
             expect(apiFaker.getRequestCount('/text?abc=123')).toBe(1);

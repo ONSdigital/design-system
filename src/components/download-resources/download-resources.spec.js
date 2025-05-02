@@ -147,8 +147,10 @@ const EXAMPLE_PAGE = `
                       'data-filter': 'general-public booklet',
                       'data-sort-index': '1',
                   },
-                  url: '/example-booklet-1',
-                  title: 'Example booklet 1',
+                  title: {
+                      url: '/example-booklet-1',
+                      text: 'Example booklet 1',
+                  },
                   description: 'The first example booklet.',
               },
               {
@@ -157,8 +159,10 @@ const EXAMPLE_PAGE = `
                       'data-filter': 'general-public booklet logo',
                       'data-sort-index': '2',
                   },
-                  url: '/example-booklet-2',
-                  title: 'Example booklet 2 with logo',
+                  title: {
+                      url: '/example-booklet-2',
+                      text: 'Example booklet 2 with logo',
+                  },
                   description: 'The second example booklet with a logo.',
               },
               {
@@ -167,8 +171,10 @@ const EXAMPLE_PAGE = `
                       'data-filter': 'logo',
                       'data-sort-index': '3',
                   },
-                  url: '/example-logo',
-                  title: 'Example logo',
+                  title: {
+                      url: '/example-logo',
+                      text: 'Example logo',
+                  },
                   description: 'An example logo.',
               },
           ],

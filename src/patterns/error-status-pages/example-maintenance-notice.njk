@@ -1,18 +1,21 @@
 ---
-title: "Example: Maintenance notice"
+title: 'Example: Maintenance notice'
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
-{% set pageConfig = {
-    "header": {
-        "title": "Service name"
-    },
-    "footer": {
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Service name"
+        },
+        "footer": {
+        }
     }
-} %}
+%}
 {% block main %}
     <h1>This service is temporarily unavailable</h1>
     <p>We are undergoing planned maintenance.</p>
-    <p>You will be able to use this service again from:<br><strong>9am on Monday 19 November 2019</strong></p>
+    <p>You will be able to use this service again from:<br /><strong>9am on Monday 19 November 2019</strong></p>
     <p>If you need to speak to someone about your survey, <a href="#0">contact us</a>.</p>
 {% endblock %}

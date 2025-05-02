@@ -1,11 +1,13 @@
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 
-{% call onsQuestion({
-    "title": "Get a confirmation email",
-    "description": "<p>Enter your email address if you would like to be sent confirmation that you have completed your survey</p>",
-    "legendIsQuestionTitle": true
-}) %}
+{%
+    call onsQuestion({
+        "title": "Get a confirmation email",
+        "description": "<p>Enter your email address if you would like to be sent confirmation that you have completed your survey</p>",
+        "legendIsQuestionTitle": true
+    })
+%}
     {{
         onsInput({
             "id": "email-example-mutually-exclusive",

@@ -1,0 +1,23 @@
+.ons-table-of-contents {
+    $root: &;
+
+    &-container {
+        border-bottom: 1px solid var(--ons-color-grey-15);
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+
+        &:has(:where(#{$root}__related-links, #{$root}__button)) {
+            border-bottom: 0;
+        }
+    }
+
+    &__link-active {
+        color: var(--ons-color-text-link-hover);
+        text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
+    }
+
+    &__related-links,
+    &__button {
+        border-top: 4px solid var(--ons-color-ocean-blue);
+    }
+}

@@ -49,7 +49,7 @@ const EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION = {
         ],
         subNavigation: {
             id: 'sub-nav',
-            overviewURL: '#overview',
+            overviewUrl: '#overview',
             overviewText: 'Overview',
             ariaLabel: 'Section menu',
             currentPath: '#1',
@@ -108,7 +108,7 @@ const EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION_REMOVED = {
         ],
         subNavigation: {
             id: 'sub-nav-hidden',
-            overviewURL: '#overview',
+            overviewUrl: '#overview',
             overviewText: 'Overview',
             ariaLabel: 'Section menu',
             currentPath: '#1',
@@ -212,7 +212,7 @@ describe('script: navigation', () => {
 
                 it('has the hide class removed from the navigation list', async () => {
                     const hasClass = await page.$eval(navEl, (node) =>
-                        node.classList.contains('ons-u-d-no@xxs@l' || 'ons-u-d-no' || 'ons-u-d-no@xs@l'),
+                        node.classList.contains('ons-u-d-no@2xs@l' || 'ons-u-d-no' || 'ons-u-d-no@xs@l'),
                     );
                     expect(hasClass).toBe(false);
                 });
@@ -230,12 +230,14 @@ describe('script: navigation', () => {
             });
 
             describe('when the toggle button is clicked to close the navigation list', () => {
+                const { setTimeout } = require('node:timers/promises');
+
                 beforeEach(async () => {
                     await page.focus(buttonEl);
                     await page.keyboard.press('Enter');
-                    await page.waitForTimeout(100);
+                    await setTimeout(100);
                     await page.keyboard.press('Enter');
-                    await page.waitForTimeout(100);
+                    await setTimeout(100);
                 });
 
                 it('has aria-hidden set as `true` on the navigation list', async () => {
@@ -270,19 +272,19 @@ describe('script: navigation', () => {
 
                 it('has the aria-hidden attribute removed from the navigation list', async () => {
                     const nav = await page.$(navEl);
-                    const hasAriaAttribute = await nav.evaluate((node) => node.getAttribute('aria-hidden') !== null);
-                    expect(hasAriaAttribute).toBe(false);
+                    const hasAriaAttribute = await nav.evaluate((node) => node.getAttribute('aria-hidden') === null);
+                    expect(hasAriaAttribute).toBe(true);
                 });
 
                 it('has aria-expanded removed from the navigation toggle button', async () => {
                     const button = await page.$(buttonEl);
-                    const hasAriaExpanded = await button.evaluate((node) => node.getAttribute('aria-expanded') !== null);
-                    expect(hasAriaExpanded).toBe(false);
+                    const hasAriaExpanded = await button.evaluate((node) => node.getAttribute('aria-expanded') === null);
+                    expect(hasAriaExpanded).toBe(true);
                 });
 
                 it('has the hide class removed from the navigation list', async () => {
                     const hasClass = await page.$eval(navEl, (node) =>
-                        node.classList.contains('ons-u-d-no@xxs@l' || 'ons-u-d-no' || 'ons-u-d-no@xs@l'),
+                        node.classList.contains('ons-u-d-no@2xs@l' || 'ons-u-d-no' || 'ons-u-d-no@xs@l'),
                     );
                     expect(hasClass).toBe(false);
                 });

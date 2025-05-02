@@ -1,47 +1,51 @@
 ---
-title: "Example: Manual address entry"
+title: 'Example: Manual address entry'
 layout: ~
 ---
-{% extends "layout/_template.njk" %}
 
+{% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/address-input/_macro.njk" import onsAddressInput %}
 {% from "components/button/_macro.njk" import onsButton %}
-
-{% set pageConfig = {
-    "header": {
-        "title": "Manual address input example"
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Manual address input example"
+        }
     }
-} %}
+%}
 {% block main %}
-    {% call onsQuestion({
-        "title": "What is your address?",
-        "legendIsQuestionTitle": true,
-        "submitButton": true
-    }) %}
-
-    <form action="#0">
-        {{ onsAddressInput({
-            "id": "address-input-manual-example",
-            "dontWrap": true,
-            "manualEntry": true,
-            "label": {
-                "text": "Enter address or postcode and select from results",
-                "id": "address-label-input-manual-pattern"
-            },
-            "line1": {
-                "label": "Address line 1"
-            },
-            "line2": {
-                "label": "Address line 2"
-            },
-            "town": {
-                "label": "Town or city"
-            },
-            "postcode": {
-                "label": "Postcode"
-            }
-        }) }}
-    </form>
+    {%
+        call onsQuestion({
+            "title": "What is your address?",
+            "legendIsQuestionTitle": true,
+            "submitButton": true
+        })
+    %}
+        <form action="#0">
+            {{
+                onsAddressInput({
+                    "id": "address-input-manual-example",
+                    "dontWrap": true,
+                    "manualEntry": true,
+                    "label": {
+                        "text": "Enter address or postcode and select from results",
+                        "id": "address-label-input-manual-pattern"
+                    },
+                    "line1": {
+                        "label": "Address line 1"
+                    },
+                    "line2": {
+                        "label": "Address line 2"
+                    },
+                    "town": {
+                        "label": "Town or city"
+                    },
+                    "postcode": {
+                        "label": "Postcode"
+                    }
+                })
+            }}
+        </form>
     {% endcall %}
 {% endblock %}

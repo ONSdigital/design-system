@@ -37,6 +37,7 @@ export default class AutosuggestUI {
         errorAPI,
         errorAPILinkText,
         typeMore,
+        customResultsThreshold,
     }) {
         // DOM Elements
         this.context = context;
@@ -65,6 +66,7 @@ export default class AutosuggestUI {
         this.errorAPI = errorAPI || context.getAttribute('data-error-api');
         this.errorAPILinkText = errorAPILinkText || context.getAttribute('data-error-api-link-text');
         this.typeMore = typeMore || context.getAttribute('data-type-more');
+        this.customResultsThreshold = customResultsThreshold || context.getAttribute('data-result-threshold');
         this.language = context.getAttribute('data-lang');
         this.allowMultiple = context.getAttribute('data-allow-multiple') || false;
         this.listboxId = this.listbox.getAttribute('id');
@@ -293,9 +295,30 @@ export default class AutosuggestUI {
 
     async fetchSuggestions(sanitisedQuery, data) {
         this.abortFetch();
-        const results = await runFuse(sanitisedQuery, data, this.lang, this.resultLimit);
+
+        const threshold =
+            this.customResultsThreshold != null && this.customResultsThreshold >= 0 && this.customResultsThreshold <= 1
+                ? this.customResultsThreshold
+                : 0.2;
+
+        let distance;
+        if (threshold >= 0.6) {
+            distance = 500;
+        } else if (threshold >= 0.4) {
+            distance = 300;
+        } else {
+            distance = 100;
+        }
+
+        const results = await runFuse(sanitisedQuery, data, this.lang, threshold, distance);
+
         results.forEach((result) => {
-            result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
+            const resultItem = result.item ?? result;
+
+            result.sanitisedText = sanitiseAutosuggestText(
+                resultItem[this.lang] ?? resultItem['formattedAddress'],
+                this.sanitisedQueryReplaceChars,
+            );
         });
         return {
             status: this.responseStatus,
@@ -345,16 +368,18 @@ export default class AutosuggestUI {
             this.listbox.innerHTML = '';
             if (this.results) {
                 this.resultOptions = this.results.map((result, index) => {
-                    let innerHTML = this.emboldenMatch(result[this.lang], this.query);
+                    const resultItem = result.item ?? result;
+
+                    let innerHTML = this.emboldenMatch(resultItem[this.lang] ?? resultItem['formattedAddress'], this.query);
 
                     const listElement = document.createElement('li');
                     listElement.className = classAutosuggestOption;
                     listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
                     listElement.setAttribute('role', 'option');
-                    if (result.category) {
+                    if (resultItem.category) {
                         innerHTML =
                             innerHTML +
-                            `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${result.category}</span>`;
+                            `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${resultItem.category}</span>`;
                     }
                     listElement.innerHTML = innerHTML;
                     listElement.addEventListener('click', () => {
@@ -485,16 +510,19 @@ export default class AutosuggestUI {
         if (this.results.length) {
             this.settingResult = true;
             const result = this.results[index || this.highlightedResultIndex || 0];
+            const resultItem = result.item ?? result;
+            const resultValue = resultItem[this.lang] ?? resultItem['formattedAddress'];
+
             this.resultSelected = true;
 
             if (this.allowMultiple === 'true') {
-                let value = this.storeExistingSelections(result[this.lang]);
+                let value = this.storeExistingSelections(resultValue);
                 result.displayText = value;
-            } else if (result.url) {
-                result.displayText = result[this.lang];
-                window.location = result.url;
+            } else if (resultItem.url) {
+                result.displayText = resultValue;
+                window.location = resultItem.url;
             } else {
-                result.displayText = result[this.lang];
+                result.displayText = resultValue;
             }
             this.onSelect(result).then(() => (this.settingResult = false));
 
@@ -511,6 +539,7 @@ export default class AutosuggestUI {
         const warningSpanElement = document.createElement('span');
         const warningBodyElement = document.createElement('div');
 
+        warningContainer.id = this.listbox.getAttribute('id');
         warningContainer.className = 'ons-autosuggest__warning';
         warningElement.className = 'ons-panel ons-panel--warn ons-autosuggest__panel';
 

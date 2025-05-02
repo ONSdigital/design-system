@@ -1,21 +1,23 @@
 ---
-title: "Example: Send a web form confirmation"
+title: 'Example: Send a web form confirmation'
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/button/_macro.njk" import onsButton %}
-
-{% set pageConfig = {
-    "header": {
-        "title": 'Service name'
-    },
-    "footer": {}
-} %}
+{%
+    set pageConfig = {
+        "header": {
+            "title": 'Service name'
+        },
+        "footer": {}
+    }
+%}
 {% block main %}
     {{
         onsPanel({
-            "classes": 'ons-u-mb-m',
+            "classes": 'ons-u-mb-l',
             "variant": 'success',
             "id": 'webform-success-example',
             "iconType": 'check',
@@ -27,7 +29,7 @@ layout: ~
     {{
         onsButton({
             "text": 'Done',
-            "classes": 'ons-u-mt-m',
+            "classes": 'ons-u-mt-l',
             "noIcon": true,
             "url": '#0'
         })

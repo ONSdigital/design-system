@@ -10,20 +10,25 @@ const EXAMPLE_MESSAGE_LIST_MINIMAL = {
     fromLabel: 'From',
     dateLabel: 'Date',
     hiddenReadLabel: 'Read the message',
+    bodyLabel: 'Body',
     messages: [
         {
             id: 'message1',
             unread: true,
-            url: 'https://example.com/message/1',
-            subject: 'Example message subject',
+            subject: {
+                url: 'https://example.com/message/1',
+                text: 'Example message subject',
+            },
             fromText: 'Example Sender 1',
             dateText: 'Tue 4 Jul 2020 at 7:47',
             body: 'An example message.',
         },
         {
             id: 'message2',
-            url: 'https://example.com/message/2',
-            subject: 'Another example message subject',
+            subject: {
+                url: 'https://example.com/message/2',
+                text: 'Another example message subject',
+            },
             fromText: 'Example Sender 2',
             dateText: 'Mon 1 Oct 2019 at 9:52',
             body: 'Another example message.',
@@ -35,7 +40,47 @@ const EXAMPLE_MESSAGE_LIST = {
     ...EXAMPLE_MESSAGE_LIST_MINIMAL,
     ariaLabel: 'Message list for ONS Business Surveys',
     ariaLabelMetaData: 'Message information',
-    ariaLabelMsg: 'Message preview',
+};
+
+const EXAMPLE_MESSAGE_LIST_WITH_DEPRECATED_ARIALABELMSG_PARAM = {
+    unreadText: 'New',
+    fromLabel: 'From',
+    dateLabel: 'Date',
+    hiddenReadLabel: 'Read the message',
+    ariaLabelMsg: 'Aria Label Msg Preview',
+    messages: [
+        {
+            id: 'message1',
+            unread: true,
+            subject: {
+                url: 'https://example.com/message/1',
+                text: 'Example message subject',
+            },
+            fromText: 'Example Sender 1',
+            dateText: 'Tue 4 Jul 2020 at 7:47',
+            body: 'An example message.',
+        },
+    ],
+};
+
+const EXAMPLE_MESSAGE_LIST_WIHTOUT_BODYLABEL_PARAM = {
+    unreadText: 'New',
+    fromLabel: 'From',
+    dateLabel: 'Date',
+    hiddenReadLabel: 'Read the message',
+    messages: [
+        {
+            id: 'message1',
+            unread: true,
+            subject: {
+                url: 'https://example.com/message/1',
+                text: 'Example message subject',
+            },
+            fromText: 'Example Sender 1',
+            dateText: 'Tue 4 Jul 2020 at 7:47',
+            body: 'An example message.',
+        },
+    ],
 };
 
 describe('macro: message-list', () => {
@@ -70,18 +115,6 @@ describe('macro: message-list', () => {
         expect($('.ons-message-item__metadata:first').attr('aria-label')).toBe('Message information');
     });
 
-    it('has `aria-label` attribute on `.ons-message-item__body` with the correct default value', () => {
-        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
-
-        expect($('.ons-message-item__body:first').attr('aria-label')).toBe('Message text');
-    });
-
-    it('has `aria-label` attribute on `.ons-message-item__body` using the provided value', () => {
-        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST));
-
-        expect($('.ons-message-item__body:first').attr('aria-label')).toBe('Message preview');
-    });
-
     it('has `unreadText` for unread messages', () => {
         const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST));
 
@@ -106,6 +139,35 @@ describe('macro: message-list', () => {
         expect($('.ons-message-item__link:first').text()).toContain('Read the message: ');
     });
 
+    it('has visually hidden label `bodyLabel` when only `bodyLabel` is provided`', () => {
+        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
+
+        expect($('.ons-message-item__metadata-term--body:first').text().trim()).toBe('Body:');
+    });
+
+    it('has visually hidden label `bodyLabel` when both `bodyLabel` and `ariaLabelMsg` are provided`', () => {
+        const $ = cheerio.load(
+            renderComponent('message-list', {
+                ...EXAMPLE_MESSAGE_LIST_MINIMAL,
+                ariaLabelMsg: 'Aria Label Msg Preview',
+            }),
+        );
+
+        expect($('.ons-message-item__metadata-term--body:first').text().trim()).toBe('Body:');
+    });
+
+    it('has visually hidden deprecated label `ariaLabelMsg` when only `ariaLabelMsg` is provided', () => {
+        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_WITH_DEPRECATED_ARIALABELMSG_PARAM));
+
+        expect($('.ons-message-item__metadata-term--body:first').text().trim()).toBe('Aria Label Msg Preview:');
+    });
+
+    it('has the defualt text for visually hidden label `bodyLabel` when both `bodyLabel` and `ariaLabelMsg` are not provided', () => {
+        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_WIHTOUT_BODYLABEL_PARAM));
+
+        expect($('.ons-message-item__metadata-term--body:first').text().trim()).toBe('Message text:');
+    });
+
     it('has message as expected', () => {
         const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
 
@@ -115,7 +177,7 @@ describe('macro: message-list', () => {
         expect($message2.find('.ons-message-item__subject').attr('id')).toBe('message2');
         expect($message2.find('.ons-message-item__metadata-value--from').text().trim()).toBe('Example Sender 2');
         expect($message2.find('.ons-message-item__metadata-value--date').text().trim()).toBe('Mon 1 Oct 2019 at 9:52');
-        expect($message2.find('.ons-message-item__body').text().trim()).toBe('Another example message.');
+        expect($message2.find('.ons-message-item__metadata-value--body').text().trim()).toBe('Another example message.');
         expect($message2.find('.ons-message-item__link a').attr('href')).toBe('https://example.com/message/2');
     });
 

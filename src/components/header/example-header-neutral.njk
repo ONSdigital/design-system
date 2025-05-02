@@ -1,0 +1,60 @@
+---
+'fullWidth': true
+---
+
+{% from "components/header/_macro.njk" import onsHeader %}
+
+{{
+    onsHeader({
+        "title": 'ONS Service',
+        "variants": 'neutral',
+        "mastheadLogoUrl": '#0',
+        "serviceLinks": {
+            "id": "service-links",
+            "ariaLabel": 'Services menu',
+            "ariaListLabel": 'Menu',
+            "toggleServicesButton": {
+                "text": 'Account',
+                "ariaLabel": 'Toggle services menu'
+            },
+            "itemsList": [
+                {
+                    "text": "Help",
+                    "url": "#0"
+                },
+                {
+                    "text": "My Account",
+                    "url": "#0"
+                },
+                {
+                    "text": "Sign out",
+                    "url": "#0"
+                }
+            ]
+        },
+        "navigation": {
+            "id": 'main-nav',
+            "ariaLabel": 'Main menu',
+            "currentPath": '#menu-item-2',
+            "currentPageTitle": 'Design system',
+            "itemsList": [
+                {
+                    "text": 'Menu item 1',
+                    "url": '#0'
+                },
+                {
+                    "text": 'Menu item 2',
+                    "url": '#menu-item-2'
+                },
+                {
+                    "text": 'Menu item 3',
+                    "url": '#0'
+                }
+            ],
+            "toggleNavigationButton": {
+                "text": 'Menu',
+                "ariaLabel": 'Toggle main menu'
+            }
+        }
+    })
+}}

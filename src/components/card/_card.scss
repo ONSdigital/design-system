@@ -2,6 +2,11 @@
     margin: 0 0 2rem;
     width: 100%;
 
+    &--feature {
+        background-color: var(--ons-color-banner-bg);
+        padding: 2rem;
+    }
+
     &__link {
         display: flex;
         flex-direction: column;
@@ -15,12 +20,6 @@
 
     &__link:hover {
         text-decoration-thickness: 3px;
-    }
-
-    &__title {
-        // This is to allow the focus state for multi lined title links to render the focus style correctly.
-        // This should be corrected when the typography scale is improved.
-        line-height: 1.65 !important;
     }
 
     @include mq(m) {

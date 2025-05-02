@@ -1,20 +1,22 @@
 ---
-title: "Example: Feedback form"
+title: 'Example: Feedback form'
 layout: ~
 ---
+
 {% extends "layout/_template.njk" %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/textarea/_macro.njk" import onsTextarea %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-
-{% set pageConfig = {
-    "header": {
-        "title": "Survey title"
-    },
-    "footer": {
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Survey title"
+        },
+        "footer": {
+        }
     }
-} %}
+%}
 
 {% block main %}
     {{

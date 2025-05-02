@@ -10,14 +10,15 @@
 @import '../components/breadcrumbs/breadcrumbs';
 @import '../components/browser-banner/browser-banner';
 @import '../components/button/button';
-@import '../components/call-to-action/call-to-action';
 @import '../components/card/card';
+@import '../components/chart/chart';
 @import '../components/checkboxes/checkbox';
 @import '../components/checkboxes/checkboxes';
 @import '../components/details/details';
 @import '../components/description-list/description-list';
 @import '../components/content-pagination/content-pagination';
 @import '../components/cookies-banner/cookies-banner';
+@import '../components/details-panel/details-panel';
 @import '../components/document-list/document-list';
 @import '../components/download-resources/download-resources';
 @import '../components/external-link/external-link';
@@ -26,7 +27,6 @@
 @import '../components/fieldset/fieldset';
 @import '../components/footer/footer';
 @import '../components/header/header';
-@import '../components/helpers/grid';
 @import '../components/hero/hero';
 @import '../components/icon/icon';
 @import '../components/image/image';
@@ -52,13 +52,14 @@
 @import '../components/skip-to-content/skip';
 @import '../components/status/status';
 @import '../components/summary/summary';
-@import '../components/table-of-contents/toc';
+@import '../components/table-of-contents/table-of-contents';
 @import '../components/table/table';
 @import '../components/tabs/tabs';
 @import '../components/text-indent/text-indent';
 @import '../components/timeline/timeline';
 @import '../components/upload/upload';
 @import '../components/video/video';
+@import '../foundations/grid/grid';
 @import 'utilities/index';
 @import 'utilities/highlight';
 

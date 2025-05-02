@@ -3,9 +3,9 @@ const util = require('util');
 const { glob } = require('glob');
 const readdir = util.promisify(fs.readdir);
 
-async function createURLsFile() {
+async function createUrlsFile() {
     try {
-        const urls = await getURLs();
+        const urls = await getUrls();
         fs.writeFileSync('./lighthouse/urls.json', urls);
     } catch (e) {
         console.error(e);
@@ -13,7 +13,7 @@ async function createURLsFile() {
     }
 }
 
-async function getURLs() {
+async function getUrls() {
     let data = {};
     data.urls = [];
     const directories = [
@@ -30,13 +30,14 @@ async function getURLs() {
     for (const directory of directories) {
         const folders = await readdir(directory.path);
         for (const folder of folders) {
-            const files = await glob(`${directory.path}/${folder}/**/*.html`, { ignore: `${directory.path}/${folder}/index.html` });
-            for (const file of files) {
-                data.urls.push(file.replace('./build/', 'http://localhost:9000/'));
+            const files = await glob(`${directory.path}/${folder}/**/*.html`);
+            const filteredFiles = files.filter((path) => !path.includes('index.html') && !path.includes('example-skip-to-content.html'));
+            for (const file of filteredFiles) {
+                data.urls.push(file.replace('build/', 'http://localhost/'));
             }
         }
     }
     return JSON.stringify(data);
 }
 
-createURLsFile();
+createUrlsFile();

@@ -1,8 +1,8 @@
 ---
 layout: ~
 ---
-{% extends "layout/_template.njk" %}
 
+{% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
@@ -12,10 +12,11 @@ layout: ~
 {% from "components/password/_macro.njk" import onsPassword %}
 {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
 {% from "components/duration/_macro.njk" import onsDuration %}
-
-{% set pageConfig = {
-    "title": "Errors prototype"
-} %}
+{%
+    set pageConfig = {
+        "title": "Errors prototype"
+    }
+%}
 
 {% block preMain %}
     {{
@@ -40,14 +41,18 @@ layout: ~
 {% endblock %}
 
 {% block bodyStart %}
+    <!-- prettier-ignore-start -->
     <form method="GET" action="example-errors-proto-errors" autocomplete="off" novalidate>
+    <!-- prettier-ignore-end -->
 {% endblock %}
 
 {% block main %}
-    {% call onsQuestion({
-        "title": "Input errors examples",
-        "submitButton": true
-    }) %}
+    {%
+        call onsQuestion({
+            "title": "Input errors examples",
+            "submitButton": true
+        })
+    %}
         {{
             onsInput({
                 "id": "number-example-errors-proto",
@@ -369,5 +374,7 @@ layout: ~
 {% endblock %}
 
 {% block bodyEnd %}
+    <!-- prettier-ignore-start -->
     </form>
+    <!-- prettier-ignore-end -->
 {% endblock %}

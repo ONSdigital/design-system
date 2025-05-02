@@ -1,32 +1,33 @@
 ---
-title: "Example: Spoke – start a section"
+title: 'Example: Spoke – start a section'
 layout: ~
 ---
-{% extends "layout/_template.njk" %}
 
+{% extends "layout/_template.njk" %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/list/_macro.njk" import onsList %}
 {% from "components/details/_macro.njk" import onsDetails %}
-
-{% set pageConfig = {
-    "header": {
-        "title": "Spoke example",
-        "signoutButton": {
-            "text": "Save and sign out"
-        }
-    },
-    "breadcrumbs": {
-        "itemsList": [
-            {
-                "url": '/patterns/hub-and-spoke/examples/hub/',
-                "text": 'Back'
+{%
+    set pageConfig = {
+        "header": {
+            "title": "Spoke example",
+            "signoutButton": {
+                "text": "Save and sign out"
             }
-        ]
+        },
+        "breadcrumbs": {
+            "itemsList": [
+                {
+                    "url": '/patterns/hub-and-spoke/examples/hub/',
+                    "text": 'Back'
+                }
+            ]
+        }
     }
-} %}
+%}
 
 {% block main %}
-    <h1 class="ons-u-mt-m">Billy Smith</h1>
+    <h1 class="ons-u-mt-l">Billy Smith</h1>
 
     <p>In this section, we are going to ask you questions about <strong>Billy Smith</strong>.</p>
 
@@ -35,7 +36,7 @@ layout: ~
     <p>To complete this section you will need to know personal details such as:</p>
     {{
         onsList({
-            "classes": 'ons-u-mb-m',
+            "classes": 'ons-u-mb-l',
             "itemsList": [
                 {
                     "text": 'date of birth'
@@ -64,7 +65,8 @@ layout: ~
             ]
         })
     }}
-    {% call onsDetails({
+    {%
+        call onsDetails({
             "id": 'details',
             "title": 'If you can’t answer questions for this person',
             "button": {
@@ -73,13 +75,15 @@ layout: ~
             }
         })
     %}
-        <p>You can <strong>share your household access code</strong> with the people you live with so they can complete their own sections.</p>
+        <p>
+            You can <strong>share your household access code</strong> with the people you live with so they can complete their own sections.
+        </p>
         <p>If this is not possible, there are <a href="#0">other ways each person can complete their own study</a>.</p>
     {% endcall %}
     {{
         onsButton({
             "text": 'Continue',
-            "classes": 'ons-u-mt-xl'
+            "classes": 'ons-u-mt-3xl'
         })
     }}
 {% endblock %}

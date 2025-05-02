@@ -7,7 +7,7 @@ env:
 
 jobs:
     run-visual-regression-tests:
-        runs-on: macos-12
+        runs-on: ubuntu-latest
 
         steps:
             - name: Checkout
@@ -20,10 +20,8 @@ jobs:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
               run: yarn install
-            - name: Install Docker
-              run: |
-                  brew install docker
-                  colima start
+            - name: Set up Docker
+              uses: docker/setup-buildx-action@v3
             - name: Run visual regression tests
               id: vr
               run: yarn test-visual

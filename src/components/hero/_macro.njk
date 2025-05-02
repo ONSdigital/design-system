@@ -1,22 +1,102 @@
+{% from "components/icon/_macro.njk" import onsIcon %}
+
 {% macro onsHero(params) %}
 
     {# Set number of columns used for hero content after medium breakpoint #}
     {% set detailsColumns = params.detailsColumns | default ('8') %}
 
-    <section class="ons-hero ons-grid--gutterless{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-hero--{{ variant }}{% endfor %}{% else %} ons-hero--{{ params.variants }}{% endif %}{% endif %}">
-
+    <section
+        class="ons-hero ons-grid--gutterless{% if params.breadcrumbs %}{{ ' ' }}ons-hero--with-breadcrumbs{% endif %}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-hero--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-hero--{{ params.variants }}{% endif %}"
+    >
+        {% if params.variants == 'navy-blue' %}
+            <div class="ons-hero__circles" aria-hidden="true">
+                {% for i in range(1, 13) %}
+                    <div class="ons-hero__circle-{{ i }}"></div>
+                {% endfor %}
+            </div>
+        {% elif params.variants == 'pale-blue' %}
+            <div class="ons-hero__circles" aria-hidden="true">
+                {% for i in range(1, 4) %}
+                    <div class="ons-hero__circle-{{ i }}"></div>
+                {% endfor %}
+            </div>
+        {% endif %}
         <div class="ons-hero__container ons-container{{ ' ons-container--wide' if params.wide }}">
+            <div class="ons-hero__details ons-grid__col ons-col-{{ detailsColumns }}@m col-10@s@m">
+                {% if params.breadcrumbs %}
+                    {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+                    {{
+                        onsBreadcrumbs({
+                            "itemsList": params.breadcrumbs.itemsList,
+                            "ariaLabel": params.breadcrumbs.ariaLabel,
+                            "id": params.breadcrumbs.id,
+                            "classes": 'ons-u-pt-no' ~ (' ' + params.breadcrumbs.classes if params.breadcrumbs.classes else '')
+                        })
+                    }}
+                {% endif %}
+                {% if params.topic %}
+                    <h2 class="ons-hero--topic">{{ params.topic | safe }}</h2>
+                {% endif %}
 
-            <div class="ons-hero__details ons-grid__col ons-col-{{ detailsColumns }}@m ons-col-10@s@m">
-                <header>
-                    <h1 class="ons-hero__title ons-u-fs-xxxl">{{ params.title }}</h1>
-                    {% if params.subtitle %}
-                        <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
+                <div class="ons-hero__content">
+                    <div class="ons-hero__title-container">
+                        <header>
+                            <h1 class="ons-hero__title ons-u-fs-3xl">{{ params.title }}</h1>
+                            {% if params.subtitle %}
+                                <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
+                            {% endif %}
+                        </header>
+
+                        {% if params.text %}
+                            <p class="ons-hero__text">{{ params.text | safe }}</p>
+                        {% endif %}
+                    </div>
+
+                    {% if params.variants == "grey" and params.officialStatisticsBadge == true %}
+                        <div class="ons-hero__badge ons-u-mb-s">
+                            {% if params.officialStatisticsBadgeUrl %}
+                                <a
+                                    href="{{ params.officialStatisticsBadgeUrl }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="ons-hero__badge-link"
+                                >
+                                    {{-
+                                        onsIcon({
+                                            "iconType": 'official-statistics'
+                                        })
+                                    -}}
+                                </a>
+                            {% else %}
+                                {{-
+                                    onsIcon({
+                                        "iconType": 'official-statistics'
+                                    })
+                                -}}
+                            {% endif %}
+                        </div>
                     {% endif %}
-                </header>
-
-                {% if params.text %}
-                    <p class="ons-hero__text">{{ params.text | safe }}</p>
+                </div>
+                {% if params.variants == "grey" %}
+                    {% if params.censusLogo == true %}
+                        <div class="ons-hero__census-logo">
+                            {{-
+                                onsIcon({
+                                    "iconType": 'census-logo'
+                                })
+                            -}}
+                        </div>
+                    {% endif %}
+                    {% if params.informationPanel %}
+                        <div class="ons-hero__information ons-u-mt-s">
+                            <div class="ons-hero__panel ons-hero__panel--{{ params.informationPanel.panelType }}">
+                                {{- params.informationPanel.panelText -}}
+                            </div>
+                            <div class="ons-hero__link">
+                                <a href="{{ params.informationPanel.panelLink.url }}">{{ params.informationPanel.panelLink.text }}</a>
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endif %}
 
                 {% if params.button %}
@@ -27,7 +107,7 @@
                     {% endif %}
                     {{
                         onsButton({
-                            "classes": btnClasses,
+                            "classes": 'ons-u-mt-s' + btnClasses,
                             "type": 'button',
                             "text": params.button.text,
                             "url": params.button.url
@@ -35,17 +115,26 @@
                     }}
                 {% endif %}
                 {% if caller %}
-                    <div class="ons-hero__additional-content">
-                        {{- caller() -}}
-                    </div>
+                    <div class="ons-hero__additional-content">{{- caller() -}}</div>
+                {% endif %}
+
+                {% if params.descriptionList %}
+                    {% from "components/description-list/_macro.njk" import onsDescriptionList %}
+                    {{
+                        onsDescriptionList({
+                            "classes": "ons-u-mb-no ons-u-mt-s ons-u-mt-l@l",
+                            "variant": 'inline',
+                            "termCol": params.descriptionList.termCol,
+                            "descriptionCol": params.descriptionList.descriptionCol,
+                            "itemsList": params.descriptionList.itemsList
+                        })
+                    }}
                 {% endif %}
             </div>
+
             {% if params.html %}
-                <div class="ons-hero__additional-html">
-                    {{- params.html | safe -}}
-                </div>
+                <div class="ons-hero__additional-html">{{- params.html | safe -}}</div>
             {% endif %}
         </div>
-
     </section>
 {% endmacro %}

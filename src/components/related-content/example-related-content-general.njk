@@ -2,11 +2,13 @@
 {% from "components/related-content/_section-macro.njk" import onsRelatedContentSection %}
 {% from "components/list/_macro.njk" import onsList %}
 
-{% call onsRelatedContent({
-    "ariaLabel": 'Related content'
-}) %}
+{%
+    call onsRelatedContent({
+        "ariaLabel": 'Related content'
+    })
+%}
     {% call onsRelatedContentSection() %}
-        <p class="ons-u-mb-xs">Telephone: 0800 587 2021</p>
+        <p class="ons-u-mb-2xs">Telephone: 0800 587 2021</p>
 
         {{
             onsList({
@@ -24,7 +26,7 @@
         }}
     {% endcall %}
     {% call onsRelatedContentSection() %}
-        <p class="ons-u-mb-xs">Live chat</p>
+        <p class="ons-u-mb-2xs">Live chat</p>
 
         {{
             onsList({

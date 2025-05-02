@@ -4,43 +4,45 @@
 {% macro onsMultipleInputFields(params) %}
     {% set fields %}
         {% if params.numberOfFields > 1 %}
-            <div class="ons-field-group">
-                {{ params.fields | safe }}
-            </div>
+            <div class="ons-field-group">{{ params.fields | safe }}</div>
         {% else %}
             {{ params.fields | safe }}
         {% endif %}
     {% endset %}
 
     {% if params.mutuallyExclusive %}
-        {% call onsMutuallyExclusive({
-            "id": params.id,
-            "legend": params.legendOrLabel,
-            "legendClasses": params.legendClasses,
-            "description": params.description,
-            "classes": params.classes,
-            "dontWrap": params.dontWrap if params.numberOfFields > 1 else true,
-            "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
-            "or": params.mutuallyExclusive.or,
-            "deselectMessage": params.mutuallyExclusive.deselectMessage,
-            "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-            "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
-            "error": params.error
-        }) %}
+        {%
+            call onsMutuallyExclusive({
+                "id": params.id,
+                "legend": params.legendOrLabel,
+                "legendClasses": params.legendClasses,
+                "description": params.description,
+                "classes": params.classes,
+                "dontWrap": params.dontWrap if params.numberOfFields > 1 else true,
+                "legendIsQuestionTitle": params.legendIsQuestionTitle,
+                "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
+                "or": params.mutuallyExclusive.or,
+                "deselectMessage": params.mutuallyExclusive.deselectMessage,
+                "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
+                "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
+                "error": params.error
+            })
+        %}
             {{ fields | safe }}
         {% endcall %}
     {% elif params.numberOfFields > 1 %}
-        {% call onsFieldset({
-            "id": params.id,
-            "legend": params.legendOrLabel,
-            "legendClasses": params.legendClasses,
-            "description": params.description,
-            "classes": params.classes,
-            "dontWrap": params.dontWrap,
-            "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "error": params.error
-        }) %}
+        {%
+            call onsFieldset({
+                "id": params.id,
+                "legend": params.legendOrLabel,
+                "legendClasses": params.legendClasses,
+                "description": params.description,
+                "classes": params.classes,
+                "dontWrap": params.dontWrap,
+                "legendIsQuestionTitle": params.legendIsQuestionTitle,
+                "error": params.error
+            })
+        %}
             {{ fields | safe }}
         {% endcall %}
     {% else %}

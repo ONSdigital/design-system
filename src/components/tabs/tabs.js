@@ -40,8 +40,8 @@ export default class Tabs {
 
     // Set up checks for responsive functionality
     // The tabs will display as tabs up until this.breakpoint is reached
-    // Tabs will display as a TOC list and show full content for <this.breakpoint viewports
-    // Aria tags are added only in toc view
+    // Tabs will then display as a table of contents list and show full content for this.breakpoint viewports
+    // Aria tags are added only in table of contents view
     setupViewportChecks() {
         const breakpoint = () => {
             let finalBreakpoint = 0;
@@ -183,7 +183,7 @@ export default class Tabs {
         panel.classList.add(this.jsHiddenClass);
     }
 
-    // Remove aria tags for TOC view
+    // Remove aria tags for table of contents view
     unsetAttributes(tab) {
         tab.removeAttribute('id');
         tab.removeAttribute('role');

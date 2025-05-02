@@ -1,4 +1,3 @@
-
 {% macro onsMutuallyExclusive(params) %}
     {% from "components/fieldset/_macro.njk" import onsFieldset %}
     {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
@@ -9,17 +8,19 @@
     {% set exclusiveOptionsLength = params.exclusiveOptions | length %}
     {% set or = params.or | default("Or") %}
 
-    {% call onsFieldset({
-        "id": params.id,
-        "classes": params.classes,
-        "legend": params.legend,
-        "legendClasses": params.legendClasses,
-        "description": params.description,
-        "attributes": params.attributes,
-        "dontWrap": params.dontWrap,
-        "legendIsQuestionTitle": params.legendIsQuestionTitle,
-        "error": params.error
-    }) %}
+    {%
+        call onsFieldset({
+            "id": params.id,
+            "classes": params.classes,
+            "legend": params.legend,
+            "legendClasses": params.legendClasses,
+            "description": params.description,
+            "attributes": params.attributes,
+            "dontWrap": params.dontWrap,
+            "legendIsQuestionTitle": params.legendIsQuestionTitle,
+            "error": params.error
+        })
+    %}
         <div class="ons-js-mutually-exclusive ons-mutually-exclusive">
             {{ content | safe }}
             {% if params.autosuggestResults %}
@@ -59,7 +60,13 @@
                     }}
                 </p>
             {% endif %}
-            <span class="ons-js-exclusive-alert ons-u-vh" role="alert" aria-live="polite" data-group-adjective="{{ params.deselectGroupAdjective }}" data-option-adjective="{{ params.deselectExclusiveOptionAdjective }}"></span>
+            <span
+                class="ons-js-exclusive-alert ons-u-vh"
+                role="alert"
+                aria-live="polite"
+                data-group-adjective="{{ params.deselectGroupAdjective }}"
+                data-option-adjective="{{ params.deselectExclusiveOptionAdjective }}"
+            ></span>
         </div>
     {% endcall %}
 {% endmacro %}

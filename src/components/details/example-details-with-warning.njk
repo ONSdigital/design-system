@@ -1,16 +1,21 @@
 {% from "components/details/_macro.njk" import onsDetails %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-{% call onsDetails({
-    "id": "details-example-with-warning",
-    "title": "Need to answer separately from your household?"
-}) %}
-
-    <p>If you need to answer separately from the people you live with, you can <a href="#0">request an individual access code</a> to start a separate survey.</p>
-    {% call onsPanel({
-        "variant": "warn"
-    }) %}
+{%
+    call onsDetails({
+        "id": "details-example-with-warning",
+        "title": "Need to answer separately from your household?"
+    })
+%}
+    <p>
+        If you need to answer separately from the people you live with, you can <a href="#0">request an individual access code</a> to start
+        a separate survey.
+    </p>
+    {%
+        call onsPanel({
+            "variant": "warn"
+        })
+    %}
         Someone in your household must still complete a survey using a household access code
     {% endcall %}
-
 {% endcall %}

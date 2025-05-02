@@ -2,7 +2,7 @@
     margin: 1rem 0 0;
 
     &__title {
-        @extend .ons-u-mb-m;
+        @extend .ons-u-mb-l;
 
         mark,
         .ons-instruction {
@@ -16,13 +16,13 @@
 
     &__description {
         p:last-of-type {
-            margin-bottom: 0 !important;
+            @extend .ons-u-mb-no;
         }
     }
 
     &__instruction {
         background-color: var(--ons-color-instruction-tint);
-        border: 5px solid var(--ons-color-instruction);
+        border: 4px solid var(--ons-color-instruction);
         display: block;
         font-weight: $font-weight-regular;
         padding: 1rem;

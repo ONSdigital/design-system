@@ -1,10 +1,12 @@
 {% from "components/textarea/_macro.njk" import onsTextarea %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 
-{% call onsQuestion({
-    "title": "What do you think of this service?",
-    "legendIsQuestionTitle": true
-}) %}
+{%
+    call onsQuestion({
+        "title": "What do you think of this service?",
+        "legendIsQuestionTitle": true
+    })
+%}
     {{
         onsTextarea({
             "id": "feedback",

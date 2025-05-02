@@ -1,11 +1,13 @@
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 
-{% call onsQuestion({
-    "title": "What devices do you own?",
-    "legendIsQuestionTitle": true,
-    "classes": "ons-u-mt-no"
-}) %}
+{%
+    call onsQuestion({
+        "title": "What devices do you own?",
+        "legendIsQuestionTitle": true,
+        "classes": "ons-u-mt-no"
+    })
+%}
     {{
         onsCheckboxes({
             "checkboxesLabel": "Select all that apply",

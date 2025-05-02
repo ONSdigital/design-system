@@ -1,6 +1,8 @@
 module.exports = {
     ci: {
         collect: {
+            staticDistDir: './build',
+            url: require('./urls.json').urls,
             numberOfRuns: 1,
             settings: {
                 onlyCategories: ['accessibility'],

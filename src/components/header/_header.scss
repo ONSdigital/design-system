@@ -16,12 +16,12 @@
         row-gap: 0.5rem;
 
         @include mq(xs) {
-            padding: 0.75rem 0;
+            padding: 0.875rem 0;
         }
     }
     &__main {
         background: var(--ons-color-header);
-        padding: 0.56rem 0;
+        padding: 0.5rem 0;
 
         &--border {
             border-bottom: 3px solid var(--ons-color-header);
@@ -31,13 +31,13 @@
     }
     &__title {
         @extend .ons-u-fs-r--b;
-        @extend .ons-u-fs-xl\@xxs;
+        @extend .ons-u-fs-xl\@2xs;
 
         color: var(--ons-color-white);
 
         @include mq(m) {
             margin-bottom: 1rem;
-            margin-top: 0.8rem;
+            margin-top: 1rem;
         }
 
         &-link {
@@ -61,7 +61,7 @@
         margin: 0;
 
         @include mq(m) {
-            margin: 0 0 1.1rem;
+            margin: 0 0 1rem;
         }
     }
     // Modifier - variants
@@ -69,15 +69,14 @@
         .ons-header {
             &__title {
                 @extend .ons-u-fs-m;
-                @extend .ons-u-fs-xxl\@m;
+                @extend .ons-u-fs-2xl\@m;
 
                 margin-bottom: 0;
             }
         }
     }
 
-    &--internal &,
-    &--neutral & {
+    &--internal & {
         &__top {
             background: var(--ons-color-header-masthead-internal);
             .ons-icon--logo {
@@ -88,14 +87,6 @@
                 }
             }
         }
-        &__org-logo-link:focus {
-            background-color: transparent;
-            box-shadow: none;
-            outline: 3px solid var(--ons-color-focus);
-            .ons-icon--logo {
-                fill: var(--ons-color-text-link-focus);
-            }
-        }
         &__grid-top {
             color: var(--ons-color-text-inverse);
             min-height: 36px;
@@ -104,35 +95,46 @@
                 &:hover {
                     text-decoration: underline solid var(--ons-color-text-inverse-link-hover) 3px;
                 }
+                &:focus {
+                    color: var(--ons-color-text-link-focus);
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
             }
         }
     }
 
     &--neutral & {
         &__top {
-            background: var(--ons-color-header-masthead-neutral);
+            .ons-icon--logo {
+                display: block;
+                .ons-icon--logo__group--text,
+                .ons-icon--logo__group--primary,
+                .ons-icon--logo__group--secondary {
+                    fill: var(--ons-color-black);
+                }
+            }
         }
 
         &__grid-top {
             a {
-                color: var(--ons-color-service-links);
+                color: var(--ons-color-black);
                 &:hover {
-                    text-decoration: underline solid var(--ons-color-service-links) 3px;
+                    text-decoration: underline solid var(--ons-color-header-masthead-neutral) 3px;
+                }
+                &:focus:hover {
+                    text-decoration: none;
                 }
             }
         }
 
         &__main {
             background: var(--ons-color-header-neutral);
-
-            &--border {
-                border-bottom: 3px solid var(--ons-color-header-neutral);
-                border-top: 3px solid var(--ons-color-header-neutral);
-            }
         }
 
         &__title {
-            color: var(--ons-color-header-title);
+            color: var(--ons-color-white);
             &-link {
                 &:hover {
                     text-decoration: underline solid var(--ons-color-branded-text) 2px;
@@ -149,7 +151,6 @@
     &__org-logo-link,
     &__title-logo-link {
         display: block;
-        font-size: 0;
         &:hover {
             text-decoration: none;
         }
@@ -167,13 +168,13 @@
     }
 
     &__org-logo--large {
-        @include mq(xxs, 454px) {
+        @include mq('2xs', 460px) {
             display: none;
         }
     }
 
     &__org-logo--small {
-        @include mq(455px) {
+        @include mq(461px) {
             display: none;
         }
     }
@@ -196,6 +197,9 @@
         .ons-header--neutral & {
             &--mobile {
                 background: var(--ons-color-grey-5);
+                .ons-header-service-nav__link {
+                    color: var(--ons-color-black);
+                }
             }
         }
 
@@ -231,10 +235,62 @@
             }
         }
     }
-    &__lang-adjustment {
-        @include mq(l) {
-            margin-right: 21rem;
-            margin-top: -5px !important;
+
+    &--basic & {
+        &__grid-top {
+            padding: 0;
+        }
+    }
+
+    &-nav-menu {
+        background-color: var(--ons-color-branded-tint);
+        width: 100%;
+
+        &__key-list {
+            border-bottom: 1px solid var(--ons-color-ocean-blue);
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            padding-left: 0;
+            row-gap: 1rem;
+        }
+
+        &__link,
+        &__heading,
+        &__text,
+        &__description {
+            line-height: 1.714 !important;
+        }
+
+        &__groupItem-list:not(:last-of-type) {
+            margin-bottom: 2rem !important;
+        }
+
+        .ons-grid {
+            margin-left: 0;
+        }
+
+        .ons-grid__col {
+            padding-left: 0;
+            padding-bottom: 1rem;
+            @include mq(m) {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    &-nav-search {
+        background-color: var(--ons-color-branded-tint);
+        margin-bottom: 1rem;
+        @extend .ons-u-pt-2xl;
+        @extend .ons-u-pb-2xl;
+
+        width: 100%;
+        &__input {
+            border-bottom: 1px solid var(--ons-color-ocean-blue);
+            @extend .ons-u-mb-2xl;
+            @extend .ons-u-pb-2xl;
+
+            row-gap: 1rem;
         }
     }
 

@@ -6,15 +6,17 @@ import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_CARD_WITHOUT_IMAGE = {
-    title: 'Example card title',
-    text: 'Example card text.',
-    textId: 'example-text-id',
+    title: {
+        text: 'Example card title',
+    },
+    body: {
+        text: 'Example card text.',
+        id: 'example-text-id',
+    },
 };
 
 const EXAMPLE_CARD_WITH_IMAGE = {
-    title: 'Example card title',
-    text: 'Example card text.',
-    textId: 'example-text-id',
+    ...EXAMPLE_CARD_WITHOUT_IMAGE,
     image: {
         smallSrc: 'example-small.png',
         largeSrc: 'example-large.png',
@@ -23,18 +25,28 @@ const EXAMPLE_CARD_WITH_IMAGE = {
 };
 
 const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE = {
-    title: 'Example card title',
-    text: 'Example card text.',
-    textId: 'example-text-id',
+    ...EXAMPLE_CARD_WITHOUT_IMAGE,
     image: true,
 };
 
 const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH = {
-    title: 'Example card title',
-    text: 'Example card text.',
-    textId: 'example-text-id',
+    ...EXAMPLE_CARD_WITHOUT_IMAGE,
     image: {
-        placeholderURL: '/placeholder-image-url',
+        placeholderUrl: '/placeholder-image-url',
+    },
+};
+
+const EXAMPLE_CARD_FEATURE_VARIANT = {
+    variant: 'feature',
+    title: {
+        text: 'Feature card title',
+        url: 'http://example.com',
+        subtitle: 'Optional subtitle',
+    },
+    body: {
+        figure: '123,456',
+        text: 'Example feature card text',
+        id: 'example-feature-text-id',
     },
 };
 
@@ -59,8 +71,14 @@ describe('macro: card', () => {
         ])('has the correct element type for the provided `headingLevel` (%i -> %s)', (headingLevel, expectedTitleTag) => {
             const $ = cheerio.load(
                 renderComponent('card', {
-                    ...EXAMPLE_CARD_WITHOUT_IMAGE,
-                    headingLevel,
+                    title: {
+                        text: 'Example card title',
+                        headingLevel: headingLevel,
+                    },
+                    body: {
+                        text: 'Example card text.',
+                        id: 'example-text-id',
+                    },
                 }),
             );
 
@@ -78,8 +96,14 @@ describe('macro: card', () => {
             const listsSpy = faker.spy('list');
 
             faker.renderComponent('card', {
-                ...EXAMPLE_CARD_WITHOUT_IMAGE,
-                itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
+                title: {
+                    text: 'Example card title',
+                },
+                body: {
+                    text: 'Example card text.',
+                    id: 'example-text-id',
+                    itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
+                },
             });
 
             expect(listsSpy.occurrences[0]).toEqual({
@@ -91,8 +115,14 @@ describe('macro: card', () => {
         it('outputs a hyperlink with the provided `url`', () => {
             const $ = cheerio.load(
                 renderComponent('card', {
-                    ...EXAMPLE_CARD_WITHOUT_IMAGE,
-                    url: 'https://example.com',
+                    title: {
+                        text: 'Example card title',
+                        url: 'https://example.com',
+                    },
+                    body: {
+                        text: 'Example card text.',
+                        id: 'example-text-id',
+                    },
                 }),
             );
 
@@ -120,8 +150,19 @@ describe('macro: card', () => {
         ])('has the correct element type for the provided `headingLevel` (%i -> %s)', (headingLevel, expectedTitleTag) => {
             const $ = cheerio.load(
                 renderComponent('card', {
-                    ...EXAMPLE_CARD_WITH_IMAGE,
-                    headingLevel,
+                    title: {
+                        text: 'Example card title',
+                        headingLevel: headingLevel,
+                    },
+                    body: {
+                        text: 'Example card text.',
+                        id: 'example-text-id',
+                    },
+                    image: {
+                        smallSrc: 'example-small.png',
+                        largeSrc: 'example-large.png',
+                        alt: 'Example alt text',
+                    },
                 }),
             );
 
@@ -141,8 +182,14 @@ describe('macro: card', () => {
         it('outputs a hyperlink with the provided `url`', () => {
             const $ = cheerio.load(
                 renderComponent('card', {
-                    ...EXAMPLE_CARD_WITH_IMAGE,
-                    url: 'https://example.com',
+                    title: {
+                        text: 'Example card title',
+                        url: 'https://example.com',
+                    },
+                    body: {
+                        text: 'Example card text.',
+                        id: 'example-text-id',
+                    },
                 }),
             );
 
@@ -206,7 +253,7 @@ describe('macro: card', () => {
             });
         });
 
-        describe('with a default placeholder image with `placeholderURL`', () => {
+        describe('with a default placeholder image with `placeholderUrl`', () => {
             it('outputs an `img` element', () => {
                 const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH));
 
@@ -232,6 +279,50 @@ describe('macro: card', () => {
 
                 expect($('.ons-card__image').attr('alt')).toBe('');
             });
+        });
+    });
+
+    describe('variant: feature', () => {
+        it('renders the `feature` variant with correct class', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+            expect($('.ons-card').hasClass('ons-card--feature')).toBe(true);
+        });
+
+        it('has the provided `title` text', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+
+            expect($('.ons-card__title').text().trim()).toBe('Feature card title');
+        });
+
+        it('has the provided `subitle` text', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+
+            expect($('.ons-card__subtitle').text().trim()).toBe('Optional subtitle');
+        });
+
+        it('outputs a hyperlink with the provided `url`', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+
+            expect($('.ons-card__link').attr('href')).toBe('http://example.com');
+        });
+
+        it('has the provided `figure`', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+
+            expect($('.ons-card__figure').text().trim()).toBe('123,456');
+        });
+
+        it('has the provided `text` accessible via the `textId` identifier', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+
+            expect($('#example-feature-text-id').text().trim()).toBe('Example feature card text');
+        });
+
+        it('passes jest-axe checks', async () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
+
+            const results = await axe($.html());
+            expect(results).toHaveNoViolations();
         });
     });
 });

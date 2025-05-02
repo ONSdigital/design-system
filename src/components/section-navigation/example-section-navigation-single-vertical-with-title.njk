@@ -1,0 +1,23 @@
+{% from "components/section-navigation/_macro.njk" import onsSectionNavigation %}
+{{
+    onsSectionNavigation({
+        "id": "section-menu",
+        "variants": "vertical",
+        "currentPath": "#section-1",
+        "title": "Sections title",
+        "itemsList": [
+            {
+                "text": "Section 1",
+                "url": "#section-1"
+            },
+            {
+                "text": "Section 2",
+                "url": "#0"
+            },
+            {
+                "text": "Section 3",
+                "url": "#0"
+            }
+        ]
+    })
+}}

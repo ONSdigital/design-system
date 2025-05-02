@@ -9,14 +9,14 @@ const EXAMPLE_WITH_TWO_LANGUAGES = {
     languages: [
         {
             url: '/english',
-            ISOCode: 'en',
+            isoCode: 'en',
             text: 'English',
             abbrText: 'EN',
             current: true,
         },
         {
             url: '/cymraeg',
-            ISOCode: 'cy',
+            isoCode: 'cy',
             text: 'Cymraeg',
             abbrText: 'CY',
             current: false,
@@ -32,19 +32,19 @@ const EXAMPLE_WITH_THREE_LANGUAGES = {
     languages: [
         {
             url: '/english',
-            ISOCode: 'en',
+            isoCode: 'en',
             text: 'English',
             current: false,
         },
         {
             url: '/cymraeg',
-            ISOCode: 'cy',
+            isoCode: 'cy',
             text: 'Cymraeg',
             current: true,
         },
         {
             url: '/polski',
-            ISOCode: 'pl',
+            isoCode: 'pl',
             text: 'Polski',
             current: false,
         },
@@ -96,7 +96,7 @@ describe('macro: language-selector', () => {
         it('does not have a visibility class applied', () => {
             const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_TWO_LANGUAGES));
 
-            expect($('.ons-language-links').hasClass('ons-u-d-no@xxs@m')).toBe(false);
+            expect($('.ons-language-links').hasClass('ons-u-d-no@2xs@m')).toBe(false);
         });
 
         it('has the `abbrText` rendered', () => {
@@ -131,7 +131,7 @@ describe('macro: language-selector', () => {
         it('has the visibility class applied', () => {
             const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_THREE_LANGUAGES));
 
-            expect($('.ons-language-links').hasClass('ons-u-d-no@xxs@m')).toBe(true);
+            expect($('.ons-language-links').hasClass('ons-u-d-no@2xs@m')).toBe(true);
         });
     });
 });
