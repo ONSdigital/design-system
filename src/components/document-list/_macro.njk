@@ -1,24 +1,27 @@
 {% macro onsDocumentList(params) %}
+    {% set titleTag = params.headingLevel | default(2) %}
+    {% set openingTag = "<h" ~ titleTag %}
+    {% set closingTag = "</h" ~ titleTag ~ ">" %}
+    {% set documentIndex = 0 %}
     <ul
         {% if params.id %}id="{{ params.id }}"{% endif %}class="ons-document-list{{ ' ' + params.classes if params.classes else '' }}"
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
     >
         {% for document in params.documents %}
-            {% set titleTag = params.headingLevel | default(2) %}
-            {% set openingTag = "<h" ~ titleTag %}
-            {% set closingTag = "</h" ~ titleTag ~ ">" %}
+            {% set documentID = document.title.id or ("document-title-id-" ~ documentIndex) %}
+            {% set documentIndex = documentIndex + 1 %}
             {% set documentItem %}
                 {% if document.thumbnail %}
                     <div class="ons-document-list__item-image{{ ' ons-document-list__item-image--file' if document.metadata.file }}">
                         <a
                             class="ons-document-list__image-link{{ ' ons-document-list__image-link--placeholder' if not document.thumbnail.smallSrc }}"
                             href="{{ document.title.url }}"
-                            aria-label="{{ document.title.text }}"
+                            aria-labelledby="{{ documentIndex }}"
                         >
                             {% if document.thumbnail.smallSrc and document.thumbnail.largeSrc %}
                                 <img
                                     srcset="{{ document.thumbnail.smallSrc }} 1x, {{ document.thumbnail.largeSrc }} 2x"
-                                    src="{{ document.thumbnail.smallSrc }}"
+                                    src="{{ document.thumb§nail.smallSrc }}"
                                     alt=""
                                     loading="lazy"
                                 />
@@ -32,7 +35,7 @@
                         class="ons-document-list__item-header{{ ' ons-document-list__item-header--reverse' if document.showMetadataFirst == true }}"
                     >
                         {{ openingTag | safe }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-2xs">
-                        <a href="{{ document.title.url }}"
+                        <a id="{{ documentIndex }}" href="{{ document.title.url }}"
                             >{{ document.title.text }}
                             {%- if document.metadata and document.metadata.file -%}
                                 <span class="ons-u-vh">
