@@ -16,6 +16,10 @@ import {
     EXAMPLE_BAR_WITH_LINE_CHART_PARAMS,
     EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
     EXAMPLE_SCATTER_CHART_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS,
 } from './_test-examples';
 
 describe('Macro: Chart', () => {
@@ -874,6 +878,94 @@ describe('Macro: Chart', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('primary');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-title')).toBe('Example Scatter Chart');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('scatter-chart-123');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with range annotation on the x axis', () => {
+        describe('GIVEN: Params: Range annotations', () => {
+            describe('WHEN: range annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the range annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-range-annotations--line-chart-range-annotations-x-axis-123]`).html();
+                    expect(configScript).toContain('"text":"A test x axis range annotation"');
+                    expect(configScript).toContain('"range":{"axisValue1":10,"axisValue2":15}');
+                    expect(configScript).toContain('"axis":"x"');
+                    expect(configScript).toContain('"labelOffsetX":150');
+                    expect(configScript).toContain('"labelOffsetY":0');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with range annotation on the y axis with label width', () => {
+        describe('GIVEN: Params: Range annotations', () => {
+            describe('WHEN: range annotations params are provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS),
+                );
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the range annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-range-annotations--line-chart-range-annotations-y-axis-123]`).html();
+                    expect(configScript).toContain('"text":"A test y axis range annotation with a label width of 250px"');
+                    expect(configScript).toContain('"axis":"y"');
+                    expect(configScript).toContain('"labelWidth":250');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with range annotation with the label inside', () => {
+        describe('GIVEN: Params: Range annotations', () => {
+            describe('WHEN: range annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the range annotations JSON config', () => {
+                    const configScript = $(
+                        `script[data-highcharts-range-annotations--line-chart-range-annotations-label-inside-123]`,
+                    ).html();
+                    expect(configScript).toContain('"text":"A test y axis range annotation with the label inside"');
+                    expect(configScript).toContain('"axis":"y"');
+                    expect(configScript).toContain('"labelInside":true');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with mixed annotation types', () => {
+        describe('GIVEN: Params: Mixed annotations', () => {
+            describe('WHEN: mixed annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the footnotes sequentially', () => {
+                    expect($('.ons-chart__footnotes').text()).toContain('1');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test point annotation');
+                    expect($('.ons-chart__footnotes').text()).toContain('2');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test x axis range annotation');
+                    expect($('.ons-chart__footnotes').text()).toContain('3');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test y axis range annotation with the label inside');
                 });
             });
         });
