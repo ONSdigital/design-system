@@ -9,6 +9,7 @@ import LineChart from './line-chart';
 import BarChart from './bar-chart';
 import ColumnChart from './column-chart';
 import ScatterChart from './scatter-chart';
+import Boxplot from './boxplot';
 import AnnotationsOptions from './annotations-options';
 import AreaChart from './area-chart';
 import ColumnRangeChart from './columnrange-chart';
@@ -48,6 +49,7 @@ class HighchartsBaseChart {
         this.areaChart = new AreaChart();
         this.scatterChart = new ScatterChart();
         this.columnRangeChart = new ColumnRangeChart();
+        this.boxplot = new Boxplot();
         this.extraLines = this.checkForExtraLines();
         this.extraScatter = this.checkForExtraScatter();
         if (window.isCommonChartOptionsDefined === undefined) {
@@ -122,6 +124,7 @@ class HighchartsBaseChart {
         const columnChartOptions = this.columnChart.getColumnChartOptions(this.config, this.useStackedLayout, this.extraLines);
         const areaChartOptions = this.areaChart.getAreaChartOptions();
         const scatterChartOptions = this.scatterChart.getScatterChartOptions();
+        const boxplotOptions = this.boxplot.getBoxplotOptions();
         // Merge specificChartOptions with the existing config
         this.config = this.mergeConfigs(this.config, specificChartOptions);
 
@@ -149,6 +152,10 @@ class HighchartsBaseChart {
         if (this.chartType === 'scatter') {
             // Merge the scatter chart options with the existing config
             this.config = this.mergeConfigs(this.config, scatterChartOptions);
+        }
+        if (this.chartType === 'boxplot') {
+            // Merge the boxplot chart options with the existing config
+            this.config = this.mergeConfigs(this.config, boxplotOptions);
         }
 
         if (this.extraLines > 0) {

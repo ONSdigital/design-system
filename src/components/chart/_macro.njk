@@ -1,7 +1,7 @@
 {% from "components/list/_macro.njk" import onsList %}
 
 {% macro onsChart(params) %}
-    {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange'] %}
+    {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
     {% set supportedChartTypesWithLine = ['column', 'columnrange'] %}
 
     {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
