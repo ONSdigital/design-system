@@ -27,7 +27,7 @@
                 "url": "#"
             }
         ]},
-        "legend": true,
+        "legend": "true",
         "xAxis": {
             "title": "Year",
             "type": "linear",
@@ -156,12 +156,14 @@
                 'Oct 2024'
             ],
             "tickIntervalDesktop": 15,
-            "tickIntervalMobile": 80
+            "tickIntervalMobile": 30
         },
         "yAxis": {
             "title": "Sales",
             "labelFormat": "{value:,.f}"
         },
+        "percentageHeightDesktop": 35,
+        "percentageHeightMobile": 90,
         "series": [
             {
                 "name": 'CPIH',
@@ -217,7 +219,22 @@
                 ]
             }
         ],
-        "percentageHeightDesktop": 35,
-        "percentageHeightMobile": 90
+        "rangeAnnotations": [
+            {
+                "text": "A test range annotation with the label to the right",
+                "range": {"axisValue1": 10, "axisValue2": 15},
+                "axis": "x",
+                "labelOffsetX": 150,
+                "labelOffsetY": 0
+            },
+            {
+                "text": "A test range annotation with the label to the left and a width of 100px",
+                "range": {"axisValue1": 90, "axisValue2": 110},
+                "axis": "x",
+                "labelOffsetX": -150,
+                "labelOffsetY": 0,
+                "labelWidth": 100
+            }
+        ]
     })
 }}

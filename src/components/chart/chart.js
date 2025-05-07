@@ -9,7 +9,7 @@ import BarChart from './bar-chart';
 import ColumnChart from './column-chart';
 import ScatterChart from './scatter-chart';
 import AnnotationsOptions from './annotations-options';
-
+import RangeAnnotationsOptions from './range-annotations-options';
 class HighchartsBaseChart {
     static selector() {
         return '[data-highcharts-base-chart]';
@@ -24,8 +24,12 @@ class HighchartsBaseChart {
         this.useStackedLayout = this.node.hasAttribute('data-highcharts-use-stacked-layout');
         this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.id}]`).textContent);
         if (this.node.querySelector(`[data-highcharts-annotations--${this.id}]`)) {
-            const annotations = JSON.parse(this.node.querySelector(`[data-highcharts-annotations--${this.id}]`).textContent);
-            this.annotationsOptions = new AnnotationsOptions(annotations);
+            this.annotations = JSON.parse(this.node.querySelector(`[data-highcharts-annotations--${this.id}]`).textContent);
+            this.annotationsOptions = new AnnotationsOptions(this.annotations);
+        }
+        if (this.node.querySelector(`[data-highcharts-range-annotations--${this.id}]`)) {
+            this.rangeAnnotations = JSON.parse(this.node.querySelector(`[data-highcharts-range-annotations--${this.id}]`).textContent);
+            this.rangeAnnotationsOptions = new RangeAnnotationsOptions(this.rangeAnnotations);
         }
         this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
         this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
@@ -48,6 +52,7 @@ class HighchartsBaseChart {
         this.setSpecificChartOptions();
         this.setResponsiveOptions();
         this.setLoadEvent();
+        this.setRenderEvent();
         this.setWindowResizeEvent();
         this.chart = Highcharts.chart(chartNode, this.config);
     }
@@ -176,6 +181,9 @@ class HighchartsBaseChart {
                 },
                 chartOptions: {
                     annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsMobile() : undefined,
+                    ...(this.rangeAnnotationsOptions
+                        ? this.rangeAnnotationsOptions.getRangeAnnotationsOptionsMobile(this.annotations ? this.annotations.length : 0)
+                        : null),
                 },
             },
             {
@@ -184,6 +192,7 @@ class HighchartsBaseChart {
                 },
                 chartOptions: {
                     annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsDesktop() : undefined,
+                    ...(this.rangeAnnotationsOptions ? this.rangeAnnotationsOptions.getRangeAnnotationsOptionsDesktop() : null),
                 },
             },
         ];
@@ -234,6 +243,18 @@ class HighchartsBaseChart {
             // Update the legend items for all charts
             this.commonChartOptions.updateLegendSymbols(currentChart);
             currentChart.redraw(false);
+        };
+    };
+
+    setRenderEvent = () => {
+        if (!this.config.chart.events) {
+            this.config.chart.events = {};
+        }
+        this.config.chart.events.render = (event) => {
+            const currentChart = event.target;
+            if (this.rangeAnnotationsOptions) {
+                this.rangeAnnotationsOptions.addLine(currentChart);
+            }
         };
     };
 

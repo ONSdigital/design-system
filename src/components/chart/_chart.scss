@@ -25,7 +25,7 @@
     }
 
     &__footnote-number {
-        display: flex;
+        display: flex !important;
         flex-shrink: 0;
         flex-grow: 0;
         align-items: center;
@@ -87,4 +87,21 @@
 // Enforce cursor as auto in the legend
 .highcharts-a11y-proxy-group-legend button {
     cursor: auto !important;
+}
+
+.ons-chart__range-annotation-label {
+    &--x {
+        padding: 0 20px;
+    }
+
+    &--outside {
+        padding: 0;
+        overflow: visible !important;
+    }
+}
+
+.ons-chart__connector-line {
+    position: absolute;
+    border-top: 1px solid var(--ons-color-grey-100);
+    border-left: 1px solid var(--ons-color-grey-100);
 }
