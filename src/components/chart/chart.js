@@ -1,6 +1,7 @@
 import Highcharts from 'highcharts';
 import 'highcharts/modules/accessibility';
 import 'highcharts/modules/annotations';
+import 'highcharts/highcharts-more';
 
 import CommonChartOptions from './common-chart-options';
 import SpecificChartOptions from './specific-chart-options';
@@ -10,6 +11,7 @@ import ColumnChart from './column-chart';
 import ScatterChart from './scatter-chart';
 import AnnotationsOptions from './annotations-options';
 import AreaChart from './area-chart';
+import ColumnRangeChart from './columnrange-chart';
 
 class HighchartsBaseChart {
     static selector() {
@@ -45,6 +47,7 @@ class HighchartsBaseChart {
         this.columnChart = new ColumnChart();
         this.areaChart = new AreaChart();
         this.scatterChart = new ScatterChart();
+        this.columnRangeChart = new ColumnRangeChart();
         this.extraLines = this.checkForExtraLines();
         this.extraScatter = this.checkForExtraScatter();
         if (window.isCommonChartOptionsDefined === undefined) {
@@ -56,6 +59,7 @@ class HighchartsBaseChart {
         this.setResponsiveOptions();
         this.setLoadEvent();
         this.setWindowResizeEvent();
+        console.log('HighchartsBaseChart', this.chartType, this.config);
         this.chart = Highcharts.chart(chartNode, this.config);
     }
 
@@ -114,6 +118,7 @@ class HighchartsBaseChart {
         const specificChartOptions = this.specificChartOptions.getOptions();
         const lineChartOptions = this.lineChart.getLineChartOptions();
         const barChartOptions = this.barChart.getBarChartOptions(this.useStackedLayout);
+        const columnRangeChartOptions = this.columnRangeChart.getColumnRangeChartOptions();
         const columnChartOptions = this.columnChart.getColumnChartOptions(this.config, this.useStackedLayout, this.extraLines);
         const areaChartOptions = this.areaChart.getAreaChartOptions();
         const scatterChartOptions = this.scatterChart.getScatterChartOptions();
@@ -128,6 +133,10 @@ class HighchartsBaseChart {
         if (this.chartType === 'bar') {
             // Merge the bar chart options with the existing config
             this.config = this.mergeConfigs(this.config, barChartOptions);
+        }
+        if (this.chartType === 'columnrange') {
+            // Merge the bar chart options with the existing config
+            this.config = this.mergeConfigs(this.config, columnRangeChartOptions);
         }
         if (this.chartType === 'column') {
             // Merge the column chart options with the existing config
@@ -149,9 +158,9 @@ class HighchartsBaseChart {
             }
         }
         if (this.extraScatter > 0) {
-            this.config = this.mergeConfigs(this.config, this.scatterChart.getScatterChartOptions());
-            if (this.chartType === 'bar') {
-                this.config = this.mergeConfigs(this.config, barChartOptions);
+            //this.config = this.mergeConfigs(this.config, this.scatterChart.getScatterChartOptions());
+            if (this.chartType === 'columnrange') {
+                this.config = this.mergeConfigs(this.config, columnRangeChartOptions);
             }
         }
 
@@ -235,16 +244,21 @@ class HighchartsBaseChart {
                 } else {
                     this.commonChartOptions.hideDataLabels(currentChart.series);
                 }
-                if (this.extraScatter > 0) {
-                    const scatterSeries = currentChart.series.filter((series) => series.type === 'scatter');
-                    this.scatterChart.updateMarkersForConfidenceLevels(scatterSeries);
-                }
             }
             if (this.chartType === 'column') {
                 this.commonChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'scatter') {
                 this.scatterChart.updateMarkers(currentChart);
+            }
+            if (this.chartType === 'columnrange') {
+                this.columnRangeChart.updateColumnRangeChartHeight(this.config, currentChart);
+                this.commonChartOptions.hideDataLabels(currentChart.series);
+
+                if (this.extraScatter > 0) {
+                    const scatterSeries = currentChart.series.filter((series) => series.type === 'scatter');
+                    this.scatterChart.updateMarkersForConfidenceLevels(scatterSeries);
+                }
             }
             if (this.chartType != 'bar') {
                 this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);

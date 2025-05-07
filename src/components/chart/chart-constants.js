@@ -95,7 +95,7 @@ class ChartConstants {
             ],
             confidenceLevelMarkerStyles: [
                 {
-                    radius: 8,
+                    radius: 6,
                     symbol: 'diamond',
                     lineWidth: 2,
                     lineColor: '#222',

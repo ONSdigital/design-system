@@ -1,8 +1,8 @@
 {% from "components/list/_macro.njk" import onsList %}
 
 {% macro onsChart(params) %}
-    {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area'] %}
-    {% set supportedChartTypesWithLine = ['column', 'bar'] %}
+    {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange'] %}
+    {% set supportedChartTypesWithLine = ['column', 'columnrange'] %}
 
     {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
         {% set headingLevel = params.headingLevel %}
@@ -103,6 +103,10 @@
         {% endfor %}
         {%
             set config = {
+                "chart": {
+                    "type": params.chartType,
+                    "inverted": params.isChartInverted if params.isChartInverted else false
+                },
                 "legend": {
                     "enabled" : params.legend if params.legend else true
                 },
