@@ -98,12 +98,8 @@ describe('FOR: Macro: Card', () => {
 
     describe('GIVEN: a card config with an image', () => {
         describe('WHEN: the card is rendered', () => {
-            let $;
-
-            beforeEach(() => {
-                const html = renderComponent('card', EXAMPLE_CARD_WITH_IMAGE);
-                $ = cheerio.load(html);
-            });
+            const html = renderComponent('card', EXAMPLE_CARD_WITH_IMAGE);
+            $ = cheerio.load(html);
 
             test('THEN: jest-axe checks pass', async () => {
                 const results = await axe($.html());
@@ -146,12 +142,8 @@ describe('FOR: Macro: Card', () => {
         });
 
         describe('WHEN: custom image params are provided', () => {
-            let $;
-
-            beforeEach(() => {
-                const html = renderComponent('card', EXAMPLE_CARD_WITH_IMAGE);
-                $ = cheerio.load(html);
-            });
+            const html = renderComponent('card', EXAMPLE_CARD_WITH_IMAGE);
+            $ = cheerio.load(html);
 
             test('THEN: it outputs an image element', () => {
                 expect($('.ons-card__image')[0].tagName).toBe('img');
@@ -174,12 +166,8 @@ describe('FOR: Macro: Card', () => {
 
     describe('GIVEN: a card config with a default placeholder image', () => {
         describe('WHEN: image is set to true (default placeholder)', () => {
-            let $;
-
-            beforeEach(() => {
-                const html = renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE);
-                $ = cheerio.load(html);
-            });
+            const html = renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE);
+            $ = cheerio.load(html);
 
             test('THEN: it outputs an image element', () => {
                 expect($('.ons-card__image')[0].tagName).toBe('img');
@@ -199,12 +187,8 @@ describe('FOR: Macro: Card', () => {
         });
 
         describe('WHEN: an image placeholder url is provided', () => {
-            let $;
-
-            beforeEach(() => {
-                const html = renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH);
-                $ = cheerio.load(html);
-            });
+            const html = renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH);
+            $ = cheerio.load(html);
 
             test('THEN: it outputs an image element', () => {
                 expect($('.ons-card__image')[0].tagName).toBe('img');
@@ -228,12 +212,8 @@ describe('FOR: Macro: Card', () => {
 
     describe('GIVEN: variant: feature', () => {
         describe('WHEN: a feature card is rendered', () => {
-            let $;
-
-            beforeEach(() => {
-                const html = renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT);
-                $ = cheerio.load(html);
-            });
+            const html = renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT);
+            $ = cheerio.load(html);
 
             test('THEN: it renders the feature variant with the correct modifier class', () => {
                 expect($('.ons-card').hasClass('ons-card--feature')).toBe(true);
