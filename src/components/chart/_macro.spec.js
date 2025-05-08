@@ -245,7 +245,7 @@ describe('Macro: Chart', () => {
         });
 
         describe('GIVEN: Params: Legend is set to true', () => {
-            describe('WHEN: legend is provided and set to true', () => {
+            describe('WHEN: legend parameter is provided and set to true', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_LEGEND_TRUE_PARAMS));
                 test('THEN: it renders the legend', () => {
                     const configScript = $(`script[data-highcharts-config--line-chart-legend-true-123]`).html();
@@ -255,7 +255,7 @@ describe('Macro: Chart', () => {
         });
 
         describe('GIVEN: Params: Legend is set to false', () => {
-            describe('WHEN: legend is provided and set to false', () => {
+            describe('WHEN: legend parameter is provided and set to false', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_LEGEND_FALSE_PARAMS));
                 test('THEN: it does not render the legend', () => {
                     const configScript = $(`script[data-highcharts-config--line-chart-legend-false-123]`).html();
@@ -265,11 +265,11 @@ describe('Macro: Chart', () => {
         });
 
         describe('GIVEN: Params: Legend is not provided', () => {
-            describe('WHEN: legend is not provided', () => {
+            describe('WHEN: legend parameter is not provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS));
-                test('THEN: it does not render the legend', () => {
+                test('THEN: it renders the legend', () => {
                     const configScript = $(`script[data-highcharts-config--line-chart-legend-unset-123]`).html();
-                    expect(configScript).toContain('"legend":{"enabled":false}');
+                    expect(configScript).toContain('"legend":{"enabled":true}');
                 });
             });
         });

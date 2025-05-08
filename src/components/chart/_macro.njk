@@ -104,7 +104,7 @@
         {%
             set config = {
                 "legend": {
-                    "enabled" : false if not params.legend or params.legend === false else true
+                    "enabled" : false if params.legend === false else true
                 },
                 "yAxis": {
                     "title": {
