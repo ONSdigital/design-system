@@ -27,7 +27,7 @@ describe('FOR: Macro: Card', () => {
                 expect($('.ons-card__title').text().trim()).toBe('Example card title');
             });
 
-            test('THEN: the provided text has the provided id', () => {
+            test('THEN: the body has the provided id', () => {
                 expect($('.ons-card > p').attr('id')).toBe('example-text-id');
             });
         });
@@ -119,11 +119,11 @@ describe('FOR: Macro: Card', () => {
             });
         });
 
-        describe('WHEN: heading levels are tested', () => {
+        describe('WHEN: headingLevel is provided', () => {
             it.each([
                 [1, 'h1'],
                 [4, 'h4'],
-            ])('THEN: headingLevel %i outputs <%s> tags', (headingLevel, expectedTag) => {
+            ])('THEN: setting it to %i outputs <%s> tags', (headingLevel, expectedTag) => {
                 const $ = cheerio.load(
                     renderComponent('card', {
                         title: {
