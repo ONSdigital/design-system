@@ -3,6 +3,7 @@
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/label/_macro.njk" import onsLabel %}
     {% from "components/char-check-limit/_macro.njk" import onsCharLimit %}
+    {% from "components/word-limit/_macro.njk" import onsWordLimit %}
     {% set textareaExclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive %}
 
     {% set field %}
@@ -19,7 +20,7 @@
 
         <textarea
             id="{{ params.id }}"
-            class="ons-input ons-input--textarea{{ ' ons-input--error' if params.error }}{{ ' ons-js-char-limit-input' if params.charCheckLimit and params.charCheckLimit.limit }}{{ ' ons-js-word-limit-input' if params.wordCheckLimit and params.wordCheckLimit.limit }}{{ textareaExclusiveClass }}{{ ' ' + params.classes if params.classes else '' }}{% if params.width %}{{ ' ' }}ons-input--w-{{ params.width }}{% endif %}"
+            class="ons-input ons-input--textarea{{ ' ons-input--error' if params.error }}{{ ' ons-js-char-limit-input' if params.charCheckLimit and params.charCheckLimit.limit }}{{ ' ons-js-word-limit-input' if params.wordLimit and params.wordLimit.limit }}{{ textareaExclusiveClass }}{{ ' ' + params.classes if params.classes else '' }}{% if params.width %}{{ ' ' }}ons-input--w-{{ params.width }}{% endif %}"
             {% if params.name %}
                 name="{{ params.name }}"
             {% endif %}
@@ -28,8 +29,8 @@
                 maxlength="{{ params.charCheckLimit.limit }}" data-char-limit-ref="{{ params.id }}-lim"
                 aria-describedby="{{ params.id }}-lim"
             {% endif %}
-            {% if params.wordCheckLimit and params.wordCheckLimit.limit %}
-                maxlength="{{ params.wordCheckLimit.limit }}" data-word-limit-ref="{{ params.id }}-lim"
+            {% if params.wordLimit and params.wordLimit.limit %}
+                data-max-words="{{ params.wordLimit.limit }}" data-word-limit-ref="{{ params.id }}-lim"
                 aria-describedby="{{ params.id }}-lim"
             {% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
@@ -48,13 +49,13 @@
             %}
             {% endcall %}
         {% endif %}
-        {% if params.wordCheckLimit and params.wordCheckLimit.limit %}
+        {% if params.wordLimit and params.wordLimit.limit %}
             {%
-                call onsCharLimit({
+                call onsWordLimit({
                     "id": params.id ~ "-lim",
-                    "limit": params.wordCheckLimit.limit,
-                    "charCountSingular": params.wordCheckLimit.wordCountSingular,
-                    "charCountPlural": params.wordCheckLimit.wordCountPlural
+                    "limit": params.wordLimit.limit,
+                    "wordCountSingular": params.wordLimit.wordCountSingular,
+                    "wordCountPlural": params.wordLimit.wordCountPlural
                 })
             %}
             {% endcall %}

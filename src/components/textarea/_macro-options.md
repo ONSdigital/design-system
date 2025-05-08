@@ -18,6 +18,7 @@
 | dontWrap              | boolean                                                       | false                                  | Set to “true” to prevent the textarea from being wrapped in a [field component](/components/field)                                                                |
 | legendIsQuestionTitle | boolean                                                       | false                                  | Creates an `h1` inside the legend. Use when the mutually exclusive textarea is [the only fieldset on the page](/components/fieldset#legend-as-pagequestion-title) |
 | error                 | `Error` [_(ref)_](/components/error)                          | false                                  | Settings for validation errors                                                                                                                                    |
+| wordLimit             | Object`<wordLimit>`                                           | false                                  | Settings for the textarea [word limit counter](#wordlimit)                                                                                                        |
 
 ## CharCheckLimit
 
@@ -36,3 +37,12 @@
 | for         | string | true     | Set with the HTML `id` of the textarea the label is for |
 | description | string | false    | Hint text to help users fill in the input               |
 | classes     | string | false    | Classes to add to the label                             |
+
+## WordLimit
+
+| Name              | Type    | Required                       | Description                                                                                                                                                                              |
+| ----------------- | ------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                | string  | true                           | The HTML `id` of the component                                                                                                                                                           |
+| limit             | integer | true                           | The maximum number of words allowed in the input                                                                                                                                         |
+| wordCountPlural   | string  | true (unless `variant` is set) | The string displayed when multiple words can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} words remaining”. |
+| wordCountSingular | string  | true (unless `variant` is set) | The string displayed when one more word can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} word remaining”.   |
