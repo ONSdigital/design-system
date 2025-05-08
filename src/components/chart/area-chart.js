@@ -12,6 +12,7 @@ class AreaChart {
                     // 'rectangle' counterintuitively gives a circle, because the legend icon has a border radius of half it's height by default
                     legendSymbol: 'rectangle',
                     stacking: 'normal',
+                    lineWidth: 0,
                 },
                 series: {
                     marker: {
