@@ -123,10 +123,14 @@ describe('FOR: Macro: Fieldset', () => {
     describe('GIVEN: Params: dontWrap', () => {
         describe('WHEN: dontWrap is set to true', () => {
             const $ = cheerio.load(
-                renderComponent('fieldset', {
-                    ...EXAMPLE_FIELDSET,
-                    dontWrap: true,
-                }),
+                renderComponent(
+                    'fieldset',
+                    {
+                        ...EXAMPLE_FIELDSET,
+                        dontWrap: true,
+                    },
+                    'Example content...',
+                ),
             );
 
             test('THEN: renders without fieldset wrapper', () => {
@@ -135,7 +139,7 @@ describe('FOR: Macro: Fieldset', () => {
             });
 
             test('THEN: renders content inside ons-input-items div', () => {
-                expect($('.ons-input-items').html().trim()).toBe('');
+                expect($('.ons-input-items').html()).toBe('Example content...');
             });
         });
 
