@@ -13,6 +13,11 @@ describe('FOR: Macro: Fieldset', () => {
             test('THEN: renders fieldset with provided id', () => {
                 expect($('.ons-fieldset').attr('id')).toBe('example-fieldset');
             });
+
+            test('THEN: legend has correct aria-describedby attribute', () => {
+                const ariaDescByVal = $('.ons-fieldset__legend').attr('aria-describedby');
+                expect(ariaDescByVal).toBe('example-fieldset-legend-description');
+            });
         });
 
         describe('WHEN: id is not provided', () => {
