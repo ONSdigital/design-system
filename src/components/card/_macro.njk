@@ -4,8 +4,8 @@
     {% set closingHeadingTag = "</h" + headingLevel + ">" %}
     {% set placeholderSrcset = (params.image.placeholderUrl if params.image.placeholderUrl else "") + "/img/small/placeholder-card.png 1x, " + (params.image.placeholderUrl if params.image.placeholderUrl else "") + "/img/large/placeholder-card.png 2x" %}
 
-    <div class="ons-card">
-        <a href="{{ params.title.url }}" class="ons-card__link">
+    <div class="ons-card {% if params.variant == "feature" %}ons-card--feature ons-u-flex-grow{% endif %}">
+        {% set imageBlock %}
             {%- if params.image -%}
                 {% if params.image.smallSrc %}
                     <img
@@ -29,10 +29,31 @@
                     />
                 {% endif %}
             {%- endif -%}
+        {% endset %}
+
+        {% set titleBlock %}
             {{ openingHeadingTag | safe }}
             class="ons-card__title {{ params.title.classes | default('ons-u-fs-m') }}" id="{{ params.title.id }}"> {{ params.title.text }}
             {{ closingHeadingTag | safe }}
-        </a>
+        {% endset %}
+
+        {% if params.title.url %}
+            <a href="{{ params.title.url }}" class="ons-card__link {% if params.title.subtitle %}ons-u-mb-xs{% endif %}">
+                {{ imageBlock | safe }}
+                {{ titleBlock | safe }}
+            </a>
+        {% else %}
+            {{ imageBlock | safe }}
+            {{ titleBlock | safe }}
+        {% endif %}
+
+        {% if params.title.subtitle %}
+            <p class="ons-card__subtitle ons-u-fs-s">{{ params.title.subtitle }}</p>
+        {% endif %}
+
+        {% if params.body.figure %}
+            <p class="ons-card__figure ons-u-fs-3xl ons-u-fw-b ons-u-mb-no">{{ params.body.figure }}</p>
+        {% endif %}
 
         <p id="{{ params.body.id }}">{{ params.body.text }}</p>
 

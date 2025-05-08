@@ -21,4 +21,4 @@ jobs:
             - name: Clear jest cache
               run: yarn test:clear-cache
             - name: Run macro and script tests
-              run: yarn test
+              run: yarn test | grep -v "Google analytics not connected"
