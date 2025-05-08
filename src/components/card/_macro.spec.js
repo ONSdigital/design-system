@@ -105,7 +105,7 @@ describe('FOR: Macro: Card', () => {
                 $ = cheerio.load(html);
             });
 
-            test('THEN: it passes jest-axe checks', async () => {
+            test('THEN: jest-axe checks pass', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
@@ -259,7 +259,7 @@ describe('FOR: Macro: Card', () => {
                 expect($('#example-feature-text-id').text().trim()).toBe('Example feature card text');
             });
 
-            test('THEN: it passes jest-axe accessibility checks', async () => {
+            test('THEN: jest-axe checks pass', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
