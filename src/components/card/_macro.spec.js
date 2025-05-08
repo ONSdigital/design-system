@@ -15,12 +15,8 @@ import {
 describe('FOR: Macro: Card', () => {
     describe('GIVEN: Params: required', () => {
         describe('WHEN: an image is not provided', () => {
-            let $;
-
-            beforeEach(() => {
-                const html = renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE);
-                $ = cheerio.load(html);
-            });
+            const html = renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE);
+            const $ = cheerio.load(html);
 
             test('THEN: jest-axe text pass', async () => {
                 const results = await axe($.html());
@@ -32,7 +28,7 @@ describe('FOR: Macro: Card', () => {
             });
 
             test('THEN: the provided text has the provided id', () => {
-                expect($('#example-text-id').text().trim()).toBe('Example card text.');
+                expect($('.ons-card > p').attr('id')).toBe('example-text-id');
             });
         });
 
@@ -89,7 +85,7 @@ describe('FOR: Macro: Card', () => {
                             url: 'https://example.com',
                         },
                         body: {
-                            text: 'Example card text.',
+                            text: 'Example card text',
                             id: 'example-text-id',
                         },
                     }),
@@ -119,7 +115,7 @@ describe('FOR: Macro: Card', () => {
             });
 
             test('THEN: the provided `text` is correctly rendered', () => {
-                expect($('#example-text-id').text().trim()).toBe('Example card text.');
+                expect($('#example-text-id').text().trim()).toBe('Example card text');
             });
         });
 
@@ -135,7 +131,7 @@ describe('FOR: Macro: Card', () => {
                             headingLevel,
                         },
                         body: {
-                            text: 'Example card text.',
+                            text: 'Example card text',
                             id: 'example-text-id',
                         },
                         image: {

@@ -3,7 +3,7 @@ export const EXAMPLE_CARD_WITHOUT_IMAGE = {
         text: 'Example card title',
     },
     body: {
-        text: 'Example card text.',
+        text: 'Example card text',
         id: 'example-text-id',
     },
 };
