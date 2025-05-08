@@ -95,16 +95,14 @@ export default class NavigationToggle {
         const isToggleHidden = this.isHidden(this.toggle);
         this.toggle.setAttribute(attrDisabled, 'false');
 
-        if (this.searchToggleBtn) {
-            this.searchToggleBtn.setAttribute(attrDisabled, 'false');
-        }
+        this.searchToggleBtn?.setAttribute(attrDisabled, 'false');
 
         if (!isToggleHidden) {
-            // JS is active - always hide by default
+            // close nav by default if toggle button is visible
             this.closeNav();
         } else {
-            // JS inactive
-            this.toggle.setAttribute(attrExpanded, 'false');
+            // if toggle is hidden, set nav to open (for visible desktop nav)
+            this.toggle.setAttribute(attrExpanded, 'false'); // set mobile menu expanded to false if hidden
             this.navigation.removeAttribute(attrHidden);
             this.navigation.classList.remove(this.hideClass);
 
