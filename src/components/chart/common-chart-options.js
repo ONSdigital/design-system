@@ -165,7 +165,7 @@ class CommonChartOptions {
     };
 
     disableLegendForSingleSeries = (config) => {
-        if (config.series.length === 1) {
+        if (config.chart.type != 'boxplot' && config.series.length === 1) {
             config.legend = {
                 enabled: false,
             };
