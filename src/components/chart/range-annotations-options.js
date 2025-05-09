@@ -81,6 +81,7 @@ class RangeAnnotationsOptions {
         };
     };
 
+    // Returns the position of the label relative to the plotBand
     getLabelPosition = (chartType, labelRect, plotBandRect, isXaxis) => {
         let isToLeft = false;
         let isToRight = false;
@@ -107,6 +108,8 @@ class RangeAnnotationsOptions {
         return { isToLeft, isToRight, isToTop, isToBottom };
     };
 
+    // Draws the line connecting the label to the plotBand
+    // Also adds a custom class to the label based on its position
     addLine = (currentChart) => {
         // If there is already a line in the chart, remove it before redrawing it
         const lines = currentChart.container.querySelectorAll('[data-range-annotation-line]');
@@ -171,6 +174,7 @@ class RangeAnnotationsOptions {
                 line.style.height = '1px';
                 line.style.top = `${labelRect.height / 2}px`;
                 line.style.left = `-${divWidth}px`;
+                labelElement.classList.add('ons-chart__range-annotation-label--right');
             }
 
             if (labelPosition.isToLeft) {
@@ -179,6 +183,7 @@ class RangeAnnotationsOptions {
                 line.style.height = '1px';
                 line.style.top = `${labelRect.height / 2}px`;
                 line.style.right = `-${divWidth}px`;
+                labelElement.classList.add('ons-chart__range-annotation-label--left');
             }
 
             if (labelPosition.isToTop) {
@@ -187,6 +192,7 @@ class RangeAnnotationsOptions {
                 line.style.width = '1px';
                 line.style.top = `${labelRect.height}px`;
                 line.style.left = `${labelRect.width / 2}px`;
+                labelElement.classList.add('ons-chart__range-annotation-label--top');
             }
 
             if (labelPosition.isToBottom) {
@@ -195,6 +201,7 @@ class RangeAnnotationsOptions {
                 line.style.width = '1px';
                 line.style.top = `-${divHeight}px`;
                 line.style.left = `${labelRect.width / 2}px`;
+                labelElement.classList.add('ons-chart__range-annotation-label--bottom');
             }
         });
     };
