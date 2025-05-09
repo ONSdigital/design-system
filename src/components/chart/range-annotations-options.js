@@ -6,13 +6,14 @@ class RangeAnnotationsOptions {
         this.rangeAnnotations = rangeAnnotations;
     }
 
-    getRangeAnnotationsOptionsDesktop = () => {
+    getRangeAnnotationsOptionsDesktop = (chartType) => {
         let xAxisPlotBands = [];
         let yAxisPlotBands = [];
         this.rangeAnnotations.forEach((rangeAnnotation) => {
+            let adjustedRangeValues = this.adjustRangeForCategoryAxis(rangeAnnotation, chartType);
             let rangeConfig = {
-                from: rangeAnnotation.range.axisValue1,
-                to: rangeAnnotation.range.axisValue2,
+                from: adjustedRangeValues.axisValue1,
+                to: adjustedRangeValues.axisValue2,
                 label: {
                     text: rangeAnnotation.text,
                     useHTML: true,
@@ -34,6 +35,40 @@ class RangeAnnotationsOptions {
             if (!rangeAnnotation.labelInside && rangeAnnotation.labelOffsetY) {
                 rangeConfig.label.y = rangeAnnotation.labelOffsetY;
             }
+            if (rangeAnnotation.axis === 'x') {
+                xAxisPlotBands.push(rangeConfig);
+            } else if (rangeAnnotation.axis === 'y') {
+                yAxisPlotBands.push(rangeConfig);
+            }
+        });
+        return {
+            xAxis: xAxisPlotBands.length > 0 ? { plotBands: xAxisPlotBands } : undefined,
+            yAxis: yAxisPlotBands.length > 0 ? { plotBands: yAxisPlotBands } : undefined,
+        };
+    };
+
+    getRangeAnnotationsOptionsMobile = (annotationsLength, chartType) => {
+        let xAxisPlotBands = [];
+        let yAxisPlotBands = [];
+        this.rangeAnnotations.forEach((rangeAnnotation, index) => {
+            let adjustedRangeValues = this.adjustRangeForCategoryAxis(rangeAnnotation, chartType);
+            let rangeConfig = {
+                from: adjustedRangeValues.axisValue1,
+                to: adjustedRangeValues.axisValue2,
+                label: {
+                    // Add the number of point annotations to the current range annotation loop
+                    // So that if we have both types of annotations, the numbers will be sequential
+                    text: `${annotationsLength + index + 1}`,
+                    useHTML: true,
+                    className: 'ons-chart__footnote-number',
+                    allowOverlap: true,
+                    style: {
+                        color: this.constants.labelColor,
+                        fontSize: this.constants.defaultFontSize,
+                    },
+                },
+                color: this.constants.shadingColor,
+            };
             if (rangeAnnotation.axis === 'x') {
                 xAxisPlotBands.push(rangeConfig);
             } else if (rangeAnnotation.axis === 'y') {
@@ -164,37 +199,17 @@ class RangeAnnotationsOptions {
         });
     };
 
-    getRangeAnnotationsOptionsMobile = (annotationsLength) => {
-        let xAxisPlotBands = [];
-        let yAxisPlotBands = [];
-        this.rangeAnnotations.forEach((rangeAnnotation, index) => {
-            let rangeConfig = {
-                from: rangeAnnotation.range.axisValue1,
-                to: rangeAnnotation.range.axisValue2,
-                label: {
-                    // Add the number of point annotations to the current range annotation loop
-                    // So that if we have both types of annotations, the numbers will be sequential
-                    text: `${annotationsLength + index + 1}`,
-                    useHTML: true,
-                    className: 'ons-chart__footnote-number',
-                    allowOverlap: true,
-                    style: {
-                        color: this.constants.labelColor,
-                        fontSize: this.constants.defaultFontSize,
-                    },
-                },
-                color: this.constants.shadingColor,
-            };
-            if (rangeAnnotation.axis === 'x') {
-                xAxisPlotBands.push(rangeConfig);
-            } else if (rangeAnnotation.axis === 'y') {
-                yAxisPlotBands.push(rangeConfig);
-            }
-        });
-        return {
-            xAxis: xAxisPlotBands.length > 0 ? { plotBands: xAxisPlotBands } : undefined,
-            yAxis: yAxisPlotBands.length > 0 ? { plotBands: yAxisPlotBands } : undefined,
-        };
+    // For bar and column charts, we want the range to
+    // start and end flush with the edges of the columns / bars,
+    // not halfway through as is the Highcharts default.
+    adjustRangeForCategoryAxis = (rangeAnnotation, chartType) => {
+        let axisValue1 = rangeAnnotation.range.axisValue1;
+        let axisValue2 = rangeAnnotation.range.axisValue2;
+        if ((chartType === 'bar' && rangeAnnotation.axis === 'x') || (chartType === 'column' && rangeAnnotation.axis === 'x')) {
+            axisValue1 = rangeAnnotation.range.axisValue1 - 0.5;
+            axisValue2 = rangeAnnotation.range.axisValue2 - 0.5;
+        }
+        return { axisValue1, axisValue2 };
     };
 }
 

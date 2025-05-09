@@ -182,7 +182,10 @@ class HighchartsBaseChart {
                 chartOptions: {
                     annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsMobile() : undefined,
                     ...(this.rangeAnnotationsOptions
-                        ? this.rangeAnnotationsOptions.getRangeAnnotationsOptionsMobile(this.annotations ? this.annotations.length : 0)
+                        ? this.rangeAnnotationsOptions.getRangeAnnotationsOptionsMobile(
+                              this.annotations ? this.annotations.length : 0,
+                              this.chartType,
+                          )
                         : null),
                 },
             },
@@ -192,7 +195,9 @@ class HighchartsBaseChart {
                 },
                 chartOptions: {
                     annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsDesktop() : undefined,
-                    ...(this.rangeAnnotationsOptions ? this.rangeAnnotationsOptions.getRangeAnnotationsOptionsDesktop() : null),
+                    ...(this.rangeAnnotationsOptions
+                        ? this.rangeAnnotationsOptions.getRangeAnnotationsOptionsDesktop(this.chartType)
+                        : null),
                 },
             },
         ];
