@@ -34,10 +34,18 @@ class HighchartsBaseChart {
         }
         this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
         this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
-        this.xAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsXAxisTickIntervalMobile);
-        this.xAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsXAxisTickIntervalDesktop);
-        this.yAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsYAxisTickIntervalMobile);
-        this.yAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop);
+        this.xAxisTickIntervalMobile = this.node.dataset.highchartsXAxisTickIntervalMobile
+            ? parseInt(this.node.dataset.highchartsXAxisTickIntervalMobile)
+            : undefined;
+        this.xAxisTickIntervalDesktop = this.node.dataset.highchartsXAxisTickIntervalDesktop
+            ? parseInt(this.node.dataset.highchartsXAxisTickIntervalDesktop)
+            : undefined;
+        this.yAxisTickIntervalMobile = this.node.dataset.highchartsYAxisTickIntervalMobile
+            ? parseInt(this.node.dataset.highchartsYAxisTickIntervalMobile)
+            : undefined;
+        this.yAxisTickIntervalDesktop = this.node.dataset.highchartsYAxisTickIntervalDesktop
+            ? parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop)
+            : undefined;
         this.commonChartOptions = new CommonChartOptions(this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
