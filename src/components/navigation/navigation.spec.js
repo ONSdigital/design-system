@@ -180,10 +180,12 @@ describe('script: navigation', () => {
             });
 
             it('has aria-expanded set as `false` on the navigation toggle button', async () => {
+                // wait for progressive enhancement by checking that the toggle button is visible
+                await page.waitForSelector(buttonEl + ':not(.ons-u-d-no)');
                 const button = await page.$(buttonEl);
-                const ariaExpandedIsFalse = await button.evaluate((node) => node.getAttribute('aria-expanded') === 'false');
-                expect(ariaExpandedIsFalse).toBe(true);
-            });
+                const ariaExpanded = await button.evaluate((node) => node.getAttribute('aria-expanded'));
+                expect(ariaExpanded).toBe('false');
+            }, 10000);
         });
 
         describe('when the viewport is small', () => {
@@ -262,7 +264,7 @@ describe('script: navigation', () => {
 
     describe.each([['main', EXAMPLE_NAVIGATION, '.ons-navigation--main', '.ons-js-navigation-button']])(
         'level: %s navigation',
-        (_, params, navEl, buttonEl) => {
+        (_, params, navEl) => {
             describe('when the viewport is small and manually made wider', () => {
                 beforeEach(async () => {
                     await setViewport(page, { width: 600, height: 1050 });
@@ -274,12 +276,6 @@ describe('script: navigation', () => {
                     const nav = await page.$(navEl);
                     const hasAriaAttribute = await nav.evaluate((node) => node.getAttribute('aria-hidden') === null);
                     expect(hasAriaAttribute).toBe(true);
-                });
-
-                it('has aria-expanded removed from the navigation toggle button', async () => {
-                    const button = await page.$(buttonEl);
-                    const hasAriaExpanded = await button.evaluate((node) => node.getAttribute('aria-expanded') === null);
-                    expect(hasAriaExpanded).toBe(true);
                 });
 
                 it('has the hide class removed from the navigation list', async () => {

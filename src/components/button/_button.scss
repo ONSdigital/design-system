@@ -147,6 +147,15 @@ $button-shadow-size: 3px;
         top: ems($button-shadow-size);
     }
 
+    &.disabled {
+        cursor: not-allowed;
+        border: 0;
+
+        &:hover {
+            border: 0;
+        }
+    }
+
     // Small buttons
     &--small,
     &--mobile {
@@ -156,6 +165,7 @@ $button-shadow-size: 3px;
     &--small & {
         &__inner {
             padding: 0.5rem 0.75rem;
+
             .ons-icon {
                 height: 16px;
                 width: 16px;
