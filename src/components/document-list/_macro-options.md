@@ -65,5 +65,6 @@
 
 | Name | Type   | Required | Description                                               |
 | ---- | ------ | -------- | --------------------------------------------------------- |
+| id   | string | false    | The id for the document                                   |
 | text | string | true     | The title for the document                                |
 | url  | string | true     | The URL for the document link (either a file or web page) |
