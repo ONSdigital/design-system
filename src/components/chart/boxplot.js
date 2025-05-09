@@ -33,8 +33,8 @@ class Boxplot {
         };
     };
 
-    updateLegend = (chart) => {
-        const container = document.getElementsByClassName('highcharts-root')[0];
+    updateLegend = (chart, uncertaintyRangeLabel, estimateLineLabel) => {
+        const container = document.getElementsByClassName('highcharts-container')[0];
         if (!container) return;
 
         if (chart.legend.options.enabled === true) {
@@ -48,22 +48,20 @@ class Boxplot {
             legend.style.display = 'flex';
             legend.style.gap = '2rem';
             legend.style.fontSize = `${this.constants.defaultFontSize}`;
-            legend.style.marginTop = '1rem';
             legend.style.paddingLeft = '1rem';
             legend.style.alignItems = 'center';
 
             legend.innerHTML = `
-            <div style="display:flex; align-items:center; gap:0.5rem;">
-                <span style="display:inline-block; width:12px; height:12px; background-color: rgba(166,32,96,0.6);"></span>
-                <span> ${chart.series[0].name} </span>
-            </div>
-            <div style="display:flex; align-items:center; gap:0.5rem;">
-                <span style="display:inline-block; width:20px; height:3px; border-radius: 2px; background-color: #003c57;"></span>
-                <span>Estimate</span>
-            </div>
-        `;
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                    <span style="display:inline-block; width:12px; height:12px; background-color: rgba(166,32,96,0.6);"></span>
+                    <span>${uncertaintyRangeLabel}</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                    <span style="display:inline-block; width:20px; height:3px; border-radius: 2px; background-color: #003c57;"></span>
+                    <span>${estimateLineLabel}</span>
+                </div>
+            `;
 
-            // Insert legend above the SVG chart root
             container.parentNode.insertBefore(legend, container);
         }
     };

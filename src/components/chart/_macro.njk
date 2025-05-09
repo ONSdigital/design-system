@@ -41,6 +41,12 @@
         {% if params.yAxis.tickIntervalDesktop %}
             data-highcharts-y-axis-tick-interval-desktop="{{ params.yAxis.tickIntervalDesktop }}"
         {% endif %}
+        {% if params.estimateLineLabel %}
+            data-highcharts-estimate-line-label="{{ params.estimateLineLabel }}"
+        {% endif %}
+        {% if params.uncertaintyRangeLabel %}
+            data-highcharts-uncertainty-range-label="{{ params.uncertaintyRangeLabel }}"
+        {% endif %}
     >
         <figure class="ons-chart">
             {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}

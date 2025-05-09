@@ -42,6 +42,8 @@ class HighchartsBaseChart {
         this.yAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsYAxisTickIntervalMobile);
         this.yAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop);
         this.commonChartOptions = new CommonChartOptions(this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
+        this.estimateLineLabel = this.node.dataset.highchartsEstimateLineLabel;
+        this.uncertainyRangeLabel = this.node.dataset.highchartsUncertaintyRangeLabel;
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
@@ -268,7 +270,7 @@ class HighchartsBaseChart {
                 }
             }
             if (this.chartType === 'boxplot') {
-                this.boxplot.updateLegend(currentChart);
+                this.boxplot.updateLegend(currentChart, this.uncertainyRangeLabel, this.estimateLineLabel);
             }
 
             if (this.chartType != 'bar') {
