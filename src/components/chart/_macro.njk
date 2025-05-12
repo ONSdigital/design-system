@@ -105,7 +105,7 @@
         {% set legendValue = true %}
         {% if params.legend is defined %}
             {# if a legend parameter has been provided, check that it is a boolean #}
-            {% if params.legend === true or params.legend === false %}
+            {% if params.legend == true or params.legend == false %}
                 {# legend value is a boolean - use the value passed in #}
                 {% set legendValue = params.legend %}
             {% endif %}
