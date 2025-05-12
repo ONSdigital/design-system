@@ -16,6 +16,8 @@ import {
     EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
     EXAMPLE_SCATTER_CHART_PARAMS,
     EXAMPLE_AREA_CHART_PARAMS,
+    EXAMPLE_BOXPLOT_CHART_PARAMS,
+    EXAMPLE_COLUMN_RANGE_CHART_PARAMS,
     EXAMPLE_INVALID_CHART_PARAMS,
 } from './_test-examples';
 
@@ -874,6 +876,186 @@ describe('Macro: Chart', () => {
                     expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
                     expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
                     expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Boxplot Chart', () => {
+        describe('GIVEN: Params: required', () => {
+            describe('WHEN: required params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_BOXPLOT_CHART_PARAMS));
+                const configScript = $(`script[data-highcharts-config--uuid]`).html();
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes at least one boxplot series', () => {
+                    expect(configScript).toContain('"type":"boxplot"');
+                });
+
+                test('THEN: it renders the chart container with correct data attributes', () => {
+                    const chartContainer = $('[data-highcharts-base-chart]');
+                    expect(chartContainer.attr('data-highcharts-type')).toBe('boxplot');
+                    expect(chartContainer.attr('data-highcharts-theme')).toBe('primary');
+                    expect(chartContainer.attr('data-highcharts-title')).toBe(
+                        'Figure 6: Net debt as a percentage of GDP remains at levels last seen in the early 1960s',
+                    );
+                    expect(chartContainer.attr('data-highcharts-id')).toBe('uuid');
+                });
+
+                test('THEN: it includes the Highcharts JSON config', () => {
+                    expect(configScript).toContain('"text":"Years"');
+                    expect(configScript).toContain('"text":"Percentage of GDP"');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Legend', () => {
+            describe('WHEN: legend is disabled', () => {
+                const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_BOXPLOT_CHART_PARAMS, legend: false }));
+
+                test('THEN: it disables the legend in config', () => {
+                    const configScript = $(`script[data-highcharts-config--uuid]`).html();
+                    expect(configScript).toContain('"enabled":false');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Caption', () => {
+            describe('WHEN: caption is provided', () => {
+                const customCaption = 'This is an example caption for the chart.';
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        caption: customCaption,
+                    }),
+                );
+
+                test('THEN: it renders the caption when provided', () => {
+                    expect($('figcaption').text()).toBe(customCaption);
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Description', () => {
+            describe('WHEN: description is provided', () => {
+                const accessibleDescription = 'An accessible description for screen readers.';
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        description: accessibleDescription,
+                    }),
+                );
+
+                test('THEN: it renders the description for accessibility', () => {
+                    expect($('.ons-u-vh').text()).toBe(accessibleDescription);
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Estimate Line and Uncertainty Range Labels', () => {
+            describe('WHEN: both labels are provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        estimateLineLabel: 'Estimated value',
+                        uncertaintyRangeLabel: '95% Confidence Interval',
+                    }),
+                );
+
+                test('THEN: it sets the estimate line label as a data attribute', () => {
+                    const baseChart = $('[data-highcharts-base-chart]');
+                    expect(baseChart.attr('data-highcharts-estimate-line-label')).toBe('Estimated value');
+                });
+
+                test('THEN: it sets the uncertainty range label as a data attribute', () => {
+                    const baseChart = $('[data-highcharts-base-chart]');
+                    expect(baseChart.attr('data-highcharts-uncertainty-range-label')).toBe('95% Confidence Interval');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Download', () => {
+            describe('WHEN: download object is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        download: {
+                            title: 'Download Chart Data',
+                            itemsList: [
+                                { text: 'Download as PNG', url: 'https://example.com/chart.png' },
+                                { text: 'Download as CSV', url: 'https://example.com/chart.csv' },
+                            ],
+                        },
+                    }),
+                );
+
+                test('THEN: it renders the download section correctly', () => {
+                    expect($('.ons-chart__download-title').text()).toBe('Download Chart Data');
+
+                    const downloadLinks = $('.ons-chart__download-title').next().find('li a');
+                    expect(downloadLinks).toHaveLength(2);
+
+                    expect(downloadLinks.eq(0).text()).toBe('Download as PNG');
+                    expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
+
+                    expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
+                    expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Column Range Chart', () => {
+        describe('GIVEN: Params: Required', () => {
+            describe('WHEN: required params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_RANGE_CHART_PARAMS));
+                const configScript = $(`script[data-highcharts-config--uuid]`).html();
+
+                test('THEN: it passes jest-axe accessibility checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders with correct chart metadata attributes', () => {
+                    const baseChart = $('[data-highcharts-base-chart]');
+                    expect(baseChart.attr('data-highcharts-type')).toBe('columnrange');
+                    expect(baseChart.attr('data-highcharts-theme')).toBe('primary');
+                    expect(baseChart.attr('data-highcharts-title')).toBe(
+                        'Food stores showed a strong rise on the month, while non-food stores fell',
+                    );
+                    expect(baseChart.attr('data-highcharts-id')).toBe('uuid');
+                });
+
+                test('THEN: it sets chart to inverted', () => {
+                    expect(configScript).toContain('"inverted":true');
+                });
+
+                test('THEN: it includes columnrange and scatter series types', () => {
+                    expect(configScript).toContain('"type":"columnrange"');
+                    expect(configScript).toContain('"type":"scatter"');
+                });
+
+                test('THEN: it renders the chart title, subtitle and caption', () => {
+                    expect($('.ons-chart__title').text()).toBe('Food stores showed a strong rise on the month, while non-food stores fell');
+                    expect($('.ons-chart__subtitle').text()).toContain('Upward contribution from housing');
+                    expect($('.ons-chart__caption').text()).toContain('Source: Monthly Business Survey');
+                });
+
+                test('THEN: it includes an accessible description if provided', () => {
+                    expect($('.ons-u-vh').text()).toBe('Volume sales, seasonally adjusted, Great Britain, January 2022 to January 2025');
+                });
+
+                test('THEN: it renders the download section correctly', () => {
+                    expect($('.ons-chart__download-title').text()).toBe('Download Figure 1 data');
+                    const downloadLinks = $('.ons-chart__download-title').next().find('li a');
+
+                    expect(downloadLinks.eq(0).text()).toContain('Excel spreadsheet');
+                    expect(downloadLinks.eq(1).text()).toContain('Simple text file');
+                    expect(downloadLinks.eq(2).text()).toContain('Image');
                 });
             });
         });
