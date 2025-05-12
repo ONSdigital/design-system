@@ -1,328 +1,185 @@
 /** @jest-environment jsdom */
 
 import * as cheerio from 'cheerio';
-
 import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
-const EXAMPLE_CARD_WITHOUT_IMAGE = {
-    title: {
-        text: 'Example card title',
-    },
-    body: {
-        text: 'Example card text.',
-        id: 'example-text-id',
-    },
-};
+import {
+    EXAMPLE_CARD,
+    EXAMPLE_CARD_WITH_IMAGE,
+    EXAMPLE_CARD_WITH_LIST,
+    EXAMPLE_CARD_FULL_EXAMPLE,
+    EXAMPLE_CARD_FEATURE_VARIANT,
+} from './_test_examples';
 
-const EXAMPLE_CARD_WITH_IMAGE = {
-    ...EXAMPLE_CARD_WITHOUT_IMAGE,
-    image: {
-        smallSrc: 'example-small.png',
-        largeSrc: 'example-large.png',
-        alt: 'Example alt text',
-    },
-};
+describe('FOR: Macro: Card', () => {
+    describe('GIVEN: Params: required', () => {
+        describe('WHEN: all required params are provided', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD));
 
-const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE = {
-    ...EXAMPLE_CARD_WITHOUT_IMAGE,
-    image: true,
-};
-
-const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH = {
-    ...EXAMPLE_CARD_WITHOUT_IMAGE,
-    image: {
-        placeholderUrl: '/placeholder-image-url',
-    },
-};
-
-const EXAMPLE_CARD_FEATURE_VARIANT = {
-    variant: 'feature',
-    title: {
-        text: 'Feature card title',
-        url: 'http://example.com',
-        subtitle: 'Optional subtitle',
-    },
-    body: {
-        figure: '123,456',
-        text: 'Example feature card text',
-        id: 'example-feature-text-id',
-    },
-};
-
-describe('macro: card', () => {
-    describe('mode: without image', () => {
-        it('passes jest-axe checks', async () => {
-            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
-
-            const results = await axe($.html());
-            expect(results).toHaveNoViolations();
-        });
-
-        it('has the provided `title` text', () => {
-            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
-
-            expect($('.ons-card__title').text().trim()).toBe('Example card title');
-        });
-
-        it.each([
-            [1, 'h1'],
-            [4, 'h4'],
-        ])('has the correct element type for the provided `headingLevel` (%i -> %s)', (headingLevel, expectedTitleTag) => {
-            const $ = cheerio.load(
-                renderComponent('card', {
-                    title: {
-                        text: 'Example card title',
-                        headingLevel: headingLevel,
-                    },
-                    body: {
-                        text: 'Example card text.',
-                        id: 'example-text-id',
-                    },
-                }),
-            );
-
-            expect($(`${expectedTitleTag}.ons-card__title`).text().trim()).toBe('Example card title');
-        });
-
-        it('has the provided `text` accessible via the `textId` identifier', () => {
-            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
-
-            expect($('#example-text-id').text().trim()).toBe('Example card text.');
-        });
-
-        it('renders the provided `itemsList` using the `list` component', () => {
-            const faker = templateFaker();
-            const listsSpy = faker.spy('list');
-
-            faker.renderComponent('card', {
-                title: {
-                    text: 'Example card title',
-                },
-                body: {
-                    text: 'Example card text.',
-                    id: 'example-text-id',
-                    itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
-                },
+            test('THEN: jest-axe text pass', async () => {
+                const results = await axe($.html());
+                expect(results).toHaveNoViolations();
             });
 
-            expect(listsSpy.occurrences[0]).toEqual({
-                variants: 'dashed',
-                itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
+            test('THEN: renders the title with the provided text', () => {
+                expect($('.ons-card__title').text().trim()).toBe('Example card title');
             });
-        });
 
-        it('outputs a hyperlink with the provided `url`', () => {
-            const $ = cheerio.load(
-                renderComponent('card', {
-                    title: {
-                        text: 'Example card title',
-                        url: 'https://example.com',
-                    },
-                    body: {
-                        text: 'Example card text.',
-                        id: 'example-text-id',
-                    },
-                }),
-            );
+            test('THEN: renders the body with the provided id', () => {
+                expect($('.ons-card__body').attr('id')).toBe('example-text-id');
+            });
 
-            expect($('.ons-card__link').attr('href')).toBe('https://example.com');
+            test('THEN: renders the body with the provided text', () => {
+                expect($('.ons-card__body').text().trim()).toBe('Example card text');
+            });
         });
     });
 
-    describe('mode: with image', () => {
-        it('passes jest-axe checks', async () => {
+    describe('GIVEN: Params: figure', () => {
+        describe('WHEN: figure is provided', () => {
+            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FULL_EXAMPLE));
+
+            test('THEN: it renders the provided figure', () => {
+                expect($('.ons-card__figure').text().trim()).toBe('123,456');
+            });
+        });
+    });
+
+    describe('GIVEN: Params: headingLevel', () => {
+        describe('WHEN: headingLevel is provided', () => {
+            it.each([
+                [1, 'h1'],
+                [4, 'h4'],
+            ])('THEN: it renders headings with the correct heading tag (%i -> <%s>)', (headingLevel, expectedTag) => {
+                const $ = cheerio.load(
+                    renderComponent('card', {
+                        ...EXAMPLE_CARD,
+                        title: {
+                            text: 'Example card title',
+                            headingLevel,
+                        },
+                    }),
+                );
+                const titleTag = $('.ons-card__title')[0].tagName;
+                expect(titleTag).toBe(expectedTag);
+            });
+        });
+    });
+
+    describe('GIVEN: Params: itemsList', () => {
+        describe('WHEN: itemsList is provided in the body', () => {
+            test('THEN: renders the list with the provided items', () => {
+                const faker = templateFaker();
+                const listsSpy = faker.spy('list');
+
+                faker.renderComponent('card', EXAMPLE_CARD_WITH_LIST);
+
+                expect(listsSpy.occurrences[0]).toEqual({
+                    variants: 'dashed',
+                    itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
+                });
+            });
+        });
+    });
+
+    describe('GIVEN: Params: title', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FULL_EXAMPLE));
+        describe('WHEN: url is provided', () => {
+            test('THEN: renders the title with the provided url', () => {
+                expect($('.ons-card__link').attr('href')).toBe('http://example.com');
+            });
+        });
+        describe('WHEN: subtitle is provided', () => {
+            test('THEN: it renders the subtitle with the provided text', () => {
+                expect($('.ons-card__subtitle').text().trim()).toBe('Optional subtitle');
+            });
+        });
+    });
+
+    describe('GIVEN: Params: image', () => {
+        describe('WHEN: an image is provided', () => {
             const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_IMAGE));
 
-            const results = await axe($.html());
-            expect(results).toHaveNoViolations();
-        });
+            test('THEN: jest-axe checks pass', async () => {
+                const results = await axe($.html());
+                expect(results).toHaveNoViolations();
+            });
 
-        it('has the provided `title` text', () => {
-            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_IMAGE));
-
-            expect($('.ons-card__title').text().trim()).toBe('Example card title');
-        });
-
-        it.each([
-            [1, 'h1'],
-            [4, 'h4'],
-        ])('has the correct element type for the provided `headingLevel` (%i -> %s)', (headingLevel, expectedTitleTag) => {
-            const $ = cheerio.load(
-                renderComponent('card', {
-                    title: {
-                        text: 'Example card title',
-                        headingLevel: headingLevel,
-                    },
-                    body: {
-                        text: 'Example card text.',
-                        id: 'example-text-id',
-                    },
-                    image: {
-                        smallSrc: 'example-small.png',
-                        largeSrc: 'example-large.png',
-                        alt: 'Example alt text',
-                    },
-                }),
-            );
-
-            expect($(`${expectedTitleTag}.ons-card__title`).text().trim()).toBe('Example card title');
-        });
-
-        it('has the provided `text`', () => {
-            const $ = cheerio.load(
-                renderComponent('card', {
-                    ...EXAMPLE_CARD_WITH_IMAGE,
-                }),
-            );
-
-            expect($('#example-text-id').text().trim()).toBe('Example card text.');
-        });
-
-        it('outputs a hyperlink with the provided `url`', () => {
-            const $ = cheerio.load(
-                renderComponent('card', {
-                    title: {
-                        text: 'Example card title',
-                        url: 'https://example.com',
-                    },
-                    body: {
-                        text: 'Example card text.',
-                        id: 'example-text-id',
-                    },
-                }),
-            );
-
-            expect($('.ons-card__link').attr('href')).toBe('https://example.com');
-        });
-
-        describe('with a custom image', () => {
-            it('outputs an `img` element', () => {
-                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_IMAGE));
-
+            test('THEN: it renders an image element', () => {
                 expect($('.ons-card__image')[0].tagName).toBe('img');
             });
 
-            it('outputs an `img` element with the expected `srcset`', () => {
-                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_IMAGE));
-
+            test('THEN: the image has the expected srcset attribute set', () => {
                 expect($('.ons-card__image').attr('srcset')).toBe('example-small.png 1x, example-large.png 2x');
             });
 
-            it('outputs an `img` element with the expected `src`', () => {
-                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_IMAGE));
-
+            test('THEN: the image has the expected src attribute source set', () => {
                 expect($('.ons-card__image').attr('src')).toBe('example-small.png');
             });
 
-            it('outputs an `img` element with the expected alt text', () => {
-                const $ = cheerio.load(
-                    renderComponent('card', {
-                        ...EXAMPLE_CARD_WITH_IMAGE,
-                        alt: 'Example alt text',
-                    }),
-                );
-
+            test('THEN: the image has the expected alt text', () => {
                 expect($('.ons-card__image').attr('alt')).toBe('Example alt text');
             });
         });
 
-        describe('with a default placeholder image', () => {
-            it('outputs an `img` element', () => {
-                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
+        describe('WHEN: image is set to true', () => {
+            const $ = cheerio.load(renderComponent('card', { ...EXAMPLE_CARD, image: true }));
 
+            test('THEN: it outputs an image element', () => {
                 expect($('.ons-card__image')[0].tagName).toBe('img');
             });
 
-            it('outputs an `img` element with the expected `srcset`', () => {
-                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
-
+            test('THEN: the card is rendered with the srcset attribute set to the placeholder image', () => {
                 expect($('.ons-card__image').attr('srcset')).toBe('/img/small/placeholder-card.png 1x, /img/large/placeholder-card.png 2x');
             });
 
-            it('outputs an `img` element with the expected `src`', () => {
-                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
-
+            test('THEN: the card is rendered with the src attribute set to the placeholder image', () => {
                 expect($('.ons-card__image').attr('src')).toBe('/img/small/placeholder-card.png');
             });
 
-            it('outputs an `img` element with the expected empty alt text', () => {
-                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
-
+            test('THEN: the image has an empty alt attribute', () => {
                 expect($('.ons-card__image').attr('alt')).toBe('');
             });
         });
 
-        describe('with a default placeholder image with `placeholderUrl`', () => {
-            it('outputs an `img` element', () => {
-                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH));
+        describe('WHEN: image placeholderUrl is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('card', {
+                    ...EXAMPLE_CARD,
+                    image: {
+                        placeholderUrl: '/placeholder-image-url',
+                    },
+                }),
+            );
 
+            test('THEN: it outputs an image element', () => {
                 expect($('.ons-card__image')[0].tagName).toBe('img');
             });
 
-            it('outputs an `img` element with the expected `srcset`', () => {
-                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH));
-
+            test('THEN: the image has the expected srcset attribute set with the custom path', () => {
                 expect($('.ons-card__image').attr('srcset')).toBe(
                     '/placeholder-image-url/img/small/placeholder-card.png 1x, /placeholder-image-url/img/large/placeholder-card.png 2x',
                 );
             });
 
-            it('outputs an `img` element with the expected `src`', () => {
-                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH));
-
+            test('THEN: the image has the expected src attribute set with the custom path', () => {
                 expect($('.ons-card__image').attr('src')).toBe('/placeholder-image-url/img/small/placeholder-card.png');
             });
 
-            it('outputs an `img` element with the expected empty alt text', () => {
-                const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH));
-
+            test('THEN: the image has an empty alt attribute', () => {
                 expect($('.ons-card__image').attr('alt')).toBe('');
             });
         });
     });
 
-    describe('variant: feature', () => {
-        it('renders the `feature` variant with correct class', () => {
-            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
-            expect($('.ons-card').hasClass('ons-card--feature')).toBe(true);
-        });
-
-        it('has the provided `title` text', () => {
+    describe('GIVEN: Params: variant', () => {
+        describe('WHEN: variant is set to feature', () => {
             const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
 
-            expect($('.ons-card__title').text().trim()).toBe('Feature card title');
-        });
-
-        it('has the provided `subitle` text', () => {
-            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
-
-            expect($('.ons-card__subtitle').text().trim()).toBe('Optional subtitle');
-        });
-
-        it('outputs a hyperlink with the provided `url`', () => {
-            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
-
-            expect($('.ons-card__link').attr('href')).toBe('http://example.com');
-        });
-
-        it('has the provided `figure`', () => {
-            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
-
-            expect($('.ons-card__figure').text().trim()).toBe('123,456');
-        });
-
-        it('has the provided `text` accessible via the `textId` identifier', () => {
-            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
-
-            expect($('#example-feature-text-id').text().trim()).toBe('Example feature card text');
-        });
-
-        it('passes jest-axe checks', async () => {
-            const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
-
-            const results = await axe($.html());
-            expect(results).toHaveNoViolations();
+            test('THEN: it renders the card with the feature modifier class', () => {
+                expect($('.ons-card').hasClass('ons-card--feature')).toBe(true);
+            });
         });
     });
 });
