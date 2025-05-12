@@ -46,39 +46,11 @@ export const EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS = {
     percentageHeightMobile: 120,
 };
 
-export const EXAMPLE_LINE_CHART_WITH_LEGEND_TRUE_PARAMS = {
-    chartType: 'line',
-    title: 'Example Line Chart with legend set to be true',
-    subtitle: 'A sample subtitle',
-    id: 'line-chart-legend-true-123',
-    legend: true,
-    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
-    yAxis: { title: 'Y Axis Title' },
-    series: [
-        { name: 'Series 1', data: [10, 20, 30] },
-        { name: 'Series 2', data: [15, 25, 35] },
-    ],
-};
-
-export const EXAMPLE_LINE_CHART_WITH_LEGEND_FALSE_PARAMS = {
-    chartType: 'line',
-    title: 'Example Line Chart with legend set to be false',
-    subtitle: 'A sample subtitle',
-    id: 'line-chart-legend-false-123',
-    legend: false,
-    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
-    yAxis: { title: 'Y Axis Title' },
-    series: [
-        { name: 'Series 1', data: [10, 20, 30] },
-        { name: 'Series 2', data: [15, 25, 35] },
-    ],
-};
-
 export const EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS = {
     chartType: 'line',
     title: 'Example Line Chart with legend unset',
     subtitle: 'A sample subtitle',
-    id: 'line-chart-legend-unset-123',
+    id: 'line-chart-legend-tests-123',
     xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
     yAxis: { title: 'Y Axis Title' },
     series: [
