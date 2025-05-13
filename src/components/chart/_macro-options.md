@@ -38,23 +38,23 @@
 
 ### Y_Axis
 
-| Name                | Type   | Required | Description                                                                                                                                             |
-| ------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title               | string | true     | The title text displayed on the y-axis                                                                                                                  |
-| labelFormat         | string | false    | A format string for the axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating). |
-| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                |
-| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).               |
+| Name                | Type   | Required | Description                                                                                                                                                                                            |
+| ------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| title               | string | true     | The title text displayed on the y-axis. Note that for any chart type apart from bar charts, a maximum character limit of 50 characters is recommended to avoid the axis title being cut off at mobile. |
+| labelFormat         | string | false    | A format string for the axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating).                                                |
+| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                               |
+| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                              |
 
 ### X_Axis
 
-| Name                | Type   | Required | Description                                                                                                                                               |
-| ------------------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title               | string | false    | The title text displayed on the x-axis                                                                                                                    |
-| labelFormat         | string | false    | A format string for the x-axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating). |
-| categories          | array  | false    | Labels for each tick mark along the x-axis.                                                                                                               |
-| type                | string | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. Defaults to linear.                                                    |
-| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                  |
-| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                 |
+| Name                | Type   | Required | Description                                                                                                                                                                  |
+| ------------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title               | string | false    | The title text displayed on the x-axis. Note that for bar charts, a maximum character limit of 50 characters is recommended to avoid the axis title being cut off at mobile. |
+| labelFormat         | string | false    | A format string for the x-axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating).                    |
+| categories          | array  | false    | Labels for each tick mark along the x-axis.                                                                                                                                  |
+| type                | string | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. Defaults to linear.                                                                       |
+| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                     |
+| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                    |
 
 ### Series
 
