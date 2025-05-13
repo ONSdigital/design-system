@@ -129,7 +129,7 @@ describe('script: textarea', () => {
                     await page.type('#example-textarea', 'Lorem ipsum dolor');
                 });
 
-                it('then the characters remaining readout reflect the number of characters remaining', async () => {
+                it('then the word limit helper text reflects the number of words remaining', async () => {
                     const readout = await page.$eval('#example-textarea-lim', (node) => node.textContent);
                     expect(readout).toBe('You have 2 words remaining');
                 });
