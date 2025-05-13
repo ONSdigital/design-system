@@ -150,7 +150,7 @@ describe('script: textarea', () => {
                     expect(hasClass).toBe(true);
                 });
 
-                it('then the readout should be given limit reached classes', async () => {
+                it('then the word limit helper text should be given limit reached classes', async () => {
                     const hasClass = await page.$eval('#example-textarea-lim', (node) =>
                         node.classList.contains('ons-input__limit--reached'),
                     );
