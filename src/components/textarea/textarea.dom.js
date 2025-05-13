@@ -3,7 +3,6 @@ import domready from '../../js/domready';
 async function initialise() {
     const limitedInputs = [...document.querySelectorAll('.ons-js-char-limit-input')];
     const wordlimitedInputs = [...document.querySelectorAll('.ons-js-word-limit-input')];
-    console.log(wordlimitedInputs);
     if (limitedInputs.length) {
         const CharLimit = (await import('../char-check-limit/character-limit')).default;
 
