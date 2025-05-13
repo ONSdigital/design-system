@@ -4,7 +4,7 @@
     {% set closingHeadingTag = "</h" + headingLevel + ">" %}
     {% set placeholderSrcset = (params.image.placeholderUrl if params.image.placeholderUrl else "") + "/img/small/placeholder-card.png 1x, " + (params.image.placeholderUrl if params.image.placeholderUrl else "") + "/img/large/placeholder-card.png 2x" %}
 
-    <div class="ons-card {% if params.variant == "feature" %}ons-card--feature ons-u-flex-grow{% endif %}">
+    <div class="ons-card{% if params.variant == 'feature' %}{{ ' ' }}ons-card--feature ons-u-flex-grow{% endif %}">
         {% set imageBlock %}
             {%- if params.image -%}
                 {% if params.image.smallSrc %}
@@ -38,7 +38,7 @@
         {% endset %}
 
         {% if params.title.url %}
-            <a href="{{ params.title.url }}" class="ons-card__link {% if params.title.subtitle %}ons-u-mb-xs{% endif %}">
+            <a href="{{ params.title.url }}" class="ons-card__link{% if params.title.subtitle %}{{ ' ' }}ons-u-mb-xs{% endif %}">
                 {{ imageBlock | safe }}
                 {{ titleBlock | safe }}
             </a>
@@ -55,7 +55,7 @@
             <p class="ons-card__figure ons-u-fs-3xl ons-u-fw-b ons-u-mb-no">{{ params.body.figure }}</p>
         {% endif %}
 
-        <p id="{{ params.body.id }}">{{ params.body.text }}</p>
+        <p id="{{ params.body.id }}" class="ons-card__body">{{ params.body.text }}</p>
 
         {%- if params.body.itemsList -%}
             {% from "components/list/_macro.njk" import onsList %}
