@@ -65,7 +65,7 @@ export default class WordLimit {
     }
 
     setLimitClass(remaining, element, limitClass) {
-        element.classList[remaining > 0 ? 'remove' : 'add'](limitClass);
+        element.classList.toggle(limitClass, remaining <= 0);
     }
 
     track(remaining) {
