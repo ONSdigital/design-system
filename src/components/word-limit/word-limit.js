@@ -48,7 +48,6 @@ export default class WordLimit {
         if (!firstRun && event.inputType) {
             this.limitElement.setAttribute('aria-live', 'polite');
             this.limitElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
-            console.log(this.limitElement);
         } else {
             this.limitElement.removeAttribute('aria-live');
         }
