@@ -9,6 +9,8 @@ class ChartConstants {
             categoryLabelColor: '#414042',
             gridLineColor: '#d9d9d9',
             zeroLineColor: '#b3b3b3',
+            estimateLineColor: '#003c57',
+            uncertaintyRangeColor: 'rgba(32, 96, 149, 0.65)',
             defaultFontSize: '0.875rem', // 14px
             lineMarkerStyles: [
                 {

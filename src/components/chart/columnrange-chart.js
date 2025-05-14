@@ -9,7 +9,7 @@ class ColumnRangeChart {
         return {
             plotOptions: {
                 columnrange: {
-                    color: 'rgba(32, 96, 149, 0.65)', // Set the default color for the column range
+                    color: this.constants.uncertaintyRangeColor, // Set the default color for the column range
                     pointWidth: 20, // Fixed bar height
                     pointPadding: 0,
                     groupPadding: 0,

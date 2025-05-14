@@ -10,16 +10,12 @@ class Boxplot {
             plotOptions: {
                 boxplot: {
                     boxDashStyle: 'Solid',
-                    fillColor: '#A6206096',
+                    fillColor: this.constants.uncertaintyRangeColor,
                     lineWidth: 0,
-                    medianColor: '#003c57',
+                    medianColor: this.constants.estimateLineColor,
                     medianDashStyle: 'Solid',
                     medianWidth: 3,
-                    stemColor: '#A63400',
-                    stemDashStyle: 'dot',
                     stemWidth: 0,
-                    whiskerColor: '#3D9200',
-                    whiskerLength: '100%',
                     whiskerWidth: 0,
                 },
             },
@@ -53,11 +49,11 @@ class Boxplot {
 
             legend.innerHTML = `
                 <div style="display:flex; align-items:center; gap:0.5rem;">
-                    <span style="display:inline-block; width:12px; height:12px; background-color: rgba(166,32,96,0.6);"></span>
+                    <span style="display:inline-block; width:12px; height:12px; background-color: ${this.constants.uncertaintyRangeColor};"></span>
                     <span>${uncertaintyRangeLabel}</span>
                 </div>
                 <div style="display:flex; align-items:center; gap:0.5rem;">
-                    <span style="display:inline-block; width:20px; height:3px; border-radius: 2px; background-color: #003c57;"></span>
+                    <span style="display:inline-block; width:20px; height:3px; border-radius: 2px; background-color: ${this.constants.estimateLineColor};"></span>
                     <span>${estimateLineLabel}</span>
                 </div>
             `;
