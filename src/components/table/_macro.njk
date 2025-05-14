@@ -25,7 +25,8 @@
                                 class="ons-table__header{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric'if th.numeric }}"
                                 {% if th.colspan %}colspan="{{ th.colspan }}"{% endif %}
                                 {% if th.rowspan %}rowspan="{{ th.rowspan }}"{% endif %}
-                                {% if 'sortable' in variants %}aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}{% if th.widthPercentage %}width="{{ th.widthPercentage }}%"{% endif %}
+                                {% if 'sortable' in variants %}aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}
+                                {% if th.widthPercentage %}width="{{ th.widthPercentage }}%"{% endif %}
                             >
                                 <span class="ons-table__header-text">{{- th.value | safe -}}</span>
                                 {% if 'sortable' in variants %}
@@ -50,6 +51,8 @@
                                 class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses else '' }}{{ ' ons-table__cell--numeric' if td.numeric }}"
                                 {% if td.id %}id="{{ td.id }}"{% endif %}
                                 {% if td.data %}{{ ' ' }}data-th="{{ td.data }}"{% endif %}
+                                {% if td.colspan %}colspan="{{ td.colspan }}"{% endif %}
+                                {% if td.rowspan %}rowspan="{{ td.rowspan }}"{% endif %}
                                 {% if td.dataSort %}{{ ' ' }}data-sort-value="{{ td.dataSort }}"{% endif %}
                             >
                                 {% if td.form %}

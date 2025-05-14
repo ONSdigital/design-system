@@ -1,0 +1,135 @@
+{% from "components/table/_macro.njk" import onsTable %}
+{{
+    onsTable({
+        "caption": "A basic table with a caption",
+        "id": "basic-table",
+        "thgroups": [
+            "ths": [
+                {
+                    "value": "Column A",
+                    "colspan": 2
+                },
+                {
+                    "value": "Column B"
+                },
+                {
+                    "value": "Column C"
+                }
+            ],
+            "ths": [
+                {
+                    "value": "Column A"
+                },
+                {
+                    "value": "Column B"
+                },
+                {
+                    "value": "Column C"
+                },
+                 {
+                    "value": "Column D"
+                }
+            ]
+        ],
+        "trs": [
+            {
+                "tds": [
+                    {
+                        "type":"th",
+                        "value": "Arts; entertainment; recreation and other services",
+                        "rowspan":2
+                    },
+                    {
+                        "value": "Cell B1"
+                    },
+                    {
+                        "value": "Cell C1"
+                    },
+                    {
+                        "value": "Cell D1"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "value": "Cell B2",
+                        "tdClasses": "set-padding"
+                    },
+                    {
+                        "value": "Cell C2"
+                    },
+                    {
+                        "value": "Cell D2"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "type": "th",
+                        "value": "Information and communication"
+                    },
+                    {
+                        "value": "Cell B2"
+                    },
+                    {
+                        "value": "Cell C2"
+                    },
+                    {
+                        "value": "Cell D2"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "type": "th",
+                        "value": "Professional; scientific and technical"
+                    },
+                    {
+                        "value": "Cell B3"
+                    },
+                    {
+                        "value": "Cell C3"
+                    },
+                    {
+                        "value": "Cell D3"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "type": "th",
+                        "value": "Business administration and support services",
+                        "rowspan": 2
+                    },
+                    {
+                        "value": "Cell B3"
+                    },
+                    {
+                        "value": "Cell C3"
+                    },
+                    {
+                        "value": "Cell D3"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "value": "Cell B4",
+                        "tdClasses": "set-padding"
+                    },
+                    {
+                        "value": "Cell C4"
+                    },
+                    {
+                        "value": "Cell D4"
+                    }
+                ]
+            }
+        ]
+    })
+}}
