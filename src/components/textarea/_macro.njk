@@ -25,7 +25,7 @@
             {% endif %}
             rows="{{ params.rows | default(8) }}"
             {% if params.charCheckLimit and params.charCheckLimit.limit %}
-                maxlength="{{ params.charCheckLimit.limit }}" data-char-limit-ref="{{ params.id }}-lim"
+                data-maxlength="{{ params.charCheckLimit.limit }}" data-char-limit-ref="{{ params.id }}-lim"
                 aria-describedby="{{ params.id }}-lim"
             {% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}

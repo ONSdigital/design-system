@@ -7,7 +7,7 @@ const attrCharLimitRef = 'data-char-limit-ref';
 export default class CharLimit {
     constructor(input) {
         this.input = input;
-        this.maxLength = input.maxLength;
+        this.maxLength = this.input.getAttribute('data-maxlength');
         this.limitElement = document.getElementById(input.getAttribute(attrCharLimitRef));
         this.singularMessage = this.limitElement.getAttribute('data-charcount-singular');
         this.pluralMessage = this.limitElement.getAttribute('data-charcount-plural');
