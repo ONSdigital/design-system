@@ -1,35 +1,40 @@
 {% from "components/table/_macro.njk" import onsTable %}
 {{
     onsTable({
-        "caption": "A basic table with a caption",
+        "caption": "Table with cells merged",
+        "variants": "merge-cells",
         "id": "basic-table",
-        "thgroups": [
-            "ths": [
-                {
-                    "value": "Column A",
-                    "colspan": 2
-                },
-                {
-                    "value": "Column B"
-                },
-                {
-                    "value": "Column C"
-                }
-            ],
-            "ths": [
-                {
-                    "value": "Column A"
-                },
-                {
-                    "value": "Column B"
-                },
-                {
-                    "value": "Column C"
-                },
-                 {
-                    "value": "Column D"
-                }
-            ]
+        "thGroups": [
+            {
+                "ths": [
+                    {
+                        "value": "Column A",
+                        "colspan": 2
+                    },
+                    {
+                        "value": "Column B"
+                    },
+                    {
+                        "value": "Column C"
+                    }
+                ]
+            },
+            {
+                "ths": [
+                    {
+                        "value": "Column A"
+                    },
+                    {
+                        "value": "Column B"
+                    },
+                    {
+                        "value": "Column C"
+                    },
+                    {
+                        "value": "Column D"
+                    }
+                ]
+            }
         ],
         "trs": [
             {

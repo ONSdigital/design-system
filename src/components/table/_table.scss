@@ -1,7 +1,3 @@
-.set-padding {
-    padding: 0.5rem 0 0.5rem 1rem !important;
-}
-
 .ons-table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -17,6 +13,12 @@
         text-align: left;
     }
 
+    &--merge-cells & {
+        &__header,
+        &__cell {
+            padding-left: 0;
+        }
+    }
     &__header,
     &__cell {
         @include nth-element(1, 0);
@@ -40,7 +42,8 @@
         background: var(--ons-color-highlight);
     }
 
-    &:not(.ons-table--responsive) .ons-table__body .ons-table__row:last-child {
+    &:not(.ons-table--responsive, .ons-table--merge-cells) .ons-table__body .ons-table__row:last-child {
+        .ons-table__cell,
         .ons-table__header--row {
             border: 0;
         }

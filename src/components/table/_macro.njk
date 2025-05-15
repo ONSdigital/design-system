@@ -17,9 +17,35 @@
                 </caption>
             {% endif %}
             <thead class="ons-table__head">
-                {% for header_cols in params.ths %}
+                {% if params.thGroups %}
+                    {% for header_cols in params.thGroups %}
+                        <tr class="ons-table__row">
+                            {% for th in header_cols.ths %}
+                                <th
+                                    scope="col"
+                                    class="ons-table__header{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric'if th.numeric }}"
+                                    {% if th.colspan %}colspan="{{ th.colspan }}"{% endif %}
+                                    {% if th.rowspan %}rowspan="{{ th.rowspan }}"{% endif %}
+                                    {% if 'sortable' in variants %}aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}
+                                    {% if th.widthPercentage %}width="{{ th.widthPercentage }}%"{% endif %}
+                                >
+                                    <span class="ons-table__header-text">{{- th.value | safe -}}</span>
+                                    {% if 'sortable' in variants %}
+                                        {{-
+                                            onsIcon({
+                                                "iconType": "sort-sprite",
+                                                "id": th.value | replace(' ', '-'),
+                                                "classes": 'ons-u-d-no'
+                                            })
+                                        -}}
+                                    {% endif %}
+                                </th>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                {% else %}
                     <tr class="ons-table__row">
-                        {% for th in header_cols %}
+                        {% for th in params.ths %}
                             <th
                                 scope="col"
                                 class="ons-table__header{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric'if th.numeric }}"
@@ -41,7 +67,7 @@
                             </th>
                         {% endfor %}
                     </tr>
-                {% endfor %}
+                {% endif %}
             </thead>
             <tbody class="ons-table__body">
                 {% for tr in params.trs %}
