@@ -20,8 +20,7 @@ export default class CharLimit {
 
     updateLimitReadout(event, firstRun) {
         const value = this.input.value;
-        const lineBreaks = (value.match(/\n/g) || []).length;
-        const remaining = this.maxLength - (value.length + lineBreaks);
+        const remaining = this.maxLength - this.getCharLength(value);
         const message = remaining === 1 ? this.singularMessage : this.pluralMessage;
         // Prevent aria live announcement when component initialises
         if (!firstRun && event.inputType) {
@@ -52,5 +51,10 @@ export default class CharLimit {
                 event_label: `Limit of ${this.maxLength} reached/exceeded`,
             });
         }
+    }
+
+    getCharLength(text) {
+        const lineBreaks = (text.match(/\n/g) || []).length;
+        return text.length + lineBreaks;
     }
 }
