@@ -17,8 +17,8 @@
                 </caption>
             {% endif %}
             <thead class="ons-table__head">
-                {% if params.thGroups %}
-                    {% for header_cols in params.thGroups %}
+                {% if params.thList %}
+                    {% for header_cols in params.thList %}
                         <tr class="ons-table__row">
                             {% for th in header_cols.ths %}
                                 <th
@@ -73,32 +73,39 @@
                 {% for tr in params.trs %}
                     <tr class="ons-table__row{{ ' ons-table__row--highlight' if tr.highlight }}" {% if tr.id %}id="{{ tr.id }}"{% endif %}>
                         {% for td in tr.tds %}
-                            <td
-                                class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses else '' }}{{ ' ons-table__cell--numeric' if td.numeric }}"
-                                {% if td.id %}id="{{ td.id }}"{% endif %}
-                                {% if td.data %}{{ ' ' }}data-th="{{ td.data }}"{% endif %}
-                                {% if td.colspan %}colspan="{{ td.colspan }}"{% endif %}
-                                {% if td.rowspan %}rowspan="{{ td.rowspan }}"{% endif %}
-                                {% if td.dataSort %}{{ ' ' }}data-sort-value="{{ td.dataSort }}"{% endif %}
+                            {% if td.heading %}
+                                {% set openingTag = '<th' %}
+                                {% set closingTag = '</th>' %}
+                            {% else %}
+                                {% set openingTag = '<td' %}
+                                {% set closingTag = '</td>' %}
+                            {% endif %}
+                            {{ openingTag | safe }}
+                            class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses else '' }}{{ ' ons-table__cell--numeric' if td.numeric }}"
+                            {% if td.id %}id="{{ td.id }}"{% endif %}
+                            {% if td.data %}{{ ' ' }}data-th="{{ td.data }}"{% endif %}
+                            {% if td.colspan %}colspan="{{ td.colspan }}"{% endif %}
+                            {% if td.rowspan %}rowspan="{{ td.rowspan }}"{% endif %}
+                            {% if td.dataSort %}{{ ' ' }}data-sort-value="{{ td.dataSort }}"{% endif %}
                             >
-                                {% if td.form %}
-                                    <form action="{{ td.form.action }}" method="{{ td.form.method | default('POST') }}">
-                                        {{ onsButton(td.form.button) }}
-                                        {% if td.form.hiddenFormField %}
-                                            {% for hiddenField in td.form.hiddenFormField %}
-                                                <input
-                                                    type="hidden"
-                                                    {% if hiddenField.name %}name="{{ hiddenField.name }}"{% endif %}
-                                                    {% if hiddenField.value %}value="{{ hiddenField.value }}"{% endif %}
-                                                />
-                                            {% endfor %}
-                                        {% endif %}
-                                    </form>
-                                {% endif %}
-                                {% if td.value %}
-                                    {{ td.value | safe }}
-                                {% endif %}
-                            </td>
+                            {% if td.form %}
+                                <form action="{{ td.form.action }}" method="{{ td.form.method | default('POST') }}">
+                                    {{ onsButton(td.form.button) }}
+                                    {% if td.form.hiddenFormField %}
+                                        {% for hiddenField in td.form.hiddenFormField %}
+                                            <input
+                                                type="hidden"
+                                                {% if hiddenField.name %}name="{{ hiddenField.name }}"{% endif %}
+                                                {% if hiddenField.value %}value="{{ hiddenField.value }}"{% endif %}
+                                            />
+                                        {% endfor %}
+                                    {% endif %}
+                                </form>
+                            {% endif %}
+                            {% if td.value %}
+                                {{ td.value | safe }}
+                            {% endif %}
+                            {{ closingTag | safe }}
                         {% endfor %}
                     </tr>
                 {% endfor %}

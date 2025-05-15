@@ -6,12 +6,13 @@
 | caption      | string          | false                                 | The caption for the table component                                                                                                                                                                      |
 | hideCaption  | boolean         | false                                 | Set to “true” to visually hide the caption                                                                                                                                                               |
 | ariaLabel    | string          | false                                 | The ARIA label to be added if ”scrollable” variant set, to inform screen reader users that the table can be scrolled. Defaults to “Scrollable table“.                                                    |
-| ths          | Array`<th>`     | true                                  | An array of `th` [header cell elements](#th) for table                                                                                                                                                   |
+| ths          | Array`<th>`     | true (unless "thGroups" is set)       | An array of `th` [header cell elements](#th) for table                                                                                                                                                   |
 | trs          | Array`<tr>`     | true                                  | An array of `tr` [row elements](#tr) for table                                                                                                                                                           |
 | sortBy       | string          | false (unless “sortable” variant set) | Sets the `data-aria-sort` attribute for the table. Used as a prefix for the `aria-label` to announce to screen readers when the table is sorted by a column. For example, “**Sort by** Date, ascending”. |
 | ariaAsc      | string          | false (unless “sortable” variant set) | Sets the `data-aria-asc` attribute for the table. Used to update `aria-sort` attribute to announce to screen readers how a table is sorted by a column, for example, "Sort by Date, **ascending**".      |
 | ariaDesc     | string          | false (unless “sortable” variant set) | Sets the `data-aria-desc` attribute for the table. Used to update `aria-sort` attribute to announce to screen readers how a table is sorted by a column, for example, "Sort by Date, **descending**".    |
 | tfoot        | Array`<tfoot>`  | false                                 | An array of `td` elements for a `tfoot` [footer element](#tfoot)                                                                                                                                         |
+| thGroups     | Array`<ths>`    | true (unless "ths" is set)            | An array of `ths` [multiple header cell elements](#ths) for table                                                                                                                                        |
 
 ## th
 
@@ -22,6 +23,8 @@
 | value           | string  | true     | The content for the `th` cell                                                                                                                                |
 | numeric         | boolean | false    | Set to “true” if all the cells in the column contain numbers. This aligns the content to the right so numbers can easily be compared.                        |
 | widthPercentage | integer | false    | Sets the `width` attribute for the `th` element                                                                                                              |
+| rowspan         | integer | false    | Set the `rowspan` to merge mulitple row `th` elements                                                                                                        |
+| colsspan        | integer | false    | Set the `colspan` to merge mulitple column `th` elements                                                                                                     |
 
 ## tr
 
@@ -42,6 +45,9 @@
 | value     | string         | false                                      | The content for the `td` cell                                                                                                         |
 | numeric   | boolean        | false                                      | Set to “true” if all the cells in the column contain numbers. This aligns the content to the right so numbers can easily be compared. |
 | form      | object`<form>` | false                                      | Settings for a [form](#form) within the `td` cell                                                                                     |
+| rowspan   | integer        | false                                      | Set the `rowspan` to merge mulitple row `th` elements.                                                                                |
+| colsspan  | integer        | false                                      | Set the `colspan` to merge mulitple column `th` elements.                                                                             |
+| heading   | boolean        | false                                      | Set `heading` to change `td` to `th` element.                                                                                         |
 
 ## form
 

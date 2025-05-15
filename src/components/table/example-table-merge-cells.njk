@@ -1,10 +1,10 @@
 {% from "components/table/_macro.njk" import onsTable %}
 {{
     onsTable({
-        "caption": "Table with cells merged",
+        "caption": "Table with cells merged, multiple row headers and column headers",
         "variants": "merge-cells",
         "id": "basic-table",
-        "thGroups": [
+        "thList": [
             {
                 "ths": [
                     {
@@ -40,7 +40,7 @@
             {
                 "tds": [
                     {
-                        "type":"th",
+                        "heading":true,
                         "value": "Arts; entertainment; recreation and other services",
                         "rowspan":2
                     },
@@ -58,8 +58,7 @@
             {
                 "tds": [
                     {
-                        "value": "Cell B2",
-                        "tdClasses": "set-padding"
+                        "value": "Cell B2"
                     },
                     {
                         "value": "Cell C2"
@@ -72,7 +71,7 @@
             {
                 "tds": [
                     {
-                        "type": "th",
+                        "heading": true,
                         "value": "Information and communication"
                     },
                     {
@@ -89,7 +88,7 @@
             {
                 "tds": [
                     {
-                        "type": "th",
+                        "heading": true,
                         "value": "Professional; scientific and technical"
                     },
                     {
@@ -106,7 +105,7 @@
             {
                 "tds": [
                     {
-                        "type": "th",
+                        "heading": true,
                         "value": "Business administration and support services",
                         "rowspan": 2
                     },
@@ -124,8 +123,7 @@
             {
                 "tds": [
                     {
-                        "value": "Cell B4",
-                        "tdClasses": "set-padding"
+                        "value": "Cell B4"
                     },
                     {
                         "value": "Cell C4"
