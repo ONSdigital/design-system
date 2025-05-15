@@ -1,7 +1,8 @@
 {% from "components/list/_macro.njk" import onsList %}
 
 {% macro onsChart(params) %}
-    {% set supportedChartTypes = ['line', 'bar', 'column'] %}
+    {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area'] %}
+    {% set supportedChartTypesWithLine = ['column'] %}
 
     {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
         {% set headingLevel = params.headingLevel %}
@@ -22,40 +23,53 @@
         data-highcharts-title="{{ params.title }}"
         data-highcharts-id="{{ params.id }}"
         {% if params.useStackedLayout %}data-highcharts-use-stacked-layout="{{ params.useStackedLayout }}"{% endif %}
-        id="{{ params.id }}"
         {% if params.percentageHeightDesktop and params.chartType != 'bar' %}
             data-highcharts-percentage-height-desktop="{{ params.percentageHeightDesktop }}"
         {% endif %}
         {% if params.percentageHeightMobile and params.chartType != 'bar' %}
             data-highcharts-percentage-height-mobile="{{ params.percentageHeightMobile }}"
         {% endif %}
-    >
-        {% if params.chartType in supportedChartTypes %}
-            <figure class="ons-chart">
-                {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
-                {{ openingSubtitleTag | safe }}
-                class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
-                {% if params.description %}
-                    <p class="ons-u-vh">{{ params.description }}</p>
-                {% endif %}
-                <div data-highcharts-chart></div>
-                {#
-                    Footnotes for the annotations at mobile
-                    Hidden from screen readers because the full text will be read out where they appear in the chart
-                #}
-                <ul class="ons-chart__footnotes" aria-hidden="true">
-                    {% for annotation in params.annotations %}
-                        <li class="ons-chart__footnote_item">
-                            <span class="ons-chart__footnote-number">{{ loop.index }}</span>
-                            {{ annotation.text }}
-                        </li>
-                    {% endfor %}
-                </ul>
-                {% if params.caption %}
-                    <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
-                {% endif %}
-            </figure>
+        {% if params.xAxis.tickIntervalMobile %}
+            data-highcharts-x-axis-tick-interval-mobile="{{ params.xAxis.tickIntervalMobile }}"
         {% endif %}
+        {% if params.xAxis.tickIntervalDesktop %}
+            data-highcharts-x-axis-tick-interval-desktop="{{ params.xAxis.tickIntervalDesktop }}"
+        {% endif %}
+        {% if params.yAxis.tickIntervalMobile %}
+            data-highcharts-y-axis-tick-interval-mobile="{{ params.yAxis.tickIntervalMobile }}"
+        {% endif %}
+        {% if params.yAxis.tickIntervalDesktop %}
+            data-highcharts-y-axis-tick-interval-desktop="{{ params.yAxis.tickIntervalDesktop }}"
+        {% endif %}
+    >
+        <figure class="ons-chart">
+            {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
+            {{ openingSubtitleTag | safe }}
+            class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+            {% if params.description %}
+                <p class="ons-u-vh">{{ params.description }}</p>
+            {% endif %}
+            {% if params.chartType in supportedChartTypes %}
+                <div data-highcharts-chart></div>
+            {% else %}
+                <p data-invalid-chart-type><b>Chart type "{{ params.chartType }}" is not supported</b></p>
+            {% endif %}
+            {#
+                Footnotes for the annotations at mobile
+                Hidden from screen readers because the full text will be read out where they appear in the chart
+            #}
+            <ul class="ons-chart__footnotes" aria-hidden="true">
+                {% for annotation in params.annotations %}
+                    <li class="ons-chart__footnote_item">
+                        <span class="ons-chart__footnote-number">{{ loop.index }}</span>
+                        {{ annotation.text }}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% if params.caption %}
+                <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
+            {% endif %}
+        </figure>
 
         {% if params.download.title and params.download.itemsList | length > 0 %}
             {{ openingDownloadTitleTag | safe }}
@@ -67,10 +81,11 @@
                 })
             }}
         {% endif %}
+        {% if params.chartType in supportedChartTypes %}
         {% set series = [] %}
         {% for item in params.series %}
             {%
-                set series = series.concat({
+                set seriesItem = {
                     "name": item.name if item.name else '',
                     "data": item.data if item.data else [],
                     "marker": {
@@ -79,9 +94,12 @@
                     "dataLabels": {
                         "enabled": item.dataLabels if item.dataLabels else false
                     },
-                    "type": item.type if item.type and item.type == 'line' else params.chartType
-                })
+                    "connectNulls": item.connectNulls if item.connectNulls else false,
+                    "type": item.type if item.type and item.type == 'line' and params.chartType in supportedChartTypesWithLine else params.chartType
+                }
             %}
+            {# Use `set` tag to avoid printing the return value of extend #}
+            {% set _ = extend(series, seriesItem) %}
         {% endfor %}
         {%
             set config = {
@@ -112,9 +130,10 @@
 
         <!-- Set scripts to pass the config values as json to the javascript -->
         <!-- prettier-ignore-start -->
-        <script type="application/json" data-highcharts-config--{{ params.id }}>
-            {{ config | tojson }}
-        </script>
+            <script type="application/json" data-highcharts-config--{{ params.id }}>
+                {{ config | tojson }}
+            </script>
+        {% endif %}
         {% if params.annotations %}
             <script type="application/json" data-highcharts-annotations--{{ params.id }}>
                 {{ params.annotations | tojson }}

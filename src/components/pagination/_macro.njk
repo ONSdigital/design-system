@@ -13,7 +13,7 @@
         aria-label="Pagination ({{ position }})"
     >
         <div class="ons-pagination__position">{{ position }}</div>
-        <ul class="ons-pagination__items">
+        <ul class="ons-pagination__items{{ ' ons-pagination__items--no-previous' if currentPageIndex == 1 }}">
             {% if currentPageIndex != 1 %}
                 {% set prevPageIndex = currentPageIndex - 2 %}
                 <li class="ons-pagination__item ons-pagination__item--previous">

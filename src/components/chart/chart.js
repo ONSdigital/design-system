@@ -7,7 +7,9 @@ import SpecificChartOptions from './specific-chart-options';
 import LineChart from './line-chart';
 import BarChart from './bar-chart';
 import ColumnChart from './column-chart';
+import ScatterChart from './scatter-chart';
 import AnnotationsOptions from './annotations-options';
+import AreaChart from './area-chart';
 
 class HighchartsBaseChart {
     static selector() {
@@ -19,6 +21,10 @@ class HighchartsBaseChart {
         this.chartType = this.node.dataset.highchartsType;
         this.theme = this.node.dataset.highchartsTheme;
         const chartNode = this.node.querySelector('[data-highcharts-chart]');
+        if (!chartNode) {
+            console.error('No chart node found');
+            return;
+        }
         this.id = this.node.dataset.highchartsId;
         this.useStackedLayout = this.node.hasAttribute('data-highcharts-use-stacked-layout');
         this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.id}]`).textContent);
@@ -28,11 +34,17 @@ class HighchartsBaseChart {
         }
         this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
         this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
-        this.commonChartOptions = new CommonChartOptions();
+        this.xAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsXAxisTickIntervalMobile);
+        this.xAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsXAxisTickIntervalDesktop);
+        this.yAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsYAxisTickIntervalMobile);
+        this.yAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop);
+        this.commonChartOptions = new CommonChartOptions(this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
         this.columnChart = new ColumnChart();
+        this.areaChart = new AreaChart();
+        this.scatterChart = new ScatterChart();
         this.extraLines = this.checkForExtraLines();
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
@@ -96,7 +108,9 @@ class HighchartsBaseChart {
         const specificChartOptions = this.specificChartOptions.getOptions();
         const lineChartOptions = this.lineChart.getLineChartOptions();
         const barChartOptions = this.barChart.getBarChartOptions(this.useStackedLayout);
-        const columnChartOptions = this.columnChart.getColumnChartOptions(this.useStackedLayout);
+        const columnChartOptions = this.columnChart.getColumnChartOptions(this.config, this.useStackedLayout, this.extraLines);
+        const areaChartOptions = this.areaChart.getAreaChartOptions();
+        const scatterChartOptions = this.scatterChart.getScatterChartOptions();
         // Merge specificChartOptions with the existing config
         this.config = this.mergeConfigs(this.config, specificChartOptions);
 
@@ -113,14 +127,19 @@ class HighchartsBaseChart {
             // Merge the column chart options with the existing config
             this.config = this.mergeConfigs(this.config, columnChartOptions);
         }
+        if (this.chartType === 'area') {
+            // Merge the area chart options with the existing config
+            this.config = this.mergeConfigs(this.config, areaChartOptions);
+        }
+        if (this.chartType === 'scatter') {
+            // Merge the scatter chart options with the existing config
+            this.config = this.mergeConfigs(this.config, scatterChartOptions);
+        }
 
         if (this.extraLines > 0) {
             this.config = this.mergeConfigs(this.config, this.lineChart.getLineChartOptions());
             if (this.chartType === 'column') {
                 this.config = this.mergeConfigs(this.config, columnChartOptions);
-            }
-            if (this.chartType === 'bar') {
-                this.config = this.mergeConfigs(this.config, barChartOptions);
             }
         }
 
@@ -138,24 +157,34 @@ class HighchartsBaseChart {
     // Note this is not the same as the viewport width
     // All responsive rules should be defined here to avoid overriding existing rules
     setResponsiveOptions = () => {
-        const mobileCommonChartOptions = this.commonChartOptions.getMobileOptions();
+        let mobileChartOptions = this.commonChartOptions.getMobileOptions(this.xAxisTickIntervalMobile, this.yAxisTickIntervalMobile);
+        if (this.chartType === 'column') {
+            const mobileColumnChartOptions = this.columnChart.getColumnChartMobileOptions(
+                this.config,
+                this.useStackedLayout,
+                this.extraLines,
+            );
+            mobileChartOptions = this.mergeConfigs(mobileChartOptions, mobileColumnChartOptions);
+        }
+
         if (!this.config.responsive) {
             this.config.responsive = {};
         }
-        // If these conditions change, the styling for the footnotes container query in _chart.scss needs to be updated
+
         let rules = [
             {
                 condition: {
                     maxWidth: 400,
                 },
                 chartOptions: {
-                    ...mobileCommonChartOptions,
+                    ...mobileChartOptions,
                 },
             },
-            // We are using a slightly wider breakpoint for annotations
-            // to try and reduce the likelihood of them being automatically
-            // hidden by Highcharts
             {
+                // If these conditions change, the styling for the footnotes container query in _chart.scss needs to be updated
+                // We are using a slightly wider breakpoint for annotations
+                // to try and reduce the likelihood of them being automatically
+                // hidden by Highcharts
                 condition: {
                     maxWidth: 600,
                 },
@@ -188,7 +217,7 @@ class HighchartsBaseChart {
                 this.commonChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'bar') {
-                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout, this.extraLines);
+                this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
                 } else {
@@ -196,8 +225,10 @@ class HighchartsBaseChart {
                 }
             }
             if (this.chartType === 'column') {
-                this.columnChart.updatePointPadding(this.config, currentChart, this.useStackedLayout, this.extraLines);
                 this.commonChartOptions.hideDataLabels(currentChart.series);
+            }
+            if (this.chartType === 'scatter') {
+                this.scatterChart.updateMarkers(currentChart);
             }
             if (this.chartType != 'bar') {
                 this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
@@ -208,7 +239,6 @@ class HighchartsBaseChart {
             if (this.extraLines > 0) {
                 currentChart.series.forEach((series) => {
                     if (series.type === 'line') {
-                        this.lineChart.updateLastPointMarker([series]);
                         this.commonChartOptions.hideDataLabels([series]);
                     }
                 });

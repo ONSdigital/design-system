@@ -26,7 +26,7 @@ class BarChart {
                             // The design system does not include a semibold font weight, so we use 700 (bold) as an alternative.
                             fontWeight: '700',
                             color: this.constants.labelColor,
-                            fontSize: this.constants.mobileFontSize,
+                            fontSize: this.constants.defaultFontSize,
                         },
                     },
                 },
@@ -40,6 +40,7 @@ class BarChart {
                     style: {
                         color: this.constants.categoryLabelColor,
                     },
+                    useHTML: false,
                 },
                 // remove the tick marks for bar charts
                 tickWidth: 0,
@@ -48,6 +49,14 @@ class BarChart {
                 title: { align: 'high', textAlign: 'middle', reserveSpace: false, rotation: 0, y: -25, useHTML: true },
             },
             yAxis: {
+                labels: {
+                    rotation: 0,
+                    useHTML: true,
+                    style: {
+                        whiteSpace: 'nowrap',
+                        color: this.constants.categoryLabelColor,
+                    },
+                },
                 title: {
                     // Override the y Axis title settings for bar charts where the y axis is horizontal
                     textAlign: 'right',
@@ -110,15 +119,15 @@ class BarChart {
             // The design system does not include a semibold font weight, so we use 700 (bold) as an alternative.
             fontWeight: '700',
             color: this.constants.labelColor,
-            fontSize: this.constants.mobileFontSize,
+            fontSize: this.constants.defaultFontSize,
         },
     });
 
     // This updates the height of the vertical axis and overall chart to fit the number of categories
     // Note that the vertical axis on a bar chart is the x axis
-    updateBarChartHeight = (config, currentChart, useStackedLayout, numberOfExtraLines) => {
+    updateBarChartHeight = (config, currentChart, useStackedLayout) => {
         const numberOfCategories = config.xAxis.categories.length;
-        const numberOfSeries = currentChart.series.length - numberOfExtraLines; // Get number of bar series
+        const numberOfSeries = currentChart.series.length; // Get number of bar series
         let barHeight = 30; // Height of each individual bar - set in bar-chart-plot-options
         let groupSpacing = 0; // Space we want between category groups, or between series groups for cluster charts
         let categoriesTotalHeight = 0;

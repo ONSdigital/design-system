@@ -2,7 +2,7 @@ import ChartConstants from './chart-constants';
 
 // Options that are common to all chart types - these are set once in the Highcharts.setOptions() method
 class CommonChartOptions {
-    constructor() {
+    constructor(xAxisTickInterval, yAxisTickInterval) {
         this.constants = ChartConstants.constants();
 
         this.options = {
@@ -22,7 +22,6 @@ class CommonChartOptions {
                 symbolWidth: 20,
                 margin: 50,
                 navigation: {
-                    // ensures that when the legend is long, there is no pagination or scrollbar
                     enabled: false,
                 },
                 itemDistance: 30,
@@ -30,9 +29,8 @@ class CommonChartOptions {
                     color: this.constants.labelColor, // Prevents the text from changing color on hover
                 },
                 itemStyle: {
-                    cursor: 'default', // ensures that it does not change to a hand (pointer) on hover.
                     color: this.constants.labelColor,
-                    fontSize: this.constants.desktopFontSize,
+                    fontSize: this.constants.defaultFontSize,
                     fontWeight: 'normal',
                 },
                 // Disable click event on legend
@@ -64,7 +62,7 @@ class CommonChartOptions {
                 labels: {
                     style: {
                         color: this.constants.axisLabelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                     },
                 },
                 title: {
@@ -78,7 +76,7 @@ class CommonChartOptions {
                     y: -25,
                     style: {
                         color: this.constants.axisLabelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                     },
                 },
                 lineColor: this.constants.gridLineColor,
@@ -87,7 +85,7 @@ class CommonChartOptions {
                 plotLines: [
                     {
                         color: this.constants.zeroLineColor,
-                        width: 1,
+                        width: 1.5,
                         value: 0,
                         zIndex: 2,
                     },
@@ -96,19 +94,22 @@ class CommonChartOptions {
                 tickWidth: 1,
                 tickLength: 6,
                 tickColor: this.constants.gridLineColor,
+                tickInterval: yAxisTickInterval,
             },
             xAxis: {
                 labels: {
+                    useHTML: true,
+                    rotation: 0,
                     style: {
                         color: this.constants.axisLabelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                     },
                 },
                 title: {
                     align: 'high',
                     style: {
                         color: this.constants.axisLabelColor,
-                        fontSize: this.constants.desktopFontSize,
+                        fontSize: this.constants.defaultFontSize,
                     },
                 },
                 lineColor: this.constants.gridLineColor,
@@ -117,6 +118,7 @@ class CommonChartOptions {
                 tickWidth: 1,
                 tickLength: 6,
                 tickColor: this.constants.gridLineColor,
+                tickInterval: xAxisTickInterval,
             },
             plotOptions: {
                 series: {
@@ -141,36 +143,13 @@ class CommonChartOptions {
 
     getOptions = () => this.options;
 
-    getMobileOptions = () => {
+    getMobileOptions = (xAxisTickInterval, yAxisTickInterval) => {
         return {
-            legend: {
-                itemStyle: {
-                    fontSize: this.constants.mobileFontSize,
-                },
-            },
             xAxis: {
-                labels: {
-                    style: {
-                        fontSize: this.constants.mobileFontSize,
-                    },
-                },
-                title: {
-                    style: {
-                        fontSize: this.constants.mobileFontSize,
-                    },
-                },
+                tickInterval: xAxisTickInterval,
             },
             yAxis: {
-                labels: {
-                    style: {
-                        fontSize: this.constants.mobileFontSize,
-                    },
-                },
-                title: {
-                    style: {
-                        fontSize: this.constants.mobileFontSize,
-                    },
-                },
+                tickInterval: yAxisTickInterval,
             },
         };
     };
