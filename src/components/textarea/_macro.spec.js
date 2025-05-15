@@ -210,7 +210,7 @@ describe('macro: textarea', () => {
         it('has the provided maximum length', () => {
             const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT));
 
-            expect($('.ons-input--textarea').attr('maxlength')).toBe('200');
+            expect($('.ons-input--textarea').attr('data-maxlength')).toBe('200');
         });
 
         it('has data attribute which references the character limit component', () => {
