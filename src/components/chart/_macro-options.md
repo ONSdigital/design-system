@@ -1,6 +1,6 @@
 | Name                    | Type    | Required | Description                                                                                                                                                                                  |
 | ----------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| chartType               | string  | true     | The type of chart to render. Supported types include: 'line', 'bar', 'column' and 'scatter'.                                                                                                 |
+| chartType               | string  | true     | The type of chart to render. Supported types include: 'line', 'bar', 'column', 'scatter' and 'area'.                                                                                         |
 | theme                   | string  | false    | The theme to apply to the chart. Either `primary` or `alternate`. Defaults to `primary`.                                                                                                     |
 | headingLevel            | number  | false    | Number used to determine the heading level of the title. Use to ensure the title has a correct semantic order on the page. Accepts a value between 1 and 4, defaulting to 2 if not provided. |
 | title                   | string  | true     | The main title of the chart.                                                                                                                                                                 |
@@ -37,34 +37,34 @@
 
 ### Y_Axis
 
-| Name                | Type   | Required | Description                                                                                                                                             |
-| ------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title               | string | true     | The title text displayed on the y-axis                                                                                                                  |
-| labelFormat         | string | false    | A format string for the axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating). |
-| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                |
-| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).               |
+| Name                | Type   | Required | Description                                                                                                                                                                                            |
+| ------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| title               | string | true     | The title text displayed on the y-axis. Note that for any chart type apart from bar charts, a maximum character limit of 50 characters is recommended to avoid the axis title being cut off at mobile. |
+| labelFormat         | string | false    | A format string for the axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating).                                                |
+| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                               |
+| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                              |
 
 ### X_Axis
 
-| Name                | Type   | Required | Description                                                                                                                                               |
-| ------------------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title               | string | false    | The title text displayed on the x-axis                                                                                                                    |
-| labelFormat         | string | false    | A format string for the x-axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating). |
-| categories          | array  | false    | Labels for each tick mark along the x-axis.                                                                                                               |
-| type                | string | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. Defaults to linear.                                                    |
-| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                  |
-| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                 |
+| Name                | Type   | Required | Description                                                                                                                                                                  |
+| ------------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title               | string | false    | The title text displayed on the x-axis. Note that for bar charts, a maximum character limit of 50 characters is recommended to avoid the axis title being cut off at mobile. |
+| labelFormat         | string | false    | A format string for the x-axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating).                    |
+| categories          | array  | false    | Labels for each tick mark along the x-axis.                                                                                                                                  |
+| type                | string | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. Defaults to linear.                                                                       |
+| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                     |
+| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                    |
 
 ### Series
 
-| Name         | Type    | Required | Description                                                                                                                                                                                                                                               |
-| ------------ | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name         | string  | true     | The name of the series.                                                                                                                                                                                                                                   |
-| data         | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.                                                                                                                                                                       |
-| dataLabels   | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`. This option is only available for bar chart and clustered bar charts                                                                                                                 |
-| marker       | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. This option is only available for line charts.                                                                                                                       |
-| type         | string  | false    | Specifies the configuration type to apply to the series. Supported types include 'line'. By default, it aligns with the chart type, but this is used when combining multiple chart types within a single chart (e.g., bar with line or column with line). |
-| connectNulls | boolean | false    | Whether to connect lines that have a data point missing. Only relevant for line charts.                                                                                                                                                                   |
+| Name         | Type    | Required | Description                                                                                                                                                                                                                              |
+| ------------ | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name         | string  | true     | The name of the series.                                                                                                                                                                                                                  |
+| data         | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.                                                                                                                                                      |
+| dataLabels   | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`. This option is only available for bar chart and clustered bar charts                                                                                                |
+| marker       | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. This option is only available for line charts.                                                                                                      |
+| type         | string  | false    | Specifies the configuration type to apply to the series. Supported types include 'line'. By default, it aligns with the chart type, but this is used when combining multiple chart types within a single chart (e.g., column with line). |
+| connectNulls | boolean | false    | Whether to connect lines that have a data point missing. Only relevant for line charts.                                                                                                                                                  |
 
 ### Point annotations
 

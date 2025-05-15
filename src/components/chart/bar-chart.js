@@ -125,9 +125,9 @@ class BarChart {
 
     // This updates the height of the vertical axis and overall chart to fit the number of categories
     // Note that the vertical axis on a bar chart is the x axis
-    updateBarChartHeight = (config, currentChart, useStackedLayout, numberOfExtraLines) => {
+    updateBarChartHeight = (config, currentChart, useStackedLayout) => {
         const numberOfCategories = config.xAxis.categories.length;
-        const numberOfSeries = currentChart.series.length - numberOfExtraLines; // Get number of bar series
+        const numberOfSeries = currentChart.series.length; // Get number of bar series
         let barHeight = 30; // Height of each individual bar - set in bar-chart-plot-options
         let groupSpacing = 0; // Space we want between category groups, or between series groups for cluster charts
         let categoriesTotalHeight = 0;

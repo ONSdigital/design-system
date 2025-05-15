@@ -1,10 +1,9 @@
 class ColumnChart {
-    getColumnChartOptions = (useStackedLayout) => {
+    getColumnChartOptions = (config, useStackedLayout, extraLines) => {
         return {
             plotOptions: {
                 column: {
-                    pointPadding: 0,
-                    groupPadding: 0,
+                    ...this.getPointPadding(config, useStackedLayout, extraLines, false),
                     borderRadius: 0,
                     borderWidth: 0,
                 },
@@ -15,33 +14,43 @@ class ColumnChart {
         };
     };
 
-    // Set the point padding between each bar to be 3% (an overall gap of 6%)
-    // For charts with fewer than 5 categories, we use a wider point padding of 4% (8% gap between bars)
-    // For cluster charts we use 0 for the point padding and a group padding of 4% (8% gap between bars)
-    updatePointPadding = (config, currentChart, stackedLayout, numberOfExtraLines) => {
-        const numberOfCategories = config.xAxis.categories.length;
-        const numberOfSeries = currentChart.series.length - numberOfExtraLines; // Get number of column series
+    getColumnChartMobileOptions = (config, useStackedLayout, extraLines) => {
+        return {
+            plotOptions: {
+                column: {
+                    ...this.getPointPadding(config, useStackedLayout, extraLines, true),
+                },
+            },
+        };
+    };
+
+    // Set spacing between bars based on screen size and number of categories:
+    // - For charts with enough categories (≥ 10 on mobile, ≥ 20 on desktop), use 10% spacing (0.1), i.e. 20% total gap between bars
+    // - For charts with fewer categories, use 20% spacing (0.2), i.e. 40% total gap
+    // - For non-clustered or stacked charts, spacing is applied as pointPadding
+    // - For clustered charts, spacing is applied as groupPadding
+    // - Max bar width: 75px (desktop), 55px (mobile)
+    getPointPadding = (config, stackedLayout, numberOfExtraLines, isMobile) => {
+        const numberOfCategories = config.xAxis.categories ? config.xAxis.categories.length : 0;
+        const numberOfSeries = config.series.length - numberOfExtraLines; // Get number of column series
+
+        const categoryThreshold = isMobile ? 10 : 20;
+        const maxPointWidth = isMobile ? 55 : 75;
+
         let pointPadding = 0;
         let groupPadding = 0;
+        let spacing = numberOfCategories >= categoryThreshold ? 0.1 : 0.2;
+
         // non-clustered charts or stacked charts
         if (numberOfSeries === 1 || stackedLayout === true) {
-            if (numberOfCategories > 5) {
-                pointPadding = 0.03;
-            } else {
-                pointPadding = 0.04;
-            }
-        } else {
-            // clustered charts
-            groupPadding = 0.04;
+            pointPadding = spacing;
+        }
+        // clustered charts
+        else {
+            groupPadding = spacing;
         }
 
-        // update the point width and padding
-        currentChart.series.forEach((series) => {
-            series.update({
-                pointPadding: pointPadding,
-                groupPadding: groupPadding,
-            });
-        });
+        return { pointPadding: pointPadding, groupPadding: groupPadding, maxPointWidth: maxPointWidth };
     };
 }
 

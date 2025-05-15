@@ -76,20 +76,6 @@ export const EXAMPLE_BAR_CHART_WITH_PERCENTAGE_HEIGHT_PARAMS = {
     percentageHeightMobile: 120,
 };
 
-export const EXAMPLE_BAR_WITH_LINE_CHART_PARAMS = {
-    chartType: 'bar',
-    theme: 'alternate',
-    title: 'Example Bar Chart',
-    subtitle: 'A sample subtitle',
-    id: 'bar-chart-123',
-    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
-    yAxis: { title: 'Y Axis Title' },
-    series: [
-        { name: 'Series 1', data: [10, 20, 30] },
-        { name: 'Series 2', data: [15, 25, 35], type: 'line' },
-    ],
-};
-
 export const EXAMPLE_COLUMN_CHART_PARAMS = {
     chartType: 'column',
     theme: 'alternate',
@@ -226,6 +212,44 @@ export const EXAMPLE_SCATTER_CHART_PARAMS = {
             ],
         },
     ],
+};
+
+export const EXAMPLE_AREA_CHART_PARAMS = {
+    chartType: 'area',
+    theme: 'primary',
+    title: 'Example Area Chart',
+    subtitle: 'A sample subtitle',
+    id: 'area-chart-123',
+    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
+    yAxis: { title: 'Y Axis Title' },
+    series: [
+        { name: 'Series 1', data: [10, 20, 30] },
+        { name: 'Series 2', data: [15, 25, 35] },
+    ],
+    percentageHeightDesktop: 50,
+    percentageHeightMobile: 120,
+};
+
+export const EXAMPLE_INVALID_CHART_PARAMS = {
+    chartType: 'invalid',
+    title: 'Example Invalid Chart',
+    subtitle: 'A sample subtitle',
+    id: 'invalid-chart-123',
+    description: 'A detailed description',
+    caption: 'A detailed caption',
+    download: {
+        title: 'Download this chart',
+        itemsList: [
+            {
+                text: 'Download as PNG',
+                url: '#',
+            },
+            {
+                text: 'Download as JPEG',
+                url: '#',
+            },
+        ],
+    },
 };
 
 export const EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS = {
