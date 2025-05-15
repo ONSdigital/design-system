@@ -86,7 +86,7 @@ class BarChart {
                 const labelWidth = point.dataLabel && point.dataLabel.getBBox().width;
                 // Move the data labels inside the bar if the bar is wider than the label plus some padding
                 if (series.type == 'scatter') {
-                    // If we have a bar chart with an confidence level, exit early for the scatter series
+                    // If we have a bar chart with confidence levels, exit early for the scatter series
                     return;
                 }
                 if (point.shapeArgs.height > labelWidth + 20) {
