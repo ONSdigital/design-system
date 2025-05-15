@@ -39,13 +39,8 @@ export default class TableOfContents {
         for (const section of this.sections) {
             const link = this.tocLinks[section.id];
 
-            if (!link) continue;
-
-            if (section === this.activeSection) {
-                link.classList.add('ons-table-of-contents__link-active');
-            } else {
-                link.classList.remove('ons-table-of-contents__link-active');
-            }
+            // toggle active link class when link id matches current section id
+            link?.classList.toggle('ons-table-of-contents__link-active', section === this.activeSection);
         }
     }
 }
