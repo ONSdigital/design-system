@@ -25,7 +25,10 @@
     }
 
     &__footnote-number {
-        display: flex;
+        // !important is necessary for some range annotation labels at mobile, otherwise
+        // the inline-styled block display takes precedence. This inline style is only
+        // applied in some cases - it seems to happen when the shaded area is narrower than the label width.
+        display: flex !important;
         flex-shrink: 0;
         flex-grow: 0;
         align-items: center;
@@ -87,4 +90,41 @@
 // Enforce cursor as auto in the legend
 .highcharts-a11y-proxy-group-legend button {
     cursor: auto !important;
+}
+
+.ons-chart__range-annotation-label {
+    &--x {
+        padding: 0 1.25rem;
+    }
+
+    &--outside {
+        padding: 0;
+        overflow: visible !important;
+    }
+
+    &--right {
+        text-align: left !important;
+        padding-left: 0.3125rem;
+    }
+
+    &--left {
+        text-align: right !important;
+        padding-right: 0.3125rem;
+    }
+
+    &--top {
+        text-align: center !important;
+        padding-bottom: 0.3125rem;
+    }
+
+    &--bottom {
+        text-align: center !important;
+        padding-top: 0.3125rem;
+    }
+}
+
+.ons-chart__connector-line {
+    position: absolute;
+    border-top: 1px solid var(--ons-color-grey-100);
+    border-left: 1px solid var(--ons-color-grey-100);
 }

@@ -251,3 +251,107 @@ export const EXAMPLE_INVALID_CHART_PARAMS = {
         ],
     },
 };
+
+export const EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS = {
+    chartType: 'line',
+    title: 'Example Line Chart with range annotations',
+    subtitle: 'A sample subtitle',
+    id: 'line-chart-range-annotations-x-axis-123',
+    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
+    yAxis: { title: 'Y Axis Title' },
+    series: [
+        { name: 'Series 1', data: [10, 20, 30] },
+        { name: 'Series 2', data: [15, 25, 35] },
+    ],
+    rangeAnnotations: [
+        {
+            text: 'A test x axis range annotation',
+            range: { axisValue1: 10, axisValue2: 15 },
+            axis: 'x',
+            labelOffsetX: 150,
+            labelOffsetY: 0,
+        },
+    ],
+};
+
+export const EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS = {
+    chartType: 'line',
+    title: 'Example Line Chart with range annotations',
+    subtitle: 'A sample subtitle',
+    id: 'line-chart-range-annotations-y-axis-123',
+    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
+    yAxis: { title: 'Y Axis Title' },
+    series: [
+        { name: 'Series 1', data: [10, 20, 30] },
+        { name: 'Series 2', data: [15, 25, 35] },
+    ],
+    rangeAnnotations: [
+        {
+            text: 'A test y axis range annotation with a label width of 250px',
+            range: { axisValue1: 5, axisValue2: 10 },
+            axis: 'y',
+            labelWidth: 250,
+            labelOffsetX: 150,
+            labelOffsetY: 0,
+        },
+    ],
+};
+
+export const EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS = {
+    chartType: 'line',
+    title: 'Example Line Chart with range annotations',
+    subtitle: 'A sample subtitle',
+    id: 'line-chart-range-annotations-label-inside-123',
+    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
+    yAxis: { title: 'Y Axis Title' },
+    series: [
+        { name: 'Series 1', data: [10, 20, 30] },
+        { name: 'Series 2', data: [15, 25, 35] },
+    ],
+    rangeAnnotations: [
+        {
+            text: 'A test y axis range annotation with the label inside',
+            range: { axisValue1: 5, axisValue2: 10 },
+            axis: 'y',
+            labelInside: true,
+            labelWidth: 250,
+        },
+    ],
+};
+
+export const EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS = {
+    chartType: 'line',
+    title: 'Example Line Chart with mixed annotation types',
+    subtitle: 'A sample subtitle',
+    id: 'line-chart-mixed-annotation-types-123',
+    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
+    yAxis: { title: 'Y Axis Title' },
+    series: [
+        { name: 'Series 1', data: [10, 20, 30] },
+        { name: 'Series 2', data: [15, 25, 35] },
+    ],
+    annotations: [
+        {
+            text: 'A test point annotation',
+            point: { x: 2, y: 3 },
+            labelOffsetX: 10,
+            labelOffsetY: -50,
+        },
+    ],
+    rangeAnnotations: [
+        {
+            text: 'A test x axis range annotation',
+            range: { axisValue1: 10, axisValue2: 15 },
+            axis: 'x',
+            labelOffsetX: 150,
+            labelOffsetY: 0,
+        },
+        {
+            text: 'A test y axis range annotation with the label inside',
+            range: { axisValue1: 5, axisValue2: 10 },
+            axis: 'y',
+            labelInside: true,
+            labelWidth: 250,
+        },
+    ],
+};
