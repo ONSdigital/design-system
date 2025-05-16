@@ -21,21 +21,21 @@
 | annotations             | array   | false    | An array of point annotations.                                                                                                                                                               |
 | rangeAnnotations        | array   | false    | An array of range annotations.                                                                                                                                                               |
 
-### Download
+## Download
 
 | Property  | Type   | Required | Description                                                                                  |
 | --------- | ------ | -------- | -------------------------------------------------------------------------------------------- |
 | title     | string | false    | The title displayed above the download options.                                              |
 | itemsList | array  | false    | An array of items available for download, each described by a (DownloadItem)[#DownloadItem]. |
 
-### DownloadItem
+## DownloadItem
 
 | Property | Type   | Required | Description                                        |
 | -------- | ------ | -------- | -------------------------------------------------- |
 | `text`   | string | true     | The label or description of the downloadable item. |
 | `url`    | string | true     | The URL to the downloadable resource.              |
 
-### Y_Axis
+## Y_Axis
 
 | Name                | Type   | Required | Description                                                                                                                                                                                            |
 | ------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -44,7 +44,7 @@
 | tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                               |
 | tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                              |
 
-### X_Axis
+## X_Axis
 
 | Name                | Type   | Required | Description                                                                                                                                                                  |
 | ------------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -55,7 +55,7 @@
 | tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                     |
 | tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                    |
 
-### Series
+## Series
 
 | Name         | Type    | Required | Description                                                                                                                                                                                                                              |
 | ------------ | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -66,7 +66,7 @@
 | type         | string  | false    | Specifies the configuration type to apply to the series. Supported types include 'line'. By default, it aligns with the chart type, but this is used when combining multiple chart types within a single chart (e.g., column with line). |
 | connectNulls | boolean | false    | Whether to connect lines that have a data point missing. Only relevant for line charts.                                                                                                                                                  |
 
-### Point annotations
+## Point annotations
 
 | Name              | Type   | Required | Description                                               |
 | ----------------- | ------ | -------- | --------------------------------------------------------- |
@@ -75,7 +75,7 @@
 | labelOffsetX (px) | int    | true     | The x offset in px of the label from the annotation point |
 | labelOffsetY (px) | int    | true     | The y offset in px of the label from the annotation point |
 
-### Point
+## Point
 
 | Name   | Type         | Required | Description                                                                                                                                                |
 | ------ | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -94,7 +94,7 @@
 | labelOffsetY (px) | int           | false    | The vertical offset in px of the label from it's default position. Ignored if labelInside is true.                                                                            |
 | labelWidth (px)   | int           | false    | The width of the label in pixels - the label text will wrap if it is wider than this value. If undefined, the label will be set to 150px wide.                                |
 
-### Range
+## Range
 
 | Name       | Type         | Required | Description                                                                                                                                                          |
 | ---------- | ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
