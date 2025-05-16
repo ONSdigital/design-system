@@ -22,6 +22,8 @@ const EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT = {
         limit: 200,
         charCountSingular: 'You have {x} character remaining',
         charCountPlural: 'You have {x} characters remaining',
+        charCountOverLimitSingular: 'You are {x} character over the limit',
+        charCountOverLimitPlural: 'You are {x} characters over the limit',
     },
 };
 
@@ -236,6 +238,8 @@ describe('macro: textarea', () => {
                 limit: 200,
                 charCountSingular: 'You have {x} character remaining',
                 charCountPlural: 'You have {x} characters remaining',
+                charCountOverLimitSingular: 'You are {x} character over the limit',
+                charCountOverLimitPlural: 'You are {x} characters over the limit',
             });
         });
     });
