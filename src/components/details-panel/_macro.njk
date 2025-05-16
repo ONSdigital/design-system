@@ -4,7 +4,11 @@
             <div class="ons-container ons-details-panel__banner-contents">
                 <span class="ons-details-panel__info-icon ons-u-mr-2xs" aria-hidden="true">i</span>
                 <div class="ons-details-panel__banner-body">
-                    <h3 class="ons-details-panel__banner-title ons-u-mb-2xs">{{ params.title }}</h3>
+                    {% set titleTag = params.headingLevel | default(2) %}
+                    {% set openingTag = "<h" ~ titleTag %}
+                    {% set closingTag = "</h" ~ titleTag ~ ">" %}
+                    {{ openingTag | safe }}
+                    class="ons-details-panel__banner-title ons-u-fs-m ons-u-mb-2xs">{{ params.title }}{{ closingTag | safe }}
                     <div class="ons-details-panel__banner-detail ons-js-details-heading">
                         <span class="ons-details-panel__banner-detail-title ons-js-corrections-details-title ons-u-mr-3xs"
                             >Show detail</span
