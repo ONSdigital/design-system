@@ -1,0 +1,80 @@
+import { trackEvent } from '../../js/analytics';
+
+const inputClassLimitReached = 'ons-input--limit-reached';
+const remainingClassLimitReached = 'ons-input__limit--reached';
+const attrWordLimitRef = 'data-word-limit-ref';
+const maxWordLength = 'data-max-words';
+
+export default class WordLimit {
+    constructor(input) {
+        this.input = input;
+        this.maxWords = input.getAttribute(maxWordLength);
+        this.limitElement = document.getElementById(input.getAttribute(attrWordLimitRef));
+        this.singularMessage = this.limitElement.getAttribute('data-wordcount-singular');
+        this.pluralMessage = this.limitElement.getAttribute('data-wordcount-plural');
+
+        this.updateLimitReadout(null, true);
+        this.limitElement.classList.remove('ons-u-d-no');
+
+        input.addEventListener('beforeinput', this.handleBeforeInput.bind(this)); // checks if the word count exceeds the limit
+        input.addEventListener('input', this.updateLimitReadout.bind(this));
+    }
+
+    countWords(text) {
+        return text
+            .trim()
+            .split(/\s+/) // split by any whitespace
+            .map((word) => word.replace(/[.,!?;:]+$/, '')) // remove trailing punctuation
+            .filter(Boolean).length;
+    }
+
+    handleBeforeInput(event) {
+        const wordCount = this.countWords(this.input.value);
+        if (['deleteContentBackward', 'deleteContentForward', 'insertLineBreak'].includes(event?.inputType)) {
+            return; // allow deletions and line breaks even if word count reaches max words
+        }
+
+        if (event && event.type === 'beforeinput' && wordCount >= this.maxWords && /\s|[.,;:!?]/.test(event.data)) {
+            event.preventDefault();
+        }
+    }
+
+    updateLimitReadout(event, firstRun) {
+        const wordCount = this.countWords(this.input.value);
+        const remaining = this.maxWords - wordCount;
+        const message = remaining === 1 ? this.singularMessage : this.pluralMessage;
+
+        // Prevent aria live announcement when component initialises
+        if (!firstRun && event.inputType) {
+            this.limitElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
+        } else {
+            this.limitElement.removeAttribute('aria-live');
+        }
+
+        this.limitElement.innerText = message.replace('{x}', remaining);
+
+        this.setLimitClass(remaining, this.input, inputClassLimitReached);
+        this.setLimitClass(remaining, this.limitElement, remainingClassLimitReached);
+
+        this.track(remaining);
+
+        if (remaining < 0) {
+            this.updateLimitReadout(null, null); // Re-run to update display
+        }
+    }
+
+    setLimitClass(remaining, element, limitClass) {
+        element.classList.toggle(limitClass, remaining <= 0);
+    }
+
+    track(remaining) {
+        if (remaining < 1) {
+            trackEvent({
+                event_type: 'event',
+                event_category: 'Error',
+                event_action: 'Textarea limit reached',
+                event_label: `Limit of ${this.maxLength} reached/exceeded`,
+            });
+        }
+    }
+}
