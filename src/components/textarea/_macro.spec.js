@@ -22,6 +22,8 @@ const EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT = {
         limit: 200,
         charCountSingular: 'You have {x} character remaining',
         charCountPlural: 'You have {x} characters remaining',
+        charCountOverLimitSingular: 'You are {x} character over the limit',
+        charCountOverLimitPlural: 'You are {x} characters over the limit',
     },
 };
 
@@ -210,7 +212,7 @@ describe('macro: textarea', () => {
         it('has the provided maximum length', () => {
             const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT));
 
-            expect($('.ons-input--textarea').attr('maxlength')).toBe('200');
+            expect($('.ons-input--textarea').attr('data-maxlength')).toBe('200');
         });
 
         it('has data attribute which references the character limit component', () => {
@@ -236,6 +238,8 @@ describe('macro: textarea', () => {
                 limit: 200,
                 charCountSingular: 'You have {x} character remaining',
                 charCountPlural: 'You have {x} characters remaining',
+                charCountOverLimitSingular: 'You are {x} character over the limit',
+                charCountOverLimitPlural: 'You are {x} characters over the limit',
             });
         });
     });

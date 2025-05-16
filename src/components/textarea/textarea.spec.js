@@ -37,7 +37,7 @@ describe('script: textarea', () => {
 
                 it('then the characters remaining readout reflect the number of characters remaining', async () => {
                     const readout = await page.$eval('#example-textarea-lim', (node) => node.textContent);
-                    expect(readout).toBe('You have 12 characters remaining');
+                    expect(readout).toBe('You have 11 characters remaining');
                 });
             });
 
