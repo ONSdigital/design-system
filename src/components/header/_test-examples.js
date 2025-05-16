@@ -202,10 +202,10 @@ export const EXAMPLE_HEADER_SEARCH_AND_MENU_LINKS = {
         ],
         columns: [
             {
-                groups: [
+                linksList: [
                     {
-                        heading: 'People, population and community',
-                        groupItems: [
+                        text: 'People, population and community',
+                        children: [
                             {
                                 text: 'Armed forces community',
                             },
@@ -226,10 +226,10 @@ export const EXAMPLE_HEADER_SEARCH_AND_MENU_LINKS = {
                 ],
             },
             {
-                groups: [
+                linksList: [
                     {
-                        heading: 'Business, industry and trade',
-                        groupItems: [
+                        text: 'Business, industry and trade',
+                        children: [
                             {
                                 text: 'International trade',
                             },
@@ -249,9 +249,9 @@ export const EXAMPLE_HEADER_SEARCH_AND_MENU_LINKS = {
                         ],
                     },
                     {
-                        heading: 'Employment and labour market',
+                        text: 'Employment and labour market',
                         url: '#0',
-                        groupItems: [
+                        children: [
                             {
                                 text: 'People in work',
                             },
@@ -263,10 +263,10 @@ export const EXAMPLE_HEADER_SEARCH_AND_MENU_LINKS = {
                 ],
             },
             {
-                groups: [
+                linksList: [
                     {
-                        heading: 'Economy',
-                        groupItems: [
+                        text: 'Economy',
+                        children: [
                             {
                                 text: 'Environmental accounts',
                             },
