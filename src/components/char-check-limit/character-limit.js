@@ -11,6 +11,8 @@ export default class CharLimit {
         this.limitElement = document.getElementById(input.getAttribute(attrCharLimitRef));
         this.singularMessage = this.limitElement.getAttribute('data-charcount-singular');
         this.pluralMessage = this.limitElement.getAttribute('data-charcount-plural');
+        this.limitSingularMessage = this.limitElement.getAttribute('data-charcount-limit-singular');
+        this.limitPluralMessage = this.limitElement.getAttribute('data-charcount-limit-plural');
 
         this.updateLimitReadout(null, true);
         this.limitElement.classList.remove('ons-u-d-no');
@@ -21,7 +23,7 @@ export default class CharLimit {
     updateLimitReadout(event, firstRun) {
         const value = this.input.value;
         const remaining = this.maxLength - this.getCharLength(value);
-        const message = remaining === 1 ? this.singularMessage : this.pluralMessage;
+
         // Prevent aria live announcement when component initialises
         if (!firstRun && event.inputType) {
             this.limitElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
@@ -29,7 +31,13 @@ export default class CharLimit {
             this.limitElement.removeAttribute('aria-live');
         }
 
-        this.limitElement.innerText = message.replace('{x}', remaining);
+        this.limitElement.innerText = this.getMessage(
+            remaining,
+            this.singularMessage,
+            this.pluralMessage,
+            this.limitSingularMessage,
+            this.limitPluralMessage,
+        );
 
         this.setLimitClass(remaining, this.input, inputClassLimitReached);
         this.setLimitClass(remaining, this.limitElement, remainingClassLimitReached);
@@ -55,5 +63,22 @@ export default class CharLimit {
     getCharLength(text) {
         const lineBreaks = (text.match(/\n/g) || []).length;
         return text.length + lineBreaks;
+    }
+
+    getMessage(remaining, singularMessage, pluralMessage, limitSingularMessage, limitPluralMessage) {
+        let message;
+
+        if (remaining === 1) {
+            message = singularMessage;
+        } else if (remaining === -1) {
+            message = limitSingularMessage;
+        } else if (remaining < -1) {
+            message = limitPluralMessage;
+        } else {
+            message = pluralMessage;
+        }
+
+        // Use Math.abs to always return a positive number
+        return message.replace('{x}', Math.abs(remaining));
     }
 }

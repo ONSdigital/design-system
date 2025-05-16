@@ -3,13 +3,16 @@
         {% set content = caller() %}
         <span class="ons-js-char-check-input">{{ content | safe }}</span>
     {% endif %}
+    {% set limitSingular = params.charCountOverLimitSingular | default("You have exceeded the character limit by {x} character") %}
+    {% set limitPlural = params.charCountOverLimitPlural | default("You have exceeded the character limit by {x} characters") %}
+
     <span
         id="{{ params.id }}"
         class="ons-input__limit ons-u-fs-s--b ons-u-d-no ons-u-mt-2xs"
         data-charcount-singular="{{ params.charCountSingular }}"
         data-charcount-plural="{{ params.charCountPlural }}"
-        data-charcount-limit-singular="{{ params.charCountOverLimitSingular }}"
-        data-charcount-limit-plural="{{ params.charCountOverLimitPlural }}"
+        data-charcount-limit-singular="{{ limitSingular }}"
+        data-charcount-limit-plural="{{ limitPlural }}"
     >
     </span>
 {% endmacro %}
