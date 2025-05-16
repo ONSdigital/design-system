@@ -148,7 +148,6 @@ class RangeAnnotationsOptions {
             const labelRect = labelElement.getBoundingClientRect();
 
             // Get the label position relative to the plotBand (left, right, top or bottom)
-
             const labelPosition = this.getLabelPosition(
                 currentChart.userOptions.chart.type,
                 labelRect,

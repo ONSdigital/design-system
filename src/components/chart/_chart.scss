@@ -25,6 +25,8 @@
     }
 
     &__footnote-number {
+        // !important is necessary for some range annotation labels at mobile, otherwise
+        // the inline-styled block display takes precedence
         display: flex !important;
         flex-shrink: 0;
         flex-grow: 0;
@@ -91,7 +93,7 @@
 
 .ons-chart__range-annotation-label {
     &--x {
-        padding: 0 20px;
+        padding: 0 1.25rem;
     }
 
     &--outside {
@@ -101,22 +103,22 @@
 
     &--right {
         text-align: left !important;
-        padding-left: 5px;
+        padding-left: 0.3125rem;
     }
 
     &--left {
         text-align: right !important;
-        padding-right: 5px;
+        padding-right: 0.3125rem;
     }
 
     &--top {
         text-align: center !important;
-        padding-bottom: 5px;
+        padding-bottom: 0.3125rem;
     }
 
     &--bottom {
         text-align: center !important;
-        padding-top: 5px;
+        padding-top: 0.3125rem;
     }
 }
 

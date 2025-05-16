@@ -82,17 +82,17 @@
 | xValue | float or int | true     | The x axis value of the annotation. For category axes this is the zero based index of the x axis categories array. It must be an integer in this scenario. |
 | yValue | float        | true     | The y axis value of the annotation                                                                                                                         |
 
-### Range annotations
+## Range annotations
 
-| Name              | Type    | Required | Description                                                                                                                                                                   |
-| ----------------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| text              | string  | true     | The annotation text.                                                                                                                                                          |
-| range             | object  | true     | The xValue or yValue coordinates for the annotation                                                                                                                           |
-| axis              | string  | true     | The axis the range annotation should be applied to. Should be one of 'x' or 'y'. Note that for bar charts 'x' will be the vertical axis, and 'y' will be the horizontal axis. |
-| labelInside       | boolean | true     | Whether the label for the range sits inside or outside the shaded area                                                                                                        |
-| labelOffsetX (px) | int     | false    | The horizontal offset in px of the label from it's default position. Ignored if labelInside is true.                                                                          |
-| labelOffsetY (px) | int     | false    | The vertical offset in px of the label from it's default position. Ignored if labelInside is true.                                                                            |
-| labelWidth (px)   | int     | false    | The width of the label in pixels - the label text will wrap if it is wider than this value. If undefined, the label will be set to 150px wide.                                |
+| Name              | Type          | Required | Description                                                                                                                                                                   |
+| ----------------- | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| text              | string        | true     | The annotation text.                                                                                                                                                          |
+| range             | Object<Range> | true     | The xValue or yValue coordinates for the annotation                                                                                                                           |
+| axis              | string        | true     | The axis the range annotation should be applied to. Should be one of 'x' or 'y'. Note that for bar charts 'x' will be the vertical axis, and 'y' will be the horizontal axis. |
+| labelInside       | boolean       | true     | Whether the label for the range sits inside or outside the shaded area                                                                                                        |
+| labelOffsetX (px) | int           | false    | The horizontal offset in px of the label from it's default position. Ignored if labelInside is true.                                                                          |
+| labelOffsetY (px) | int           | false    | The vertical offset in px of the label from it's default position. Ignored if labelInside is true.                                                                            |
+| labelWidth (px)   | int           | false    | The width of the label in pixels - the label text will wrap if it is wider than this value. If undefined, the label will be set to 150px wide.                                |
 
 ### Range
 
