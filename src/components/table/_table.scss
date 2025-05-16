@@ -13,16 +13,15 @@
         text-align: left;
     }
 
-    &--merge-cells & {
-        &__header,
-        &__cell {
-            padding-left: 0;
+    .ons-table__row:not(.ons-table__row--after-rowspan) {
+        .ons-table__cell,
+        .ons-table__header {
+            @include nth-element(1, 0);
         }
     }
+
     &__header,
     &__cell {
-        @include nth-element(1, 0);
-
         border-bottom: 2px solid var(--ons-color-grey-75);
         overflow: hidden;
         padding: 0.5rem 0 0.5rem 1rem;
