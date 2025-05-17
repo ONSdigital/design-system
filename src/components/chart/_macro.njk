@@ -1,8 +1,9 @@
 {% from "components/list/_macro.njk" import onsList %}
 
 {% macro onsChart(params) %}
-    {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area'] %}
-    {% set supportedChartTypesWithLine = ['column'] %}
+    {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
+    {% set supportedChartTypesWithLine = ['column', 'columnrange'] %}
+    {% set supportedChartTypesWithScatter = ['columnrange'] %}
 
     {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
         {% set headingLevel = params.headingLevel %}
@@ -40,6 +41,12 @@
         {% endif %}
         {% if params.yAxis.tickIntervalDesktop %}
             data-highcharts-y-axis-tick-interval-desktop="{{ params.yAxis.tickIntervalDesktop }}"
+        {% endif %}
+        {% if params.estimateLineLabel %}
+            data-highcharts-estimate-line-label="{{ params.estimateLineLabel }}"
+        {% endif %}
+        {% if params.uncertaintyRangeLabel %}
+            data-highcharts-uncertainty-range-label="{{ params.uncertaintyRangeLabel }}"
         {% endif %}
     >
         <figure class="ons-chart">
@@ -95,7 +102,7 @@
                         "enabled": item.dataLabels if item.dataLabels else false
                     },
                     "connectNulls": item.connectNulls if item.connectNulls else false,
-                    "type": item.type if item.type and item.type == 'line' and params.chartType in supportedChartTypesWithLine else params.chartType
+                    "type": item.type if item.type and (item.type == 'line' and params.chartType in supportedChartTypesWithLine) or (item.type == 'scatter' and params.chartType in supportedChartTypesWithScatter) else params.chartType
                 }
             %}
             {# Use `set` tag to avoid printing the return value of extend #}
@@ -103,8 +110,12 @@
         {% endfor %}
         {%
             set config = {
+                "chart": {
+                    "type": params.chartType,
+                    "inverted": params.isChartInverted if params.isChartInverted else false
+                },
                 "legend": {
-                    "enabled" : params.legend if params.legend else true
+                    "enabled" : params.legend if params.legend else false
                 },
                 "yAxis": {
                     "title": {

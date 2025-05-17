@@ -19,6 +19,8 @@
 | percentageHeightMobile  | integer | false    | Sets the percentage plot height at mobile, relative to the width. If undefined the chart will fall back to the default height of 400px at mobile. Does not apply to bar charts.              |
 |                         |
 | annotations             | array   | false    | An array of annotations.                                                                                                                                                                     |
+| estimateLineLabel       | string  | false    | Label for the estimate line in the legend. Used in column charts with confidence intervals.                                                                                                  |
+| uncertaintyRangeLabel   | string  | false    | Label for the confidence interval in the legend. Used in column charts showing uncertainty ranges.                                                                                           |
 
 ### Download
 
