@@ -17,6 +17,16 @@ export default class TableOfContents {
         });
 
         this.sections.forEach((section) => this.observer.observe(section));
+
+        this.setInitialActiveSection();
+    }
+
+    setInitialActiveSection() {
+        const firstSection = this.sections[0];
+        if (!firstSection) return;
+
+        this.activeSection = firstSection;
+        this.updateTocLinks();
     }
 
     handleIntersect(entries) {
