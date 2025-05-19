@@ -24,7 +24,7 @@ export default async () => {
             const files = await glob(`${directory.path}/${folder}/**/example-*.njk`);
             for (const file of files) {
                 const urlPath = file.replace(/^/, './').replace(/^\.\/src\/(.*\/example-.*?)\.njk$/, '/$1');
-                const isChart = file.includes('chart');
+                const isChart = file.includes('/chart/');
                 const misMatchThreshold = isChart ? 8.82 : 0.05;
                 const requireSameDimensions = isChart ? false : true;
                 urls.push({
