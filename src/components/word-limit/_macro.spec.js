@@ -26,6 +26,43 @@ describe('FOR: Macro: WordLimit', () => {
             test('THEN: has the data attribute which defines wordCountSingular', () => {
                 expect($('.ons-input__limit').attr('data-wordcount-singular')).toBe('You have {x} word remaining');
             });
+            test('THEN: has the defualt text for data attribute which defines wordCountOverLimitSingular', () => {
+                const $ = cheerio.load(renderComponent('word-limit', EXAMPLE_WORD_LIMIT));
+                expect($('.ons-input__limit').attr('data-wordcount-limit-singular')).toBe('You have exceeded the word limit by {x} word');
+            });
+            test('THEN: has the defualt text for data attribute which defines wordCountOverLimitPlural', () => {
+                const $ = cheerio.load(renderComponent('word-limit', EXAMPLE_WORD_LIMIT));
+                expect($('.ons-input__limit').attr('data-wordcount-limit-plural')).toBe('You have exceeded the word limit by {x} words');
+            });
+        });
+    });
+    describe('GIVEN: Params: wordCountOverLimitSingular', () => {
+        describe('WHEN: wordCountOverLimitSingular is provided', () => {
+            test('THEN: has the provided data attribute which defines wordCountOverLimitSingular', () => {
+                const $ = cheerio.load(
+                    renderComponent('word-limit', {
+                        ...EXAMPLE_WORD_LIMIT,
+                        wordCountOverLimitSingular: '{x} word too many',
+                    }),
+                );
+
+                expect($('.ons-input__limit').attr('data-wordcount-limit-singular')).toBe('{x} word too many');
+            });
+        });
+    });
+
+    describe('GIVEN: Params: wordCountOverLimitSingular', () => {
+        describe('WHEN: wordCountOverLimitSingular is provided', () => {
+            test('THEN: has the provided data attribute which defines wordCountOverLimitSingular', () => {
+                const $ = cheerio.load(
+                    renderComponent('word-limit', {
+                        ...EXAMPLE_WORD_LIMIT,
+                        wordCountOverLimitPlural: '{x} words too many',
+                    }),
+                );
+
+                expect($('.ons-input__limit').attr('data-wordcount-limit-plural')).toBe('{x} words too many');
+            });
         });
     });
 });

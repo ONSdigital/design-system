@@ -12,37 +12,17 @@ export default class WordLimit {
         this.limitElement = document.getElementById(input.getAttribute(attrWordLimitRef));
         this.singularMessage = this.limitElement.getAttribute('data-wordcount-singular');
         this.pluralMessage = this.limitElement.getAttribute('data-wordcount-plural');
+        this.limitSingularMessage = this.limitElement.getAttribute('data-wordcount-limit-singular');
+        this.limitPluralMessage = this.limitElement.getAttribute('data-wordcount-limit-plural');
 
         this.updateLimitReadout(null, true);
         this.limitElement.classList.remove('ons-u-d-no');
-
-        input.addEventListener('beforeinput', this.handleBeforeInput.bind(this)); // checks if the word count exceeds the limit
         input.addEventListener('input', this.updateLimitReadout.bind(this));
-    }
-
-    countWords(text) {
-        return text
-            .trim()
-            .split(/\s+/) // split by any whitespace
-            .map((word) => word.replace(/[.,!?;:]+$/, '')) // remove trailing punctuation
-            .filter(Boolean).length;
-    }
-
-    handleBeforeInput(event) {
-        const wordCount = this.countWords(this.input.value);
-        if (['deleteContentBackward', 'deleteContentForward', 'insertLineBreak'].includes(event?.inputType)) {
-            return; // allow deletions and line breaks even if word count reaches max words
-        }
-
-        if (event && event.type === 'beforeinput' && wordCount >= this.maxWords && /\s|[.,;:!?]/.test(event.data)) {
-            event.preventDefault();
-        }
     }
 
     updateLimitReadout(event, firstRun) {
         const wordCount = this.countWords(this.input.value);
         const remaining = this.maxWords - wordCount;
-        const message = remaining === 1 ? this.singularMessage : this.pluralMessage;
 
         // Prevent aria live announcement when component initialises
         if (!firstRun && event.inputType) {
@@ -50,17 +30,18 @@ export default class WordLimit {
         } else {
             this.limitElement.removeAttribute('aria-live');
         }
-
-        this.limitElement.innerText = message.replace('{x}', remaining);
+        this.limitElement.innerText = this.getMessage(
+            remaining,
+            this.singularMessage,
+            this.pluralMessage,
+            this.limitSingularMessage,
+            this.limitPluralMessage,
+        );
 
         this.setLimitClass(remaining, this.input, inputClassLimitReached);
         this.setLimitClass(remaining, this.limitElement, remainingClassLimitReached);
 
         this.track(remaining);
-
-        if (remaining < 0) {
-            this.updateLimitReadout(null, null); // Re-run to update display
-        }
     }
 
     setLimitClass(remaining, element, limitClass) {
@@ -76,5 +57,30 @@ export default class WordLimit {
                 event_label: `Limit of ${this.maxLength} reached/exceeded`,
             });
         }
+    }
+
+    countWords(text) {
+        return text
+            .trim()
+            .split(/\s+/) // split by any whitespace
+            .map((word) => word.replace(/[.,!?;:]+$/, '')) // remove trailing punctuation
+            .filter(Boolean).length;
+    }
+
+    getMessage(remaining, singularMessage, pluralMessage, limitSingularMessage, limitPluralMessage) {
+        let message;
+
+        if (remaining === 1) {
+            message = singularMessage;
+        } else if (remaining === -1) {
+            message = limitSingularMessage;
+        } else if (remaining < -1) {
+            message = limitPluralMessage;
+        } else {
+            message = pluralMessage;
+        }
+
+        // Use Math.abs to always return a positive number
+        return message.replace('{x}', Math.abs(remaining));
     }
 }
