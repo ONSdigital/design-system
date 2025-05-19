@@ -100,3 +100,14 @@
 | ---------- | ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | axisValue1 | float or int | true     | The starting point on the axis for the annotation. For category axes this is the zero based index of the categories array. It must be an integer in this scenario.   |
 | axisValue2 | float or int | true     | The ending pont on the axis for the annotation. For category axes this is the zero based index of the axis categories array. It must be an integer in this scenario. |
+
+## Reference line annotations
+
+| Name              | Type         | Required | Description                                                                                                                                                                   |
+| ----------------- | ------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| text              | string       | true     | The annotation text.                                                                                                                                                          |
+| axisValue         | float or int | true     | The x axis or y axis value for the annotation. For category axes this is the zero based index of the categories array. It must be an integer in this scenario.                |
+| axis              | string       | true     | The axis the range annotation should be applied to. Should be one of 'x' or 'y'. Note that for bar charts 'x' will be the vertical axis, and 'y' will be the horizontal axis. |
+| labelWidth (px)   | int          | false    | The width of the label in pixels - the label text will wrap if it is wider than this value. If undefined, the label will be set to 150px wide.                                |
+| labelOffsetX (px) | int          | false    | The horizontal offset in px of the label from it's default position.                                                                                                          |
+| labelOffsetY (px) | int          | false    | The vertical offset in px of the label from it's default position.                                                                                                            |
