@@ -1,32 +1,29 @@
 {% macro onsDocumentList(params) %}
+    {% set titleTag = params.headingLevel | default(2) %}
+    {% set openingTag = "<h" ~ titleTag %}
+    {% set closingTag = "</h" ~ titleTag ~ ">" %}
     <ul
         {% if params.id %}id="{{ params.id }}"{% endif %}class="ons-document-list{{ ' ' + params.classes if params.classes else '' }}"
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
     >
         {% for document in params.documents %}
-            {% set titleTag = params.headingLevel | default(2) %}
-            {% set openingTag = "<h" ~ titleTag %}
-            {% set closingTag = "</h" ~ titleTag ~ ">" %}
             {% set documentItem %}
                 {% if document.thumbnail %}
                     <div
                         class="ons-document-list__item-image{{ ' ons-document-list__item-image--file' if document.metadata.file }}"
                         aria-hidden="true"
                     >
-                        <a
-                            class="ons-document-list__image-link{{ ' ons-document-list__image-link--placeholder' if not document.thumbnail.smallSrc }}"
-                            href="{{ document.title.url }}"
-                            tabindex="-1"
-                        >
-                            {% if document.thumbnail.smallSrc and document.thumbnail.largeSrc %}
-                                <img
-                                    srcset="{{ document.thumbnail.smallSrc }} 1x, {{ document.thumbnail.largeSrc }} 2x"
-                                    src="{{ document.thumbnail.smallSrc }}"
-                                    alt=""
-                                    loading="lazy"
-                                />
-                            {% endif %}
-                        </a>
+                        {% if document.thumbnail.smallSrc and document.thumbnail.largeSrc %}
+                            <img
+                                class="ons-document-list__image"
+                                srcset="{{ document.thumbnail.smallSrc }} 1x, {{ document.thumbnail.largeSrc }} 2x"
+                                src="{{ document.thumbnail.smallSrc }}"
+                                alt=""
+                                loading="lazy"
+                            />
+                        {% else %}
+                            <span class="ons-document-list__image ons-document-list__image--placeholder"> </span>
+                        {% endif %}
                     </div>
                 {% endif %}
 
