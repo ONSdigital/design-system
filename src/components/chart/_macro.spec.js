@@ -966,6 +966,10 @@ describe('Macro: Chart', () => {
                     expect($('.ons-chart__footnotes').text()).toContain('A test x axis range annotation');
                     expect($('.ons-chart__footnotes').text()).toContain('3');
                     expect($('.ons-chart__footnotes').text()).toContain('A test y axis range annotation with the label inside');
+                    expect($('.ons-chart__footnotes').text()).toContain('4');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test x axis reference line annotation');
+                    expect($('.ons-chart__footnotes').text()).toContain('5');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test y axis reference line annotation');
                 });
             });
         });

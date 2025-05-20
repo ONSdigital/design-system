@@ -330,4 +330,17 @@ export const EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS = {
             labelWidth: 250,
         },
     ],
+    referenceLineAnnotations: [
+        {
+            text: 'A test x axis reference line annotation',
+            value: 34,
+            axis: 'x',
+        },
+        {
+            text: 'A test y axis reference line annotation',
+            value: 12,
+            axis: 'y',
+            labelWidth: 100,
+        },
+    ],
 };
