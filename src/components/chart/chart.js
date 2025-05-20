@@ -42,7 +42,7 @@ class HighchartsBaseChart {
         this.yAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsYAxisTickIntervalMobile);
         this.yAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop);
         this.commonChartOptions = new CommonChartOptions(this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
-        this.estimateLineLabel = this.node.dataset.highchartsEstimateLineLabel;
+        this.estimateLineLabel = this.node.dataset.highchartsEstimateLineLabel || undefined;
         this.uncertainyRangeLabel = this.node.dataset.highchartsUncertaintyRangeLabel;
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
@@ -126,7 +126,7 @@ class HighchartsBaseChart {
         const columnChartOptions = this.columnChart.getColumnChartOptions(this.config, this.useStackedLayout, this.extraLines);
         const areaChartOptions = this.areaChart.getAreaChartOptions();
         const scatterChartOptions = this.scatterChart.getScatterChartOptions();
-        const boxplotOptions = this.boxplot.getBoxplotOptions();
+        const boxplotOptions = this.boxplot.getBoxplotOptions(this.config, this.useStackedLayout, this.extraLines);
         // Merge specificChartOptions with the existing config
         this.config = this.mergeConfigs(this.config, specificChartOptions);
 
@@ -194,7 +194,13 @@ class HighchartsBaseChart {
                 this.useStackedLayout,
                 this.extraLines,
             );
-            mobileChartOptions = this.mergeConfigs(mobileChartOptions, mobileColumnChartOptions);
+            const mobileBoxplotChartOptions = this.columnChart.getColumnChartMobileOptions(
+                this.config,
+                this.useStackedLayout,
+                this.extraLines,
+                true,
+            );
+            mobileChartOptions = this.mergeConfigs(mobileChartOptions, mobileColumnChartOptions, mobileBoxplotChartOptions);
         }
 
         if (!this.config.responsive) {
