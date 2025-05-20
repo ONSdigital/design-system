@@ -9,12 +9,15 @@
                     href="{{ language.url }}"
                     lang="{{ language.isoCode }}"
                     {% if language.attributes %}{% for attribute, value in (language.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
-                    >{% if language.abbrText %}
+                >
+                    {# Visually hidden helper text for screenreaders #}
+                    <span class="ons-u-vh">Change language to{{ ' ' }}</span>
+                    {% if language.abbrText %}
                         <span class="ons-u-d-no@s">{{ language.abbrText }}</span><span class="ons-u-d-no@2xs@s">{{- language.text -}}</span>
                     {% else %}
                         {{- language.text -}}
-                    {% endif %}</a
-                >
+                    {% endif %}
+                </a>
             </li>
         {% endfor %}
     </ul>
