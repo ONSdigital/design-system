@@ -30,6 +30,7 @@ class ReferenceLineAnnotationsOptions {
                 dashStyle: '2 2',
                 width: 2,
                 value: referenceLineAnnotation.value,
+                zIndex: 3,
             };
             if (referenceLineAnnotation.axis === 'x') {
                 xAxisPlotLines.push(referenceLineConfig);
@@ -66,6 +67,7 @@ class ReferenceLineAnnotationsOptions {
                     x: isVertical ? 7 : 0,
                     y: isVertical ? 13 : -10, // 13 works with the height of the styled number
                     rotation: 0,
+                    zIndex: 3,
                 },
                 color: this.constants.zeroLineColor,
                 // note this works to give a dashed line with 4px and a 4px gap, but
