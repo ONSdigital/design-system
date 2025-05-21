@@ -16,6 +16,16 @@ class LineChart {
         };
     };
 
+    getExtraLineChartOptions = () => {
+        return {
+            plotOptions: {
+                line: {
+                    color: this.chartConstants.extraLineColor,
+                },
+            },
+        };
+    };
+
     updateLastPointMarker = (series) => {
         series.forEach((series, i) => {
             const points = series.points;

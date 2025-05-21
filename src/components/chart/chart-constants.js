@@ -10,6 +10,7 @@ class ChartConstants {
             gridLineColor: '#d9d9d9',
             zeroLineColor: '#b3b3b3',
             defaultFontSize: '0.875rem', // 14px
+            extraLineColor: '#222222',
             lineMarkerStyles: [
                 {
                     radius: 4,
