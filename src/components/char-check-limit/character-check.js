@@ -78,9 +78,14 @@ export default class CharCheck {
     }
 
     setShowMessage(remaining) {
-        this.checkElement.classList[(remaining < this.checkVal && remaining > 0 && this.countdown) || remaining < 0 ? 'remove' : 'add'](
-            'ons-u-d-no',
-        );
+        if (this.tagName.toLowerCase() === 'textarea') {
+            // Always display the remaining character message for textarea
+            this.checkElement.classList['remove']('ons-u-d-no');
+        } else {
+            this.checkElement.classList[(remaining < this.checkVal && remaining > 0 && this.countdown) || remaining < 0 ? 'remove' : 'add'](
+                'ons-u-d-no',
+            );
+        }
     }
 
     setCheckClass(remaining, element, setClass) {
