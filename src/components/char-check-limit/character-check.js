@@ -37,7 +37,8 @@ export default class CharCheck {
 
     updateCheckReadout(event, firstRun) {
         const value = this.input.value;
-        const remaining = this.checkVal - value.length;
+        const remaining = this.checkVal - this.getCharLength(value);
+
         // Prevent aria live announcement when component initialises
         if (!firstRun && event.inputType) {
             this.checkElement.setAttribute('aria-live', 'polite');
@@ -85,5 +86,11 @@ export default class CharCheck {
     setCheckClass(remaining, element, setClass) {
         element.classList[remaining < 0 ? 'add' : 'remove'](setClass);
         this.checkElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
+    }
+
+    getCharLength(text) {
+        // line breaks count as two characters as forms convert to \n\r when submitted
+        const lineBreaks = (text.match(/\n/g) || []).length;
+        return text.length + lineBreaks;
     }
 }
