@@ -71,6 +71,15 @@ class HighchartsBaseChart {
         return this.chartType === 'line' ? 0 : this.config.series.filter((series) => series.type === 'line').length;
     };
 
+    // Used to ensure that extra line series always overlay the column series
+    updateExtraLineZIndex = () => {
+        this.config.series.forEach((series) => {
+            if (series.type === 'line') {
+                series.zIndex = this.config.series.length + 1;
+            }
+        });
+    };
+
     // Set up the global Highcharts options which are used for all charts
     setCommonChartOptions = () => {
         const chartOptions = this.commonChartOptions.getOptions();
@@ -145,7 +154,9 @@ class HighchartsBaseChart {
         }
 
         if (this.extraLines > 0) {
+            this.updateExtraLineZIndex();
             this.config = this.mergeConfigs(this.config, this.lineChart.getLineChartOptions());
+            this.config = this.mergeConfigs(this.config, this.lineChart.getExtraLineChartOptions(this.config.series.length + 1));
             if (this.chartType === 'column') {
                 this.config = this.mergeConfigs(this.config, columnChartOptions);
             }
