@@ -12,6 +12,7 @@ class ChartConstants {
             estimateLineColor: '#003c57',
             uncertaintyRangeColor: 'rgba(32, 96, 149, 0.65)',
             defaultFontSize: '0.875rem', // 14px
+            shadingColor: '#ececec',
             lineMarkerStyles: [
                 {
                     radius: 4,
