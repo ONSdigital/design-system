@@ -6,9 +6,18 @@ const attrCharCheckVal = 'data-char-check-num';
 
 export default class CharCheck {
     constructor(context) {
-        this.context = context;
-        this.input = this.context.querySelector('input');
-        this.button = this.context.parentNode.querySelector('button');
+        this.tagName = context.tagName;
+
+        // Handle either an input directly or a container with an input inside
+        if (this.tagName.toLowerCase() === 'input' || this.tagName.toLowerCase() === 'textarea') {
+            this.input = context;
+        } else {
+            this.input = context.querySelector('input');
+        }
+
+        // Find the button: if input is passed directly, look at its parent
+        let parent = this.input.parentNode;
+        this.button = parent ? parent.querySelector('button') : null;
         this.checkElement = document.getElementById(this.input.getAttribute(attrCharCheckRef));
         this.checkVal = this.input.getAttribute(attrCharCheckVal);
         this.countdown = this.input.getAttribute(attrCharCheckCountdown) || false;
@@ -22,6 +31,7 @@ export default class CharCheck {
         if (this.button) {
             this.setButtonState(this.checkVal);
         }
+
         this.input.addEventListener('input', this.updateCheckReadout.bind(this));
     }
 
