@@ -13,9 +13,10 @@ import {
     EXAMPLE_LINE_CHART_WITH_ANNOTATIONS_PARAMS,
     EXAMPLE_BAR_CHART_WITH_ANNOTATIONS_PARAMS,
     EXAMPLE_COLUMN_CHART_WITH_ANNOTATIONS_PARAMS,
-    EXAMPLE_BAR_WITH_LINE_CHART_PARAMS,
     EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
     EXAMPLE_SCATTER_CHART_PARAMS,
+    EXAMPLE_AREA_CHART_PARAMS,
+    EXAMPLE_INVALID_CHART_PARAMS,
     EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS,
     EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS,
     EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS,
@@ -32,6 +33,10 @@ describe('Macro: Chart', () => {
                 test('THEN: it passes jest-axe checks', async () => {
                     const results = await axe($.html());
                     expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the title', () => {
+                    expect($('.ons-chart__title').text()).toBe('Example Line Chart');
                 });
 
                 test('THEN: it renders the subtitle', () => {
@@ -624,126 +629,6 @@ describe('Macro: Chart', () => {
         });
     });
 
-    describe('FOR: Bar Chart with Line', () => {
-        describe('GIVEN: Params: required', () => {
-            describe('WHEN: required params are provided', () => {
-                const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_WITH_LINE_CHART_PARAMS));
-                const configScript = $(`script[data-highcharts-config--bar-chart-123]`).html();
-
-                test('THEN: it passes jest-axe checks', async () => {
-                    const results = await axe($.html());
-                    expect(results).toHaveNoViolations();
-                });
-
-                test('THEN: it includes one series of type "bar" and another of type "line"', () => {
-                    expect(configScript).toContain('"type":"bar"');
-                    expect(configScript).toContain('"type":"line"');
-                });
-
-                test('THEN: it renders the chart container with correct data attributes', () => {
-                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('bar');
-                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('alternate');
-                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-title')).toBe('Example Bar Chart');
-                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('bar-chart-123');
-                });
-
-                test('THEN: it includes the Highcharts JSON config', () => {
-                    expect(configScript).toContain('"text":"X Axis Title"');
-                    expect(configScript).toContain('"text":"Y Axis Title"');
-                });
-            });
-        });
-
-        describe('GIVEN: Params: Legend', () => {
-            describe('WHEN: legend is enabled', () => {
-                const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_BAR_WITH_LINE_CHART_PARAMS, legend: false }));
-
-                test('THEN: it renders the legend', () => {
-                    const configScript = $(`script[data-highcharts-config--bar-chart-123]`).html();
-                    expect(configScript).toContain('"enabled":false');
-                });
-            });
-        });
-
-        describe('GIVEN: Params: Caption', () => {
-            describe('WHEN: caption is provided', () => {
-                const $ = cheerio.load(
-                    renderComponent('chart', {
-                        ...EXAMPLE_BAR_WITH_LINE_CHART_PARAMS,
-                        caption: 'This is an example caption for the chart.',
-                    }),
-                );
-
-                test('THEN: it renders the caption when provided', () => {
-                    expect($('figcaption').text()).toBe('This is an example caption for the chart.');
-                });
-            });
-        });
-
-        describe('GIVEN: Params: Description', () => {
-            describe('WHEN: description is provided', () => {
-                const $ = cheerio.load(
-                    renderComponent('chart', {
-                        ...EXAMPLE_BAR_WITH_LINE_CHART_PARAMS,
-                        description: 'An accessible description for screen readers.',
-                    }),
-                );
-
-                test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe('An accessible description for screen readers.');
-                });
-            });
-        });
-
-        describe('GIVEN: Params: Series: Type', () => {
-            describe('WHEN: a series has an invalid type', () => {
-                const invalidTypeParams = {
-                    ...EXAMPLE_BAR_WITH_LINE_CHART_PARAMS,
-                    series: [
-                        { name: 'Invalid Series', data: [5, 15, 25], type: 'scatter' },
-                        { name: 'Valid Line Series', data: [10, 20, 30], type: 'line' },
-                    ],
-                };
-
-                const $ = cheerio.load(renderComponent('chart', invalidTypeParams));
-                const configScript = $(`script[data-highcharts-config--bar-chart-123]`).html();
-
-                test('THEN: it defaults non-line series type to the chartType', () => {
-                    expect(configScript).not.toContain('"type":"scatter"');
-                    expect(configScript).toContain('"type":"bar"');
-                    expect(configScript).toContain('"type":"line"');
-                });
-            });
-        });
-
-        describe('GIVEN: Params: Download', () => {
-            describe('WHEN: download object are provided', () => {
-                const $ = cheerio.load(
-                    renderComponent('chart', {
-                        ...EXAMPLE_BAR_WITH_LINE_CHART_PARAMS,
-                        download: {
-                            title: 'Download Chart Data',
-                            itemsList: [
-                                { text: 'Download as PNG', url: 'https://example.com/chart.png' },
-                                { text: 'Download as CSV', url: 'https://example.com/chart.csv' },
-                            ],
-                        },
-                    }),
-                );
-
-                test('THEN: it renders the download section correctly', () => {
-                    expect($('.ons-chart__download-title').text()).toBe('Download Chart Data');
-
-                    const downloadLinks = $('.ons-chart__download-title').next().find('li a');
-                    expect(downloadLinks.eq(0).text()).toBe('Download as PNG');
-                    expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
-                    expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
-                    expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
-                });
-            });
-        });
-    });
-
     describe('FOR: Column Chart with Line', () => {
         describe('GIVEN: Params: required', () => {
             describe('WHEN: required params are provided', () => {
@@ -862,11 +747,28 @@ describe('Macro: Chart', () => {
                 });
             });
         });
+
+        describe('GIVEN: Params: ChartType', () => {
+            describe('WHEN: chartType is not compatible with line series', () => {
+                const params = {
+                    ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
+                    chartType: 'bar',
+                };
+
+                const $ = cheerio.load(renderComponent('chart', params));
+                const configScript = $('script[data-highcharts-config--column-chart-123]').html();
+
+                test('THEN: it falls back to chartType and does not include "line" series', () => {
+                    expect(configScript).not.toContain('"type":"line"');
+                    expect(configScript).toContain('"type":"bar"');
+                });
+            });
+        });
     });
 
     describe('FOR: Scatter chart', () => {
-        describe('GIVEN: Params: Annotations', () => {
-            describe('WHEN: annotations params are provided', () => {
+        describe('GIVEN: Params: required', () => {
+            describe('WHEN: required params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_SCATTER_CHART_PARAMS));
 
                 test('THEN: it passes jest-axe checks', async () => {
@@ -879,6 +781,145 @@ describe('Macro: Chart', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('primary');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-title')).toBe('Example Scatter Chart');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('scatter-chart-123');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Area Chart', () => {
+        describe('GIVEN: Params: required', () => {
+            describe('WHEN: required params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_AREA_CHART_PARAMS));
+                const configScript = $(`script[data-highcharts-config--area-chart-123]`).html();
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes at least one area series', () => {
+                    expect(configScript).toContain('"type":"area"');
+                });
+
+                test('THEN: it renders the chart container with correct data attributes', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('area');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('primary');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-title')).toBe('Example Area Chart');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('area-chart-123');
+                });
+
+                test('THEN: it includes the Highcharts JSON config', () => {
+                    expect(configScript).toContain('"text":"X Axis Title"');
+                    expect(configScript).toContain('"text":"Y Axis Title"');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Legend', () => {
+            describe('WHEN: legend is enabled', () => {
+                const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_AREA_CHART_PARAMS, legend: false }));
+
+                test('THEN: it renders the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--area-chart-123]`).html();
+                    expect(configScript).toContain('"enabled":false');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Caption', () => {
+            describe('WHEN: caption is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_AREA_CHART_PARAMS,
+                        caption: 'This is an example caption for the chart.',
+                    }),
+                );
+
+                test('THEN: it renders the caption when provided', () => {
+                    expect($('figcaption').text()).toBe('This is an example caption for the chart.');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Description', () => {
+            describe('WHEN: description is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_AREA_CHART_PARAMS,
+                        description: 'An accessible description for screen readers.',
+                    }),
+                );
+
+                test('THEN: it renders the description for accessibility', () => {
+                    expect($('.ons-u-vh').text()).toBe('An accessible description for screen readers.');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Download', () => {
+            describe('WHEN: download object are provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_AREA_CHART_PARAMS,
+                        download: {
+                            title: 'Download Chart Data',
+                            itemsList: [
+                                { text: 'Download as PNG', url: 'https://example.com/chart.png' },
+                                { text: 'Download as CSV', url: 'https://example.com/chart.csv' },
+                            ],
+                        },
+                    }),
+                );
+
+                test('THEN: it renders the download section correctly', () => {
+                    expect($('.ons-chart__download-title').text()).toBe('Download Chart Data');
+
+                    const downloadLinks = $('.ons-chart__download-title').next().find('li a');
+                    expect(downloadLinks.eq(0).text()).toBe('Download as PNG');
+                    expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
+                    expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
+                    expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Invalid Chart', () => {
+        describe('GIVEN: Invalid chart type', () => {
+            describe('WHEN: an invalid chart type is provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_INVALID_CHART_PARAMS));
+
+                test('THEN: it does not render the chart', () => {
+                    expect($('[data-highcharts-chart]').length).toBe(0);
+                });
+
+                test('THEN: it renders the error message', () => {
+                    expect($('[data-invalid-chart-type]').text()).toBe('Chart type "invalid" is not supported');
+                });
+
+                test('THEN: it does not include the Highcharts JSON config', () => {
+                    const configScript = $(`script[data-highcharts-config--invalid-chart-123]`).html();
+                    expect(configScript).toBeNull();
+                });
+
+                test('THEN: it still renders the title', () => {
+                    expect($('.ons-chart__title').text()).toBe('Example Invalid Chart');
+                });
+
+                test('THEN: it still renders the subtitle', () => {
+                    expect($('.ons-chart__subtitle').text()).toBe('A sample subtitle');
+                });
+
+                test('THEN: it still renders the description', () => {
+                    expect($('.ons-u-vh').text()).toBe('A detailed description');
+                });
+
+                test('THEN: it still renders the caption', () => {
+                    expect($('figcaption').text()).toBe('A detailed caption');
+                });
+
+                test('THEN: it still renders the download', () => {
+                    expect($('.ons-chart__download-title').text()).toBe('Download this chart');
                 });
             });
         });
