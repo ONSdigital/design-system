@@ -295,6 +295,32 @@ export const EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS =
     ],
 };
 
+export const EXAMPLE_LINE_CHART_WITH_REFERENCE_LINE_ANNOTATIONS_PARAMS = {
+    chartType: 'line',
+    title: 'Example Line Chart with reference line annotations',
+    subtitle: 'A sample subtitle',
+    id: 'line-chart-reference-line-annotations-123',
+    xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
+    yAxis: { title: 'Y Axis Title' },
+    series: [
+        { name: 'Series 1', data: [10, 20, 30] },
+        { name: 'Series 2', data: [15, 25, 35] },
+    ],
+    referenceLineAnnotations: [
+        {
+            text: 'A test x axis reference line annotation',
+            value: 34,
+            axis: 'x',
+        },
+        {
+            text: 'A test y axis reference line annotation',
+            value: 12,
+            axis: 'y',
+            labelWidth: 100,
+        },
+    ],
+};
+
 export const EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS = {
     chartType: 'line',
     title: 'Example Line Chart with mixed annotation types',
