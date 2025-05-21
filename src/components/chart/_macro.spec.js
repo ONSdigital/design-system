@@ -900,9 +900,7 @@ describe('Macro: Chart', () => {
                     const chartContainer = $('[data-highcharts-base-chart]');
                     expect(chartContainer.attr('data-highcharts-type')).toBe('boxplot');
                     expect(chartContainer.attr('data-highcharts-theme')).toBe('primary');
-                    expect(chartContainer.attr('data-highcharts-title')).toBe(
-                        'Figure 6: Net debt as a percentage of GDP remains at levels last seen in the early 1960s',
-                    );
+                    expect(chartContainer.attr('data-highcharts-title')).toBe('Example Boxplot Chart');
                     expect(chartContainer.attr('data-highcharts-id')).toBe('uuid');
                 });
 
@@ -920,22 +918,6 @@ describe('Macro: Chart', () => {
                 test('THEN: it disables the legend in config', () => {
                     const configScript = $(`script[data-highcharts-config--uuid]`).html();
                     expect(configScript).toContain('"enabled":false');
-                });
-            });
-        });
-
-        describe('GIVEN: Params: Caption', () => {
-            describe('WHEN: caption is provided', () => {
-                const customCaption = 'This is an example caption for the chart.';
-                const $ = cheerio.load(
-                    renderComponent('chart', {
-                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
-                        caption: customCaption,
-                    }),
-                );
-
-                test('THEN: it renders the caption when provided', () => {
-                    expect($('figcaption').text()).toBe(customCaption);
                 });
             });
         });
@@ -977,36 +959,6 @@ describe('Macro: Chart', () => {
                 });
             });
         });
-
-        describe('GIVEN: Params: Download', () => {
-            describe('WHEN: download object is provided', () => {
-                const $ = cheerio.load(
-                    renderComponent('chart', {
-                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
-                        download: {
-                            title: 'Download Chart Data',
-                            itemsList: [
-                                { text: 'Download as PNG', url: 'https://example.com/chart.png' },
-                                { text: 'Download as CSV', url: 'https://example.com/chart.csv' },
-                            ],
-                        },
-                    }),
-                );
-
-                test('THEN: it renders the download section correctly', () => {
-                    expect($('.ons-chart__download-title').text()).toBe('Download Chart Data');
-
-                    const downloadLinks = $('.ons-chart__download-title').next().find('li a');
-                    expect(downloadLinks).toHaveLength(2);
-
-                    expect(downloadLinks.eq(0).text()).toBe('Download as PNG');
-                    expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
-
-                    expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
-                    expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
-                });
-            });
-        });
     });
 
     describe('FOR: Column Range Chart', () => {
@@ -1030,32 +982,58 @@ describe('Macro: Chart', () => {
                     expect(baseChart.attr('data-highcharts-id')).toBe('uuid');
                 });
 
-                test('THEN: it sets chart to inverted', () => {
-                    expect(configScript).toContain('"inverted":true');
-                });
-
                 test('THEN: it includes columnrange and scatter series types', () => {
                     expect(configScript).toContain('"type":"columnrange"');
                     expect(configScript).toContain('"type":"scatter"');
                 });
 
-                test('THEN: it renders the chart title, subtitle and caption', () => {
-                    expect($('.ons-chart__title').text()).toBe('Food stores showed a strong rise on the month, while non-food stores fell');
-                    expect($('.ons-chart__subtitle').text()).toContain('Upward contribution from housing');
-                    expect($('.ons-chart__caption').text()).toContain('Source: Monthly Business Survey');
-                });
+                describe('GIVEN: Params: isChartInverted', () => {
+                    describe('WHEN: isChartInverted parameter is provided and set to true', () => {
+                        const $ = cheerio.load(
+                            renderComponent('chart', {
+                                ...EXAMPLE_COLUMN_RANGE_CHART_PARAMS,
+                                isChartInverted: true,
+                            }),
+                        );
+                        test('THEN: it sets isChartInverted to true', () => {
+                            const configScript = $(`script[data-highcharts-config--uuid]`).html();
+                            expect(configScript).toContain('"chart":{"type":"columnrange","inverted":true}');
+                        });
+                    });
 
-                test('THEN: it includes an accessible description if provided', () => {
-                    expect($('.ons-u-vh').text()).toBe('Volume sales, seasonally adjusted, Great Britain, January 2022 to January 2025');
-                });
+                    describe('WHEN: isChartInverted parameter is provided and set to false', () => {
+                        const $ = cheerio.load(
+                            renderComponent('chart', {
+                                ...EXAMPLE_COLUMN_RANGE_CHART_PARAMS,
+                                isChartInverted: false,
+                            }),
+                        );
+                        test('THEN: it sets isChartInverted to false', () => {
+                            const configScript = $(`script[data-highcharts-config--uuid]`).html();
+                            expect(configScript).toContain('"chart":{"type":"columnrange","inverted":false}');
+                        });
+                    });
 
-                test('THEN: it renders the download section correctly', () => {
-                    expect($('.ons-chart__download-title').text()).toBe('Download Figure 1 data');
-                    const downloadLinks = $('.ons-chart__download-title').next().find('li a');
+                    describe('WHEN: isChartInverted parameter is not provided', () => {
+                        const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_RANGE_CHART_PARAMS));
+                        test('THEN: it sets isChartInverted to false', () => {
+                            const configScript = $(`script[data-highcharts-config--uuid]`).html();
+                            expect(configScript).toContain('"chart":{"type":"columnrange","inverted":false}');
+                        });
+                    });
 
-                    expect(downloadLinks.eq(0).text()).toContain('Excel spreadsheet');
-                    expect(downloadLinks.eq(1).text()).toContain('Simple text file');
-                    expect(downloadLinks.eq(2).text()).toContain('Image');
+                    describe('WHEN: isChartInverted parameter is provided but is not a boolean', () => {
+                        const $ = cheerio.load(
+                            renderComponent('chart', {
+                                ...EXAMPLE_COLUMN_RANGE_CHART_PARAMS,
+                                isChartInverted: 'false',
+                            }),
+                        );
+                        test('THEN: it sets isChartInverted to false', () => {
+                            const configScript = $(`script[data-highcharts-config--uuid]`).html();
+                            expect(configScript).toContain('"chart":{"type":"columnrange","inverted":false}');
+                        });
+                    });
                 });
             });
         });

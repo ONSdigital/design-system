@@ -255,6 +255,8 @@ export const EXAMPLE_INVALID_CHART_PARAMS = {
 export const EXAMPLE_BOXPLOT_CHART_PARAMS = {
     chartType: 'boxplot',
     theme: 'primary',
+    title: 'Example Boxplot Chart',
+    subtitle: 'A sample subtitle',
     id: 'uuid',
     legend: true,
     series: [
@@ -289,7 +291,6 @@ export const EXAMPLE_BOXPLOT_CHART_PARAMS = {
 
 export const EXAMPLE_COLUMN_RANGE_CHART_PARAMS = {
     chartType: 'columnrange',
-    isChartInverted: true,
     theme: 'primary',
     title: 'Food stores showed a strong rise on the month, while non-food stores fell',
     subtitle:

@@ -112,7 +112,7 @@
             set config = {
                 "chart": {
                     "type": params.chartType,
-                    "inverted": params.isChartInverted if params.isChartInverted else false
+                    "inverted": params.isChartInverted if params.isChartInverted == true else false
                 },
                 "legend": {
                     "enabled" : params.legend if params.legend else true
