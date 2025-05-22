@@ -1,15 +1,17 @@
 import ChartConstants from './chart-constants';
+import ColumnChart from './column-chart';
 
 class Boxplot {
     constructor() {
         this.constants = ChartConstants.constants();
+        this.columnChart = new ColumnChart();
     }
 
     getBoxplotOptions = (config, useStackedLayout, extraLines) => {
         return {
             plotOptions: {
                 boxplot: {
-                    ...this.getPointPadding(config, useStackedLayout, extraLines, false),
+                    ...this.columnChart.getPointPadding(config, useStackedLayout, extraLines, false),
                     boxDashStyle: 'Solid',
                     fillColor: this.constants.uncertaintyRangeColor,
                     lineWidth: 0,
@@ -28,29 +30,6 @@ class Boxplot {
                 },
             },
         };
-    };
-
-    getPointPadding = (config, stackedLayout, numberOfExtraLines, isMobile) => {
-        const numberOfCategories = config.xAxis.categories ? config.xAxis.categories.length : 0;
-        const numberOfSeries = config.series.length - numberOfExtraLines; // Get number of series
-
-        const categoryThreshold = isMobile ? 10 : 20;
-        const maxPointWidth = isMobile ? 55 : 75;
-
-        let pointPadding = 0;
-        let groupPadding = 0;
-        let spacing = numberOfCategories >= categoryThreshold ? 0.1 : 0.2;
-
-        // non-clustered charts or stacked charts
-        if (numberOfSeries === 1 || stackedLayout === true) {
-            pointPadding = spacing;
-        }
-        // clustered charts
-        else {
-            groupPadding = spacing;
-        }
-
-        return { pointPadding: pointPadding, groupPadding: groupPadding, maxPointWidth: maxPointWidth };
     };
 
     updateLegend = (chart, uncertaintyRangeLabel, estimateLineLabel) => {

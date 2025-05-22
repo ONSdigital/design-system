@@ -55,7 +55,7 @@ class HighchartsBaseChart {
             ? parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop)
             : undefined;
         this.commonChartOptions = new CommonChartOptions(this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
-        this.estimateLineLabel = this.node.dataset.highchartsEstimateLineLabel || undefined;
+        this.estimateLineLabel = this.node.dataset.highchartsEstimateLineLabel;
         this.uncertainyRangeLabel = this.node.dataset.highchartsUncertaintyRangeLabel;
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
@@ -77,7 +77,6 @@ class HighchartsBaseChart {
         this.setLoadEvent();
         this.setRenderEvent();
         this.setWindowResizeEvent();
-        console.log('HighchartsBaseChart', this.chartType, this.config);
         this.chart = Highcharts.chart(chartNode, this.config);
     }
 
@@ -181,7 +180,6 @@ class HighchartsBaseChart {
             }
         }
         if (this.extraScatter > 0) {
-            //this.config = this.mergeConfigs(this.config, this.scatterChart.getScatterChartOptions());
             if (this.chartType === 'columnrange') {
                 this.config = this.mergeConfigs(this.config, columnRangeChartOptions);
             }
@@ -202,19 +200,13 @@ class HighchartsBaseChart {
     // All responsive rules should be defined here to avoid overriding existing rules
     setResponsiveOptions = () => {
         let mobileChartOptions = this.commonChartOptions.getMobileOptions(this.xAxisTickIntervalMobile, this.yAxisTickIntervalMobile);
-        if (this.chartType === 'column') {
+        if (this.chartType === 'column' || this.chartType === 'boxplot') {
             const mobileColumnChartOptions = this.columnChart.getColumnChartMobileOptions(
                 this.config,
                 this.useStackedLayout,
                 this.extraLines,
             );
-            const mobileBoxplotChartOptions = this.columnChart.getColumnChartMobileOptions(
-                this.config,
-                this.useStackedLayout,
-                this.extraLines,
-                true,
-            );
-            mobileChartOptions = this.mergeConfigs(mobileChartOptions, mobileColumnChartOptions, mobileBoxplotChartOptions);
+            mobileChartOptions = this.mergeConfigs(mobileChartOptions, mobileColumnChartOptions);
         }
 
         if (!this.config.responsive) {
