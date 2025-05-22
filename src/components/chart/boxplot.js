@@ -23,6 +23,7 @@ class Boxplot {
                 },
             },
             legend: {
+                enabled: false,
                 symbolRadius: 0,
                 itemStyle: {
                     fontSize: this.constants.defaultFontSize,
@@ -30,39 +31,6 @@ class Boxplot {
                 },
             },
         };
-    };
-
-    updateLegend = (chart, uncertaintyRangeLabel, estimateLineLabel) => {
-        const container = document.getElementsByClassName('highcharts-container')[0];
-        if (!container) return;
-
-        if (chart.legend.options.enabled === true) {
-            // Remove existing custom legend if it exists
-            const existingLegend = document.querySelector('.highcharts-legend');
-            if (existingLegend) existingLegend.remove();
-
-            // Create custom legend
-            const legend = document.createElement('div');
-            legend.className = 'highcharts-legend';
-            legend.style.display = 'flex';
-            legend.style.gap = '2rem';
-            legend.style.fontSize = `${this.constants.defaultFontSize}`;
-            legend.style.paddingLeft = '1rem';
-            legend.style.alignItems = 'center';
-
-            legend.innerHTML = `
-                <div style="display:flex; align-items:center; gap:0.5rem;">
-                    <span style="display:inline-block; width:12px; height:12px; background-color: ${this.constants.uncertaintyRangeColor};"></span>
-                    <span>${uncertaintyRangeLabel}</span>
-                </div>
-                <div style="display:flex; align-items:center; gap:0.5rem;">
-                    <span style="display:inline-block; width:20px; height:3px; border-radius: 2px; background-color: ${this.constants.estimateLineColor};"></span>
-                    <span>${estimateLineLabel}</span>
-                </div>
-            `;
-
-            container.parentNode.insertBefore(legend, container);
-        }
     };
 }
 

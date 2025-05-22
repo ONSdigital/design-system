@@ -290,10 +290,6 @@ class HighchartsBaseChart {
                     this.scatterChart.updateMarkersForConfidenceLevels(scatterSeries);
                 }
             }
-            if (this.chartType === 'boxplot') {
-                this.boxplot.updateLegend(currentChart, this.uncertainyRangeLabel, this.estimateLineLabel);
-            }
-
             if (this.chartType != 'bar') {
                 this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
             }

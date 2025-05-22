@@ -916,12 +916,84 @@ describe('Macro: Chart', () => {
         });
 
         describe('GIVEN: Params: Legend', () => {
-            describe('WHEN: legend is disabled', () => {
-                const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_BOXPLOT_CHART_PARAMS, legend: false }));
+            describe('WHEN: both labels are provided and legend is enabled', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        estimateLineLabel: 'Estimated value',
+                        uncertaintyRangeLabel: '95% Confidence Interval',
+                        legend: true,
+                    }),
+                );
 
-                test('THEN: it disables the legend in config', () => {
-                    const configScript = $(`script[data-highcharts-config--uuid]`).html();
-                    expect(configScript).toContain('"enabled":false');
+                test('THEN: it renders the boxplot legend container', () => {
+                    const legendContainer = $('.ons-chart__boxplot-legend');
+                    expect(legendContainer.length).toBe(1);
+                });
+
+                test('THEN: it includes the estimate line legend item', () => {
+                    const estimateLabel = $('.ons-chart__boxplot-legend-label').filter((_, el) => $(el).text().includes('Estimated value'));
+                    expect(estimateLabel.length).toBe(1);
+
+                    const estimateSwatch = $('.ons-chart__boxplot-legend-item--estimate');
+                    expect(estimateSwatch.length).toBe(1);
+                });
+
+                test('THEN: it includes the uncertainty range legend item', () => {
+                    const uncertaintyLabel = $('.ons-chart__boxplot-legend-label').filter((_, el) =>
+                        $(el).text().includes('95% Confidence Interval'),
+                    );
+                    expect(uncertaintyLabel.length).toBe(1);
+
+                    const uncertaintySwatch = $('.ons-chart__boxplot-legend-item--uncertainty');
+                    expect(uncertaintySwatch.length).toBe(1);
+                });
+            });
+
+            describe('WHEN: only estimateLineLabel is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        estimateLineLabel: 'Estimated only',
+                        legend: true,
+                    }),
+                );
+
+                test('THEN: it renders only the estimate legend item', () => {
+                    expect($('.ons-chart__boxplot-legend-item--estimate').length).toBe(1);
+                    expect($('.ons-chart__boxplot-legend-item--uncertainty').length).toBe(0);
+                });
+            });
+            describe('WHEN: only uncertaintyRangeLabel is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        uncertaintyRangeLabel: 'Uncertainty only',
+                        legend: true,
+                    }),
+                );
+                test('THEN: it renders only the uncertainty legend item', () => {
+                    expect($('.ons-chart__boxplot-legend-item--estimate').length).toBe(0);
+                    expect($('.ons-chart__boxplot-legend-item--uncertainty').length).toBe(1);
+                });
+            });
+            describe('WHEN: estimate and uncertainty labels are provided but legend is false', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        estimateLineLabel: 'Estimated value',
+                        uncertaintyRangeLabel: '95% Confidence Interval',
+                        legend: false,
+                    }),
+                );
+
+                test('THEN: it does NOT render the boxplot legend container', () => {
+                    expect($('.ons-chart__boxplot-legend').length).toBe(0);
+                });
+
+                test('THEN: it does NOT render any custom legend items', () => {
+                    expect($('.ons-chart__boxplot-legend-item--estimate').length).toBe(0);
+                    expect($('.ons-chart__boxplot-legend-item--uncertainty').length).toBe(0);
                 });
             });
         });
