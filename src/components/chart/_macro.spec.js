@@ -255,9 +255,7 @@ describe('Macro: Chart', () => {
                     expect(configScript).toContain('"legend":{"enabled":true}');
                 });
             });
-        });
 
-        describe('GIVEN: Params: Legend', () => {
             describe('WHEN: legend parameter is provided and set to false', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -270,9 +268,7 @@ describe('Macro: Chart', () => {
                     expect(configScript).toContain('"legend":{"enabled":false}');
                 });
             });
-        });
 
-        describe('GIVEN: Params: Legend', () => {
             describe('WHEN: legend parameter is not provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS));
                 test('THEN: it renders the legend', () => {
@@ -280,9 +276,7 @@ describe('Macro: Chart', () => {
                     expect(configScript).toContain('"legend":{"enabled":true}');
                 });
             });
-        });
 
-        describe('GIVEN: Params: Legend', () => {
             describe('WHEN: legend parameter is provided but is not a boolean', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
