@@ -343,7 +343,7 @@ describe('macro: table', () => {
 
             expect($('.ons-table__cell').hasClass('ons-table__cell--numeric')).toBe(true);
         });
-        it('adds additional colspan attribute to column header', () => {
+        it('adds additional colspan attribute to row header', () => {
             const $ = cheerio.load(
                 renderComponent('table', {
                     ...EXAMPLE_TABLE,
