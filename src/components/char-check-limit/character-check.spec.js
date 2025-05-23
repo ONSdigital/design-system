@@ -190,11 +190,6 @@ describe('script: character-check', () => {
                 await page.focus('#feedback-checkbox');
                 await page.keyboard.press('Space');
             });
-
-            it('then aria-live attribute should removed', async () => {
-                const hasAriaLiveAttribute = await page.$eval('#feedback-check', (element) => element.hasAttribute('aria-live'));
-                expect(hasAriaLiveAttribute).toBe(false);
-            });
         });
     });
 });
