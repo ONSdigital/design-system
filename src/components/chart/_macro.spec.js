@@ -7,6 +7,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 import {
     EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
     EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
     EXAMPLE_BAR_CHART_PARAMS,
     EXAMPLE_BAR_CHART_WITH_PERCENTAGE_HEIGHT_PARAMS,
     EXAMPLE_COLUMN_CHART_PARAMS,
@@ -17,6 +18,10 @@ import {
     EXAMPLE_SCATTER_CHART_PARAMS,
     EXAMPLE_AREA_CHART_PARAMS,
     EXAMPLE_INVALID_CHART_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS,
 } from './_test-examples';
 
 describe('Macro: Chart', () => {
@@ -237,6 +242,55 @@ describe('Macro: Chart', () => {
                     expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
                     expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
                     expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Legend', () => {
+            describe('WHEN: legend parameter is provided and set to true', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
+                        legend: true,
+                    }),
+                );
+                test('THEN: it renders the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":true}');
+                });
+            });
+
+            describe('WHEN: legend parameter is provided and set to false', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
+                        legend: false,
+                    }),
+                );
+                test('THEN: it does not render the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":false}');
+                });
+            });
+
+            describe('WHEN: legend parameter is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS));
+                test('THEN: it renders the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":true}');
+                });
+            });
+
+            describe('WHEN: legend parameter is provided but is not a boolean', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
+                        legend: 'false',
+                    }),
+                );
+                test('THEN: it renders the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":true}');
                 });
             });
         });
@@ -915,6 +969,94 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it still renders the download', () => {
                     expect($('.ons-chart__download-title').text()).toBe('Download this chart');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with range annotation on the x axis', () => {
+        describe('GIVEN: Params: Range annotations', () => {
+            describe('WHEN: range annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the range annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-range-annotations--line-chart-range-annotations-x-axis-123]`).html();
+                    expect(configScript).toContain('"text":"A test x axis range annotation"');
+                    expect(configScript).toContain('"range":{"axisValue1":10,"axisValue2":15}');
+                    expect(configScript).toContain('"axis":"x"');
+                    expect(configScript).toContain('"labelOffsetX":150');
+                    expect(configScript).toContain('"labelOffsetY":0');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with range annotation on the y axis with label width', () => {
+        describe('GIVEN: Params: Range annotations', () => {
+            describe('WHEN: range annotations params are provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS),
+                );
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the range annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-range-annotations--line-chart-range-annotations-y-axis-123]`).html();
+                    expect(configScript).toContain('"text":"A test y axis range annotation with a label width of 250px"');
+                    expect(configScript).toContain('"axis":"y"');
+                    expect(configScript).toContain('"labelWidth":250');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with range annotation with the label inside', () => {
+        describe('GIVEN: Params: Range annotations', () => {
+            describe('WHEN: range annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the range annotations JSON config', () => {
+                    const configScript = $(
+                        `script[data-highcharts-range-annotations--line-chart-range-annotations-label-inside-123]`,
+                    ).html();
+                    expect(configScript).toContain('"text":"A test y axis range annotation with the label inside"');
+                    expect(configScript).toContain('"axis":"y"');
+                    expect(configScript).toContain('"labelInside":true');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with mixed annotation types', () => {
+        describe('GIVEN: Params: Mixed annotations', () => {
+            describe('WHEN: mixed annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the footnotes sequentially', () => {
+                    expect($('.ons-chart__footnotes').text()).toContain('1');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test point annotation');
+                    expect($('.ons-chart__footnotes').text()).toContain('2');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test x axis range annotation');
+                    expect($('.ons-chart__footnotes').text()).toContain('3');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test y axis range annotation with the label inside');
                 });
             });
         });

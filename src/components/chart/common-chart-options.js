@@ -183,10 +183,6 @@ class CommonChartOptions {
                 const { label, symbol } = legendItem || {};
 
                 if (seriesType === 'line') {
-                    symbol?.attr({
-                        x: 16, // Position the marker to the right of the line
-                    });
-
                     label?.attr({
                         x: 30, // Adjust label position to account for longer line
                     });

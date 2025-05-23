@@ -65,6 +65,12 @@
                         {{ annotation.text }}
                     </li>
                 {% endfor %}
+                {% for rangeAnnotation in params.rangeAnnotations %}
+                    <li class="ons-chart__footnote_item">
+                        <span class="ons-chart__footnote-number">{{ loop.index + params.annotations | length }}</span>
+                        {{ rangeAnnotation.text }}
+                    </li>
+                {% endfor %}
             </ul>
             {% if params.caption %}
                 <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
@@ -101,10 +107,19 @@
             {# Use `set` tag to avoid printing the return value of extend #}
             {% set _ = extend(series, seriesItem) %}
         {% endfor %}
+        {# Set the legend value to true by default #}
+        {% set legendValue = true %}
+        {% if params.legend is defined %}
+            {# if a legend parameter has been provided, check that it is a boolean #}
+            {% if params.legend == true or params.legend == false %}
+                {# legend value is a boolean - use the value passed in #}
+                {% set legendValue = params.legend %}
+            {% endif %}
+        {% endif %}
         {%
             set config = {
                 "legend": {
-                    "enabled" : params.legend if params.legend else true
+                    "enabled" : legendValue
                 },
                 "yAxis": {
                     "title": {
@@ -137,6 +152,11 @@
         {% if params.annotations %}
             <script type="application/json" data-highcharts-annotations--{{ params.id }}>
                 {{ params.annotations | tojson }}
+            </script>
+        {% endif %}
+        {% if params.rangeAnnotations %}
+            <script type="application/json" data-highcharts-range-annotations--{{ params.id }}>
+                {{ params.rangeAnnotations | tojson }}
             </script>
         {% endif %}
         <!-- prettier-ignore-end -->

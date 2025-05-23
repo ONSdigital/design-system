@@ -28,4 +28,5 @@
 | Name      | Type               | Required | Description                               |
 | --------- | ------------------ | -------- | ----------------------------------------- |
 | title     | string             | true     | Text for the related links title          |
+| ariaLabel | string             | false    | Optional aria label for screenreaders     |
 | itemsList | array`<itemsList>` | false    | An array of [list item links](#itemslist) |
