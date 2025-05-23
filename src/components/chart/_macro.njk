@@ -129,6 +129,15 @@
             {# Use `set` tag to avoid printing the return value of extend #}
             {% set _ = extend(series, seriesItem) %}
         {% endfor %}
+        {# Set the legend value to true by default #}
+        {% set legendValue = true %}
+        {% if params.legend is defined %}
+            {# if a legend parameter has been provided, check that it is a boolean #}
+            {% if params.legend == true or params.legend == false %}
+                {# legend value is a boolean - use the value passed in #}
+                {% set legendValue = params.legend %}
+            {% endif %}
+        {% endif %}
         {%
             set config = {
                 "chart": {
@@ -136,7 +145,7 @@
                     "inverted": params.isChartInverted if params.isChartInverted == true else false
                 },
                 "legend": {
-                    "enabled" : params.legend if params.legend else true
+                    "enabled" : legendValue
                 },
                 "yAxis": {
                     "title": {
