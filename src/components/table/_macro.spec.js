@@ -110,7 +110,7 @@ describe('macro: table', () => {
 
             expect($('.ons-table__header').attr('colspan')).toBe('2');
         });
-        it('adds additional colspan attribute to column header', () => {
+        it('adds additional rowspan attribute to column header', () => {
             const $ = cheerio.load(
                 renderComponent('table', {
                     ...EXAMPLE_TABLE,
