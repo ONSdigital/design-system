@@ -652,6 +652,24 @@ describe('Macro: Chart', () => {
                     expect(configScript).toContain('"text":"Y Axis Title"');
                 });
             });
+            describe('WHEN: more than one line is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
+                        series: [
+                            ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS.series,
+                            { name: 'Additional Line', data: [15, 25, 35], type: 'line' },
+                            { name: 'Another additional Line', data: [14, 27, 31], type: 'line' },
+                        ],
+                    }),
+                );
+                const configScript = $(`script[data-highcharts-config--column-chart-123]`).html();
+
+                test('THEN: it does not include the additional line series', () => {
+                    const lineTypeMatches = (configScript.match(/"type":"line"/g) || []).length;
+                    expect(lineTypeMatches).toBe(1);
+                });
+            });
         });
 
         describe('GIVEN: Params: Legend', () => {
