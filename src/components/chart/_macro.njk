@@ -22,6 +22,9 @@
         data-highcharts-theme="{{ params.theme }}"
         data-highcharts-title="{{ params.title }}"
         data-highcharts-id="{{ params.id }}"
+        {% if params.featured %}
+            class="ons-chart--featured"
+        {% endif %}
         {% if params.useStackedLayout %}data-highcharts-use-stacked-layout="{{ params.useStackedLayout }}"{% endif %}
         {% if params.percentageHeightDesktop and params.chartType != 'bar' %}
             data-highcharts-percentage-height-desktop="{{ params.percentageHeightDesktop }}"

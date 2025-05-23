@@ -75,6 +75,15 @@
         font-size: 0.875rem; // 14px
         color: var(--ons-color-grey-100);
     }
+
+    &--featured {
+        background-color: var(--ons-color-banner-bg);
+        border-bottom: 0;
+        display: block;
+        outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
+        outline-offset: -2px;
+        //padding: 2rem;
+    }
 }
 
 // This is a workaround to position the axis title to the left
