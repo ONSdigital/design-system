@@ -23,7 +23,7 @@ class Boxplot {
                 },
             },
             legend: {
-                enabled: false,
+                enabled: false, // Legend is handled via custom HTML for box plots, so we disable the default Highcharts legend
                 symbolRadius: 0,
                 itemStyle: {
                     fontSize: this.constants.defaultFontSize,
