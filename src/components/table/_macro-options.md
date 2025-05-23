@@ -24,7 +24,7 @@
 | numeric         | boolean | false    | Set to “true” if all the cells in the column contain numbers. This aligns the content to the right so numbers can easily be compared.                        |
 | widthPercentage | integer | false    | Sets the `width` attribute for the `th` element                                                                                                              |
 | rowspan         | integer | false    | Set the `rowspan` to merge mulitple row `th` elements                                                                                                        |
-| colsspan        | integer | false    | Set the `colspan` to merge mulitple column `th` elements                                                                                                     |
+| colspan        | integer | false    | Set the `colspan` to merge multiple column `th` elements                                                                                                     |
 
 ## tr
 
