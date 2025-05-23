@@ -18,43 +18,44 @@
 | percentageHeightDesktop | integer | false    | Sets the percentage plot height at desktop, relative to the width. If undefined the chart will fall back to the default height of 400px at desktop. Does not apply to bar charts.            |
 | percentageHeightMobile  | integer | false    | Sets the percentage plot height at mobile, relative to the width. If undefined the chart will fall back to the default height of 400px at mobile. Does not apply to bar charts.              |
 |                         |
-| annotations             | array   | false    | An array of annotations.                                                                                                                                                                     |
+| annotations             | array   | false    | An array of point annotations.                                                                                                                                                               |
+| rangeAnnotations        | array   | false    | An array of range annotations.                                                                                                                                                               |
 
-### Download
+## Download
 
 | Property  | Type   | Required | Description                                                                                  |
 | --------- | ------ | -------- | -------------------------------------------------------------------------------------------- |
 | title     | string | false    | The title displayed above the download options.                                              |
 | itemsList | array  | false    | An array of items available for download, each described by a (DownloadItem)[#DownloadItem]. |
 
-### DownloadItem
+## DownloadItem
 
 | Property | Type   | Required | Description                                        |
 | -------- | ------ | -------- | -------------------------------------------------- |
 | `text`   | string | true     | The label or description of the downloadable item. |
 | `url`    | string | true     | The URL to the downloadable resource.              |
 
-### Y_Axis
+## Y_Axis
 
-| Name                | Type   | Required | Description                                                                                                                                             |
-| ------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title               | string | true     | The title text displayed on the y-axis                                                                                                                  |
-| labelFormat         | string | false    | A format string for the axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating). |
-| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                |
-| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).               |
+| Name                | Type   | Required | Description                                                                                                                                                                                            |
+| ------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| title               | string | true     | The title text displayed on the y-axis. Note that for any chart type apart from bar charts, a maximum character limit of 50 characters is recommended to avoid the axis title being cut off at mobile. |
+| labelFormat         | string | false    | A format string for the axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating).                                                |
+| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                               |
+| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                              |
 
-### X_Axis
+## X_Axis
 
-| Name                | Type   | Required | Description                                                                                                                                               |
-| ------------------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title               | string | false    | The title text displayed on the x-axis                                                                                                                    |
-| labelFormat         | string | false    | A format string for the x-axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating). |
-| categories          | array  | false    | Labels for each tick mark along the x-axis.                                                                                                               |
-| type                | string | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. Defaults to linear.                                                    |
-| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                  |
-| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                 |
+| Name                | Type   | Required | Description                                                                                                                                                                  |
+| ------------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title               | string | false    | The title text displayed on the x-axis. Note that for bar charts, a maximum character limit of 50 characters is recommended to avoid the axis title being cut off at mobile. |
+| labelFormat         | string | false    | A format string for the x-axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating).                    |
+| categories          | array  | false    | Labels for each tick mark along the x-axis.                                                                                                                                  |
+| type                | string | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. Defaults to linear.                                                                       |
+| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                     |
+| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                    |
 
-### Series
+## Series
 
 | Name         | Type    | Required | Description                                                                                                                                                                                                                              |
 | ------------ | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -65,7 +66,7 @@
 | type         | string  | false    | Specifies the configuration type to apply to the series. Supported types include 'line'. By default, it aligns with the chart type, but this is used when combining multiple chart types within a single chart (e.g., column with line). |
 | connectNulls | boolean | false    | Whether to connect lines that have a data point missing. Only relevant for line charts.                                                                                                                                                  |
 
-### Annotations
+## Point annotations
 
 | Name              | Type   | Required | Description                                               |
 | ----------------- | ------ | -------- | --------------------------------------------------------- |
@@ -74,9 +75,28 @@
 | labelOffsetX (px) | int    | true     | The x offset in px of the label from the annotation point |
 | labelOffsetY (px) | int    | true     | The y offset in px of the label from the annotation point |
 
-### Point
+## Point
 
 | Name   | Type         | Required | Description                                                                                                                                                |
 | ------ | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | xValue | float or int | true     | The x axis value of the annotation. For category axes this is the zero based index of the x axis categories array. It must be an integer in this scenario. |
 | yValue | float        | true     | The y axis value of the annotation                                                                                                                         |
+
+## Range annotations
+
+| Name              | Type          | Required | Description                                                                                                                                                                   |
+| ----------------- | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| text              | string        | true     | The annotation text.                                                                                                                                                          |
+| range             | Object<Range> | true     | The xValue or yValue coordinates for the annotation                                                                                                                           |
+| axis              | string        | true     | The axis the range annotation should be applied to. Should be one of 'x' or 'y'. Note that for bar charts 'x' will be the vertical axis, and 'y' will be the horizontal axis. |
+| labelInside       | boolean       | true     | Whether the label for the range sits inside or outside the shaded area                                                                                                        |
+| labelOffsetX (px) | int           | false    | The horizontal offset in px of the label from it's default position. Ignored if labelInside is true.                                                                          |
+| labelOffsetY (px) | int           | false    | The vertical offset in px of the label from it's default position. Ignored if labelInside is true.                                                                            |
+| labelWidth (px)   | int           | false    | The width of the label in pixels - the label text will wrap if it is wider than this value. If undefined, the label will be set to 150px wide.                                |
+
+## Range
+
+| Name       | Type         | Required | Description                                                                                                                                                          |
+| ---------- | ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| axisValue1 | float or int | true     | The starting point on the axis for the annotation. For category axes this is the zero based index of the categories array. It must be an integer in this scenario.   |
+| axisValue2 | float or int | true     | The ending pont on the axis for the annotation. For category axes this is the zero based index of the axis categories array. It must be an integer in this scenario. |
