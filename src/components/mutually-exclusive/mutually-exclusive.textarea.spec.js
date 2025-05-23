@@ -65,7 +65,7 @@ describe('script: mutually-exclusive', () => {
                 });
 
                 it('then the characters remaining readout should be reset', async () => {
-                    const limitText = await page.$eval('#feedback-lim', (node) => node.textContent);
+                    const limitText = await page.$eval('#feedback-check', (node) => node.textContent);
                     expect(limitText).toBe('You have 200 characters remaining');
                 });
 
