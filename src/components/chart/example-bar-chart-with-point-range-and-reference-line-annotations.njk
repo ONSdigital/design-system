@@ -46,7 +46,7 @@
         "series": [
             {
                 "data": [1.7, 2.1, 5.6, 0, -0.6, -2.7, -1.7, 2.4, -1.2],
-                "dataLabels": true,
+                "dataLabels": false,
                 "name": "Jan-25"
             }
         ],
@@ -70,9 +70,25 @@
                 "text": "A test y axis range annotation with a width of 80px",
                 "range": {"axisValue1": 5, "axisValue2": 6},
                 "axis": "y",
-                "labelOffsetX": -120,
-                "labelOffsetY": 180,
+                "labelOffsetX": -80,
+                "labelOffsetY": 220,
                 "labelWidth": 80
+            }
+        ],
+        "referenceLineAnnotations": [
+            {
+                "text": "A test x axis reference line annotation",
+                "value": 8,
+                "axis": "x",
+                "labelOffsetY": -30
+            },
+            {
+                "text": "A test y axis reference line annotation",
+                "value": 1.5,
+                "axis": "y",
+                "labelWidth": 100,
+                "labelOffsetX": 10,
+                "labelOffsetY": 140
             }
         ]
     })
