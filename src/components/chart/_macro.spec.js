@@ -7,6 +7,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 import {
     EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
     EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
     EXAMPLE_BAR_CHART_PARAMS,
     EXAMPLE_BAR_CHART_WITH_PERCENTAGE_HEIGHT_PARAMS,
     EXAMPLE_COLUMN_CHART_PARAMS,
@@ -241,6 +242,55 @@ describe('Macro: Chart', () => {
                     expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
                     expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
                     expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Legend', () => {
+            describe('WHEN: legend parameter is provided and set to true', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
+                        legend: true,
+                    }),
+                );
+                test('THEN: it renders the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":true}');
+                });
+            });
+
+            describe('WHEN: legend parameter is provided and set to false', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
+                        legend: false,
+                    }),
+                );
+                test('THEN: it does not render the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":false}');
+                });
+            });
+
+            describe('WHEN: legend parameter is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS));
+                test('THEN: it renders the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":true}');
+                });
+            });
+
+            describe('WHEN: legend parameter is provided but is not a boolean', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
+                        legend: 'false',
+                    }),
+                );
+                test('THEN: it renders the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":true}');
                 });
             });
         });
