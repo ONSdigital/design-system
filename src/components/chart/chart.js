@@ -128,7 +128,7 @@ class HighchartsBaseChart {
         }
         if (this.chartType === 'columnrange') {
             // Merge the bar chart options with the existing config
-            this.config = this.mergeConfigs(this.config, columnRangeChartOptions);
+            this.config = mergeConfigs(this.config, columnRangeChartOptions);
         }
         if (this.chartType === 'column') {
             // Merge the column chart options with the existing config
@@ -144,7 +144,7 @@ class HighchartsBaseChart {
         }
         if (this.chartType === 'boxplot') {
             // Merge the boxplot chart options with the existing config
-            this.config = this.mergeConfigs(this.config, boxplotOptions);
+            this.config = mergeConfigs(this.config, boxplotOptions);
         }
 
         if (this.extraLines > 0) {
@@ -155,7 +155,7 @@ class HighchartsBaseChart {
         }
         if (this.extraScatter > 0) {
             if (this.chartType === 'columnrange') {
-                this.config = this.mergeConfigs(this.config, columnRangeChartOptions);
+                this.config = mergeConfigs(this.config, columnRangeChartOptions);
             }
         }
 
