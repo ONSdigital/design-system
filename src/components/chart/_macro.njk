@@ -93,6 +93,14 @@
                         {{ rangeAnnotation.text }}
                     </li>
                 {% endfor %}
+                {% for referenceLineAnnotation in params.referenceLineAnnotations %}
+                    <li class="ons-chart__footnote_item">
+                        <span class="ons-chart__footnote-number"
+                            >{{ loop.index + params.annotations | length + params.rangeAnnotations | length }}</span
+                        >
+                        {{ referenceLineAnnotation.text }}
+                    </li>
+                {% endfor %}
             </ul>
             {% if params.caption %}
                 <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
@@ -183,6 +191,11 @@
         {% if params.rangeAnnotations %}
             <script type="application/json" data-highcharts-range-annotations--{{ params.id }}>
                 {{ params.rangeAnnotations | tojson }}
+            </script>
+        {% endif %}
+        {% if params.referenceLineAnnotations %}
+            <script type="application/json" data-highcharts-reference-line-annotations--{{ params.id }}>
+                {{ params.referenceLineAnnotations | tojson }}
             </script>
         {% endif %}
         <!-- prettier-ignore-end -->
