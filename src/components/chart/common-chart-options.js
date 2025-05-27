@@ -175,7 +175,7 @@ class CommonChartOptions {
     };
 
     disableLegendForSingleSeries = (config) => {
-        if (config.series.length === 1) {
+        if (config.chart.type != 'boxplot' && config.series.length === 1) {
             config.legend = {
                 enabled: false,
             };
@@ -197,12 +197,15 @@ class CommonChartOptions {
                         x: 30, // Adjust label position to account for longer line
                     });
                 } else {
+                    if (!symbol) return;
                     // Set the symbol size for bar / column series
-                    symbol.attr({
-                        width: 12,
-                        height: 12,
-                        y: 8,
-                    });
+                    else {
+                        symbol.attr({
+                            width: 12,
+                            height: 12,
+                            y: 8,
+                        });
+                    }
                 }
             });
         }
