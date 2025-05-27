@@ -368,3 +368,86 @@ export const EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS = {
         },
     ],
 };
+
+export const EXAMPLE_BOXPLOT_CHART_PARAMS = {
+    chartType: 'boxplot',
+    theme: 'primary',
+    title: 'Example Boxplot Chart',
+    subtitle: 'A sample subtitle',
+    id: 'uuid',
+    legend: true,
+    series: [
+        {
+            data: [
+                [760, 801, 848, 895, 965],
+                [733, 853, 939, 980, 1080],
+                [714, 762, 817, 870, 918],
+                [724, 802, 806, 871, 950],
+                [834, 836, 864, 882, 910],
+                [939, 939, 939, 939, 939],
+                [817, 817, 817, 817, 817],
+                [806, 806, 806, 806, 806],
+                [864, 864, 864, 864, 864],
+            ],
+            dataLabels: false,
+            name: 'Net debt',
+        },
+    ],
+    xAxis: {
+        categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+        title: 'Years',
+        type: 'linear',
+        tickIntervalMobile: 5,
+    },
+    yAxis: {
+        title: 'Percentage of GDP',
+    },
+    percentageHeightDesktop: 35,
+    percentageHeightMobile: 90,
+};
+
+export const EXAMPLE_COLUMN_RANGE_CHART_PARAMS = {
+    chartType: 'columnrange',
+    theme: 'primary',
+    title: 'Food stores showed a strong rise on the month, while non-food stores fell',
+    subtitle:
+        'Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise',
+    id: 'uuid',
+    legend: true,
+    xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        type: 'linear',
+        title: 'Categories',
+    },
+    yAxis: {
+        title: 'Temperature ( °C )',
+    },
+    series: [
+        {
+            data: [
+                [-9.5, 8.0],
+                [-7.8, 8.3],
+                [-13.1, 9.2],
+                [-4.4, 15.7],
+                [-1.0, 20.8],
+                [3.1, 28.4],
+                [5.9, 27.0],
+                [4.6, 23.0],
+                [4.9, 19.3],
+                [-5.2, 11.6],
+                [],
+                [-10.5, 12.0],
+                [-12.1, 18.5],
+            ],
+            dataLabels: true,
+            name: 'Values',
+        },
+        {
+            data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 3, 11, 12],
+            marker: true,
+            dataLabels: false,
+            name: 'Another test data source',
+            type: 'scatter',
+        },
+    ],
+};
