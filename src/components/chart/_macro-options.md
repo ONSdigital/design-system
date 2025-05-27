@@ -10,6 +10,7 @@
 | description             | string  | false    | A textual description of the chart for screen readers.                                                                                                                                       |
 | download                | object  | false    | Object for (download)[#download] options.                                                                                                                                                    |
 | legend                  | boolean | false    | Whether the legend is displayed. Defaults to `true`.                                                                                                                                         |
+| isChartInverted         | boolean | false    | Determines whether the chart should be rendered with inverted axes (i.e., flipping the X and Y axes). Typically used for bar or column charts. Defaults to false.                            |
 | yAxis                   | object  | true     | Defines the vertical axis [y-axis](#y_axis) configuration parameters                                                                                                                         |
 | xAxis                   | object  | true     | Defines the horizontal axis [x-axis](#x_axis) configuration parameters                                                                                                                       |
 | series                  | array   | true     | The data [series](#series) to be plotted, including labels and values.                                                                                                                       |
@@ -20,6 +21,8 @@
 |                         |
 | annotations             | array   | false    | An array of point annotations.                                                                                                                                                               |
 | rangeAnnotations        | array   | false    | An array of range annotations.                                                                                                                                                               |
+| estimateLineLabel       | string  | false    | Label for the estimate line in the legend. Used in column charts with confidence intervals.                                                                                                  |
+| uncertaintyRangeLabel   | string  | false    | Label for the confidence interval in the legend. Used in column charts showing uncertainty ranges.                                                                                           |
 
 ## Download
 
@@ -57,14 +60,14 @@
 
 ## Series
 
-| Name         | Type    | Required | Description                                                                                                                                                                                                                              |
-| ------------ | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name         | string  | true     | The name of the series.                                                                                                                                                                                                                  |
-| data         | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.                                                                                                                                                      |
-| dataLabels   | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`. This option is only available for bar chart and clustered bar charts                                                                                                |
-| marker       | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. This option is only available for line charts.                                                                                                      |
-| type         | string  | false    | Specifies the configuration type to apply to the series. Supported types include 'line'. By default, it aligns with the chart type, but this is used when combining multiple chart types within a single chart (e.g., column with line). |
-| connectNulls | boolean | false    | Whether to connect lines that have a data point missing. Only relevant for line charts.                                                                                                                                                  |
+| Name         | Type    | Required | Description                                                                                                                                                                                                                                            |
+| ------------ | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| name         | string  | true     | The name of the series.                                                                                                                                                                                                                                |
+| data         | array   | true     | The data values for the series. Each value corresponds to a category on the x-axis.                                                                                                                                                                    |
+| dataLabels   | boolean | false    | Options for whether the DataLabel is displayed. Defaults to `false`. This option is only available for bar chart and clustered bar charts                                                                                                              |
+| marker       | boolean | false    | Options for whether the Marker is displayed on the data points. Defaults to `false`. This option is only available for line charts.                                                                                                                    |
+| type         | string  | false    | Specifies the configuration type to apply to the series. Supported types include 'line' and 'scatter'. By default, it aligns with the chart type, but this is used when combining multiple chart types within a single chart (e.g., column with line). |
+| connectNulls | boolean | false    | Whether to connect lines that have a data point missing. Only relevant for line charts.                                                                                                                                                                |
 
 ## Point annotations
 

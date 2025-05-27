@@ -9,6 +9,8 @@ class ChartConstants {
             categoryLabelColor: '#414042',
             gridLineColor: '#d9d9d9',
             zeroLineColor: '#b3b3b3',
+            estimateLineColor: '#003c57',
+            uncertaintyRangeColor: 'rgba(32, 96, 149, 0.65)',
             defaultFontSize: '0.875rem', // 14px
             shadingColor: '#ececec',
             lineMarkerStyles: [
@@ -92,6 +94,16 @@ class ChartConstants {
                     symbol: 'triangle',
                     lineWidth: 1,
                     lineColor: '#ffffff',
+                },
+            ],
+            confidenceLevelMarkerStyles: [
+                {
+                    radius: 6,
+                    symbol: 'diamond',
+                    lineWidth: 2,
+                    lineColor: '#222',
+                    outline: true,
+                    fillColor: 'white',
                 },
             ],
         };
