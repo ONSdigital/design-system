@@ -122,8 +122,6 @@ class CommonChartOptions {
             },
             plotOptions: {
                 series: {
-                    // disables the tooltip on hover
-                    enableMouseTracking: false,
                     animation: false,
 
                     // disables the legend item hover
@@ -138,6 +136,9 @@ class CommonChartOptions {
                     },
                 },
             },
+            tooltip: {
+                animation: false,
+            },
         };
     }
 
@@ -145,6 +146,9 @@ class CommonChartOptions {
 
     getMobileOptions = (xAxisTickInterval, yAxisTickInterval) => {
         return {
+            tooltip: {
+                enabled: false,
+            },
             xAxis: {
                 tickInterval: xAxisTickInterval,
             },
