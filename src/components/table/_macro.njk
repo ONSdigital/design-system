@@ -33,7 +33,7 @@
                 </caption>
             {% endif %}
             <!-- prettier-ignore-start -->
-            {# Use thList if multiple-row headers, otherwise wrap single ths array into a default group #}
+            {# Uses thList if multiple-row headers, otherwise wrap single ths array into a default group #}
             {% set thGroups = params.thList if params.thList else [ { ths: params.ths } ] %}
             <thead class="ons-table__head">
                 {% for header_cols in thGroups %}
@@ -65,7 +65,6 @@
             </thead>
             {% set rowspanRemaining = 0 %}
             <tbody class="ons-table__body">
-
                 {# Tracks rowspans to add `ons-table__row--after-rowspan` class to the first cell of the row that immediately follows a rowspan #}
                 {% for tr in params.trs %}
                     {% set trIndex = loop.index0 %}
