@@ -13,7 +13,7 @@
         text-align: left;
     }
 
-    .ons-table__row:not(.ons-table__row--after-rowspan) {
+    &__row:not(.ons-table__row--after-rowspan) {
         .ons-table__cell,
         .ons-table__header {
             @include nth-element(1, 0);

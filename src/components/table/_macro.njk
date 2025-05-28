@@ -83,7 +83,7 @@
                         {% if tr.id %}id="{{ tr.id }}"{% endif %}
                     >
                         {% for td in tr.tds %}
-                            {% if td.heading %}
+                            {% if td.heading == true %}
                                 {% set openingTag = '<th' %}
                                 {% set closingTag = '</th>' %}
                             {% else %}
