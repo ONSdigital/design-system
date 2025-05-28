@@ -60,7 +60,54 @@
         <figure class="ons-chart">
             {% if params.featured %}
                 {{ openingArticleTitleTag | safe }}
-                class="ons-chart__article-title">{{ params.articleTitle }}{{ closingArticleTitleTag | safe }}
+                class="ons-chart__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-2xs">
+                <a href="{{ params.articleTitle.url }}">{{ params.articleTitle.text }} </a>
+                {{ closingArticleTitleTag | safe }}
+                {%- if params.metadata -%}
+                    <ul class="ons-chart__item-metadata">
+                        {%- if params.metadata.date -%}
+                            <li class="ons-chart__item-attribute">
+                                {% set prefixClass = "ons-u-fw-b" if params.metadata.date.showPrefix == true else "ons-u-vh" %}
+                                <span class="{{ prefixClass }}">{{ params.metadata.date.prefix | default("Published") }}: </span>
+                                {%- if params.metadata.date.iso -%}
+                                    <time datetime="{{ params.metadata.date.iso }}">{{ params.metadata.date.short }}</time>
+                                {%- endif -%}
+                            </li>
+                        {% endif %}
+
+                        {%- if params.metadata.object and params.metadata.object.text -%}
+                            <li class="ons-chart__item-attribute{{ ' ons-u-mr-no' if params.metadata.file }}">
+                                {% set metadataObject %}
+                                    <span {% if not params.metadata.file and not params.metadata.object.url %}class="ons-u-fw-b"{% endif %}
+                                        >{{ params.metadata.object.text }}{%- if params.metadata.object.ref -%}:{% elif params.metadata.file %},{% endif %}</span
+                                    >
+                                {% endset %}
+                                {%- if params.metadata.object.url -%}
+                                    <a class="ons-chart__attribute-link" href="{{ params.metadata.object.url }}">
+                                        {{ metadataObject | safe }}
+                                    </a>
+                                {% else %}
+                                    {{ metadataObject | safe }}
+                                {% endif %}
+                                {%- if params.metadata.object.ref -%}
+                                    <span>{{ params.metadata.object.ref }}</span>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+
+                        {%- if params.metadata.file and params.metadata.file.fileType -%}
+                            <li class="ons-chart__item-attribute" aria-hidden="true">
+                                {%
+                                    set fileMetadataItems = [
+                                    params.metadata.file.fileType if params.metadata.file.fileType,
+                                    params.metadata.file.fileSize if params.metadata.file.fileSize,
+                                    params.metadata.file.filePages if params.metadata.file.filePages ]
+                                %}
+                                {{ fileMetadataItems | join(', ') }}
+                            </li>
+                        {%- endif -%}
+                    </ul>
+                {% endif %}
             {% endif %}
 
             {{ openingTitleTag | safe }}
