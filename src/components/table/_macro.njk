@@ -3,11 +3,28 @@
     {% from "components/icon/_macro.njk" import onsIcon %}
     {% set variants = params.variants if params.variants %}
     {% set rowspanRemaining = 0 %}
+    {% set thGroups = params.thList if params.thList else [ { ths: params.ths } ] %}
+    {% set hasrowSpan = false %}
+    {% for row in params.thList %}
+        {% for th in row.ths %}
+            {% if th.rowspan %}
+                {% set hasrowSpan = true %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
+    {% for row in params.trs %}
+        {% for td in row.tds %}
+            {% if td.rowspan %}
+                {% set hasrowSpan = true %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
 
     {% set table %}
         <table
             {% if params.id %}id="{{ params.id }}"{% endif %}
-            class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{% if variants and variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}"
+            class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{% if variants and variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}{% if hasrowSpan %}ons-table--has-rowspan{% endif %}"
             {% if params.sortBy and 'sortable' in variants %}
                 data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"
             {% endif %}
@@ -18,57 +35,34 @@
                 </caption>
             {% endif %}
             <thead class="ons-table__head">
-                {% if params.thList %}
-                    {% for header_cols in params.thList %}
-                        <tr class="ons-table__row">
-                            {% for th in header_cols.ths %}
+                {% for header_cols in thGroups %}
+                    <tr class="ons-table__row">
+                        {% for th in header_cols.ths %}
+                            {% set thHtml %}
                                 <th
                                     scope="col"
-                                    class="ons-table__header{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric'if th.numeric }}"
+                                    class="ons-table__header{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric' if th.numeric }}"
                                     {% if th.colspan %}colspan="{{ th.colspan }}"{% endif %}
                                     {% if th.rowspan %}rowspan="{{ th.rowspan }}"{% endif %}
-                                    {% if 'sortable' in variants %}aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}
+                                    {% if 'sortable' in variants %}aria-sort="{{ th.ariaSort | default('none') }}"{% endif %}
                                     {% if th.widthPercentage %}width="{{ th.widthPercentage }}%"{% endif %}
                                 >
-                                    <span class="ons-table__header-text">{{- th.value | safe -}}</span>
+                                    <span class="ons-table__header-text">{{ th.value | safe }}</span>
                                     {% if 'sortable' in variants %}
-                                        {{-
+                                        {{
                                             onsIcon({
                                                 "iconType": "sort-sprite",
                                                 "id": th.value | replace(' ', '-'),
                                                 "classes": 'ons-u-d-no'
                                             })
-                                        -}}
+                                        }}
                                     {% endif %}
                                 </th>
-                            {% endfor %}
-                        </tr>
-                    {% endfor %}
-                {% else %}
-                    <tr class="ons-table__row">
-                        {% for th in params.ths %}
-                            <th
-                                scope="col"
-                                class="ons-table__header{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric'if th.numeric }}"
-                                {% if th.colspan %}colspan="{{ th.colspan }}"{% endif %}
-                                {% if th.rowspan %}rowspan="{{ th.rowspan }}"{% endif %}
-                                {% if 'sortable' in variants %}aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}
-                                {% if th.widthPercentage %}width="{{ th.widthPercentage }}%"{% endif %}
-                            >
-                                <span class="ons-table__header-text">{{- th.value | safe -}}</span>
-                                {% if 'sortable' in variants %}
-                                    {{-
-                                        onsIcon({
-                                            "iconType": "sort-sprite",
-                                            "id": th.value | replace(' ', '-'),
-                                            "classes": 'ons-u-d-no'
-                                        })
-                                    -}}
-                                {% endif %}
-                            </th>
+                            {% endset %}
+                            {{ thHtml | safe }}
                         {% endfor %}
                     </tr>
-                {% endif %}
+                {% endfor %}
             </thead>
             <tbody class="ons-table__body">
                 {% for tr in params.trs %}
@@ -84,7 +78,7 @@
                         {% endif %}
                     {% endif %}
                     <tr
-                        class="ons-table__row{{ ' ons-table__row--highlight' if tr.highlight }}{{ ' ons-table__row--after-rowspan' if previousRowHasRowspan }}"
+                        class="ons-table__row{{ rowspanClass }}{{ ' ons-table__row--highlight' if tr.highlight }}{{ ' ons-table__row--after-rowspan' if previousRowHasRowspan }}"
                         {% if tr.id %}id="{{ tr.id }}"{% endif %}
                     >
                         {% for td in tr.tds %}

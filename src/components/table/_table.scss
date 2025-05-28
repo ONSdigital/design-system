@@ -24,11 +24,20 @@
     &__cell {
         border-bottom: 2px solid var(--ons-color-grey-75);
         overflow: hidden;
-        padding: 0.5rem 0.5rem 0.5rem 1rem;
+        padding: 0.5rem 0 0.5rem 1rem;
         text-align: left;
         vertical-align: top;
         &--numeric {
             text-align: right;
+        }
+    }
+
+    &--has-rowspan {
+        @include mq('2xs', l) {
+            .ons-table__header,
+            .ons-table__cell {
+                padding-right: 1.5rem;
+            }
         }
     }
 
@@ -41,7 +50,7 @@
         background: var(--ons-color-highlight);
     }
 
-    &:not(.ons-table--responsive, .ons-table--merge-cells) .ons-table__body .ons-table__row:last-child {
+    &:not(.ons-table--responsive, .ons-table--has-rowspan) .ons-table__body .ons-table__row:last-child {
         .ons-table__cell,
         .ons-table__header--row {
             border: 0;
