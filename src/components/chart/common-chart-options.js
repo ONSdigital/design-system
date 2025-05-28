@@ -81,15 +81,6 @@ class CommonChartOptions {
                 },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,
-                // Add zero line
-                plotLines: [
-                    {
-                        color: this.constants.zeroLineColor,
-                        width: 1.5,
-                        value: 0,
-                        zIndex: 2,
-                    },
-                ],
                 // Add tick marks
                 tickWidth: 1,
                 tickLength: 6,
@@ -143,6 +134,25 @@ class CommonChartOptions {
 
     getOptions = () => this.options;
 
+    // TODO: A future ticket will add support for other plot lines which are not
+    // reference line annotations, and will be styled like the zero line
+    // See ticket https://jira.ons.gov.uk/browse/CCB-63
+    getPlotLines = () => {
+        // Add zero line
+        return {
+            yAxis: {
+                plotLines: [
+                    {
+                        color: this.constants.zeroLineColor,
+                        width: 1.5,
+                        value: 0,
+                        zIndex: 2,
+                    },
+                ],
+            },
+        };
+    };
+
     getMobileOptions = (xAxisTickInterval, yAxisTickInterval) => {
         return {
             xAxis: {
@@ -165,7 +175,7 @@ class CommonChartOptions {
     };
 
     disableLegendForSingleSeries = (config) => {
-        if (config.series.length === 1) {
+        if (config.chart.type != 'boxplot' && config.series.length === 1) {
             config.legend = {
                 enabled: false,
             };
@@ -187,12 +197,15 @@ class CommonChartOptions {
                         x: 30, // Adjust label position to account for longer line
                     });
                 } else {
+                    if (!symbol) return;
                     // Set the symbol size for bar / column series
-                    symbol.attr({
-                        width: 12,
-                        height: 12,
-                        y: 8,
-                    });
+                    else {
+                        symbol.attr({
+                            width: 12,
+                            height: 12,
+                            y: 8,
+                        });
+                    }
                 }
             });
         }
