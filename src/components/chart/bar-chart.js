@@ -70,7 +70,7 @@ class BarChart {
     };
 
     // Updates the config to move the data labels inside the bars, but only if the bar is wide enough
-    // This may also need to run when the chart is resized
+    // This also runs when the chart is resized
     postLoadDataLabels = (currentChart) => {
         const insideOptions = {
             dataLabels: this.getBarChartLabelsInsideOptions(),
@@ -80,19 +80,24 @@ class BarChart {
         };
 
         currentChart.series.forEach((series) => {
+            // If we have a bar chart with an extra line, exit early for the line series
+            if (series.type == 'line') {
+                return;
+            }
+
             const points = series.data;
+
             points.forEach((point) => {
-                // Get the actual width of the data label
-                const labelWidth = point.dataLabel && point.dataLabel.getBBox().width;
-                // Move the data labels inside the bar if the bar is wider than the label plus some padding
-                if (series.type == 'line') {
-                    // If we have a bar chart with an extra line, exit early for the line series
-                    return;
-                }
-                if (point.shapeArgs.height > labelWidth + 20) {
-                    point.update(insideOptions, false);
-                } else {
-                    point.update(outsideOptions, false);
+                if (point.dataLabel) {
+                    // Get the actual width of the data label
+                    const labelWidth = point.dataLabel.getBBox().width;
+
+                    // Move the data labels inside the bar if the bar is wider than the label plus some padding
+                    if (point.shapeArgs.height > labelWidth + 5) {
+                        point.update(insideOptions, false);
+                    } else {
+                        point.update(outsideOptions, false);
+                    }
                 }
             });
         });
@@ -114,6 +119,7 @@ class BarChart {
         inside: false,
         align: undefined,
         verticalAlign: undefined,
+        overflow: 'allow',
         style: {
             textOutline: 'none',
             // The design system does not include a semibold font weight, so we use 700 (bold) as an alternative.
