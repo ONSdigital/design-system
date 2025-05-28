@@ -12,6 +12,8 @@ import ScatterChart from './scatter-chart';
 import Boxplot from './boxplot';
 import AnnotationsOptions from './annotations-options';
 import RangeAnnotationsOptions from './range-annotations-options';
+import ReferenceLineAnnotationsOptions from './reference-line-annotations-options';
+import { preparePlotLinesAndBands, mergeConfigs } from './utilities';
 import AreaChart from './area-chart';
 import ColumnRangeChart from './columnrange-chart';
 
@@ -39,6 +41,12 @@ class HighchartsBaseChart {
         if (this.node.querySelector(`[data-highcharts-range-annotations--${this.id}]`)) {
             this.rangeAnnotations = JSON.parse(this.node.querySelector(`[data-highcharts-range-annotations--${this.id}]`).textContent);
             this.rangeAnnotationsOptions = new RangeAnnotationsOptions(this.rangeAnnotations);
+        }
+        if (this.node.querySelector(`[data-highcharts-reference-line-annotations--${this.id}]`)) {
+            this.referenceLineAnnotations = JSON.parse(
+                this.node.querySelector(`[data-highcharts-reference-line-annotations--${this.id}]`).textContent,
+            );
+            this.referenceLineAnnotationsOptions = new ReferenceLineAnnotationsOptions(this.referenceLineAnnotations);
         }
         this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
         this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
@@ -96,40 +104,6 @@ class HighchartsBaseChart {
         Highcharts.setOptions(chartOptions);
     };
 
-    // Utility function to merge two configs together
-    mergeConfigs = (baseConfig, newConfig) => {
-        // If newConfig is null/undefined, return baseConfig
-        if (!newConfig) return baseConfig;
-
-        // Create a new object to store the merged result
-        const merged = { ...baseConfig };
-
-        // Iterate through all keys in newConfig
-        Object.keys(newConfig).forEach((key) => {
-            // Get values from both configs for this key
-            const baseValue = merged[key];
-            const newValue = newConfig[key];
-
-            // If both values are objects (and not null), recursively merge them
-            if (
-                baseValue &&
-                newValue &&
-                typeof baseValue === 'object' &&
-                typeof newValue === 'object' &&
-                !Array.isArray(baseValue) &&
-                !Array.isArray(newValue)
-            ) {
-                merged[key] = this.mergeConfigs(baseValue, newValue);
-            } else {
-                // For non-objects and arrays use the new value
-                // If the new value is null/undefined, use the base value
-                merged[key] = newValue ?? baseValue;
-            }
-        });
-
-        return merged;
-    };
-
     // Set up options for specific charts and chart types
     setSpecificChartOptions = () => {
         const specificChartOptions = this.specificChartOptions.getOptions();
@@ -141,47 +115,47 @@ class HighchartsBaseChart {
         const scatterChartOptions = this.scatterChart.getScatterChartOptions();
         const boxplotOptions = this.boxplot.getBoxplotOptions(this.config, this.useStackedLayout, this.extraLines);
         // Merge specificChartOptions with the existing config
-        this.config = this.mergeConfigs(this.config, specificChartOptions);
+        this.config = mergeConfigs(this.config, specificChartOptions);
 
         if (this.chartType === 'line') {
             // Merge the line chart options with the existing config
-            this.config = this.mergeConfigs(this.config, lineChartOptions);
+            this.config = mergeConfigs(this.config, lineChartOptions);
         }
 
         if (this.chartType === 'bar') {
             // Merge the bar chart options with the existing config
-            this.config = this.mergeConfigs(this.config, barChartOptions);
+            this.config = mergeConfigs(this.config, barChartOptions);
         }
         if (this.chartType === 'columnrange') {
             // Merge the bar chart options with the existing config
-            this.config = this.mergeConfigs(this.config, columnRangeChartOptions);
+            this.config = mergeConfigs(this.config, columnRangeChartOptions);
         }
         if (this.chartType === 'column') {
             // Merge the column chart options with the existing config
-            this.config = this.mergeConfigs(this.config, columnChartOptions);
+            this.config = mergeConfigs(this.config, columnChartOptions);
         }
         if (this.chartType === 'area') {
             // Merge the area chart options with the existing config
-            this.config = this.mergeConfigs(this.config, areaChartOptions);
+            this.config = mergeConfigs(this.config, areaChartOptions);
         }
         if (this.chartType === 'scatter') {
             // Merge the scatter chart options with the existing config
-            this.config = this.mergeConfigs(this.config, scatterChartOptions);
+            this.config = mergeConfigs(this.config, scatterChartOptions);
         }
         if (this.chartType === 'boxplot') {
             // Merge the boxplot chart options with the existing config
-            this.config = this.mergeConfigs(this.config, boxplotOptions);
+            this.config = mergeConfigs(this.config, boxplotOptions);
         }
 
         if (this.extraLines > 0) {
-            this.config = this.mergeConfigs(this.config, this.lineChart.getLineChartOptions());
+            this.config = mergeConfigs(this.config, this.lineChart.getLineChartOptions());
             if (this.chartType === 'column') {
-                this.config = this.mergeConfigs(this.config, columnChartOptions);
+                this.config = mergeConfigs(this.config, columnChartOptions);
             }
         }
         if (this.extraScatter > 0) {
             if (this.chartType === 'columnrange') {
-                this.config = this.mergeConfigs(this.config, columnRangeChartOptions);
+                this.config = mergeConfigs(this.config, columnRangeChartOptions);
             }
         }
 
@@ -206,12 +180,21 @@ class HighchartsBaseChart {
                 this.useStackedLayout,
                 this.extraLines,
             );
-            mobileChartOptions = this.mergeConfigs(mobileChartOptions, mobileColumnChartOptions);
+            mobileChartOptions = mergeConfigs(mobileChartOptions, mobileColumnChartOptions);
         }
 
         if (!this.config.responsive) {
             this.config.responsive = {};
         }
+
+        const { desktopAllPlotLinesAndBands, mobileAllPlotLinesAndBands } = preparePlotLinesAndBands(
+            this.annotations,
+            this.rangeAnnotations,
+            this.rangeAnnotationsOptions,
+            this.referenceLineAnnotationsOptions,
+            this.commonChartOptions,
+            this.chartType,
+        );
 
         let rules = [
             {
@@ -232,12 +215,7 @@ class HighchartsBaseChart {
                 },
                 chartOptions: {
                     annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsMobile() : undefined,
-                    ...(this.rangeAnnotationsOptions
-                        ? this.rangeAnnotationsOptions.getRangeAnnotationsOptionsMobile(
-                              this.annotations ? this.annotations.length : 0,
-                              this.chartType,
-                          )
-                        : null),
+                    ...(mobileAllPlotLinesAndBands != {} ? mobileAllPlotLinesAndBands : null),
                 },
             },
             {
@@ -246,9 +224,7 @@ class HighchartsBaseChart {
                 },
                 chartOptions: {
                     annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsDesktop() : undefined,
-                    ...(this.rangeAnnotationsOptions
-                        ? this.rangeAnnotationsOptions.getRangeAnnotationsOptionsDesktop(this.chartType)
-                        : null),
+                    ...(desktopAllPlotLinesAndBands != {} ? desktopAllPlotLinesAndBands : null),
                 },
             },
         ];

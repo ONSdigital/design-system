@@ -23,6 +23,7 @@ import {
     EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS,
     EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS,
     EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_REFERENCE_LINE_ANNOTATIONS_PARAMS,
     EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS,
 } from './_test-examples';
 
@@ -1272,6 +1273,32 @@ describe('Macro: Chart', () => {
         });
     });
 
+    describe('FOR: Line chart with reference line annotations', () => {
+        describe('GIVEN: Params: Reference line annotations', () => {
+            describe('WHEN: reference line annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_REFERENCE_LINE_ANNOTATIONS_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the reference line annotations JSON config', () => {
+                    const configScript = $(
+                        `script[data-highcharts-reference-line-annotations--line-chart-reference-line-annotations-123]`,
+                    ).html();
+                    expect(configScript).toContain('"text":"A test x axis reference line annotation"');
+                    expect(configScript).toContain('"value":34');
+                    expect(configScript).toContain('"axis":"x"');
+                    expect(configScript).toContain('"text":"A test y axis reference line annotation"');
+                    expect(configScript).toContain('"value":12');
+                    expect(configScript).toContain('"axis":"y"');
+                    expect(configScript).toContain('"labelWidth":100');
+                });
+            });
+        });
+    });
+
     describe('FOR: Line chart with mixed annotation types', () => {
         describe('GIVEN: Params: Mixed annotations', () => {
             describe('WHEN: mixed annotations params are provided', () => {
@@ -1289,6 +1316,10 @@ describe('Macro: Chart', () => {
                     expect($('.ons-chart__footnotes').text()).toContain('A test x axis range annotation');
                     expect($('.ons-chart__footnotes').text()).toContain('3');
                     expect($('.ons-chart__footnotes').text()).toContain('A test y axis range annotation with the label inside');
+                    expect($('.ons-chart__footnotes').text()).toContain('4');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test x axis reference line annotation');
+                    expect($('.ons-chart__footnotes').text()).toContain('5');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test y axis reference line annotation');
                 });
             });
         });
