@@ -9,12 +9,24 @@
     {% else %}
         {% set headingLevel = 2 %}
     {% endif %}
-    {% set openingTitleTag = "<h" ~ headingLevel %}
-    {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
-    {% set openingSubtitleTag = "<h" ~  (headingLevel + 1) %}
-    {% set closingSubtitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
-    {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 2) %}
-    {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
+
+    {% if params.featured %}
+        {% set openingArticleTitleTag = "<h" ~ headingLevel %}
+        {% set closingArticleTitleTag = "</h" ~ headingLevel ~ ">" %}
+        {% set openingTitleTag = "<h" ~ (headingLevel + 1) %}
+        {% set closingTitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
+        {% set openingSubtitleTag = "<h" ~  (headingLevel + 2) %}
+        {% set closingSubtitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
+        {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 3) %}
+        {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 3) ~ ">" %}
+    {% else %}
+        {% set openingTitleTag = "<h" ~ headingLevel %}
+        {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
+        {% set openingSubtitleTag = "<h" ~  (headingLevel + 1) %}
+        {% set closingSubtitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
+        {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 2) %}
+        {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
+    {% endif %}
 
     <div
         data-highcharts-base-chart
@@ -46,7 +58,13 @@
         {% endif %}
     >
         <figure class="ons-chart">
-            {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
+            {% if params.featured %}
+                {{ openingArticleTitleTag | safe }}
+                class="ons-chart__article-title">{{ params.articleTitle }}{{ closingArticleTitleTag | safe }}
+            {% endif %}
+
+            {{ openingTitleTag | safe }}
+            class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
             {{ openingSubtitleTag | safe }}
             class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
             {% if params.description %}
@@ -79,6 +97,17 @@
                 <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
             {% endif %}
         </figure>
+
+        {% if params.featured and params.itemsList %}
+            <div class="ons-chart__items-list">
+                {{
+                    onsList({
+                        "element": "ul",
+                        "itemsList": params.itemsList
+                    })
+                }}
+            </div>
+        {% endif %}
 
         {% if params.download.title and params.download.itemsList | length > 0 %}
             {{ openingDownloadTitleTag | safe }}
