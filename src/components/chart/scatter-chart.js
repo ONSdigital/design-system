@@ -4,6 +4,7 @@ class ScatterChart {
     constructor() {
         this.chartConstants = ChartConstants.constants();
         this.markerStyles = this.chartConstants.scatterMarkerStyles;
+        this.confidenceLevelMarkerStyles = this.chartConstants.confidenceLevelMarkerStyles;
     }
 
     getScatterChartOptions = () => {
@@ -27,6 +28,20 @@ class ScatterChart {
     updateMarkers = (currentChart) => {
         currentChart.series.forEach((series, i) => {
             series.update({ marker: this.markerStyles[i] != undefined ? this.markerStyles[i] : this.markerStyles[0] }, false);
+        });
+    };
+
+    updateMarkersForConfidenceLevels = (series) => {
+        series.forEach((series, i) => {
+            series.update(
+                {
+                    marker:
+                        this.confidenceLevelMarkerStyles[i] != undefined
+                            ? this.confidenceLevelMarkerStyles[i]
+                            : this.confidenceLevelMarkerStyles[0],
+                },
+                false,
+            );
         });
     };
 }

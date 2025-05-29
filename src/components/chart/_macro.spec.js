@@ -7,6 +7,7 @@ import { renderComponent } from '../../tests/helpers/rendering';
 import {
     EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
     EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
     EXAMPLE_BAR_CHART_PARAMS,
     EXAMPLE_BAR_CHART_WITH_PERCENTAGE_HEIGHT_PARAMS,
     EXAMPLE_COLUMN_CHART_PARAMS,
@@ -16,7 +17,14 @@ import {
     EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
     EXAMPLE_SCATTER_CHART_PARAMS,
     EXAMPLE_AREA_CHART_PARAMS,
+    EXAMPLE_BOXPLOT_CHART_PARAMS,
+    EXAMPLE_COLUMN_RANGE_CHART_PARAMS,
     EXAMPLE_INVALID_CHART_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_REFERENCE_LINE_ANNOTATIONS_PARAMS,
+    EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS,
 } from './_test-examples';
 
 describe('Macro: Chart', () => {
@@ -237,6 +245,55 @@ describe('Macro: Chart', () => {
                     expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
                     expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
                     expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Legend', () => {
+            describe('WHEN: legend parameter is provided and set to true', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
+                        legend: true,
+                    }),
+                );
+                test('THEN: it renders the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":true}');
+                });
+            });
+
+            describe('WHEN: legend parameter is provided and set to false', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
+                        legend: false,
+                    }),
+                );
+                test('THEN: it does not render the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":false}');
+                });
+            });
+
+            describe('WHEN: legend parameter is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS));
+                test('THEN: it renders the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":true}');
+                });
+            });
+
+            describe('WHEN: legend parameter is provided but is not a boolean', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
+                        legend: 'false',
+                    }),
+                );
+                test('THEN: it renders the legend', () => {
+                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":true}');
                 });
             });
         });
@@ -897,6 +954,236 @@ describe('Macro: Chart', () => {
         });
     });
 
+    describe('FOR: Boxplot Chart', () => {
+        describe('GIVEN: Params: required', () => {
+            describe('WHEN: required params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_BOXPLOT_CHART_PARAMS));
+                const configScript = $(`script[data-highcharts-config--uuid]`).html();
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes at least one boxplot series', () => {
+                    expect(configScript).toContain('"type":"boxplot"');
+                });
+
+                test('THEN: it renders the chart container with correct data attributes', () => {
+                    const chartContainer = $('[data-highcharts-base-chart]');
+                    expect(chartContainer.attr('data-highcharts-type')).toBe('boxplot');
+                    expect(chartContainer.attr('data-highcharts-theme')).toBe('primary');
+                    expect(chartContainer.attr('data-highcharts-title')).toBe('Example Boxplot Chart');
+                    expect(chartContainer.attr('data-highcharts-id')).toBe('uuid');
+                });
+
+                test('THEN: it includes the Highcharts JSON config', () => {
+                    expect(configScript).toContain('"text":"Years"');
+                    expect(configScript).toContain('"text":"Percentage of GDP"');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Legend', () => {
+            describe('WHEN: both labels are provided and legend is enabled', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        estimateLineLabel: 'Estimated value',
+                        uncertaintyRangeLabel: '95% Confidence Interval',
+                        legend: true,
+                    }),
+                );
+
+                test('THEN: it renders the boxplot legend container', () => {
+                    const legendContainer = $('.ons-chart__boxplot-legend');
+                    expect(legendContainer.length).toBe(1);
+                });
+
+                test('THEN: it includes the estimate line legend item', () => {
+                    const estimateLabel = $('.ons-chart__boxplot-legend-label').filter((_, el) => $(el).text().includes('Estimated value'));
+                    expect(estimateLabel.length).toBe(1);
+
+                    const estimateSwatch = $('.ons-chart__boxplot-legend-item--estimate');
+                    expect(estimateSwatch.length).toBe(1);
+                });
+
+                test('THEN: it includes the uncertainty range legend item', () => {
+                    const uncertaintyLabel = $('.ons-chart__boxplot-legend-label').filter((_, el) =>
+                        $(el).text().includes('95% Confidence Interval'),
+                    );
+                    expect(uncertaintyLabel.length).toBe(1);
+
+                    const uncertaintySwatch = $('.ons-chart__boxplot-legend-item--uncertainty');
+                    expect(uncertaintySwatch.length).toBe(1);
+                });
+            });
+
+            describe('WHEN: only estimateLineLabel is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        estimateLineLabel: 'Estimated only',
+                        legend: true,
+                    }),
+                );
+
+                test('THEN: it renders only the estimate legend item', () => {
+                    expect($('.ons-chart__boxplot-legend-item--estimate').length).toBe(1);
+                    expect($('.ons-chart__boxplot-legend-item--uncertainty').length).toBe(0);
+                });
+            });
+            describe('WHEN: only uncertaintyRangeLabel is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        uncertaintyRangeLabel: 'Uncertainty only',
+                        legend: true,
+                    }),
+                );
+                test('THEN: it renders only the uncertainty legend item', () => {
+                    expect($('.ons-chart__boxplot-legend-item--estimate').length).toBe(0);
+                    expect($('.ons-chart__boxplot-legend-item--uncertainty').length).toBe(1);
+                });
+            });
+            describe('WHEN: estimate and uncertainty labels are provided but legend is false', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        estimateLineLabel: 'Estimated value',
+                        uncertaintyRangeLabel: '95% Confidence Interval',
+                        legend: false,
+                    }),
+                );
+
+                test('THEN: it does NOT render the boxplot legend container', () => {
+                    expect($('.ons-chart__boxplot-legend').length).toBe(0);
+                });
+
+                test('THEN: it does NOT render any custom legend items', () => {
+                    expect($('.ons-chart__boxplot-legend-item--estimate').length).toBe(0);
+                    expect($('.ons-chart__boxplot-legend-item--uncertainty').length).toBe(0);
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Description', () => {
+            describe('WHEN: description is provided', () => {
+                const accessibleDescription = 'An accessible description for screen readers.';
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        description: accessibleDescription,
+                    }),
+                );
+
+                test('THEN: it renders the description for accessibility', () => {
+                    expect($('.ons-u-vh').text()).toBe(accessibleDescription);
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Estimate Line and Uncertainty Range Labels', () => {
+            describe('WHEN: both labels are provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        estimateLineLabel: 'Estimated value',
+                        uncertaintyRangeLabel: '95% Confidence Interval',
+                    }),
+                );
+
+                test('THEN: it sets the estimate line label as a data attribute', () => {
+                    const baseChart = $('[data-highcharts-base-chart]');
+                    expect(baseChart.attr('data-highcharts-estimate-line-label')).toBe('Estimated value');
+                });
+
+                test('THEN: it sets the uncertainty range label as a data attribute', () => {
+                    const baseChart = $('[data-highcharts-base-chart]');
+                    expect(baseChart.attr('data-highcharts-uncertainty-range-label')).toBe('95% Confidence Interval');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Column Range Chart', () => {
+        describe('GIVEN: Params: Required', () => {
+            describe('WHEN: required params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_RANGE_CHART_PARAMS));
+                const configScript = $(`script[data-highcharts-config--uuid]`).html();
+
+                test('THEN: it passes jest-axe accessibility checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders with correct chart metadata attributes', () => {
+                    const baseChart = $('[data-highcharts-base-chart]');
+                    expect(baseChart.attr('data-highcharts-type')).toBe('columnrange');
+                    expect(baseChart.attr('data-highcharts-theme')).toBe('primary');
+                    expect(baseChart.attr('data-highcharts-title')).toBe(
+                        'Food stores showed a strong rise on the month, while non-food stores fell',
+                    );
+                    expect(baseChart.attr('data-highcharts-id')).toBe('uuid');
+                });
+
+                test('THEN: it includes columnrange and scatter series types', () => {
+                    expect(configScript).toContain('"type":"columnrange"');
+                    expect(configScript).toContain('"type":"scatter"');
+                });
+
+                describe('GIVEN: Params: isChartInverted', () => {
+                    describe('WHEN: isChartInverted parameter is provided and set to true', () => {
+                        const $ = cheerio.load(
+                            renderComponent('chart', {
+                                ...EXAMPLE_COLUMN_RANGE_CHART_PARAMS,
+                                isChartInverted: true,
+                            }),
+                        );
+                        test('THEN: it sets isChartInverted to true', () => {
+                            const configScript = $(`script[data-highcharts-config--uuid]`).html();
+                            expect(configScript).toContain('"chart":{"type":"columnrange","inverted":true}');
+                        });
+                    });
+
+                    describe('WHEN: isChartInverted parameter is provided and set to false', () => {
+                        const $ = cheerio.load(
+                            renderComponent('chart', {
+                                ...EXAMPLE_COLUMN_RANGE_CHART_PARAMS,
+                                isChartInverted: false,
+                            }),
+                        );
+                        test('THEN: it sets isChartInverted to false', () => {
+                            const configScript = $(`script[data-highcharts-config--uuid]`).html();
+                            expect(configScript).toContain('"chart":{"type":"columnrange","inverted":false}');
+                        });
+                    });
+
+                    describe('WHEN: isChartInverted parameter is not provided', () => {
+                        const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_RANGE_CHART_PARAMS));
+                        test('THEN: it sets isChartInverted to false', () => {
+                            const configScript = $(`script[data-highcharts-config--uuid]`).html();
+                            expect(configScript).toContain('"chart":{"type":"columnrange","inverted":false}');
+                        });
+                    });
+
+                    describe('WHEN: isChartInverted parameter is provided but is not a boolean', () => {
+                        const $ = cheerio.load(
+                            renderComponent('chart', {
+                                ...EXAMPLE_COLUMN_RANGE_CHART_PARAMS,
+                                isChartInverted: 'false',
+                            }),
+                        );
+                        test('THEN: it sets isChartInverted to false', () => {
+                            const configScript = $(`script[data-highcharts-config--uuid]`).html();
+                            expect(configScript).toContain('"chart":{"type":"columnrange","inverted":false}');
+                        });
+                    });
+                });
+            });
+        });
+    });
+
     describe('FOR: Invalid Chart', () => {
         describe('GIVEN: Invalid chart type', () => {
             describe('WHEN: an invalid chart type is provided', () => {
@@ -933,6 +1220,124 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it still renders the download', () => {
                     expect($('.ons-chart__download-title').text()).toBe('Download this chart');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with range annotation on the x axis', () => {
+        describe('GIVEN: Params: Range annotations', () => {
+            describe('WHEN: range annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the range annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-range-annotations--line-chart-range-annotations-x-axis-123]`).html();
+                    expect(configScript).toContain('"text":"A test x axis range annotation"');
+                    expect(configScript).toContain('"range":{"axisValue1":10,"axisValue2":15}');
+                    expect(configScript).toContain('"axis":"x"');
+                    expect(configScript).toContain('"labelOffsetX":150');
+                    expect(configScript).toContain('"labelOffsetY":0');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with range annotation on the y axis with label width', () => {
+        describe('GIVEN: Params: Range annotations', () => {
+            describe('WHEN: range annotations params are provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS),
+                );
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the range annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-range-annotations--line-chart-range-annotations-y-axis-123]`).html();
+                    expect(configScript).toContain('"text":"A test y axis range annotation with a label width of 250px"');
+                    expect(configScript).toContain('"axis":"y"');
+                    expect(configScript).toContain('"labelWidth":250');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with range annotation with the label inside', () => {
+        describe('GIVEN: Params: Range annotations', () => {
+            describe('WHEN: range annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the range annotations JSON config', () => {
+                    const configScript = $(
+                        `script[data-highcharts-range-annotations--line-chart-range-annotations-label-inside-123]`,
+                    ).html();
+                    expect(configScript).toContain('"text":"A test y axis range annotation with the label inside"');
+                    expect(configScript).toContain('"axis":"y"');
+                    expect(configScript).toContain('"labelInside":true');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with reference line annotations', () => {
+        describe('GIVEN: Params: Reference line annotations', () => {
+            describe('WHEN: reference line annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_REFERENCE_LINE_ANNOTATIONS_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the reference line annotations JSON config', () => {
+                    const configScript = $(
+                        `script[data-highcharts-reference-line-annotations--line-chart-reference-line-annotations-123]`,
+                    ).html();
+                    expect(configScript).toContain('"text":"A test x axis reference line annotation"');
+                    expect(configScript).toContain('"value":34');
+                    expect(configScript).toContain('"axis":"x"');
+                    expect(configScript).toContain('"text":"A test y axis reference line annotation"');
+                    expect(configScript).toContain('"value":12');
+                    expect(configScript).toContain('"axis":"y"');
+                    expect(configScript).toContain('"labelWidth":100');
+                });
+            });
+        });
+    });
+
+    describe('FOR: Line chart with mixed annotation types', () => {
+        describe('GIVEN: Params: Mixed annotations', () => {
+            describe('WHEN: mixed annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the footnotes sequentially', () => {
+                    expect($('.ons-chart__footnotes').text()).toContain('1');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test point annotation');
+                    expect($('.ons-chart__footnotes').text()).toContain('2');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test x axis range annotation');
+                    expect($('.ons-chart__footnotes').text()).toContain('3');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test y axis range annotation with the label inside');
+                    expect($('.ons-chart__footnotes').text()).toContain('4');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test x axis reference line annotation');
+                    expect($('.ons-chart__footnotes').text()).toContain('5');
+                    expect($('.ons-chart__footnotes').text()).toContain('A test y axis reference line annotation');
                 });
             });
         });
