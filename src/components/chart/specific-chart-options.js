@@ -11,7 +11,7 @@ class SpecificChartOptions {
             colors: this.theme === 'alternate' ? this.constants.alternateTheme : this.constants.primaryTheme,
             chart: {
                 type: type,
-                marginTop: this.config.legend.enabled ? undefined : 50,
+                marginTop: this.config.legend.enabled ? (type === 'boxplot' ? 50 : undefined) : 50,
             },
         };
     }
