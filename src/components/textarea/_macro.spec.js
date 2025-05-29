@@ -22,6 +22,8 @@ const EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT = {
         limit: 200,
         charCountSingular: 'You have {x} character remaining',
         charCountPlural: 'You have {x} characters remaining',
+        charCountOverLimitSingular: '{x} character too many',
+        charCountOverLimitPlural: '{x} characters too many',
     },
 };
 
@@ -200,29 +202,29 @@ describe('macro: textarea', () => {
         });
     });
 
-    describe('with character limit', () => {
-        it('has the `ons-js-char-limit-input` class', () => {
+    describe('with character check', () => {
+        it('has the `ons-js-char-check-input` class', () => {
             const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT));
 
-            expect($('.ons-input--textarea').hasClass('ons-js-char-limit-input')).toBe(true);
+            expect($('.ons-input--textarea').hasClass('ons-js-char-check-input')).toBe(true);
         });
 
         it('has the provided maximum length', () => {
             const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT));
 
-            expect($('.ons-input--textarea').attr('maxlength')).toBe('200');
+            expect($('.ons-input--textarea').attr('data-char-check-num')).toBe('200');
         });
 
-        it('has data attribute which references the character limit component', () => {
+        it('has data attribute which references the character check component', () => {
             const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT));
 
-            expect($('.ons-input--textarea').attr('data-char-limit-ref')).toBe('example-id-lim');
+            expect($('.ons-input--textarea').attr('data-char-check-ref')).toBe('example-id-check');
         });
 
         it('has `aria-describedby` attribute which references the character limit component', () => {
             const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT));
 
-            expect($('.ons-input--textarea').attr('aria-describedby')).toBe('example-id-lim');
+            expect($('.ons-input--textarea').attr('aria-describedby')).toBe('example-id-check');
         });
 
         it('renders character limit component', () => {
@@ -232,10 +234,12 @@ describe('macro: textarea', () => {
             faker.renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT);
 
             expect(charCheckLimitSpy.occurrences).toContainEqual({
-                id: 'example-id-lim',
+                id: 'example-id-check',
                 limit: 200,
                 charCountSingular: 'You have {x} character remaining',
                 charCountPlural: 'You have {x} characters remaining',
+                charCountOverLimitSingular: '{x} character too many',
+                charCountOverLimitPlural: '{x} characters too many',
             });
         });
     });
