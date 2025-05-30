@@ -1,62 +1,100 @@
-import { trackEvent } from '../../js/analytics';
-
 const inputClassLimitReached = 'ons-input--limit-reached';
 const remainingClassLimitReached = 'ons-input__limit--reached';
-const attrWordLimitRef = 'data-word-limit-ref';
-const maxWordLength = 'data-max-words';
+
+const attrWordCheckRef = 'data-word-check-ref';
+const attrWordCheckCountdown = 'data-word-check-countdown';
+const attrWordCheckVal = 'data-word-check-num';
 
 export default class WordLimit {
-    constructor(input) {
-        this.input = input;
-        this.maxWords = input.getAttribute(maxWordLength);
-        this.limitElement = document.getElementById(input.getAttribute(attrWordLimitRef));
-        this.singularMessage = this.limitElement.getAttribute('data-wordcount-singular');
-        this.pluralMessage = this.limitElement.getAttribute('data-wordcount-plural');
-        this.limitSingularMessage = this.limitElement.getAttribute('data-wordcount-limit-singular');
-        this.limitPluralMessage = this.limitElement.getAttribute('data-wordcount-limit-plural');
+    constructor(context) {
+        this.tagName = context.tagName;
+        console.log(this.tagName);
 
-        this.updateLimitReadout(null, true);
-        this.limitElement.classList.remove('ons-u-d-no');
-        input.addEventListener('input', this.updateLimitReadout.bind(this));
+        // Handle either an input directly or a container with an input inside
+        if (this.tagName.toLowerCase() === 'input' || this.tagName.toLowerCase() === 'textarea') {
+            this.input = context;
+        } else {
+            this.input = context.querySelector('input');
+        }
+
+        // Find the button: if input is passed directly, look at its parent
+        let parent = this.input.parentNode;
+        this.button = parent ? parent.querySelector('button') : null;
+        this.checkElement = document.getElementById(this.input.getAttribute(attrWordCheckRef));
+        console.log(this.checkElement);
+        this.checkVal = this.input.getAttribute(attrWordCheckVal);
+        this.countdown = this.input.getAttribute(attrWordCheckCountdown) || false;
+        this.singularMessage = this.checkElement.getAttribute('data-wordcount-singular') || null;
+        this.pluralMessage = this.checkElement.getAttribute('data-wordcount-plural') || null;
+        this.charLimitSingularMessage = this.checkElement.getAttribute('data-wordcount-limit-singular') || null;
+        this.charLimitPluralMessage = this.checkElement.getAttribute('data-wordcount-limit-plural') || null;
+
+        this.updateCheckReadout(this.input);
+
+        if (this.button) {
+            this.setButtonState(this.checkVal);
+        }
+
+        this.input.addEventListener('input', this.updateCheckReadout.bind(this));
     }
 
-    updateLimitReadout(event, firstRun) {
-        const wordCount = this.countWords(this.input.value);
-        const remaining = this.maxWords - wordCount;
+    updateCheckReadout(event, firstRun) {
+        const value = this.input.value;
+        const remaining = this.checkVal - this.countWords(value);
+        console.log(remaining);
 
         // Prevent aria live announcement when component initialises
         if (!firstRun && event.inputType) {
-            this.limitElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
+            this.checkElement.setAttribute('aria-live', 'polite');
         } else {
-            this.limitElement.removeAttribute('aria-live');
+            this.checkElement.removeAttribute('aria-live');
         }
-        this.limitElement.innerText = this.getMessage(
-            remaining,
-            this.singularMessage,
-            this.pluralMessage,
-            this.limitSingularMessage,
-            this.limitPluralMessage,
-        );
 
-        this.setLimitClass(remaining, this.input, inputClassLimitReached);
-        this.setLimitClass(remaining, this.limitElement, remainingClassLimitReached);
-
-        this.track(remaining);
+        this.checkRemaining(remaining);
+        this.setCheckClass(remaining, this.input, inputClassLimitReached);
+        this.setCheckClass(remaining, this.checkElement, remainingClassLimitReached);
     }
 
-    setLimitClass(remaining, element, limitClass) {
-        element.classList.toggle(limitClass, remaining <= 0);
+    checkRemaining(remaining) {
+        let message;
+        if (this.countdown && remaining === 1) {
+            message = this.singularMessage;
+        } else if (remaining === -1) {
+            message = this.charLimitSingularMessage;
+        } else if (remaining < -1) {
+            message = this.charLimitPluralMessage;
+        } else {
+            message = this.pluralMessage;
+        }
+
+        this.checkElement.innerText = message.replace('{x}', Math.abs(remaining));
+
+        if (this.button) {
+            this.setButtonState(remaining);
+        }
+
+        this.setShowMessage(remaining);
     }
 
-    track(remaining) {
-        if (remaining < 1) {
-            trackEvent({
-                event_type: 'event',
-                event_category: 'Error',
-                event_action: 'Textarea limit reached',
-                event_label: `Limit of ${this.maxLength} reached/exceeded`,
-            });
+    setButtonState(remaining) {
+        this.button.classList[remaining === 0 ? 'remove' : 'add']('ons-btn--disabled');
+        this.button.disabled = remaining === 0 ? null : 'true';
+    }
+
+    setShowMessage(remaining) {
+        if (this.tagName.toLowerCase() === 'textarea') {
+            // Always display the remaining character message for textarea
+            this.checkElement.classList['remove']('ons-u-d-no');
+        } else {
+            this.checkElement.classList[(remaining < this.checkVal && remaining > 0 && this.countdown) || remaining < 0 ? 'remove' : 'add'](
+                'ons-u-d-no',
+            );
         }
+    }
+
+    setCheckClass(remaining, element, setClass) {
+        element.classList[remaining < 0 ? 'add' : 'remove'](setClass);
+        this.checkElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
     }
 
     countWords(text) {
@@ -65,22 +103,5 @@ export default class WordLimit {
             .split(/\s+/) // split by any whitespace
             .map((word) => word.replace(/[.,!?;:]+$/, '')) // remove trailing punctuation
             .filter(Boolean).length;
-    }
-
-    getMessage(remaining, singularMessage, pluralMessage, limitSingularMessage, limitPluralMessage) {
-        let message;
-
-        if (remaining === 1) {
-            message = singularMessage;
-        } else if (remaining === -1) {
-            message = limitSingularMessage;
-        } else if (remaining < -1) {
-            message = limitPluralMessage;
-        } else {
-            message = pluralMessage;
-        }
-
-        // Use Math.abs to always return a positive number
-        return message.replace('{x}', Math.abs(remaining));
     }
 }

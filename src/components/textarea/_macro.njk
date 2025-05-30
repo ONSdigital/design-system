@@ -20,18 +20,18 @@
 
         <textarea
             id="{{ params.id }}"
-            class="ons-input ons-input--textarea{{ ' ons-input--error' if params.error }}{{ ' ons-js-char-limit-input' if params.charCheckLimit and params.charCheckLimit.limit }}{{ ' ons-js-word-limit-input' if params.wordLimit and params.wordLimit.limit }}{{ textareaExclusiveClass }}{{ ' ' + params.classes if params.classes else '' }}{% if params.width %}{{ ' ' }}ons-input--w-{{ params.width }}{% endif %}"
+            class="ons-input ons-input--textarea{{ ' ons-input--error' if params.error }}{{ ' ons-js-char-check-input' if params.charCheckLimit and params.charCheckLimit.limit }}{{ ' ons-js-word-check-input' if params.wordLimit and params.wordLimit.limit }}{{ textareaExclusiveClass }}{{ ' ' + params.classes if params.classes else '' }}{% if params.width %}{{ ' ' }}ons-input--w-{{ params.width }}{% endif %}"
             {% if params.name %}
                 name="{{ params.name }}"
             {% endif %}
             rows="{{ params.rows | default(8) }}"
-            {% if params.charCheckLimit and params.charCheckLimit.limit %}
-                maxlength="{{ params.charCheckLimit.limit }}" data-char-limit-ref="{{ params.id }}-lim"
-                aria-describedby="{{ params.id }}-lim"
+            {% if params.charCheckLimit %}
+                data-char-check-ref="{{ params.id }}-check" data-char-check-num="{{ params.charCheckLimit.limit }}"
+                aria-describedby="{{ params.id }}-check" data-char-check-countdown=true
             {% endif %}
-            {% if params.wordLimit and params.wordLimit.limit %}
-                data-max-words="{{ params.wordLimit.limit }}" data-word-limit-ref="{{ params.id }}-lim"
-                aria-describedby="{{ params.id }}-lim"
+            {% if params.wordLimit %}
+                data-word-check-ref="{{ params.id }}-check" data-word-check-num="{{ params.wordLimit.limit }}"
+                aria-describedby="{{ params.id }}-check" data-word-check-countdown=true
             {% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
         >
@@ -41,10 +41,12 @@
         {% if params.charCheckLimit and params.charCheckLimit.limit %}
             {%
                 call onsCharLimit({
-                    "id": params.id ~ "-lim",
+                    "id": params.id ~ "-check",
                     "limit": params.charCheckLimit.limit,
                     "charCountSingular": params.charCheckLimit.charCountSingular,
-                    "charCountPlural": params.charCheckLimit.charCountPlural
+                    "charCountPlural": params.charCheckLimit.charCountPlural,
+                    "charCountOverLimitSingular": params.charCheckLimit.charCountOverLimitSingular,
+                    "charCountOverLimitPlural": params.charCheckLimit.charCountOverLimitPlural
                 })
             %}
             {% endcall %}
@@ -52,7 +54,7 @@
         {% if params.wordLimit and params.wordLimit.limit %}
             {%
                 call onsWordLimit({
-                    "id": params.id ~ "-lim",
+                    "id": params.id ~ "-check",
                     "limit": params.wordLimit.limit,
                     "wordCountSingular": params.wordLimit.wordCountSingular,
                     "wordCountPlural": params.wordLimit.wordCountPlural,
