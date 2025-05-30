@@ -28,7 +28,7 @@ class RangeAnnotationsOptions {
                     style: {
                         color: this.constants.labelColor,
                         fontSize: this.constants.defaultFontSize,
-                        // this property is ignored if rangeAnnotation.labelInside is undefined
+                        // This property is not set as an inline style if rangeAnnotation.labelInside is undefined
                         width: rangeAnnotationLabelWidth,
                     },
                 },
