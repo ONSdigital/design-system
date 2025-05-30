@@ -67,7 +67,6 @@
             <tbody class="ons-table__body">
                 {# Tracks rowspans to add `ons-table__row--after-rowspan` class to the first cell of the row that immediately follows a rowspan #}
                 {% for tr in params.trs %}
-                    {% set trIndex = loop.index0 %}
                     {% if rowspanRemaining > 0 %}
                         {% set previousRowHasRowspan = true %}
                         {% set rowspanRemaining = rowspanRemaining - 1 %}
