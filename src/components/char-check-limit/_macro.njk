@@ -8,8 +8,8 @@
         class="ons-input__limit ons-u-fs-s--b ons-u-d-no ons-u-mt-2xs"
         data-charcount-singular="{{ params.charCountSingular }}"
         data-charcount-plural="{{ params.charCountPlural }}"
-        data-charcount-limit-singular="{{ params.charCountOverLimitSingular }}"
-        data-charcount-limit-plural="{{ params.charCountOverLimitPlural }}"
+        data-charcount-limit-singular="{{ params.charCountOverLimitSingular | default("You have exceeded the character limit by {x} character") }}"
+        data-charcount-limit-plural="{{ params.charCountOverLimitPlural | default("You have exceeded the character limit by {x} characters") }}"
     >
     </span>
 {% endmacro %}

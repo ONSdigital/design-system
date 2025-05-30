@@ -6,9 +6,18 @@ const attrCharCheckVal = 'data-char-check-num';
 
 export default class CharCheck {
     constructor(context) {
-        this.context = context;
-        this.input = this.context.querySelector('input');
-        this.button = this.context.parentNode.querySelector('button');
+        this.tagName = context.tagName;
+
+        // Handle either an input directly or a container with an input inside
+        if (this.tagName.toLowerCase() === 'input' || this.tagName.toLowerCase() === 'textarea') {
+            this.input = context;
+        } else {
+            this.input = context.querySelector('input');
+        }
+
+        // Find the button: if input is passed directly, look at its parent
+        let parent = this.input.parentNode;
+        this.button = parent ? parent.querySelector('button') : null;
         this.checkElement = document.getElementById(this.input.getAttribute(attrCharCheckRef));
         this.checkVal = this.input.getAttribute(attrCharCheckVal);
         this.countdown = this.input.getAttribute(attrCharCheckCountdown) || false;
@@ -22,15 +31,17 @@ export default class CharCheck {
         if (this.button) {
             this.setButtonState(this.checkVal);
         }
+
         this.input.addEventListener('input', this.updateCheckReadout.bind(this));
     }
 
     updateCheckReadout(event, firstRun) {
         const value = this.input.value;
-        const remaining = this.checkVal - value.length;
+        const remaining = this.checkVal - this.getCharLength(value);
+
         // Prevent aria live announcement when component initialises
         if (!firstRun && event.inputType) {
-            this.checkElement.setAttribute('aria-live', 'polite');
+            this.checkElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
         } else {
             this.checkElement.removeAttribute('aria-live');
         }
@@ -67,13 +78,23 @@ export default class CharCheck {
     }
 
     setShowMessage(remaining) {
-        this.checkElement.classList[(remaining < this.checkVal && remaining > 0 && this.countdown) || remaining < 0 ? 'remove' : 'add'](
-            'ons-u-d-no',
-        );
+        if (this.tagName.toLowerCase() === 'textarea') {
+            // Always display the remaining character message for textarea
+            this.checkElement.classList['remove']('ons-u-d-no');
+        } else {
+            this.checkElement.classList[(remaining < this.checkVal && remaining > 0 && this.countdown) || remaining < 0 ? 'remove' : 'add'](
+                'ons-u-d-no',
+            );
+        }
     }
 
     setCheckClass(remaining, element, setClass) {
         element.classList[remaining < 0 ? 'add' : 'remove'](setClass);
-        this.checkElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
+    }
+
+    getCharLength(text) {
+        // line breaks count as two characters as forms convert to \n\r when submitted
+        const lineBreaks = (text.match(/\n/g) || []).length;
+        return text.length + lineBreaks;
     }
 }
