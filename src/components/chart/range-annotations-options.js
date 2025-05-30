@@ -11,6 +11,10 @@ class RangeAnnotationsOptions {
         let yAxisPlotBands = [];
         this.rangeAnnotations.forEach((rangeAnnotation) => {
             let adjustedRangeValues = this.adjustRangeForCategoryAxis(rangeAnnotation, chartType);
+            let rangeAnnotationLabelWidth = undefined;
+            if (!rangeAnnotation.labelInside) {
+                rangeAnnotationLabelWidth = rangeAnnotation.labelWidth ? rangeAnnotation.labelWidth : 150;
+            }
             let rangeConfig = {
                 from: adjustedRangeValues.axisValue1,
                 to: adjustedRangeValues.axisValue2,
@@ -24,7 +28,8 @@ class RangeAnnotationsOptions {
                     style: {
                         color: this.constants.labelColor,
                         fontSize: this.constants.defaultFontSize,
-                        width: rangeAnnotation.labelWidth ? rangeAnnotation.labelWidth : 150,
+                        // This property is not set as an inline style if rangeAnnotation.labelInside is undefined
+                        width: rangeAnnotationLabelWidth,
                     },
                 },
                 color: this.constants.shadingColor,
