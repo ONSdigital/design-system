@@ -244,6 +244,98 @@ describe('Macro: Chart', () => {
                 });
             });
         });
+
+        describe('GIVEN: Params: Featured', () => {
+            describe('WHEN: featured is true', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        featured: true,
+                        articleTitle: {
+                            text: 'Featured Chart Article',
+                            url: 'https://example.com/article',
+                        },
+                        metadata: {
+                            date: {
+                                showPrefix: true,
+                                prefix: 'Published',
+                                iso: '2024-01-01',
+                                short: '1 January 2024',
+                            },
+                            object: {
+                                text: 'Dataset name',
+                                url: 'https://example.com/dataset',
+                                ref: 'Ref ID 123',
+                            },
+                            file: {
+                                fileType: 'PDF',
+                                fileSize: '500KB',
+                                filePages: '12 pages',
+                            },
+                        },
+                        itemsList: [{ text: 'Bullet 1' }, { text: 'Bullet 2' }],
+                    }),
+                );
+
+                test('THEN: it renders the article title with correct tag and link', () => {
+                    const articleTitle = $('.ons-chart__item-title');
+                    expect(articleTitle.length).toBe(1);
+                    expect(articleTitle.find('a').text()).toBe('Featured Chart Article');
+                    expect(articleTitle.find('a').attr('href')).toBe('https://example.com/article');
+                });
+
+                test('THEN: it includes metadata date with prefix and formatted date', () => {
+                    const metadataDate = $('.ons-chart__item-metadata time');
+                    expect(metadataDate.attr('datetime')).toBe('2024-01-01');
+                    expect(metadataDate.text()).toBe('1 January 2024');
+                });
+
+                test('THEN: it includes metadata object with text, url, and ref', () => {
+                    const objectItem = $('.ons-chart__item-attribute a');
+                    expect(objectItem.text()).toContain('Dataset name');
+                    expect(objectItem.attr('href')).toBe('https://example.com/dataset');
+                    expect(objectItem.parent().text()).toContain('Ref ID 123');
+                });
+
+                test('THEN: it includes metadata file info', () => {
+                    const fileMetadata = $('.ons-chart__item-attribute[aria-hidden="true"]');
+                    expect(fileMetadata.text()).toContain('PDF');
+                    expect(fileMetadata.text()).toContain('500KB');
+                    expect(fileMetadata.text()).toContain('12 pages');
+                });
+
+                test('THEN: it renders the items list section with correct items', () => {
+                    const items = $('.ons-chart__items-list li');
+                    expect(items.length).toBe(2);
+                    expect(items.eq(0).text().trim()).toBe('Bullet 1');
+                    expect(items.eq(1).text().trim()).toBe('Bullet 2');
+                });
+
+                test('THEN: the chart container includes the featured class', () => {
+                    expect($('[data-highcharts-base-chart]').hasClass('ons-chart--featured')).toBe(true);
+                });
+            });
+
+            describe('WHEN: featured is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_REQUIRED_PARAMS));
+
+                test('THEN: it does not render the featured class', () => {
+                    expect($('[data-highcharts-base-chart]').hasClass('ons-chart--featured')).toBe(false);
+                });
+
+                test('THEN: it does not render the article title section', () => {
+                    expect($('.ons-chart__item-title').length).toBe(0);
+                });
+
+                test('THEN: it does not render the metadata list', () => {
+                    expect($('.ons-chart__item-metadata').length).toBe(0);
+                });
+
+                test('THEN: it does not render the items list section', () => {
+                    expect($('.ons-chart__items-list').length).toBe(0);
+                });
+            });
+        });
     });
 
     describe('FOR: Bar Chart', () => {
