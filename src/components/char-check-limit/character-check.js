@@ -41,7 +41,7 @@ export default class CharCheck {
 
         // Prevent aria live announcement when component initialises
         if (!firstRun && event.inputType) {
-            this.checkElement.setAttribute('aria-live', 'polite');
+            this.checkElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
         } else {
             this.checkElement.removeAttribute('aria-live');
         }
@@ -90,7 +90,6 @@ export default class CharCheck {
 
     setCheckClass(remaining, element, setClass) {
         element.classList[remaining < 0 ? 'add' : 'remove'](setClass);
-        this.checkElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
     }
 
     getCharLength(text) {
