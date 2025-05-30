@@ -196,6 +196,12 @@ class CommonChartOptions {
                     label?.attr({
                         x: 30, // Adjust label position to account for longer line
                     });
+                } else if (seriesType === 'columnrange') {
+                    symbol.attr({
+                        width: 14,
+                        height: 14,
+                        y: 8,
+                    });
                 } else {
                     if (!symbol) return;
                     // Set the symbol size for bar / column series
