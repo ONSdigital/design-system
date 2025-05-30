@@ -119,23 +119,31 @@
         {% endif %}
         {% if params.chartType in supportedChartTypes %}
         {% set series = [] %}
+        {% set lineSeriesCount = 0 %}
         {% for item in params.series %}
-            {%
-                set seriesItem = {
-                    "name": item.name if item.name else '',
-                    "data": item.data if item.data else [],
-                    "marker": {
-                        "enabled": item.marker if item.marker else false
-                    },
-                    "dataLabels": {
-                        "enabled": item.dataLabels if item.dataLabels else false
-                    },
-                    "connectNulls": item.connectNulls if item.connectNulls else false,
-                    "type": item.type if item.type and (item.type == 'line' and params.chartType in supportedChartTypesWithLine) or (item.type == 'scatter' and params.chartType in supportedChartTypesWithScatter) else params.chartType
-                }
-            %}
-            {# Use `set` tag to avoid printing the return value of extend #}
-            {% set _ = extend(series, seriesItem) %}
+            {% if item.type == 'line' and lineSeriesCount > 0 %}
+                {# skip extra line series as the DS guidelines only allow for one extra line series #}
+            {% else %}
+                {%
+                    set seriesItem = {
+                        "name": item.name if item.name else '',
+                        "data": item.data if item.data else [],
+                        "marker": {
+                            "enabled": item.marker if item.marker else false
+                        },
+                        "dataLabels": {
+                            "enabled": item.dataLabels if item.dataLabels else false
+                        },
+                        "connectNulls": item.connectNulls if item.connectNulls else false,
+                        "type": item.type if item.type and (item.type == 'line' and params.chartType in supportedChartTypesWithLine) or (item.type == 'scatter' and params.chartType in supportedChartTypesWithScatter) else params.chartType
+                    }
+                %}
+                {# Use `set` tag to avoid printing the return value of extend #}
+                {% set _ = extend(series, seriesItem) %}
+            {% endif %}
+            {% if item.type == 'line' %}
+                {% set lineSeriesCount = lineSeriesCount + 1 %}
+            {% endif %}
         {% endfor %}
         {# Set the legend value to true by default #}
         {% set legendValue = true %}
