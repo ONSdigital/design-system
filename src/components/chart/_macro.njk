@@ -1,15 +1,15 @@
 {% from "components/list/_macro.njk" import onsList %}
 
 {% macro onsChart(params) %}
-    {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area'] %}
-    {% set supportedChartTypesWithLine = ['column'] %}
+    {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
+    {% set supportedChartTypesWithLine = ['column', 'columnrange'] %}
+    {% set supportedChartTypesWithScatter = ['columnrange'] %}
 
     {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
         {% set headingLevel = params.headingLevel %}
     {% else %}
         {% set headingLevel = 2 %}
     {% endif %}
-
     {% if params.featured %}
         {% set openingArticleTitleTag = "<h" ~ headingLevel %}
         {% set closingArticleTitleTag = "</h" ~ headingLevel ~ ">" %}
@@ -55,6 +55,12 @@
         {% endif %}
         {% if params.yAxis.tickIntervalDesktop %}
             data-highcharts-y-axis-tick-interval-desktop="{{ params.yAxis.tickIntervalDesktop }}"
+        {% endif %}
+        {% if params.estimateLineLabel %}
+            data-highcharts-estimate-line-label="{{ params.estimateLineLabel }}"
+        {% endif %}
+        {% if params.uncertaintyRangeLabel %}
+            data-highcharts-uncertainty-range-label="{{ params.uncertaintyRangeLabel }}"
         {% endif %}
     >
         <figure class="ons-chart">
@@ -117,6 +123,22 @@
             {% if params.description %}
                 <p class="ons-u-vh">{{ params.description }}</p>
             {% endif %}
+            {% if params.chartType == 'boxplot' and (params.estimateLineLabel or params.uncertaintyRangeLabel) and params.legend == true %}
+                <div class="ons-chart__boxplot-legend">
+                    {% if params.uncertaintyRangeLabel %}
+                        <div class="ons-chart__boxplot-legend-item">
+                            <span class="ons-chart__boxplot-legend-item ons-chart__boxplot-legend-item--uncertainty"></span>
+                            <span class="ons-chart__boxplot-legend-label">{{ params.uncertaintyRangeLabel }}</span>
+                        </div>
+                    {% endif %}
+                    {% if params.estimateLineLabel %}
+                        <div class="ons-chart__boxplot-legend-item">
+                            <span class="ons-chart__boxplot-legend-item ons-chart__boxplot-legend-item--estimate"></span>
+                            <span class="ons-chart__boxplot-legend-label">{{ params.estimateLineLabel }}</span>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
             {% if params.chartType in supportedChartTypes %}
                 <div data-highcharts-chart></div>
             {% else %}
@@ -137,6 +159,14 @@
                     <li class="ons-chart__footnote_item">
                         <span class="ons-chart__footnote-number">{{ loop.index + params.annotations | length }}</span>
                         {{ rangeAnnotation.text }}
+                    </li>
+                {% endfor %}
+                {% for referenceLineAnnotation in params.referenceLineAnnotations %}
+                    <li class="ons-chart__footnote_item">
+                        <span class="ons-chart__footnote-number"
+                            >{{ loop.index + params.annotations | length + params.rangeAnnotations | length }}</span
+                        >
+                        {{ referenceLineAnnotation.text }}
                     </li>
                 {% endfor %}
             </ul>
@@ -168,28 +198,49 @@
         {% endif %}
         {% if params.chartType in supportedChartTypes %}
         {% set series = [] %}
+        {% set lineSeriesCount = 0 %}
         {% for item in params.series %}
-            {%
-                set seriesItem = {
-                    "name": item.name if item.name else '',
-                    "data": item.data if item.data else [],
-                    "marker": {
-                        "enabled": item.marker if item.marker else false
-                    },
-                    "dataLabels": {
-                        "enabled": item.dataLabels if item.dataLabels else false
-                    },
-                    "connectNulls": item.connectNulls if item.connectNulls else false,
-                    "type": item.type if item.type and item.type == 'line' and params.chartType in supportedChartTypesWithLine else params.chartType
-                }
-            %}
-            {# Use `set` tag to avoid printing the return value of extend #}
-            {% set _ = extend(series, seriesItem) %}
+            {% if item.type == 'line' and lineSeriesCount > 0 %}
+                {# skip extra line series as the DS guidelines only allow for one extra line series #}
+            {% else %}
+                {%
+                    set seriesItem = {
+                        "name": item.name if item.name else '',
+                        "data": item.data if item.data else [],
+                        "marker": {
+                            "enabled": item.marker if item.marker else false
+                        },
+                        "dataLabels": {
+                            "enabled": item.dataLabels if item.dataLabels else false
+                        },
+                        "connectNulls": item.connectNulls if item.connectNulls else false,
+                        "type": item.type if item.type and (item.type == 'line' and params.chartType in supportedChartTypesWithLine) or (item.type == 'scatter' and params.chartType in supportedChartTypesWithScatter) else params.chartType
+                    }
+                %}
+                {# Use `set` tag to avoid printing the return value of extend #}
+                {% set _ = extend(series, seriesItem) %}
+            {% endif %}
+            {% if item.type == 'line' %}
+                {% set lineSeriesCount = lineSeriesCount + 1 %}
+            {% endif %}
         {% endfor %}
+        {# Set the legend value to true by default #}
+        {% set legendValue = true %}
+        {% if params.legend is defined %}
+            {# if a legend parameter has been provided, check that it is a boolean #}
+            {% if params.legend == true or params.legend == false %}
+                {# legend value is a boolean - use the value passed in #}
+                {% set legendValue = params.legend %}
+            {% endif %}
+        {% endif %}
         {%
             set config = {
+                "chart": {
+                    "type": params.chartType,
+                    "inverted": params.isChartInverted if params.isChartInverted == true else false
+                },
                 "legend": {
-                    "enabled" : params.legend if params.legend else true
+                    "enabled" : legendValue
                 },
                 "yAxis": {
                     "title": {
@@ -227,6 +278,11 @@
         {% if params.rangeAnnotations %}
             <script type="application/json" data-highcharts-range-annotations--{{ params.id }}>
                 {{ params.rangeAnnotations | tojson }}
+            </script>
+        {% endif %}
+        {% if params.referenceLineAnnotations %}
+            <script type="application/json" data-highcharts-reference-line-annotations--{{ params.id }}>
+                {{ params.referenceLineAnnotations | tojson }}
             </script>
         {% endif %}
         <!-- prettier-ignore-end -->

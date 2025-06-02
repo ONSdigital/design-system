@@ -76,6 +76,39 @@
         color: var(--ons-color-grey-100);
     }
 
+    &__boxplot-legend {
+        display: flex;
+        gap: 2rem;
+        font-size: 0.875rem; // 14px
+        padding-left: 1rem;
+        align-items: center;
+
+        &-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        &-item {
+            &--uncertainty {
+                width: 12px;
+                height: 12px;
+                background-color: rgb(32 96 149 / 65%);
+            }
+
+            &--estimate {
+                width: 20px;
+                height: 3px;
+                border-radius: 2px;
+                background-color: #003c57;
+            }
+        }
+
+        &-label {
+            font-size: inherit;
+        }
+    }
+
     &--featured {
         background-color: var(--ons-color-banner-bg);
         border-bottom: 0;
