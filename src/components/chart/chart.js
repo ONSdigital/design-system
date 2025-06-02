@@ -65,6 +65,10 @@ class HighchartsBaseChart {
         this.commonChartOptions = new CommonChartOptions(this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
         this.estimateLineLabel = this.node.dataset.highchartsEstimateLineLabel;
         this.uncertainyRangeLabel = this.node.dataset.highchartsUncertaintyRangeLabel;
+        this.customReferenceLineValue = this.node.dataset.highchartsCustomReferenceLineValue
+            ? parseFloat(this.node.dataset.highchartsCustomReferenceLineValue)
+            : undefined;
+
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
@@ -203,8 +207,9 @@ class HighchartsBaseChart {
             this.rangeAnnotations,
             this.rangeAnnotationsOptions,
             this.referenceLineAnnotationsOptions,
-            this.commonChartOptions,
+            this.specificChartOptions,
             this.chartType,
+            this.customReferenceLineValue,
         );
 
         let rules = [

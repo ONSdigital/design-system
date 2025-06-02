@@ -40,12 +40,13 @@
 
 ## Y_Axis
 
-| Name                | Type   | Required | Description                                                                                                                                                                                            |
-| ------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| title               | string | true     | The title text displayed on the y-axis. Note that for any chart type apart from bar charts, a maximum character limit of 50 characters is recommended to avoid the axis title being cut off at mobile. |
-| labelFormat         | string | false    | A format string for the axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating).                                                |
-| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                               |
-| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                              |
+| Name                     | Type         | Required | Description                                                                                                                                                                                                                                              |
+| ------------------------ | ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title                    | string       | true     | The title text displayed on the y-axis. Note that for any chart type apart from bar charts, a maximum character limit of 50 characters is recommended to avoid the axis title being cut off at mobile.                                                   |
+| labelFormat              | string       | false    | A format string for the axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating).                                                                                                  |
+| tickIntervalMobile       | number       | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                                                                                 |
+| tickIntervalDesktop      | number       | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                                                                                |
+| customReferenceLineValue | float or int | false    | A custom value to display a darker reference line. If not supplied, the darker will appear at zero. The custom value is only used for column charts and line charts - for other chart types it will be ignored, and the darker line will appear at zero. |
 
 ## X_Axis
 
