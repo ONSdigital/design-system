@@ -91,15 +91,14 @@
 
         &-item {
             &--uncertainty {
-                width: 12px;
-                height: 12px;
+                width: 14px;
+                height: 14px;
                 background-color: rgb(32 96 149 / 65%);
             }
 
             &--estimate {
                 width: 20px;
                 height: 3px;
-                border-radius: 2px;
                 background-color: #003c57;
             }
         }
