@@ -304,29 +304,31 @@ describe('Macro: Chart', () => {
                     renderComponent('chart', {
                         ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
                         featured: true,
-                        articleTitle: {
-                            text: 'Featured Chart Article',
-                            url: 'https://example.com/article',
+                        article: {
+                            title: {
+                                text: 'Featured Chart Article',
+                                url: 'https://example.com/article',
+                            },
+                            metadata: {
+                                date: {
+                                    showPrefix: true,
+                                    prefix: 'Published',
+                                    iso: '2024-01-01',
+                                    short: '1 January 2024',
+                                },
+                                object: {
+                                    text: 'Dataset name',
+                                    url: 'https://example.com/dataset',
+                                    ref: 'Ref ID 123',
+                                },
+                                file: {
+                                    fileType: 'PDF',
+                                    fileSize: '500KB',
+                                    filePages: '12 pages',
+                                },
+                            },
+                            itemsList: [{ text: 'Bullet 1' }, { text: 'Bullet 2' }],
                         },
-                        metadata: {
-                            date: {
-                                showPrefix: true,
-                                prefix: 'Published',
-                                iso: '2024-01-01',
-                                short: '1 January 2024',
-                            },
-                            object: {
-                                text: 'Dataset name',
-                                url: 'https://example.com/dataset',
-                                ref: 'Ref ID 123',
-                            },
-                            file: {
-                                fileType: 'PDF',
-                                fileSize: '500KB',
-                                filePages: '12 pages',
-                            },
-                        },
-                        itemsList: [{ text: 'Bullet 1' }, { text: 'Bullet 2' }],
                     }),
                 );
 
