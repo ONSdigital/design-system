@@ -22,12 +22,14 @@
 
 ## CharCheckLimit
 
-| Name              | Type    | Required | Description                                                                                                                                                                                        |
-| ----------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id                | string  | true     | The HTML `id` of the component                                                                                                                                                                     |
-| limit             | integer | true     | The maximum number of characters allowed in the input                                                                                                                                              |
-| charCountPlural   | string  | true     | The string displayed when multiple characters can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} characters remaining”. |
-| charCountSingular | string  | true     | The string displayed when one more character can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} character remaining”.   |
+| Name                       | Type    | Required                        | Description                                                                                                                                                                                        |
+| -------------------------- | ------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                         | string  | true                            | The HTML `id` of the component                                                                                                                                                                     |
+| limit                      | integer | true                            | The maximum number of characters allowed in the input                                                                                                                                              |
+| charCountPlural            | string  | true                            | The string displayed when multiple characters can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} characters remaining”. |
+| charCountSingular          | string  | true                            | The string displayed when one more character can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} character remaining”.   |
+| charCountOverLimitPlural   | string  | false (unless `variant` is set) | The string displayed when multiple characters over the limit have been entered. Set `{x}` in the string to be replaced with the number, for example “{x} characters too many”.                     |
+| charCountOverLimitSingular | string  | false (unless `variant` is set) | The string displayed when one character over the limit has been entered. Set `{x}` in the string to be replaced with the number, for example “{x} character too many”.                             |
 
 ## Label
 
@@ -40,9 +42,11 @@
 
 ## WordLimit
 
-| Name              | Type    | Required                       | Description                                                                                                                                                                              |
-| ----------------- | ------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id                | string  | true                           | The HTML `id` of the component                                                                                                                                                           |
-| limit             | integer | true                           | The maximum number of words allowed in the input                                                                                                                                         |
-| wordCountPlural   | string  | true (unless `variant` is set) | The string displayed when multiple words can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} words remaining”. |
-| wordCountSingular | string  | true (unless `variant` is set) | The string displayed when one more word can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} word remaining”.   |
+| Name                       | Type    | Required                       | Description                                                                                                                                                                              |
+| -------------------------- | ------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                         | string  | true                           | The HTML `id` of the component                                                                                                                                                           |
+| limit                      | integer | true                           | The maximum number of words allowed in the input                                                                                                                                         |
+| wordCountPlural            | string  | true (unless `variant` is set) | The string displayed when multiple words can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} words remaining”. |
+| wordCountSingular          | string  | true (unless `variant` is set) | The string displayed when one more word can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} word remaining”.   |
+| wordCountOverLimitPlural   | string  | false                          | The string displayed when multiple words over the limit have been entered. Set `{x}` in the string to be replaced with the number, for example “{x} words too many”.                     |
+| wordCountOverLimitSingular | string  | false                          | The string displayed when one word over the limit has been entered. Set `{x}` in the string to be replaced with the number, for example “{x} words too many”.                            |
