@@ -93,6 +93,15 @@ class HighchartsBaseChart {
         return this.chartType === 'line' ? 0 : this.config.series.filter((series) => series.type === 'line').length;
     };
 
+    // Used to ensure that extra line series always overlay the column series
+    updateExtraLineZIndex = () => {
+        this.config.series.forEach((series) => {
+            if (series.type === 'line') {
+                series.zIndex = this.config.series.length + 1;
+            }
+        });
+    };
+
     // Check for the number of extra line series in the config
     checkForExtraScatter = () => {
         return this.chartType === 'scatter' ? 0 : this.config.series.filter((series) => series.type === 'scatter').length;
@@ -148,7 +157,9 @@ class HighchartsBaseChart {
         }
 
         if (this.extraLines > 0) {
+            this.updateExtraLineZIndex();
             this.config = mergeConfigs(this.config, this.lineChart.getLineChartOptions());
+            this.config = mergeConfigs(this.config, this.lineChart.getExtraLineChartOptions(this.config.series.length + 1));
             if (this.chartType === 'column') {
                 this.config = mergeConfigs(this.config, columnChartOptions);
             }
