@@ -10,33 +10,18 @@
     {% else %}
         {% set headingLevel = 2 %}
     {% endif %}
-    {% if params.featured %}
-        {% set openingArticleTitleTag = "<h" ~ headingLevel %}
-        {% set closingArticleTitleTag = "</h" ~ headingLevel ~ ">" %}
-        {% set openingTitleTag = "<h" ~ (headingLevel + 1) %}
-        {% set closingTitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
-        {% set openingSubtitleTag = "<h" ~  (headingLevel + 2) %}
-        {% set closingSubtitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
-        {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 3) %}
-        {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 3) ~ ">" %}
-    {% else %}
-        {% set openingTitleTag = "<h" ~ headingLevel %}
-        {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
-        {% set openingSubtitleTag = "<h" ~  (headingLevel + 1) %}
-        {% set closingSubtitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
-        {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 2) %}
-        {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
-    {% endif %}
-
+    {% set openingTitleTag = "<h" ~ headingLevel %}
+    {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
+    {% set openingSubtitleTag = "<h" ~  (headingLevel + 1) %}
+    {% set closingSubtitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
+    {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 2) %}
+    {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
     <div
         data-highcharts-base-chart
         data-highcharts-type="{{ params.chartType }}"
         data-highcharts-theme="{{ params.theme }}"
         data-highcharts-title="{{ params.title }}"
         data-highcharts-id="{{ params.id }}"
-        {% if params.featured %}
-            class="ons-chart--featured"
-        {% endif %}
         {% if params.useStackedLayout %}data-highcharts-use-stacked-layout="{{ params.useStackedLayout }}"{% endif %}
         {% if params.percentageHeightDesktop and params.chartType != 'bar' %}
             data-highcharts-percentage-height-desktop="{{ params.percentageHeightDesktop }}"
@@ -64,59 +49,7 @@
         {% endif %}
     >
         <figure class="ons-chart">
-            {% if params.featured %}
-                {{ openingArticleTitleTag | safe }}
-                class="ons-chart__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-2xs">
-                <a href="{{ params.article.title.url }}">{{ params.article.title.text }}</a>
-                {{ closingArticleTitleTag | safe }}
-                {%- if params.article.metadata -%}
-                    {% set metadata = params.article.metadata %}
-                    <ul class="ons-chart__item-metadata">
-                        {%- if metadata.date -%}
-                            <li class="ons-chart__item-attribute">
-                                {% set prefixClass = "ons-u-fw-b" if metadata.date.showPrefix == true else "ons-u-vh" %}
-                                <span class="{{ prefixClass }}">{{ metadata.date.prefix | default("Published") }}: </span>
-                                {%- if metadata.date.iso -%}
-                                    <time datetime="{{ metadata.date.iso }}">{{ metadata.date.short }}</time>
-                                {%- endif -%}
-                            </li>
-                        {% endif %}
-
-                        {%- if metadata.object and metadata.object.text -%}
-                            <li class="ons-chart__item-attribute{{ ' ons-u-mr-no' if metadata.file }}">
-                                {% set metadataObject %}
-                                    <span {% if not metadata.file and not metadata.object.url %}class="ons-u-fw-b"{% endif %}
-                                        >{{ metadata.object.text }}{%- if metadata.object.ref -%}:{% elif metadata.file %},{% endif %}</span
-                                    >
-                                {% endset %}
-                                {%- if metadata.object.url -%}
-                                    <a class="ons-chart__attribute-link" href="{{ metadata.object.url }}"> {{ metadataObject | safe }} </a>
-                                {% else %}
-                                    {{ metadataObject | safe }}
-                                {% endif %}
-                                {%- if metadata.object.ref -%}
-                                    <span>{{ metadata.object.ref }}</span>
-                                {% endif %}
-                            </li>
-                        {% endif %}
-
-                        {%- if metadata.file and metadata.file.fileType -%}
-                            <li class="ons-chart__item-attribute" aria-hidden="true">
-                                {%
-                                    set fileMetadataItems = [
-                                    metadata.file.fileType if metadata.file.fileType,
-                                    metadata.file.fileSize if metadata.file.fileSize,
-                                    metadata.file.filePages if metadata.file.filePages ]
-                                %}
-                                {{ fileMetadataItems | join(', ') }}
-                            </li>
-                        {%- endif -%}
-                    </ul>
-                {% endif %}
-            {% endif %}
-
-            {{ openingTitleTag | safe }}
-            class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
+            {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
             {{ openingSubtitleTag | safe }}
             class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
             {% if params.description %}
@@ -173,17 +106,6 @@
                 <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
             {% endif %}
         </figure>
-
-        {% if params.featured and params.article.itemsList %}
-            <div class="ons-chart__items-list">
-                {{
-                    onsList({
-                        "element": "ul",
-                        "itemsList": params.article.itemsList
-                    })
-                }}
-            </div>
-        {% endif %}
 
         {% if params.download.title and params.download.itemsList | length > 0 %}
             {{ openingDownloadTitleTag | safe }}

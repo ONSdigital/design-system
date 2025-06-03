@@ -1,0 +1,104 @@
+{% from "components/list/_macro.njk" import onsList %}
+{% from "components/chart/_macro.njk" import onsChart %}
+
+{% macro onsFeaturedArticle(params) %}
+    {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
+        {% set headingLevel = params.headingLevel %}
+    {% else %}
+        {% set headingLevel = 2 %}
+    {% endif %}
+    {% set openingArticleTitleTag = "<h" ~ headingLevel %}
+    {% set closingArticleTitleTag = "</h" ~ headingLevel ~ ">" %}
+
+    <div class="ons-featured">
+        {{ openingArticleTitleTag | safe }} class="ons-featured__title ons-u-fs-m ons-u-mt-no ons-u-mb-2xs">
+        <a href="{{ params.title.url }}">{{ params.title.text }}</a>
+        {{ closingArticleTitleTag | safe }}
+
+        {%- if params.metadata -%}
+            {% set metadata = params.metadata %}
+            <ul class="ons-featured__item-metadata">
+                {%- if metadata.date -%}
+                    <li class="ons-featured__item-attribute">
+                        {% set prefixClass = "ons-u-fw-b" if metadata.date.showPrefix == true else "ons-u-vh" %}
+                        <span class="{{ prefixClass }}">{{ metadata.date.prefix | default("Published") }}: </span>
+                        {%- if metadata.date.iso -%}
+                            <time datetime="{{ metadata.date.iso }}">{{ metadata.date.short }}</time>
+                        {%- endif -%}
+                    </li>
+                {% endif %}
+
+                {%- if metadata.object and metadata.object.text -%}
+                    <li class="ons-featured__item-attribute{{ ' ons-u-mr-no' if metadata.file }}">
+                        {% set metadataObject %}
+                            <span {% if not metadata.file and not metadata.object.url %}class="ons-u-fw-b"{% endif %}
+                                >{{ metadata.object.text }}{%- if metadata.object.ref -%}:{% elif metadata.file %},{% endif %}</span
+                            >
+                        {% endset %}
+                        {%- if metadata.object.url -%}
+                            <a class="ons-featured__attribute-link" href="{{ metadata.object.url }}"> {{ metadataObject | safe }} </a>
+                        {% else %}
+                            {{ metadataObject | safe }}
+                        {% endif %}
+                        {%- if metadata.object.ref -%}
+                            <span>{{ metadata.object.ref }}</span>
+                        {% endif %}
+                    </li>
+                {% endif %}
+
+                {%- if metadata.file and metadata.file.fileType -%}
+                    <li class="ons-featured__item-attribute" aria-hidden="true">
+                        {%
+                            set fileMetadataItems = [
+                                metadata.file.fileType if metadata.file.fileType,
+                                metadata.file.fileSize if metadata.file.fileSize,
+                                metadata.file.filePages if metadata.file.filePages
+                            ]
+                        %}
+                        {{ fileMetadataItems | join(', ') }}
+                    </li>
+                {%- endif -%}
+            </ul>
+        {% endif %}
+
+        {% if params.chart %}
+            {{
+                onsChart({
+                    "chartType": params.chart.chartType,
+                    "description": params.chart.description,
+                    "theme": params.chart.theme,
+                    "title": params.chart.title,
+                    "id": params.chart.id,
+                    "headingLevel": headingLevel + 1,
+                    "legend": params.chart.legend,
+                    "xAxis": params.chart.xAxis,
+                    "yAxis": params.chart.yAxis,
+                    "series": params.chart.series,
+                    "annotations": params.chart.annotations,
+                    "rangeAnnotations": params.chart.rangeAnnotations,
+                    "referenceLineAnnotations": params.chart.referenceLineAnnotations,
+                    "estimateLineLabel": params.chart.estimateLineLabel,
+                    "uncertaintyRangeLabel": params.chart.uncertaintyRangeLabel,
+                    "isChartInverted": params.chart.isChartInverted,
+                    "useStackedLayout": params.chart.useStackedLayout,
+                    "percentageHeightDesktop": params.chart.percentageHeightDesktop,
+                    "percentageHeightMobile": params.chart.percentageHeightMobile
+                })
+            }}
+        {% endif %}
+
+        {% if params.image %}
+        {% endif %}
+
+        {% if params.itemsList %}
+            <div class="ons-featured__items-list">
+                {{
+                    onsList({
+                        "element": "ul",
+                        "itemsList": params.itemsList
+                    })
+                }}
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}

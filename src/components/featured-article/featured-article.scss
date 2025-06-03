@@ -1,0 +1,28 @@
+.ons-featured {
+    background-color: var(--ons-color-banner-bg);
+    border-bottom: 0;
+    display: block;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+    padding: 2rem;
+
+    &__items-list {
+        & {
+            border-top: 1px solid var(--ons-color-grey-75);
+            margin: 2rem 0 0;
+            padding: 2rem 0 0;
+        }
+    }
+
+    &__item-metadata {
+        @extend .ons-list--bare;
+    }
+
+    &__item-attribute {
+        color: var(--ons-color-text-metadata);
+        display: inline-block;
+        margin: 0 1rem 0 0;
+
+        @extend .ons-u-fs-s;
+    }
+}
