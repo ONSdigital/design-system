@@ -233,6 +233,12 @@ class CommonChartOptions {
                             x: 15, // Adjust label position to account for shorter space that the symbol takes up
                         });
                     }
+                } else if (seriesType === 'columnrange') {
+                    symbol.attr({
+                        width: 14,
+                        height: 14,
+                        y: 8,
+                    });
                 } else {
                     if (!symbol) return;
                     // Update the symbol width and height

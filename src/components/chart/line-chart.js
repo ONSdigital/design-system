@@ -19,6 +19,16 @@ class LineChart {
         };
     };
 
+    getExtraLineChartOptions = () => {
+        return {
+            plotOptions: {
+                line: {
+                    color: this.chartConstants.extraLineColor,
+                },
+            },
+        };
+    };
+
     // Customise line charts which are set to hide markers
     // so that the last point marker displays (at the end of the line)
     updateLastPointMarker = (series) => {
