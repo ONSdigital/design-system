@@ -72,13 +72,8 @@ class BarChart {
     // Updates the config to move the data labels inside the bars, but only if the bar is wide enough
     // This also runs when the chart is resized
     postLoadDataLabels = (currentChart) => {
-        const insideOptions = {
-            dataLabels: this.getBarChartLabelsInsideOptions(),
-        };
-        const outsideOptions = {
-            dataLabels: this.getBarChartLabelsOutsideOptions(),
-        };
-
+        const insideOptions = this.getBarChartLabelsInsideOptions();
+        const outsideOptions = this.getBarChartLabelsOutsideOptions();
         currentChart.series.forEach((series) => {
             // If we have a bar chart with an extra line, exit early for the line series
             if (series.type == 'line') {
@@ -104,17 +99,25 @@ class BarChart {
                             point.update(
                                 {
                                     dataLabels: {
-                                        ...insideOptions.dataLabels,
+                                        ...insideOptions,
                                         align: 'left',
                                     },
                                 },
                                 false,
                             );
                         } else {
-                            point.update(insideOptions, false);
+                            point.update(
+                                {
+                                    dataLabels: {
+                                        ...insideOptions,
+                                        align: 'right',
+                                    },
+                                },
+                                false,
+                            );
                         }
                     } else {
-                        point.update(outsideOptions, false);
+                        point.update({ dataLabels: outsideOptions }, false);
                     }
                 }
             });
@@ -125,7 +128,6 @@ class BarChart {
 
     getBarChartLabelsInsideOptions = () => ({
         inside: true,
-        align: 'right',
         verticalAlign: 'middle',
         style: {
             color: 'white',
