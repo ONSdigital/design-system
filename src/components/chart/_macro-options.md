@@ -23,46 +23,6 @@
 | referenceLineAnnotations | array   | false    | An array of reference line annotations.                                                                                                                                                      |
 | estimateLineLabel        | string  | false    | Label for the estimate line in the legend. Used in column charts with confidence intervals.                                                                                                  |
 | uncertaintyRangeLabel    | string  | false    | Label for the confidence interval in the legend. Used in column charts showing uncertainty ranges.                                                                                           |
-| featured                 | boolean | false    | Will render a featured variant of the document if set to `true`                                                                                                                              |
-| article                  | object  | true     | Object for [article](#article) content including title, metadata, and optional items list.                                                                                                   |
-
-## Article
-
-| Property  | Type   | Required | Description                                                                                                   |
-| --------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------- |
-| title     | object | true     | An object containing the article's title text and link. See [ArticleTitle](#articletitle).                    |
-| metadata  | object | true     | An object containing metadata such as article type and release date. See [ArticleMetadata](#articlemetadata). |
-| itemsList | array  | false    | An optional list of related downloadable items. See [ArticleItem](#articleitem).                              |
-
-## ArticleTitle
-
-| Property | Type   | Required | Description                          |
-| -------- | ------ | -------- | ------------------------------------ |
-| text     | string | true     | The article title text.              |
-| url      | string | true     | The URL linked to the article title. |
-
-## ArticleMetadata
-
-| Property | Type   | Required | Description                                                  |
-| -------- | ------ | -------- | ------------------------------------------------------------ |
-| object   | object | false    | Contains a `text` label for the article type.                |
-| date     | object | false    | Contains release date info. See [ArticleDate](#articledate). |
-
-## ArticleDate
-
-| Property   | Type    | Required | Description                                                 |
-| ---------- | ------- | -------- | ----------------------------------------------------------- |
-| prefix     | string  | false    | A label prefix (e.g., "Released").                          |
-| showPrefix | boolean | false    | Whether the prefix should be displayed.                     |
-| iso        | string  | true     | The ISO-formatted date string (YYYY-MM-DD).                 |
-| short      | string  | true     | A human-readable formatted date (e.g., "18 February 2021"). |
-
-## ArticleItem
-
-| Property | Type   | Required | Description                                        |
-| -------- | ------ | -------- | -------------------------------------------------- |
-| `text`   | string | true     | The label or description of the downloadable item. |
-| `url`    | string | true     | The URL to the downloadable resource.              |
 
 ## Download
 
