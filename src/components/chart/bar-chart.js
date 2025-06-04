@@ -85,6 +85,11 @@ class BarChart {
                 return;
             }
 
+            if (series.type == 'scatter') {
+                // If we have a bar chart with confidence levels, exit early for the scatter series
+                return;
+            }
+
             const points = series.data;
 
             points.forEach((point) => {
