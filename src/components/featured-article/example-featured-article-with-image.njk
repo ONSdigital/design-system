@@ -1,0 +1,36 @@
+{% from "components/featured-article/_macro.njk" import onsFeaturedArticle %}
+{{
+    onsFeaturedArticle({
+        "title": {
+            "text": 'Retail sales, Great Britain: July 2024',
+            "url": '#0'
+        },
+        "metadata": {
+            "object": {
+                "text": 'Dataset'
+            },
+            "date": {
+                "prefix": 'Released',
+                "showPrefix": true,
+                "iso": '2021-02-18',
+                "short": '18 February 2021'
+            }
+        },
+        "headingLevel": 2,
+        "image": {
+            "src": '/img/small/woman-in-purple-dress-shirt.jpg',
+            "alt": 'Woman in a purple dress shirt using a laptop'
+        },
+        "itemsList": [
+            {
+                "text": "Retail sales volumes increased by 0.4% in July 2024, following a 0.2% increase in June 2024."
+            },
+            {
+                "text": "Retail sales values increased by 0.5% in July 2024, following a 0.3% increase in June 2024."
+            },
+            {
+                "text": "The annual rate of inflation for the Consumer Prices Index including owner occupiers’ housing costs (CPIH) was 2.8% in July 2024, up from 2.6% in June 2024."
+            }
+        ]
+    })
+}}

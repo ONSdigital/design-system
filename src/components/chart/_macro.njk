@@ -50,8 +50,11 @@
     >
         <figure class="ons-chart">
             {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
-            {{ openingSubtitleTag | safe }}
-            class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+            {% if params.subtitle %}
+                {{ openingSubtitleTag | safe }}
+                class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+            {% endif %}
+
             {% if params.description %}
                 <p class="ons-u-vh">{{ params.description }}</p>
             {% endif %}

@@ -1,87 +1,15 @@
+/** @jest-environment jsdom */
+
 import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
+import { EXAMPLE_FEATURED_ARTICLE_WITH_CHART, EXAMPLE_FEATURED_ARTICLE_WITH_IMAGE } from './_test-examples';
 
-const EXAMPLE_FEATURED_ARTICLE_WITH_CHART = {
-    title: {
-        text: 'Economic Trends 2024',
-        url: '/economy/economic-trends-2024',
-    },
-    metadata: {
-        date: {
-            prefix: 'Released',
-            showPrefix: true,
-            iso: '2024-05-01',
-            short: '1 May 2024',
-        },
-        object: {
-            text: 'Bulletin',
-            url: '/bulletins/economic-trends',
-            ref: 'ONS-123',
-        },
-        file: {
-            fileType: 'PDF',
-            fileSize: '1MB',
-            filePages: '12 pages',
-        },
-    },
-    chart: {
-        chartType: 'line',
-        title: 'Economic Growth Over Time',
-        id: 'growth-chart',
-        description: 'This chart shows GDP growth',
-        theme: 'default',
-        headingLevel: 3,
-        legend: true,
-        xAxis: { title: { text: 'Year' } },
-        yAxis: { title: { text: 'GDP (%)' } },
-        series: [{ name: 'GDP', data: [2.1, 2.3, 1.8] }],
-        annotations: [],
-        rangeAnnotations: [],
-        referenceLineAnnotations: [],
-        estimateLineLabel: 'Estimate',
-        uncertaintyRangeLabel: 'Range',
-        isChartInverted: false,
-        useStackedLayout: false,
-        percentageHeightDesktop: 60,
-        percentageHeightMobile: 40,
-    },
-    itemsList: [
-        {
-            text: 'Download full report',
-            url: '/downloads/full-report.pdf',
-        },
-    ],
-};
+describe('Macro: Featured Article', () => {
+    describe('GIVEN: Params: required ', () => {
+        describe('WHEN: all required and optional params with a chart', () => {
+            const $ = cheerio.load(renderComponent('featured-article', EXAMPLE_FEATURED_ARTICLE_WITH_CHART));
 
-const EXAMPLE_FEATURED_ARTICLE_WITH_IMAGE = {
-    title: {
-        text: 'Population Insights',
-        url: '/people/population/insights',
-    },
-    metadata: {
-        date: {
-            iso: '2024-04-01',
-            short: '1 April 2024',
-        },
-        object: {
-            text: 'Article',
-        },
-    },
-    image: '<img src="/images/chart-thumb.png" alt="Population graph" />',
-    itemsList: [
-        {
-            text: 'View data tables',
-            url: '/downloads/data-tables.xlsx',
-        },
-    ],
-};
-
-describe('Macro: onsFeaturedArticle', () => {
-    describe('GIVEN: all required and optional params with a chart', () => {
-        const $ = cheerio.load(renderComponent('featured-article', EXAMPLE_FEATURED_ARTICLE_WITH_CHART));
-
-        describe('WHEN: the component is rendered', () => {
             test('THEN: it passes accessibility checks', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
@@ -119,21 +47,21 @@ describe('Macro: onsFeaturedArticle', () => {
                 expect($('.ons-featured__items-list li a').attr('href')).toBe('/downloads/full-report.pdf');
             });
         });
-    });
 
-    describe('GIVEN: required params and an image instead of a chart', () => {
-        const $ = cheerio.load(renderComponent('featured-article', EXAMPLE_FEATURED_ARTICLE_WITH_IMAGE));
+        describe('WHEN: required params and an image instead of a chart', () => {
+            const $ = cheerio.load(renderComponent('featured-article', EXAMPLE_FEATURED_ARTICLE_WITH_IMAGE));
 
-        describe('WHEN: the component is rendered', () => {
             test('THEN: it passes accessibility checks', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
 
-            test('THEN: it renders the image HTML', () => {
-                const image = $('img');
-                expect(image.attr('src')).toBe('/images/chart-thumb.png');
-                expect(image.attr('alt')).toBe('Population graph');
+            test('THEN: it outputs an `img` element with the expected `src`', () => {
+                expect($('.ons-image__img').attr('src')).toBe('example.png');
+            });
+
+            test('THEN: it outputs an `img` element with the expected alt text', () => {
+                expect($('.ons-image__img').attr('alt')).toBe('Example alt text');
             });
 
             test('THEN: it shows the date properly formatted', () => {

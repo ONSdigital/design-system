@@ -1,10 +1,10 @@
-| Name      | Type                                 | Required              | Description                                                                                           |
-| --------- | ------------------------------------ | --------------------- | ----------------------------------------------------------------------------------------------------- |
-| title     | `Object<Title>`                      | true                  | An object containing the article's title text and link. See [Title](#title).                          |
-| metadata  | `Object<Metadata>`                   | true                  | An object containing metadata such as article type and release date. See [Metadata](#metadata).       |
-| itemsList | array                                | false                 | An optional list of related downloadable items. See [Item](#item).                                    |
-| chart     | `Chart` [_(ref)_](/components/chart) | true if image not set | Configuration object for the chart                                                                    |
-| image     | html or string                       | true if chart not set | An image element or HTML string used when a chart is not provided. This is shown in place of a chart. |
+| Name      | Type                                 | Required              | Description                                                                                     |
+| --------- | ------------------------------------ | --------------------- | ----------------------------------------------------------------------------------------------- |
+| title     | `Object<Title>`                      | true                  | An object containing the article's title text and link. See [Title](#title).                    |
+| metadata  | `Object<Metadata>`                   | true                  | An object containing metadata such as article type and release date. See [Metadata](#metadata). |
+| itemsList | array                                | false                 | An optional list of related downloadable items. See [Item](#item).                              |
+| chart     | `Chart` [_(ref)_](/components/chart) | true if image not set | Configuration object for the chart                                                              |
+| image     | `Image` [_(ref)_](/components/image) | true if chart not set | Configuration object for the image.                                                             |
 
 ## Title
 

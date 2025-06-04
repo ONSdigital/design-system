@@ -1,5 +1,6 @@
 {% from "components/list/_macro.njk" import onsList %}
 {% from "components/chart/_macro.njk" import onsChart %}
+{% from "components/image/_macro.njk" import onsImage %}
 
 {% macro onsFeaturedArticle(params) %}
     {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
@@ -88,6 +89,12 @@
         {% endif %}
 
         {% if params.image %}
+            {{
+                onsImage({
+                    "src": params.image.src,
+                    "alt": params.image.alt
+                })
+            }}
         {% endif %}
 
         {% if params.itemsList %}
