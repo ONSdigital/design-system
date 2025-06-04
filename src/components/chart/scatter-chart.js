@@ -9,12 +9,6 @@ class ScatterChart {
 
     getScatterChartOptions = () => {
         return {
-            plotOptions: {
-                scatter: {
-                    // enable tooltips for scatter charts
-                    enableMouseTracking: true,
-                },
-            },
             xAxis: {
                 gridLineWidth: 1,
             },
