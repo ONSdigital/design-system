@@ -153,17 +153,6 @@ class CommonChartOptions {
         };
     };
 
-    getMobileOptions = (xAxisTickInterval, yAxisTickInterval) => {
-        return {
-            xAxis: {
-                tickInterval: xAxisTickInterval,
-            },
-            yAxis: {
-                tickInterval: yAxisTickInterval,
-            },
-        };
-    };
-
     hideDataLabels = (series) => {
         series.forEach((series) => {
             series.update({
@@ -172,15 +161,6 @@ class CommonChartOptions {
                 },
             });
         });
-    };
-
-    disableLegendForSingleSeries = (config) => {
-        if (config.chart.type != 'boxplot' && config.series.length === 1) {
-            config.legend = {
-                enabled: false,
-            };
-            config.chart.marginTop = 50;
-        }
     };
 
     updateLegendSymbols = (chart) => {
@@ -214,26 +194,6 @@ class CommonChartOptions {
                     }
                 }
             });
-        }
-    };
-
-    adjustChartHeight = (currentChart, percentageHeightDesktop, percentageHeightMobile) => {
-        // get height and width of the plot area
-        const plotHeight = currentChart.plotHeight;
-        const plotWidth = currentChart.plotWidth;
-        // calculate the new plot height based on the percentage height
-        // default to the current height
-        let newPlotHeight = plotHeight;
-        if (plotWidth > 400) {
-            newPlotHeight = plotWidth * (percentageHeightDesktop / 100);
-        } else {
-            newPlotHeight = plotWidth * (percentageHeightMobile / 100);
-        }
-        const totalHeight = currentChart.plotTop + newPlotHeight + currentChart.marginBottom;
-
-        // set the new size of the chart
-        if (totalHeight !== currentChart.chartHeight) {
-            currentChart.setSize(null, totalHeight, false);
         }
     };
 }

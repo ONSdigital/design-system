@@ -75,6 +75,8 @@ class HighchartsBaseChart {
         this.boxplot = new Boxplot();
         this.extraLines = this.checkForExtraLines();
         this.extraScatter = this.checkForExtraScatter();
+        // This code only needs to run one per request as it sets
+        // options that are used for all charts
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
             window.isCommonChartOptionsDefined = true;
@@ -171,7 +173,7 @@ class HighchartsBaseChart {
         }
 
         // Disable the legend for single series charts
-        this.commonChartOptions.disableLegendForSingleSeries(this.config);
+        this.specificChartOptions.disableLegendForSingleSeries(this.config);
     };
 
     // Check if the data labels should be hidden
@@ -184,7 +186,7 @@ class HighchartsBaseChart {
     // Note this is not the same as the viewport width
     // All responsive rules should be defined here to avoid overriding existing rules
     setResponsiveOptions = () => {
-        let mobileChartOptions = this.commonChartOptions.getMobileOptions(this.xAxisTickIntervalMobile, this.yAxisTickIntervalMobile);
+        let mobileChartOptions = this.specificChartOptions.getMobileOptions(this.xAxisTickIntervalMobile, this.yAxisTickIntervalMobile);
         if (this.chartType === 'column' || this.chartType === 'boxplot') {
             const mobileColumnChartOptions = this.columnChart.getColumnChartMobileOptions(
                 this.config,
@@ -278,7 +280,7 @@ class HighchartsBaseChart {
                 }
             }
             if (this.chartType != 'bar') {
-                this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+                this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
             }
 
             // If the chart has an extra line or lines, hide the data labels for
@@ -321,7 +323,7 @@ class HighchartsBaseChart {
                     this.barChart.postLoadDataLabels(currentChart);
                 }
                 if (this.chartType != 'bar') {
-                    this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+                    this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
                 }
             }, 50);
         });
