@@ -99,7 +99,20 @@ class BarChart {
 
                     // Move the data labels inside the bar if the bar is wider than the label plus some padding
                     if (point.shapeArgs.height > labelWidth + 5) {
-                        point.update(insideOptions, false);
+                        // Negative values are aligned on the left, positive values on the right
+                        if (point.y < 0) {
+                            point.update(
+                                {
+                                    dataLabels: {
+                                        ...insideOptions.dataLabels,
+                                        align: 'left',
+                                    },
+                                },
+                                false,
+                            );
+                        } else {
+                            point.update(insideOptions, false);
+                        }
                     } else {
                         point.update(outsideOptions, false);
                     }
