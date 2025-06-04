@@ -11,6 +11,10 @@ class RangeAnnotationsOptions {
         let yAxisPlotBands = [];
         this.rangeAnnotations.forEach((rangeAnnotation) => {
             let adjustedRangeValues = this.adjustRangeForCategoryAxis(rangeAnnotation, chartType);
+            let rangeAnnotationLabelWidth = undefined;
+            if (!rangeAnnotation.labelInside) {
+                rangeAnnotationLabelWidth = rangeAnnotation.labelWidth ? rangeAnnotation.labelWidth : 150;
+            }
             let rangeConfig = {
                 from: adjustedRangeValues.axisValue1,
                 to: adjustedRangeValues.axisValue2,
@@ -24,7 +28,8 @@ class RangeAnnotationsOptions {
                     style: {
                         color: this.constants.labelColor,
                         fontSize: this.constants.defaultFontSize,
-                        width: rangeAnnotation.labelWidth ? rangeAnnotation.labelWidth : 150,
+                        // This property is not set as an inline style if rangeAnnotation.labelInside is undefined
+                        width: rangeAnnotationLabelWidth,
                     },
                 },
                 color: this.constants.shadingColor,
@@ -120,20 +125,14 @@ class RangeAnnotationsOptions {
         }
 
         // Get all plotBands from both axes
-        const xAxisPlotBands = currentChart.xAxis[0].plotLinesAndBands;
-        const yAxisPlotBands = currentChart.yAxis[0].plotLinesAndBands;
+        // The filter ensures that plotLines are not included as they will have a `value` property rather than `from` and `to` properties
+        const xAxisPlotBands = currentChart.xAxis[0].plotLinesAndBands.filter((band) => band.options.from !== undefined);
+        const yAxisPlotBands = currentChart.yAxis[0].plotLinesAndBands.filter((band) => band.options.from !== undefined);
 
         // Combine all plotBands
         const allPlotBands = [...xAxisPlotBands, ...yAxisPlotBands];
 
         allPlotBands.forEach((plotBand) => {
-            // We need to exit early if there is no label - the allPlotBands array
-            // will include the plotLine for the zero line as well as the plotBands
-            // for the range annotations
-            if (!plotBand.label) {
-                return;
-            }
-
             // If the label is set to be inside the plotBand, exit early and don't draw a line
             if (plotBand.options.label.x === undefined && plotBand.options.label.y === undefined) {
                 return;
