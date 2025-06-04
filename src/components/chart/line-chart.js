@@ -12,6 +12,9 @@ class LineChart {
                     lineWidth: 3,
                     linecap: 'round',
                 },
+                marker: {
+                    enabled: true,
+                },
             },
         };
     };
@@ -26,20 +29,25 @@ class LineChart {
         };
     };
 
+    // Customise line charts which are set to hide markers
+    // so that the last point marker displays (at the end of the line)
     updateLastPointMarker = (series) => {
         series.forEach((series, i) => {
-            const points = series.points;
-            if (points && points.length > 0) {
-                // Show only the last point marker
-                const lastPoint = points[points.length - 1];
-                lastPoint.update({
-                    marker: {
-                        enabled: true,
-                    },
-                });
-                // Update the marker styles to use for each series
-                series.update({ marker: this.markerStyles[i] != undefined ? this.markerStyles[i] : this.markerStyles[0] }, false);
+            if (series.userOptions.marker.enabled === false) {
+                const points = series.points;
+
+                if (points && points.length > 0) {
+                    // Show only the last point marker
+                    const lastPoint = points[points.length - 1];
+                    lastPoint.update({
+                        marker: {
+                            enabled: true,
+                        },
+                    });
+                }
             }
+            // Update the marker styles to use for each series
+            series.update({ marker: this.markerStyles[i] != undefined ? this.markerStyles[i] : this.markerStyles[0] }, false);
         });
     };
 }
