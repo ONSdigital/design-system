@@ -3,11 +3,7 @@
 {% from "components/image/_macro.njk" import onsImage %}
 
 {% macro onsFeaturedArticle(params) %}
-    {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
-        {% set headingLevel = params.headingLevel %}
-    {% else %}
-        {% set headingLevel = 2 %}
-    {% endif %}
+    {% set headingLevel = params.headingLevel | default(2) | string %}
     {% set openingArticleTitleTag = "<h" ~ headingLevel %}
     {% set closingArticleTitleTag = "</h" ~ headingLevel ~ ">" %}
 
