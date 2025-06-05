@@ -145,6 +145,10 @@
         }
 
         &--sticky\@m {
+            /* if parent element is set to flex, override the default align-self property
+            from stretch to flex-start so that it stays sticky on scroll after medium breakpoint - 
+            this is set for the table of contents component specifically */
+            .ons-grid-flex &,
             .ons-grid-flex-gap & {
                 align-self: flex-start;
             }
