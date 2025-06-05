@@ -72,6 +72,7 @@ class BarChart {
     // Updates the config to move the data labels inside the bars, but only if the bar is wide enough
     // This may also need to run when the chart is resized
     postLoadDataLabels = (currentChart) => {
+        console.log('postLoadDataLabels');
         const insideOptions = {
             dataLabels: this.getBarChartLabelsInsideOptions(),
         };

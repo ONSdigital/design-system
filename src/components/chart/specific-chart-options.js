@@ -49,9 +49,9 @@ class SpecificChartOptions {
         // default to the current height
         let newPlotHeight = plotHeight;
         if (plotWidth > 400) {
-            newPlotHeight = plotWidth * (percentageHeightDesktop / 100);
+            newPlotHeight = Math.round(plotWidth * (percentageHeightDesktop / 100));
         } else {
-            newPlotHeight = plotWidth * (percentageHeightMobile / 100);
+            newPlotHeight = Math.round(plotWidth * (percentageHeightMobile / 100));
         }
         const totalHeight = currentChart.plotTop + newPlotHeight + currentChart.marginBottom;
 

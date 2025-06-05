@@ -279,9 +279,6 @@ class HighchartsBaseChart {
                     this.scatterChart.updateMarkersForConfidenceLevels(scatterSeries);
                 }
             }
-            if (this.chartType != 'bar') {
-                this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
-            }
 
             // If the chart has an extra line or lines, hide the data labels for
             // that series, update the last point marker
@@ -307,6 +304,9 @@ class HighchartsBaseChart {
             if (this.rangeAnnotationsOptions) {
                 this.rangeAnnotationsOptions.addLine(currentChart);
             }
+            if (this.chartType != 'bar') {
+                this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+            }
         };
     };
 
@@ -321,9 +321,6 @@ class HighchartsBaseChart {
                 // Update the data labels when the window is resized
                 if (this.chartType === 'bar' && !this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
-                }
-                if (this.chartType != 'bar') {
-                    this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
                 }
             }, 50);
         });
