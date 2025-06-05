@@ -36,7 +36,7 @@
             {# Uses thList if multiple-row headers, otherwise wrap single ths array into a default group #}
             {% set thGroups = params.thList if params.thList else [ { ths: params.ths } ] %}
             <thead class="ons-table__head">
-                {% for header_cols in thGroups %}
+                {% for headerCols in thGroups %}
                         <tr class="ons-table__row">
                             {% for th in header_cols.ths %}
                                 {% set thHtml %}
