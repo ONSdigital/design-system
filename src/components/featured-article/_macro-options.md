@@ -29,7 +29,7 @@
 | iso        | string  | true     | The ISO-formatted date string (YYYY-MM-DD).                 |
 | short      | string  | true     | A human-readable formatted date (e.g., "18 February 2021"). |
 
-## Item
+## listItems
 
 | Property | Type   | Required | Description                    |
 | -------- | ------ | -------- | ------------------------------ |
