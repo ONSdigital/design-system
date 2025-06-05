@@ -22,7 +22,7 @@
     {% set table %}
         <table
             {% if params.id %}id="{{ params.id }}"{% endif %}
-            class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{{ ' ' }}{% if hasrowSpan %}ons-table--has-rowspan{% endif %}{% if variants and variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}"
+            class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{{ ' ' }}{% if hasRowspan %}ons-table--has-rowspan{% endif %}{% if variants and variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}"
             {% if params.sortBy and 'sortable' in variants %}
                 data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"
             {% endif %}
