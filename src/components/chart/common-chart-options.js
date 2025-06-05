@@ -135,25 +135,6 @@ class CommonChartOptions {
 
     getOptions = () => this.options;
 
-    // TODO: A future ticket will add support for other plot lines which are not
-    // reference line annotations, and will be styled like the zero line
-    // See ticket https://jira.ons.gov.uk/browse/CCB-63
-    getPlotLines = () => {
-        // Add zero line
-        return {
-            yAxis: {
-                plotLines: [
-                    {
-                        color: this.constants.zeroLineColor,
-                        width: 1.5,
-                        value: 0,
-                        zIndex: 2,
-                    },
-                ],
-            },
-        };
-    };
-
     getMobileOptions = (xAxisTickInterval, yAxisTickInterval) => {
         return {
             tooltip: {
