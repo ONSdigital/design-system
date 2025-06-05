@@ -47,6 +47,9 @@
         {% if params.uncertaintyRangeLabel %}
             data-highcharts-uncertainty-range-label="{{ params.uncertaintyRangeLabel }}"
         {% endif %}
+        {% if params.yAxis.customReferenceLineValue %}
+            data-highcharts-custom-reference-line-value="{{ params.yAxis.customReferenceLineValue }}"
+        {% endif %}
     >
         <figure class="ons-chart">
             {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
