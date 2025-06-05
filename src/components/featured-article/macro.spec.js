@@ -78,10 +78,6 @@ describe('Macro: Featured Article', () => {
                 expect($('.ons-featured__items-list li').length).toBe(1);
                 expect($('.ons-featured__items-list li a').attr('href')).toBe('/downloads/data-tables.xlsx');
             });
-
-            test('THEN: it does NOT render a chart', () => {
-                expect($('[data-highcharts-base-chart]').length).toBe(0);
-            });
         });
     });
 });

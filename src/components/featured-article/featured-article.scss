@@ -1,17 +1,11 @@
 .ons-featured {
     background-color: var(--ons-color-banner-bg);
-    border-bottom: 0;
-    display: block;
-    outline: 2px solid transparent;
-    outline-offset: -2px;
     padding: 2rem;
 
-    &__items-list {
-        & {
-            border-top: 1px solid var(--ons-color-grey-75);
-            margin-top: 2rem;
-            padding: 2rem 0 0;
-        }
+    &__list {
+        border-top: 1px solid var(--ons-color-grey-75);
+        margin-top: 2rem;
+        padding: 2rem 0 0;
     }
 
     &__item-metadata {
@@ -19,9 +13,8 @@
     }
 
     &__item-attribute {
-        color: var(--ons-color-text-metadata);
         display: inline-block;
-        margin: 0 1rem 0 0;
+        margin-right: 1rem;
 
         @extend .ons-u-fs-s;
     }

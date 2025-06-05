@@ -3,7 +3,7 @@
 {% from "components/image/_macro.njk" import onsImage %}
 
 {% macro onsFeaturedArticle(params) %}
-    {% set headingLevel = params.headingLevel | default(2) | string %}
+    {% set headingLevel = params.headingLevel | default(2) %}
     {% set openingArticleTitleTag = "<h" ~ headingLevel %}
     {% set closingArticleTitleTag = "</h" ~ headingLevel ~ ">" %}
 
@@ -28,17 +28,12 @@
                 {%- if metadata.object and metadata.object.text -%}
                     <li class="ons-featured__item-attribute{{ ' ons-u-mr-no' if metadata.file }}">
                         {% set metadataObject %}
-                            <span {% if not metadata.file and not metadata.object.url %}class="ons-u-fw-b"{% endif %}
-                                >{{ metadata.object.text }}{%- if metadata.object.ref -%}:{% elif metadata.file %},{% endif %}</span
-                            >
+                            <span {% if metadata.object.text %}class="ons-u-fw-b"{% endif %}>{{ metadata.object.text }}</span>
                         {% endset %}
                         {%- if metadata.object.url -%}
                             <a class="ons-featured__attribute-link" href="{{ metadata.object.url }}"> {{ metadataObject | safe }} </a>
                         {% else %}
                             {{ metadataObject | safe }}
-                        {% endif %}
-                        {%- if metadata.object.ref -%}
-                            <span>{{ metadata.object.ref }}</span>
                         {% endif %}
                     </li>
                 {% endif %}
@@ -82,9 +77,7 @@
                     "percentageHeightMobile": params.chart.percentageHeightMobile
                 })
             }}
-        {% endif %}
-
-        {% if params.image %}
+        {% elif params.image %}
             {{
                 onsImage({
                     "src": params.image.src,
@@ -94,7 +87,7 @@
         {% endif %}
 
         {% if params.itemsList %}
-            <div class="ons-featured__items-list">
+            <div class="ons-featured__list">
                 {{
                     onsList({
                         "element": "ul",

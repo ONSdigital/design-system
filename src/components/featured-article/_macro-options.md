@@ -2,7 +2,7 @@
 | ------------ | ------------------------------------ | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | title        | `Object<Title>`                      | true                  | An object containing the article's title text and link. See [Title](#title).                                                                                |
 | metadata     | `Object<Metadata>`                   | true                  | An object containing metadata such as article type and release date. See [Metadata](#metadata).                                                             |
-| itemsList    | array                                | false                 | An optional list of related items. See [Item](#listItems).                                                                                                  |
+| itemsList    | `array<ListItem>`                    | false                 | An optional list of related items. See [ListItem](#listItem).                                                                                               |
 | chart        | `Chart` [_(ref)_](/components/chart) | true if image not set | Configuration object for the chart.                                                                                                                         |
 | image        | `Image` [_(ref)_](/components/image) | true if chart not set | Configuration object for the image.                                                                                                                         |
 | headingLevel | number                               | false                 | Number used to determine the heading level of the title. Use to ensure the title has a correct semantic order on the page, defaulting to 2 if not provided. |
@@ -32,13 +32,12 @@
 
 #### Object
 
-| Name | Type   | Required | Description                                                                                                                        |
-| ---- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| text | string | true     | Label for the type of document, for example “User requested data”.                                                                 |
-| url  | string | false    | URL `href` for the type. Can be used to filter a list of documents by category.                                                    |
-| ref  | string | false    | Text for a sub-type or reference. Can be used to give extra detail about the type, for example, “User requested data: Ref 008052”. |
+| Name | Type   | Required | Description                                                                     |
+| ---- | ------ | -------- | ------------------------------------------------------------------------------- |
+| text | string | true     | Label for the type of document, for example “User requested data”.              |
+| url  | string | false    | URL `href` for the type. Can be used to filter a list of documents by category. |
 
-## listItems
+## ListItem
 
 | Property | Type   | Required | Description                    |
 | -------- | ------ | -------- | ------------------------------ |
