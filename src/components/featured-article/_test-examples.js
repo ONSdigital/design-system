@@ -13,7 +13,6 @@ export const EXAMPLE_FEATURED_ARTICLE_WITH_CHART = {
         object: {
             text: 'Bulletin',
             url: '/bulletins/economic-trends',
-            ref: 'ONS-123',
         },
         file: {
             fileType: 'PDF',
