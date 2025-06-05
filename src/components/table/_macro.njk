@@ -2,11 +2,11 @@
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/icon/_macro.njk" import onsIcon %}
     {% set variants = params.variants if params.variants %}
-    {% set hasrowSpan = false %}
+    {% set hasRowspan = false %}
     {% for row in params.thList %}
         {% for th in row.ths %}
             {% if th.rowspan %}
-                {% set hasrowSpan = true %}
+                {% set hasRowspan = true %}
             {% endif %}
         {% endfor %}
     {% endfor %}
@@ -14,7 +14,7 @@
     {% for row in params.trs %}
         {% for td in row.tds %}
             {% if td.rowspan %}
-                {% set hasrowSpan = true %}
+                {% set hasRowspan = true %}
             {% endif %}
         {% endfor %}
     {% endfor %}
@@ -37,30 +37,29 @@
             {% set thGroups = params.thList if params.thList else [ { ths: params.ths } ] %}
             <thead class="ons-table__head">
                 {% for headerCols in thGroups %}
-                        <tr class="ons-table__row">
-                            {% for th in header_cols.ths %}
-                                {% set thHtml %}
-                                <th
-                                    scope="col"
-                                    class="ons-table__header{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric' if th.numeric }}"
-                                    {% if th.colspan %}colspan="{{ th.colspan }}"{% endif %}
-                                    {% if th.rowspan %}rowspan="{{ th.rowspan }}"{% endif %}
-                                    {% if 'sortable' in variants %}aria-sort="{{ th.ariaSort | default('none') }}"{% endif %}
-                                    {% if th.widthPercentage %}width="{{ th.widthPercentage }}%"{% endif %}
-                                >
-                                    <span class="ons-table__header-text">{{ th.value | safe }}</span>
-                                    {% if 'sortable' in variants %}
-                                    {{ onsIcon({
+                    <tr class="ons-table__row">
+                        {% for th in headerCols.ths %}
+                            <th
+                                scope="col"
+                                class="ons-table__header{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric' if th.numeric }}"
+                                {% if th.colspan %}colspan="{{ th.colspan }}"{% endif %}
+                                {% if th.rowspan %}rowspan="{{ th.rowspan }}"{% endif %}
+                                {% if 'sortable' in variants %}aria-sort="{{ th.ariaSort | default('none') }}"{% endif %}
+                                {% if th.widthPercentage %}width="{{ th.widthPercentage }}%"{% endif %}
+                            >
+                                <span class="ons-table__header-text">{{ th.value | safe }}</span>
+                                {% if 'sortable' in variants %}
+                                    {{
+                                        onsIcon({
                                         "iconType": "sort-sprite",
                                         "id": th.value | replace(' ', '-'),
                                         "classes": 'ons-u-d-no'
-                                    }) }}
-                                    {% endif %}
-                                </th>
-                                {% endset %}
-                                {{ thHtml | safe }}
-                            {% endfor %}
-                        </tr>
+                                        })
+                                    }}
+                                {% endif %}
+                            </th>
+                        {% endfor %}
+                    </tr>
                 {% endfor %}
             </thead>
             {% set rowspanRemaining = 0 %}
