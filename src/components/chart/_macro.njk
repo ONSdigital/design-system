@@ -4,12 +4,7 @@
     {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
     {% set supportedChartTypesWithLine = ['column', 'columnrange'] %}
     {% set supportedChartTypesWithScatter = ['columnrange'] %}
-
-    {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
-        {% set headingLevel = params.headingLevel %}
-    {% else %}
-        {% set headingLevel = 2 %}
-    {% endif %}
+    {% set headingLevel = params.headingLevel | default(2) %}
     {% set openingTitleTag = "<h" ~ headingLevel %}
     {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
     {% set openingSubtitleTag = "<h" ~  (headingLevel + 1) %}
@@ -53,8 +48,11 @@
     >
         <figure class="ons-chart">
             {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
-            {{ openingSubtitleTag | safe }}
-            class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+            {% if params.subtitle %}
+                {{ openingSubtitleTag | safe }}
+                class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+            {% endif %}
+
             {% if params.description %}
                 <p class="ons-u-vh">{{ params.description }}</p>
             {% endif %}
