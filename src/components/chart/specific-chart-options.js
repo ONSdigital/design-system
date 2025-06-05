@@ -17,6 +17,27 @@ class SpecificChartOptions {
     }
 
     getOptions = () => this.options;
+
+    // Add zero line or custom reference line (but only for column or line charts)
+    getReferenceLine = (customReferenceLineValue, chartType) => {
+        let lineValue = 0;
+        if (customReferenceLineValue && (chartType === 'line' || chartType === 'column')) {
+            lineValue = customReferenceLineValue;
+        }
+
+        return {
+            yAxis: {
+                plotLines: [
+                    {
+                        color: this.constants.zeroLineColor,
+                        width: 1.5,
+                        value: lineValue,
+                        zIndex: 2,
+                    },
+                ],
+            },
+        };
+    };
 }
 
 export default SpecificChartOptions;
