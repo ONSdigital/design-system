@@ -20,6 +20,9 @@ class SpecificChartOptions {
 
     getMobileOptions = (xAxisTickInterval, yAxisTickInterval) => {
         return {
+            tooltip: {
+                enabled: false,
+            },
             xAxis: {
                 tickInterval: xAxisTickInterval,
             },
