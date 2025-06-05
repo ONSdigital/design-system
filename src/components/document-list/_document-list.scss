@@ -40,7 +40,7 @@
             .ons-document-list__item-image {
                 width: 248px;
 
-                & &__image-link {
+                & &__image {
                     &--placeholder {
                         height: 96px;
                     }
@@ -50,7 +50,7 @@
                     margin-right: 2.5rem;
                     width: 379px;
 
-                    & &__image-link {
+                    & &__image {
                         &--placeholder {
                             height: 248px;
                         }
@@ -100,7 +100,7 @@
     }
 
     &__item-image & {
-        &__image-link {
+        &__image {
             &--placeholder {
                 height: 96px;
             }
@@ -112,7 +112,7 @@
     }
 
     &__item-image--file & {
-        &__image-link {
+        &__image {
             border-color: var(--ons-color-borders);
 
             &--placeholder {
@@ -121,19 +121,11 @@
         }
     }
 
-    &__image-link {
+    &__image {
         border: 2px solid transparent;
         box-sizing: content-box;
         display: block;
         width: 100%;
-
-        &:focus {
-            background-color: var(--ons-color-placeholder) !important;
-            border: 2px solid var(--ons-color-borders-document-image-focus);
-            box-shadow: none;
-            outline: 4px solid var(--ons-color-focus) !important;
-            outline-offset: 0 !important;
-        }
 
         &--placeholder {
             background-clip: padding-box;

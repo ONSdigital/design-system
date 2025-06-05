@@ -4,7 +4,6 @@ import './analytics';
 import './cookies-settings.dom';
 import './details';
 import '../components/mutually-exclusive/mutually-exclusive.dom';
-import '../components/textarea/textarea.dom';
 import '../components/password/password.dom';
 import '../components/tabs/tabs.dom';
 import '../components/table-of-contents/table-of-contents.dom';

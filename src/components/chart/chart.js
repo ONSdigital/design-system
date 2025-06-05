@@ -1,6 +1,7 @@
 import Highcharts from 'highcharts';
 import 'highcharts/modules/accessibility';
 import 'highcharts/modules/annotations';
+import 'highcharts/highcharts-more';
 
 import CommonChartOptions from './common-chart-options';
 import SpecificChartOptions from './specific-chart-options';
@@ -8,8 +9,13 @@ import LineChart from './line-chart';
 import BarChart from './bar-chart';
 import ColumnChart from './column-chart';
 import ScatterChart from './scatter-chart';
+import Boxplot from './boxplot';
 import AnnotationsOptions from './annotations-options';
+import RangeAnnotationsOptions from './range-annotations-options';
+import ReferenceLineAnnotationsOptions from './reference-line-annotations-options';
+import { preparePlotLinesAndBands, mergeConfigs } from './utilities';
 import AreaChart from './area-chart';
+import ColumnRangeChart from './columnrange-chart';
 
 class HighchartsBaseChart {
     static selector() {
@@ -29,23 +35,50 @@ class HighchartsBaseChart {
         this.useStackedLayout = this.node.hasAttribute('data-highcharts-use-stacked-layout');
         this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.id}]`).textContent);
         if (this.node.querySelector(`[data-highcharts-annotations--${this.id}]`)) {
-            const annotations = JSON.parse(this.node.querySelector(`[data-highcharts-annotations--${this.id}]`).textContent);
-            this.annotationsOptions = new AnnotationsOptions(annotations);
+            this.annotations = JSON.parse(this.node.querySelector(`[data-highcharts-annotations--${this.id}]`).textContent);
+            this.annotationsOptions = new AnnotationsOptions(this.annotations);
+        }
+        if (this.node.querySelector(`[data-highcharts-range-annotations--${this.id}]`)) {
+            this.rangeAnnotations = JSON.parse(this.node.querySelector(`[data-highcharts-range-annotations--${this.id}]`).textContent);
+            this.rangeAnnotationsOptions = new RangeAnnotationsOptions(this.rangeAnnotations);
+        }
+        if (this.node.querySelector(`[data-highcharts-reference-line-annotations--${this.id}]`)) {
+            this.referenceLineAnnotations = JSON.parse(
+                this.node.querySelector(`[data-highcharts-reference-line-annotations--${this.id}]`).textContent,
+            );
+            this.referenceLineAnnotationsOptions = new ReferenceLineAnnotationsOptions(this.referenceLineAnnotations);
         }
         this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
         this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
-        this.xAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsXAxisTickIntervalMobile);
-        this.xAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsXAxisTickIntervalDesktop);
-        this.yAxisTickIntervalMobile = parseInt(this.node.dataset.highchartsYAxisTickIntervalMobile);
-        this.yAxisTickIntervalDesktop = parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop);
+        this.xAxisTickIntervalMobile = this.node.dataset.highchartsXAxisTickIntervalMobile
+            ? parseInt(this.node.dataset.highchartsXAxisTickIntervalMobile)
+            : undefined;
+        this.xAxisTickIntervalDesktop = this.node.dataset.highchartsXAxisTickIntervalDesktop
+            ? parseInt(this.node.dataset.highchartsXAxisTickIntervalDesktop)
+            : undefined;
+        this.yAxisTickIntervalMobile = this.node.dataset.highchartsYAxisTickIntervalMobile
+            ? parseInt(this.node.dataset.highchartsYAxisTickIntervalMobile)
+            : undefined;
+        this.yAxisTickIntervalDesktop = this.node.dataset.highchartsYAxisTickIntervalDesktop
+            ? parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop)
+            : undefined;
         this.commonChartOptions = new CommonChartOptions(this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
+        this.estimateLineLabel = this.node.dataset.highchartsEstimateLineLabel;
+        this.uncertainyRangeLabel = this.node.dataset.highchartsUncertaintyRangeLabel;
+        this.customReferenceLineValue = this.node.dataset.highchartsCustomReferenceLineValue
+            ? parseFloat(this.node.dataset.highchartsCustomReferenceLineValue)
+            : undefined;
+
         this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
         this.columnChart = new ColumnChart();
         this.areaChart = new AreaChart();
         this.scatterChart = new ScatterChart();
+        this.columnRangeChart = new ColumnRangeChart();
+        this.boxplot = new Boxplot();
         this.extraLines = this.checkForExtraLines();
+        this.extraScatter = this.checkForExtraScatter();
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
             window.isCommonChartOptionsDefined = true;
@@ -54,6 +87,7 @@ class HighchartsBaseChart {
         this.setSpecificChartOptions();
         this.setResponsiveOptions();
         this.setLoadEvent();
+        this.setRenderEvent();
         this.setWindowResizeEvent();
         this.chart = Highcharts.chart(chartNode, this.config);
     }
@@ -63,44 +97,24 @@ class HighchartsBaseChart {
         return this.chartType === 'line' ? 0 : this.config.series.filter((series) => series.type === 'line').length;
     };
 
+    // Used to ensure that extra line series always overlay the column series
+    updateExtraLineZIndex = () => {
+        this.config.series.forEach((series) => {
+            if (series.type === 'line') {
+                series.zIndex = this.config.series.length + 1;
+            }
+        });
+    };
+
+    // Check for the number of extra line series in the config
+    checkForExtraScatter = () => {
+        return this.chartType === 'scatter' ? 0 : this.config.series.filter((series) => series.type === 'scatter').length;
+    };
+
     // Set up the global Highcharts options which are used for all charts
     setCommonChartOptions = () => {
         const chartOptions = this.commonChartOptions.getOptions();
         Highcharts.setOptions(chartOptions);
-    };
-
-    // Utility function to merge two configs together
-    mergeConfigs = (baseConfig, newConfig) => {
-        // If newConfig is null/undefined, return baseConfig
-        if (!newConfig) return baseConfig;
-
-        // Create a new object to store the merged result
-        const merged = { ...baseConfig };
-
-        // Iterate through all keys in newConfig
-        Object.keys(newConfig).forEach((key) => {
-            // Get values from both configs for this key
-            const baseValue = merged[key];
-            const newValue = newConfig[key];
-
-            // If both values are objects (and not null), recursively merge them
-            if (
-                baseValue &&
-                newValue &&
-                typeof baseValue === 'object' &&
-                typeof newValue === 'object' &&
-                !Array.isArray(baseValue) &&
-                !Array.isArray(newValue)
-            ) {
-                merged[key] = this.mergeConfigs(baseValue, newValue);
-            } else {
-                // For non-objects and arrays use the new value
-                // If the new value is null/undefined, use the base value
-                merged[key] = newValue ?? baseValue;
-            }
-        });
-
-        return merged;
     };
 
     // Set up options for specific charts and chart types
@@ -108,38 +122,55 @@ class HighchartsBaseChart {
         const specificChartOptions = this.specificChartOptions.getOptions();
         const lineChartOptions = this.lineChart.getLineChartOptions();
         const barChartOptions = this.barChart.getBarChartOptions(this.useStackedLayout);
+        const columnRangeChartOptions = this.columnRangeChart.getColumnRangeChartOptions();
         const columnChartOptions = this.columnChart.getColumnChartOptions(this.config, this.useStackedLayout, this.extraLines);
         const areaChartOptions = this.areaChart.getAreaChartOptions();
         const scatterChartOptions = this.scatterChart.getScatterChartOptions();
+        const boxplotOptions = this.boxplot.getBoxplotOptions(this.config, this.useStackedLayout, this.extraLines);
         // Merge specificChartOptions with the existing config
-        this.config = this.mergeConfigs(this.config, specificChartOptions);
+        this.config = mergeConfigs(this.config, specificChartOptions);
 
         if (this.chartType === 'line') {
             // Merge the line chart options with the existing config
-            this.config = this.mergeConfigs(this.config, lineChartOptions);
+            this.config = mergeConfigs(this.config, lineChartOptions);
         }
 
         if (this.chartType === 'bar') {
             // Merge the bar chart options with the existing config
-            this.config = this.mergeConfigs(this.config, barChartOptions);
+            this.config = mergeConfigs(this.config, barChartOptions);
+        }
+        if (this.chartType === 'columnrange') {
+            // Merge the bar chart options with the existing config
+            this.config = mergeConfigs(this.config, columnRangeChartOptions);
         }
         if (this.chartType === 'column') {
             // Merge the column chart options with the existing config
-            this.config = this.mergeConfigs(this.config, columnChartOptions);
+            this.config = mergeConfigs(this.config, columnChartOptions);
         }
         if (this.chartType === 'area') {
             // Merge the area chart options with the existing config
-            this.config = this.mergeConfigs(this.config, areaChartOptions);
+            this.config = mergeConfigs(this.config, areaChartOptions);
         }
         if (this.chartType === 'scatter') {
             // Merge the scatter chart options with the existing config
-            this.config = this.mergeConfigs(this.config, scatterChartOptions);
+            this.config = mergeConfigs(this.config, scatterChartOptions);
+        }
+        if (this.chartType === 'boxplot') {
+            // Merge the boxplot chart options with the existing config
+            this.config = mergeConfigs(this.config, boxplotOptions);
         }
 
         if (this.extraLines > 0) {
-            this.config = this.mergeConfigs(this.config, this.lineChart.getLineChartOptions());
+            this.updateExtraLineZIndex();
+            this.config = mergeConfigs(this.config, this.lineChart.getLineChartOptions());
+            this.config = mergeConfigs(this.config, this.lineChart.getExtraLineChartOptions(this.config.series.length + 1));
             if (this.chartType === 'column') {
-                this.config = this.mergeConfigs(this.config, columnChartOptions);
+                this.config = mergeConfigs(this.config, columnChartOptions);
+            }
+        }
+        if (this.extraScatter > 0) {
+            if (this.chartType === 'columnrange') {
+                this.config = mergeConfigs(this.config, columnRangeChartOptions);
             }
         }
 
@@ -158,18 +189,28 @@ class HighchartsBaseChart {
     // All responsive rules should be defined here to avoid overriding existing rules
     setResponsiveOptions = () => {
         let mobileChartOptions = this.commonChartOptions.getMobileOptions(this.xAxisTickIntervalMobile, this.yAxisTickIntervalMobile);
-        if (this.chartType === 'column') {
+        if (this.chartType === 'column' || this.chartType === 'boxplot') {
             const mobileColumnChartOptions = this.columnChart.getColumnChartMobileOptions(
                 this.config,
                 this.useStackedLayout,
                 this.extraLines,
             );
-            mobileChartOptions = this.mergeConfigs(mobileChartOptions, mobileColumnChartOptions);
+            mobileChartOptions = mergeConfigs(mobileChartOptions, mobileColumnChartOptions);
         }
 
         if (!this.config.responsive) {
             this.config.responsive = {};
         }
+
+        const { desktopAllPlotLinesAndBands, mobileAllPlotLinesAndBands } = preparePlotLinesAndBands(
+            this.annotations,
+            this.rangeAnnotations,
+            this.rangeAnnotationsOptions,
+            this.referenceLineAnnotationsOptions,
+            this.specificChartOptions,
+            this.chartType,
+            this.customReferenceLineValue,
+        );
 
         let rules = [
             {
@@ -190,6 +231,7 @@ class HighchartsBaseChart {
                 },
                 chartOptions: {
                     annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsMobile() : undefined,
+                    ...(mobileAllPlotLinesAndBands != {} ? mobileAllPlotLinesAndBands : null),
                 },
             },
             {
@@ -198,6 +240,7 @@ class HighchartsBaseChart {
                 },
                 chartOptions: {
                     annotations: this.annotationsOptions ? this.annotationsOptions.getAnnotationsOptionsDesktop() : undefined,
+                    ...(desktopAllPlotLinesAndBands != {} ? desktopAllPlotLinesAndBands : null),
                 },
             },
         ];
@@ -230,6 +273,15 @@ class HighchartsBaseChart {
             if (this.chartType === 'scatter') {
                 this.scatterChart.updateMarkers(currentChart);
             }
+            if (this.chartType === 'columnrange') {
+                this.columnRangeChart.updateColumnRangeChartHeight(this.config, currentChart);
+                this.commonChartOptions.hideDataLabels(currentChart.series);
+
+                if (this.extraScatter > 0) {
+                    const scatterSeries = currentChart.series.filter((series) => series.type === 'scatter');
+                    this.scatterChart.updateMarkersForConfidenceLevels(scatterSeries);
+                }
+            }
             if (this.chartType != 'bar') {
                 this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
             }
@@ -246,6 +298,18 @@ class HighchartsBaseChart {
             // Update the legend items for all charts
             this.commonChartOptions.updateLegendSymbols(currentChart);
             currentChart.redraw(false);
+        };
+    };
+
+    setRenderEvent = () => {
+        if (!this.config.chart.events) {
+            this.config.chart.events = {};
+        }
+        this.config.chart.events.render = (event) => {
+            const currentChart = event.target;
+            if (this.rangeAnnotationsOptions) {
+                this.rangeAnnotationsOptions.addLine(currentChart);
+            }
         };
     };
 
