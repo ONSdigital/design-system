@@ -38,8 +38,8 @@ export default class CharCheck {
 
     updateCheckReadout(event, firstRun) {
         const value = this.input.value;
-        const getLength = this.input.getAttribute(countType) == 'char' ? this.getCharLength(value) : this.getWordLength(value);
-        const remaining = this.checkVal - getLength;
+        const currentLength = this.input.getAttribute(countType) == 'char' ? this.getCharLength(value) : this.getWordLength(value);
+        const remaining = this.checkVal - currentLength;
 
         // Prevent aria live announcement when component initialises
         if (!firstRun && event.inputType) {
@@ -80,14 +80,6 @@ export default class CharCheck {
     }
 
     setShowMessage(remaining) {
-        if (this.tagName.toLowerCase() === 'textarea') {
-            // Always display the remaining character message for textarea
-            this.checkElement.classList['remove']('ons-u-d-no');
-        } else {
-            this.checkElement.classList[(remaining < this.checkVal && remaining > 0 && this.countdown) || remaining < 0 ? 'remove' : 'add'](
-                'ons-u-d-no',
-            );
-        }
         if (this.tagName.toLowerCase() === 'textarea') {
             // Always display the remaining character message for textarea
             this.checkElement.classList['remove']('ons-u-d-no');
