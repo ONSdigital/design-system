@@ -3,8 +3,12 @@ import domready from './domready';
 export default function toggleDetails() {
     const allDetails = document.querySelectorAll('details');
 
-    // Collapse all <detail> elements by default
-    allDetails.forEach((detail) => detail.removeAttribute('open'));
+    // Collapse all <details> elements by default, unless they have 'data-open' attribute
+    allDetails.forEach((detail) => {
+        if (!detail.hasAttribute('data-open')) {
+            detail.removeAttribute('open');
+        }
+    });
 
     // Expand all <details> before printing
     window.addEventListener('beforeprint', () => {

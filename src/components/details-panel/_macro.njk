@@ -2,7 +2,7 @@
     {% set openText = params.openText | default("Show detail") %}
     {% set closeText = params.closeText | default("Hide detail") %}
 
-    <details class="ons-details-panel" {% if params.open %}{{ ' ' }}data-open{% endif %}>
+    <details class="ons-details-panel" open {% if params.open %}{{ ' ' }}data-open{% endif %}>
         <summary class="ons-details-panel__banner ons-u-pt-s ons-u-pb-s">
             <div class="ons-container ons-details-panel__banner-contents">
                 <span class="ons-details-panel__info-icon ons-u-mr-2xs" aria-hidden="true">i</span>
