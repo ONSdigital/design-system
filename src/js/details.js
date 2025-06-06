@@ -1,25 +1,33 @@
 import domready from './domready';
 
 export default function toggleDetails() {
-    // get all <details> elements
     const allDetails = document.querySelectorAll('details');
 
-    // collapse all <details> by default
-    allDetails.forEach((detail) => {
-        detail.removeAttribute('open');
-    });
+    // Collapse all <detail> elements by default
+    allDetails.forEach((detail) => detail.removeAttribute('open'));
 
-    // expand all <details> before printing
+    // Expand all <details> before printing
     window.addEventListener('beforeprint', () => {
         allDetails.forEach((detail) => {
-            detail.setAttribute('open', '');
+            // Set as visible if already open
+            if (detail.hasAttribute('open')) {
+                detail.dataset.open = 'true';
+            } else {
+                detail.setAttribute('open', '');
+            }
         });
     });
 
-    // collapse all <details> again after printing
+    // Collapse all <details> after printing
     window.addEventListener('afterprint', () => {
         allDetails.forEach((detail) => {
-            detail.removeAttribute('open');
+            // Re-open all <details> which were previously visible
+            if (detail.dataset.open === 'true') {
+                detail.setAttribute('open', '');
+                delete detail.dataset.open;
+            } else {
+                detail.removeAttribute('open');
+            }
         });
     });
 }
