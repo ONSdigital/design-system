@@ -243,19 +243,10 @@
     }
 
     &-nav-menu {
-        // applies styles for non-js variant
         background-color: var(--ons-color-branded-tint);
-        border-bottom: 1px solid var(--ons-color-ocean-blue);
         width: 100%;
         margin-bottom: 0;
-        padding-bottom: 1rem;
-
-        // updates styles when js is enabled
-        .ons-js-enabled & {
-            border-bottom: 0;
-            margin-bottom: 1rem;
-            padding-bottom: 0;
-        }
+        padding-bottom: 2.5rem;
 
         &__key-list {
             border-bottom: 1px solid var(--ons-color-ocean-blue);
@@ -289,6 +280,11 @@
         }
     }
 
+    // applies styles for non-js variant
+    &-nav-menu ~ &-nav-search {
+        border-top: 1px solid var(--ons-color-ocean-blue);
+    }
+
     &-nav-search {
         background-color: var(--ons-color-branded-tint);
         margin-bottom: 1rem;
@@ -302,6 +298,11 @@
             @extend .ons-u-pb-2xl;
 
             row-gap: 1rem;
+        }
+
+        // updates styles when js is enabled
+        .ons-js-enabled & {
+            border-top: 0;
         }
     }
 
