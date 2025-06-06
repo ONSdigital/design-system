@@ -26,12 +26,12 @@
             {% endif %}
             rows="{{ params.rows | default(8) }}"
             {% if params.charCheckLimit %}
-                data-char-check-ref="{{ params.id }}-check" data-char-check-num="{{ params.charCheckLimit.limit }}"
-                aria-describedby="{{ params.id }}-check" data-char-check-countdown=true
+                data-message-check-ref="{{ params.id }}-check" data-message-check-num="{{ params.charCheckLimit.limit }}"
+                aria-describedby="{{ params.id }}-check" data-messae-check-countdown=true
             {% endif %}
             {% if params.wordLimit %}
-                data-word-check-ref="{{ params.id }}-check" data-word-check-num="{{ params.wordLimit.limit }}"
-                aria-describedby="{{ params.id }}-check" data-word-check-countdown=true
+                data-message-check-ref="{{ params.id }}-check" data-message-check-num="{{ params.wordLimit.limit }}"
+                aria-describedby="{{ params.id }}-check" data-message-check-countdown=true
             {% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
         >
@@ -53,8 +53,9 @@
         {% endif %}
         {% if params.wordLimit and params.wordLimit.limit %}
             {%
-                call onsWordLimit({
+                call onsCharLimit({
                     "id": params.id ~ "-check",
+                    "variant": "word",
                     "limit": params.wordLimit.limit,
                     "wordCountSingular": params.wordLimit.wordCountSingular,
                     "wordCountPlural": params.wordLimit.wordCountPlural,

@@ -1,11 +1,9 @@
 const inputClassLimitReached = 'ons-input--limit-reached';
 const remainingClassLimitReached = 'ons-input__limit--reached';
-const attrCharCheckRef = 'data-char-check-ref';
-const attrCharCheckCountdown = 'data-char-check-countdown';
-const attrCharCheckVal = 'data-char-check-num';
-const attrWordCheckRef = 'data-word-check-ref';
-const attrWordCheckCountdown = 'data-word-check-countdown';
-const attrWordCheckVal = 'data-word-check-num';
+const attrMessageCheckRef = 'data-message-check-ref';
+const attrMessageCheckCountdown = 'data-message-check-countdown';
+const attrMessageCheckVal = 'data-message-check-num';
+const countType = 'data-count-type';
 
 export default class CharCheck {
     constructor(context) {
@@ -21,23 +19,13 @@ export default class CharCheck {
         // Find the button: if input is passed directly, look at its parent
         let parent = this.input.parentNode;
         this.button = parent ? parent.querySelector('button') : null;
-        this.checkElement =
-            document.getElementById(this.input.getAttribute(attrCharCheckRef)) ||
-            document.getElementById(this.input.getAttribute(attrWordCheckRef));
-        this.checkVal = this.input.getAttribute(attrCharCheckVal) || this.input.getAttribute(attrWordCheckVal);
-        this.countdown = this.input.getAttribute(attrCharCheckCountdown) || this.input.getAttribute(attrWordCheckCountdown) || false;
-        this.singularMessage =
-            this.checkElement.getAttribute('data-charcount-singular') || this.checkElement.getAttribute('data-wordcount-singular') || null;
-        this.pluralMessage =
-            this.checkElement.getAttribute('data-charcount-plural') || this.checkElement.getAttribute('data-wordcount-plural') || null;
-        this.charLimitSingularMessage =
-            this.checkElement.getAttribute('data-charcount-limit-singular') ||
-            this.checkElement.getAttribute('data-wordcount-limit-singular') ||
-            null;
-        this.charLimitPluralMessage =
-            this.checkElement.getAttribute('data-charcount-limit-plural') ||
-            this.checkElement.getAttribute('data-wordcount-limit-plural') ||
-            null;
+        this.checkElement = document.getElementById(this.input.getAttribute(attrMessageCheckRef));
+        this.checkVal = this.input.getAttribute(attrMessageCheckVal);
+        this.countdown = this.input.getAttribute(attrMessageCheckCountdown) || false;
+        this.singularMessage = this.checkElement.getAttribute('data-message-count-singular') || null;
+        this.pluralMessage = this.checkElement.getAttribute('data-message-count-plural') || null;
+        this.LimitSingularMessage = this.checkElement.getAttribute('data-message-count-limit-singular') || null;
+        this.LimitPluralMessage = this.checkElement.getAttribute('data-message-count-limit-plural') || null;
 
         this.updateCheckReadout(this.input);
 
@@ -50,7 +38,7 @@ export default class CharCheck {
 
     updateCheckReadout(event, firstRun) {
         const value = this.input.value;
-        const getLength = this.input.getAttribute(attrCharCheckVal) ? this.getCharLength(value) : this.getWordLength(value);
+        const getLength = this.input.getAttribute(countType) == 'char' ? this.getCharLength(value) : this.getWordLength(value);
         const remaining = this.checkVal - getLength;
 
         // Prevent aria live announcement when component initialises
@@ -70,9 +58,9 @@ export default class CharCheck {
         if (this.countdown && remaining === 1) {
             message = this.singularMessage;
         } else if (remaining === -1) {
-            message = this.charLimitSingularMessage;
+            message = this.LimitSingularMessage;
         } else if (remaining < -1) {
-            message = this.charLimitPluralMessage;
+            message = this.LimitPluralMessage;
         } else {
             message = this.pluralMessage;
         }
