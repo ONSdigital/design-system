@@ -73,16 +73,15 @@ export const preparePlotLinesAndBands = (
     // We also need to combine the zero line / custom reference line with the reference line annotations here, as otherwise
     // it gets overridden by the reference line annotations config
     let plotLineOptions = specificChartOptions.getReferenceLine(customReferenceLineValue, chartType);
+    desktopAllPlotLines = { ...desktopReferenceLineAnnotations };
+    mobileAllPlotLines = { ...mobileReferenceLineAnnotations };
+
     if (desktopReferenceLineAnnotations.yAxis !== undefined) {
         let desktopMergedPlotLines = desktopReferenceLineAnnotations.yAxis.plotLines.concat(plotLineOptions.yAxis.plotLines);
         let mobileMergedPlotLines = mobileReferenceLineAnnotations.yAxis.plotLines.concat(plotLineOptions.yAxis.plotLines);
-        desktopAllPlotLines = { ...desktopReferenceLineAnnotations };
-        mobileAllPlotLines = { ...mobileReferenceLineAnnotations };
         desktopAllPlotLines.yAxis.plotLines = desktopMergedPlotLines;
         mobileAllPlotLines.yAxis.plotLines = mobileMergedPlotLines;
     } else {
-        desktopAllPlotLines = { ...desktopReferenceLineAnnotations };
-        mobileAllPlotLines = { ...mobileReferenceLineAnnotations };
         desktopAllPlotLines.yAxis = { ...plotLineOptions.yAxis };
         mobileAllPlotLines.yAxis = { ...plotLineOptions.yAxis };
     }
