@@ -81,8 +81,10 @@ export const preparePlotLinesAndBands = (
         desktopAllPlotLines.yAxis.plotLines = desktopMergedPlotLines;
         mobileAllPlotLines.yAxis.plotLines = mobileMergedPlotLines;
     } else {
-        desktopAllPlotLines = { ...plotLineOptions };
-        mobileAllPlotLines = { ...plotLineOptions };
+        desktopAllPlotLines = { ...desktopReferenceLineAnnotations };
+        mobileAllPlotLines = { ...mobileReferenceLineAnnotations };
+        desktopAllPlotLines.yAxis = { ...plotLineOptions.yAxis };
+        mobileAllPlotLines.yAxis = { ...plotLineOptions.yAxis };
     }
 
     // combine the desktop and mobile range and reference line annotations, along with other plot lines, ready to pass to the config
