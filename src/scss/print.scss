@@ -5,7 +5,8 @@
 .ons-cookies-banner,
 .ons-language-links,
 .ons-breadcrumbs,
-.ons-u-ph {
+.ons-u-ph,
+.ons-details-panel__banner-detail {
     display: none !important;
 }
 
@@ -90,4 +91,8 @@ p {
             padding-top: 1rem;
         }
     }
+}
+
+details::details-content {
+    display: contents;
 }

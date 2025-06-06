@@ -3,7 +3,6 @@ export const EXAMPLE_DETAILS_PANEL = {
     detailsItems: [
         {
             text: 'Correction',
-            headingLevel: 3,
             date: {
                 iso: '2025-01-22T16:30Z',
                 short: '22nd January 2025, 4:30PM',
