@@ -1,6 +1,10 @@
 .ons-featured {
     background-color: var(--ons-color-banner-bg);
     padding: 2rem;
+    border-bottom: 0;
+    display: block;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
 
     &__media {
         * {
