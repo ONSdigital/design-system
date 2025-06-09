@@ -294,8 +294,6 @@ class HighchartsBaseChart {
                     }
                 });
             }
-            // Update the legend items for all charts
-            this.commonChartOptions.updateLegendSymbols(currentChart);
             currentChart.redraw(false);
         };
     };
@@ -312,6 +310,8 @@ class HighchartsBaseChart {
             if (this.chartType != 'bar') {
                 this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
             }
+            // Update the legend symbols on render to maintain them during resize
+            this.specificChartOptions.updateLegendSymbols(currentChart);
         };
     };
 
