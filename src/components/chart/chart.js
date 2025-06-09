@@ -326,6 +326,8 @@ class HighchartsBaseChart {
                 // Update the data labels when the window is resized
                 if (this.chartType === 'bar' && !this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
+                    // Force a single redraw after all updates
+                    currentChart.redraw(false);
                 }
             }, 50);
         });
