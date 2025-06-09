@@ -22,10 +22,10 @@ export default class CharCheck {
         this.checkElement = document.getElementById(this.input.getAttribute(attrMessageCheckRef));
         this.checkVal = this.input.getAttribute(attrMessageCheckVal);
         this.countdown = this.input.getAttribute(attrMessageCheckCountdown) || false;
-        this.singularMessage = this.checkElement.getAttribute('data-message-count-singular') || null;
-        this.pluralMessage = this.checkElement.getAttribute('data-message-count-plural') || null;
-        this.LimitSingularMessage = this.checkElement.getAttribute('data-message-count-limit-singular') || null;
-        this.LimitPluralMessage = this.checkElement.getAttribute('data-message-count-limit-plural') || null;
+        this.singularMessage = this.checkElement.getAttribute('data-message-singular') || null;
+        this.pluralMessage = this.checkElement.getAttribute('data-message-plural') || null;
+        this.overLimitSingularMessage = this.checkElement.getAttribute('data-message-over-limit-singular') || null;
+        this.overLimitPluralMessage = this.checkElement.getAttribute('data-message-over-limit-plural') || null;
 
         this.updateCheckReadout(this.input);
 
@@ -58,9 +58,9 @@ export default class CharCheck {
         if (this.countdown && remaining === 1) {
             message = this.singularMessage;
         } else if (remaining === -1) {
-            message = this.LimitSingularMessage;
+            message = this.overLimitSingularMessage;
         } else if (remaining < -1) {
-            message = this.LimitPluralMessage;
+            message = this.overLimitPluralMessage;
         } else {
             message = this.pluralMessage;
         }

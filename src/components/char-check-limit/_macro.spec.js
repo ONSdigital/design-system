@@ -21,16 +21,16 @@ describe('FOR: Macro: CharCheckLimit', () => {
                 expect($('.ons-input__limit').attr('id')).toBe('example-char-check-limit');
             });
             test('THEN: has the data attribute which defines charCountPlural', () => {
-                expect($('.ons-input__limit').attr('data-message-count-plural')).toBe('You have {x} characters remaining');
+                expect($('.ons-input__limit').attr('data-message-plural')).toBe('You have {x} characters remaining');
             });
             test('THEN: has the data attribute which defines charCountSingular', () => {
-                expect($('.ons-input__limit').attr('data-message-count-singular')).toBe('You have {x} character remaining');
+                expect($('.ons-input__limit').attr('data-message-singular')).toBe('You have {x} character remaining');
             });
             test('THEN: has the data attribute which defines charCountOverLimitSingular', () => {
-                expect($('.ons-input__limit').attr('data-message-count-limit-singular')).toBe('{x} character too many');
+                expect($('.ons-input__limit').attr('data-message-over-limit-singular')).toBe('{x} character too many');
             });
             test('THEN: has the data attribute which defines charCountOverLimitPlural', () => {
-                expect($('.ons-input__limit').attr('data-message-count-limit-plural')).toBe('{x} characters too many');
+                expect($('.ons-input__limit').attr('data-message-over-limit-plural')).toBe('{x} characters too many');
             });
         });
     });
@@ -70,16 +70,16 @@ describe('FOR: Macro: CharCheckLimit', () => {
             expect($('.ons-input__limit').attr('id')).toBe('example-word-limit');
         });
         test('THEN: has the data attribute which defines wordCountPlural', () => {
-            expect($('.ons-input__limit').attr('data-message-count-plural')).toBe('You have {x} words remaining');
+            expect($('.ons-input__limit').attr('data-message-plural')).toBe('You have {x} words remaining');
         });
         test('THEN: has the data attribute which defines wordCountSingular', () => {
-            expect($('.ons-input__limit').attr('data-message-count-singular')).toBe('You have {x} word remaining');
+            expect($('.ons-input__limit').attr('data-message-singular')).toBe('You have {x} word remaining');
         });
         test('THEN: has the data attribute which defines wordCountOverLimitSingular', () => {
-            expect($('.ons-input__limit').attr('data-message-count-limit-singular')).toBe('You have {x} word too many');
+            expect($('.ons-input__limit').attr('data-message-over-limit-singular')).toBe('You have {x} word too many');
         });
         test('THEN: has the data attribute which defines wordCountOverLimitPlural', () => {
-            expect($('.ons-input__limit').attr('data-message-count-limit-plural')).toBe('You have {x} words too many');
+            expect($('.ons-input__limit').attr('data-message-over-limit-plural')).toBe('You have {x} words too many');
         });
     });
 });
