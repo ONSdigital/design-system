@@ -113,6 +113,7 @@
 
     &__content-meta {
         @extend .ons-u-mb-no;
+
         @include mq('m') {
             flex-basis: 25%;
             min-width: 16.5rem;
