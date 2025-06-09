@@ -122,7 +122,7 @@ class SpecificChartOptions {
                         const markerStyle = this.constants.lineMarkerStyles[index % this.constants.lineMarkerStyles.length];
 
                         const legendSymbol = renderer
-                            .symbol(markerStyle.symbol, bbox.x - 30, bbox.y + 4, 12, markerStyle.radius, markerStyle.radius)
+                            .symbol(markerStyle.symbol, bbox.x - 22, bbox.y + 4, 12, markerStyle.radius, markerStyle.radius)
                             .attr({
                                 fill: item.color,
                                 stroke: item.color,
