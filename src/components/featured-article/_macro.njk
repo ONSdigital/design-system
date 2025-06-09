@@ -73,15 +73,8 @@
             {% endif %}
         </div>
 
-        {% if params.itemsList %}
-            <div class="ons-featured__list">
-                {{
-                    onsList({
-                        "element": "ul",
-                        "itemsList": params.itemsList
-                    })
-                }}
-            </div>
+        {% if params.description %}
+            <div class="ons-featured__description">{{ params.description | safe }}</div>
         {% endif %}
     </div>
 {% endmacro %}

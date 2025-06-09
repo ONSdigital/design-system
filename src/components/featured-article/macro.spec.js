@@ -23,18 +23,6 @@ describe('Macro: Featured Article', () => {
                 expect($('.ons-featured__title a').attr('href')).toBe('/economy/economic-trends-2024');
             });
 
-            test('THEN: it renders ISO date value correctly', () => {
-                expect($('time').attr('datetime')).toBe('2024-05-01');
-            });
-
-            test('THEN: it renders short date label correctly', () => {
-                expect($('time').text()).toBe('1 May 2024');
-            });
-
-            test('THEN: it displays metadata text', () => {
-                expect($('.ons-featured__attribute-text').text()).toContain('Bulletin');
-            });
-
             test('THEN: it renders the onsChart component', () => {
                 expect($('[data-highcharts-base-chart]').length).toBe(1);
             });
@@ -71,21 +59,59 @@ describe('Macro: Featured Article', () => {
             test('THEN: it renders image with correct alt text', () => {
                 expect($('.ons-image__img').attr('alt')).toBe('Example alt text');
             });
+        });
+    });
 
-            test('THEN: it renders ISO date correctly', () => {
-                expect($('time').attr('datetime')).toBe('2024-04-01');
+    describe('GIVEN: Param: metadata', () => {
+        describe('WHEN: metadata with date and object is provided', () => {
+            const $ = cheerio.load(renderComponent('featured-article', EXAMPLE_FEATURED_ARTICLE_WITH_CHART));
+
+            test('THEN: it renders ISO date value correctly', () => {
+                expect($('time').attr('datetime')).toBe('2024-05-01');
             });
 
-            test('THEN: it renders short date correctly', () => {
-                expect($('time').text()).toBe('1 April 2024');
+            test('THEN: it renders short date label correctly', () => {
+                expect($('time').text()).toBe('1 May 2024');
             });
 
-            test('THEN: does not render metadata link when no URL provided', () => {
+            test('THEN: it displays metadata text', () => {
+                expect($('.ons-featured__item-attribute span').text()).toContain('Bulletin');
+            });
+        });
+
+        describe('WHEN: metadata object has no URL', () => {
+            const $ = cheerio.load(renderComponent('featured-article', EXAMPLE_FEATURED_ARTICLE_WITH_IMAGE));
+
+            test('THEN: it does not render metadata link', () => {
                 expect($('.ons-featured__attribute-link').length).toBe(0);
             });
 
-            test('THEN: it displays metadata text when no link is present', () => {
+            test('THEN: it still displays metadata text', () => {
                 expect($('.ons-featured__item-attribute span').text()).toContain('Article');
+            });
+        });
+
+        describe('WHEN: metadata is not provided', () => {
+            const articleWithoutMetadata = {
+                ...EXAMPLE_FEATURED_ARTICLE_WITH_CHART,
+                metadata: undefined,
+            };
+            const $ = cheerio.load(renderComponent('featured-article', articleWithoutMetadata));
+
+            test('THEN: metadata section is not rendered', () => {
+                expect($('.ons-featured__item-metadata').length).toBe(0);
+            });
+        });
+    });
+
+    describe('GIVEN: Params: description', () => {
+        describe('WHEN: description is provided', () => {
+            test('THEN: has expected description', () => {
+                const $ = cheerio.load(
+                    renderComponent('featured-article', { ...EXAMPLE_FEATURED_ARTICLE_WITH_CHART, description: 'Some description' }),
+                );
+                const title = $('.ons-featured__description').html().trim();
+                expect(title).toBe('Some description');
             });
         });
     });
@@ -101,20 +127,6 @@ describe('Macro: Featured Article', () => {
 
             test('THEN: title is rendered using correct heading tag', () => {
                 expect($('.ons-featured__title')[0].tagName).toBe('h3');
-            });
-        });
-    });
-
-    describe('GIVEN: Param: itemsList', () => {
-        describe('WHEN: itemsList is provided', () => {
-            const $ = cheerio.load(renderComponent('featured-article', EXAMPLE_FEATURED_ARTICLE_WITH_CHART));
-
-            test('THEN: it renders the expected number of items', () => {
-                expect($('.ons-featured__list li').length).toBe(1);
-            });
-
-            test('THEN: item link has expected href', () => {
-                expect($('.ons-featured__list li a').attr('href')).toBe('/downloads/full-report.pdf');
             });
         });
     });
