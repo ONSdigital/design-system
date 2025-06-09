@@ -702,6 +702,7 @@ describe('Macro: Chart', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('alternate');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-title')).toBe('Example Column Chart');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('column-chart-123');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-custom-reference-line-value')).toBe('10');
                 });
 
                 test('THEN: it includes the Highcharts JSON config', () => {
