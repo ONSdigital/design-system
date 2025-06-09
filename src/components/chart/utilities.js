@@ -39,8 +39,9 @@ export const preparePlotLinesAndBands = (
     rangeAnnotations = undefined,
     rangeAnnotationsOptions = undefined,
     referenceLineAnnotationsOptions = undefined,
-    commonChartOptions,
+    specificChartOptions,
     chartType,
+    customReferenceLineValue,
 ) => {
     const totalPointAndRangeAnnotations = (annotations ? annotations.length : 0) + (rangeAnnotations ? rangeAnnotations.length : 0);
 
@@ -69,10 +70,9 @@ export const preparePlotLinesAndBands = (
         );
     }
 
-    // We also need to combine the zero line (and any future plot lines) with the reference line annotations here, as otherwise
+    // We also need to combine the zero line / custom reference line with the reference line annotations here, as otherwise
     // it gets overridden by the reference line annotations config
-    let plotLineOptions = commonChartOptions.getPlotLines();
-
+    let plotLineOptions = specificChartOptions.getReferenceLine(customReferenceLineValue, chartType);
     if (desktopReferenceLineAnnotations.yAxis !== undefined) {
         let desktopMergedPlotLines = desktopReferenceLineAnnotations.yAxis.plotLines.concat(plotLineOptions.yAxis.plotLines);
         let mobileMergedPlotLines = mobileReferenceLineAnnotations.yAxis.plotLines.concat(plotLineOptions.yAxis.plotLines);
