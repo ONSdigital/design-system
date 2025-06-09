@@ -38,7 +38,7 @@ export default class CharCheck {
 
     updateCheckReadout(event, firstRun) {
         const value = this.input.value;
-        const currentLength = this.input.getAttribute(countType) == 'char' ? this.getCharLength(value) : this.getWordLength(value);
+        const currentLength = this.checkElement.getAttribute(countType) == 'char' ? this.getCharLength(value) : this.getWordLength(value);
         const remaining = this.checkVal - currentLength;
 
         // Prevent aria live announcement when component initialises

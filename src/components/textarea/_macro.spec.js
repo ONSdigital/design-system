@@ -212,13 +212,13 @@ describe('macro: textarea', () => {
         it('has the provided maximum length', () => {
             const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT));
 
-            expect($('.ons-input--textarea').attr('data-char-check-num')).toBe('200');
+            expect($('.ons-input--textarea').attr('data-message-check-num')).toBe('200');
         });
 
         it('has data attribute which references the character check component', () => {
             const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT));
 
-            expect($('.ons-input--textarea').attr('data-char-check-ref')).toBe('example-id-check');
+            expect($('.ons-input--textarea').attr('data-message-check-ref')).toBe('example-id-check');
         });
 
         it('has `aria-describedby` attribute which references the character limit component', () => {
