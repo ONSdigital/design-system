@@ -26,65 +26,52 @@
                 {% endif %}
 
                 {%- if metadata.object and metadata.object.text -%}
-                    <li class="ons-featured__item-attribute{{ ' ons-u-mr-no' if metadata.file }}">
+                    <li class="ons-featured__item-attribute">
                         {% set metadataObject %}
-                            <span {% if metadata.object.text %}class="ons-u-fw-b"{% endif %}>{{ metadata.object.text }}</span>
+                            <span {% if metadata.object.text %}class="ons-featured__attribute-text ons-u-fw-b"{% endif %}
+                                >{{ metadata.object.text }}</span
+                            >
                         {% endset %}
-                        {%- if metadata.object.url -%}
-                            <a class="ons-featured__attribute-link" href="{{ metadata.object.url }}"> {{ metadataObject | safe }} </a>
-                        {% else %}
-                            {{ metadataObject | safe }}
-                        {% endif %}
+                        {{ metadataObject | safe }}
                     </li>
                 {% endif %}
-
-                {%- if metadata.file and metadata.file.fileType -%}
-                    <li class="ons-featured__item-attribute" aria-hidden="true">
-                        {%
-                            set fileMetadataItems = [
-                                metadata.file.fileType if metadata.file.fileType,
-                                metadata.file.fileSize if metadata.file.fileSize,
-                                metadata.file.filePages if metadata.file.filePages
-                            ]
-                        %}
-                        {{ fileMetadataItems | join(', ') }}
-                    </li>
-                {%- endif -%}
             </ul>
         {% endif %}
 
-        {% if params.chart %}
-            {{
-                onsChart({
-                    "chartType": params.chart.chartType,
-                    "description": params.chart.description,
-                    "theme": params.chart.theme,
-                    "title": params.chart.title,
-                    "id": params.chart.id,
-                    "headingLevel": headingLevel + 1,
-                    "legend": params.chart.legend,
-                    "xAxis": params.chart.xAxis,
-                    "yAxis": params.chart.yAxis,
-                    "series": params.chart.series,
-                    "annotations": params.chart.annotations,
-                    "rangeAnnotations": params.chart.rangeAnnotations,
-                    "referenceLineAnnotations": params.chart.referenceLineAnnotations,
-                    "estimateLineLabel": params.chart.estimateLineLabel,
-                    "uncertaintyRangeLabel": params.chart.uncertaintyRangeLabel,
-                    "isChartInverted": params.chart.isChartInverted,
-                    "useStackedLayout": params.chart.useStackedLayout,
-                    "percentageHeightDesktop": params.chart.percentageHeightDesktop,
-                    "percentageHeightMobile": params.chart.percentageHeightMobile
-                })
-            }}
-        {% elif params.image %}
-            {{
-                onsImage({
-                    "src": params.image.src,
-                    "alt": params.image.alt
-                })
-            }}
-        {% endif %}
+        <div class="ons-featured__media">
+            {% if params.chart %}
+                {{
+                    onsChart({
+                        "chartType": params.chart.chartType,
+                        "description": params.chart.description,
+                        "theme": params.chart.theme,
+                        "title": params.chart.title,
+                        "id": params.chart.id,
+                        "headingLevel": headingLevel + 1,
+                        "legend": params.chart.legend,
+                        "xAxis": params.chart.xAxis,
+                        "yAxis": params.chart.yAxis,
+                        "series": params.chart.series,
+                        "annotations": params.chart.annotations,
+                        "rangeAnnotations": params.chart.rangeAnnotations,
+                        "referenceLineAnnotations": params.chart.referenceLineAnnotations,
+                        "estimateLineLabel": params.chart.estimateLineLabel,
+                        "uncertaintyRangeLabel": params.chart.uncertaintyRangeLabel,
+                        "isChartInverted": params.chart.isChartInverted,
+                        "useStackedLayout": params.chart.useStackedLayout,
+                        "percentageHeightDesktop": params.chart.percentageHeightDesktop,
+                        "percentageHeightMobile": params.chart.percentageHeightMobile
+                    })
+                }}
+            {% elif params.image %}
+                {{
+                    onsImage({
+                        "src": params.image.src,
+                        "alt": params.image.alt
+                    })
+                }}
+            {% endif %}
+        </div>
 
         {% if params.itemsList %}
             <div class="ons-featured__list">

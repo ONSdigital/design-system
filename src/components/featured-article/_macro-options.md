@@ -32,10 +32,9 @@
 
 #### Object
 
-| Name | Type   | Required | Description                                                                     |
-| ---- | ------ | -------- | ------------------------------------------------------------------------------- |
-| text | string | true     | Label for the type of document, for example “User requested data”.              |
-| url  | string | false    | URL `href` for the type. Can be used to filter a list of documents by category. |
+| Name | Type   | Required | Description                                                        |
+| ---- | ------ | -------- | ------------------------------------------------------------------ |
+| text | string | true     | Label for the type of document, for example “User requested data”. |
 
 ## ListItem
 

@@ -31,16 +31,8 @@ describe('Macro: Featured Article', () => {
                 expect($('time').text()).toBe('1 May 2024');
             });
 
-            test('THEN: it displays metadata link text', () => {
-                expect($('.ons-featured__attribute-link').text()).toContain('Bulletin');
-            });
-
-            test('THEN: the metadata link href is correct', () => {
-                expect($('.ons-featured__attribute-link').attr('href')).toBe('/bulletins/economic-trends');
-            });
-
-            test('THEN: it displays file metadata summary', () => {
-                expect($('.ons-featured__item-attribute[aria-hidden="true"]').text()).toContain('PDF, 1MB, 12 pages');
+            test('THEN: it displays metadata text', () => {
+                expect($('.ons-featured__attribute-text').text()).toContain('Bulletin');
             });
 
             test('THEN: it renders the onsChart component', () => {

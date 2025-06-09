@@ -12,12 +12,6 @@ export const EXAMPLE_FEATURED_ARTICLE_WITH_CHART = {
         },
         object: {
             text: 'Bulletin',
-            url: '/bulletins/economic-trends',
-        },
-        file: {
-            fileType: 'PDF',
-            fileSize: '1MB',
-            filePages: '12 pages',
         },
     },
     chart: {
