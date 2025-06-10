@@ -214,40 +214,50 @@ describe('script: character-check', () => {
             });
         });
     });
-});
 
-describe('Word limit', () => {
-    beforeEach(async () => {
-        await setTestPage('/test', renderComponent('input', EXAMPLE_INPUT_WITH_WORD_CHECK));
-    });
-
-    describe('Given that the word limit helper has initialised correctly', () => {
-        it('the word limit readout should be visible', async () => {
-            const hasClass = await page.$eval('#example-textarea-lim', (node) => node.classList.contains('ons-u-d-no'));
-            expect(hasClass).toBe(false);
+    describe('Word limit', () => {
+        beforeEach(async () => {
+            await setTestPage('/test', renderComponent('textarea', EXAMPLE_INPUT_WITH_WORD_CHECK));
         });
-    });
 
-    describe('Given that the user has not typed into the textarea', () => {
-        describe('when the user types into the textarea', () => {
-            beforeEach(async () => {
-                await page.type('#example-textarea', 'Lorem ipsum dolor');
-            });
-
-            it('then the word limit helper text reflects the number of words remaining', async () => {
-                const readout = await page.$eval('#example-textarea-lim', (node) => node.textContent);
-                expect(readout).toBe('You have 2 words remaining');
+        describe('Given that the word limit helper has initialised correctly', () => {
+            it('the word limit readout should be visible', async () => {
+                const hasClass = await page.$eval('#example-textarea-check', (node) => node.classList.contains('ons-u-d-no'));
+                expect(hasClass).toBe(false);
             });
         });
 
-        describe('when the user reaches the maxlength of the textarea', () => {
-            beforeEach(async () => {
-                await page.type('#example-textarea', 'Lorem ipsum dolor sit amet');
+        describe('Given that the user has not typed into the textarea', () => {
+            describe('when the user types into the textarea', () => {
+                beforeEach(async () => {
+                    await page.type('#example-textarea', 'Lorem ipsum dolor');
+                });
+
+                it('then the word limit helper text reflects the number of words remaining', async () => {
+                    const readout = await page.$eval('#example-textarea-check', (node) => node.textContent);
+                    expect(readout).toBe('You have 2 words remaining');
+                });
             });
 
-            it('then the word limit helper text reflects the number of words remaining', async () => {
-                const readout = await page.$eval('#example-textarea-lim', (node) => node.textContent);
-                expect(readout).toBe('You have 0 words remaining');
+            describe('when the user reaches the maxlength of the textarea', () => {
+                beforeEach(async () => {
+                    await page.type('#example-textarea', 'Lorem ipsum dolor sit amet');
+                });
+
+                it('then the word limit helper text reflects the number of words remaining', async () => {
+                    const readout = await page.$eval('#example-textarea-check', (node) => node.textContent);
+                    expect(readout).toBe('You have 0 words remaining');
+                });
+            });
+        });
+        describe('when the user exceeds the maxlength of the textarea', () => {
+            beforeEach(async () => {
+                await page.type('#example-textarea', 'Lorem ipsum dolor sit amet, consectetur porttitor.');
+            });
+
+            it('then the word limit helper text reflects the number of words exceeded', async () => {
+                const readout = await page.$eval('#example-textarea-check', (node) => node.textContent);
+                expect(readout).toBe('You are 2 words over the limit');
             });
 
             it('then the textarea should be given limit reached classes', async () => {
@@ -256,56 +266,40 @@ describe('Word limit', () => {
             });
 
             it('then the word limit helper text should be given limit reached classes', async () => {
-                const hasClass = await page.$eval('#example-textarea-lim', (node) => node.classList.contains('ons-input__limit--reached'));
+                const hasClass = await page.$eval('#example-textarea-check', (node) =>
+                    node.classList.contains('ons-input__limit--reached'),
+                );
                 expect(hasClass).toBe(true);
             });
         });
-    });
-    describe('when the user exceeds the maxlength of the textarea', () => {
-        beforeEach(async () => {
-            await page.type('#example-textarea', 'Lorem ipsum dolor sit amet, consectetur porttitor.');
-        });
 
-        it('then the word limit helper text reflects the number of words exceeded', async () => {
-            const readout = await page.$eval('#example-textarea-lim', (node) => node.textContent);
-            expect(readout).toBe('You are 2 words over the limit');
-        });
-
-        it('then the textarea should be given limit reached classes', async () => {
-            const hasClass = await page.$eval('#example-textarea', (node) => node.classList.contains('ons-input--limit-reached'));
-            expect(hasClass).toBe(true);
-        });
-
-        it('then the word limit helper text should be given limit reached classes', async () => {
-            const hasClass = await page.$eval('#example-textarea-lim', (node) => node.classList.contains('ons-input__limit--reached'));
-            expect(hasClass).toBe(true);
-        });
-    });
-
-    describe('Given that the user has reached the maxlength of the textarea', () => {
-        beforeEach(async () => {
-            await page.type('#example-textarea', 'Lorem ipsum dolor sit a');
-        });
-
-        describe('when the user removes a character', () => {
+        describe('Given that the user has reached the maxlength of the textarea', () => {
             beforeEach(async () => {
-                await page.focus('#example-textarea');
-                await page.keyboard.press('Backspace');
+                await page.type('#example-textarea', 'Lorem ipsum dolor sit a');
             });
 
-            it('then the word limit helper text reflects the number of words remaining', async () => {
-                const readout = await page.$eval('#example-textarea-lim', (node) => node.textContent);
-                expect(readout).toBe('You have 1 word remaining');
-            });
+            describe('when the user removes a character', () => {
+                beforeEach(async () => {
+                    await page.focus('#example-textarea');
+                    await page.keyboard.press('Backspace');
+                });
 
-            it('then the textarea should not be given limit reached classes', async () => {
-                const hasClass = await page.$eval('#example-textarea', (node) => node.classList.contains('ons-input--limit-reached'));
-                expect(hasClass).toBe(false);
-            });
+                it('then the word limit helper text reflects the number of words remaining', async () => {
+                    const readout = await page.$eval('#example-textarea-check', (node) => node.textContent);
+                    expect(readout).toBe('You have 1 word remaining');
+                });
 
-            it('then the readout should not be given limit reached classes', async () => {
-                const hasClass = await page.$eval('#example-textarea-lim', (node) => node.classList.contains('ons-input__limit--reached'));
-                expect(hasClass).toBe(false);
+                it('then the textarea should not be given limit reached classes', async () => {
+                    const hasClass = await page.$eval('#example-textarea', (node) => node.classList.contains('ons-input--limit-reached'));
+                    expect(hasClass).toBe(false);
+                });
+
+                it('then the readout should not be given limit reached classes', async () => {
+                    const hasClass = await page.$eval('#example-textarea-check', (node) =>
+                        node.classList.contains('ons-input__limit--reached'),
+                    );
+                    expect(hasClass).toBe(false);
+                });
             });
         });
     });
