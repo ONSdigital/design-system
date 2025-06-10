@@ -141,6 +141,11 @@
 
         .ons-grid-flex & {
             width: auto;
+
+            // keep header menu columns 100% width
+            &.ons-header-nav-menu__col {
+                width: 100%;
+            }
         }
     }
 }
