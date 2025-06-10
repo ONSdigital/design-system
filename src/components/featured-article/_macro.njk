@@ -64,12 +64,14 @@
                     })
                 }}
             {% elif params.image %}
-                {{
-                    onsImage({
-                        "src": params.image.src,
-                        "alt": params.image.alt
-                    })
-                }}
+                <div class="ons-featured__image">
+                    {{
+                        onsImage({
+                            "src": params.image.src,
+                            "alt": params.image.alt
+                        })
+                    }}
+                </div>
             {% endif %}
         </div>
 
