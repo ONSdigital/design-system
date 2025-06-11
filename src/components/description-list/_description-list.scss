@@ -43,10 +43,14 @@
     &--inline {
         @include mq(l) {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             grid-auto-rows: auto;
             grid-auto-flow: row;
             gap: 0.5rem 2.5rem;
+
+            &-single {
+                grid-template-columns: 1fr;
+            }
 
             .ons-description-list__value {
                 grid-column-start: 2;
