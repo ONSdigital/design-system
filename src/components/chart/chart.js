@@ -79,7 +79,7 @@ class HighchartsBaseChart {
         this.boxplot = new Boxplot();
         this.extraLines = this.checkForExtraLines();
         this.extraScatter = this.checkForExtraScatter();
-        // This code only needs to run one per request as it sets
+        // This code only needs to run once per request as it sets
         // options that are used for all charts
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
