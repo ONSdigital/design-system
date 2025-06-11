@@ -33,11 +33,9 @@
     }
 
     &--has-rowspan {
-        @include mq('2xs', l) {
-            .ons-table__header,
-            .ons-table__cell {
-                padding-right: 1.5rem;
-            }
+        .ons-table__header,
+        .ons-table__cell {
+            padding: 0.5rem 1.5rem 0.5rem 0;
         }
     }
 
