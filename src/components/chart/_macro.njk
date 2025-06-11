@@ -2,7 +2,7 @@
 
 {% macro onsChart(params) %}
     {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
-    {% set supportedChartTypesWithLine = ['column', 'columnrange'] %}
+    {% set supportedChartTypesWithLine = ['column'] %}
     {% set supportedChartTypesWithScatter = ['columnrange'] %}
 
     {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
@@ -160,8 +160,7 @@
         {%
             set config = {
                 "chart": {
-                    "type": params.chartType,
-                    "inverted": params.isChartInverted if params.isChartInverted == true else false
+                    "type": params.chartType
                 },
                 "legend": {
                     "enabled" : legendValue
