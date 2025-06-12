@@ -27,8 +27,7 @@
             {% if params.charCheckLimit %}
                 data-message-check-ref="{{ params.id }}-check" data-message-check-num="{{ params.charCheckLimit.limit }}"
                 aria-describedby="{{ params.id }}-check" data-message-check-countdown=true
-            {% endif %}
-            {% if params.wordLimit %}
+            {% elif params.wordLimit %}
                 data-message-check-ref="{{ params.id }}-check" data-message-check-num="{{ params.wordLimit.limit }}"
                 aria-describedby="{{ params.id }}-check" data-message-check-countdown=true
             {% endif %}
