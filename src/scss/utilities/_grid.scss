@@ -116,12 +116,16 @@
             flex-direction: row;
         }
 
-        &--32 {
+        &--xl {
             column-gap: 2rem;
         }
 
-        &--24 {
+        &--l {
             column-gap: 1.5rem;
+        }
+
+        &--s {
+            column-gap: 1rem;
         }
     }
 
