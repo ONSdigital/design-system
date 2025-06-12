@@ -19,7 +19,7 @@ describe('Macro: Featured Article', () => {
                 expect($('.ons-featured__title').text()).toBe('Economic Trends 2024');
             });
 
-            test('THEN: it links the title correctly', () => {
+            test('THEN: the title has the correct url link', () => {
                 expect($('.ons-featured__title a').attr('href')).toBe('/economy/economic-trends-2024');
             });
 
