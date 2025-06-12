@@ -122,8 +122,6 @@ class BarChart {
                 }
             });
         });
-
-        currentChart.redraw();
     };
 
     getBarChartLabelsInsideOptions = () => ({
