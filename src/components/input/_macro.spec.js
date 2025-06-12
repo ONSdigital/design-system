@@ -570,26 +570,6 @@ describe('macro: input', () => {
             expect($('.ons-input').attr('maxlength')).toBe('200');
         });
 
-        it('does not have `data-message-check-countdown` attribute when `charcheckCountdown` is not provided', () => {
-            const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_WITH_CHARACTER_LIMIT));
-
-            expect($('.ons-input').attr('data-message-check-countdown')).toBe(undefined);
-        });
-
-        it('has `data-message-check-countdown` attribute when `charcheckCountdown` is true', () => {
-            const $ = cheerio.load(
-                renderComponent('input', {
-                    ...EXAMPLE_INPUT_WITH_CHARACTER_LIMIT,
-                    charCheckLimit: {
-                        ...EXAMPLE_INPUT_WITH_CHARACTER_LIMIT.charCheckLimit,
-                        charcheckCountdown: true,
-                    },
-                }),
-            );
-
-            expect($('.ons-input').attr('data-message-check-countdown')).toBe('true');
-        });
-
         it('has data attribute which references the character limit component', () => {
             const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_WITH_CHARACTER_LIMIT));
 

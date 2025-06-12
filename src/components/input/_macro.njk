@@ -47,7 +47,6 @@
                 data-message-check-ref="{{ params.id }}-check" data-message-check-num="{{ params.charCheckLimit.limit }}"
                 aria-describedby="{{ params.id }}-check"
             {% endif %}
-            {% if params.charCheckLimit and params.charCheckLimit.charcheckCountdown %}data-message-check-countdown="true"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
             {% if params.label and params.label.description %}{% if params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
         />
