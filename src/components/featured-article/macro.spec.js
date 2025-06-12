@@ -52,7 +52,7 @@ describe('Macro: Featured Article', () => {
                 expect($('.ons-featured__title a').attr('href')).toBe('/people/population/insights');
             });
 
-            test('THEN: it renders image with correct src', () => {
+            test('THEN: it renders image with correct src attribute', () => {
                 expect($('.ons-image__img').attr('src')).toBe('example.png');
             });
 
