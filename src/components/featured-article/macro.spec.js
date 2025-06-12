@@ -45,7 +45,7 @@ describe('Macro: Featured Article', () => {
             });
 
             test('THEN: it displays the correct title text', () => {
-                expect($('.ons-featured__title').text()).toContain('Population Insights');
+                expect($('.ons-featured__title').text()).toBe('Population Insights');
             });
 
             test('THEN: it links the title correctly', () => {
