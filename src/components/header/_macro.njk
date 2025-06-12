@@ -15,7 +15,6 @@
 
     <header
         class="ons-header{{ ' '+ params.classes if params.classes }}{% if params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-header--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-header--{{ params.variants }}{% endif %}"
-        role="banner"
     >
         {{
             onsBrowserBanner({
