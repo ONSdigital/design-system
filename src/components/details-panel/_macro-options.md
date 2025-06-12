@@ -1,10 +1,11 @@
-| Name         | Type                 | Required | Description                                             |
-| ------------ | -------------------- | -------- | ------------------------------------------------------- |
-| title        | string               | true     | Title for the details panel                             |
-| DetailsItems | array`<DetailsItem>` | true     | Settings for the array of [Details Items](#DetailsItem) |
-| openText     | string               | false    | Optional alternative for the 'Show detail' toggle text  |
-| closeText    | string               | false    | Optional alternative for the 'Hide detail' toggle text  |
-| open         | boolean              | false    | Forces the details panel to be open when the page loads |
+| Name         | Type                 | Required | Description                                                                                                                                     |
+| ------------ | -------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| title        | string               | true     | Title for the details panel                                                                                                                     |
+| headingLevel | int                  | false    | Number used to determine the heading level of the title text. Use to ensure the title has a correct semantic order on the page. Defaults to `2` |
+| DetailsItems | array`<DetailsItem>` | true     | Settings for the array of [Details Items](#DetailsItem)                                                                                         |
+| openText     | string               | false    | Optional alternative for the 'Show detail' toggle text                                                                                          |
+| closeText    | string               | false    | Optional alternative for the 'Hide detail' toggle text                                                                                          |
+| open         | boolean              | false    | Forces the details panel to be open when the page loads                                                                                         |
 
 ## DetailsItem
 

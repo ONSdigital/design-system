@@ -51,4 +51,19 @@ describe('FOR: Macro: Details Panel', () => {
             });
         });
     });
+
+    describe('GIVEN: Params: headingLevel', () => {
+        describe('WHEN: headingLevel param is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('details-panel', {
+                    ...EXAMPLE_DETAILS_PANEL,
+                    headingLevel: 3,
+                }),
+            );
+            test('THEN: content headings use the specified heading level', () => {
+                const headingTag = $('.ons-details-panel__content-heading').get(0).tagName;
+                expect(headingTag).toBe('h3');
+            });
+        });
+    });
 });
