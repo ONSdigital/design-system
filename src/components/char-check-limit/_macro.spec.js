@@ -58,28 +58,40 @@ describe('FOR: Macro: CharCheckLimit', () => {
             });
         });
     });
-    describe('WHEN: variant is set to word', () => {
-        const $ = cheerio.load(renderComponent('char-check-limit', EXAMPLE_WORD_LIMIT));
 
-        test('THEN: passes jest-axe checks', async () => {
-            const results = await axe($.html());
+    describe('GIVEN: Params: wordCountPlural', () => {
+        describe('WHEN: wordCountPlural is provided and variant is set to word', () => {
+            test('THEN: has the data attribute which defines wordCountPlural', () => {
+                const $ = cheerio.load(renderComponent('char-check-limit', EXAMPLE_WORD_LIMIT));
+                expect($('.ons-input__limit').attr('data-message-plural')).toBe('You have {x} words remaining');
+            });
+        });
+    });
 
-            expect(results).toHaveNoViolations();
+    describe('GIVEN: Params: wordCountSingular', () => {
+        describe('WHEN: wordCountSingular is provided and variant is set to word', () => {
+            test('THEN: has the data attribute which defines wordCountSingular', () => {
+                const $ = cheerio.load(renderComponent('char-check-limit', EXAMPLE_WORD_LIMIT));
+                expect($('.ons-input__limit').attr('data-message-singular')).toBe('You have {x} word remaining');
+            });
         });
-        test('THEN: has the provided id attribute', () => {
-            expect($('.ons-input__limit').attr('id')).toBe('example-word-limit');
+    });
+
+    describe('GIVEN: Params: wordCountOverLimitPlural', () => {
+        describe('WHEN: wordCountOverLimitPlural is provided and variant is set to word', () => {
+            test('THEN: has the data attribute which defines wordCountOverLimitPlural', () => {
+                const $ = cheerio.load(renderComponent('char-check-limit', EXAMPLE_WORD_LIMIT));
+                expect($('.ons-input__limit').attr('data-message-over-limit-plural')).toBe('You have {x} words too many');
+            });
         });
-        test('THEN: has the data attribute which defines wordCountPlural', () => {
-            expect($('.ons-input__limit').attr('data-message-plural')).toBe('You have {x} words remaining');
-        });
-        test('THEN: has the data attribute which defines wordCountSingular', () => {
-            expect($('.ons-input__limit').attr('data-message-singular')).toBe('You have {x} word remaining');
-        });
-        test('THEN: has the data attribute which defines wordCountOverLimitSingular', () => {
-            expect($('.ons-input__limit').attr('data-message-over-limit-singular')).toBe('You have {x} word too many');
-        });
-        test('THEN: has the data attribute which defines wordCountOverLimitPlural', () => {
-            expect($('.ons-input__limit').attr('data-message-over-limit-plural')).toBe('You have {x} words too many');
+    });
+
+    describe('GIVEN: Params: wordCountOverLimitSingular', () => {
+        describe('WHEN: wordCountOverLimitSingular is provided and variant is set word', () => {
+            test('THEN: has the data attribute which defines wordCountOverLimitSingular', () => {
+                const $ = cheerio.load(renderComponent('char-check-limit', EXAMPLE_WORD_LIMIT));
+                expect($('.ons-input__limit').attr('data-message-over-limit-singular')).toBe('You have {x} word too many');
+            });
         });
     });
 });

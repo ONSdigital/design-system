@@ -49,8 +49,7 @@
                 })
             %}
             {% endcall %}
-        {% endif %}
-        {% if params.wordLimit and params.wordLimit.limit %}
+        {% elif params.wordLimit and params.wordLimit.limit %}
             {%
                 call onsCharLimit({
                     "id": params.id ~ "-check",
