@@ -34,7 +34,7 @@
             {% endif %}
             <!-- prettier-ignore-start -->
             {# Uses thList if multiple-row headers, otherwise wrap single ths array into a default group #}
-            {% set thGroups = params.thList if params.thList else [ { ths: params.ths } ] %}
+            {% set thGroups = params.thList if params.thList else [{ ths: params.ths }] %}
             <thead class="ons-table__head">
                 {% for headerCols in thGroups %}
                     <tr class="ons-table__row">
@@ -109,7 +109,6 @@
                         {% endfor %}
                     </tr>
                 {% endfor %}
-
             </tbody>
              <!-- prettier-ignore-end -->
             {% if params.tfoot %}
