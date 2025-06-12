@@ -16,7 +16,7 @@ describe('Macro: Featured Article', () => {
             });
 
             test('THEN: it displays the correct title text', () => {
-                expect($('.ons-featured__title').text()).toContain('Economic Trends 2024');
+                expect($('.ons-featured__title').text()).toBe('Economic Trends 2024');
             });
 
             test('THEN: it links the title correctly', () => {
