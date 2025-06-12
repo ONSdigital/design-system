@@ -1,7 +1,6 @@
 const inputClassLimitReached = 'ons-input--limit-reached';
 const remainingClassLimitReached = 'ons-input__limit--reached';
 const attrMessageCheckRef = 'data-message-check-ref';
-const attrMessageCheckCountdown = 'data-message-check-countdown';
 const attrMessageCheckVal = 'data-message-check-num';
 const countType = 'data-count-type';
 
@@ -21,7 +20,6 @@ export default class CharCheck {
         this.button = parent ? parent.querySelector('button') : null;
         this.checkElement = document.getElementById(this.input.getAttribute(attrMessageCheckRef));
         this.checkVal = this.input.getAttribute(attrMessageCheckVal);
-        this.countdown = this.input.getAttribute(attrMessageCheckCountdown) || false;
         this.singularMessage = this.checkElement.getAttribute('data-message-singular') || null;
         this.pluralMessage = this.checkElement.getAttribute('data-message-plural') || null;
         this.overLimitSingularMessage = this.checkElement.getAttribute('data-message-over-limit-singular') || null;
@@ -55,7 +53,7 @@ export default class CharCheck {
 
     checkRemaining(remaining) {
         let message;
-        if (this.countdown && remaining === 1) {
+        if (remaining === 1) {
             message = this.singularMessage;
         } else if (remaining === -1) {
             message = this.overLimitSingularMessage;
@@ -84,9 +82,7 @@ export default class CharCheck {
             // Always display the remaining character message for textarea
             this.checkElement.classList['remove']('ons-u-d-no');
         } else {
-            this.checkElement.classList[(remaining < this.checkVal && remaining > 0 && this.countdown) || remaining < 0 ? 'remove' : 'add'](
-                'ons-u-d-no',
-            );
+            this.checkElement.classList[(remaining < this.checkVal && remaining > 0) || remaining < 0 ? 'remove' : 'add']('ons-u-d-no');
         }
     }
 
