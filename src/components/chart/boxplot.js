@@ -30,6 +30,9 @@ class Boxplot {
                     color: this.constants.legendLabelColor,
                 },
             },
+            tooltip: {
+                enabled: false,
+            },
         };
     };
 }
