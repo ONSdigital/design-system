@@ -27,7 +27,7 @@ describe('Macro: Featured Article', () => {
                 expect($('[data-highcharts-base-chart]').length).toBe(1);
             });
 
-            test('THEN: the chart has the correct Id', () => {
+            test('THEN: the chart has the correct id', () => {
                 expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('growth-chart');
             });
 
