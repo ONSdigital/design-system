@@ -55,6 +55,7 @@
     &__banner-detail-title {
         text-decoration: underline var(--ons-color-white) 2px;
         text-underline-position: under;
+        display: inline-block;
 
         &--open {
             display: inline;

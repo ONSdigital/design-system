@@ -1,6 +1,5 @@
 export const EXAMPLE_DETAILS_PANEL = {
     title: 'Correction and Notice',
-    headingLevel: 3,
     detailsItems: [
         {
             text: 'Correction',
