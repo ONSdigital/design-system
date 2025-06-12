@@ -79,6 +79,8 @@ class HighchartsBaseChart {
         this.boxplot = new Boxplot();
         this.extraLines = this.checkForExtraLines();
         this.extraScatter = this.checkForExtraScatter();
+        // This code only needs to run once per request as it sets
+        // options that are used for all charts
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
             window.isCommonChartOptionsDefined = true;
@@ -175,7 +177,7 @@ class HighchartsBaseChart {
         }
 
         // Disable the legend for single series charts
-        this.commonChartOptions.disableLegendForSingleSeries(this.config);
+        this.specificChartOptions.disableLegendForSingleSeries(this.config);
     };
 
     // Check if the data labels should be hidden
@@ -188,7 +190,7 @@ class HighchartsBaseChart {
     // Note this is not the same as the viewport width
     // All responsive rules should be defined here to avoid overriding existing rules
     setResponsiveOptions = () => {
-        let mobileChartOptions = this.commonChartOptions.getMobileOptions(this.xAxisTickIntervalMobile, this.yAxisTickIntervalMobile);
+        let mobileChartOptions = this.specificChartOptions.getMobileOptions(this.xAxisTickIntervalMobile, this.yAxisTickIntervalMobile);
         if (this.chartType === 'column' || this.chartType === 'boxplot') {
             const mobileColumnChartOptions = this.columnChart.getColumnChartMobileOptions(
                 this.config,
@@ -282,9 +284,6 @@ class HighchartsBaseChart {
                     this.scatterChart.updateMarkersForConfidenceLevels(scatterSeries);
                 }
             }
-            if (this.chartType != 'bar') {
-                this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
-            }
 
             // If the chart has an extra line or lines, hide the data labels for
             // that series, update the last point marker
@@ -295,8 +294,6 @@ class HighchartsBaseChart {
                     }
                 });
             }
-            // Update the legend items for all charts
-            this.commonChartOptions.updateLegendSymbols(currentChart);
             currentChart.redraw(false);
         };
     };
@@ -310,6 +307,11 @@ class HighchartsBaseChart {
             if (this.rangeAnnotationsOptions) {
                 this.rangeAnnotationsOptions.addLine(currentChart);
             }
+            if (this.chartType != 'bar') {
+                this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+            }
+            // Update the legend symbols on render to maintain them during resize
+            this.specificChartOptions.updateLegendSymbols(currentChart);
         };
     };
 
@@ -324,9 +326,8 @@ class HighchartsBaseChart {
                 // Update the data labels when the window is resized
                 if (this.chartType === 'bar' && !this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
-                }
-                if (this.chartType != 'bar') {
-                    this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+                    // Force a single redraw after all updates
+                    currentChart.redraw(false);
                 }
             }, 50);
         });
