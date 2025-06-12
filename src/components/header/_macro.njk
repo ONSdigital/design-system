@@ -182,7 +182,7 @@
                     {% endif %}
 
                     {% if params.variants == "basic" %}
-                        <div class="ons-grid__col ons-col-auto">
+                        <div class="ons-grid__col ons-col-auto ons-header__menu-links">
                             {% if params.menuLinks %}
                                 <div class="ons-header__links ons-grid__col">
                                     {{
@@ -286,7 +286,7 @@
                             {% endif %}
 
                             {% if params.searchLinks %}
-                                <div class="ons-header__links ons-grid__col">
+                                <div class="ons-header__links ons-grid__col ons-header__menu-link">
                                     {{
                                         onsButton({
                                             "classes": "ons-u-fs-s--b ons-js-toggle-header-search ons-btn--close ons-btn--search-icon active disabled",
@@ -302,6 +302,63 @@
                                         })
                                     }}
                                 </div>
+                            {% endif %}
+
+                            {% if params.variants == "basic" and params.searchLinks %}
+                                <nav
+                                    class="ons-js-header-search ons-header-nav-search {{ params.searchLinks.classes }}"
+                                    id="{{ params.searchLinks.id }}"
+                                    aria-label="{{ params.searchLinks.searchNavigationAriaLabel | default('Search navigation') }}"
+                                    aria-hidden="false"
+                                >
+                                    <div class="ons-container">
+                                        <div class="ons-header-nav-search__input">
+                                            {% from "components/input/_macro.njk" import onsInput %}
+                                            {{
+                                                onsInput({
+                                                    "id": 'search-field',
+                                                    "width": 'full',
+                                                    "label": {
+                                                        "text": 'Search the ONS',
+                                                        "id": "header-search-input-label"
+                                                    },
+                                                    "searchButton": {
+                                                        "visuallyHideButtonText": true,
+                                                        "text": 'Search',
+                                                        "iconType": 'search',
+                                                        'variant': 'header'
+
+                                                    }
+                                                })
+                                            }}
+                                        </div>
+                                    </div>
+                                    {% if params.searchLinks %}
+                                        <div class="ons-container">
+                                            <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">
+                                                {{ params.searchLinks.heading }}
+                                            </h2>
+                                            <ul class="ons-list ons-list--bare ons-list--inline">
+                                                {% for item in params.searchLinks.itemsList %}
+                                                    {# Limiting the popular searches to 5 #}
+                                                    {% if loop.index <= 5 %}
+                                                        <li class="ons-list__item">
+                                                            {% if item.text %}
+                                                                {% if item.url %}
+                                                                    <a href="{{ item.url }}" class="ons-u-fs-r ons-header-nav-search__text"
+                                                                        >{{ item.text }}
+                                                                    </a>
+                                                                {% else %}
+                                                                    <p class="ons-u-fs-r ons-header-nav-search__text">{{ item.text }}</p>
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </nav>
                             {% endif %}
                         </div>
                     {% endif %}
@@ -339,61 +396,6 @@
                     {% if params.language %}
                         {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                         {{ onsLanguageSelector(params.language) }}
-                    {% endif %}
-                </nav>
-            {% endif %}
-
-            {% if params.variants == "basic" and params.searchLinks %}
-                <nav
-                    class="ons-js-header-search ons-header-nav-search {{ params.searchLinks.classes }}"
-                    id="{{ params.searchLinks.id }}"
-                    aria-label="{{ params.searchLinks.searchNavigationAriaLabel | default('Search navigation') }}"
-                    aria-hidden="false"
-                >
-                    <div class="ons-container">
-                        <div class="ons-header-nav-search__input">
-                            {% from "components/input/_macro.njk" import onsInput %}
-                            {{
-                                onsInput({
-                                    "id": 'search-field',
-                                    "width": 'full',
-                                    "label": {
-                                        "text": 'Search the ONS',
-                                        "id": "header-search-input-label"
-                                    },
-                                    "searchButton": {
-                                        "visuallyHideButtonText": true,
-                                        "text": 'Search',
-                                        "iconType": 'search',
-                                        'variant': 'header'
-
-                                    }
-                                })
-                            }}
-                        </div>
-                    </div>
-                    {% if params.searchLinks %}
-                        <div class="ons-container">
-                            <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">{{ params.searchLinks.heading }}</h2>
-                            <ul class="ons-list ons-list--bare ons-list--inline">
-                                {% for item in params.searchLinks.itemsList %}
-                                    {# Limiting the popular searches to 5 #}
-                                    {% if loop.index <= 5 %}
-                                        <li class="ons-list__item">
-                                            {% if item.text %}
-                                                {% if item.url %}
-                                                    <a href="{{ item.url }}" class="ons-u-fs-r ons-header-nav-search__text"
-                                                        >{{ item.text }}
-                                                    </a>
-                                                {% else %}
-                                                    <p class="ons-u-fs-r ons-header-nav-search__text">{{ item.text }}</p>
-                                                {% endif %}
-                                            {% endif %}
-                                        </li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
-                        </div>
                     {% endif %}
                 </nav>
             {% endif %}
