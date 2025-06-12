@@ -1,4 +1,3 @@
-{% from "components/list/_macro.njk" import onsList %}
 {% from "components/chart/_macro.njk" import onsChart %}
 {% from "components/image/_macro.njk" import onsImage %}
 
@@ -25,14 +24,9 @@
                     </li>
                 {% endif %}
 
-                {%- if metadata.object and metadata.object.text -%}
+                {%- if metadata.text -%}
                     <li class="ons-featured__item-attribute">
-                        {% set metadataObject %}
-                            <span {% if metadata.object.text %}class="ons-featured__attribute-text ons-u-fw-b"{% endif %}
-                                >{{ metadata.object.text }}</span
-                            >
-                        {% endset %}
-                        {{ metadataObject | safe }}
+                        <span {% if metadata.text %}class="ons-featured__attribute-text ons-u-fw-b"{% endif %}>{{ metadata.text }}</span>
                     </li>
                 {% endif %}
             </ul>

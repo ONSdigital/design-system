@@ -2,8 +2,8 @@
 | ------------ | ------------------------------------ | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | title        | `Object<Title>`                      | true                  | An object containing the article's title text and link. See [Title](#title).                                                                                |
 | metadata     | `Object<Metadata>`                   | false                 | An object containing metadata such as article type and release date. See [Metadata](#metadata).                                                             |
-| chart        | `Chart` [_(ref)_](/components/chart) | true if image not set | Configuration object for the chart.                                                                                                                         |
-| image        | `Image` [_(ref)_](/components/image) | true if chart not set | Configuration object for the image.                                                                                                                         |
+| chart        | `Chart` [_(ref)_](/components/chart) | true if image not set | Configuration object for the chart. If both chart and image are provided, the chart will be displayed and the image will be ignored.                        |
+| image        | `Image` [_(ref)_](/components/image) | true if chart not set | Configuration object for the image. Displayed only if chart is not set.                                                                                     |
 | headingLevel | number                               | false                 | Number used to determine the heading level of the title. Use to ensure the title has a correct semantic order on the page, defaulting to 2 if not provided. |
 | description  | string                               | false                 | A short HTML extract of text (for example, a short sentence to give some context of the article)                                                            |
 
@@ -16,10 +16,10 @@
 
 ## Metadata
 
-| Property | Type             | Required | Description                                                                                                    |
-| -------- | ---------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| object   | `Object<Object>` | false    | An object for a list item describing the [type of article](#object), for example, “Dataset” or “Press release” |
-| date     | `Object<Date>`   | false    | An object for the [date](#date) the article was published or updated                                           |
+| Property | Type           | Required | Description                                                          |
+| -------- | -------------- | -------- | -------------------------------------------------------------------- |
+| text     | string         | true     | Label for the type of document, for example “User requested data”.   |
+| date     | `Object<Date>` | false    | An object for the [date](#date) the article was published or updated |
 
 ## Date
 
@@ -29,9 +29,3 @@
 | showPrefix | boolean | false    | Whether the prefix should be displayed.                     |
 | iso        | string  | true     | The ISO-formatted date string (YYYY-MM-DD).                 |
 | short      | string  | true     | A human-readable formatted date (e.g., "18 February 2021"). |
-
-## Object
-
-| Name | Type   | Required | Description                                                        |
-| ---- | ------ | -------- | ------------------------------------------------------------------ |
-| text | string | true     | Label for the type of document, for example “User requested data”. |

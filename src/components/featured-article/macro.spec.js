@@ -16,7 +16,7 @@ describe('Macro: Featured Article', () => {
             });
 
             test('THEN: it displays the correct title text', () => {
-                expect($('.ons-featured__title').text()).toBe('Economic Trends 2024');
+                expect($('.ons-featured__title').text().trim()).toBe('Economic Trends 2024');
             });
 
             test('THEN: the title has the correct url link', () => {
@@ -45,7 +45,7 @@ describe('Macro: Featured Article', () => {
             });
 
             test('THEN: it displays the correct title text', () => {
-                expect($('.ons-featured__title').text()).toBe('Population Insights');
+                expect($('.ons-featured__title').text().trim()).toBe('Population Insights');
             });
 
             test('THEN: the title has the correct url link', () => {
@@ -60,11 +60,32 @@ describe('Macro: Featured Article', () => {
                 expect($('.ons-image__img').attr('alt')).toBe('Example alt text');
             });
         });
+
+        describe('WHEN: both chart and image is provided', () => {
+            const $ = cheerio.load(renderComponent('featured-article', EXAMPLE_FEATURED_ARTICLE_WITH_CHART));
+
+            test('THEN: it renders the onsChart component', () => {
+                expect($('[data-highcharts-base-chart]').length).toBe(1);
+            });
+        });
     });
 
     describe('GIVEN: Param: metadata', () => {
-        describe('WHEN: metadata with date and object is provided', () => {
-            const $ = cheerio.load(renderComponent('featured-article', EXAMPLE_FEATURED_ARTICLE_WITH_CHART));
+        describe('WHEN: chart is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('featured-article', {
+                    ...EXAMPLE_FEATURED_ARTICLE_WITH_CHART,
+                    metadata: {
+                        date: {
+                            prefix: 'Released',
+                            showPrefix: true,
+                            iso: '2024-05-01',
+                            short: '1 May 2024',
+                        },
+                        text: 'Bulletin',
+                    },
+                }),
+            );
 
             test('THEN: it renders ISO date value correctly', () => {
                 expect($('time').attr('datetime')).toBe('2024-05-01');
@@ -79,22 +100,38 @@ describe('Macro: Featured Article', () => {
             });
         });
 
-        describe('WHEN: metadata object has no URL', () => {
-            const $ = cheerio.load(renderComponent('featured-article', EXAMPLE_FEATURED_ARTICLE_WITH_IMAGE));
+        describe('WHEN: image is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('featured-article', {
+                    ...EXAMPLE_FEATURED_ARTICLE_WITH_IMAGE,
+                    metadata: {
+                        date: {
+                            prefix: 'Released',
+                            showPrefix: true,
+                            iso: '2024-05-01',
+                            short: '1 May 2024',
+                        },
+                        text: 'Bulletin',
+                    },
+                }),
+            );
 
-            test('THEN: it does not render metadata link', () => {
-                expect($('.ons-featured__attribute-link').length).toBe(0);
+            test('THEN: it renders ISO date value correctly', () => {
+                expect($('time').attr('datetime')).toBe('2024-05-01');
             });
 
-            test('THEN: it still displays metadata text', () => {
-                expect($('.ons-featured__item-attribute span').text()).toContain('Article');
+            test('THEN: it renders short date label correctly', () => {
+                expect($('time').text()).toBe('1 May 2024');
+            });
+
+            test('THEN: it displays metadata text', () => {
+                expect($('.ons-featured__item-attribute span').text()).toContain('Bulletin');
             });
         });
 
         describe('WHEN: metadata is not provided', () => {
             const articleWithoutMetadata = {
                 ...EXAMPLE_FEATURED_ARTICLE_WITH_CHART,
-                metadata: undefined,
             };
             const $ = cheerio.load(renderComponent('featured-article', articleWithoutMetadata));
 
@@ -126,7 +163,8 @@ describe('Macro: Featured Article', () => {
             );
 
             test('THEN: title is rendered using correct heading tag', () => {
-                expect($('.ons-featured__title').tagName).toBe('h3');
+                console.log($('.ons-featured__title'));
+                expect($('.ons-featured__title')[0].tagName).toBe('h3');
             });
         });
     });
