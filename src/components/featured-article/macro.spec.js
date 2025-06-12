@@ -163,7 +163,6 @@ describe('Macro: Featured Article', () => {
             );
 
             test('THEN: title is rendered using correct heading tag', () => {
-                console.log($('.ons-featured__title'));
                 expect($('.ons-featured__title')[0].tagName).toBe('h3');
             });
         });
