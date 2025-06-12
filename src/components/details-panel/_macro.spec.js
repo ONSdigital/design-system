@@ -15,6 +15,28 @@ describe('FOR: Macro: Details Panel', () => {
         });
     });
 
+    describe('GIVEN: Params: headingLevel', () => {
+        describe('WHEN: headingLevel is provided', () => {
+            const customParams = {
+                ...EXAMPLE_DETAILS_PANEL,
+                headingLevel: 3,
+            };
+            const $ = cheerio.load(renderComponent('details-panel', customParams));
+            test('THEN: banner title uses the correct heading level', () => {
+                const bannerTitle = $('.ons-details-panel__banner-title');
+                expect(bannerTitle.prop('tagName')).toBe('H3');
+            });
+        });
+
+        describe('WHEN: headingLevel is not provided', () => {
+            const $ = cheerio.load(renderComponent('details-panel', EXAMPLE_DETAILS_PANEL));
+            test('THEN: banner title uses default heading level (h2)', () => {
+                const bannerTitle = $('.ons-details-panel__banner-title');
+                expect(bannerTitle.prop('tagName')).toBe('H2');
+            });
+        });
+    });
+
     describe('GIVEN: Params: detailsItems', () => {
         describe('WHEN: detailsItems is provided', () => {
             const $ = cheerio.load(renderComponent('details-panel', EXAMPLE_DETAILS_PANEL));
@@ -48,21 +70,6 @@ describe('FOR: Macro: Details Panel', () => {
 
                 expect(correctionLinkText).toBe('View superseded version');
                 expect(correctionLinkUrl).toBe('#0');
-            });
-        });
-    });
-
-    describe('GIVEN: Params: headingLevel', () => {
-        describe('WHEN: headingLevel param is provided', () => {
-            const $ = cheerio.load(
-                renderComponent('details-panel', {
-                    ...EXAMPLE_DETAILS_PANEL,
-                    headingLevel: 3,
-                }),
-            );
-            test('THEN: content headings use the specified heading level', () => {
-                const headingTag = $('.ons-details-panel__content-heading').get(0).tagName;
-                expect(headingTag).toBe('h3');
             });
         });
     });
