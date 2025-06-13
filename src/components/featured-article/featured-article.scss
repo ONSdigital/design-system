@@ -9,6 +9,7 @@
     &__image {
         .ons-image__img {
             width: 100%;
+            max-width: $grid-max-width;
         }
     }
 
