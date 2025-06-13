@@ -18,7 +18,7 @@
 
 | Property | Type           | Required | Description                                                          |
 | -------- | -------------- | -------- | -------------------------------------------------------------------- |
-| text     | string         | true     | Label for the type of document, for example “User requested data”.   |
+| text     | string         | false    | Label for the type of document, for example “User requested data”.   |
 | date     | `Object<Date>` | false    | An object for the [date](#date) the article was published or updated |
 
 ## Date

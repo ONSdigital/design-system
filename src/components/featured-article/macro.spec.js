@@ -67,6 +67,9 @@ describe('Macro: Featured Article', () => {
             test('THEN: it renders the onsChart component', () => {
                 expect($('[data-highcharts-base-chart]').length).toBe(1);
             });
+            test('THEN: it does not render the onsImage component', () => {
+                expect($('.ons-image__img').length).toBe(0);
+            });
         });
     });
 
