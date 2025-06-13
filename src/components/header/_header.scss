@@ -1,5 +1,6 @@
 // Block
 .ons-header {
+    $root: &;
     @include font-smoothing;
 
     display: block;
@@ -239,6 +240,22 @@
     &--basic & {
         &__grid-top {
             padding: 0;
+            flex-direction: column;
+            align-items: flex-start;
+
+            #{$root}__menu-links {
+                width: 100%;
+            }
+
+            // When JS is enabled, revert the no-js styles
+            .ons-js-enabled & {
+                flex-direction: inherit;
+                align-items: center;
+
+                #{$root}__menu-links {
+                    width: auto;
+                }
+            }
         }
     }
 
@@ -246,15 +263,21 @@
         // applies styles for non-js variant
         background-color: var(--ons-color-branded-tint);
         border-bottom: 1px solid var(--ons-color-ocean-blue);
-        width: 100%;
         margin-bottom: 0;
         padding-bottom: 1rem;
+        position: relative;
+        width: 100%;
 
         // updates styles when js is enabled
         .ons-js-enabled & {
             border-bottom: 0;
             margin-bottom: 1rem;
             padding-bottom: 0;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 100vw;
+            transform: translateX(-50%);
         }
 
         &__key-list {
@@ -295,7 +318,17 @@
         @extend .ons-u-pt-2xl;
         @extend .ons-u-pb-2xl;
 
+        position: relative;
         width: 100%;
+
+        // updates styles when js is enabled
+        .ons-js-enabled & {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 100vw;
+            transform: translateX(-50%);
+        }
         &__input {
             border-bottom: 1px solid var(--ons-color-ocean-blue);
             @extend .ons-u-mb-2xl;
