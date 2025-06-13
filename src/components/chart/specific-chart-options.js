@@ -2,7 +2,7 @@ import ChartConstants from './chart-constants';
 
 // Options that rely on the chart config but are not specific to the chart type
 class SpecificChartOptions {
-    constructor(theme, type, config) {
+    constructor(theme, type, config, xAxisTickInterval, yAxisTickInterval) {
         this.constants = ChartConstants.constants();
         this.theme = theme;
         this.config = config;
@@ -12,6 +12,12 @@ class SpecificChartOptions {
             chart: {
                 type: type,
                 marginTop: this.config.legend.enabled ? (type === 'boxplot' ? 50 : undefined) : 50,
+            },
+            yAxis: {
+                tickInterval: yAxisTickInterval,
+            },
+            xAxis: {
+                tickInterval: xAxisTickInterval,
             },
         };
     }
@@ -30,6 +36,16 @@ class SpecificChartOptions {
                 tickInterval: yAxisTickInterval,
             },
         };
+    };
+
+    hideDataLabels = (series) => {
+        series.forEach((series) => {
+            series.update({
+                dataLabels: {
+                    enabled: false,
+                },
+            });
+        });
     };
 
     disableLegendForSingleSeries = (config) => {

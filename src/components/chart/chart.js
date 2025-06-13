@@ -62,14 +62,20 @@ class HighchartsBaseChart {
         this.yAxisTickIntervalDesktop = this.node.dataset.highchartsYAxisTickIntervalDesktop
             ? parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop)
             : undefined;
-        this.commonChartOptions = new CommonChartOptions(this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
+        this.commonChartOptions = new CommonChartOptions();
         this.estimateLineLabel = this.node.dataset.highchartsEstimateLineLabel;
         this.uncertainyRangeLabel = this.node.dataset.highchartsUncertaintyRangeLabel;
         this.customReferenceLineValue = this.node.dataset.highchartsCustomReferenceLineValue
             ? parseFloat(this.node.dataset.highchartsCustomReferenceLineValue)
             : undefined;
 
-        this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
+        this.specificChartOptions = new SpecificChartOptions(
+            this.theme,
+            this.chartType,
+            this.config,
+            this.xAxisTickIntervalDesktop,
+            this.yAxisTickIntervalDesktop,
+        );
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
         this.columnChart = new ColumnChart();
@@ -259,25 +265,25 @@ class HighchartsBaseChart {
             const currentChart = event.target;
             if (this.chartType === 'line') {
                 this.lineChart.updateLastPointMarker(currentChart.series);
-                this.commonChartOptions.hideDataLabels(currentChart.series);
+                this.specificChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'bar') {
                 this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
                 } else {
-                    this.commonChartOptions.hideDataLabels(currentChart.series);
+                    this.specificChartOptions.hideDataLabels(currentChart.series);
                 }
             }
             if (this.chartType === 'column') {
-                this.commonChartOptions.hideDataLabels(currentChart.series);
+                this.specificChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'scatter') {
                 this.scatterChart.updateMarkers(currentChart);
             }
             if (this.chartType === 'columnrange') {
                 this.columnRangeChart.updateColumnRangeChartHeight(this.config, currentChart);
-                this.commonChartOptions.hideDataLabels(currentChart.series);
+                this.specificChartOptions.hideDataLabels(currentChart.series);
 
                 if (this.extraScatter > 0) {
                     const scatterSeries = currentChart.series.filter((series) => series.type === 'scatter');
@@ -290,7 +296,7 @@ class HighchartsBaseChart {
             if (this.extraLines > 0) {
                 currentChart.series.forEach((series) => {
                     if (series.type === 'line') {
-                        this.commonChartOptions.hideDataLabels([series]);
+                        this.specificChartOptions.hideDataLabels([series]);
                     }
                 });
             }
