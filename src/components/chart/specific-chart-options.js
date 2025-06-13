@@ -136,11 +136,14 @@ class SpecificChartOptions {
                             x: 15, // Adjust label position to account for shorter space that the symbol takes up
                         });
                     }
-                } else if (seriesType === 'columnrange') {
+                } else if (seriesType === 'scatter') {
+                    // Because the scatter icons have a white border, we have to render them
+                    // slightly larger to make them appear at 12 x 12 px
+                    // Also the text looks better aligned if the y value is tweaked slightly for the scatter icons
                     symbol.attr({
                         width: 14,
                         height: 14,
-                        y: 8,
+                        y: 6,
                     });
                 } else {
                     if (!symbol) return;
