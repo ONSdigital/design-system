@@ -1,0 +1,76 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+{% from "components/image/_macro.njk" import onsImage %}
+
+{% macro onsFeaturedArticle(params) %}
+    {% set headingLevel = params.headingLevel | default(2) %}
+    {% set openingArticleTitleTag = "<h" ~ headingLevel %}
+    {% set closingArticleTitleTag = "</h" ~ headingLevel ~ ">" %}
+
+    <div class="ons-featured">
+        {{ openingArticleTitleTag | safe }} class="ons-featured__title ons-u-fs-m ons-u-mt-no ons-u-mb-2xs">
+        <a href="{{ params.title.url }}">{{ params.title.text }}</a>
+        {{ closingArticleTitleTag | safe }}
+
+        {%- if params.metadata -%}
+            {% set metadata = params.metadata %}
+            <ul class="ons-featured__item-metadata">
+                {%- if metadata.date -%}
+                    <li class="ons-featured__item-attribute">
+                        {% set prefixClass = "ons-u-fw-b" if metadata.date.showPrefix == true else "ons-u-vh" %}
+                        <span class="{{ prefixClass }}">{{ metadata.date.prefix | default("Published") }}: </span>
+                        {%- if metadata.date.iso -%}
+                            <time datetime="{{ metadata.date.iso }}">{{ metadata.date.short }}</time>
+                        {%- endif -%}
+                    </li>
+                {% endif %}
+
+                {%- if metadata.text -%}
+                    <li class="ons-featured__item-attribute">
+                        <span {% if metadata.text %}class="ons-featured__attribute-text ons-u-fw-b"{% endif %}>{{ metadata.text }}</span>
+                    </li>
+                {% endif %}
+            </ul>
+        {% endif %}
+
+        <div class="ons-featured__media">
+            {% if params.chart %}
+                {{
+                    onsChart({
+                        "chartType": params.chart.chartType,
+                        "description": params.chart.description,
+                        "theme": params.chart.theme,
+                        "title": params.chart.title,
+                        "id": params.chart.id,
+                        "headingLevel": headingLevel + 1,
+                        "legend": params.chart.legend,
+                        "xAxis": params.chart.xAxis,
+                        "yAxis": params.chart.yAxis,
+                        "series": params.chart.series,
+                        "annotations": params.chart.annotations,
+                        "rangeAnnotations": params.chart.rangeAnnotations,
+                        "referenceLineAnnotations": params.chart.referenceLineAnnotations,
+                        "estimateLineLabel": params.chart.estimateLineLabel,
+                        "uncertaintyRangeLabel": params.chart.uncertaintyRangeLabel,
+                        "isChartInverted": params.chart.isChartInverted,
+                        "useStackedLayout": params.chart.useStackedLayout,
+                        "percentageHeightDesktop": params.chart.percentageHeightDesktop,
+                        "percentageHeightMobile": params.chart.percentageHeightMobile
+                    })
+                }}
+            {% elif params.image %}
+                <div class="ons-featured__image">
+                    {{
+                        onsImage({
+                            "src": params.image.src,
+                            "alt": params.image.alt
+                        })
+                    }}
+                </div>
+            {% endif %}
+        </div>
+
+        {% if params.description %}
+            <div class="ons-featured__description">{{ params.description | safe }}</div>
+        {% endif %}
+    </div>
+{% endmacro %}
