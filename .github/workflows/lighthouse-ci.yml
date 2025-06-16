@@ -25,7 +25,6 @@ jobs:
             - name: Run Lighthouse CI with aria-allowed audit on selected URLs
               env:
                   LHCI_MODE: skipAriaAllowed
-                  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
               run: |
                   npm install -g @lhci/cli@0.14.x
                   lhci autorun --config=./lighthouse/lighthouserc.js
