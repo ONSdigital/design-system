@@ -2,7 +2,7 @@
 
 {% macro onsChart(params) %}
     {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
-    {% set supportedChartTypesWithLine = ['column', 'columnrange'] %}
+    {% set supportedChartTypesWithLine = ['column'] %}
     {% set supportedChartTypesWithScatter = ['columnrange'] %}
     {% set headingLevel = params.headingLevel | default(2) %}
     {% set openingTitleTag = "<h" ~ headingLevel %}
@@ -133,7 +133,7 @@
                         "name": item.name if item.name else '',
                         "data": item.data if item.data else [],
                         "marker": {
-                            "enabled": item.marker if item.marker else false
+                            "enabled": true if (item.type == 'scatter' or params.chartType == 'scatter' or item.marker == true) else false
                         },
                         "dataLabels": {
                             "enabled": item.dataLabels if item.dataLabels else false
@@ -161,8 +161,7 @@
         {%
             set config = {
                 "chart": {
-                    "type": params.chartType,
-                    "inverted": params.isChartInverted if params.isChartInverted == true else false
+                    "type": params.chartType
                 },
                 "legend": {
                     "enabled" : legendValue
