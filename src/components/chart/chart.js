@@ -313,7 +313,7 @@ class HighchartsBaseChart {
             if (this.rangeAnnotationsOptions) {
                 this.rangeAnnotationsOptions.addLine(currentChart);
             }
-            if (this.chartType != 'bar') {
+            if (this.chartType != 'bar' && this.chartType != 'columnrange') {
                 this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
             }
             // Update the legend symbols on render to maintain them during resize
