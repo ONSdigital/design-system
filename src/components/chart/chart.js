@@ -280,10 +280,10 @@ class HighchartsBaseChart {
             }
             if (this.chartType === 'scatter') {
                 this.scatterChart.updateMarkers(currentChart);
-                this.commonChartOptions.hideDataLabels(currentChart.series);
+                this.specificChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'boxplot') {
-                this.commonChartOptions.hideDataLabels(currentChart.series);
+                this.specificChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'columnrange') {
                 this.columnRangeChart.updateColumnRangeChartHeight(this.config, currentChart);
