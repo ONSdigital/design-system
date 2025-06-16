@@ -2,7 +2,7 @@ import ChartConstants from './chart-constants';
 
 // Options that rely on the chart config but are not specific to the chart type
 class SpecificChartOptions {
-    constructor(theme, type, config) {
+    constructor(theme, type, config, xAxisTickInterval, yAxisTickInterval) {
         this.constants = ChartConstants.constants();
         this.theme = theme;
         this.config = config;
@@ -12,6 +12,12 @@ class SpecificChartOptions {
             chart: {
                 type: type,
                 marginTop: this.config.legend.enabled ? (type === 'boxplot' ? 50 : undefined) : 50,
+            },
+            yAxis: {
+                tickInterval: yAxisTickInterval,
+            },
+            xAxis: {
+                tickInterval: xAxisTickInterval,
             },
         };
     }
@@ -32,6 +38,16 @@ class SpecificChartOptions {
         };
     };
 
+    hideDataLabels = (series) => {
+        series.forEach((series) => {
+            series.update({
+                dataLabels: {
+                    enabled: false,
+                },
+            });
+        });
+    };
+
     disableLegendForSingleSeries = (config) => {
         if (config.chart.type != 'boxplot' && config.series.length === 1) {
             config.legend = {
@@ -42,18 +58,25 @@ class SpecificChartOptions {
     };
 
     adjustChartHeight = (currentChart, percentageHeightDesktop, percentageHeightMobile) => {
-        // get height and width of the plot area
-        const plotHeight = currentChart.plotHeight;
+        // get current width of the plot area
         const plotWidth = currentChart.plotWidth;
-        // calculate the new plot height based on the percentage height
-        // default to the current height
-        let newPlotHeight = plotHeight;
+        let newPlotHeight = undefined;
+        let totalHeight = 400; // Highcharts default height - needed if one of the percentage heights is undefined
+
+        // Calculate the new plot height based on the percentage height
         if (plotWidth > 400) {
-            newPlotHeight = Math.round(plotWidth * (percentageHeightDesktop / 100));
+            if (percentageHeightDesktop !== undefined) {
+                newPlotHeight = Math.round(plotWidth * (percentageHeightDesktop / 100));
+            }
         } else {
-            newPlotHeight = Math.round(plotWidth * (percentageHeightMobile / 100));
+            if (percentageHeightMobile !== undefined) {
+                newPlotHeight = Math.round(plotWidth * (percentageHeightMobile / 100));
+            }
         }
-        const totalHeight = currentChart.plotTop + newPlotHeight + currentChart.marginBottom;
+        // update the total height if we have a new plot height
+        if (newPlotHeight !== undefined) {
+            totalHeight = currentChart.plotTop + newPlotHeight + currentChart.marginBottom;
+        }
 
         // set the new size of the chart
         if (totalHeight !== currentChart.chartHeight) {
