@@ -22,9 +22,15 @@ jobs:
               run: yarn build
             - name: Build urls
               run: node ./lighthouse/lighthouse-get-urls.js
-            - name: Run Lighthouse CI
+            - name: Run Lighthouse CI with aria-allowed audit on selected URLs
+              env:
+                  LHCI_MODE: skipAriaAllowed
+                  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
               run: |
                   npm install -g @lhci/cli@0.14.x
                   lhci autorun --config=./lighthouse/lighthouserc.js
+            - name: Run Lighthouse CI with all audits
               env:
-                  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+                  LHCI_MODE: allAudits
+              run: |
+                  lhci autorun --config=./lighthouse/lighthouserc.js
