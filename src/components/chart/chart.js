@@ -62,14 +62,20 @@ class HighchartsBaseChart {
         this.yAxisTickIntervalDesktop = this.node.dataset.highchartsYAxisTickIntervalDesktop
             ? parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop)
             : undefined;
-        this.commonChartOptions = new CommonChartOptions(this.xAxisTickIntervalDesktop, this.yAxisTickIntervalDesktop);
+        this.commonChartOptions = new CommonChartOptions();
         this.estimateLineLabel = this.node.dataset.highchartsEstimateLineLabel;
         this.uncertainyRangeLabel = this.node.dataset.highchartsUncertaintyRangeLabel;
         this.customReferenceLineValue = this.node.dataset.highchartsCustomReferenceLineValue
             ? parseFloat(this.node.dataset.highchartsCustomReferenceLineValue)
             : undefined;
 
-        this.specificChartOptions = new SpecificChartOptions(this.theme, this.chartType, this.config);
+        this.specificChartOptions = new SpecificChartOptions(
+            this.theme,
+            this.chartType,
+            this.config,
+            this.xAxisTickIntervalDesktop,
+            this.yAxisTickIntervalDesktop,
+        );
         this.lineChart = new LineChart();
         this.barChart = new BarChart();
         this.columnChart = new ColumnChart();
@@ -79,6 +85,8 @@ class HighchartsBaseChart {
         this.boxplot = new Boxplot();
         this.extraLines = this.checkForExtraLines();
         this.extraScatter = this.checkForExtraScatter();
+        // This code only needs to run once per request as it sets
+        // options that are used for all charts
         if (window.isCommonChartOptionsDefined === undefined) {
             this.setCommonChartOptions();
             window.isCommonChartOptionsDefined = true;
@@ -175,7 +183,7 @@ class HighchartsBaseChart {
         }
 
         // Disable the legend for single series charts
-        this.commonChartOptions.disableLegendForSingleSeries(this.config);
+        this.specificChartOptions.disableLegendForSingleSeries(this.config);
     };
 
     // Check if the data labels should be hidden
@@ -188,7 +196,7 @@ class HighchartsBaseChart {
     // Note this is not the same as the viewport width
     // All responsive rules should be defined here to avoid overriding existing rules
     setResponsiveOptions = () => {
-        let mobileChartOptions = this.commonChartOptions.getMobileOptions(this.xAxisTickIntervalMobile, this.yAxisTickIntervalMobile);
+        let mobileChartOptions = this.specificChartOptions.getMobileOptions(this.xAxisTickIntervalMobile, this.yAxisTickIntervalMobile);
         if (this.chartType === 'column' || this.chartType === 'boxplot') {
             const mobileColumnChartOptions = this.columnChart.getColumnChartMobileOptions(
                 this.config,
@@ -257,33 +265,34 @@ class HighchartsBaseChart {
             const currentChart = event.target;
             if (this.chartType === 'line') {
                 this.lineChart.updateLastPointMarker(currentChart.series);
-                this.commonChartOptions.hideDataLabels(currentChart.series);
+                this.specificChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'bar') {
                 this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
                 } else {
-                    this.commonChartOptions.hideDataLabels(currentChart.series);
+                    this.specificChartOptions.hideDataLabels(currentChart.series);
                 }
             }
             if (this.chartType === 'column') {
-                this.commonChartOptions.hideDataLabels(currentChart.series);
+                this.specificChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'scatter') {
                 this.scatterChart.updateMarkers(currentChart);
+                this.specificChartOptions.hideDataLabels(currentChart.series);
+            }
+            if (this.chartType === 'boxplot') {
+                this.specificChartOptions.hideDataLabels(currentChart.series);
             }
             if (this.chartType === 'columnrange') {
                 this.columnRangeChart.updateColumnRangeChartHeight(this.config, currentChart);
-                this.commonChartOptions.hideDataLabels(currentChart.series);
+                this.specificChartOptions.hideDataLabels(currentChart.series);
 
                 if (this.extraScatter > 0) {
                     const scatterSeries = currentChart.series.filter((series) => series.type === 'scatter');
                     this.scatterChart.updateMarkersForConfidenceLevels(scatterSeries);
                 }
-            }
-            if (this.chartType != 'bar') {
-                this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
             }
 
             // If the chart has an extra line or lines, hide the data labels for
@@ -291,12 +300,10 @@ class HighchartsBaseChart {
             if (this.extraLines > 0) {
                 currentChart.series.forEach((series) => {
                     if (series.type === 'line') {
-                        this.commonChartOptions.hideDataLabels([series]);
+                        this.specificChartOptions.hideDataLabels([series]);
                     }
                 });
             }
-            // Update the legend items for all charts
-            this.commonChartOptions.updateLegendSymbols(currentChart);
             currentChart.redraw(false);
         };
     };
@@ -310,6 +317,11 @@ class HighchartsBaseChart {
             if (this.rangeAnnotationsOptions) {
                 this.rangeAnnotationsOptions.addLine(currentChart);
             }
+            if (this.chartType != 'bar' && this.chartType != 'columnrange') {
+                this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+            }
+            // Update the legend symbols on render to maintain them during resize
+            this.specificChartOptions.updateLegendSymbols(currentChart);
         };
     };
 
@@ -324,9 +336,8 @@ class HighchartsBaseChart {
                 // Update the data labels when the window is resized
                 if (this.chartType === 'bar' && !this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
-                }
-                if (this.chartType != 'bar') {
-                    this.commonChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+                    // Force a single redraw after all updates
+                    currentChart.redraw(false);
                 }
             }, 50);
         });
