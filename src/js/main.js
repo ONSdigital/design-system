@@ -1,6 +1,7 @@
 import './inpagelink.dom';
 import './print-button';
 import './analytics';
+import './details';
 import './cookies-settings.dom';
 import '../components/mutually-exclusive/mutually-exclusive.dom';
 import '../components/password/password.dom';
