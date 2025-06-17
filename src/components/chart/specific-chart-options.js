@@ -15,9 +15,17 @@ class SpecificChartOptions {
             },
             yAxis: {
                 tickInterval: yAxisTickInterval,
+                min: this.config.yAxis?.min ?? undefined,
+                startOnTick: this.config.yAxis?.startOnTick ?? false,
+                endOnTick: this.config.yAxis?.endOnTick ?? true,
+                max: this.config.yAxis?.max ?? undefined,
             },
             xAxis: {
                 tickInterval: xAxisTickInterval,
+                min: this.config.xAxis?.min ?? undefined,
+                startOnTick: this.config.xAxis?.startOnTick ?? false,
+                endOnTick: this.config.xAxis?.endOnTick ?? true,
+                max: this.config.xAxis?.max ?? undefined,
             },
         };
     }
