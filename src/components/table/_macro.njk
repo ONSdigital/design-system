@@ -2,11 +2,11 @@
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/icon/_macro.njk" import onsIcon %}
     {% set variants = params.variants if params.variants %}
-    {% set hasRowspan = false %}
+    {% set hasRowSpan = false %}
     {% for row in params.thList %}
         {% for th in row.ths %}
             {% if th.rowspan %}
-                {% set hasRowspan = true %}
+                {% set hasRowSpan = true %}
             {% endif %}
         {% endfor %}
     {% endfor %}
@@ -14,7 +14,7 @@
     {% for row in params.trs %}
         {% for td in row.tds %}
             {% if td.rowspan %}
-                {% set hasRowspan = true %}
+                {% set hasRowSpan = true %}
             {% endif %}
         {% endfor %}
     {% endfor %}
@@ -22,7 +22,7 @@
     {% set table %}
         <table
             {% if params.id %}id="{{ params.id }}"{% endif %}
-            class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{{ ' ' }}{% if hasRowspan %}ons-table--has-rowspan{% endif %}{% if variants and variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}"
+            class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{{ ' ' }}{% if hasRowSpan %}ons-table--has-rowspan{% endif %}{% if variants and variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}"
             {% if params.sortBy and 'sortable' in variants %}
                 data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"
             {% endif %}
