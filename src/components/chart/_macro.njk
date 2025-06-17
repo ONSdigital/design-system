@@ -4,12 +4,7 @@
     {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
     {% set supportedChartTypesWithLine = ['column'] %}
     {% set supportedChartTypesWithScatter = ['columnrange'] %}
-
-    {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
-        {% set headingLevel = params.headingLevel %}
-    {% else %}
-        {% set headingLevel = 2 %}
-    {% endif %}
+    {% set headingLevel = params.headingLevel | default(2) %}
     {% set openingTitleTag = "<h" ~ headingLevel %}
     {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
     {% set openingSubtitleTag = "<h" ~  (headingLevel + 1) %}
