@@ -17,94 +17,104 @@
     {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 2) %}
     {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
     <div
-        data-highcharts-base-chart
-        data-highcharts-type="{{ params.chartType }}"
-        data-highcharts-theme="{{ params.theme }}"
-        data-highcharts-title="{{ params.title }}"
-        data-highcharts-id="{{ params.id }}"
-        {% if params.useStackedLayout %}data-highcharts-use-stacked-layout="{{ params.useStackedLayout }}"{% endif %}
-        {% if params.percentageHeightDesktop and params.chartType != 'bar' %}
-            data-highcharts-percentage-height-desktop="{{ params.percentageHeightDesktop }}"
-        {% endif %}
-        {% if params.percentageHeightMobile and params.chartType != 'bar' %}
-            data-highcharts-percentage-height-mobile="{{ params.percentageHeightMobile }}"
-        {% endif %}
-        {% if params.xAxis.tickIntervalMobile %}
-            data-highcharts-x-axis-tick-interval-mobile="{{ params.xAxis.tickIntervalMobile }}"
-        {% endif %}
-        {% if params.xAxis.tickIntervalDesktop %}
-            data-highcharts-x-axis-tick-interval-desktop="{{ params.xAxis.tickIntervalDesktop }}"
-        {% endif %}
-        {% if params.yAxis.tickIntervalMobile %}
-            data-highcharts-y-axis-tick-interval-mobile="{{ params.yAxis.tickIntervalMobile }}"
-        {% endif %}
-        {% if params.yAxis.tickIntervalDesktop %}
-            data-highcharts-y-axis-tick-interval-desktop="{{ params.yAxis.tickIntervalDesktop }}"
-        {% endif %}
-        {% if params.estimateLineLabel %}
-            data-highcharts-estimate-line-label="{{ params.estimateLineLabel }}"
-        {% endif %}
-        {% if params.uncertaintyRangeLabel %}
-            data-highcharts-uncertainty-range-label="{{ params.uncertaintyRangeLabel }}"
-        {% endif %}
-        {% if params.yAxis.customReferenceLineValue %}
-            data-highcharts-custom-reference-line-value="{{ params.yAxis.customReferenceLineValue }}"
+        {% if not params.iframeURL %}
+            data-highcharts-base-chart data-highcharts-type="{{ params.chartType }}" data-highcharts-theme="{{ params.theme }}"
+            data-highcharts-title="{{ params.title }}" data-highcharts-id="{{ params.id }}"
+            {% if params.useStackedLayout %}data-highcharts-use-stacked-layout="{{ params.useStackedLayout }}"{% endif %}
+            {% if params.percentageHeightDesktop and params.chartType != 'bar' %}
+                data-highcharts-percentage-height-desktop="{{ params.percentageHeightDesktop }}"
+            {% endif %}
+            {% if params.percentageHeightMobile and params.chartType != 'bar' %}
+                data-highcharts-percentage-height-mobile="{{ params.percentageHeightMobile }}"
+            {% endif %}
+            {% if params.xAxis.tickIntervalMobile %}
+                data-highcharts-x-axis-tick-interval-mobile="{{ params.xAxis.tickIntervalMobile }}"
+            {% endif %}
+            {% if params.xAxis.tickIntervalDesktop %}
+                data-highcharts-x-axis-tick-interval-desktop="{{ params.xAxis.tickIntervalDesktop }}"
+            {% endif %}
+            {% if params.yAxis.tickIntervalMobile %}
+                data-highcharts-y-axis-tick-interval-mobile="{{ params.yAxis.tickIntervalMobile }}"
+            {% endif %}
+            {% if params.yAxis.tickIntervalDesktop %}
+                data-highcharts-y-axis-tick-interval-desktop="{{ params.yAxis.tickIntervalDesktop }}"
+            {% endif %}
+            {% if params.estimateLineLabel %}
+                data-highcharts-estimate-line-label="{{ params.estimateLineLabel }}"
+            {% endif %}
+            {% if params.uncertaintyRangeLabel %}
+                data-highcharts-uncertainty-range-label="{{ params.uncertaintyRangeLabel }}"
+            {% endif %}
+            {% if params.yAxis.customReferenceLineValue %}
+                data-highcharts-custom-reference-line-value="{{ params.yAxis.customReferenceLineValue }}"
+            {% endif %}
         {% endif %}
     >
         <figure class="ons-chart">
             {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
-            {{ openingSubtitleTag | safe }}
-            class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+            {% if params.subtitle %}
+                {{ openingSubtitleTag | safe }}
+                class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+            {% endif %}
             {% if params.description %}
                 <p class="ons-u-vh">{{ params.description }}</p>
             {% endif %}
-            {% if params.chartType == 'boxplot' and (params.estimateLineLabel or params.uncertaintyRangeLabel) and params.legend == true %}
-                <div class="ons-chart__boxplot-legend">
-                    {% if params.uncertaintyRangeLabel %}
-                        <div class="ons-chart__boxplot-legend-item">
-                            <span class="ons-chart__boxplot-legend-item ons-chart__boxplot-legend-item--uncertainty"></span>
-                            <span class="ons-chart__boxplot-legend-label">{{ params.uncertaintyRangeLabel }}</span>
-                        </div>
-                    {% endif %}
-                    {% if params.estimateLineLabel %}
-                        <div class="ons-chart__boxplot-legend-item">
-                            <span class="ons-chart__boxplot-legend-item ons-chart__boxplot-legend-item--estimate"></span>
-                            <span class="ons-chart__boxplot-legend-label">{{ params.estimateLineLabel }}</span>
-                        </div>
-                    {% endif %}
-                </div>
-            {% endif %}
-            {% if params.chartType in supportedChartTypes %}
-                <div data-highcharts-chart></div>
+            {% if params.iframeURL %}
+                iframe url: {{ params.iframeURL }}
+                <br /><br />
+                <iframe src="{{ params.iframeURL }}" title="{{ params.title }}" width="100%"> </iframe>
             {% else %}
-                <p data-invalid-chart-type><b>Chart type "{{ params.chartType }}" is not supported</b></p>
+                {% if params.chartType == 'boxplot' and (params.estimateLineLabel or params.uncertaintyRangeLabel) and params.legend == true %}
+                    <div class="ons-chart__boxplot-legend">
+                        {% if params.uncertaintyRangeLabel %}
+                            <div class="ons-chart__boxplot-legend-item">
+                                <span class="ons-chart__boxplot-legend-item ons-chart__boxplot-legend-item--uncertainty"></span>
+                                <span class="ons-chart__boxplot-legend-label">{{ params.uncertaintyRangeLabel }}</span>
+                            </div>
+                        {% endif %}
+                        {% if params.estimateLineLabel %}
+                            <div class="ons-chart__boxplot-legend-item">
+                                <span class="ons-chart__boxplot-legend-item ons-chart__boxplot-legend-item--estimate"></span>
+                                <span class="ons-chart__boxplot-legend-label">{{ params.estimateLineLabel }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                {% if params.chartType in supportedChartTypes %}
+                    <div data-highcharts-chart></div>
+                {% else %}
+                    <p data-invalid-chart-type><b>Chart type "{{ params.chartType }}" is not supported</b></p>
+                {% endif %}
             {% endif %}
             {#
                 Footnotes for the annotations at mobile
                 Hidden from screen readers because the full text will be read out where they appear in the chart
             #}
-            <ul class="ons-chart__footnotes" aria-hidden="true">
-                {% for annotation in params.annotations %}
-                    <li class="ons-chart__footnote_item">
-                        <span class="ons-chart__footnote-number">{{ loop.index }}</span>
-                        {{ annotation.text }}
-                    </li>
-                {% endfor %}
-                {% for rangeAnnotation in params.rangeAnnotations %}
-                    <li class="ons-chart__footnote_item">
-                        <span class="ons-chart__footnote-number">{{ loop.index + params.annotations | length }}</span>
-                        {{ rangeAnnotation.text }}
-                    </li>
-                {% endfor %}
-                {% for referenceLineAnnotation in params.referenceLineAnnotations %}
-                    <li class="ons-chart__footnote_item">
-                        <span class="ons-chart__footnote-number"
-                            >{{ loop.index + params.annotations | length + params.rangeAnnotations | length }}</span
-                        >
-                        {{ referenceLineAnnotation.text }}
-                    </li>
-                {% endfor %}
-            </ul>
+            {% if params.annotations or params.rangeAnnotations or params.referenceLineAnnotations and not params.iframeURL %}
+                {# todo: change classname as we will have a separate footnotes section in the future #}
+                <ul class="ons-chart__footnotes" aria-hidden="true">
+                    {% for annotation in params.annotations %}
+                        <li class="ons-chart__footnote_item">
+                            <span class="ons-chart__footnote-number">{{ loop.index }}</span>
+                            {{ annotation.text }}
+                        </li>
+                    {% endfor %}
+                    {% for rangeAnnotation in params.rangeAnnotations %}
+                        <li class="ons-chart__footnote_item">
+                            <span class="ons-chart__footnote-number">{{ loop.index + params.annotations | length }}</span>
+                            {{ rangeAnnotation.text }}
+                        </li>
+                    {% endfor %}
+                    {% for referenceLineAnnotation in params.referenceLineAnnotations %}
+                        <li class="ons-chart__footnote_item">
+                            <span class="ons-chart__footnote-number"
+                                >{{ loop.index + params.annotations | length + params.rangeAnnotations | length }}</span
+                            >
+                            {{ referenceLineAnnotation.text }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
             {% if params.caption %}
                 <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
             {% endif %}
@@ -120,94 +130,95 @@
                 })
             }}
         {% endif %}
-        {% if params.chartType in supportedChartTypes %}
-        {% set series = [] %}
-        {% set lineSeriesCount = 0 %}
-        {% for item in params.series %}
-            {% if item.type == 'line' and lineSeriesCount > 0 %}
-                {# skip extra line series as the DS guidelines only allow for one extra line series #}
-            {% else %}
-                {%
-                    set seriesItem = {
-                        "name": item.name if item.name else '',
-                        "data": item.data if item.data else [],
-                        "marker": {
-                            "enabled": true if (item.type == 'scatter' or params.chartType == 'scatter' or item.marker == true) else false
-                        },
-                        "dataLabels": {
-                            "enabled": item.dataLabels if item.dataLabels else false
-                        },
-                        "connectNulls": item.connectNulls if item.connectNulls else false,
-                        "type": item.type if item.type and (item.type == 'line' and params.chartType in supportedChartTypesWithLine) or (item.type == 'scatter' and params.chartType in supportedChartTypesWithScatter) else params.chartType
-                    }
-                %}
-                {# Use `set` tag to avoid printing the return value of extend #}
-                {% set _ = extend(series, seriesItem) %}
+        {% if params.chartType in supportedChartTypes or params.iframeURL %}
+            {% set series = [] %}
+            {% set lineSeriesCount = 0 %}
+            {% for item in params.series %}
+                {% if item.type == 'line' and lineSeriesCount > 0 %}
+                    {# skip extra line series as the DS guidelines only allow for one extra line series #}
+                {% else %}
+                    {%
+                        set seriesItem = {
+                            "name": item.name if item.name else '',
+                            "data": item.data if item.data else [],
+                            "marker": {
+                                "enabled": true if (item.type == 'scatter' or params.chartType == 'scatter' or item.marker == true) else false
+                            },
+                            "dataLabels": {
+                                "enabled": item.dataLabels if item.dataLabels else false
+                            },
+                            "connectNulls": item.connectNulls if item.connectNulls else false,
+                            "type": item.type if item.type and (item.type == 'line' and params.chartType in supportedChartTypesWithLine) or (item.type == 'scatter' and params.chartType in supportedChartTypesWithScatter) else params.chartType
+                        }
+                    %}
+                    {# Use `set` tag to avoid printing the return value of extend #}
+                    {% set _ = extend(series, seriesItem) %}
+                {% endif %}
+                {% if item.type == 'line' %}
+                    {% set lineSeriesCount = lineSeriesCount + 1 %}
+                {% endif %}
+            {% endfor %}
+            {# Set the legend value to true by default #}
+            {% set legendValue = true %}
+            {% if params.legend is defined %}
+                {# if a legend parameter has been provided, check that it is a boolean #}
+                {% if params.legend == true or params.legend == false %}
+                    {# legend value is a boolean - use the value passed in #}
+                    {% set legendValue = params.legend %}
+                {% endif %}
             {% endif %}
-            {% if item.type == 'line' %}
-                {% set lineSeriesCount = lineSeriesCount + 1 %}
-            {% endif %}
-        {% endfor %}
-        {# Set the legend value to true by default #}
-        {% set legendValue = true %}
-        {% if params.legend is defined %}
-            {# if a legend parameter has been provided, check that it is a boolean #}
-            {% if params.legend == true or params.legend == false %}
-                {# legend value is a boolean - use the value passed in #}
-                {% set legendValue = params.legend %}
-            {% endif %}
-        {% endif %}
-        {%
-            set config = {
-                "chart": {
-                    "type": params.chartType
-                },
-                "legend": {
-                    "enabled" : legendValue
-                },
-                "yAxis": {
-                    "title": {
-                        "text": params.yAxis.title
+            {%
+                set config = {
+                    "chart": {
+                        "type": params.chartType
                     },
-                    "labels": {
-                        "format": params.yAxis.labelFormat
-                    }
-                },
-                "xAxis": {
-                    "title": {
-                        "text": params.xAxis.title
+                    "legend": {
+                        "enabled" : legendValue
                     },
-                    "categories": params.xAxis.categories,
-                    "type": params.xAxis.type,
-                    "labels": {
-                        "format": params.xAxis.labelFormat
-                    }
-                },
-                "series": series
-            }
-        %}
+                    "yAxis": {
+                        "title": {
+                            "text": params.yAxis.title
+                        },
+                        "labels": {
+                            "format": params.yAxis.labelFormat
+                        }
+                    },
+                    "xAxis": {
+                        "title": {
+                            "text": params.xAxis.title
+                        },
+                        "categories": params.xAxis.categories,
+                        "type": params.xAxis.type,
+                        "labels": {
+                            "format": params.xAxis.labelFormat
+                        }
+                    },
+                    "series": series
+                }
+            %}
 
-        <!-- Set scripts to pass the config values as json to the javascript -->
-        <!-- prettier-ignore-start -->
+            <!-- Set scripts to pass the config values as json to the javascript -->
+            <!-- prettier-ignore-start -->
             <script type="application/json" data-highcharts-config--{{ params.id }}>
                 {{ config | tojson }}
             </script>
+
+            {% if params.annotations %}
+                <script type="application/json" data-highcharts-annotations--{{ params.id }}>
+                    {{ params.annotations | tojson }}
+                </script>
+            {% endif %}
+            {% if params.rangeAnnotations %}
+                <script type="application/json" data-highcharts-range-annotations--{{ params.id }}>
+                    {{ params.rangeAnnotations | tojson }}
+                </script>
+            {% endif %}
+            {% if params.referenceLineAnnotations %}
+                <script type="application/json" data-highcharts-reference-line-annotations--{{ params.id }}>
+                    {{ params.referenceLineAnnotations | tojson }}
+                </script>
+            {% endif %}
+            <!-- prettier-ignore-end -->
         {% endif %}
-        {% if params.annotations %}
-            <script type="application/json" data-highcharts-annotations--{{ params.id }}>
-                {{ params.annotations | tojson }}
-            </script>
-        {% endif %}
-        {% if params.rangeAnnotations %}
-            <script type="application/json" data-highcharts-range-annotations--{{ params.id }}>
-                {{ params.rangeAnnotations | tojson }}
-            </script>
-        {% endif %}
-        {% if params.referenceLineAnnotations %}
-            <script type="application/json" data-highcharts-reference-line-annotations--{{ params.id }}>
-                {{ params.referenceLineAnnotations | tojson }}
-            </script>
-        {% endif %}
-        <!-- prettier-ignore-end -->
     </div>
 {% endmacro %}

@@ -1,0 +1,28 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+
+{{
+    onsChart({
+        "description": "Volume sales, seasonally adjusted, Great Britain, January 2022 to January 2025",
+        "title": "Food stores showed a strong rise on the month, while non-food stores fell",
+        "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
+        "caption": "Source: Monthly Business Survey, Retail Sales Inquiry from the Office for National Statistics",
+        "download": {
+            'title': 'Download Figure 1 data',
+            'itemsList': [
+                {
+                    "text": "Excel spreadsheet (XLSX format, 18KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Simple text file (CSV format, 25KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Image (PNG format, 25KB)",
+                    "url": "#"
+                }
+            ]
+        },
+        "iframeURL": "https://www.ons.gov.uk/visualisations/dvc3207/fig01/index.html?initialWidth=661&childId=d8e9fe44-6ed2-4164-a855-3d2d79ceca96&parentTitle=Child%20and%20infant%20mortality%20in%20England%20and%20Wales%3A%202022%20-%20Office%20for%20National%20Statistics&parentUrl=https%3A%2F%2Fnwp-prototype.ons.gov.uk%2Fdeaths%2Fdeaths%2Fchild-and-infant-mortality-in-england-and-wales%2F2022%2F"
+    })
+}}
