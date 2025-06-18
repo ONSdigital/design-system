@@ -55,9 +55,9 @@
                 <p class="ons-u-vh">{{ params.description }}</p>
             {% endif %}
             {% if params.iframeURL %}
-                iframe url: {{ params.iframeURL }}
-                <br /><br />
-                <iframe src="{{ params.iframeURL }}" title="{{ params.title }}" width="100%"> </iframe>
+                <div data-chart-iframe id="{{ params.id }}" data-url="{{ params.iframeURL }}" data-title="{{ params.title }}">
+                    <iframe src="{{ params.iframeURL }}" title="{{ params.title }}" width="100%"> </iframe>
+                </div>
             {% else %}
                 {% if params.chartType == 'boxplot' and (params.estimateLineLabel or params.uncertaintyRangeLabel) and params.legend == true %}
                     <div class="ons-chart__boxplot-legend">

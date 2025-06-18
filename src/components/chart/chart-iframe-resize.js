@@ -1,4 +1,4 @@
-/* global pym */
+import pym from 'pym.js';
 
 class ChartIframeResize {
     static selector() {
@@ -7,11 +7,9 @@ class ChartIframeResize {
 
     constructor(node) {
         this.node = node;
-        /* eslint-disable no-new */
         new pym.Parent(this.node.getAttribute('id'), this.node.dataset.url, {
             title: this.node.dataset.title,
         });
-        /* eslint-enable no-new */
     }
 }
 
