@@ -278,6 +278,7 @@
             left: 50%;
             width: 100vw;
             transform: translateX(-50%);
+            z-index: 500;
         }
 
         &__key-list {
