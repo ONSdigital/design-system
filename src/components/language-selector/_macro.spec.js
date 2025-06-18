@@ -102,7 +102,7 @@ describe('macro: language-selector', () => {
         it('has the `abbrText` rendered', () => {
             const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_TWO_LANGUAGES));
 
-            expect($('.ons-language-links__item a span:first-child').text()).toBe('CY');
+            expect($('.ons-language-links__item a span:nth-child(2)').text()).toBe('CY');
         });
     });
 
@@ -124,8 +124,9 @@ describe('macro: language-selector', () => {
         it('does not show the current language', () => {
             const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_THREE_LANGUAGES));
 
-            expect($('.ons-language-links__item:first-child a').text()).toBe('English');
-            expect($('.ons-language-links__item:last-child a').text()).toBe('Polski');
+            // .replace(/\s+/g, ' ') will replace any sequence of whitespace characters (spaces, tabs, newlines) with a single space
+            expect($('.ons-language-links__item:first-child a').text().replace(/\s+/g, ' ').trim()).toBe('Change language to English');
+            expect($('.ons-language-links__item:last-child a').text().replace(/\s+/g, ' ').trim()).toBe('Change language to Polski');
         });
 
         it('has the visibility class applied', () => {
