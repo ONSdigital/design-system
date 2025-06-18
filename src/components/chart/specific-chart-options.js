@@ -16,7 +16,7 @@ class SpecificChartOptions {
             yAxis: {
                 tickInterval: yAxisTickInterval,
                 min: this.config.yAxis?.min ?? undefined,
-                startOnTick: this.config.yAxis?.startOnTick ?? false,
+                startOnTick: this.config.yAxis?.startOnTick ?? true,
                 endOnTick: this.config.yAxis?.endOnTick ?? true,
                 max: this.config.yAxis?.max ?? undefined,
             },
@@ -24,7 +24,7 @@ class SpecificChartOptions {
                 tickInterval: xAxisTickInterval,
                 min: this.config.xAxis?.min ?? undefined,
                 startOnTick: this.config.xAxis?.startOnTick ?? false,
-                endOnTick: this.config.xAxis?.endOnTick ?? true,
+                endOnTick: this.config.xAxis?.endOnTick ?? false,
                 max: this.config.xAxis?.max ?? undefined,
             },
         };
