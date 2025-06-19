@@ -4,8 +4,8 @@
     {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
     {% set supportedChartTypesWithLine = ['column'] %}
     {% set supportedChartTypesWithScatter = ['columnrange'] %}
-    {% set supportedChartTypesWithXAxisMinAndMax = ['bar', 'scatter'] %}
-    {% set supportedChartTypesWithYAxisMinAndMax = ['line', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
+    {% set supportedChartTypesWithXAxisMinAndMax = ['scatter'] %}
+    {% set supportedChartTypesWithYAxisMinAndMax = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
     {% set headingLevel = params.headingLevel | default(2) %}
     {% set openingTitleTag = "<h" ~ headingLevel %}
     {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}

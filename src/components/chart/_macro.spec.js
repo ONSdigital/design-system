@@ -1316,7 +1316,7 @@ describe('Macro: Chart', () => {
             test('THEN: xAxis min and max are included in config when provided', () => {
                 const params = {
                     ...BASE_PARAMS,
-                    chartType: 'bar',
+                    chartType: 'scatter',
                     xAxis: {
                         ...BASE_PARAMS.xAxis,
                         min: 1,
@@ -1338,7 +1338,7 @@ describe('Macro: Chart', () => {
             test('THEN: xAxis min and max are NOT included if not defined', () => {
                 const params = {
                     ...BASE_PARAMS,
-                    chartType: 'bar',
+                    chartType: 'scatter',
                     xAxis: {
                         ...BASE_PARAMS.xAxis,
                         min: undefined,
@@ -1360,7 +1360,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: chartType supports yAxis min/max (line, column, scatter, area, columnrange, boxplot)', () => {
+        describe('GIVEN: chartType supports yAxis min/max (line, bar, column, scatter, area, columnrange, boxplot)', () => {
             test('THEN: yAxis min and max are included in config when provided', () => {
                 const params = {
                     ...BASE_PARAMS,
@@ -1429,28 +1429,6 @@ describe('Macro: Chart', () => {
                 expect(configScript).not.toContain('"max":10');
                 expect(configScript).not.toContain('"startOnTick":true');
                 expect(configScript).not.toContain('"endOnTick":true');
-            });
-
-            test('THEN: yAxis min and max are ignored', () => {
-                const params = {
-                    ...BASE_PARAMS,
-                    chartType: 'bar',
-                    yAxis: {
-                        ...BASE_PARAMS.yAxis,
-                        min: 0,
-                        max: 50,
-                        startOnTick: false,
-                        endOnTick: false,
-                    },
-                };
-
-                const $ = cheerio.load(renderComponent('chart', params));
-                const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
-
-                expect(configScript).not.toContain('"min":0');
-                expect(configScript).not.toContain('"max":50');
-                expect(configScript).not.toContain('"startOnTick":false');
-                expect(configScript).not.toContain('"endOnTick":false');
             });
         });
     });
