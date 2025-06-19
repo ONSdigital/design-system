@@ -488,6 +488,11 @@
             justify-content: space-between;
         }
     }
+
+    &__title-wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }
 
 @include panel-variant(ons-red, var(--ons-color-errors), var(--ons-color-errors-tint));

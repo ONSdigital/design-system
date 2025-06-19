@@ -1132,55 +1132,6 @@ describe('Macro: Chart', () => {
                     expect(configScript).toContain('"type":"columnrange"');
                     expect(configScript).toContain('"type":"scatter"');
                 });
-
-                describe('GIVEN: Params: isChartInverted', () => {
-                    describe('WHEN: isChartInverted parameter is provided and set to true', () => {
-                        const $ = cheerio.load(
-                            renderComponent('chart', {
-                                ...EXAMPLE_COLUMN_RANGE_CHART_PARAMS,
-                                isChartInverted: true,
-                            }),
-                        );
-                        test('THEN: it sets isChartInverted to true', () => {
-                            const configScript = $(`script[data-highcharts-config--uuid]`).html();
-                            expect(configScript).toContain('"chart":{"type":"columnrange","inverted":true}');
-                        });
-                    });
-
-                    describe('WHEN: isChartInverted parameter is provided and set to false', () => {
-                        const $ = cheerio.load(
-                            renderComponent('chart', {
-                                ...EXAMPLE_COLUMN_RANGE_CHART_PARAMS,
-                                isChartInverted: false,
-                            }),
-                        );
-                        test('THEN: it sets isChartInverted to false', () => {
-                            const configScript = $(`script[data-highcharts-config--uuid]`).html();
-                            expect(configScript).toContain('"chart":{"type":"columnrange","inverted":false}');
-                        });
-                    });
-
-                    describe('WHEN: isChartInverted parameter is not provided', () => {
-                        const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_RANGE_CHART_PARAMS));
-                        test('THEN: it sets isChartInverted to false', () => {
-                            const configScript = $(`script[data-highcharts-config--uuid]`).html();
-                            expect(configScript).toContain('"chart":{"type":"columnrange","inverted":false}');
-                        });
-                    });
-
-                    describe('WHEN: isChartInverted parameter is provided but is not a boolean', () => {
-                        const $ = cheerio.load(
-                            renderComponent('chart', {
-                                ...EXAMPLE_COLUMN_RANGE_CHART_PARAMS,
-                                isChartInverted: 'false',
-                            }),
-                        );
-                        test('THEN: it sets isChartInverted to false', () => {
-                            const configScript = $(`script[data-highcharts-config--uuid]`).html();
-                            expect(configScript).toContain('"chart":{"type":"columnrange","inverted":false}');
-                        });
-                    });
-                });
             });
         });
     });
