@@ -770,8 +770,8 @@ $button-shadow-size: 3px;
     }
 
     &--search-icon:focus {
-        background-color: var(--ons-color-focus);
-        border-color: var(--ons-color-text-link-focus);
+        background-color: var(--ons-color-focus) !important;
+        border-color: var(--ons-color-text-link-focus) !important;
     }
 
     &--search-icon:focus &,
