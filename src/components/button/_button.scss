@@ -610,9 +610,6 @@ $button-shadow-size: 3px;
     }
 
     &--menu {
-        align-items: center;
-        display: flex;
-        padding: 1.25rem 1rem 1rem;
         border-bottom: 4px solid rgb(0 0 0 / 0%);
         .ons-icon {
             transform: rotate(90deg);
@@ -699,6 +696,11 @@ $button-shadow-size: 3px;
     &--search-icon,
     &--close {
         border-bottom: 4px solid transparent;
+    }
+
+    &--menu,
+    &--search-icon,
+    &--close {
         align-items: center;
         display: flex;
         padding: 1.25rem 1rem 1rem;
