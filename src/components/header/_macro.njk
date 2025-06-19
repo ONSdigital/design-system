@@ -102,86 +102,9 @@
                             </div>
                         {%- endif -%}
                     </div>
-                    {% if params.language or params.serviceLinks %}
-                        <div class="ons-header__links ons-grid__col ons-u-ml-auto">
-                            {% if params.language %}
-                                <div class="ons-grid__col ons-col-auto{{ ' ons-u-mr-s ons-u-d-no@2xs@xs' if params.serviceLinks }}">
-                                    {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
-                                    {{ onsLanguageSelector(params.language) }}
-                                </div>
-                            {% endif %}
-                            {% if params.serviceLinks %}
-                                {% if params.serviceLinks.itemsList | length == 1 and params.language %}
-                                    {% set breakpoint = 'xs' %}
-                                    {% set controlVisibility = true %}
-                                {% elif params.serviceLinks.itemsList | length > 1 %}
-                                    {% set breakpoint = 'm' %}
-                                    {% set controlVisibility = true %}
-                                {% else %}
-                                    {% set controlVisibility = false %}
-                                {% endif %}
-                                <div
-                                    class="ons-grid__col ons-col-auto{% if controlVisibility == true %}{{ ' ' }}ons-u-d-no@2xs@{{ breakpoint }}{% endif %}"
-                                >
-                                    <nav
-                                        class="ons-header-service-nav ons-header-service-nav--main{{ ' ' + params.serviceLinks.classes if params.serviceLinks.classes else '' }}"
-                                        aria-label="{{ params.serviceLinks.ariaLabel | default('Service links navigation') }}"
-                                    >
-                                        <ul class="ons-header-service-nav__list">
-                                            {% for item in params.serviceLinks.itemsList %}
-                                                <li class="ons-header-service-nav__item">
-                                                    {% if item.iconType %}
-                                                        {{-
-                                                            onsIcon({
-                                                                "iconType": item.iconType
-                                                            })
-                                                        -}}
-                                                    {% endif %}
-                                                    {% if item.url %}
-                                                        <a
-                                                            href="{{ item.url }}"
-                                                            class="ons-header-service-nav__link"
-                                                            {% if item.id %}id="{{ item.id }}"{% endif %}
-                                                            >{% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}</a
-                                                        >
-                                                    {% else %}
-                                                        {% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}
-                                                    {% endif %}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </nav>
-                                </div>
-                                {% if params.serviceLinks.itemsList | length > 1 or params.language %}
-                                    {% if params.variants == 'internal' %}
-                                        {% set buttonVariant = ["mobile", "text-link", "text-link-inverse"] %}
-                                    {% elif params.variants == 'neutral' %}
-                                        {% set buttonVariant = ["mobile", "neutral"] %}
-                                    {% else %}
-                                        {% set buttonVariant = ["mobile", "text-link"] %}
-                                    {% endif %}
-                                    <div class="ons-grid__col ons-col-auto ons-u-d-no@{{ breakpoint }}">
-                                        {{
-                                            onsButton({
-                                                "text": params.serviceLinks.toggleServicesButton.text | default("Account"),
-                                                "classes": "ons-u-d-no ons-js-toggle-services",
-                                                "type": "button",
-                                                "variants": buttonVariant,
-                                                "attributes": {
-                                                    "aria-label": params.serviceLinks.toggleServicesButton.ariaLabel | default("Toggle menu"),
-                                                    "aria-controls": params.serviceLinks.id,
-                                                    "aria-expanded": "false"
-                                                }
-                                            })
-                                        }}
-                                    </div>
-                                {% endif %}
-                            {% endif %}
-                        </div>
-                    {% endif %}
 
                     {% if params.variants == "basic" %}
-                        <div class="ons-grid__col ons-col-auto ons-header__menu-links">
+                        <div class="ons-grid__col ons-col-auto ons-header__menu-links ons-u-ml-auto">
                             {% if params.menuLinks %}
                                 <div class="ons-header__links ons-grid__col">
                                     {{
@@ -358,6 +281,83 @@
                                         </div>
                                     {% endif %}
                                 </nav>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    {% if params.language or params.serviceLinks %}
+                        <div class="ons-header__links ons-grid__col">
+                            {% if params.language %}
+                                <div class="ons-grid__col ons-col-auto{{ ' ons-u-mr-s ons-u-d-no@2xs@xs' if params.serviceLinks }}">
+                                    {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                                    {{ onsLanguageSelector(params.language) }}
+                                </div>
+                            {% endif %}
+                            {% if params.serviceLinks %}
+                                {% if params.serviceLinks.itemsList | length == 1 and params.language %}
+                                    {% set breakpoint = 'xs' %}
+                                    {% set controlVisibility = true %}
+                                {% elif params.serviceLinks.itemsList | length > 1 %}
+                                    {% set breakpoint = 'm' %}
+                                    {% set controlVisibility = true %}
+                                {% else %}
+                                    {% set controlVisibility = false %}
+                                {% endif %}
+                                <div
+                                    class="ons-grid__col ons-col-auto{% if controlVisibility == true %}{{ ' ' }}ons-u-d-no@2xs@{{ breakpoint }}{% endif %}"
+                                >
+                                    <nav
+                                        class="ons-header-service-nav ons-header-service-nav--main{{ ' ' + params.serviceLinks.classes if params.serviceLinks.classes else '' }}"
+                                        aria-label="{{ params.serviceLinks.ariaLabel | default('Service links navigation') }}"
+                                    >
+                                        <ul class="ons-header-service-nav__list">
+                                            {% for item in params.serviceLinks.itemsList %}
+                                                <li class="ons-header-service-nav__item">
+                                                    {% if item.iconType %}
+                                                        {{-
+                                                            onsIcon({
+                                                                "iconType": item.iconType
+                                                            })
+                                                        -}}
+                                                    {% endif %}
+                                                    {% if item.url %}
+                                                        <a
+                                                            href="{{ item.url }}"
+                                                            class="ons-header-service-nav__link"
+                                                            {% if item.id %}id="{{ item.id }}"{% endif %}
+                                                            >{% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}</a
+                                                        >
+                                                    {% else %}
+                                                        {% if item.title %}{{ item.title }}{% elif item.text %}{{ item.text }}{% endif %}
+                                                    {% endif %}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </nav>
+                                </div>
+                                {% if params.serviceLinks.itemsList | length > 1 or params.language %}
+                                    {% if params.variants == 'internal' %}
+                                        {% set buttonVariant = ["mobile", "text-link", "text-link-inverse"] %}
+                                    {% elif params.variants == 'neutral' %}
+                                        {% set buttonVariant = ["mobile", "neutral"] %}
+                                    {% else %}
+                                        {% set buttonVariant = ["mobile", "text-link"] %}
+                                    {% endif %}
+                                    <div class="ons-grid__col ons-col-auto ons-u-d-no@{{ breakpoint }}">
+                                        {{
+                                            onsButton({
+                                                "text": params.serviceLinks.toggleServicesButton.text | default("Account"),
+                                                "classes": "ons-u-d-no ons-js-toggle-services",
+                                                "type": "button",
+                                                "variants": buttonVariant,
+                                                "attributes": {
+                                                    "aria-label": params.serviceLinks.toggleServicesButton.ariaLabel | default("Toggle menu"),
+                                                    "aria-controls": params.serviceLinks.id,
+                                                    "aria-expanded": "false"
+                                                }
+                                            })
+                                        }}
+                                    </div>
+                                {% endif %}
                             {% endif %}
                         </div>
                     {% endif %}
