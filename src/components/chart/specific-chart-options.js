@@ -15,17 +15,28 @@ class SpecificChartOptions {
             },
             yAxis: {
                 tickInterval: yAxisTickInterval,
+                // Configure the minimum and maximum value shown on the y-axis.
+                // If not set in the config, it is set to undefined which is Highcharts default value.
                 min: this.config.yAxis?.min ?? undefined,
+                max: this.config.yAxis?.max ?? undefined,
+
+                // Controls whether the axis starts and/or ends exactly on a tick mark.
+                // Defaults to `true` if not specified.
                 startOnTick: this.config.yAxis?.startOnTick ?? true,
                 endOnTick: this.config.yAxis?.endOnTick ?? true,
-                max: this.config.yAxis?.max ?? undefined,
             },
+
             xAxis: {
                 tickInterval: xAxisTickInterval,
+                // Configure the minimum and maximum value shown on the x-axis.
+                // If not set in the config, it is set to undefined which is Highcharts default value.
                 min: this.config.xAxis?.min ?? undefined,
+                max: this.config.xAxis?.max ?? undefined,
+
+                // Controls whether the axis starts and/or ends exactly on a tick mark.
+                // Defaults to `false` if not specified.
                 startOnTick: this.config.xAxis?.startOnTick ?? false,
                 endOnTick: this.config.xAxis?.endOnTick ?? false,
-                max: this.config.xAxis?.max ?? undefined,
             },
         };
     }
