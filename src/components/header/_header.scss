@@ -319,6 +319,7 @@
             left: 50%;
             width: 100vw;
             transform: translateX(-50%);
+            border-top: 0;
         }
         &__input {
             border-bottom: 1px solid var(--ons-color-ocean-blue);
@@ -326,16 +327,6 @@
             @extend .ons-u-pb-2xl;
 
             row-gap: 1rem;
-        }
-
-        // updates styles when js is enabled
-        .ons-js-enabled & {
-            border-top: 0;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            width: 100vw;
-            transform: translateX(-50%);
         }
     }
 
