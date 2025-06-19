@@ -7,6 +7,8 @@
     {% set firstPage = params.pages | first %}
     {% set prevPageIndex = currentPageIndex - 1 %}
     {% set nextPageIndex = currentPageIndex + 1 %}
+    {% set prevPageAriaLabel = (params.previousAriaLabel or 'Go to the previous page (Page ') + (currentPageIndex - 1) + ')' %}
+    {% set nextPageAriaLabel = (params.nextAriaLabel or 'Go to the next page (Page ') + (currentPageIndex + 1) + ')' %}
 
     <nav
         class="ons-pagination{{ ' ' + params.classes if params.classes else '' }}{{ ' ons-pagination--no-indicator' if params.hideRangeIndicator }}"
@@ -21,7 +23,7 @@
                         href="{{ params.pages[prevPageIndex].url }}"
                         class="ons-pagination__link ons-pagination__link--no-underline"
                         rel="prev"
-                        aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})"
+                        aria-label="{{ prevPageAriaLabel }}"
                     >
                         {{-
                             onsIcon({
@@ -87,7 +89,7 @@
                         href="{{ params.pages[currentPageIndex].url }}"
                         class="ons-pagination__link ons-pagination__link--no-underline"
                         rel="next"
-                        aria-label="Go to the next page (Page {{ currentPageIndex + 1 }})"
+                        aria-label="{{ nextPageAriaLabel }}"
                     >
                         <span class="ons-pagination__link-text">{{ params.next | default("Next") }}</span>
                         {{-

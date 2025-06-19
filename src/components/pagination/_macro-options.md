@@ -1,11 +1,14 @@
-| Name               | Type          | Required | Description                                                        |
-| ------------------ | ------------- | -------- | ------------------------------------------------------------------ |
-| pages              | `Array<Page>` | true     | Settings for each [page](#page)                                    |
-| currentPageNumber  | integer       | true     | Sets the current page number                                       |
-| previous           | string        | false    | Text label for the “Previous” link. Default is "Previous".         |
-| next               | string        | false    | Text label for the “Next” link. Default is "Next".                 |
-| classes            | string        | false    | Classes to add to the pagination HTML `nav` element                |
-| hideRangeIndicator | boolean       | false    | Set to “true” to hide the range indicator on viewports &geq; 740px |
+| Name                                    | Type          | Required | Description                                                                                                       |
+| --------------------------------------- | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| pages                                   | `Array<Page>` | true     | Settings for each [page](#page)                                                                                   |
+| currentPageNumber                       | integer       | true     | Sets the current page number                                                                                      |
+| previous                                | string        | false    | Text label for the “Previous” link. Default is "Previous".                                                        |
+| previousAriaLabel                       | string        | false    | Optional aria label text for 'Previous' button, comes before page number. Defaults to "Go to previous page (Page" |
+| “Previous” link. Default is "Previous". |
+| next                                    | string        | false    | Text label for the “Next” link. Default is "Next".                                                                |
+| nextAriaLabel                           | string        | false    | Optional aria label text for 'Next' button, comes before page number. Defaults to "Go to next page (Page"         |
+| classes                                 | string        | false    | Classes to add to the pagination HTML `nav` element                                                               |
+| hideRangeIndicator                      | boolean       | false    | Set to “true” to hide the range indicator on viewports &geq; 740px                                                |
 
 ## Page
 
