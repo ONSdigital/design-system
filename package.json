@@ -134,6 +134,7 @@
         "access": "public"
     },
     "dependencies": {
-        "highcharts": "^12.1.2"
+        "highcharts": "^12.1.2",
+        "pym.js": "^1.3.2"
     }
 }
