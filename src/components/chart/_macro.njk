@@ -56,7 +56,7 @@
             {% endif %}
             {% if params.iframeURL %}
                 <div data-chart-iframe id="{{ params.id }}" data-url="{{ params.iframeURL }}" data-title="{{ params.title }}">
-                    <iframe src="{{ params.iframeURL }}" title="{{ params.title }}" width="100%"> </iframe>
+                    <iframe src="{{ params.iframeURL }}" title="{{ params.title }}" class="ons-chart__iframe"> </iframe>
                 </div>
             {% else %}
                 {% if params.chartType == 'boxplot' and (params.estimateLineLabel or params.uncertaintyRangeLabel) and params.legend == true %}
@@ -85,9 +85,9 @@
                 Footnotes for the annotations at mobile
                 Hidden from screen readers because the full text will be read out where they appear in the chart
             #}
-            {% if params.annotations or params.rangeAnnotations or params.referenceLineAnnotations and not params.iframeURL %}
+            {% if (params.annotations or params.rangeAnnotations or params.referenceLineAnnotations) and not params.iframeURL %}
                 {# todo: change classname as we will have a separate footnotes section in the future #}
-                <ul class="ons-chart__footnotes" aria-hidden="true">
+                <ul class="ons-chart__footnotes" aria-hidden="true" data-annotations-footnotes>
                     {% for annotation in params.annotations %}
                         <li class="ons-chart__footnote_item">
                             <span class="ons-chart__footnote-number">{{ loop.index }}</span>
@@ -125,7 +125,7 @@
                 })
             }}
         {% endif %}
-        {% if params.chartType in supportedChartTypes or params.iframeURL %}
+        {% if (params.chartType in supportedChartTypes) and not params.iframeURL %}
             {% set series = [] %}
             {% set lineSeriesCount = 0 %}
             {% for item in params.series %}

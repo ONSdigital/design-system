@@ -107,6 +107,15 @@
             font-size: inherit;
         }
     }
+
+    &__iframe {
+        width: 100%;
+
+        @media (scripting: none) {
+            // Approximately matches the aspect ratio of the fallback image inside the iframe
+            aspect-ratio: 16 / 9;
+        }
+    }
 }
 
 // This is a workaround to position the axis title to the left
