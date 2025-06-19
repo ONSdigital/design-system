@@ -316,6 +316,10 @@
         }
     }
 
+    &__menu-links ~ &__links {
+        padding-bottom: 0.25rem;
+    }
+
     &-nav-search {
         @extend .ons-u-pt-2xl;
         @extend .ons-u-pb-2xl;
