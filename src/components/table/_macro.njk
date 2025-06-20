@@ -85,6 +85,7 @@
                             {% if td.colspan %}colspan="{{ td.colspan }}"{% endif %}
                             {% if td.rowspan %}rowspan="{{ td.rowspan }}"{% endif %}
                             {% if td.dataSort %}{{ ' ' }}data-sort-value="{{ td.dataSort }}"{% endif %}
+                            {% if td.heading %}scope="row"{% endif %}
                             >
                             {% if td.form %}
                                 <form action="{{ td.form.action }}" method="{{ td.form.method | default('POST') }}">

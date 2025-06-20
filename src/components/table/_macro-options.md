@@ -14,12 +14,6 @@
 | tfoot        | Array`<tfoot>`  | false                                 | An array of `td` elements for a `tfoot` [footer element](#tfoot)                                                                                                                                         |
 | thList       | Array`<ths>`    | true (unless "ths" is set)            | An array of `ths` [multiple header cell elements](#ths) for table                                                                                                                                        |
 
-## ths
-
-| Name | Type        | Required                      | Description                                            |
-| ---- | ----------- | ----------------------------- | ------------------------------------------------------ |
-| ths  | Array`<th>` | true (unless "thList" is set) | An array of `th` [header cell elements](#th) for table |
-
 ## th
 
 | Name            | Type    | Required | Description                                                                                                                                                  |
@@ -30,7 +24,7 @@
 | numeric         | boolean | false    | Set to “true” if all the cells in the column contain numbers. This aligns the content to the right so numbers can easily be compared.                        |
 | widthPercentage | integer | false    | Sets the `width` attribute for the `th` element                                                                                                              |
 | rowspan         | integer | false    | Set the `rowspan` to merge multiple row `th` elements                                                                                                        |
-| colspan        | integer | false    | Set the `colspan` to merge multiple column `th` elements                                                                                                     |
+| colspan         | integer | false    | Set the `colspan` to merge multiple column `th` elements                                                                                                     |
 
 ## tr
 
@@ -52,7 +46,7 @@
 | numeric   | boolean        | false                                      | Set to “true” if all the cells in the column contain numbers. This aligns the content to the right so numbers can easily be compared. |
 | form      | object`<form>` | false                                      | Settings for a [form](#form) within the `td` cell                                                                                     |
 | rowspan   | integer        | false                                      | Set the `rowspan` to merge mulitple row `th` elements.                                                                                |
-| colspan  | integer        | false                                      | Set the `colspan` to merge multiple column `th` elements.                                                                             |
+| colspan   | integer        | false                                      | Set the `colspan` to merge multiple column `th` elements.                                                                             |
 | heading   | boolean        | false                                      | Set `heading` to change `td` to `th` element.                                                                                         |
 
 ## form
