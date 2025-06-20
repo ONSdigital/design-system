@@ -1,0 +1,139 @@
+{% from "components/table/_macro.njk" import onsTable %}
+{{
+    onsTable({
+        "caption": "Table with cells merged, multiple row headers and column headers",
+        "id": "basic-table",
+        "ths": [
+            {
+                "value": "Trade Category"
+            },
+            {
+                "value": "Metrics"
+            },
+            {
+                "value": "Exports"
+            },
+            {
+                "value": "Imports"
+            },
+            {
+                "value": "Balance"
+            }
+
+        ],
+        "trs": [
+            {
+                "tds": [
+                    {
+                        "heading": true,
+                        "value": "Total trade in goods: December 2024 vs November 2024",
+                        "rowspan":3
+                    },
+                    {
+                        "heading": true,
+                        "value": "Value (£bn)"
+                    },
+                    {
+                        "value": "28.8"
+                    },
+                    {
+                        "value": "45.7"
+                    },
+                    {
+                        "value": "-16.9"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "heading": true,
+                        "value": "Change (£bn)"
+                    },
+                    {
+                        "value": "0.0"
+                    },
+                    {
+                        "value": "-1.2"
+                    },
+                    {
+                        "value": "1.2"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "heading": true,
+                        "value": "%Change"
+                    },
+                    {
+                        "value": "0.0"
+                    },
+                    {
+                        "value": "2.6"
+                    },
+                    {
+                        "value": ""
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "heading": true,
+                        "value": "EU: December 2024 vs November 2024",
+                        "rowspan": 3
+                    },
+                    {
+                        "value": "Value (£bn)",
+                        "heading": true
+                    },
+                    {
+                        "value": "13.6"
+                    },
+                    {
+                        "value": "24.9"
+                    },
+                    {
+                        "value": "-11.3"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                   {
+                        "value": "Change (£bn)",
+                        "heading": true
+                    },
+                    {
+                        "value": "-0.5"
+                    },
+                    {
+                        "value": "-0.8"
+                    },
+                    {
+                        "value": "0.3"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                   {
+                        "heading": true,
+                        "value": "%Change"
+                    },
+                    {
+                        "value": "3.5"
+                    },
+                    {
+                        "value": "-1.8"
+                    },
+                    {
+                        "value": ""
+                    }
+                ]
+            }
+        ]
+    })
+}}

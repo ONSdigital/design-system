@@ -95,6 +95,36 @@ describe('macro: table', () => {
 
             expect($('.ons-table__header').attr('width')).toBe('50%');
         });
+        it('adds additional colspan attribute to column header', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    ths: [
+                        {
+                            value: 'Column 1',
+                            colspan: 2,
+                        },
+                    ],
+                }),
+            );
+
+            expect($('.ons-table__header').attr('colspan')).toBe('2');
+        });
+        it('adds additional rowspan attribute to column header', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    ths: [
+                        {
+                            value: 'Column 1',
+                            rowspan: 2,
+                        },
+                    ],
+                }),
+            );
+
+            expect($('.ons-table__header').attr('rowspan')).toBe('2');
+        });
 
         it('does not add "numeric" modifier class to column header when `td.numeric` is not provided', () => {
             const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
@@ -132,6 +162,28 @@ describe('macro: table', () => {
             faker.renderComponent('table', EXAMPLE_TABLE);
 
             expect(iconsSpy.occurrences.length).toBe(0);
+        });
+    });
+
+    describe('Multiple Header Rows', () => {
+        it('renders expected header row cells', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    thList: [
+                        {
+                            ths: [{ value: 'Column 1' }, { value: 'Column 2' }],
+                        },
+                        {
+                            ths: [{ value: 'Column A' }, { value: 'Column B' }],
+                        },
+                    ],
+                }),
+            );
+            const row1Values = mapAll($('.ons-table__row:nth-child(1) .ons-table__header'), (node) => node.text().trim());
+            expect(row1Values).toEqual(['Column 1', 'Column 2']);
+            const row2Values = mapAll($('.ons-table__row:nth-child(2) .ons-table__header'), (node) => node.text().trim());
+            expect(row2Values).toEqual(['Column A', 'Column B']);
         });
     });
 
@@ -290,6 +342,44 @@ describe('macro: table', () => {
             );
 
             expect($('.ons-table__cell').hasClass('ons-table__cell--numeric')).toBe(true);
+        });
+        it('adds additional colspan attribute to row header', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    trs: [
+                        {
+                            tds: [
+                                {
+                                    value: 'Column 1',
+                                    colspan: 2,
+                                },
+                            ],
+                        },
+                    ],
+                }),
+            );
+
+            expect($('.ons-table__cell').attr('colspan')).toBe('2');
+        });
+        it('adds additional rowspan attribute to row header', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    trs: [
+                        {
+                            tds: [
+                                {
+                                    value: 'Column 1',
+                                    rowspan: 2,
+                                },
+                            ],
+                        },
+                    ],
+                }),
+            );
+
+            expect($('.ons-table__cell').attr('rowspan')).toBe('2');
         });
 
         describe('form', () => {
