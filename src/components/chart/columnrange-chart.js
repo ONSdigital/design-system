@@ -20,6 +20,9 @@ class ColumnRangeChart {
                     },
                 },
             },
+            tooltip: {
+                enabled: false,
+            },
             xAxis: {
                 // Update the category label colours for bar charts
                 labels: {
