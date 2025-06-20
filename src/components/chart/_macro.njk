@@ -2,14 +2,9 @@
 
 {% macro onsChart(params) %}
     {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
-    {% set supportedChartTypesWithLine = ['column', 'columnrange'] %}
+    {% set supportedChartTypesWithLine = ['column'] %}
     {% set supportedChartTypesWithScatter = ['columnrange'] %}
-
-    {% if params.headingLevel and params.headingLevel >= 1 and params.headingLevel <= 4 %}
-        {% set headingLevel = params.headingLevel %}
-    {% else %}
-        {% set headingLevel = 2 %}
-    {% endif %}
+    {% set headingLevel = params.headingLevel | default(2) %}
     {% set openingTitleTag = "<h" ~ headingLevel %}
     {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
     {% set openingSubtitleTag = "<h" ~  (headingLevel + 1) %}
@@ -53,8 +48,11 @@
     >
         <figure class="ons-chart">
             {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
-            {{ openingSubtitleTag | safe }}
-            class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+            {% if params.subtitle %}
+                {{ openingSubtitleTag | safe }}
+                class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+            {% endif %}
+
             {% if params.description %}
                 <p class="ons-u-vh">{{ params.description }}</p>
             {% endif %}
@@ -83,28 +81,31 @@
                 Footnotes for the annotations at mobile
                 Hidden from screen readers because the full text will be read out where they appear in the chart
             #}
-            <ul class="ons-chart__footnotes" aria-hidden="true">
-                {% for annotation in params.annotations %}
-                    <li class="ons-chart__footnote_item">
-                        <span class="ons-chart__footnote-number">{{ loop.index }}</span>
-                        {{ annotation.text }}
-                    </li>
-                {% endfor %}
-                {% for rangeAnnotation in params.rangeAnnotations %}
-                    <li class="ons-chart__footnote_item">
-                        <span class="ons-chart__footnote-number">{{ loop.index + params.annotations | length }}</span>
-                        {{ rangeAnnotation.text }}
-                    </li>
-                {% endfor %}
-                {% for referenceLineAnnotation in params.referenceLineAnnotations %}
-                    <li class="ons-chart__footnote_item">
-                        <span class="ons-chart__footnote-number"
-                            >{{ loop.index + params.annotations | length + params.rangeAnnotations | length }}</span
-                        >
-                        {{ referenceLineAnnotation.text }}
-                    </li>
-                {% endfor %}
-            </ul>
+            {% if params.annotations or params.rangeAnnotations or params.referenceLineAnnotations %}
+                <ul class="ons-chart__footnotes" aria-hidden="true">
+                    {% for annotation in params.annotations %}
+                        <li class="ons-chart__footnote_item">
+                            <span class="ons-chart__footnote-number">{{ loop.index }}</span>
+                            {{ annotation.text }}
+                        </li>
+                    {% endfor %}
+                    {% for rangeAnnotation in params.rangeAnnotations %}
+                        <li class="ons-chart__footnote_item">
+                            <span class="ons-chart__footnote-number">{{ loop.index + params.annotations | length }}</span>
+                            {{ rangeAnnotation.text }}
+                        </li>
+                    {% endfor %}
+                    {% for referenceLineAnnotation in params.referenceLineAnnotations %}
+                        <li class="ons-chart__footnote_item">
+                            <span class="ons-chart__footnote-number"
+                                >{{ loop.index + params.annotations | length + params.rangeAnnotations | length }}</span
+                            >
+                            {{ referenceLineAnnotation.text }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
             {% if params.caption %}
                 <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
             {% endif %}
@@ -132,7 +133,7 @@
                         "name": item.name if item.name else '',
                         "data": item.data if item.data else [],
                         "marker": {
-                            "enabled": item.marker if item.marker else false
+                            "enabled": true if (item.type == 'scatter' or params.chartType == 'scatter' or item.marker == true) else false
                         },
                         "dataLabels": {
                             "enabled": item.dataLabels if item.dataLabels else false
@@ -160,8 +161,7 @@
         {%
             set config = {
                 "chart": {
-                    "type": params.chartType,
-                    "inverted": params.isChartInverted if params.isChartInverted == true else false
+                    "type": params.chartType
                 },
                 "legend": {
                     "enabled" : legendValue
