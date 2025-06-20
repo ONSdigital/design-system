@@ -169,13 +169,13 @@
     }
 
     &__org-logo--large {
-        @include mq('2xs', 460px) {
+        @include mq('2xs', 590px) {
             display: none;
         }
     }
 
     &__org-logo--small {
-        @include mq(461px) {
+        @include mq(591px) {
             display: none;
         }
     }
