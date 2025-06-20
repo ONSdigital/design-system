@@ -11,7 +11,6 @@ const EXAMPLE_INPUT_WITH_CHARACTER_CHECK = {
         text: 'Filter',
     },
     charCheckLimit: {
-        charcheckCountdown: true,
         limit: 11,
         charCountOverLimitSingular: '{x} number too many',
         charCountOverLimitPlural: '{x} numbers too many',
@@ -59,7 +58,7 @@ const EXAMPLE_INPUT_WITH_WORD_CHECK = {
         text: 'Please provide some feedback',
         description: 'For example describe any difficulties you experienced in the use of this service',
     },
-    wordLimit: {
+    wordCheckLimit: {
         limit: 5,
         wordCountSingular: 'You have {x} word remaining',
         wordCountPlural: 'You have {x} words remaining',

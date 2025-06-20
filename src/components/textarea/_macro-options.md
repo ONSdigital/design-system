@@ -18,7 +18,7 @@
 | dontWrap              | boolean                                                       | false                                  | Set to “true” to prevent the textarea from being wrapped in a [field component](/components/field)                                                                |
 | legendIsQuestionTitle | boolean                                                       | false                                  | Creates an `h1` inside the legend. Use when the mutually exclusive textarea is [the only fieldset on the page](/components/fieldset#legend-as-pagequestion-title) |
 | error                 | `Error` [_(ref)_](/components/error)                          | false                                  | Settings for validation errors                                                                                                                                    |
-| wordLimit             | Object`<wordLimit>`                                           | false                                  | Settings for the textarea [word limit counter](#wordlimit)                                                                                                        |
+| wordCheckLimit        | Object`<WordCheckLimit>`                                      | false                                  | Settings for the textarea [word limit counter](#wordlimit) (Cannot be used if charCheckLimit is already set)                                                      |
 
 ## CharCheckLimit
 
@@ -40,7 +40,7 @@
 | description | string | false    | Hint text to help users fill in the input               |
 | classes     | string | false    | Classes to add to the label                             |
 
-## WordLimit
+## WordCheckLimit
 
 | Name                       | Type    | Required                       | Description                                                                                                                                                                              |
 | -------------------------- | ------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

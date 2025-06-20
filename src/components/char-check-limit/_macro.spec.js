@@ -32,29 +32,23 @@ describe('FOR: Macro: CharCheckLimit', () => {
             test('THEN: has the data attribute which defines charCountOverLimitPlural', () => {
                 expect($('.ons-input__limit').attr('data-message-over-limit-plural')).toBe('{x} characters too many');
             });
+            test('THEN: sets char as the count type to count number of characters', () => {
+                expect($('.ons-input__limit').attr('data-count-type')).toBe('char');
+            });
         });
     });
 
     describe('GIVEN: Params: variant', () => {
-        describe('WHEN: variant is set to check', () => {
-            const $ = cheerio.load(
-                renderComponent(
-                    'char-check-limit',
-                    {
-                        ...EXAMPLE_CHAR_CHECK_LIMIT,
-                        variant: 'check',
-                    },
-                    ['<p>Test content.</p>'],
-                ),
-            );
+        describe('WHEN: variant is set to word', () => {
+            const $ = cheerio.load(renderComponent('char-check-limit', EXAMPLE_WORD_LIMIT));
 
             test('THEN: passes jest-axe checks', async () => {
                 const results = await axe($.html());
                 expect(results).toHaveNoViolations();
             });
 
-            test('THEN: renders the passed content', () => {
-                expect($('.ons-js-char-check-input').text()).toBe('Test content.');
+            test('THEN: sets word as the count type to count number of words', () => {
+                expect($('.ons-input__limit').attr('data-count-type')).toBe('word');
             });
         });
     });
