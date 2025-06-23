@@ -193,6 +193,21 @@ describe('Macro: Chart', () => {
             });
         });
 
+        describe('GIVEN: Params: Fallback Image URL', () => {
+            describe('WHEN: fallback image URL is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
+                        fallbackImageURL: '/img/small/line-chart-screenshot.png',
+                    }),
+                );
+                const noScript = $(`noscript[data-fallback-image]`).html();
+                test('THEN: it renders the fallback image URL', () => {
+                    expect(noScript).toContain('/img/small/line-chart-screenshot.png');
+                });
+            });
+        });
+
         describe('GIVEN: Params: Caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(

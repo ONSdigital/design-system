@@ -82,7 +82,7 @@
                 {% endif %}
             {% endif %}
             {% if params.fallbackImageURL %}
-                <noscript>
+                <noscript data-fallback-image>
                     {# alt text is empty as the description is provided above #}
                     <img src="{{ params.fallbackImageURL }}" alt="" class="ons-chart__fallback-image" />
                 </noscript>
