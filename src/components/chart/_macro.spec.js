@@ -20,6 +20,7 @@ import {
     EXAMPLE_BOXPLOT_CHART_PARAMS,
     EXAMPLE_COLUMN_RANGE_CHART_PARAMS,
     EXAMPLE_INVALID_CHART_PARAMS,
+    EXAMPLE_INVALID_CHART_WITH_UNSUPPORTED_TEXT_PARAMS,
     EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS,
     EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS,
     EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS,
@@ -203,6 +204,29 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it renders the caption when provided', () => {
                     expect($('figcaption').text()).toBe('This is an example caption for the chart.');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: unsupportedChartText', () => {
+            describe('WHEN: unsupportedChartText is provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_INVALID_CHART_WITH_UNSUPPORTED_TEXT_PARAMS));
+
+                test('THEN: it renders the unsupported chart text in the correct element', () => {
+                    const invalid = $('[data-invalid-chart-type]');
+                    expect(invalid.length).toBe(1);
+                    expect(invalid.text().trim()).toContain('chart type is not supported, please check the documentation');
+                });
+            });
+
+            describe('WHEN: unsupportedChartText is not provided', () => {
+                const params = { ...EXAMPLE_INVALID_CHART_WITH_UNSUPPORTED_TEXT_PARAMS };
+                const $ = cheerio.load(renderComponent('chart', params));
+
+                test('THEN: it renders the default unsupported chart text', () => {
+                    const invalid = $('[data-invalid-chart-type]');
+                    expect(invalid.length).toBe(1);
+                    expect(invalid.text().trim()).toBe('chart type is not supported');
                 });
             });
         });
@@ -1146,7 +1170,7 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the error message', () => {
-                    expect($('[data-invalid-chart-type]').text()).toBe('Chart type "invalid" is not supported');
+                    expect($('[data-invalid-chart-type]').text().trim()).toBe('"invalid" chart type is not supported');
                 });
 
                 test('THEN: it does not include the Highcharts JSON config', () => {
