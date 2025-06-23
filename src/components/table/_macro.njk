@@ -52,13 +52,13 @@
                             >
                                 <span class="ons-table__header-text">{{ th.value | safe }}</span>
                                 {% if 'sortable' in variants %}
-                                    {{
+                                    {{-
                                         onsIcon({
-                                        "iconType": "sort-sprite",
-                                        "id": th.value | replace(' ', '-'),
-                                        "classes": 'ons-u-d-no'
+                                            "iconType": "sort-sprite",
+                                            "id": th.value | replace(' ', '-'),
+                                            "classes": 'ons-u-d-no'
                                         })
-                                    }}
+                                    -}}
                                 {% endif %}
                             </th>
                         {% endfor %}
