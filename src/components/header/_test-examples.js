@@ -1,5 +1,6 @@
 export const EXAMPLE_HEADER_BASIC = {
     title: 'Header title',
+    mastheadLogoAltText: 'Custom alt text for logo',
 };
 
 export const EXAMPLE_SERVICE_LINKS_CONFIG = {
@@ -155,7 +156,10 @@ export const EXAMPLE_HEADER_SEARCH_LINKS = {
     searchLinks: {
         id: 'search-links-id',
         searchNavigationAriaLabel: 'Header Search',
-        searchButtonAriaLabel: 'Example aria label',
+        searchNavigationButtonAriaLabel: 'Custom search nav button aria label',
+        searchNavigationInputLabel: 'Custom search input label',
+        searchNavigationButtonText: 'Custom search button text',
+        searchButtonAriaLabel: 'Custom search button aria label',
         classes: 'custom-class',
         heading: 'Header Search',
         itemsList: [
