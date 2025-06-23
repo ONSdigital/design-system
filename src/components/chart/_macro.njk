@@ -81,6 +81,12 @@
                     <p data-invalid-chart-type><b>Chart type "{{ params.chartType }}" is not supported</b></p>
                 {% endif %}
             {% endif %}
+            {% if params.fallbackImageURL %}
+                <noscript>
+                    {# alt text is empty as the description is provided above #}
+                    <img src="{{ params.fallbackImageURL }}" alt="" class="ons-chart__fallback-image" />
+                </noscript>
+            {% endif %}
             {#
                 Footnotes for the annotations at mobile
                 Hidden from screen readers because the full text will be read out where they appear in the chart
