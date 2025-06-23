@@ -20,8 +20,8 @@ class SpecificChartOptions {
                 min: this.config.yAxis?.min ?? undefined,
                 max: this.config.yAxis?.max ?? undefined,
 
-                // Controls whether the axis starts and/or ends exactly on a tick mark.
-                // Defaults to `true` if not specified.
+                // Controls whether the y-axis starts and/or ends exactly on a tick mark.
+                // Highcharts defaults to `true` for both startOnTick and endOnTick on y-axes.
                 startOnTick: this.config.yAxis?.startOnTick ?? true,
                 endOnTick: this.config.yAxis?.endOnTick ?? true,
             },
@@ -33,8 +33,8 @@ class SpecificChartOptions {
                 min: this.config.xAxis?.min ?? undefined,
                 max: this.config.xAxis?.max ?? undefined,
 
-                // Controls whether the axis starts and/or ends exactly on a tick mark.
-                // Defaults to `false` if not specified.
+                // Controls whether the x-axis starts and/or ends exactly on a tick mark.
+                // Highcharts defaults to `false` for both startOnTick and endOnTick on x-axes.
                 startOnTick: this.config.xAxis?.startOnTick ?? false,
                 endOnTick: this.config.xAxis?.endOnTick ?? false,
             },
