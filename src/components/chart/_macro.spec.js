@@ -202,7 +202,7 @@ describe('Macro: Chart', () => {
                     }),
                 );
                 const noScript = $(`noscript[data-fallback-image]`).html();
-                test('THEN: it renders the fallback image URL', () => {
+                test('THEN: it renders the fallback image', () => {
                     expect(noScript).toContain('/img/small/line-chart-screenshot.png');
                 });
             });
@@ -1479,6 +1479,19 @@ describe('Macro: Chart', () => {
                     );
 
                     expect($('[data-invalid-chart-type]').length).toBe(0);
+                });
+            });
+
+            describe('GIVEN: Params: Fallback Image URL with an iframe chart', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        fallbackImageURL: '/img/small/line-chart-screenshot.png',
+                    }),
+                );
+                const noScript = $(`noscript[data-fallback-image]`);
+                test('THEN: it does  not render the fallback image', () => {
+                    expect(noScript.length).toBe(0);
                 });
             });
         });
