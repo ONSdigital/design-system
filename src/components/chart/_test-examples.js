@@ -189,7 +189,7 @@ export const EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS = {
     subtitle: 'A sample subtitle',
     id: 'column-chart-123',
     xAxis: { title: 'X Axis Title', categories: ['Jan', 'Feb', 'Mar'] },
-    yAxis: { title: 'Y Axis Title' },
+    yAxis: { title: 'Y Axis Title', customReferenceLineValue: 10 },
     series: [
         { name: 'Series 1', data: [10, 20, 30] },
         { name: 'Series 2', data: [15, 25, 35], type: 'line' },

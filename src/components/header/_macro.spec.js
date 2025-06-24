@@ -857,7 +857,7 @@ describe('FOR: Macro: Header', () => {
             const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
 
             test('THEN: it renders heading with provided text', () => {
-                expect($('.ons-header-nav-search__heading').text()).toBe('Header Search');
+                expect($('.ons-header-nav-search__heading').text().trim()).toBe('Header Search');
             });
         });
 

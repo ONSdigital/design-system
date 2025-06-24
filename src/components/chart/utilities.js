@@ -39,8 +39,9 @@ export const preparePlotLinesAndBands = (
     rangeAnnotations = undefined,
     rangeAnnotationsOptions = undefined,
     referenceLineAnnotationsOptions = undefined,
-    commonChartOptions,
+    specificChartOptions,
     chartType,
+    customReferenceLineValue,
 ) => {
     const totalPointAndRangeAnnotations = (annotations ? annotations.length : 0) + (rangeAnnotations ? rangeAnnotations.length : 0);
 
@@ -69,20 +70,20 @@ export const preparePlotLinesAndBands = (
         );
     }
 
-    // We also need to combine the zero line (and any future plot lines) with the reference line annotations here, as otherwise
+    // We also need to combine the zero line / custom reference line with the reference line annotations here, as otherwise
     // it gets overridden by the reference line annotations config
-    let plotLineOptions = commonChartOptions.getPlotLines();
+    let plotLineOptions = specificChartOptions.getReferenceLine(customReferenceLineValue, chartType);
+    desktopAllPlotLines = { ...desktopReferenceLineAnnotations };
+    mobileAllPlotLines = { ...mobileReferenceLineAnnotations };
 
     if (desktopReferenceLineAnnotations.yAxis !== undefined) {
         let desktopMergedPlotLines = desktopReferenceLineAnnotations.yAxis.plotLines.concat(plotLineOptions.yAxis.plotLines);
         let mobileMergedPlotLines = mobileReferenceLineAnnotations.yAxis.plotLines.concat(plotLineOptions.yAxis.plotLines);
-        desktopAllPlotLines = { ...desktopReferenceLineAnnotations };
-        mobileAllPlotLines = { ...mobileReferenceLineAnnotations };
         desktopAllPlotLines.yAxis.plotLines = desktopMergedPlotLines;
         mobileAllPlotLines.yAxis.plotLines = mobileMergedPlotLines;
     } else {
-        desktopAllPlotLines = { ...plotLineOptions };
-        mobileAllPlotLines = { ...plotLineOptions };
+        desktopAllPlotLines.yAxis = { ...plotLineOptions.yAxis };
+        mobileAllPlotLines.yAxis = { ...plotLineOptions.yAxis };
     }
 
     // combine the desktop and mobile range and reference line annotations, along with other plot lines, ready to pass to the config

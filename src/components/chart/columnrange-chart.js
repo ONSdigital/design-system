@@ -20,6 +20,9 @@ class ColumnRangeChart {
                     },
                 },
             },
+            tooltip: {
+                enabled: false,
+            },
             xAxis: {
                 // Update the category label colours for bar charts
                 labels: {
@@ -56,6 +59,9 @@ class ColumnRangeChart {
                     reserveSpace: true,
                     useHTML: false,
                 },
+            },
+            chart: {
+                inverted: true, // Invert the chart to make it horizontal
             },
             legend: {
                 symbolRadius: 0,
