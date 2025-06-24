@@ -339,6 +339,111 @@ describe('macro: pagination', () => {
             assertIsNextPage($('.ons-pagination__item:nth-child(7)'), '/page/11', 'Go to the next page (Page 11)', 'Next page');
         });
     });
+
+    describe('custom previousAriaLabel and nextAriaLabel', () => {
+        const customPreviousAriaLabel = 'Go back to page';
+        const customNextAriaLabel = 'Continue to page';
+        const $ = cheerio.load(
+            renderComponent('pagination', {
+                currentPageNumber: 2,
+                pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }],
+                previous: 'Previous',
+                next: 'Next',
+                previousAriaLabel: customPreviousAriaLabel,
+                nextAriaLabel: customNextAriaLabel,
+            }),
+        );
+
+        it('renders the custom previousAriaLabel and page number on the Previous link', () => {
+            const prevItem = $('.ons-pagination__item--previous');
+            expect(prevItem.length).toBe(1);
+            expect(prevItem.find('a').attr('aria-label')).toBe('Go back to page 1');
+        });
+
+        it('renders the custom nextAriaLabel and page number on the Next link', () => {
+            const nextItem = $('.ons-pagination__item--next');
+            expect(nextItem.length).toBe(1);
+            expect(nextItem.find('a').attr('aria-label')).toBe('Continue to page 3');
+        });
+    });
+
+    describe('custom ariaLabel', () => {
+        it('renders a custom aria-label on the nav element', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 2,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }],
+                    ariaLabel: 'Custom pagination navigation',
+                }),
+            );
+            expect($('.ons-pagination').attr('aria-label')).toBe('Custom pagination navigation (Page 2 of 3)');
+        });
+    });
+
+    describe('custom firstAriaLabel', () => {
+        it('renders a custom aria-label on the first page link', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 3,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }, { url: '/page/4' }],
+                    firstAriaLabel: 'Go to the very first page',
+                }),
+            );
+            // First page link is the second item (after previous)
+            const firstPageLink = $('.ons-pagination__item a').filter(function () {
+                return $(this).text().trim() === '1';
+            });
+            expect(firstPageLink.attr('aria-label')).toBe('Go to the very first page');
+        });
+    });
+
+    describe('custom currentAriaLabel', () => {
+        it('renders a custom aria-label on the current page link', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 2,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }],
+                    currentAriaLabel: 'You are on page',
+                }),
+            );
+            const currentPageLink = $('.ons-pagination__item--current a');
+            expect(currentPageLink.attr('aria-label')).toBe('You are on page (Page 2 of 3)');
+        });
+    });
+
+    describe('custom lastAriaLabel', () => {
+        it('renders a custom aria-label on the last page link', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 2,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }, { url: '/page/4' }],
+                    lastAriaLabel: 'Go to the very last page',
+                }),
+            );
+            // Last page link is the one with text equal to the last page number
+            const lastPageLink = $('.ons-pagination__item a').filter(function () {
+                return $(this).text().trim() === '4';
+            });
+            expect(lastPageLink.attr('aria-label')).toBe('Go to the very last page (4)');
+        });
+    });
+
+    describe('custom goToAriaLabel', () => {
+        it('renders a custom aria-label on non-current, non-first/last page links', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 3,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }, { url: '/page/4' }, { url: '/page/5' }],
+                    goToAriaLabel: 'Jump to page',
+                }),
+            );
+            // Find a non-current, non-first/last page link (e.g., page 2)
+            const page2Link = $('.ons-pagination__item a').filter(function () {
+                return $(this).text().trim() === '2';
+            });
+            expect(page2Link.attr('aria-label')).toBe('Jump to page 2');
+        });
+    });
 });
 
 function assertIsCurrentPage(pageItem, url, label, text) {
