@@ -954,6 +954,24 @@ describe('Macro: Chart', () => {
                 });
             });
         });
+
+        describe('GIVEN: Params: Footnotes', () => {
+            describe('WHEN: footnotes are provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_AREA_CHART_PARAMS,
+                        footnotes: {
+                            title: 'Footnotes',
+                            content:
+                                '<ol><li>Non-store retailing refers to retailers that do not have a store presence. While the majority is made up of online retailers, it also includes other retailers, such as stalls and markets.</li><li>More data are available in our Retail Sales Index datasets.</li></ol>',
+                        },
+                    }),
+                );
+                test('THEN: it renders the footnotes', () => {
+                    expect($('[data-footnotes]').length).toBe(1);
+                });
+            });
+        });
     });
 
     describe('FOR: Boxplot Chart', () => {

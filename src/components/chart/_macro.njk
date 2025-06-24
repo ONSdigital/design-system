@@ -1,4 +1,5 @@
 {% from "components/list/_macro.njk" import onsList %}
+{% from "components/details/_macro.njk" import onsDetails %}
 
 {% macro onsChart(params) %}
     {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
@@ -125,6 +126,24 @@
                 })
             }}
         {% endif %}
+
+        {% if params.footnotes %}
+            {% set footnotesId = ["footnotes--", params.id] | join %}
+
+            {{
+                onsDetails({
+                    "id": footnotesId,
+                    "title": params.footnotes.title,
+                    "content": params.footnotes.content,
+                    "headingLevel": headingLevel + 2,
+                    "classes": "ons-u-mt-xl",
+                    "attributes": {
+                        "data-footnotes": footnotesId
+                    }
+                })
+            }}
+        {% endif %}
+
         {% if (params.chartType in supportedChartTypes) and not params.iframeURL %}
             {% set series = [] %}
             {% set lineSeriesCount = 0 %}
