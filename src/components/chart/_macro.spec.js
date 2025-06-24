@@ -215,7 +215,7 @@ describe('Macro: Chart', () => {
                 test('THEN: it renders the unsupported chart text in the correct element', () => {
                     const invalid = $('[data-invalid-chart-type]');
                     expect(invalid.length).toBe(1);
-                    expect(invalid.text().trim()).toContain('chart type is not supported, please check the documentation');
+                    expect(invalid.text().trim()).toContain('chart type is not supported');
                 });
             });
 
@@ -226,7 +226,7 @@ describe('Macro: Chart', () => {
                 test('THEN: it renders the default unsupported chart text', () => {
                     const invalid = $('[data-invalid-chart-type]');
                     expect(invalid.length).toBe(1);
-                    expect(invalid.text().trim()).toBe('chart type is not supported');
+                    expect(invalid.text().trim()).toBe('"invalid" chart type is not supported');
                 });
             });
         });

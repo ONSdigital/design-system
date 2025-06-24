@@ -23,7 +23,7 @@
                         href="{{ params.pages[prevPageIndex].url }}"
                         class="ons-pagination__link ons-pagination__link--no-underline"
                         rel="prev"
-                        aria-label="{{ prevPageAriaLabel }} {{ currentPageIndex - 1 }}"
+                        aria-label="{{ prevPageAriaLabel }} ({{ currentPageIndex - 1 }})"
                     >
                         {{-
                             onsIcon({
@@ -97,7 +97,7 @@
                         href="{{ params.pages[currentPageIndex].url }}"
                         class="ons-pagination__link ons-pagination__link--no-underline"
                         rel="next"
-                        aria-label="{{ prevPageAriaLabel }} {{ currentPageIndex + 1 }}"
+                        aria-label="{{ nextPageAriaLabel }} ({{ currentPageIndex + 1 }})"
                     >
                         <span class="ons-pagination__link-text">{{ params.next | default("Next") }}</span>
                         {{-
