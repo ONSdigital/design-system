@@ -12,24 +12,15 @@
         @extend .ons-u-fs-r--b;
     }
 
-    &__title {
-        font-size: 1.25rem;
-        line-height: 1.625rem;
-    }
-
-    &__subtitle {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
     &__caption {
-        font-size: 1rem;
-        line-height: 1.2rem;
         color: var(--ons-color-grey-75);
     }
 
     &__footnote-number {
-        display: flex;
+        // !important is necessary for some range annotation labels at mobile, otherwise
+        // the inline-styled block display takes precedence. This inline style is only
+        // applied in some cases - it seems to happen when the shaded area is narrower than the label width.
+        display: flex !important;
         flex-shrink: 0;
         flex-grow: 0;
         align-items: center;
@@ -76,6 +67,38 @@
         font-size: 0.875rem; // 14px
         color: var(--ons-color-grey-100);
     }
+
+    &__boxplot-legend {
+        display: flex;
+        gap: 2rem;
+        font-size: 0.875rem; // 14px
+        padding-left: 1rem;
+        align-items: center;
+
+        &-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        &-item {
+            &--uncertainty {
+                width: 12px;
+                height: 12px;
+                background-color: rgb(32 96 149 / 65%);
+            }
+
+            &--estimate {
+                width: 20px;
+                height: 3px;
+                background-color: #003c57;
+            }
+        }
+
+        &-label {
+            font-size: inherit;
+        }
+    }
 }
 
 // This is a workaround to position the axis title to the left
@@ -91,6 +114,43 @@
 // Enforce cursor as auto in the legend
 .highcharts-a11y-proxy-group-legend button {
     cursor: auto !important;
+}
+
+.ons-chart__range-annotation-label {
+    &--x {
+        padding: 0 1.25rem;
+    }
+
+    &--outside {
+        padding: 0;
+        overflow: visible !important;
+    }
+
+    &--right {
+        text-align: left !important;
+        padding-left: 0.3125rem;
+    }
+
+    &--left {
+        text-align: right !important;
+        padding-right: 0.3125rem;
+    }
+
+    &--top {
+        text-align: center !important;
+        padding-bottom: 0.3125rem;
+    }
+
+    &--bottom {
+        text-align: center !important;
+        padding-top: 0.3125rem;
+    }
+}
+
+.ons-chart__connector-line {
+    position: absolute;
+    border-top: 1px solid var(--ons-color-grey-100);
+    border-left: 1px solid var(--ons-color-grey-100);
 }
 
 // Allow last label to overflow

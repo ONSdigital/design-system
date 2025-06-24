@@ -192,7 +192,7 @@ describe('script: character-check', () => {
             });
 
             it('then aria-live attribute should removed', async () => {
-                const hasAriaLiveAttribute = await page.$eval('#feedback-lim', (element) => element.hasAttribute('aria-live'));
+                const hasAriaLiveAttribute = await page.$eval('#feedback-check', (element) => element.hasAttribute('aria-live'));
                 expect(hasAriaLiveAttribute).toBe(false);
             });
         });

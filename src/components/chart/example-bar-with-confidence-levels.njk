@@ -1,0 +1,66 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+
+{{
+    onsChart({
+        "chartType": "columnrange",
+        "description": "Volume sales, seasonally adjusted, Great Britain, January 2022 to January 2025",
+        "title": "Food stores showed a strong rise on the month, while non-food stores fell",
+        "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
+        "id": "uuid",
+        "caption": "Source: Monthly Business Survey, Retail Sales Inquiry from the Office for National Statistics",
+        "download": {
+            'title': 'Download Figure 1 data',
+            'itemsList': [
+                {
+                    "text": "Excel spreadsheet (XLSX format, 18KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Simple text file (CSV format, 25KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Image (PNG format, 25KB)",
+                    "url": "#"
+                }
+            ]
+        },
+        "legend": true,
+        "xAxis": {
+            "categories": [
+                'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+            ],
+            "type": "linear",
+            "title": "Categories"
+        },
+        "yAxis": {
+            "title": "Temperature ( °C )"
+        },
+        "series": [
+            {
+                "data": [
+                    [-9.5, 8.0],
+                    [-7.8, 8.3],
+                    [-13.1, 9.2],
+                    [-4.4, 15.7],
+                    [-1.0, 20.8],
+                    [3.1, 28.4],
+                    [5.9, 27.0],
+                    [4.6, 23.0],
+                    [4.9, 19.3],
+                    [-5.2, 11.6],
+                    [],
+                    [-10.5, 12.0],
+                    [-12.1, 18.5]
+                ],
+                "name": "Values"
+            },
+            {
+                "data": [1,2,3,4,5,6,7,8,9,10,3,11,12],
+                "name": "Another test data source",
+                "type": "scatter"
+            }
+        ]
+    })
+}}

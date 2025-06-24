@@ -69,6 +69,7 @@ const EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON = {
     ],
     relatedLinks: {
         title: 'Related publications',
+        ariaLabel: 'Related publications',
         itemsList: [
             {
                 url: '#0',
@@ -207,6 +208,12 @@ describe('macro: table-of-contents', () => {
             const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON));
 
             expect($('.ons-table-of-contents__related-links h2').text().trim()).toBe('Related publications');
+        });
+
+        it('renders related links section with correct aria-label', () => {
+            const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_RELATED_LINKS_BUTTON));
+
+            expect($('.ons-table-of-contents__related-links').attr('aria-label')).toBe('Related publications');
         });
 
         it('outputs `lists` component for related links with expected parameters', () => {
