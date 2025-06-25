@@ -58,14 +58,14 @@ async function getUrls() {
                 (path) =>
                     !path.includes('index.html') &&
                     !path.includes('example-skip-to-content.html') &&
-                    !skipUrls.some((skip) => path.includes(skip)), // doesn't add index.html, example-skip-to-content and examples mentioned in skipUrls
+                    !skipUrls.some((skip) => path.includes(skip)), // doesn't add index.html, example-skip-to-content and examples mentioned in skipUrls.
             );
-            const filesWithSkipUrls = files.filter((path) => skipURLs.some((skip) => path.includes(skip)));
+            const filesWithskipURls = files.filter((path) => skipUrls.some((skip) => path.includes(skip)));
             for (const file of filteredFiles) {
                 data.urls.push(file.replace('build/', 'http://localhost/'));
             }
-            //add the examples mentioned in skipURLs in a separate array
-            for (const file of filesWithSkipUrls) {
+            //add the examples mentioned in skipUrls in a seperate array
+            for (const file of filesWithskipURls) {
                 data.skipurls.push(file.replace('build/', 'http://localhost/'));
             }
         }
