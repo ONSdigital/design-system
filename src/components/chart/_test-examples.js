@@ -265,11 +265,6 @@ export const EXAMPLE_INVALID_CHART_PARAMS = {
     },
 };
 
-export const EXAMPLE_INVALID_CHART_WITH_UNSUPPORTED_TEXT_PARAMS = {
-    chartType: 'invalid',
-    unsupportedChartText: 'chart type is not supported',
-};
-
 export const EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS = {
     chartType: 'line',
     title: 'Example Line Chart with range annotations',
