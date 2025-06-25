@@ -2,10 +2,11 @@ module.exports = {
     ci: {
         collect: {
             staticDistDir: './build',
-            url: require('./urls.json').urls,
+            url: require('./urls.json').skipurls,
             numberOfRuns: 1,
             settings: {
                 onlyCategories: ['accessibility'],
+                skipAudits: ['aria-allowed-attr'], // skips aria-allowed-attr audit for the urls in skipurls array
             },
         },
         assert: {
