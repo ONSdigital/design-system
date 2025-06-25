@@ -269,6 +269,7 @@ class HighchartsBaseChart {
             }
             if (this.chartType === 'bar') {
                 this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
+                this.barChart.applyLastYAxisLabelOverflow(currentChart);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
                 } else {

@@ -38,6 +38,7 @@ class BarChart {
                 // Update the category label colours for bar charts
                 labels: {
                     style: {
+                        textOverflow: 'ellipsis',
                         color: this.constants.categoryLabelColor,
                     },
                     useHTML: false,
@@ -51,8 +52,8 @@ class BarChart {
             yAxis: {
                 labels: {
                     rotation: 0,
-                    useHTML: true,
                     style: {
+                        textOverflow: 'unset',
                         whiteSpace: 'nowrap',
                         color: this.constants.categoryLabelColor,
                     },
@@ -146,6 +147,27 @@ class BarChart {
             fontSize: this.constants.defaultFontSize,
         },
     });
+
+    applyLastYAxisLabelOverflow = (chart) => {
+        const yAxis = chart.yAxis[0];
+
+        // Only apply if labels use SVG, not HTML
+        if (!yAxis || yAxis.options.labels.useHTML) return;
+
+        const labelElements = yAxis.labelGroup?.element?.children;
+
+        if (labelElements && labelElements.length > 0) {
+            const lastLabel = labelElements[labelElements.length - 1];
+
+            Array.from(labelElements).forEach((label) => {
+                if (label === lastLabel && label.style) {
+                    label.style.setProperty('text-overflow', 'unset', 'important');
+                } else if (label.style) {
+                    label.style.setProperty('text-overflow', 'ellipsis');
+                }
+            });
+        }
+    };
 
     // This updates the height of the vertical axis and overall chart to fit the number of categories
     // Note that the vertical axis on a bar chart is the x axis
