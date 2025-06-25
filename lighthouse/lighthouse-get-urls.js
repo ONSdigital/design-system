@@ -60,7 +60,7 @@ async function getUrls() {
                     !path.includes('example-skip-to-content.html') &&
                     !skipURLs.some((skip) => path.includes(skip)), // doesn't add index.html, example-skip-to-content and examples mentioned in skipURLs.
             );
-            const filesWithskipURls = files.filter((path) => skipURLs.some((skip) => path.includes(skip)));
+            const filesWithSkipUrls = files.filter((path) => skipURLs.some((skip) => path.includes(skip)));
             for (const file of filteredFiles) {
                 data.urls.push(file.replace('build/', 'http://localhost/'));
             }
