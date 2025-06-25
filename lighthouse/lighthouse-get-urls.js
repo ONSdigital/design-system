@@ -65,7 +65,7 @@ async function getUrls() {
                 data.urls.push(file.replace('build/', 'http://localhost/'));
             }
             //add the examples mentioned in skipURLs in a seperate array
-            for (const file of filesWithskipURls) {
+            for (const file of filesWithSkipUrls) {
                 data.skipurls.push(file.replace('build/', 'http://localhost/'));
             }
         }
