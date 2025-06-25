@@ -198,7 +198,7 @@ describe('Macro: Chart', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
-                        fallbackImageURL: '/img/small/line-chart-screenshot.png',
+                        fallbackImageUrl: '/img/small/line-chart-screenshot.png',
                     }),
                 );
                 const noScript = $(`noscript[data-fallback-image]`).html();
@@ -1486,7 +1486,7 @@ describe('Macro: Chart', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_IFRAME_CHART_PARAMS,
-                        fallbackImageURL: '/img/small/line-chart-screenshot.png',
+                        fallbackImageUrl: '/img/small/line-chart-screenshot.png',
                     }),
                 );
                 const noScript = $(`noscript[data-fallback-image]`);

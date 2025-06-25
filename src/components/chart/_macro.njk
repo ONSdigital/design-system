@@ -82,10 +82,10 @@
                 {% endif %}
             {% endif %}
             {# If the chart is displayed inside an iframe, then the fallback image is not displayed here, as it will be provided in the iframe content instead #}
-            {% if params.fallbackImageURL and not params.iframeURL %}
+            {% if params.fallbackImageUrl and not params.iframeUrl %}
                 <noscript data-fallback-image>
                     {# alt text is empty as the description is provided above #}
-                    <img src="{{ params.fallbackImageURL }}" alt="" class="ons-chart__fallback-image" />
+                    <img src="{{ params.fallbackImageUrl }}" alt="" class="ons-chart__fallback-image" />
                 </noscript>
             {% endif %}
             {#

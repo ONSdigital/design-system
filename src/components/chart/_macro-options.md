@@ -23,7 +23,7 @@
 | estimateLineLabel        | string  | false                  | Label for the estimate line in the legend. Used in column charts with confidence intervals. Will be ignored if an iframe url is set.                                                                                       |
 | uncertaintyRangeLabel    | string  | false                  | Label for the confidence interval in the legend. Used in column charts showing uncertainty ranges. Will be ignored if an iframe url is set.                                                                                |
 | iframeUrl                | string  | false                  | A url for a visualisation to display in an iframe instead of displaying a Highcharts chart.                                                                                                                                |
-| fallbackImageURL         | string  | false                  | A url for a fallback image to display instead of the chart or iframed visualisation if JavaScript is disabled. Will be ignored if an iframe url is set, as the iframed content will provide the fallback image.            |
+| fallbackImageUrl         | string  | false                  | A url for a fallback image to display instead of the chart or iframed visualisation if JavaScript is disabled. Will be ignored if an iframe url is set, as the iframed content will provide the fallback image.            |
 
 ## Download
 
