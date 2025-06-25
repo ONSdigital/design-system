@@ -220,7 +220,7 @@ describe('Macro: Chart', () => {
             });
 
             describe('WHEN: unsupportedChartText is not provided', () => {
-                const params = { ...EXAMPLE_INVALID_CHART_WITH_UNSUPPORTED_TEXT_PARAMS };
+                const params = { ...EXAMPLE_INVALID_CHART_PARAMS };
                 const $ = cheerio.load(renderComponent('chart', params));
 
                 test('THEN: it renders the default unsupported chart text', () => {
