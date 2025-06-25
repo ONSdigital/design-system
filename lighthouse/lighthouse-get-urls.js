@@ -29,7 +29,7 @@ async function getUrls() {
         },
     ];
     // collect all the examples fail at 'aria-allowed-attr' audit check
-    const skipURLs = [
+    const skipUrls = [
         'example-errors-proto.html',
         'example-errors-proto-errors.html',
         'example-feedback-form.html',
