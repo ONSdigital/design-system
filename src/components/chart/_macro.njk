@@ -12,7 +12,7 @@
     {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 2) %}
     {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
     <div
-        {% if not params.iframeURL %}
+        {% if not params.iframeUrl %}
             data-highcharts-base-chart data-highcharts-type="{{ params.chartType }}" data-highcharts-theme="{{ params.theme }}"
             data-highcharts-title="{{ params.title }}" data-highcharts-id="{{ params.id }}"
             {% if params.useStackedLayout %}data-highcharts-use-stacked-layout="{{ params.useStackedLayout }}"{% endif %}
@@ -54,9 +54,9 @@
             {% if params.description %}
                 <p class="ons-u-vh">{{ params.description }}</p>
             {% endif %}
-            {% if params.iframeURL %}
-                <div data-chart-iframe id="{{ params.id }}" data-url="{{ params.iframeURL }}" data-title="{{ params.title }}">
-                    <iframe src="{{ params.iframeURL }}" title="{{ params.title }}" class="ons-chart__iframe"> </iframe>
+            {% if params.iframeUrl %}
+                <div data-chart-iframe id="{{ params.id }}" data-url="{{ params.iframeUrl }}" data-title="{{ params.title }}">
+                    <iframe src="{{ params.iframeUrl }}" title="{{ params.title }}" class="ons-chart__iframe"> </iframe>
                 </div>
             {% else %}
                 {% if params.chartType == 'boxplot' and (params.estimateLineLabel or params.uncertaintyRangeLabel) and params.legend == true %}
@@ -92,7 +92,7 @@
                 Footnotes for the annotations at mobile
                 Hidden from screen readers because the full text will be read out where they appear in the chart
             #}
-            {% if (params.annotations or params.rangeAnnotations or params.referenceLineAnnotations) and not params.iframeURL %}
+            {% if (params.annotations or params.rangeAnnotations or params.referenceLineAnnotations) and not params.iframeUrl %}
                 {# todo: change classname as we will have a separate footnotes section in the future #}
                 <ul class="ons-chart__footnotes" aria-hidden="true" data-annotations-footnotes>
                     {% for annotation in params.annotations %}
@@ -132,7 +132,7 @@
                 })
             }}
         {% endif %}
-        {% if (params.chartType in supportedChartTypes) and not params.iframeURL %}
+        {% if (params.chartType in supportedChartTypes) and not params.iframeUrl %}
             {% set series = [] %}
             {% set lineSeriesCount = 0 %}
             {% for item in params.series %}
