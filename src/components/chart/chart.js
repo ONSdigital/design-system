@@ -31,6 +31,11 @@ class HighchartsBaseChart {
             console.error('No chart node found');
             return;
         }
+
+        // Add a CSS class to the chart based on the chart type (e.g., 'bar-chart-container', 'line-chart-container')
+        // This allows type-specific styling in CSS.
+        chartNode.classList.add(`${this.chartType}-chart-container`);
+
         this.id = this.node.dataset.highchartsId;
         this.useStackedLayout = this.node.hasAttribute('data-highcharts-use-stacked-layout');
         this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.id}]`).textContent);
@@ -269,7 +274,6 @@ class HighchartsBaseChart {
             }
             if (this.chartType === 'bar') {
                 this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
-                this.barChart.applyLastYAxisLabelOverflow(currentChart);
                 if (!this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
                 } else {
