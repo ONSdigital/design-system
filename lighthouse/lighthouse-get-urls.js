@@ -58,7 +58,7 @@ async function getUrls() {
                 (path) =>
                     !path.includes('index.html') &&
                     !path.includes('example-skip-to-content.html') &&
-                    !skipURLs.some((skip) => path.includes(skip)), // doesn't add index.html, example-skip-to-content and examples mentioned in skipURLs.
+                    !skipUrls.some((skip) => path.includes(skip)), // doesn't add index.html, example-skip-to-content and examples mentioned in skipUrls
             );
             const filesWithSkipUrls = files.filter((path) => skipURLs.some((skip) => path.includes(skip)));
             for (const file of filteredFiles) {
