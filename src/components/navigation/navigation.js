@@ -82,9 +82,11 @@ export default class NavigationToggle {
                     <span class="ons-btn__text"></span>
                 </span>`,
         };
-        toggle.innerHTML = isOpen ? icons.open : icons.close;
-        toggle.classList.toggle('ons-btn--close', isOpen);
-        toggle.classList.toggle('ons-btn--search-icon', !isOpen);
+        if (isOpen != null) {
+            toggle.innerHTML = isOpen ? icons.open : icons.close;
+            toggle.classList.toggle('ons-btn--close', isOpen);
+            toggle.classList.toggle('ons-btn--search-icon', !isOpen);
+        }
     }
 
     isHidden(el) {
@@ -115,22 +117,27 @@ export default class NavigationToggle {
     }
 
     toggleMenuAndSearch() {
-        const isMenuOpen = this.menuBtn.getAttribute('aria-expanded') === 'true';
-        const isSearchOpen = this.searchBtn.getAttribute('aria-expanded') === 'true';
+        if (this.menuBtn) {
+            const isMenuOpen = this.menuBtn.getAttribute('aria-expanded') === 'true';
 
-        if (isMenuOpen && this.toggle == this.menuBtn) {
-            this.updateSearchIcon(false, this.searchToggleBtn);
-            this.searchBtn.setAttribute('aria-expanded', 'false');
-            this.searchEl.setAttribute('aria-hidden', 'true');
-            this.searchEl.classList.add('ons-u-d-no');
-            this.searchToggleBtn.classList.remove('active');
+            if (isMenuOpen && this.toggle == this.menuBtn && this.searchBtn) {
+                this.updateSearchIcon(false, this.searchToggleBtn && this.searchBtn);
+                this.searchBtn.setAttribute('aria-expanded', 'false');
+                this.searchEl.setAttribute('aria-hidden', 'true');
+                this.searchEl.classList.add('ons-u-d-no');
+                this.searchToggleBtn.classList.remove('active');
+            }
         }
 
-        if (isSearchOpen && this.toggle == this.searchToggleBtn) {
-            this.menuBtn.setAttribute('aria-expanded', 'false');
-            this.menuEl.setAttribute('aria-hidden', 'true');
-            this.menuEl.classList.add('ons-u-d-no');
-            this.menuBtn.classList.remove('active');
+        if (this.searchBtn) {
+            const isSearchOpen = this.searchBtn.getAttribute('aria-expanded') === 'true';
+
+            if (isSearchOpen && this.toggle == this.searchToggleBtn && this.menuBtn) {
+                this.menuBtn.setAttribute('aria-expanded', 'false');
+                this.menuEl.setAttribute('aria-hidden', 'true');
+                this.menuEl.classList.add('ons-u-d-no');
+                this.menuBtn.classList.remove('active');
+            }
         }
     }
 }
