@@ -294,7 +294,9 @@
                         </div>
                     {% endif %}
                     {% if params.language or params.serviceLinks %}
-                        <div class="ons-header__links ons-grid__col">
+                        <div
+                            class="ons-header__links ons-grid__col{{ ' ons-u-ml-auto' if not params.searchLinks and not params.menuLinks }}"
+                        >
                             {% if params.language %}
                                 <div class="ons-grid__col ons-col-auto{{ ' ons-u-mr-s ons-u-d-no@2xs@xs' if params.serviceLinks }}">
                                     <div class="ons-header__language">
