@@ -955,6 +955,25 @@ describe('FOR: Macro: Header', () => {
                 expect(hiddenText).toBe(EXAMPLE_HEADER_SEARCH_LINKS.searchLinks.searchNavigationButtonText);
             });
         });
+
+        describe('WHEN: searchNavigationButtonText is not provided', () => {
+            const $ = cheerio.load(
+                renderComponent('header', {
+                    ...EXAMPLE_HEADER_SEARCH_LINKS,
+                    searchLinks: {
+                        ...EXAMPLE_HEADER_SEARCH_LINKS.searchLinks,
+                        searchNavigationButtonText: undefined,
+                    },
+                    variants: 'basic',
+                }),
+            );
+
+            test('THEN: renders the default fallback search navigation button text', () => {
+                const $button = $('.ons-search__btn.ons-btn--header-search');
+                const hiddenText = $button.find('.ons-u-vh').text().trim();
+                expect(hiddenText).toBe('Search');
+            });
+        });
     });
 
     describe('GIVEN: Params: menuLinks', () => {
