@@ -229,8 +229,8 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                             
                             
                         </div>
-                    
 
+                    
                     
                 </div>
             </div>
@@ -472,8 +472,8 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                             
                             
                         </div>
-                    
 
+                    
                     
                 </div>
             </div>
@@ -758,6 +758,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             </a>
                             
                         </div>
+
+                    
                     
                         <div class="ons-header__links ons-grid__col ons-u-ml-auto">
                             
@@ -851,8 +853,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                 
                             
                         </div>
-                    
-
                     
                 </div>
             </div>
@@ -2030,8 +2030,8 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                             
                             
                         </div>
-                    
 
+                    
                     
                 </div>
             </div>
@@ -2257,8 +2257,8 @@ exports[`base page template matches the social block override snapshot 1`] = `
                             
                             
                         </div>
-                    
 
+                    
                     
                 </div>
             </div>
