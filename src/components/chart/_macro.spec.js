@@ -215,7 +215,7 @@ describe('Macro: Chart', () => {
                 test('THEN: it renders the unsupported chart text in the correct element', () => {
                     const invalid = $('[data-invalid-chart-type]');
                     expect(invalid.length).toBe(1);
-                    expect(invalid.text().trim()).toContain('this chart type is not valid');
+                    expect(invalid.text().trim()).toContain('- this chart type is not valid');
                 });
             });
 
@@ -226,7 +226,7 @@ describe('Macro: Chart', () => {
                 test('THEN: it renders the default unsupported chart text', () => {
                     const invalid = $('[data-invalid-chart-type]');
                     expect(invalid.length).toBe(1);
-                    expect(invalid.text().trim()).toBe('"invalid" chart type is not supported');
+                    expect(invalid.text().trim()).toBe('"invalid" - chart type is not supported');
                 });
             });
         });
@@ -1170,7 +1170,7 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the error message', () => {
-                    expect($('[data-invalid-chart-type]').text().trim()).toBe('"invalid" chart type is not supported');
+                    expect($('[data-invalid-chart-type]').text().trim()).toBe('"invalid" - chart type is not supported');
                 });
 
                 test('THEN: it does not include the Highcharts JSON config', () => {

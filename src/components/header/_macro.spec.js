@@ -945,6 +945,16 @@ describe('FOR: Macro: Header', () => {
                 expect($('#header-search-input-label').text().trim()).toBe('Custom search input label');
             });
         });
+
+        describe('WHEN: searchNavigationButtonText is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: renders the visually hidden search navigation button text', () => {
+                const $button = $('.ons-search__btn.ons-btn--header-search');
+                const hiddenText = $button.find('.ons-u-vh').text().trim();
+                expect(hiddenText).toBe(EXAMPLE_HEADER_SEARCH_LINKS.searchLinks.searchNavigationButtonText);
+            });
+        });
     });
 
     describe('GIVEN: Params: menuLinks', () => {

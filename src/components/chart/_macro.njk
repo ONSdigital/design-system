@@ -76,7 +76,7 @@
                 <div data-highcharts-chart></div>
             {% else %}
                 <p data-invalid-chart-type data-unsupported-chart-text>
-                    <b>{{ '"' + params.chartType + '" ' + (params.unsupportedChartText or 'chart type is not supported') }}</b>
+                    <b>{{ '"' + params.chartType + '" - ' + (params.unsupportedChartText or 'chart type is not supported') }}</b>
                 </p>
             {% endif %}
             {#
