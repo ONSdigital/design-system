@@ -87,23 +87,22 @@
                 Hidden from screen readers because the full text will be read out where they appear in the chart
             #}
             {% if (params.annotations or params.rangeAnnotations or params.referenceLineAnnotations) and not params.iframeUrl %}
-                {# todo: change classname as we will have a separate footnotes section in the future #}
-                <ul class="ons-chart__footnotes" aria-hidden="true" data-annotations-footnotes>
+                <ul class="ons-chart__annotations-footnotes" aria-hidden="true" data-annotations-footnotes>
                     {% for annotation in params.annotations %}
-                        <li class="ons-chart__footnote_item">
-                            <span class="ons-chart__footnote-number">{{ loop.index }}</span>
+                        <li class="ons-chart__annotations-footnotes_item">
+                            <span class="ons-chart__annotations-footnotes-number">{{ loop.index }}</span>
                             {{ annotation.text }}
                         </li>
                     {% endfor %}
                     {% for rangeAnnotation in params.rangeAnnotations %}
-                        <li class="ons-chart__footnote_item">
-                            <span class="ons-chart__footnote-number">{{ loop.index + params.annotations | length }}</span>
+                        <li class="ons-chart__annotations-footnotes_item">
+                            <span class="ons-chart__annotations-footnotes-number">{{ loop.index + params.annotations | length }}</span>
                             {{ rangeAnnotation.text }}
                         </li>
                     {% endfor %}
                     {% for referenceLineAnnotation in params.referenceLineAnnotations %}
-                        <li class="ons-chart__footnote_item">
-                            <span class="ons-chart__footnote-number"
+                        <li class="ons-chart__annotations-footnotes_item">
+                            <span class="ons-chart__annotations-footnotes-number"
                                 >{{ loop.index + params.annotations | length + params.rangeAnnotations | length }}</span
                             >
                             {{ referenceLineAnnotation.text }}
