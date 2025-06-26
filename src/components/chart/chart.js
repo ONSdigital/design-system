@@ -187,9 +187,15 @@ class HighchartsBaseChart {
     };
 
     // Check if the data labels should be hidden
-    // They should be hidden for clustered bar charts with more than 2 series, and also for stacked bar charts
+    // They should be hidden where there are more than 20 data points in a series, for clustered bar charts with more than 2 series, and also for stacked bar charts
     checkHideDataLabels = () => {
-        return (this.chartType === 'bar' && this.config.series.length > 2) || this.useStackedLayout === true;
+        let hideDataLabels = (this.chartType === 'bar' && this.config.series.length > 2) || this.useStackedLayout === true;
+        this.config.series.forEach((series) => {
+            if (series.data.length >= 20) {
+                hideDataLabels = true;
+            }
+        });
+        return hideDataLabels;
     };
 
     // Adjust font size and annotations for smaller width of chart
