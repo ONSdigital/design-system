@@ -31,15 +31,6 @@
 | charCountOverLimitPlural   | string  | false    | The string displayed when multiple characters have been entered after the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You are {x} characters over the limit". Defaults to "You have exceeded the character limit by {x} characters" |
 | charCountOverLimitSingular | string  | false    | The string displayed when one more character has been entered after the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You are {x} character over the limit". Defaults to "You have exceeded the character limit by {x} character"     |
 
-## Label
-
-| Name        | Type   | Required | Description                                             |
-| ----------- | ------ | -------- | ------------------------------------------------------- |
-| text        | string | true     | The text content of the label                           |
-| for         | string | true     | Set with the HTML `id` of the textarea the label is for |
-| description | string | false    | Hint text to help users fill in the input               |
-| classes     | string | false    | Classes to add to the label                             |
-
 ## WordCheckLimit
 
 | Name                       | Type    | Required | Description                                                                                                                                                                              |
@@ -50,3 +41,12 @@
 | wordCountSingular          | string  | true     | The string displayed when one more word can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} word remaining”.   |
 | wordCountOverLimitPlural   | string  | false    | The string displayed when multiple words over the limit have been entered. Set `{x}` in the string to be replaced with the number, for example “{x} words too many”.                     |
 | wordCountOverLimitSingular | string  | false    | The string displayed when one word over the limit has been entered. Set `{x}` in the string to be replaced with the number, for example “{x} words too many”.                            |
+
+## Label
+
+| Name        | Type   | Required | Description                                             |
+| ----------- | ------ | -------- | ------------------------------------------------------- |
+| text        | string | true     | The text content of the label                           |
+| for         | string | true     | Set with the HTML `id` of the textarea the label is for |
+| description | string | false    | Hint text to help users fill in the input               |
+| classes     | string | false    | Classes to add to the label                             |
