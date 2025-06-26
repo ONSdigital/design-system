@@ -257,6 +257,7 @@
 
                 #{$root}__language {
                     display: block;
+                    padding-top: 1rem;
 
                     // hide the language switcher within nav when js is enabled
                     .ons-js-enabled & {
