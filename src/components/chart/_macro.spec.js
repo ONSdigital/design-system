@@ -968,9 +968,9 @@ describe('Macro: Chart', () => {
                     }),
                 );
                 test('THEN: it renders the footnotes', () => {
-                    expect($('[data-footnotes]').length).toBe(1);
-                    expect($('[data-footnotes]').attr('data-footnotes')).toBe('footnotes--area-chart-123');
-                    expect($('[data-footnotes]').find('ol').length).toBe(1);
+                    expect($('#footnotes--area-chart-123').length).toBe(1);
+                    expect($('#footnotes--area-chart-123').find('ol').length).toBe(1);
+                    expect($('#footnotes--area-chart-123').text()).toContain('Footnotes');
                 });
             });
         });
