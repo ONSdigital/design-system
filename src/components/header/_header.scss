@@ -169,13 +169,13 @@
     }
 
     &__org-logo--large {
-        @include mq('2xs', 460px) {
+        @include mq('2xs', 590px) {
             display: none;
         }
     }
 
     &__org-logo--small {
-        @include mq(461px) {
+        @include mq(591px) {
             display: none;
         }
     }
@@ -260,26 +260,10 @@
     }
 
     &-nav-menu {
-        // applies styles for non-js variant
-        background-color: var(--ons-color-branded-tint);
-        border-bottom: 1px solid var(--ons-color-ocean-blue);
         margin-bottom: 0;
-        padding-bottom: 1rem;
+        padding-bottom: 2.5rem;
         position: relative;
         width: 100%;
-
-        // updates styles when js is enabled
-        .ons-js-enabled & {
-            border-bottom: 0;
-            margin-bottom: 1rem;
-            padding-bottom: 0;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            width: 100vw;
-            transform: translateX(-50%);
-            z-index: 500;
-        }
 
         &__key-list {
             border-bottom: 1px solid var(--ons-color-ocean-blue);
@@ -313,15 +297,14 @@
         }
     }
 
+    // applies styles for non-js variant
+    &-nav-menu ~ &-nav-search {
+        border-top: 1px solid var(--ons-color-ocean-blue);
+    }
+
+    &-nav-menu,
     &-nav-search {
         background-color: var(--ons-color-branded-tint);
-        margin-bottom: 1rem;
-        @extend .ons-u-pt-2xl;
-        @extend .ons-u-pb-2xl;
-
-        position: relative;
-        width: 100%;
-
         // updates styles when js is enabled
         .ons-js-enabled & {
             position: absolute;
@@ -329,8 +312,19 @@
             left: 50%;
             width: 100vw;
             transform: translateX(-50%);
+            border-top: 0;
             z-index: 500;
         }
+    }
+
+    &__menu-links ~ &__links {
+        padding-bottom: 0.25rem;
+    }
+
+    &-nav-search {
+        @extend .ons-u-pt-2xl;
+        @extend .ons-u-pb-2xl;
+
         &__input {
             border-bottom: 1px solid var(--ons-color-ocean-blue);
             @extend .ons-u-mb-2xl;
