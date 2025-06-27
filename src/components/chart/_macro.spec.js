@@ -1318,4 +1318,142 @@ describe('Macro: Chart', () => {
             });
         });
     });
+
+    describe('FOR: Axis Min, Max, startOnTick, endOnTick', () => {
+        const BASE_PARAMS = {
+            id: 'test-chart',
+            title: 'Test Chart',
+            xAxis: {
+                title: 'X Axis Title',
+                categories: ['A', 'B', 'C'],
+                type: 'linear',
+                labelFormat: '{value}',
+            },
+            yAxis: {
+                title: 'Y Axis Title',
+                labelFormat: '{value}',
+            },
+            series: [],
+        };
+
+        describe('GIVEN: chartType supports xAxis min/max (bar, scatter)', () => {
+            test('THEN: xAxis min and max are included in config when provided', () => {
+                const params = {
+                    ...BASE_PARAMS,
+                    chartType: 'scatter',
+                    xAxis: {
+                        ...BASE_PARAMS.xAxis,
+                        min: 1,
+                        max: 10,
+                        startOnTick: true,
+                        endOnTick: false,
+                    },
+                };
+
+                const $ = cheerio.load(renderComponent('chart', params));
+                const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                expect(configScript).toContain('"min":1');
+                expect(configScript).toContain('"max":10');
+                expect(configScript).toContain('"startOnTick":true');
+                expect(configScript).toContain('"endOnTick":false');
+            });
+
+            test('THEN: xAxis min and max are NOT included if not defined', () => {
+                const params = {
+                    ...BASE_PARAMS,
+                    chartType: 'scatter',
+                    xAxis: {
+                        ...BASE_PARAMS.xAxis,
+                        min: undefined,
+                        max: undefined,
+                        startOnTick: undefined,
+                        endOnTick: undefined,
+                    },
+                };
+
+                const $ = cheerio.load(renderComponent('chart', params));
+                const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                const config = JSON.parse(configScript);
+
+                expect(config.xAxis.min).toBeUndefined();
+                expect(config.xAxis.max).toBeUndefined();
+                expect(config.xAxis.startOnTick).toBeUndefined();
+                expect(config.xAxis.endOnTick).toBeUndefined();
+            });
+        });
+
+        describe('GIVEN: chartType supports yAxis min/max (line, bar, column, scatter, area, columnrange, boxplot)', () => {
+            test('THEN: yAxis min and max are included in config when provided', () => {
+                const params = {
+                    ...BASE_PARAMS,
+                    chartType: 'line',
+                    yAxis: {
+                        ...BASE_PARAMS.yAxis,
+                        min: 0,
+                        max: 100,
+                        startOnTick: false,
+                        endOnTick: true,
+                    },
+                };
+
+                const $ = cheerio.load(renderComponent('chart', params));
+                const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                expect(configScript).toContain('"min":0');
+                expect(configScript).toContain('"max":100');
+                expect(configScript).toContain('"startOnTick":false');
+                expect(configScript).toContain('"endOnTick":true');
+            });
+
+            test('THEN: yAxis min and max are NOT included if not defined', () => {
+                const params = {
+                    ...BASE_PARAMS,
+                    chartType: 'line',
+                    yAxis: {
+                        ...BASE_PARAMS.yAxis,
+                        min: undefined,
+                        max: undefined,
+                        startOnTick: undefined,
+                        endOnTick: undefined,
+                    },
+                };
+
+                const $ = cheerio.load(renderComponent('chart', params));
+                const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                const config = JSON.parse(configScript);
+
+                expect(config.yAxis.min).toBeUndefined();
+                expect(config.yAxis.max).toBeUndefined();
+                expect(config.yAxis.startOnTick).toBeUndefined();
+                expect(config.yAxis.endOnTick).toBeUndefined();
+            });
+        });
+
+        describe('GIVEN: chartType does NOT support axis min/max', () => {
+            test('THEN: xAxis min and max are ignored', () => {
+                const params = {
+                    ...BASE_PARAMS,
+                    chartType: 'line',
+                    xAxis: {
+                        ...BASE_PARAMS.xAxis,
+                        min: 1,
+                        max: 10,
+                        startOnTick: true,
+                        endOnTick: true,
+                    },
+                };
+
+                const $ = cheerio.load(renderComponent('chart', params));
+                const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                expect(configScript).not.toContain('"min":1');
+                expect(configScript).not.toContain('"max":10');
+                expect(configScript).not.toContain('"startOnTick":true');
+                expect(configScript).not.toContain('"endOnTick":true');
+            });
+        });
+    });
 });

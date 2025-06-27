@@ -47,17 +47,25 @@
 | tickIntervalMobile       | number       | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                                                                                 |
 | tickIntervalDesktop      | number       | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                                                                                                |
 | customReferenceLineValue | float or int | false    | A custom value to display a darker reference line. If not supplied, the darker will appear at zero. The custom value is only used for column charts and line charts - for other chart types it will be ignored, and the darker line will appear at zero. |
+| min                      | number       | false    | Sets the minimum value for the Y-axis. Relevant for Line, bar, area, column chart, column-range, boxplot and scatter charts.                                                                                                                             |
+| max                      | number       | false    | Sets the maximum value for the Y-axis. Relevant for Line, bar, area, column chart, column-range, boxplot and scatter charts.                                                                                                                             |
+| startOnTick              | boolean      | false    | Align the axis to start on a tick. Relevant for Line, bar, area, column chart, column-range, boxplot and scatter charts.                                                                                                                                 |
+| endOnTick                | boolean      | false    | Align the axis to end on a tick. Relevant for Line, bar, area, column chart, column-range, boxplot and scatter charts.                                                                                                                                   |
 
 ## X_Axis
 
-| Name                | Type   | Required | Description                                                                                                                                                                  |
-| ------------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title               | string | false    | The title text displayed on the x-axis. Note that for bar charts, a maximum character limit of 50 characters is recommended to avoid the axis title being cut off at mobile. |
-| labelFormat         | string | false    | A format string for the x-axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating).                    |
-| categories          | array  | false    | Labels for each tick mark along the x-axis.                                                                                                                                  |
-| type                | string | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. Defaults to linear.                                                                       |
-| tickIntervalMobile  | number | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                     |
-| tickIntervalDesktop | number | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                    |
+| Name                | Type    | Required | Description                                                                                                                                                                  |
+| ------------------- | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title               | string  | false    | The title text displayed on the x-axis. Note that for bar charts, a maximum character limit of 50 characters is recommended to avoid the axis title being cut off at mobile. |
+| labelFormat         | string  | false    | A format string for the x-axis label. Examples of string formats can be found in these [docs](https://www.highcharts.com/docs/chart-concepts/templating).                    |
+| categories          | array   | false    | Labels for each tick mark along the x-axis.                                                                                                                                  |
+| type                | string  | false    | The type of axis. Can be one of `linear`, `logarithmic`, `datetime` or `category`. Defaults to linear.                                                                       |
+| tickIntervalMobile  | number  | false    | The interval of the tick marks in axis units at mobile. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                     |
+| tickIntervalDesktop | number  | false    | The interval of the tick marks in axis units at desktop. Useful when you want to space out the labels (e.g. show every 2nd or 5th label).                                    |
+| min                 | number  | false    | Sets the minimum value for the X-axis. Relevant only for scatter charts.                                                                                                     |
+| max                 | number  | false    | Sets the maximum value for the X-axis. Relevant only for scatter charts.                                                                                                     |
+| startOnTick         | boolean | false    | Align the axis to start on a tick. Relevant only for scatter charts.                                                                                                         |
+| endOnTick           | boolean | false    | Align the axis to end on a tick. Relevant only for scatter charts.                                                                                                           |
 
 ## Series
 
