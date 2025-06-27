@@ -48,7 +48,7 @@
             {% endif %}
         {% endif %}
     >
-        <figure class="ons-chart">
+        <figure class="ons-chart" aria-describedby="{{ audioDescriptionId }}">
             {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
             {% if params.subtitle %}
                 {{ openingSubtitleTag | safe }}
@@ -87,11 +87,10 @@
             {# If the chart is displayed inside an iframe, then the fallback image is not displayed here, as it will be provided in the iframe content instead #}
             {% if params.fallbackImageUrl and not params.iframeUrl %}
                 <noscript data-fallback-image>
-                    {# alt text is empty as the description is provided above #}
+                    {# Note that a more detailed description of the chart is provided in the audio description above #}
                     <img
                         src="{{ params.fallbackImageUrl }}"
-                        aria-describedby="{{ audioDescriptionId }}"
-                        alt=""
+                        alt="Fallback image for the chart as JavaScript is disabled"
                         class="ons-chart__fallback-image"
                     />
                 </noscript>
