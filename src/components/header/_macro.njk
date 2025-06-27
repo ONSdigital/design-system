@@ -7,6 +7,7 @@
     {% set openingTag = "<" + titleTag %}
     {% set closingTag = "</" + titleTag + ">" %}
     {% set currentLanguageIsoCode = "en" %}
+    {% set logoAltText = params.mastheadLogoAltText or params.mastheadLogo.altText %}
 
     {% if params.language and params.language.languages %}
         {% set currentLanguage = params.language.languages | selectattr("current") | first %}
@@ -42,7 +43,6 @@
                 >
                     <div class="ons-grid__col ons-col-auto">
                         {%- if not params.mastheadLogo.multipleLogos -%}
-
                             {% set mastheadLogo %}
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
                                     {% if params.mastheadLogo.large %}
@@ -51,7 +51,7 @@
                                         {{-
                                             onsIcon({
                                                 "iconType": 'ons-logo-' + currentLanguageIsoCode,
-                                                "altText": 'Office for National Statistics homepage'
+                                                "altText": logoAltText | default('Office for National Statistics logo')
                                             })
                                         -}}
                                     {% endif %}
@@ -65,7 +65,7 @@
                                         {{-
                                             onsIcon({
                                                 "iconType": 'ons-logo-stacked-' + currentLanguageIsoCode,
-                                                "altText": 'Office for National Statistics logo'
+                                                "altText": logoAltText | default('Office for National Statistics logo')
                                             })
                                         -}}
                                     {% endif %}
@@ -88,7 +88,7 @@
                                             {{-
                                                 onsIcon({
                                                     "iconType": 'ons-logo-stacked-' + currentLanguageIsoCode,
-                                                    "altText": 'Office for National Statistics logo'
+                                                    "altText": logoAltText | default('Office for National Statistics logo')
                                                 })
                                             -}}
                                         {% endif %}
@@ -250,15 +250,14 @@
                                                     "id": 'search-field',
                                                     "width": 'full',
                                                     "label": {
-                                                        "text": 'Search the ONS',
+                                                        "text": params.searchLinks.searchNavigationInputLabel | default('Search the ONS'),
                                                         "id": "header-search-input-label"
                                                     },
                                                     "searchButton": {
                                                         "visuallyHideButtonText": true,
-                                                        "text": 'Search',
+                                                        "text": params.searchLinks.searchNavigationButtonText | default('Search'),
                                                         "iconType": 'search',
                                                         'variant': 'header'
-
                                                     }
                                                 })
                                             }}
@@ -493,13 +492,13 @@
                                     <span class="ons-grid ons-u-d-no@2xs@xs ons-u-ml-no ons-u-d-no@l">
                                         {{
                                             onsButton({
-                                                "text": "Search",
+                                                "text": params.searchLinks.searchNavigationButtonText | default('Search'),
                                                 "classes": "ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search",
                                                 "variants": buttonVariant,
                                                 "iconType": "search",
                                                 "iconPosition": "only",
                                                 "attributes": {
-                                                    "aria-label": "Toggle search" ,
+                                                    "aria-label": params.searchLinks.searchNavigationButtonAriaLabel | default('Toggle search'),
                                                     "aria-controls": "ons-site-search",
                                                     "aria-expanded": "false"
                                                 }
