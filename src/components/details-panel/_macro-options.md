@@ -9,13 +9,14 @@
 
 ## DetailsItem
 
-| Name        | Type           | Required                                 | Description                                  |
-| ----------- | -------------- | ---------------------------------------- | -------------------------------------------- |
-| text        | string         | true                                     | Name of the item                             |
-| date        | `Object<Date>` | true                                     | An object for [Date](#date) set for the item |
-| description | string         | true                                     | Description for the item                     |
-| url         | string         | false (unless text is set to Correction) | Link URL to view superseded version          |
-| urlText     | string         | false                                    | Optional alternative link text               |
+| Name         | Type           | Required                                 | Description                                  |
+| ------------ | -------------- | ---------------------------------------- | -------------------------------------------- |
+| text         | string         | true                                     | Name of the item                             |
+| date         | `Object<Date>` | true                                     | An object for [Date](#date) set for the item |
+| description  | string         | true                                     | Description for the item                     |
+| url          | string         | false (unless text is set to Correction) | Link URL to view superseded version          |
+| urlText      | string         | false                                    | Optional alternative link text               |
+| urlAriaLabel | string         | false                                    | Optional aria label for item link            |
 
 ## Date
 

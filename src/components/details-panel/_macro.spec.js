@@ -71,6 +71,23 @@ describe('FOR: Macro: Details Panel', () => {
                 expect(correctionLinkText).toBe('View superseded version');
                 expect(correctionLinkUrl).toBe('#0');
             });
+            test('THEN: item with urlAriaLabel has custom aria label', () => {
+                const customParams = {
+                    ...EXAMPLE_DETAILS_PANEL,
+                    detailsItems: [
+                        {
+                            ...EXAMPLE_DETAILS_PANEL.detailsItems[0],
+                            urlAriaLabel: 'View superseded version from January 2025',
+                        },
+                        ...EXAMPLE_DETAILS_PANEL.detailsItems.slice(1),
+                    ],
+                };
+                const $ = cheerio.load(renderComponent('details-panel', customParams));
+                const linkWithAriaLabel = $('.ons-details-panel__content-url').eq(0);
+
+                expect(linkWithAriaLabel.attr('aria-label')).toBe('View superseded version from January 2025');
+                expect(linkWithAriaLabel.text().trim()).toBe('View superseded version');
+            });
         });
     });
 });
