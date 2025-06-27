@@ -767,8 +767,9 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                         <div class="ons-header__links ons-grid__col ons-u-ml-auto">
                             
                                 <div class="ons-grid__col ons-col-auto ons-u-mr-s ons-u-d-no@2xs@xs">
-                                    
-                                    
+                                    <div class="ons-header__language">
+                                        
+                                        
     
     
 
@@ -784,6 +785,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
     </ul>
 
+                                    </div>
                                 </div>
                             
                             
@@ -882,8 +884,9 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                         
                     </ul>
                     
-                        
-                        
+                        <div class="ons-header__language">
+                            
+                            
     
     
 
@@ -899,6 +902,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
     </ul>
 
+                        </div>
                     
                 </nav>
             

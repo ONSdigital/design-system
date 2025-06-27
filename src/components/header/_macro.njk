@@ -126,6 +126,15 @@
                                 </div>
                             {% endif %}
 
+                            {% if params.language %}
+                                <div class="ons-grid__col ons-col-auto{{ ' ons-u-mr-s ons-u-d-no@2xs@xs' if params.serviceLinks }}">
+                                    <div class="ons-header__language">
+                                        {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                                        {{ onsLanguageSelector(params.language) }}
+                                    </div>
+                                </div>
+                            {% endif %}
+
                             {% if params.variants == "basic" and params.menuLinks %}
                                 <nav
                                     class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl"
@@ -289,8 +298,10 @@
                         >
                             {% if params.language %}
                                 <div class="ons-grid__col ons-col-auto{{ ' ons-u-mr-s ons-u-d-no@2xs@xs' if params.serviceLinks }}">
-                                    {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
-                                    {{ onsLanguageSelector(params.language) }}
+                                    <div class="ons-header__language">
+                                        {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                                        {{ onsLanguageSelector(params.language) }}
+                                    </div>
                                 </div>
                             {% endif %}
                             {% if params.serviceLinks %}
@@ -394,8 +405,10 @@
                         {% endfor %}
                     </ul>
                     {% if params.language %}
-                        {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
-                        {{ onsLanguageSelector(params.language) }}
+                        <div class="ons-header__language">
+                            {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                            {{ onsLanguageSelector(params.language) }}
+                        </div>
                     {% endif %}
                 </nav>
             {% endif %}
