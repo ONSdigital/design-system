@@ -13,6 +13,7 @@
     {% set closingSubtitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
     {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 2) %}
     {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
+    {% set audioDescriptionId = "chart-audio-description-" ~ params.id %}
     <div
         {% if not params.iframeUrl %}
             data-highcharts-base-chart data-highcharts-type="{{ params.chartType }}" data-highcharts-theme="{{ params.theme }}"
@@ -47,15 +48,15 @@
             {% endif %}
         {% endif %}
     >
-        <figure class="ons-chart">
+        <figure class="ons-chart" aria-describedby="{{ audioDescriptionId }}">
             {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
             {% if params.subtitle %}
                 {{ openingSubtitleTag | safe }}
                 class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
             {% endif %}
-            {% if params.description %}
-                <p class="ons-u-vh">{{ params.description }}</p>
-            {% endif %}
+
+            <p class="ons-u-vh" id="{{ audioDescriptionId }}">{{ params.description }}</p>
+
             {% if params.iframeUrl %}
                 <div data-chart-iframe id="{{ params.id }}" data-url="{{ params.iframeUrl }}" data-title="{{ params.title }}">
                     <iframe src="{{ params.iframeUrl }}" title="{{ params.title }}" class="ons-chart__iframe"> </iframe>
@@ -82,6 +83,17 @@
                 {% else %}
                     <p data-invalid-chart-type><b>Chart type "{{ params.chartType }}" is not supported</b></p>
                 {% endif %}
+            {% endif %}
+            {# If the chart is displayed inside an iframe, then the fallback image is not displayed here, as it will be provided in the iframe content instead #}
+            {% if params.fallbackImageUrl and not params.iframeUrl %}
+                <noscript data-fallback-image>
+                    {# Note that a more detailed description of the chart is provided in the audio description above #}
+                    <img
+                        src="{{ params.fallbackImageUrl }}"
+                        alt="Fallback image for the chart as JavaScript is disabled"
+                        class="ons-chart__fallback-image"
+                    />
+                </noscript>
             {% endif %}
             {#
                 Footnotes for the annotations at mobile
