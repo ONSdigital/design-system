@@ -924,6 +924,22 @@ describe('FOR: Macro: Header', () => {
                 expect(buttonSpy.occurrences[0].attributes['aria-label']).toBe('Custom search button aria label');
             });
         });
+        describe('WHEN: searchButtonAriaLabel is not provided', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_SEARCH_LINKS,
+                searchLinks: {
+                    ...EXAMPLE_HEADER_SEARCH_LINKS.searchLinks,
+                    searchButtonAriaLabel: undefined,
+                },
+                variants: 'basic',
+            });
+            test('THEN: renders search icon button with default aria-label', () => {
+                expect(buttonSpy.occurrences[0]).toBeDefined();
+                expect(buttonSpy.occurrences[0].attributes['aria-label']).toBe('Toggle search');
+            });
+        });
         describe('WHEN: searchNavigationButtonAriaLabel is provided', () => {
             const faker = templateFaker();
             const buttonSpy = faker.spy('button', { suppressOutput: true });
@@ -938,13 +954,43 @@ describe('FOR: Macro: Header', () => {
                 expect(found).toBeDefined();
             });
         });
+        describe('WHEN: searchNavigationButtonAriaLabel is not provided', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_SEARCH_LINKS,
+                searchLinks: {
+                    ...EXAMPLE_HEADER_SEARCH_LINKS.searchLinks,
+                    searchNavigationButtonAriaLabel: undefined,
+                },
+                siteSearchAutosuggest: {},
+            });
+            test('THEN: renders search navigation button with default aria-label', () => {
+                const found = buttonSpy.occurrences.find((btn) => btn.attributes && btn.attributes['aria-label'] === 'Toggle search');
+                expect(found).toBeDefined();
+            });
+        });
         describe('WHEN: searchNavigationInputLabel is provided', () => {
             const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
             test('THEN: renders search input with custom label', () => {
                 expect($('#header-search-input-label').text().trim()).toBe('Custom search input label');
             });
         });
-
+        describe('WHEN: searchNavigationInputLabel is not provided', () => {
+            const $ = cheerio.load(
+                renderComponent('header', {
+                    ...EXAMPLE_HEADER_SEARCH_LINKS,
+                    searchLinks: {
+                        ...EXAMPLE_HEADER_SEARCH_LINKS.searchLinks,
+                        searchNavigationInputLabel: undefined,
+                    },
+                    variants: 'basic',
+                }),
+            );
+            test('THEN: renders search input with default label', () => {
+                expect($('#header-search-input-label').text().trim()).toBe('Search the ONS');
+            });
+        });
         describe('WHEN: searchNavigationButtonText is provided', () => {
             const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
 
@@ -954,7 +1000,6 @@ describe('FOR: Macro: Header', () => {
                 expect(hiddenText).toBe(EXAMPLE_HEADER_SEARCH_LINKS.searchLinks.searchNavigationButtonText);
             });
         });
-
         describe('WHEN: searchNavigationButtonText is not provided', () => {
             const $ = cheerio.load(
                 renderComponent('header', {
