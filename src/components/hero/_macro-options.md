@@ -34,7 +34,8 @@
 
 ## PanelLink
 
-| Name | Type   | Required | Description             |
-| ---- | ------ | -------- | ----------------------- |
-| text | string | false    | Text for the panel link |
-| url  | string | false    | URL for the panel link  |
+| Name      | Type   | Required | Description                            |
+| --------- | ------ | -------- | -------------------------------------- |
+| text      | string | false    | Text for the panel link                |
+| url       | string | false    | URL for the panel link                 |
+| ariaLabel | string | false    | Optional aria label for the panel link |

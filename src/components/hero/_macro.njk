@@ -94,10 +94,17 @@
                     {% if params.informationPanel %}
                         <div class="ons-hero__information ons-u-mt-s">
                             <div class="ons-hero__panel ons-hero__panel--{{ params.informationPanel.panelType }}">
-                                {{- params.informationPanel.panelText -}}
+                                <h2 class="ons-u-fs-r--b ons-u-m-no">{{- params.informationPanel.panelText -}}</h2>
                             </div>
                             <div class="ons-hero__link">
-                                <a href="{{ params.informationPanel.panelLink.url }}">{{ params.informationPanel.panelLink.text }}</a>
+                                <a
+                                    href="{{ params.informationPanel.panelLink.url }}"
+                                    {% if params.informationPanel.panelLink.ariaLabel %}
+                                        aria-label="{{ params.informationPanel.panelLink.ariaLabel }}"
+                                    {% endif %}
+                                >
+                                    {{ params.informationPanel.panelLink.text }}
+                                </a>
                             </div>
                         </div>
                     {% endif %}
