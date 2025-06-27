@@ -49,7 +49,7 @@ class AnnotationsOptions {
                     borderColor: 'transparent',
                     // We use css styling for the rounded number annotation at mobile
                     useHTML: true,
-                    className: 'ons-chart__footnote-number',
+                    className: 'ons-chart__annotations-footnotes-number',
                 },
                 draggable: '',
             },
