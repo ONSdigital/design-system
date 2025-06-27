@@ -1,6 +1,5 @@
 export const EXAMPLE_HEADER_BASIC = {
     title: 'Header title',
-    mastheadLogoAltText: 'Custom alt text for logo',
 };
 
 export const EXAMPLE_SERVICE_LINKS_CONFIG = {

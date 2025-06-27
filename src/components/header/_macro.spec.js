@@ -162,7 +162,7 @@ describe('FOR: Macro: Header', () => {
                 mastheadLogoAltText: 'Custom alt text for logo',
             });
             test('THEN: renders logo with provided alt text', () => {
-                expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics logo');
+                expect(iconsSpy.occurrences[0].altText).toBe('Custom alt text for logo');
             });
         });
     });
@@ -596,7 +596,6 @@ describe('FOR: Macro: Header', () => {
                         },
                     },
                     title: 'Header title',
-                    mastheadLogoAltText: 'Custom alt text for logo',
                 });
             });
             test('THEN: renders button to toggle menu on small screen', () => {

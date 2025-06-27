@@ -8,7 +8,7 @@
     {% set closingTag = "</" + titleTag + ">" %}
     {% set currentLanguageIsoCode = "en" %}
     {% if params.mastheadLogoAltText %}
-        {%- set logoAltText = params.mastheadLogo.altText -%}
+        {%- set logoAltText = params.mastheadLogoAltText or params.mastheadLogo.altText -%}
     {% endif %}
 
     {% if params.language and params.language.languages %}
