@@ -1,0 +1,20 @@
+{% from "components/textarea/_macro.njk" import onsTextarea %}
+
+{{
+    onsTextarea({
+        "id": "textarea-word-limit",
+        "name": "feedback-limited",
+        "width": "30",
+        "label": {
+            "text": "Please provide some feedback",
+            "description": "For example, describe any difficulties you experienced in the use of this service"
+        },
+        "wordCheckLimit": {
+            "limit": 150,
+            "wordCountSingular": "You have {x} word remaining",
+            "wordCountPlural": "You have {x} words remaining",
+            "wordCountOverLimitSingular": "You are {x} word over the limit",
+            "wordCountOverLimitPlural": "You are {x} words over the limit"
+        }
+    })
+}}

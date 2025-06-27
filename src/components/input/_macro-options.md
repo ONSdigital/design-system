@@ -46,7 +46,6 @@
 | limit                      | integer | true     | The maximum number of characters allowed in the input                                                                                                                                                 |
 | charCountOverLimitPlural   | string  | true     | The string displayed when user has entered more than one character over the set limit. Set `{x}` in the string to be replaced with the number of characters, for example “{x} characters too many”.   |
 | charCountOverLimitSingular | string  | true     | The string displayed when user has entered one character over the set limit. Set `{x}` in the string to be replaced with the number of characters, for example “{x} character too many”.              |
-| charcheckCountdown         | boolean | false    | Set to “true” to show the character limit counter as characters are entered into the input                                                                                                            |
 | charCountPlural            | string  | true     | The string displayed when multiple characters can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} characters remaining”.    |
 | charCountSingular          | string  | true     | The string displayed when only one more character can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} character remaining”. |
 
