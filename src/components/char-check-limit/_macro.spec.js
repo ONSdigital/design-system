@@ -106,7 +106,7 @@ describe('FOR: Macro: CharCheckLimit', () => {
 
     describe('GIVEN: Params: Character and Word count messages', () => {
         describe('WHEN: character and word count messages are provided', () => {
-            const $ = cheerio.load(renderComponent('char-check-limit', EXAMPLE_CHAR_CHECK_LIMIT));
+            const $ = cheerio.load(renderComponent('char-check-limit', EXAMPLE_CHAR_WORD_CHECK_LIMIT_MESSAGES));
 
             test('THEN: passes jest-axe checks', async () => {
                 const results = await axe($.html());
