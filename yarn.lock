@@ -10036,6 +10036,11 @@ pure-rand@^6.0.0:
   resolved "https://registry.yarnpkg.com/pure-rand/-/pure-rand-6.0.4.tgz#50b737f6a925468679bff00ad20eade53f37d5c7"
   integrity sha512-LA0Y9kxMYv47GIPJy6MI84fqTd2HmYZI83W/kM/SkKfDlajnZYfmXFTxkbY+xSBPkLJxltMa9hIkmdc29eguMA==
 
+pym.js@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/pym.js/-/pym.js-1.3.2.tgz#0ebd083c5a7ef7650214db872b4b29a10743305d"
+  integrity sha512-/fFzHFB4BTsJQP5id0wzUdYsDT4VPkfAxk+uENBE9/aP6YbvhAEpcuJHdjxqisqfXOCrcz7duTK1fbtF2rz8RQ==
+
 qs@6.11.0:
   version "6.11.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.11.0.tgz#fd0d963446f7a65e1367e01abd85429453f0c37a"

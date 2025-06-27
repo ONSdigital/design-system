@@ -490,3 +490,10 @@ export const EXAMPLE_COLUMN_RANGE_CHART_PARAMS = {
         },
     ],
 };
+
+export const EXAMPLE_IFRAME_CHART_PARAMS = {
+    title: 'Example Iframe Chart',
+    subtitle: 'A sample subtitle',
+    id: 'iframe-chart-123',
+    iframeUrl: 'https://www.ons.gov.uk/visualisations/dvc3148/fig01/index.html',
+};
