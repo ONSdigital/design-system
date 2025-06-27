@@ -165,6 +165,17 @@ describe('FOR: Macro: Header', () => {
                 expect(iconsSpy.occurrences[0].altText).toBe('Custom alt text for logo');
             });
         });
+        describe('WHEN: mastheadLogoAltText is not provided', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_BASIC,
+                mastheadLogoAltText: undefined,
+            });
+            test('THEN: renders logo with default alt text', () => {
+                expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics logo');
+            });
+        });
     });
     describe('GIVEN: Params: multipleLogos', () => {
         describe('WHEN: image parameter is set to "ONS Logo"', () => {
