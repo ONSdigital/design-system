@@ -65,6 +65,15 @@
             margin: 0 0 1rem;
         }
     }
+
+    &__language {
+        display: none;
+
+        .ons-js-enabled & {
+            display: block;
+        }
+    }
+
     // Modifier - variants
     &--description {
         .ons-header {
@@ -245,6 +254,16 @@
 
             #{$root}__menu-links {
                 width: 100%;
+
+                #{$root}__language {
+                    display: block;
+                    padding-top: 1rem;
+
+                    // hide the language switcher within nav when js is enabled
+                    .ons-js-enabled & {
+                        display: none;
+                    }
+                }
             }
 
             // When JS is enabled, revert the no-js styles
@@ -305,6 +324,7 @@
     &-nav-menu,
     &-nav-search {
         background-color: var(--ons-color-branded-tint);
+
         // updates styles when js is enabled
         .ons-js-enabled & {
             position: absolute;

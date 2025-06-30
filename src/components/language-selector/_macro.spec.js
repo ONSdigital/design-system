@@ -135,4 +135,49 @@ describe('macro: language-selector', () => {
             expect($('.ons-language-links').hasClass('ons-u-d-no@2xs@m')).toBe(true);
         });
     });
+
+    describe('srText parameter', () => {
+        it('renders custom srText when provided', () => {
+            const params = {
+                languages: [
+                    {
+                        url: '/welsh',
+                        isoCode: 'cy',
+                        text: 'Cymraeg',
+                        srText: 'Custom screen reader text',
+                        current: false,
+                    },
+                    {
+                        url: '/english',
+                        isoCode: 'en',
+                        text: 'English',
+                        current: true,
+                    },
+                ],
+            };
+            const $ = cheerio.load(renderComponent('language-selector', params));
+            expect($('.ons-language-links__item a .ons-u-vh').text().trim()).toBe('Custom screen reader text');
+        });
+
+        it('renders default srText when not provided', () => {
+            const params = {
+                languages: [
+                    {
+                        url: '/welsh',
+                        isoCode: 'cy',
+                        text: 'Cymraeg',
+                        current: false,
+                    },
+                    {
+                        url: '/english',
+                        isoCode: 'en',
+                        text: 'English',
+                        current: true,
+                    },
+                ],
+            };
+            const $ = cheerio.load(renderComponent('language-selector', params));
+            expect($('.ons-language-links__item a .ons-u-vh').text().trim()).toBe('Change language to');
+        });
+    });
 });
