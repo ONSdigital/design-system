@@ -208,6 +208,30 @@ describe('Macro: Chart', () => {
             });
         });
 
+        describe('GIVEN: Params: unsupportedChartText', () => {
+            describe('WHEN: unsupportedChartText is provided', () => {
+                const params = { ...EXAMPLE_INVALID_CHART_PARAMS, unsupportedChartText: 'this chart type is not valid' };
+                const $ = cheerio.load(renderComponent('chart', params));
+
+                test('THEN: it renders the unsupported chart text in the correct element', () => {
+                    const invalid = $('[data-invalid-chart-type]');
+                    expect(invalid.length).toBe(1);
+                    expect(invalid.text().trim()).toContain('- this chart type is not valid');
+                });
+            });
+
+            describe('WHEN: unsupportedChartText is not provided', () => {
+                const params = { ...EXAMPLE_INVALID_CHART_PARAMS };
+                const $ = cheerio.load(renderComponent('chart', params));
+
+                test('THEN: it renders the default unsupported chart text', () => {
+                    const invalid = $('[data-invalid-chart-type]');
+                    expect(invalid.length).toBe(1);
+                    expect(invalid.text().trim()).toBe('"invalid" - chart type is not supported');
+                });
+            });
+        });
+
         describe('GIVEN: Params: Description', () => {
             describe('WHEN: description is provided', () => {
                 const $ = cheerio.load(
@@ -1147,7 +1171,7 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the error message', () => {
-                    expect($('[data-invalid-chart-type]').text()).toBe('Chart type "invalid" is not supported');
+                    expect($('[data-invalid-chart-type]').text().trim()).toBe('"invalid" - chart type is not supported');
                 });
 
                 test('THEN: it does not include the Highcharts JSON config', () => {
