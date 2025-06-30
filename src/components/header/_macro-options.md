@@ -7,6 +7,7 @@
 | variants              | array or string                                   | false                                                       | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral", “description” and "basic" |
 | mastheadLogoUrl       | string                                            | false                                                       | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                                                     |
 | mastheadLogo          | object`<MastheadLogo>`                            | false                                                       | Settings for a [custom organisation logo](#mastheadlogo) in the masthead. Defaults to the ONS logo.                                            |
+| mastheadLogoAltText   | string                                            | false                                                       | Optional logo alt text override (defaults to 'Office for National Statistics logo')                                                            |
 | language              | object`<Language>`                                | false                                                       | Settings for the [language selector](#language)                                                                                                |
 | serviceLinks          | object`<ServiceLinks>`                            | false                                                       | Settings for the [service links](#servicelinks) in the masthead                                                                                |
 | title                 | string                                            | true (unless `titleLogo` is set or variant is set to basic) | The title for the service                                                                                                                      |
@@ -77,14 +78,17 @@
 
 ## SearchLinks
 
-| Name                      | Type                | Required | Description                                                                                                                                     |
-| ------------------------- | ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| id                        | string              | true     | The HTML `id` of the `search button` element. Used for the `aria-controls` attribute for the search toggle button displayed on small viewports. |
-| classes                   | string              | false    | Classes to add to the `search button` element                                                                                                   |
-| searchNavigationAriaLabel | string              | false    | The `aria-label` attribute added to the `search navigation` element. Defaults to Search navigation”.                                            |
-| searchButtonAriaLabel     | string              | false    | The `aria-label` attribute added to the `search button` element. Defaults to "Toggle search".                                                   |
-| heading                   | string              | true     | The heading label for the search items list                                                                                                     |
-| itemsList                 | array`<SearchItem>` | true     | Settings for an array of [searches](#searchitem) associated with each search link. The list can contain a maximum of 5 items.                   |
+| Name                            | Type                | Required | Description                                                                                                                                     |
+| ------------------------------- | ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                              | string              | true     | The HTML `id` of the `search button` element. Used for the `aria-controls` attribute for the search toggle button displayed on small viewports. |
+| classes                         | string              | false    | Classes to add to the `search button` element                                                                                                   |
+| searchNavigationAriaLabel       | string              | false    | The `aria-label` attribute added to the `search navigation` element. Defaults to Search navigation”.                                            |
+| searchNavigationButtonAriaLabel | string              | false    | The `aria-label` attribute added to the `search navigation` button toggle element on mobile. Defaults to "Toggle search".                       |
+| searchNavigationInputLabel      | string              | false    | Optional override for the search input label. Defaults to "Search the ONS".                                                                     |
+| searchNavigationButtonText      | string              | false    | Optional override for the search text of the `search navigation` element. Defaults to "Search"                                                  |
+| searchButtonAriaLabel           | string              | false    | The `aria-label` attribute added to the `search button` element. Defaults to "Toggle search".                                                   |
+| heading                         | string              | true     | The heading label for the search items list                                                                                                     |
+| itemsList                       | array`<SearchItem>` | true     | Settings for an array of [searches](#searchitem) associated with each search link. The list can contain a maximum of 5 items.                   |
 
 ## SearchItem
 

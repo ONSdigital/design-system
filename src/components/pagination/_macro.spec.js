@@ -105,7 +105,7 @@ describe('macro: pagination', () => {
             expect($('li').length).toBe(3);
             assertIsCurrentPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Current page (Page 1 of 2)', '1');
             assertIsNextPage($('.ons-pagination__item:nth-child(2)'), '/page/2', 'Go to page 2', '2');
-            assertIsNextPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Go to the next page (Page 2)', 'Next page');
+            assertIsNextPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Go to the next page (2)', 'Next page');
         });
     });
 
@@ -133,7 +133,7 @@ describe('macro: pagination', () => {
 
         it('has a 3 list items ("Previous page", "1", "2")', () => {
             expect($('li').length).toBe(3);
-            assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Go to the previous page (Page 1)', 'Previous page');
+            assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Go to the previous page (1)', 'Previous page');
             assertIsPreviousPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Go to page 1', '1');
             assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Current page (Page 2 of 2)', '2');
         });
@@ -163,11 +163,11 @@ describe('macro: pagination', () => {
 
         it('has a 5 list items ("Previous page", "1", "2", "3", "Next page")', () => {
             expect($('li').length).toBe(5);
-            assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Go to the previous page (Page 1)', 'Previous page');
+            assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Go to the previous page (1)', 'Previous page');
             assertIsPreviousPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Go to page 1', '1');
             assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Current page (Page 2 of 3)', '2');
             assertIsNextPage($('.ons-pagination__item:nth-child(4)'), '/page/3', 'Go to page 3', '3');
-            assertIsNextPage($('.ons-pagination__item:nth-child(5)'), '/page/3', 'Go to the next page (Page 3)', 'Next page');
+            assertIsNextPage($('.ons-pagination__item:nth-child(5)'), '/page/3', 'Go to the next page (3)', 'Next page');
         });
     });
 
@@ -195,13 +195,13 @@ describe('macro: pagination', () => {
 
         it('has a 7 list items ("Previous page", "1", "2", "3", "4", "5", "Next page")', () => {
             expect($('li').length).toBe(7);
-            assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Go to the previous page (Page 1)', 'Previous page');
+            assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Go to the previous page (1)', 'Previous page');
             assertIsPreviousPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Go to page 1', '1');
             assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Current page (Page 2 of 5)', '2');
             assertIsNextPage($('.ons-pagination__item:nth-child(4)'), '/page/3', 'Go to page 3', '3');
             assertIsOtherPage($('.ons-pagination__item:nth-child(5)'), '/page/4', 'Go to page 4', '4');
-            assertIsOtherPage($('.ons-pagination__item:nth-child(6)'), '/page/5', 'Go to the last page (Page 5)', '5');
-            assertIsNextPage($('.ons-pagination__item:nth-child(7)'), '/page/3', 'Go to the next page (Page 3)', 'Next page');
+            assertIsOtherPage($('.ons-pagination__item:nth-child(6)'), '/page/5', 'Go to the last page (5)', '5');
+            assertIsNextPage($('.ons-pagination__item:nth-child(7)'), '/page/3', 'Go to the next page (3)', 'Next page');
         });
     });
 
@@ -236,13 +236,13 @@ describe('macro: pagination', () => {
 
         it('has 7 list items ("Previous page", "1", "2", "3", "...", "6", "Next page")', () => {
             expect($('li').length).toBe(7);
-            assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Go to the previous page (Page 1)', 'Previous page');
+            assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Go to the previous page (1)', 'Previous page');
             assertIsPreviousPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Go to page 1', '1');
             assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Current page (Page 2 of 6)', '2');
             assertIsNextPage($('.ons-pagination__item:nth-child(4)'), '/page/3', 'Go to page 3', '3');
             assertIsGap($('.ons-pagination__item:nth-child(5)'));
-            assertIsOtherPage($('.ons-pagination__item:nth-child(6)'), '/page/6', 'Go to the last page (Page 6)', '6');
-            assertIsNextPage($('.ons-pagination__item:nth-child(7)'), '/page/3', 'Go to the next page (Page 3)', 'Next page');
+            assertIsOtherPage($('.ons-pagination__item:nth-child(6)'), '/page/6', 'Go to the last page (6)', '6');
+            assertIsNextPage($('.ons-pagination__item:nth-child(7)'), '/page/3', 'Go to the next page (3)', 'Next page');
         });
     });
 
@@ -282,15 +282,15 @@ describe('macro: pagination', () => {
 
         it('has a 9 list items ("Previous page", "1", "...", "4", "5", "6", "...", "11", "Next page")', () => {
             expect($('li').length).toBe(9);
-            assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/4', 'Go to the previous page (Page 4)', 'Previous page');
-            assertIsOtherPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Go to the first page (Page 1)', '1');
+            assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/4', 'Go to the previous page (4)', 'Previous page');
+            assertIsOtherPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Go to the first page', '1');
             assertIsGap($('.ons-pagination__item:nth-child(3)'));
             assertIsPreviousPage($('.ons-pagination__item:nth-child(4)'), '/page/4', 'Go to page 4', '4');
             assertIsCurrentPage($('.ons-pagination__item:nth-child(5)'), '/page/5', 'Current page (Page 5 of 11)', '5');
             assertIsNextPage($('.ons-pagination__item:nth-child(6)'), '/page/6', 'Go to page 6', '6');
             assertIsGap($('.ons-pagination__item:nth-child(7)'));
-            assertIsOtherPage($('.ons-pagination__item:nth-child(8)'), '/page/11', 'Go to the last page (Page 11)', '11');
-            assertIsNextPage($('.ons-pagination__item:nth-child(9)'), '/page/6', 'Go to the next page (Page 6)', 'Next page');
+            assertIsOtherPage($('.ons-pagination__item:nth-child(8)'), '/page/11', 'Go to the last page (11)', '11');
+            assertIsNextPage($('.ons-pagination__item:nth-child(9)'), '/page/6', 'Go to the next page (6)', 'Next page');
         });
     });
 
@@ -330,13 +330,187 @@ describe('macro: pagination', () => {
 
         it('has a 7 list items ("Previous page", "1", "...", "9", "10", "11", "Next page")', () => {
             expect($('li').length).toBe(7);
-            assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/9', 'Go to the previous page (Page 9)', 'Previous page');
-            assertIsOtherPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Go to the first page (Page 1)', '1');
+            assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/9', 'Go to the previous page (9)', 'Previous page');
+            assertIsOtherPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Go to the first page', '1');
             assertIsGap($('.ons-pagination__item:nth-child(3)'));
             assertIsPreviousPage($('.ons-pagination__item:nth-child(4)'), '/page/9', 'Go to page 9', '9');
             assertIsCurrentPage($('.ons-pagination__item:nth-child(5)'), '/page/10', 'Current page (Page 10 of 11)', '10');
             assertIsNextPage($('.ons-pagination__item:nth-child(6)'), '/page/11', 'Go to page 11', '11');
-            assertIsNextPage($('.ons-pagination__item:nth-child(7)'), '/page/11', 'Go to the next page (Page 11)', 'Next page');
+            assertIsNextPage($('.ons-pagination__item:nth-child(7)'), '/page/11', 'Go to the next page (11)', 'Next page');
+        });
+    });
+
+    describe('custom previousAriaLabel and nextAriaLabel', () => {
+        const customPreviousAriaLabel = 'Go back to page';
+        const customNextAriaLabel = 'Continue to page';
+        const $custom = cheerio.load(
+            renderComponent('pagination', {
+                currentPageNumber: 2,
+                pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }],
+                previous: 'Previous',
+                next: 'Next',
+                previousAriaLabel: customPreviousAriaLabel,
+                nextAriaLabel: customNextAriaLabel,
+            }),
+        );
+        const $default = cheerio.load(
+            renderComponent('pagination', {
+                currentPageNumber: 2,
+                pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }],
+                previous: 'Previous',
+                next: 'Next',
+            }),
+        );
+
+        it('renders the custom previousAriaLabel and page number on the Previous link', () => {
+            const prevItem = $custom('.ons-pagination__item--previous');
+            expect(prevItem.length).toBe(1);
+            expect(prevItem.find('a').attr('aria-label')).toBe('Go back to page (1)');
+        });
+        it('renders the default previousAriaLabel and page number on the Previous link if not provided', () => {
+            const prevItem = $default('.ons-pagination__item--previous');
+            expect(prevItem.length).toBe(1);
+            expect(prevItem.find('a').attr('aria-label')).toBe('Go to the previous page (1)');
+        });
+        it('renders the custom nextAriaLabel and page number on the Next link', () => {
+            const nextItem = $custom('.ons-pagination__item--next');
+            expect(nextItem.length).toBe(1);
+            expect(nextItem.find('a').attr('aria-label')).toBe('Continue to page (3)');
+        });
+        it('renders the default nextAriaLabel and page number on the Next link if not provided', () => {
+            const nextItem = $default('.ons-pagination__item--next');
+            expect(nextItem.length).toBe(1);
+            expect(nextItem.find('a').attr('aria-label')).toBe('Go to the next page (3)');
+        });
+    });
+
+    describe('custom ariaLabel', () => {
+        it('renders a custom aria-label on the nav element', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 2,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }],
+                    ariaLabel: 'Custom pagination navigation',
+                }),
+            );
+            expect($('.ons-pagination').attr('aria-label')).toBe('Custom pagination navigation (Page 2 of 3)');
+        });
+        it('renders the default aria-label on the nav element if not provided', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 2,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }],
+                }),
+            );
+            expect($('.ons-pagination').attr('aria-label')).toBe('Pagination (Page 2 of 3)');
+        });
+    });
+
+    describe('custom firstAriaLabel', () => {
+        it('renders a custom aria-label on the first page link', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 3,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }, { url: '/page/4' }],
+                    firstAriaLabel: 'Jump to first page',
+                }),
+            );
+            const firstPageLink = $('.ons-pagination__item a').filter(function () {
+                return $(this).text().trim() === '1';
+            });
+            expect(firstPageLink.attr('aria-label')).toBe('Jump to first page');
+        });
+        it('renders the default aria-label on the first page link if not provided', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 3,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }, { url: '/page/4' }],
+                }),
+            );
+            const firstPageLink = $('.ons-pagination__item a').filter(function () {
+                return $(this).text().trim() === '1';
+            });
+            expect(firstPageLink.attr('aria-label')).toBe('Go to the first page');
+        });
+    });
+
+    describe('custom currentAriaLabel', () => {
+        it('renders a custom aria-label on the current page link', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 2,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }],
+                    currentAriaLabel: 'You are on page',
+                }),
+            );
+            const currentPageLink = $('.ons-pagination__item--current a');
+            expect(currentPageLink.attr('aria-label')).toBe('You are on page (Page 2 of 3)');
+        });
+        it('renders the default aria-label on the current page link if not provided', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 2,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }],
+                }),
+            );
+            const currentPageLink = $('.ons-pagination__item--current a');
+            expect(currentPageLink.attr('aria-label')).toBe('Current page (Page 2 of 3)');
+        });
+    });
+
+    describe('custom lastAriaLabel', () => {
+        it('renders a custom aria-label on the last page link', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 2,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }, { url: '/page/4' }],
+                    lastAriaLabel: 'Jump to last page',
+                }),
+            );
+            const lastPageLink = $('.ons-pagination__item a').filter(function () {
+                return $(this).text().trim() === '4';
+            });
+            expect(lastPageLink.attr('aria-label')).toBe('Jump to last page (4)');
+        });
+        it('renders the default aria-label on the last page link if not provided', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 2,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }, { url: '/page/4' }],
+                }),
+            );
+            const lastPageLink = $('.ons-pagination__item a').filter(function () {
+                return $(this).text().trim() === '4';
+            });
+            expect(lastPageLink.attr('aria-label')).toBe('Go to the last page (4)');
+        });
+    });
+
+    describe('custom goToAriaLabel', () => {
+        it('renders a custom aria-label on non-current, non-first/last page links', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 3,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }, { url: '/page/4' }, { url: '/page/5' }],
+                    goToAriaLabel: 'Jump to page',
+                }),
+            );
+            const page2Link = $('.ons-pagination__item a').filter(function () {
+                return $(this).text().trim() === '2';
+            });
+            expect(page2Link.attr('aria-label')).toBe('Jump to page 2');
+        });
+        it('renders the default aria-label on non-current, non-first/last page links if not provided', () => {
+            const $ = cheerio.load(
+                renderComponent('pagination', {
+                    currentPageNumber: 3,
+                    pages: [{ url: '/page/1' }, { url: '/page/2' }, { url: '/page/3' }, { url: '/page/4' }, { url: '/page/5' }],
+                }),
+            );
+            const page2Link = $('.ons-pagination__item a').filter(function () {
+                return $(this).text().trim() === '2';
+            });
+            expect(page2Link.attr('aria-label')).toBe('Go to page 2');
         });
     });
 });

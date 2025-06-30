@@ -8,19 +8,7 @@
         @extend .ons-u-fs-r--b;
     }
 
-    &__title {
-        font-size: 1.25rem;
-        line-height: 1.625rem;
-    }
-
-    &__subtitle {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
     &__caption {
-        font-size: 1rem;
-        line-height: 1.2rem;
         color: var(--ons-color-grey-75);
     }
 
@@ -91,8 +79,8 @@
 
         &-item {
             &--uncertainty {
-                width: 14px;
-                height: 14px;
+                width: 12px;
+                height: 12px;
                 background-color: rgb(32 96 149 / 65%);
             }
 

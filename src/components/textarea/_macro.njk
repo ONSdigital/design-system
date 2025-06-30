@@ -19,14 +19,17 @@
 
         <textarea
             id="{{ params.id }}"
-            class="ons-input ons-input--textarea{{ ' ons-input--error' if params.error }}{{ ' ons-js-char-check-input' if params.charCheckLimit and params.charCheckLimit.limit }}{{ textareaExclusiveClass }}{{ ' ' + params.classes if params.classes else '' }}{% if params.width %}{{ ' ' }}ons-input--w-{{ params.width }}{% endif %}"
+            class="ons-input ons-input--textarea{{ ' ons-input--error' if params.error }}{{ ' ons-js-char-check-input' if (params.charCheckLimit and params.charCheckLimit.limit) or (params.wordCheckLimit and params.wordCheckLimit.limit) }}{{ textareaExclusiveClass }}{{ ' ' + params.classes if params.classes else '' }}{% if params.width %}{{ ' ' }}ons-input--w-{{ params.width }}{% endif %}"
             {% if params.name %}
                 name="{{ params.name }}"
             {% endif %}
             rows="{{ params.rows | default(8) }}"
             {% if params.charCheckLimit %}
-                data-char-check-ref="{{ params.id }}-check" data-char-check-num="{{ params.charCheckLimit.limit }}"
-                aria-describedby="{{ params.id }}-check" data-char-check-countdown=true
+                data-message-check-ref="{{ params.id }}-check" data-message-check-num="{{ params.charCheckLimit.limit }}"
+                aria-describedby="{{ params.id }}-check"
+            {% elif params.wordCheckLimit %}
+                data-message-check-ref="{{ params.id }}-check" data-message-check-num="{{ params.wordCheckLimit.limit }}"
+                aria-describedby="{{ params.id }}-check"
             {% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
         >
@@ -42,6 +45,19 @@
                     "charCountPlural": params.charCheckLimit.charCountPlural,
                     "charCountOverLimitSingular": params.charCheckLimit.charCountOverLimitSingular,
                     "charCountOverLimitPlural": params.charCheckLimit.charCountOverLimitPlural
+                })
+            %}
+            {% endcall %}
+        {% elif params.wordCheckLimit and params.wordCheckLimit.limit %}
+            {%
+                call onsCharLimit({
+                    "id": params.id ~ "-check",
+                    "variant": "word",
+                    "limit": params.wordCheckLimit.limit,
+                    "wordCountSingular": params.wordCheckLimit.wordCountSingular,
+                    "wordCountPlural": params.wordCheckLimit.wordCountPlural,
+                    "wordCountOverLimitSingular": params.wordCheckLimit.wordCountOverLimitSingular,
+                    "wordCountOverLimitPlural": params.wordCheckLimit.wordCountOverLimitPlural
                 })
             %}
             {% endcall %}

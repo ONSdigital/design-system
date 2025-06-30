@@ -164,9 +164,9 @@ describe('macro: checkboxes', () => {
         it('renders the text area with expected parameters', () => {
             const $ = cheerio.load(renderComponent('checkboxes', EXAMPLE_CHECKBOX_ITEM_CHECKBOXES_WITH_TEXTAREA));
             expect($('.ons-input--textarea').attr('name')).toBe('other answer');
-            expect($('.ons-input--textarea').attr('data-char-check-num')).toBe('300');
-            expect($('.ons-input__limit').attr('data-charcount-singular')).toBe('You have {x} character remaining');
-            expect($('.ons-input__limit').attr('data-charcount-plural')).toBe('You have {x} characters remaining');
+            expect($('.ons-input--textarea').attr('data-message-check-num')).toBe('300');
+            expect($('.ons-input__limit').attr('data-message-singular')).toBe('You have {x} character remaining');
+            expect($('.ons-input__limit').attr('data-message-plural')).toBe('You have {x} characters remaining');
         });
     });
 
