@@ -106,7 +106,7 @@ describe('FOR: Macro: Header', () => {
                 expect(iconsSpy.occurrences[0].iconType).toBe('ons-logo-en');
             });
             test('THEN: renders logo with correct default alt-text on large screen', () => {
-                expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics homepage');
+                expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics logo');
             });
             test('THEN: renders default small logo on small screen', () => {
                 expect(iconsSpy.occurrences[1].iconType).toBe('ons-logo-stacked-en');
@@ -150,6 +150,30 @@ describe('FOR: Macro: Header', () => {
             );
             test('THEN: renders logo with provided URL', () => {
                 expect($('.ons-header__org-logo-link').attr('href')).toBe('#0');
+            });
+        });
+    });
+    describe('GIVEN: Params: mastheadLogoAltText', () => {
+        describe('WHEN: mastheadLogoAltText is provided', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_BASIC,
+                mastheadLogoAltText: 'Custom alt text for logo',
+            });
+            test('THEN: renders logo with provided alt text', () => {
+                expect(iconsSpy.occurrences[0].altText).toBe('Custom alt text for logo');
+            });
+        });
+        describe('WHEN: mastheadLogoAltText is not provided', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_BASIC,
+                mastheadLogoAltText: undefined,
+            });
+            test('THEN: renders logo with default alt text', () => {
+                expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics logo');
             });
         });
     });
@@ -803,7 +827,7 @@ describe('FOR: Macro: Header', () => {
                     attributes: {
                         'aria-controls': 'search-links-id',
                         'aria-expanded': 'true',
-                        'aria-label': 'Example aria label',
+                        'aria-label': 'Custom search button aria label',
                         'aria-disabled': 'true',
                     },
                 });
@@ -899,6 +923,110 @@ describe('FOR: Macro: Header', () => {
 
             test('THEN: sets aria-disabled="true" on the search toggle button', () => {
                 expect($searchBtn.attr('aria-disabled')).toBe('true');
+            });
+        });
+
+        describe('WHEN: searchLinks are provided with all custom properties', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' });
+            test('THEN: renders search icon button with custom aria-label', () => {
+                expect(buttonSpy.occurrences[0]).toBeDefined();
+                expect(buttonSpy.occurrences[0].attributes['aria-label']).toBe('Custom search button aria label');
+            });
+        });
+        describe('WHEN: searchButtonAriaLabel is not provided', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_SEARCH_LINKS,
+                searchLinks: {
+                    ...EXAMPLE_HEADER_SEARCH_LINKS.searchLinks,
+                    searchButtonAriaLabel: undefined,
+                },
+                variants: 'basic',
+            });
+            test('THEN: renders search icon button with default aria-label', () => {
+                expect(buttonSpy.occurrences[0]).toBeDefined();
+                expect(buttonSpy.occurrences[0].attributes['aria-label']).toBe('Toggle search');
+            });
+        });
+        describe('WHEN: searchNavigationButtonAriaLabel is provided', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_SEARCH_LINKS,
+                siteSearchAutosuggest: {},
+            });
+            test('THEN: renders search navigation button with custom aria-label', () => {
+                const found = buttonSpy.occurrences.find(
+                    (btn) => btn.attributes && btn.attributes['aria-label'] === 'Custom search nav button aria label',
+                );
+                expect(found).toBeDefined();
+            });
+        });
+        describe('WHEN: searchNavigationButtonAriaLabel is not provided', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_SEARCH_LINKS,
+                searchLinks: {
+                    ...EXAMPLE_HEADER_SEARCH_LINKS.searchLinks,
+                    searchNavigationButtonAriaLabel: undefined,
+                },
+                siteSearchAutosuggest: {},
+            });
+            test('THEN: renders search navigation button with default aria-label', () => {
+                const found = buttonSpy.occurrences.find((btn) => btn.attributes && btn.attributes['aria-label'] === 'Toggle search');
+                expect(found).toBeDefined();
+            });
+        });
+        describe('WHEN: searchNavigationInputLabel is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+            test('THEN: renders search input with custom label', () => {
+                expect($('#header-search-input-label').text().trim()).toBe('Custom search input label');
+            });
+        });
+        describe('WHEN: searchNavigationInputLabel is not provided', () => {
+            const $ = cheerio.load(
+                renderComponent('header', {
+                    ...EXAMPLE_HEADER_SEARCH_LINKS,
+                    searchLinks: {
+                        ...EXAMPLE_HEADER_SEARCH_LINKS.searchLinks,
+                        searchNavigationInputLabel: undefined,
+                    },
+                    variants: 'basic',
+                }),
+            );
+            test('THEN: renders search input with default label', () => {
+                expect($('#header-search-input-label').text().trim()).toBe('Search the ONS');
+            });
+        });
+        describe('WHEN: searchNavigationButtonText is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: renders the visually hidden search navigation button text', () => {
+                const $button = $('.ons-search__btn.ons-btn--header-search');
+                const hiddenText = $button.find('.ons-u-vh').text().trim();
+                expect(hiddenText).toBe(EXAMPLE_HEADER_SEARCH_LINKS.searchLinks.searchNavigationButtonText);
+            });
+        });
+        describe('WHEN: searchNavigationButtonText is not provided', () => {
+            const $ = cheerio.load(
+                renderComponent('header', {
+                    ...EXAMPLE_HEADER_SEARCH_LINKS,
+                    searchLinks: {
+                        ...EXAMPLE_HEADER_SEARCH_LINKS.searchLinks,
+                        searchNavigationButtonText: undefined,
+                    },
+                    variants: 'basic',
+                }),
+            );
+
+            test('THEN: renders the default fallback search navigation button text', () => {
+                const $button = $('.ons-search__btn.ons-btn--header-search');
+                const hiddenText = $button.find('.ons-u-vh').text().trim();
+                expect(hiddenText).toBe('Search');
             });
         });
     });
