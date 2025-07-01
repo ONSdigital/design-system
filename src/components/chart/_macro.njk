@@ -58,7 +58,13 @@
             <p class="ons-u-vh" id="{{ audioDescriptionId }}">{{ params.description }}</p>
 
             {% if params.iframeUrl %}
-                <div data-chart-iframe id="{{ params.id }}" data-url="{{ params.iframeUrl }}" data-title="{{ params.title }}">
+                <div
+                    data-chart-iframe
+                    id="{{ params.id }}"
+                    data-url="{{ params.iframeUrl }}"
+                    data-title="{{ params.title }}"
+                    class="{% if params.fallbackImageUrl %}ons-chart__non-js-hide{% endif %}"
+                >
                     <iframe src="{{ params.iframeUrl }}" title="{{ params.title }}" class="ons-chart__iframe"> </iframe>
                 </div>
             {% else %}
@@ -86,8 +92,8 @@
                     </p>
                 {% endif %}
             {% endif %}
-            {# If the chart is displayed inside an iframe, then the fallback image is not displayed here, as it will be provided in the iframe content instead #}
-            {% if params.fallbackImageUrl and not params.iframeUrl %}
+
+            {% if params.fallbackImageUrl %}
                 <noscript data-fallback-image>
                     {# Note that a more detailed description of the chart is provided in the audio description above #}
                     <img

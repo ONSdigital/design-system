@@ -1651,9 +1651,9 @@ describe('Macro: Chart', () => {
                         fallbackImageUrl: '/img/small/line-chart-screenshot.png',
                     }),
                 );
-                const noScript = $(`noscript[data-fallback-image]`);
-                test('THEN: it does  not render the fallback image', () => {
-                    expect(noScript.length).toBe(0);
+                const iframe = $(`[data-chart-iframe]`);
+                test('THEN: the iframe is hidden when JavaScript is disabled', () => {
+                    expect(iframe.attr('class')).toBe('ons-chart__non-js-hide');
                 });
             });
         });
