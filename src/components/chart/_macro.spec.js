@@ -25,6 +25,7 @@ import {
     EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS,
     EXAMPLE_LINE_CHART_WITH_REFERENCE_LINE_ANNOTATIONS_PARAMS,
     EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS,
+    EXAMPLE_IFRAME_CHART_PARAMS,
 } from './_test-examples';
 
 describe('Macro: Chart', () => {
@@ -1453,6 +1454,179 @@ describe('Macro: Chart', () => {
                 expect(configScript).not.toContain('"max":10');
                 expect(configScript).not.toContain('"startOnTick":true');
                 expect(configScript).not.toContain('"endOnTick":true');
+            });
+        });
+    });
+
+    describe('FOR: Iframe chart', () => {
+        describe('GIVEN: Params: Iframe chart', () => {
+            describe('WHEN: an iframe url param is provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_IFRAME_CHART_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the iframe', () => {
+                    expect($('[data-chart-iframe]').length).toBe(1);
+                });
+
+                test('THEN: it includes the iframe title as a data attribute', () => {
+                    const iframe = $('[data-chart-iframe]');
+                    expect(iframe.attr('data-title')).toBe(EXAMPLE_IFRAME_CHART_PARAMS.title);
+                });
+
+                test('THEN: the theme parameter is ignored', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            theme: 'secondary',
+                        }),
+                    );
+
+                    expect($('[data-highcharts-theme]').length).toBe(0);
+                });
+
+                test('THEN: the percentageHeightDesktop and percentageHeightMobile parameters are ignored', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            percentageHeightDesktop: 50,
+                            percentageHeightMobile: 10,
+                        }),
+                    );
+
+                    expect($('[data-highcharts-percentage-height-desktop]').length).toBe(0);
+                    expect($('[data-highcharts-percentage-height-mobile]').length).toBe(0);
+                });
+
+                test('THEN: the tickIntervalDesktop and tickIntervalMobile parameters are ignored', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            xAxis: {
+                                tickIntervalDesktop: 10,
+                                tickIntervalMobile: 5,
+                            },
+                            yAxis: {
+                                tickIntervalDesktop: 10,
+                                tickIntervalMobile: 5,
+                            },
+                        }),
+                    );
+
+                    expect($('[data-highcharts-x-axis-tick-interval-desktop]').length).toBe(0);
+                    expect($('[data-highcharts-x-axis-tick-interval-mobile]').length).toBe(0);
+                    expect($('[data-highcharts-y-axis-tick-interval-desktop]').length).toBe(0);
+                    expect($('[data-highcharts-y-axis-tick-interval-mobile]').length).toBe(0);
+                });
+
+                test('THEN: the tickIntervalDesktop and tickIntervalMobile parameters are ignored', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            estimateLineLabel: 'Estimated value',
+                            uncertaintyRangeLabel: '95% Confidence Interval',
+                        }),
+                    );
+
+                    expect($('[data-highcharts-estimate-line-label]').length).toBe(0);
+                    expect($('[data-highcharts-uncertainty-range-label]').length).toBe(0);
+                });
+
+                test('THEN: the customReferenceLineValue parameter is ignored', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            yAxis: {
+                                customReferenceLineValue: 10,
+                            },
+                        }),
+                    );
+
+                    expect($('[data-highcharts-custom-reference-line-value]').length).toBe(0);
+                });
+
+                test('THEN: the legend for boxplot charts is not rendered', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            chartType: 'boxplot',
+                            legend: true,
+                            estimateLineLabel: 'Estimated value',
+                            uncertaintyRangeLabel: '95% Confidence Interval',
+                        }),
+                    );
+
+                    expect($('.ons-chart__boxplot-legend').length).toBe(0);
+                });
+
+                test('THEN: the Highcharts config is not included', () => {
+                    const configScript = $(`script[data-highcharts-config--iframe-chart-123]`).html();
+                    expect(configScript).toBeNull();
+                });
+
+                test('THEN: the annotations footnotes and scripts are not rendered', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            annotations: [
+                                {
+                                    text: 'A test point annotation',
+                                    point: { x: 2, y: 3 },
+                                    labelOffsetX: 10,
+                                    labelOffsetY: -50,
+                                },
+                            ],
+                            rangeAnnotations: [
+                                {
+                                    text: 'A test x axis range annotation',
+                                    range: { axisValue1: 10, axisValue2: 15 },
+                                    axis: 'x',
+                                    labelOffsetX: 150,
+                                    labelOffsetY: 0,
+                                },
+                                {
+                                    text: 'A test y axis range annotation with the label inside',
+                                    range: { axisValue1: 5, axisValue2: 10 },
+                                    axis: 'y',
+                                    labelInside: true,
+                                    labelWidth: 250,
+                                },
+                            ],
+                            referenceLineAnnotations: [
+                                {
+                                    text: 'A test x axis reference line annotation',
+                                    value: 34,
+                                    axis: 'x',
+                                },
+                                {
+                                    text: 'A test y axis reference line annotation',
+                                    value: 12,
+                                    axis: 'y',
+                                    labelWidth: 100,
+                                },
+                            ],
+                        }),
+                    );
+
+                    expect($('[data-annotations-footnotes]').length).toBe(0);
+                    expect($('[data-highcharts-annotations--iframe-chart-123]').length).toBe(0);
+                    expect($('[data-highcharts-range-annotations--iframe-chart-123]').length).toBe(0);
+                    expect($('[data-highcharts-reference-line-annotations--iframe-chart-123]').length).toBe(0);
+                });
+
+                test('THEN: invalid chart type is ignored', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            chartType: 'foobar',
+                        }),
+                    );
+
+                    expect($('[data-invalid-chart-type]').length).toBe(0);
+                });
             });
         });
     });
