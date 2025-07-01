@@ -98,7 +98,7 @@
                     {# Note that a more detailed description of the chart is provided in the audio description above #}
                     <img
                         src="{{ params.fallbackImageUrl }}"
-                        alt="Fallback image for the chart as JavaScript is disabled"
+                        alt="{{ params.fallbackImageAlt or 'Fallback image for the chart as JavaScript is disabled' }}"
                         class="ons-chart__fallback-image"
                     />
                 </noscript>
