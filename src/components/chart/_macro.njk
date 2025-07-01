@@ -4,6 +4,8 @@
     {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
     {% set supportedChartTypesWithLine = ['column'] %}
     {% set supportedChartTypesWithScatter = ['columnrange'] %}
+    {% set supportedChartTypesWithXAxisMinAndMax = ['scatter'] %}
+    {% set supportedChartTypesWithYAxisMinAndMax = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
     {% set headingLevel = params.headingLevel | default(2) %}
     {% set openingTitleTag = "<h" ~ headingLevel %}
     {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
@@ -75,7 +77,9 @@
             {% if params.chartType in supportedChartTypes %}
                 <div data-highcharts-chart></div>
             {% else %}
-                <p data-invalid-chart-type><b>Chart type "{{ params.chartType }}" is not supported</b></p>
+                <p data-invalid-chart-type data-unsupported-chart-text>
+                    <b>{{ '"' + params.chartType + '" - ' + (params.unsupportedChartText or 'chart type is not supported') }}</b>
+                </p>
             {% endif %}
             {#
                 Footnotes for the annotations at mobile
@@ -172,7 +176,11 @@
                     },
                     "labels": {
                         "format": params.yAxis.labelFormat
-                    }
+                    },
+                    "min": params.yAxis.min if params.yAxis.min is defined and params.chartType in supportedChartTypesWithYAxisMinAndMax else undefined,
+                    "max": params.yAxis.max if params.yAxis.max is defined and params.chartType in supportedChartTypesWithYAxisMinAndMax else undefined,
+                    "startOnTick": params.yAxis.startOnTick if params.yAxis.startOnTick is defined and params.chartType in supportedChartTypesWithYAxisMinAndMax else undefined,
+                    "endOnTick": params.yAxis.endOnTick if params.yAxis.endOnTick is defined and params.chartType in supportedChartTypesWithYAxisMinAndMax else undefined
                 },
                 "xAxis": {
                     "title": {
@@ -182,7 +190,11 @@
                     "type": params.xAxis.type,
                     "labels": {
                         "format": params.xAxis.labelFormat
-                    }
+                    },
+                    "min": params.xAxis.min if params.xAxis.min is defined and params.chartType in supportedChartTypesWithXAxisMinAndMax else undefined,
+                    "max": params.xAxis.max if params.xAxis.max is defined and params.chartType in supportedChartTypesWithXAxisMinAndMax else undefined,
+                    "startOnTick": params.xAxis.startOnTick if params.xAxis.startOnTick is defined and params.chartType in supportedChartTypesWithXAxisMinAndMax else undefined,
+                    "endOnTick": params.xAxis.endOnTick if params.xAxis.endOnTick is defined and params.chartType in supportedChartTypesWithXAxisMinAndMax else undefined
                 },
                 "series": series
             }

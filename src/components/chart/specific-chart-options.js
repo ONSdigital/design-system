@@ -15,9 +15,28 @@ class SpecificChartOptions {
             },
             yAxis: {
                 tickInterval: yAxisTickInterval,
+                // Configure the minimum and maximum value shown on the y-axis.
+                // If not set in the config, it is set to undefined which is Highcharts default value.
+                min: this.config.yAxis?.min ?? undefined,
+                max: this.config.yAxis?.max ?? undefined,
+
+                // Controls whether the y-axis starts and/or ends exactly on a tick mark.
+                // Highcharts defaults to `true` for both startOnTick and endOnTick on y-axes.
+                startOnTick: this.config.yAxis?.startOnTick ?? true,
+                endOnTick: this.config.yAxis?.endOnTick ?? true,
             },
+
             xAxis: {
                 tickInterval: xAxisTickInterval,
+                // Configure the minimum and maximum value shown on the x-axis.
+                // If not set in the config, it is set to undefined which is Highcharts default value.
+                min: this.config.xAxis?.min ?? undefined,
+                max: this.config.xAxis?.max ?? undefined,
+
+                // Controls whether the x-axis starts and/or ends exactly on a tick mark.
+                // Highcharts defaults to `false` for both startOnTick and endOnTick on x-axes.
+                startOnTick: this.config.xAxis?.startOnTick ?? false,
+                endOnTick: this.config.xAxis?.endOnTick ?? false,
             },
         };
     }
@@ -150,8 +169,9 @@ class SpecificChartOptions {
                                 fill: item.color,
                                 stroke: item.color,
                                 'stroke-width': 1,
-                                width: 12,
-                                height: 12,
+                                // 10px accounts for the stroke width to end up at 12px overall
+                                width: 10,
+                                height: 10,
                                 'data-custom-legend-symbol': true,
                             });
                         legendSymbol.add(label.parentGroup);
@@ -159,11 +179,14 @@ class SpecificChartOptions {
                             x: 15, // Adjust label position to account for shorter space that the symbol takes up
                         });
                     }
-                } else if (seriesType === 'columnrange') {
+                } else if (seriesType === 'scatter') {
+                    // Because the scatter icons have a white border, we have to render them
+                    // slightly larger to make them appear at 12 x 12 px
+                    // Also the text looks better aligned if the y value is tweaked slightly for the scatter icons
                     symbol.attr({
-                        width: 14,
-                        height: 14,
-                        y: 8,
+                        width: 13,
+                        height: 13,
+                        y: 7,
                     });
                 } else {
                     if (!symbol) return;
