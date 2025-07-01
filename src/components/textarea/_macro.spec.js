@@ -27,6 +27,17 @@ const EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT = {
     },
 };
 
+const EXAMPLE_TEXTAREA_WITH_WORD_LIMIT = {
+    ...EXAMPLE_TEXTAREA,
+    width: 30,
+    wordCheckLimit: {
+        limit: 5,
+        wordCountSingular: 'You have {x} word remaining',
+        wordCountPlural: 'You have {x} words remaining',
+        wordCountOverLimitSingular: '{x} word too many',
+        wordCountOverLimitPlural: '{x} words too many',
+    },
+};
 const EXAMPLE_TEXTAREA_WITH_ERROR = {
     ...EXAMPLE_TEXTAREA,
     error: {
@@ -212,13 +223,13 @@ describe('macro: textarea', () => {
         it('has the provided maximum length', () => {
             const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT));
 
-            expect($('.ons-input--textarea').attr('data-char-check-num')).toBe('200');
+            expect($('.ons-input--textarea').attr('data-message-check-num')).toBe('200');
         });
 
         it('has data attribute which references the character check component', () => {
             const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_CHARACTER_LIMIT));
 
-            expect($('.ons-input--textarea').attr('data-char-check-ref')).toBe('example-id-check');
+            expect($('.ons-input--textarea').attr('data-message-check-ref')).toBe('example-id-check');
         });
 
         it('has `aria-describedby` attribute which references the character limit component', () => {
@@ -227,7 +238,7 @@ describe('macro: textarea', () => {
             expect($('.ons-input--textarea').attr('aria-describedby')).toBe('example-id-check');
         });
 
-        it('renders character limit component', () => {
+        it('renders character check limit component', () => {
             const faker = templateFaker();
             const charCheckLimitSpy = faker.spy('char-check-limit');
 
@@ -240,6 +251,68 @@ describe('macro: textarea', () => {
                 charCountPlural: 'You have {x} characters remaining',
                 charCountOverLimitSingular: '{x} character too many',
                 charCountOverLimitPlural: '{x} characters too many',
+            });
+        });
+    });
+
+    describe('with word check', () => {
+        it('has the `ons-js-char-check-input` class', () => {
+            const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_WORD_LIMIT));
+
+            expect($('.ons-input--textarea').hasClass('ons-js-char-check-input')).toBe(true);
+        });
+
+        it('has the provided maximum length', () => {
+            const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_WORD_LIMIT));
+
+            expect($('.ons-input--textarea').attr('data-message-check-num')).toBe('5');
+        });
+
+        it('has data attribute which references the word check component', () => {
+            const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_WORD_LIMIT));
+
+            expect($('.ons-input--textarea').attr('data-message-check-ref')).toBe('example-id-check');
+        });
+
+        it('has `aria-describedby` attribute which references the word limit component', () => {
+            const $ = cheerio.load(renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_WORD_LIMIT));
+
+            expect($('.ons-input--textarea').attr('aria-describedby')).toBe('example-id-check');
+        });
+
+        it('renders char check limit component which counts words instead of characters', () => {
+            const faker = templateFaker();
+            const charCheckLimitSpy = faker.spy('char-check-limit');
+
+            faker.renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_WORD_LIMIT);
+
+            expect(charCheckLimitSpy.occurrences).toContainEqual({
+                id: 'example-id-check',
+                limit: 5,
+                variant: 'word',
+                wordCountSingular: 'You have {x} word remaining',
+                wordCountPlural: 'You have {x} words remaining',
+                wordCountOverLimitSingular: '{x} word too many',
+                wordCountOverLimitPlural: '{x} words too many',
+            });
+        });
+    });
+
+    describe('with character check and word check', () => {
+        it('only renders char check limit component which counts characters', () => {
+            const faker = templateFaker();
+            const charCheckLimitSpy = faker.spy('char-check-limit');
+
+            faker.renderComponent('textarea', EXAMPLE_TEXTAREA_WITH_WORD_LIMIT);
+
+            expect(charCheckLimitSpy.occurrences).toContainEqual({
+                id: 'example-id-check',
+                limit: 5,
+                variant: 'word',
+                wordCountSingular: 'You have {x} word remaining',
+                wordCountPlural: 'You have {x} words remaining',
+                wordCountOverLimitSingular: '{x} word too many',
+                wordCountOverLimitPlural: '{x} words too many',
             });
         });
     });
