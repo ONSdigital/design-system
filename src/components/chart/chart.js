@@ -191,7 +191,7 @@ class HighchartsBaseChart {
     checkHideDataLabels = () => {
         let hideDataLabels = (this.chartType === 'bar' && this.config.series.length > 2) || this.useStackedLayout === true;
         this.config.series.forEach((series) => {
-            if (series.data.length >= 20) {
+            if (series.data.length > 20) {
                 hideDataLabels = true;
             }
         });
