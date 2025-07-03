@@ -12,7 +12,7 @@
         color: var(--ons-color-grey-75);
     }
 
-    &__footnote-number {
+    &__annotations-footnotes-number {
         // !important is necessary for some range annotation labels at mobile, otherwise
         // the inline-styled block display takes precedence. This inline style is only
         // applied in some cases - it seems to happen when the shaded area is narrower than the label width.
@@ -34,7 +34,7 @@
     }
 
     /* Override Highcharts styling */
-    &__footnote-number span {
+    &__annotations-footnotes-number span {
         position: static !important;
         transform-origin: 0 0 !important;
         font-size: inherit !important;
@@ -43,7 +43,7 @@
         left: 0 !important;
     }
 
-    &__footnotes {
+    &__annotations-footnotes {
         list-style: none;
         padding: 0;
         margin: 0 0 1rem;
@@ -56,12 +56,14 @@
         }
     }
 
-    &__footnote_item {
+    &__annotations-footnotes_item {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 0.5rem;
         font-size: 0.875rem; // 14px
         color: var(--ons-color-grey-100);
+        line-height: 1.2rem;
+        margin-bottom: 0.5rem;
     }
 
     &__boxplot-legend {
