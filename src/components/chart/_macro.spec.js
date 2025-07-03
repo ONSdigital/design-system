@@ -1506,11 +1506,11 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the iframe', () => {
-                    expect($('[data-chart-iframe]').length).toBe(1);
+                    expect($('.ons-chart__iframe-wrapper').length).toBe(1);
                 });
 
                 test('THEN: it includes the iframe title as a data attribute', () => {
-                    const iframe = $('[data-chart-iframe]');
+                    const iframe = $('.ons-chart__iframe-wrapper');
                     expect(iframe.attr('data-title')).toBe(EXAMPLE_IFRAME_CHART_PARAMS.title);
                 });
 
@@ -1673,9 +1673,9 @@ describe('Macro: Chart', () => {
                         fallbackImageUrl: '/img/small/line-chart-screenshot.png',
                     }),
                 );
-                const iframe = $(`[data-chart-iframe]`);
+                const iframe = $(`.ons-chart__iframe-wrapper`);
                 test('THEN: the iframe is hidden when JavaScript is disabled', () => {
-                    expect(iframe.attr('class')).toBe('ons-chart__non-js-hide');
+                    expect(iframe.attr('class')).toContain('ons-chart__non-js-hide');
                 });
             });
         });
