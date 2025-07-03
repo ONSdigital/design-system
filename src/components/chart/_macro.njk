@@ -79,7 +79,7 @@
                     </div>
                 {% endif %}
                 {% if params.chartType in supportedChartTypes %}
-                    <div data-highcharts-chart></div>
+                    <div data-highcharts-chart class="ons-chart__chart"></div>
                 {% else %}
                     <p data-invalid-chart-type data-unsupported-chart-text>
                         <b>{{ '"' + params.chartType + '" - ' + (params.unsupportedChartText or 'chart type is not supported') }}</b>
