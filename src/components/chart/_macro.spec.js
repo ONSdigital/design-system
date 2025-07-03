@@ -199,12 +199,26 @@ describe('Macro: Chart', () => {
                     renderComponent('chart', {
                         ...EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
                         fallbackImageUrl: '/img/small/line-chart-screenshot.png',
-                        fallbackImageAlt: 'A description of the fallback image for screen readers',
                     }),
                 );
                 const noScriptFallbackImage = $(`#fallback-image--chart-456`).html();
                 test('THEN: it renders the fallback image', () => {
                     expect(noScriptFallbackImage).toContain('/img/small/line-chart-screenshot.png');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: fallbackImageAlt', () => {
+            describe('WHEN: fallbackImageAlt is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
+                        fallbackImageUrl: '/img/small/line-chart-screenshot.png',
+                        fallbackImageAlt: 'A description of the fallback image for screen readers',
+                    }),
+                );
+                const noScriptFallbackImage = $(`#fallback-image--chart-456`).html();
+                test('THEN: it renders the fallback image', () => {
                     expect(noScriptFallbackImage).toContain('alt="A description of the fallback image for screen readers"');
                 });
             });

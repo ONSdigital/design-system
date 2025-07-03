@@ -39,8 +39,8 @@
 
 | Property | Type   | Required | Description                                        |
 | -------- | ------ | -------- | -------------------------------------------------- |
-| `text`   | string | true     | The label or description of the downloadable item. |
-| `url`    | string | true     | The URL to the downloadable resource.              |
+| text     | string | true     | The label or description of the downloadable item. |
+| url      | string | true     | The URL to the downloadable resource.              |
 
 ## Y_Axis
 
