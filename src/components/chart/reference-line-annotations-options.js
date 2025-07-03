@@ -58,7 +58,7 @@ class ReferenceLineAnnotationsOptions {
                     // So that if we have more than one type of annotations, the numbers will be sequential
                     text: `${annotationsLength + index + 1}`,
                     useHTML: true,
-                    className: 'ons-chart__footnote-number',
+                    className: 'ons-chart__annotations-footnotes-number',
                     allowOverlap: true,
                     style: {
                         color: this.constants.labelColor,
