@@ -95,7 +95,8 @@
             {% endif %}
 
             {% if params.fallbackImageUrl %}
-                <noscript data-fallback-image>
+                {% set fallbackImageId = ["fallback-image--", params.id] | join %}
+                <noscript id="{{ fallbackImageId }}">
                     {# Note that a more detailed description of the chart is provided in the audio description above #}
                     <img
                         src="{{ params.fallbackImageUrl }}"

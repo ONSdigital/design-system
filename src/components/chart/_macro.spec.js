@@ -193,17 +193,19 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Fallback Image URL', () => {
-            describe('WHEN: fallback image URL is provided', () => {
+        describe('GIVEN: Params: fallbackImageUrl', () => {
+            describe('WHEN: fallbackImageUrl is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
                         fallbackImageUrl: '/img/small/line-chart-screenshot.png',
+                        fallbackImageAlt: 'A description of the fallback image for screen readers',
                     }),
                 );
-                const noScript = $(`noscript[data-fallback-image]`).html();
+                const noScriptFallbackImage = $(`#fallback-image--chart-456`).html();
                 test('THEN: it renders the fallback image', () => {
-                    expect(noScript).toContain('/img/small/line-chart-screenshot.png');
+                    expect(noScriptFallbackImage).toContain('/img/small/line-chart-screenshot.png');
+                    expect(noScriptFallbackImage).toContain('alt="A description of the fallback image for screen readers"');
                 });
             });
         });
@@ -1664,7 +1666,7 @@ describe('Macro: Chart', () => {
                 });
             });
 
-            describe('GIVEN: Params: Fallback Image URL with an iframe chart', () => {
+            describe('WHEN: Params: fallbackImageUrl is set', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_IFRAME_CHART_PARAMS,
