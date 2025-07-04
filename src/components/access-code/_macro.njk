@@ -7,7 +7,6 @@
     {% set maxLength = params.maxLength | default(16) + extraSpaces %}
 
     {% set content %}
-        <h1>hf</h1>
         {{
             onsInput({
                 "id": params.id,
@@ -29,29 +28,29 @@
         }}
     {% endset %}
 
-    <h1>hf</h1>
-
-    {% if not params.error %}
-        {%
-            call onsPanel({
-                "classes": "ons-u-mb-s" + (" " + params.classes if params.classes else "")
-            })
-        %}
+    <ul>
+        {% if not params.error %}
+            {%
+                call onsPanel({
+                    "classes": "ons-u-mb-s" + (" " + params.classes if params.classes else "")
+                })
+            %}
+                {{ content | safe }}
+            {% endcall %}
+        {% else %}
             {{ content | safe }}
-        {% endcall %}
-    {% else %}
-        {{ content | safe }}
-    {% endif %}
+        {% endif %}
 
-    {% if params.securityMessage %}
-        {%
-            call onsPanel({
-                "variant": "bare",
-                "iconType": "lock",
-                "classes": "ons-u-mb-s"
-            })
-        %}
-            {{ params.securityMessage }}
-        {% endcall %}
-    {% endif %}
+        {% if params.securityMessage %}
+            {%
+                call onsPanel({
+                    "variant": "bare",
+                    "iconType": "lock",
+                    "classes": "ons-u-mb-s"
+                })
+            %}
+                {{ params.securityMessage }}
+            {% endcall %}
+        {% endif %}
+    </ul>
 {% endmacro %}
