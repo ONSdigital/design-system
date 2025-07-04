@@ -1,5 +1,7 @@
 name: Lighthouse CI accessibility checks
 on: [pull_request]
+permissions:
+    contents: read
 
 env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
