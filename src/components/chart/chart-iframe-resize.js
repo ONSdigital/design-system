@@ -2,7 +2,7 @@ import pym from 'pym.js';
 
 class ChartIframeResize {
     static selector() {
-        return '[data-chart-iframe]';
+        return '.ons-chart__iframe-wrapper';
     }
 
     constructor(node) {
