@@ -218,8 +218,23 @@ describe('Macro: Chart', () => {
                     }),
                 );
                 const noScriptFallbackImage = $(`#fallback-image--chart-456`).html();
-                test('THEN: it renders the fallback image', () => {
+                test('THEN: it renders the customised fallback image alt text', () => {
                     expect(noScriptFallbackImage).toContain('alt="A description of the fallback image for screen readers"');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: no fallbackImageAlt', () => {
+            describe('WHEN: fallbackImageAlt is not provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
+                        fallbackImageUrl: '/img/small/line-chart-screenshot.png',
+                    }),
+                );
+                const noScriptFallbackImage = $(`#fallback-image--chart-456`).html();
+                test('THEN: it renders the default fallback image alt text', () => {
+                    expect(noScriptFallbackImage).toContain('alt="Fallback image for the chart as JavaScript is disabled"');
                 });
             });
         });
