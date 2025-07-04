@@ -1,9 +1,10 @@
 name: Release
-permissions:
-    contents: write
 on:
     release:
         types: [published]
+
+permissions:
+    contents: write
 
 jobs:
     add-templates-to-release:
