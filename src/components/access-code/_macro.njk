@@ -7,6 +7,7 @@
     {% set maxLength = params.maxLength | default(16) + extraSpaces %}
 
     {% set content %}
+        <h1>hf</h1>
         {{
             onsInput({
                 "id": params.id,
@@ -27,6 +28,8 @@
             })
         }}
     {% endset %}
+
+    <h1>hf</h1>
 
     {% if not params.error %}
         {%
