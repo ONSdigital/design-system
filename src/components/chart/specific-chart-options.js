@@ -106,8 +106,8 @@ class SpecificChartOptions {
             totalHeight = currentChart.plotTop + newPlotHeight + currentChart.marginBottom;
         }
 
-        // set the new size of the chart
-        if (totalHeight !== currentChart.chartHeight) {
+        const tolerance = 2; // 2px tolerance
+        if (Math.abs(totalHeight - currentChart.chartHeight) > tolerance) {
             currentChart.setSize(null, totalHeight, false);
         }
     };

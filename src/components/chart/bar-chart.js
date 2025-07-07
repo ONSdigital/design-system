@@ -191,8 +191,8 @@ class BarChart {
         config.xAxis.height = categoriesTotalHeight + totalSpaceHeight;
         const totalHeight = currentChart.plotTop + config.xAxis.height + currentChart.marginBottom;
 
-        // Only update if the height has actually changed to prevent unnecessary redraws
-        if (totalHeight !== currentChart.chartHeight) {
+        const tolerance = 2; // 2px tolerance
+        if (Math.abs(totalHeight - currentChart.chartHeight) > tolerance) {
             currentChart.setSize(null, totalHeight, false);
         }
 
