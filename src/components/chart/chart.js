@@ -274,6 +274,15 @@ class HighchartsBaseChart {
         }
         this.config.chart.events.load = (event) => {
             const currentChart = event.target;
+
+            // Ensure chart is fully rendered before applying customisations
+            if (!currentChart || !currentChart.series) {
+                setTimeout(() => {
+                    this.config.chart.events.load(event);
+                }, 0);
+                return;
+            }
+
             if (this.chartType === 'line') {
                 this.lineChart.updateLastPointMarker(currentChart.series);
                 this.specificChartOptions.hideDataLabels(currentChart.series);
@@ -315,6 +324,8 @@ class HighchartsBaseChart {
                     }
                 });
             }
+
+            // Single redraw at the end to ensure all changes are applied consistently
             currentChart.redraw(false);
         };
     };
@@ -325,6 +336,12 @@ class HighchartsBaseChart {
         }
         this.config.chart.events.render = (event) => {
             const currentChart = event.target;
+
+            // Ensure chart is fully rendered before applying customisations
+            if (!currentChart) {
+                return;
+            }
+
             if (this.rangeAnnotationsOptions) {
                 this.rangeAnnotationsOptions.addLine(currentChart);
             }
@@ -344,12 +361,22 @@ class HighchartsBaseChart {
             this.resizeTimeout = setTimeout(() => {
                 // Get the current rendered chart instance
                 const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
+
+                if (!currentChart) {
+                    return;
+                }
+
                 // Update the data labels when the window is resized
                 if (this.chartType === 'bar' && !this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
-                    // Force a single redraw after all updates
-                    currentChart.redraw(false);
                 }
+
+                if (this.chartType != 'bar' && this.chartType != 'columnrange') {
+                    this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+                }
+
+                // Force a single redraw after all updates
+                currentChart.redraw(false);
             }, 50);
         });
     };

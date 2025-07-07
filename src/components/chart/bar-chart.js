@@ -76,6 +76,15 @@ class BarChart {
     postLoadDataLabels = (currentChart) => {
         const insideOptions = this.getBarChartLabelsInsideOptions();
         const outsideOptions = this.getBarChartLabelsOutsideOptions();
+
+        // Ensure chart is fully rendered before measuring
+        if (!currentChart || !currentChart.series || currentChart.series.length === 0) {
+            setTimeout(() => {
+                this.postLoadDataLabels(currentChart);
+            }, 0);
+            return;
+        }
+
         currentChart.series.forEach((series) => {
             // If we have a bar chart with an extra line, exit early for the line series
             if (series.type == 'line') {
@@ -91,11 +100,25 @@ class BarChart {
 
             points.forEach((point) => {
                 if (point.dataLabel) {
-                    // Get the actual width of the data label
-                    const labelWidth = point.dataLabel.getBBox().width;
+                    // Get the actual width of the data label with retry logic
+                    let labelWidth = 0;
+                    try {
+                        const bbox = point.dataLabel.getBBox();
+                        if (bbox && bbox.width > 0) {
+                            labelWidth = bbox.width;
+                        } else {
+                            // If measurement failed, use estimated width based on text length
+                            const text = point.dataLabel.text ? point.dataLabel.text.toString() : '';
+                            labelWidth = text.length * 8; // Rough estimate: 8px per character
+                        }
+                    } catch (e) {
+                        // Fallback to estimated width if getBBox fails
+                        const text = point.dataLabel.text ? point.dataLabel.text.toString() : '';
+                        labelWidth = text.length * 8;
+                    }
 
                     // Move the data labels inside the bar if the bar is wider than the label plus some padding
-                    if (point.shapeArgs.height > labelWidth + 5) {
+                    if (point.shapeArgs && point.shapeArgs.height > labelWidth + 5) {
                         // Negative values are aligned on the left, positive values on the right
                         if (point.y < 0) {
                             point.update(
@@ -152,12 +175,21 @@ class BarChart {
     // This updates the height of the vertical axis and overall chart to fit the number of categories
     // Note that the vertical axis on a bar chart is the x axis
     updateBarChartHeight = (config, currentChart, useStackedLayout) => {
+        // Ensure we have valid data before calculating
+        if (!config || !config.xAxis || !config.xAxis.categories || !currentChart) {
+            setTimeout(() => {
+                this.updateBarChartHeight(config, currentChart, useStackedLayout);
+            }, 0);
+            return;
+        }
+
         const numberOfCategories = config.xAxis.categories.length;
         const numberOfSeries = currentChart.series.length; // Get number of bar series
         let barHeight = 30; // Height of each individual bar - set in bar-chart-plot-options
         let groupSpacing = 0; // Space we want between category groups, or between series groups for cluster charts
         let categoriesTotalHeight = 0;
         let totalSpaceHeight = 0;
+
         if (useStackedLayout == false && numberOfSeries > 1) {
             // slightly lower bar height for cluster charts
             barHeight = 28;
@@ -188,11 +220,14 @@ class BarChart {
 
         config.xAxis.height = categoriesTotalHeight + totalSpaceHeight;
         const totalHeight = currentChart.plotTop + config.xAxis.height + currentChart.marginBottom;
+
+        // Only update if the height has actually changed to prevent unnecessary redraws
         if (totalHeight !== currentChart.chartHeight) {
             currentChart.setSize(null, totalHeight, false);
         }
 
-        currentChart.redraw();
+        // Use a single redraw to ensure consistency
+        currentChart.redraw(false);
     };
 }
 

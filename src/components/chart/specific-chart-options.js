@@ -77,6 +77,15 @@ class SpecificChartOptions {
     };
 
     adjustChartHeight = (currentChart, percentageHeightDesktop, percentageHeightMobile) => {
+        // Ensure the chart is fully rendered before calculating dimensions
+        if (!currentChart || !currentChart.plotWidth) {
+            // If chart isn't ready, schedule for next tick
+            setTimeout(() => {
+                this.adjustChartHeight(currentChart, percentageHeightDesktop, percentageHeightMobile);
+            }, 0);
+            return;
+        }
+
         // get current width of the plot area
         const plotWidth = currentChart.plotWidth;
         let newPlotHeight = undefined;
