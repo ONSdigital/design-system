@@ -100,22 +100,8 @@ class BarChart {
 
             points.forEach((point) => {
                 if (point.dataLabel) {
-                    // Get the actual width of the data label with retry logic
-                    let labelWidth = 0;
-                    try {
-                        const bbox = point.dataLabel.getBBox();
-                        if (bbox && bbox.width > 0) {
-                            labelWidth = bbox.width;
-                        } else {
-                            // If measurement failed, use estimated width based on text length
-                            const text = point.dataLabel.text ? point.dataLabel.text.toString() : '';
-                            labelWidth = text.length * 8; // Rough estimate: 8px per character
-                        }
-                    } catch (e) {
-                        // Fallback to estimated width if getBBox fails
-                        const text = point.dataLabel.text ? point.dataLabel.text.toString() : '';
-                        labelWidth = text.length * 8;
-                    }
+                    // Get the actual width of the data label
+                    const labelWidth = point.dataLabel.getBBox().width;
 
                     // Move the data labels inside the bar if the bar is wider than the label plus some padding
                     if (point.shapeArgs && point.shapeArgs.height > labelWidth + 5) {
