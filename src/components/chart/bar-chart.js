@@ -77,14 +77,6 @@ class BarChart {
         const insideOptions = this.getBarChartLabelsInsideOptions();
         const outsideOptions = this.getBarChartLabelsOutsideOptions();
 
-        // Ensure chart is fully rendered before measuring
-        if (!currentChart || !currentChart.series || currentChart.series.length === 0) {
-            setTimeout(() => {
-                this.postLoadDataLabels(currentChart);
-            }, 0);
-            return;
-        }
-
         currentChart.series.forEach((series) => {
             // If we have a bar chart with an extra line, exit early for the line series
             if (series.type == 'line') {
