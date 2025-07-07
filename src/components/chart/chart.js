@@ -371,10 +371,6 @@ class HighchartsBaseChart {
                     this.barChart.postLoadDataLabels(currentChart);
                 }
 
-                if (this.chartType != 'bar' && this.chartType != 'columnrange') {
-                    this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
-                }
-
                 // Force a single redraw after all updates
                 currentChart.redraw(false);
             }, 50);
