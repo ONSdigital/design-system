@@ -161,14 +161,6 @@ class BarChart {
     // This updates the height of the vertical axis and overall chart to fit the number of categories
     // Note that the vertical axis on a bar chart is the x axis
     updateBarChartHeight = (config, currentChart, useStackedLayout) => {
-        // Ensure we have valid data before calculating
-        if (!config || !config.xAxis || !config.xAxis.categories || !currentChart) {
-            setTimeout(() => {
-                this.updateBarChartHeight(config, currentChart, useStackedLayout);
-            }, 0);
-            return;
-        }
-
         const numberOfCategories = config.xAxis.categories.length;
         const numberOfSeries = currentChart.series.length; // Get number of bar series
         let barHeight = 30; // Height of each individual bar - set in bar-chart-plot-options

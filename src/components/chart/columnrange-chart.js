@@ -76,14 +76,6 @@ class ColumnRangeChart {
     // This updates the height of the vertical axis and overall chart to fit the number of categories
     // Note that the vertical axis on a bar chart is the x axis
     updateColumnRangeChartHeight = (config, currentChart) => {
-        // Ensure we have valid data before calculating
-        if (!config || !config.xAxis || !config.xAxis.categories || !currentChart) {
-            setTimeout(() => {
-                this.updateColumnRangeChartHeight(config, currentChart);
-            }, 0);
-            return;
-        }
-
         const numberOfCategories = config.xAxis.categories.length;
         let barHeight = 20; // Height of each individual bar - set in bar-chart-plot-options
         let groupSpacing = 0; // Space we want between category groups, or between series groups for cluster charts
