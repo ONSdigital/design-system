@@ -175,7 +175,7 @@ class BarChart {
             // work out the group padding for cluster charts which is measured in xAxis units.
             const plotHeight = categoriesTotalHeight + totalSpaceHeight;
             const xUnitHeight = plotHeight / numberOfCategories;
-            const groupPadding = groupSpacing / 2 / xUnitHeight;
+            const groupPadding = Math.round((groupSpacing / 2 / xUnitHeight) * 1000) / 1000; // Round to 3 decimal places
             currentChart.series.forEach((series) => {
                 series.update({
                     groupPadding: groupPadding,
