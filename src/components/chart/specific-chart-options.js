@@ -79,7 +79,7 @@ class SpecificChartOptions {
     adjustChartHeight = (currentChart, percentageHeightDesktop, percentageHeightMobile) => {
         // Ensure the chart is fully rendered before calculating dimensions
         if (!currentChart || !currentChart.plotWidth) {
-            // If chart isn't ready, schedule for next tick
+            // If chart isn't ready, schedule a retry on the next event loop cycle
             setTimeout(() => {
                 this.adjustChartHeight(currentChart, percentageHeightDesktop, percentageHeightMobile);
             }, 0);
