@@ -7,6 +7,21 @@
         overflow: visible !important;
     }
 
+    @media (forced-colors: active) {
+        .highcharts-annotation-label text {
+            fill: CanvasText !important; /* Forces the color used for text in high contrast mode */
+        }
+
+        .highcharts-plot-line-label {
+            fill: CanvasText !important; /* Forces the color used for text in high contrast mode */
+        }
+
+        .highcharts-annotation-label-box {
+            fill: Canvas !important; /* Sets the background to match system background */
+            stroke: CanvasText !important; /* Ensures border is visible in contrast mode */
+        }
+    }
+
     &__download-title {
         @extend .ons-u-pt-l;
         @extend .ons-u-fs-r--b;
