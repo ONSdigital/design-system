@@ -169,11 +169,12 @@ class SpecificChartOptions {
 
                         // Create a custom symbol for the legend using the line marker symbol options
                         const renderer = chart.renderer;
-                        const bbox = label.element.getBBox();
+                        const symbolX = -5;
+                        const symbolY = 8;
                         const markerStyle = this.constants.lineMarkerStyles[index % this.constants.lineMarkerStyles.length];
 
                         const legendSymbol = renderer
-                            .symbol(markerStyle.symbol, bbox.x - 22, bbox.y + 4, 12, markerStyle.radius, markerStyle.radius)
+                            .symbol(markerStyle.symbol, symbolX, symbolY, 12, markerStyle.radius, markerStyle.radius)
                             .attr({
                                 fill: item.color,
                                 stroke: item.color,
