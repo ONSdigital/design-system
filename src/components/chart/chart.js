@@ -34,7 +34,7 @@ class HighchartsBaseChart {
 
         // Add a CSS class to the chart based on the chart type (e.g., 'bar-chart-container', 'line-chart-container')
         // This allows type-specific styling in CSS.
-        chartNode.classList.add(`${this.chartType}-chart-container`);
+        //chartNode.classList.add(`${this.chartType}-chart-container`);
 
         this.id = this.node.dataset.highchartsId;
         this.useStackedLayout = this.node.hasAttribute('data-highcharts-use-stacked-layout');

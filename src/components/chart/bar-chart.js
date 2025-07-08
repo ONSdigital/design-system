@@ -38,7 +38,7 @@ class BarChart {
                 // Update the category label colours for bar charts
                 labels: {
                     style: {
-                        textOverflow: 'ellipsis',
+                        //textOverflow: 'ellipsis',
                         color: this.constants.categoryLabelColor,
                     },
                     useHTML: false,

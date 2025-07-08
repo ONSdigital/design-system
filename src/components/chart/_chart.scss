@@ -3,9 +3,9 @@
     container-type: inline-size;
     max-width: $grid-max-width;
 
-    &__chart {
-        overflow: visible !important;
-    }
+    // &__chart {
+    //     overflow: visible !important;
+    // }
 
     &__download-title {
         @extend .ons-u-pt-l;
@@ -165,14 +165,14 @@
 }
 
 // Allow last label to overflow
-.highcharts-container {
-    overflow: visible !important;
-}
+// .highcharts-container {
+//     overflow: visible !important;
+// }
 
-.highcharts-xaxis-labels span:last-child {
-    overflow: visible !important;
-}
+// .highcharts-xaxis-labels span:last-child {
+//     overflow: visible !important;
+// }
 
-.bar-chart-container .highcharts-yaxis-labels span:last-child {
-    overflow: visible !important;
-}
+// .bar-chart-container .highcharts-yaxis-labels span:last-child {
+//     overflow: visible !important;
+// }
