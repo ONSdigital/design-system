@@ -629,14 +629,14 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the footnotes', () => {
-                    expect($('.ons-chart__footnotes').text()).toContain('1');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test annotation');
-                    expect($('.ons-chart__footnotes').text()).toContain('2');
-                    expect($('.ons-chart__footnotes').text()).toContain('Another test annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('2');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('Another test annotation');
                 });
 
                 test('THEN: the footnotes are hidden from screen readers', () => {
-                    expect($('.ons-chart__footnotes').attr('aria-hidden')).toBe('true');
+                    expect($('.ons-chart__annotations-footnotes').attr('aria-hidden')).toBe('true');
                 });
 
                 test('THEN: it includes the Annotations JSON config', () => {
@@ -659,12 +659,12 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the footnotes', () => {
-                    expect($('.ons-chart__footnotes').text()).toContain('1');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test annotation');
                 });
 
                 test('THEN: the footnotes are hidden from screen readers', () => {
-                    expect($('.ons-chart__footnotes').attr('aria-hidden')).toBe('true');
+                    expect($('.ons-chart__annotations-footnotes').attr('aria-hidden')).toBe('true');
                 });
 
                 test('THEN: it includes the Annotations JSON config', () => {
@@ -688,12 +688,12 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the footnotes', () => {
-                    expect($('.ons-chart__footnotes').text()).toContain('1');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test annotation');
                 });
 
                 test('THEN: the footnotes are hidden from screen readers', () => {
-                    expect($('.ons-chart__footnotes').attr('aria-hidden')).toBe('true');
+                    expect($('.ons-chart__annotations-footnotes').attr('aria-hidden')).toBe('true');
                 });
 
                 test('THEN: it includes the Annotations JSON config', () => {
@@ -975,6 +975,26 @@ describe('Macro: Chart', () => {
                     expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
                     expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
                     expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Footnotes', () => {
+            describe('WHEN: footnotes are provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_AREA_CHART_PARAMS,
+                        footnotes: {
+                            title: 'Footnotes',
+                            content:
+                                '<ol><li>Non-store retailing refers to retailers that do not have a store presence. While the majority is made up of online retailers, it also includes other retailers, such as stalls and markets.</li><li>More data are available in our Retail Sales Index datasets.</li></ol>',
+                        },
+                    }),
+                );
+                test('THEN: it renders the footnotes', () => {
+                    expect($('#footnotes--area-chart-123').length).toBe(1);
+                    expect($('#footnotes--area-chart-123').find('ol').length).toBe(1);
+                    expect($('#footnotes--area-chart-123').text()).toContain('Footnotes');
                 });
             });
         });
@@ -1305,16 +1325,16 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the footnotes sequentially', () => {
-                    expect($('.ons-chart__footnotes').text()).toContain('1');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test point annotation');
-                    expect($('.ons-chart__footnotes').text()).toContain('2');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test x axis range annotation');
-                    expect($('.ons-chart__footnotes').text()).toContain('3');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test y axis range annotation with the label inside');
-                    expect($('.ons-chart__footnotes').text()).toContain('4');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test x axis reference line annotation');
-                    expect($('.ons-chart__footnotes').text()).toContain('5');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test y axis reference line annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test point annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('2');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test x axis range annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('3');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test y axis range annotation with the label inside');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('4');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test x axis reference line annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('5');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test y axis reference line annotation');
                 });
             });
         });
