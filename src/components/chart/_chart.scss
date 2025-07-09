@@ -7,6 +7,11 @@
         overflow: visible !important;
     }
 
+    &__container:focus {
+        outline: 3px solid #07c;
+        outline-offset: 4px;
+    }
+
     &__download-title {
         @extend .ons-u-pt-l;
         @extend .ons-u-fs-r--b;

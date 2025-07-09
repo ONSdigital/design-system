@@ -57,6 +57,9 @@ class CommonChartOptions {
             },
             accessibility: {
                 enabled: true,
+                keyboardNavigation: {
+                    enabled: false, // Enable keyboard navigation for accessibility
+                },
             },
             yAxis: {
                 labels: {
