@@ -560,7 +560,7 @@ describe('base page template', () => {
         ['social block override', NO_SOCIAL_EXAMPLE],
         ['meta block override', NO_META_EXAMPLE],
         ['favicons block override', NO_FAVICONS_EXAMPLE],
-        ['Header with variant basic', HEADER_BASIC_EXAMPLE],
+        ['basic variant header', HEADER_BASIC_EXAMPLE],
     ])('matches the %s snapshot', (_, params) => {
         const $ = cheerio.load(renderBaseTemplate(params));
 
