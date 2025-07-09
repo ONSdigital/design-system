@@ -11,12 +11,6 @@ module.exports = {
         assert: {
             assertMatrix: [
                 {
-                    matchingUrlPattern: 'components/radios/example-radios-with-revealed.*',
-                    assertions: {
-                        'categories:accessibility': ['error', { minScore: 0.91 }],
-                    },
-                },
-                {
                     matchingUrlPattern: 'components/radios/example-radios-with-clear-button.*',
                     assertions: {
                         'categories:accessibility': ['error', { minScore: 0.93 }],
