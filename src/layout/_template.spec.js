@@ -462,7 +462,6 @@ const HEADER_BASIC_EXAMPLE = `
                                     "text": "People not in work"
                                 }
                             ]
-
                         }
                     ]
                 },
