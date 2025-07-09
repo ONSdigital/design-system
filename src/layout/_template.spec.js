@@ -349,8 +349,7 @@ const NO_FAVICONS_EXAMPLE = `
 `;
 
 const HEADER_BASIC_EXAMPLE = `
-{%
-    set pageConfig = {
+{% set pageConfig = {
         "header": {
             "variants": "basic",
             "mastheadLogoAltText": "Custom alt text for logo",
