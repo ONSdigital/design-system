@@ -11,7 +11,7 @@ module.exports = {
         },
         assert: {
             assertions: {
-                'categories:accessibility': ['warn', { minScore: 1 }],
+                'categories:accessibility': ['error', { minScore: 1 }],
             },
         },
         upload: {

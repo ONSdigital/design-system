@@ -25,7 +25,7 @@ jobs:
             - name: Run Lighthouse CI
               run: |
                   npm install -g @lhci/cli@0.14.x
-                  lhci autorun --config=./lighthouse/lighthouserc.skipAriaAllowed.js
-                  lhci autorun --config=./lighthouse/lighthouserc.js
+                  lhci autorun --config=./lighthouse/lighthouserc.skipAriaAllowed.js --upload.githubStatusCheck=failure-only
+                  lhci autorun --config=./lighthouse/lighthouserc.js --upload.githubStatusCheck=failure-only
               env:
                   LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
