@@ -9,7 +9,7 @@ class CommonChartOptions {
             chart: {
                 backgroundColor: 'transparent',
                 style: {
-                    fontFamily: '"OpenSans", "Helvetica Neue", arial, sans-serif',
+                    fontFamily: '"Helvetica Neue", arial, sans-serif',
                     color: '#222222',
                 },
             },
