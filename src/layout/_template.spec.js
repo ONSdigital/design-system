@@ -350,10 +350,10 @@ const NO_FAVICONS_EXAMPLE = `
 
 const HEADER_BASIC_EXAMPLE = `
 {% set pageConfig = {
-        "header": {
-            "variants": "basic",
-            "mastheadLogoAltText": "Custom alt text for logo",
-            "menuLinks": {
+    "header": {
+        "variants": "basic",
+        "mastheadLogoAltText": "Custom alt text for logo",
+        "menuLinks": {
             "id": "menu-links",
             "keyLinks": [
                 {
@@ -505,7 +505,7 @@ const HEADER_BASIC_EXAMPLE = `
                 }
             ]
         },
-         "searchLinks": {
+        "searchLinks": {
             "id": "search-links",
             "searchNavigationAriaLabel": "Nav Search",
             "searchButtonAriaLabel": "Toggle search",
