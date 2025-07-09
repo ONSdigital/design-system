@@ -454,8 +454,7 @@ const HEADER_BASIC_EXAMPLE = `
                         {
                             "heading": "Employment and labour market",
                             "url": "#0",
-                            "groupItems":
-                            [
+                            "groupItems": [
                                 {
                                     "text": "People in work"
                                 },
