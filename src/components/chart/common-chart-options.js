@@ -58,7 +58,8 @@ class CommonChartOptions {
             accessibility: {
                 enabled: true,
                 keyboardNavigation: {
-                    enabled: false, // Enable keyboard navigation for accessibility
+                    focusBorder: { enabled: false }, // Disable focus border for keyboard navigation
+                    enabled: true, // Enable keyboard navigation for accessibility
                 },
             },
             yAxis: {

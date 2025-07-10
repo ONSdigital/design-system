@@ -8,8 +8,9 @@
     }
 
     &__container:focus {
-        outline: 3px solid #07c;
-        outline-offset: 4px;
+        box-shadow: 0 0 0 3px black !important;
+        outline: 4px solid var(--ons-color-focus) !important;
+        outline-offset: 2px !important;
     }
 
     &__download-title {
@@ -180,4 +181,9 @@
 
 .bar-chart-container .highcharts-yaxis-labels span:last-child {
     overflow: visible !important;
+}
+
+.highcharts-point:focus {
+    outline: 2px solid var(--ons-color-focus) !important;
+    outline-offset: 2px !important;
 }
