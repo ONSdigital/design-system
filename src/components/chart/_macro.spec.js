@@ -193,6 +193,52 @@ describe('Macro: Chart', () => {
             });
         });
 
+        describe('GIVEN: Params: fallbackImageUrl', () => {
+            describe('WHEN: fallbackImageUrl is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
+                        fallbackImageUrl: '/img/small/line-chart-screenshot.png',
+                    }),
+                );
+                const noScriptFallbackImage = $(`#fallback-image--chart-456`).html();
+                test('THEN: it renders the fallback image', () => {
+                    expect(noScriptFallbackImage).toContain('/img/small/line-chart-screenshot.png');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: fallbackImageAlt', () => {
+            describe('WHEN: fallbackImageAlt is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
+                        fallbackImageUrl: '/img/small/line-chart-screenshot.png',
+                        fallbackImageAlt: 'A description of the fallback image for screen readers',
+                    }),
+                );
+                const noScriptFallbackImage = $(`#fallback-image--chart-456`).html();
+                test('THEN: it renders the customised fallback image alt text', () => {
+                    expect(noScriptFallbackImage).toContain('alt="A description of the fallback image for screen readers"');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: no fallbackImageAlt', () => {
+            describe('WHEN: fallbackImageAlt is not provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
+                        fallbackImageUrl: '/img/small/line-chart-screenshot.png',
+                    }),
+                );
+                const noScriptFallbackImage = $(`#fallback-image--chart-456`).html();
+                test('THEN: it renders the default fallback image alt text', () => {
+                    expect(noScriptFallbackImage).toContain('alt="Fallback image for the chart as JavaScript is disabled"');
+                });
+            });
+        });
+
         describe('GIVEN: Params: Caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(
@@ -1489,11 +1535,11 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the iframe', () => {
-                    expect($('[data-chart-iframe]').length).toBe(1);
+                    expect($('.ons-chart__iframe-wrapper').length).toBe(1);
                 });
 
                 test('THEN: it includes the iframe title as a data attribute', () => {
-                    const iframe = $('[data-chart-iframe]');
+                    const iframe = $('.ons-chart__iframe-wrapper');
                     expect(iframe.attr('data-title')).toBe(EXAMPLE_IFRAME_CHART_PARAMS.title);
                 });
 
@@ -1646,6 +1692,19 @@ describe('Macro: Chart', () => {
                     );
 
                     expect($('[data-invalid-chart-type]').length).toBe(0);
+                });
+            });
+
+            describe('WHEN: Params: fallbackImageUrl is set', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        fallbackImageUrl: '/img/small/line-chart-screenshot.png',
+                    }),
+                );
+                const iframe = $(`.ons-chart__iframe-wrapper`);
+                test('THEN: the iframe is hidden when JavaScript is disabled', () => {
+                    expect(iframe.attr('class')).toContain('ons-chart__non-js-hide');
                 });
             });
         });
