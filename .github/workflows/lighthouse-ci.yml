@@ -8,6 +8,11 @@ jobs:
     lhci:
         name: Lighthouse CI
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                config:
+                    - ./lighthouse/lighthouserc.skipAriaAllowed.js
+                    - ./lighthouse/lighthouserc.js
         steps:
             - uses: actions/checkout@v4
               with:
@@ -33,8 +38,3 @@ jobs:
                   fi
               env:
                   LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-              strategy:
-                  matrix:
-                      config:
-                          - ./lighthouse/lighthouserc.skipAriaAllowed.js
-                          - ./lighthouse/lighthouserc.js
