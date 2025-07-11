@@ -9,9 +9,21 @@ module.exports = {
             },
         },
         assert: {
-            assertions: {
-                'categories:accessibility': ['warn', { minScore: 1 }],
-            },
+            assertMatrix: [
+                {
+                    matchingUrlPattern: 'patterns/feedback/example-feedback-form.*|patterns/correct-errors/example-errors-proto.*',
+                    assertions: {
+                        'categories:accessibility': ['error', { minScore: 0.94 }],
+                    },
+                },
+                {
+                    matchingUrlPattern:
+                        '^(?!.*patterns/correct-errors/example-errors-proto.*|.*patterns/feedback/example-feedback-form.*).*',
+                    assertions: {
+                        'categories:accessibility': ['error', { minScore: 1 }],
+                    },
+                },
+            ],
         },
         upload: {
             target: 'temporary-public-storage',
