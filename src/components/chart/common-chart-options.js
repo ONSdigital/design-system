@@ -59,8 +59,7 @@ class CommonChartOptions {
                 enabled: true,
                 keyboardNavigation: {
                     focusBorder: {
-                        enabled: true,
-                        style: { color: 'var(--ons-color-focus)' },
+                        enabled: false,
                     },
                     enabled: true,
                 },
