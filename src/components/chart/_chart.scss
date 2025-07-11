@@ -179,6 +179,49 @@
     border-left: 1px solid var(--ons-color-grey-100);
 }
 
+@media (forced-colors: active) {
+    .highcharts-color-0 {
+        fill: #a6f0ff !important;
+        stroke: #a6f0ff !important;
+    }
+
+    .highcharts-color-1 {
+        fill: #70d49e !important;
+        stroke: #70d49e !important;
+    }
+    .highcharts-color-2 {
+        fill: #e898a5 !important;
+        stroke: #e898a5 !important;
+    }
+    .highcharts-color-3 {
+        fill: #007faa !important;
+        stroke: #007faa !important;
+    }
+    .highcharts-color-4 {
+        fill: #f9db72 !important;
+        stroke: #f9db72 !important;
+    }
+    .highcharts-color-5 {
+        fill: #f45b5b !important;
+        stroke: #f45b5b !important;
+    }
+    .highcharts-color-6 {
+        fill: #1e824c !important;
+        stroke: #1e824c !important;
+    }
+    .highcharts-color-7 {
+        fill: #e7934c !important;
+        stroke: #e7934c !important;
+    }
+    .highcharts-color-8 {
+        fill: #dadfe1 !important;
+        stroke: #dadfe1 !important;
+    }
+    .highcharts-color-9 {
+        fill: #a0618b !important;
+        stroke: #a0618b !important;
+    }
+}
 // Allow last label to overflow
 .highcharts-container {
     overflow: visible !important;
