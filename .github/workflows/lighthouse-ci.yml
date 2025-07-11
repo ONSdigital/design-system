@@ -29,6 +29,7 @@ jobs:
               run: node ./lighthouse/lighthouse-get-urls.js
             - name: Run LHCI (collect, assert, conditional upload)
               run: |
+                  npm install -g @lhci/cli@0.14.x
                   lhci collect --config=${{ matrix.config }}
                   if ! lhci assert --config=${{ matrix.config }}; then
                   echo "Assertions failed"
