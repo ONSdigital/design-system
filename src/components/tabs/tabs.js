@@ -259,7 +259,7 @@ export default class Tabs {
     }
 
     getPanel(tab) {
-        const panelSelector = this.getHref(tab).replace(/\./g, '\\.');
+        const panelSelector = Tabs.escapeForCSSSelector(this.getHref(tab));
         const panel = this.component.querySelector(panelSelector);
         return panel;
     }
@@ -298,5 +298,13 @@ export default class Tabs {
         const href = tab.getAttribute('href');
         const hash = href.slice(href.indexOf('#'), href.length);
         return hash;
+    }
+    /**
+     * Escapes special characters in a string for use in a CSS selector.
+     * @param {string} str - The input string to escape.
+     * @returns {string} - The escaped string.
+     */
+    static escapeForCSSSelector(str) {
+        return str.replace(/([ #.:[\]{}()<>?+*~=|^$!\\])/g, '\\$1');
     }
 }
