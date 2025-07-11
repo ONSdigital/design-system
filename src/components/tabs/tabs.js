@@ -134,7 +134,7 @@ export default class Tabs {
         window.removeEventListener('hashchange', this.component.boundOnHashChange, true);
     }
 
-    // Handle haschange so that the browser can cycle through the tab history
+    // Handle hashchange so that the browser can cycle through the tab history
     onHashChange() {
         const hash = window.location.hash;
         const tabWithHash = this.getTab(hash);
@@ -259,7 +259,7 @@ export default class Tabs {
     }
 
     getPanel(tab) {
-        const panelSelector = this.getHref(tab).replace(/\./g, '\\.');
+        const panelSelector = this.getHref(tab).replace(/([ #.:[\]{}()<>?+*~=|^$!\\])/g, '\\$1');
         const panel = this.component.querySelector(panelSelector);
         return panel;
     }
