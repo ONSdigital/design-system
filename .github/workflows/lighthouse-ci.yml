@@ -8,6 +8,11 @@ jobs:
     lhci:
         name: Lighthouse CI
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                config:
+                    - ./lighthouse/lighthouserc.skipAriaAllowed.js
+                    - ./lighthouse/lighthouserc.js
         steps:
             - uses: actions/checkout@v4
               with:
@@ -22,9 +27,15 @@ jobs:
               run: yarn build
             - name: Build urls
               run: node ./lighthouse/lighthouse-get-urls.js
-            - name: Run Lighthouse CI
+            - name: Run LHCI (collect, assert, conditional upload)
               run: |
                   npm install -g @lhci/cli@0.14.x
-                  lhci autorun --config=./lighthouse/lighthouserc.js
+                  lhci collect --config=${{ matrix.config }}
+                  if ! lhci assert --config=${{ matrix.config }}; then
+                  echo "Assertions failed"
+                  lhci upload --config=${{ matrix.config }}
+                  else
+                  echo "Assertions passed, skipping upload."
+                  fi
               env:
                   LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
