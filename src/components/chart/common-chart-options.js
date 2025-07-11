@@ -57,6 +57,9 @@ class CommonChartOptions {
             },
             accessibility: {
                 enabled: true,
+                highContrastTheme: {
+                    colors: ['#a6f0ff', '#70d49e', '#e898a5', '#007faa', '#f9db72', '#f45b5b', '#1e824c', '#e7934c', '#dadfe1', '#a0618b'],
+                },
             },
             yAxis: {
                 labels: {
