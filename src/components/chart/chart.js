@@ -36,9 +36,6 @@ class HighchartsBaseChart {
         // This allows type-specific styling in CSS.
         chartNode.classList.add(`${this.chartType}-chart-container`);
 
-        //chartNode.setAttribute('focusable', 'true'); // Make the chart focusable for keyboard navigation
-        //chartNode.focus(); // Make the chart focusable for accessibility
-
         this.id = this.node.dataset.highchartsId;
         this.useStackedLayout = this.node.hasAttribute('data-highcharts-use-stacked-layout');
         this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.id}]`).textContent);
@@ -106,17 +103,6 @@ class HighchartsBaseChart {
         this.setRenderEvent();
         this.setWindowResizeEvent();
         this.chart = Highcharts.chart(chartNode, this.config);
-        // const chartNodeContainer = this.node.querySelector('[data-highcharts-chart-container]');
-        // console.log('chartNodeContainer', chartNodeContainer);
-        // chartNodeContainer.addEventListener('keydown', function (e, chart = this.config) {
-        //     const arrowKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
-        //     if (arrowKeys.includes(e.key)) {
-        //         e.preventDefault();
-        //         // Start navigation at the first point (manually)
-        //         console.log(chart);
-        //         chart.series[0].points[0].highlight();
-        //     }
-        // });
     }
 
     // Check for the number of extra line series in the config

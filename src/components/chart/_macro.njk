@@ -60,7 +60,7 @@
 
             {% if params.iframeUrl %}
                 <div
-                    class="ons-chart__iframe-wrapper{% if params.fallbackImageUrl %} ons-chart__non-js-hide{% endif %}"
+                    class="ons-chart__iframe-wrapper{% if params.fallbackImageUrl %}ons-chart__non-js-hide{% endif %}"
                     id="{{ params.id }}"
                     data-url="{{ params.iframeUrl }}"
                     data-title="{{ params.title }}"
@@ -89,9 +89,8 @@
                         data-highcharts-chart-container
                         class="ons-chart__container"
                         tabindex="0"
-                        focusable="true"
                         role="region"
-                        aria-label="Chart container"
+                        aria-label="chart container"
                     >
                         <div data-highcharts-chart class="ons-chart__chart"></div>
                     </div>
