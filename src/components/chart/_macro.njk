@@ -60,7 +60,7 @@
 
             {% if params.iframeUrl %}
                 <div
-                    class="ons-chart__iframe-wrapper{% if params.fallbackImageUrl %} ons-chart__non-js-hide{% endif %}"
+                    class="ons-chart__iframe-wrapper{% if params.fallbackImageUrl %}ons-chart__non-js-hide{% endif %}"
                     id="{{ params.id }}"
                     data-url="{{ params.iframeUrl }}"
                     data-title="{{ params.title }}"
@@ -85,7 +85,15 @@
                     </div>
                 {% endif %}
                 {% if params.chartType in supportedChartTypes %}
-                    <div data-highcharts-chart class="ons-chart__chart"></div>
+                    <div
+                        data-highcharts-chart-container
+                        class="ons-chart__container"
+                        tabindex="0"
+                        role="region"
+                        aria-label="chart container"
+                    >
+                        <div data-highcharts-chart class="ons-chart__chart"></div>
+                    </div>
                 {% else %}
                     <p data-invalid-chart-type data-unsupported-chart-text>
                         <b>{{ '"' + params.chartType + '" - ' + (params.unsupportedChartText or 'chart type is not supported') }}</b>
