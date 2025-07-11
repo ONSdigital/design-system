@@ -1,5 +1,7 @@
 name: Run macro and script tests
 on: [push]
+permissions:
+    contents: read
 
 env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
