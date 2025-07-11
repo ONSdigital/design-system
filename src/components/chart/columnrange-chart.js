@@ -95,7 +95,6 @@ class ColumnRangeChart {
             currentChart.setSize(null, totalHeight, false);
         }
 
-        // Use a single redraw to ensure consistency
         currentChart.redraw(false);
     };
 }

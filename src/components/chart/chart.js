@@ -324,8 +324,6 @@ class HighchartsBaseChart {
                     }
                 });
             }
-
-            // Single redraw at the end to ensure all changes are applied consistently
             currentChart.redraw(false);
         };
     };
@@ -369,10 +367,9 @@ class HighchartsBaseChart {
                 // Update the data labels when the window is resized
                 if (this.chartType === 'bar' && !this.hideDataLabels) {
                     this.barChart.postLoadDataLabels(currentChart);
+                    // Force a single redraw after all updates
+                    currentChart.redraw(false);
                 }
-
-                // Force a single redraw after all updates
-                currentChart.redraw(false);
             }, 50);
         });
     };

@@ -76,7 +76,6 @@ class BarChart {
     postLoadDataLabels = (currentChart) => {
         const insideOptions = this.getBarChartLabelsInsideOptions();
         const outsideOptions = this.getBarChartLabelsOutsideOptions();
-
         currentChart.series.forEach((series) => {
             // If we have a bar chart with an extra line, exit early for the line series
             if (series.type == 'line') {
@@ -159,7 +158,6 @@ class BarChart {
         let groupSpacing = 0; // Space we want between category groups, or between series groups for cluster charts
         let categoriesTotalHeight = 0;
         let totalSpaceHeight = 0;
-
         if (useStackedLayout == false && numberOfSeries > 1) {
             // slightly lower bar height for cluster charts
             barHeight = 28;
@@ -191,12 +189,10 @@ class BarChart {
         config.xAxis.height = categoriesTotalHeight + totalSpaceHeight;
         const totalHeight = currentChart.plotTop + config.xAxis.height + currentChart.marginBottom;
 
-        const tolerance = 2; // 2px tolerance
-        if (Math.abs(totalHeight - currentChart.chartHeight) > tolerance) {
+        if (totalHeight !== currentChart.chartHeight) {
             currentChart.setSize(null, totalHeight, false);
         }
 
-        // Use a single redraw to ensure consistency
         currentChart.redraw(false);
     };
 }
