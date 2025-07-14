@@ -16,7 +16,7 @@ async function createUrlsFile() {
 async function getUrls() {
     let data = {};
     data.urls = [];
-    data.skipurls = [];
+    data.excludedUrls = [];
     const directories = [
         {
             path: './build/components',
@@ -29,7 +29,7 @@ async function getUrls() {
         },
     ];
     // collect all the examples fail at 'aria-allowed-attr' audit check
-    const skipUrls = [
+    const knownIssueFiles = [
         'example-errors-proto.html',
         'example-errors-proto-errors.html',
         'example-radios-with-revealed-text-area-expanded.html',
@@ -53,15 +53,15 @@ async function getUrls() {
                 (path) =>
                     !path.includes('index.html') &&
                     !path.includes('example-skip-to-content.html') &&
-                    !skipUrls.some((skip) => path.includes(skip)), // doesn't add index.html, example-skip-to-content and examples mentioned in skipUrls.
+                    !knownIssueFiles.some((filename) => path.includes(filename)), // doesn't add index.html, example-skip-to-content and examples mentioned in knownIssueUrls.
             );
-            const filesWithskipURls = files.filter((path) => skipUrls.some((skip) => path.includes(skip)));
+            const filesWithExcludedUrls = files.filter((path) => knownIssueFiles.some((filename) => path.includes(filename)));
             for (const file of filteredFiles) {
                 data.urls.push(file.replace('build/', 'http://localhost/'));
             }
-            //add the examples mentioned in skipUrls in a seperate array
-            for (const file of filesWithskipURls) {
-                data.skipurls.push(file.replace('build/', 'http://localhost/'));
+            //add the examples mentioned in knownIssueUrls in a seperate array
+            for (const file of filesWithExcludedUrls) {
+                data.excludedUrls.push(file.replace('build/', 'http://localhost/'));
             }
         }
     }

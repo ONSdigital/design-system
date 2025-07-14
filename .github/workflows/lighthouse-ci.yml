@@ -27,13 +27,14 @@ jobs:
               run: yarn build
             - name: Build urls
               run: node ./lighthouse/lighthouse-get-urls.js
-            - name: Run LHCI (collect, assert, conditional upload)
+            - name: Run Lighthouse CI
               run: |
                   npm install -g @lhci/cli@0.14.x
                   lhci collect --config=${{ matrix.config }}
                   if ! lhci assert --config=${{ matrix.config }}; then
                   echo "Assertions failed"
                   lhci upload --config=${{ matrix.config }}
+                  exit 1
                   else
                   echo "Assertions passed, skipping upload."
                   fi

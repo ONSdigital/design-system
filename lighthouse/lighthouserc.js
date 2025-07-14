@@ -15,8 +15,6 @@ module.exports = {
         },
         upload: {
             target: 'temporary-public-storage',
-            githubToken: process.env.LHCI_GITHUB_APP_TOKEN,
-            githubStatusCheck: 'failure-only',
         },
     },
 };

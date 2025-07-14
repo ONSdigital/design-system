@@ -2,7 +2,7 @@ module.exports = {
     ci: {
         collect: {
             staticDistDir: './build',
-            url: require('./urls.json').skipurls,
+            url: require('./urls.json').excludedUrls,
             numberOfRuns: 1,
             settings: {
                 onlyCategories: ['accessibility'],
@@ -16,8 +16,6 @@ module.exports = {
         },
         upload: {
             target: 'temporary-public-storage',
-            githubToken: process.env.LHCI_GITHUB_APP_TOKEN,
-            githubStatusCheck: 'failure-only',
         },
     },
 };
