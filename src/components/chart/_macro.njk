@@ -60,7 +60,7 @@
 
             {% if params.iframeUrl %}
                 <div
-                    class="ons-chart__iframe-wrapper{% if params.fallbackImageUrl %}ons-chart__non-js-hide{% endif %}"
+                    class="ons-chart__iframe-wrapper{{ ' ons-chart__non-js-hide' if params.fallbackImageUrl else '' }}"
                     id="{{ params.id }}"
                     data-url="{{ params.iframeUrl }}"
                     data-title="{{ params.title }}"
