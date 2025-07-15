@@ -570,36 +570,16 @@ describe('macro: input', () => {
             expect($('.ons-input').attr('maxlength')).toBe('200');
         });
 
-        it('does not have `data-char-check-countdown` attribute when `charcheckCountdown` is not provided', () => {
-            const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_WITH_CHARACTER_LIMIT));
-
-            expect($('.ons-input').attr('data-char-check-countdown')).toBe(undefined);
-        });
-
-        it('has `data-char-check-countdown` attribute when `charcheckCountdown` is true', () => {
-            const $ = cheerio.load(
-                renderComponent('input', {
-                    ...EXAMPLE_INPUT_WITH_CHARACTER_LIMIT,
-                    charCheckLimit: {
-                        ...EXAMPLE_INPUT_WITH_CHARACTER_LIMIT.charCheckLimit,
-                        charcheckCountdown: true,
-                    },
-                }),
-            );
-
-            expect($('.ons-input').attr('data-char-check-countdown')).toBe('true');
-        });
-
         it('has data attribute which references the character limit component', () => {
             const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_WITH_CHARACTER_LIMIT));
 
-            expect($('.ons-input').attr('data-char-check-ref')).toBe('example-id-check');
+            expect($('.ons-input').attr('data-message-check-ref')).toBe('example-id-check');
         });
 
         it('has data attribute which defines limit for character check', () => {
             const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_WITH_CHARACTER_LIMIT));
 
-            expect($('.ons-input').attr('data-char-check-num')).toBe('200');
+            expect($('.ons-input').attr('data-message-check-num')).toBe('200');
         });
 
         it('has `aria-describedby` attribute which references the character limit component', () => {

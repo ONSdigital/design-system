@@ -150,3 +150,154 @@ export const EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST = {
         language: 'en-gb',
     },
 };
+
+export const EXAMPLE_HEADER_SEARCH_LINKS = {
+    searchLinks: {
+        id: 'search-links-id',
+        searchNavigationAriaLabel: 'Header Search',
+        searchNavigationButtonAriaLabel: 'Custom search nav button aria label',
+        searchNavigationInputLabel: 'Custom search input label',
+        searchNavigationButtonText: 'Custom search button text',
+        searchButtonAriaLabel: 'Custom search button aria label',
+        classes: 'custom-class',
+        heading: 'Header Search',
+        itemsList: [
+            {
+                url: '#1',
+                text: 'Popular Search 1',
+            },
+            {
+                url: '#2',
+                text: 'Popular Search 2',
+            },
+            {
+                url: '#3',
+                text: 'Popular Search 3',
+            },
+        ],
+    },
+};
+
+export const EXAMPLE_HEADER_SEARCH_AND_MENU_LINKS = {
+    ...EXAMPLE_HEADER_SEARCH_LINKS,
+    title: 'Header title',
+    variants: 'basic',
+    menuLinks: {
+        id: 'menu-links-id',
+        toggleMenuButton: {
+            text: 'Menu',
+            ariaLabel: 'Toggle menu',
+        },
+        keyLinks: [
+            {
+                heading: 'Taking part in a survey?',
+                description: 'It’s never been more important.',
+            },
+            {
+                heading: 'Release calendar',
+                description: 'View our latest and upcoming releases.',
+            },
+            {
+                heading: 'Explore local statistics',
+                url: '#0',
+                description: 'Explore statistics across the UK.',
+            },
+        ],
+        columns: [
+            {
+                groups: [
+                    {
+                        heading: 'People, population and community',
+                        groupItems: [
+                            {
+                                text: 'Armed forces community',
+                            },
+                            {
+                                text: 'Births, deaths and marriages',
+                            },
+                            {
+                                text: 'Crime and justice',
+                            },
+                            {
+                                text: 'Cultural identity',
+                            },
+                            {
+                                text: 'Education and childcare',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                groups: [
+                    {
+                        heading: 'Business, industry and trade',
+                        groupItems: [
+                            {
+                                text: 'International trade',
+                            },
+                            {
+                                text: 'IT and internet industry',
+                            },
+                            {
+                                text: 'Manufacturing and production industry',
+                            },
+                            {
+                                text: 'Retail industry',
+                                url: '#0',
+                            },
+                            {
+                                text: 'Tourism industry',
+                            },
+                        ],
+                    },
+                    {
+                        heading: 'Employment and labour market',
+                        url: '#0',
+                        groupItems: [
+                            {
+                                text: 'People in work',
+                            },
+                            {
+                                text: 'People not in work',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                groups: [
+                    {
+                        heading: 'Economy',
+                        groupItems: [
+                            {
+                                text: 'Environmental accounts',
+                            },
+                            {
+                                text: 'Gross Domestic Product (GDP)',
+                            },
+                            {
+                                text: 'Inflation and price indices',
+                            },
+                            {
+                                text: 'National accounts',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+};
+
+export const EXAMPLE_HEADER_MENU_LINKS = {
+    title: 'Header title',
+    variants: 'basic',
+    menuLinks: {
+        id: 'menu-links-id',
+        toggleMenuButton: {
+            text: 'Menu',
+            ariaLabel: 'Toggle menu',
+        },
+    },
+};

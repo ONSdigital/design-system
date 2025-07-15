@@ -232,12 +232,12 @@ describe('FOR: Macro: Document list', () => {
             });
 
             test('THEN: has expected srcset attribute', () => {
-                const srcset = $('.ons-document-list__image-link img').attr('srcset');
+                const srcset = $('.ons-document-list__image').attr('srcset');
                 expect(srcset).toBe('/example-small.png 1x, /example-large.png 2x');
             });
 
             test('THEN: has expected src attribute', () => {
-                const src = $('.ons-document-list__image-link img').attr('src');
+                const src = $('.ons-document-list__image').attr('src');
                 expect(src).toBe('/example-small.png');
             });
         });
@@ -249,7 +249,7 @@ describe('FOR: Macro: Document list', () => {
                         documents: [{ ...EXAMPLE_DOCUMENT_LIST_BASIC, thumbnail: true }],
                     }),
                 );
-                expect($('.ons-document-list__image-link').hasClass('ons-document-list__image-link--placeholder')).toBe(true);
+                expect($('.ons-document-list__image').hasClass('ons-document-list__image--placeholder')).toBe(true);
             });
         });
     });
