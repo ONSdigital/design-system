@@ -32,6 +32,11 @@ async function getUrls() {
     const knownIssueFiles = [
         'example-errors-proto.html',
         'example-errors-proto-errors.html',
+        'example-feedback-form.html',
+        'example-feedback-form-errors.html',
+        'example-radios-with-revealed-text-input.html',
+        'example-radios-with-revealed-text-input-expanded.html',
+        'example-radios-with-revealed-text-area.html',
         'example-radios-with-revealed-text-area-expanded.html',
         'example-radios-with-revealed-select.html',
         'example-radios-with-revealed-select-expanded.html',
