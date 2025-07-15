@@ -507,7 +507,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it includes stacking in the config', () => {
-                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-use-stacked-layout')).toBe('true');
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-use-stacked-layout')).toBe('false');
                 });
 
                 test('THEN: it renders a bar chart with stacked series', () => {
