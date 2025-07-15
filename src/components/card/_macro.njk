@@ -14,7 +14,6 @@
                         width="303"
                         {% if params.image.largeSrc %}srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x"{% endif %}
                         src="{{ params.image.smallSrc }}"
-                        alt="{{ params.image.alt }}"
                         loading="lazy"
                     />
                 {% elif params.image == true or params.image.placeholderUrl %}
@@ -24,7 +23,6 @@
                         width="303"
                         srcset="{{ placeholderSrcset }}"
                         src="{{- params.image.placeholderUrl if params.image.placeholderUrl -}}/img/small/placeholder-card.png"
-                        alt=""
                         loading="lazy"
                     />
                 {% endif %}
