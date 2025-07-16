@@ -1,3 +1,5 @@
+import purify from '../../lib/purify';
+
 export default class Timeout {
     constructor(context, sessionExpiryEndpoint, initialExpiryTime, enableTimeoutReset, startOnLoad) {
         this.context = context;
@@ -77,23 +79,23 @@ export default class Timeout {
                 ($this.endWithFullStop ? '.' : '');
 
             if (timerExpired) {
-                $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
-                $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
+                $this.countdown.innerHTML = purify.sanitize('<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>');
+                $this.accessibleCountdown.innerHTML = purify.sanitize($this.countdownExpiredText);
                 setTimeout($this.redirect.bind($this), 2000);
             } else {
                 seconds--;
                 $this.expiryTimeInMilliseconds = seconds * 1000;
-                $this.countdown.innerHTML = timeLeftText;
+                $this.countdown.innerHTML = purify.sanitize(timeLeftText);
 
                 if (minutesLeft < 1 && secondsLeft < 20) {
                     $this.accessibleCountdown.setAttribute('aria-live', 'assertive');
                 }
 
                 if (!$this.timerRunOnce) {
-                    $this.accessibleCountdown.innerHTML = timeLeftText;
+                    $this.accessibleCountdown.innerHTML = purify.sanitize(timeLeftText);
                     $this.timerRunOnce = true;
                 } else if (secondsLeft % 15 === 0) {
-                    $this.accessibleCountdown.innerHTML = timeLeftText;
+                    $this.accessibleCountdown.innerHTML = purify.sanitize(timeLeftText);
                 }
 
                 timers.push(setTimeout(runTimer.bind($this), 1000));
@@ -165,7 +167,29 @@ export default class Timeout {
     }
 
     redirect() {
-        window.location.replace(this.timeOutRedirectUrl);
+        if (this.isValidUrl(this.timeOutRedirectUrl)) {
+            window.location.replace(this.timeOutRedirectUrl);
+        } else {
+            console.error('Invalid redirect URL:', this.timeOutRedirectUrl);
+            // Optionally redirect to a default safe URL
+            window.location.replace('/default-safe-url');
+        }
+    }
+
+    isValidUrl(url) {
+        try {
+            const parsedUrl = new URL(url, window.location.origin);
+            // Ensure the URL uses a safe protocol (e.g., https)
+            const isSafeProtocol = parsedUrl.protocol === 'https:' || parsedUrl.protocol === 'http:';
+
+            // Validate against a whitelist of trusted domains
+            const trustedDomains = ['example.com', 'trusted-site.com'];
+            const isTrustedDomain = trustedDomains.some(domain => parsedUrl.hostname.endsWith(domain));
+
+            return isSafeProtocol && isTrustedDomain;
+        } catch (e) {
+            return false;
+        }
     }
 
     clearTimers() {
