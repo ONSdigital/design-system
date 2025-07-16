@@ -165,7 +165,23 @@ export default class Timeout {
     }
 
     redirect() {
-        window.location.replace(this.timeOutRedirectUrl);
+        if (this.isValidUrl(this.timeOutRedirectUrl)) {
+            window.location.replace(this.timeOutRedirectUrl);
+        } else {
+            console.error('Invalid redirect URL:', this.timeOutRedirectUrl);
+            // Optionally redirect to a default safe URL
+            window.location.replace('/default-safe-url');
+        }
+    }
+
+    isValidUrl(url) {
+        try {
+            const parsedUrl = new URL(url, window.location.origin);
+            // Ensure the URL uses a safe protocol (e.g., https)
+            return parsedUrl.protocol === 'https:' || parsedUrl.protocol === 'http:';
+        } catch (e) {
+            return false;
+        }
     }
 
     clearTimers() {
