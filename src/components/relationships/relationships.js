@@ -20,9 +20,9 @@ export default class Relationships {
         if (radio) {
             const title = radio.getAttribute('data-title');
 
-            this.legend.innerHTML = title;
+            this.legend.innerHTML = DOMPurify.sanitize(title);
 
-            this.playback.innerHTML = radio.getAttribute('data-playback');
+            this.playback.innerHTML = DOMPurify.sanitize(radio.getAttribute('data-playback'));
         }
     }
 }
