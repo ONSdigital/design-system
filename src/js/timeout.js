@@ -180,7 +180,13 @@ export default class Timeout {
         try {
             const parsedUrl = new URL(url, window.location.origin);
             // Ensure the URL uses a safe protocol (e.g., https)
-            return parsedUrl.protocol === 'https:' || parsedUrl.protocol === 'http:';
+            const isSafeProtocol = parsedUrl.protocol === 'https:' || parsedUrl.protocol === 'http:';
+
+            // Validate against a whitelist of trusted domains
+            const trustedDomains = ['example.com', 'trusted-site.com'];
+            const isTrustedDomain = trustedDomains.some(domain => parsedUrl.hostname.endsWith(domain));
+
+            return isSafeProtocol && isTrustedDomain;
         } catch (e) {
             return false;
         }
