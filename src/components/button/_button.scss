@@ -35,6 +35,52 @@ $button-shadow-size: 3px;
         }
     }
 
+    &--header-search &,
+    &--header-search:focus &,
+    &--header-search:active &,
+    &--header-search.active &,
+    &--header-search:active:focus &,
+    &--header-search.active:focus & {
+        &__inner {
+            background: var(--ons-color-ocean-blue) !important;
+        }
+    }
+
+    &--header-search &,
+    &--header-search:active &,
+    &--header-search.active & {
+        &__inner {
+            padding: 0.75rem !important;
+            border: 2px solid var(--ons-color-ocean-blue);
+            border-radius: 0;
+            box-shadow: none;
+            .ons-icon {
+                fill: var(--ons-color-text-inverse) !important;
+                height: 28px;
+                width: 28px;
+            }
+        }
+    }
+
+    &--header-search:hover & {
+        &__inner {
+            background: var(--ons-color-night-blue) !important;
+            border-color: var(--ons-color-text-link-hover);
+        }
+    }
+
+    &--header-search:focus & {
+        &__inner {
+            box-shadow:
+                0 0 0 1px var(--ons-color-black),
+                0 0 0 4px var(--ons-color-focus) !important;
+            outline: 3px solid rgb(0 0 0 / 0%);
+            outline-offset: 1px;
+            z-index: 4;
+            border: 2px solid var(--ons-color-black);
+        }
+    }
+
     &__inner {
         background: var(--ons-color-button);
         border-radius: $input-radius;
@@ -101,6 +147,15 @@ $button-shadow-size: 3px;
         top: ems($button-shadow-size);
     }
 
+    &.disabled {
+        cursor: not-allowed;
+        border: 0;
+
+        &:hover {
+            border: 0;
+        }
+    }
+
     // Small buttons
     &--small,
     &--mobile {
@@ -110,6 +165,7 @@ $button-shadow-size: 3px;
     &--small & {
         &__inner {
             padding: 0.5rem 0.75rem;
+
             .ons-icon {
                 height: 16px;
                 width: 16px;
@@ -554,9 +610,6 @@ $button-shadow-size: 3px;
     }
 
     &--menu {
-        align-items: center;
-        display: flex;
-        padding: 1.5rem;
         border-bottom: 4px solid rgb(0 0 0 / 0%);
         .ons-icon {
             transform: rotate(90deg);
@@ -575,12 +628,15 @@ $button-shadow-size: 3px;
                 margin-top: 0;
                 width: 1rem;
             }
+            .ons-btn__text {
+                height: 24px;
+            }
         }
     }
 
     &--menu:focus {
-        background-color: var(--ons-color-focus);
-        border-color: var(--ons-color-black);
+        background-color: var(--ons-color-focus) !important;
+        border-color: var(--ons-color-black) !important;
     }
 
     &--menu:hover {
@@ -589,6 +645,13 @@ $button-shadow-size: 3px;
 
     &--menu:focus & {
         &__inner {
+            .ons-icon {
+                fill: var(--ons-color-text-link-focus) !important;
+            }
+            .ons-btn__text {
+                color: var(--ons-color-text-link-focus);
+            }
+
             box-shadow: none;
         }
     }
@@ -623,6 +686,123 @@ $button-shadow-size: 3px;
     &--menu.active:focus & {
         &__inner {
             background: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+
+    &--search-icon,
+    &--close {
+        border-bottom: 4px solid transparent;
+    }
+
+    &--menu,
+    &--search-icon,
+    &--close {
+        align-items: center;
+        display: flex;
+        padding: 1.25rem 1rem 1rem;
+    }
+
+    &--search-icon &,
+    &--close & {
+        &__inner {
+            background: rgb(0 0 0 / 0%);
+            box-shadow: none;
+            padding: 0;
+            .ons-icon {
+                @extend .ons-u-m-no;
+
+                fill: var(--ons-color-text-link);
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+        }
+    }
+
+    &--search-icon:hover {
+        border-bottom: 4px solid rgb(0 0 0 / 0%);
+        border-color: var(--ons-color-text-link-hover);
+    }
+
+    &--search-icon:focus:hover:not(:active, .active) {
+        .ons-btn__inner {
+            background: none;
+            box-shadow: none;
+        }
+    }
+
+    &--close:focus:hover:not(:active, .active) {
+        .ons-btn__inner {
+            background: none;
+            box-shadow: none;
+        }
+    }
+
+    &--close:active,
+    &--close[aria-expanded='true'] {
+        @extend .ons-u-ml-no;
+
+        border-color: var(--ons-color-text-link-hover);
+        background-color: var(--ons-color-branded-tint);
+        .ons-btn__inner {
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+
+    &--search-icon:hover &,
+    &--search-icon:active &,
+    &--search-icon:active:focus &,
+    &--search-icon.active &,
+    &--search-icon.active:focus & {
+        &__inner {
+            background: none;
+            box-shadow: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+
+    &--search-icon:focus {
+        background-color: var(--ons-color-focus) !important;
+        border-color: var(--ons-color-text-link-focus) !important;
+    }
+
+    &--search-icon:focus &,
+    &--close:focus & {
+        &__inner {
+            background: none;
+            box-shadow: none;
+            .ons-icon {
+                fill: var(--ons-color-text-link-focus) !important;
+            }
+        }
+    }
+
+    &--close:focus {
+        background: var(--ons-color-focus);
+        border-color: var(--ons-color-black);
+    }
+
+    &--search-icon:active {
+        background-color: var(--ons-color-branded-tint);
+        border-color: var(--ons-color-text-link-hover);
+    }
+
+    &--close:hover &,
+    &--close:active &,
+    &--close.active &,
+    &--close.active:focus &,
+    &--close:active:focus & {
+        &__inner {
+            background: none !important;
+            box-shadow: none;
             color: var(--ons-color-text-link-hover);
             .ons-icon {
                 fill: var(--ons-color-text-link-hover);

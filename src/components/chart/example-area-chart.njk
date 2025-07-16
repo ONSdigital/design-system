@@ -1,0 +1,69 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+
+{{
+    onsChart({
+        "chartType": "area",
+        "description": "Area chart showing the annual rate of inflation for the Consumer Prices Index including owner occupiers’ housing costs (CPIH) and its components.",
+        "theme": "alternate",
+        "title": "Sales volumes and values saw moderate growth in July 2024",
+        "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
+        "id": "id",
+        "headingLevel": 4,
+        "caption": "Source: Monthly Business Survey, Retails Sales Inquiry from the Office for National Statistics",
+        "download": {
+            'title': 'Download Figure 1 data',
+            'itemsList': [
+            {
+                "text": "Excel spreadsheet (XLSX format, 18KB)",
+                "url": "#"
+            },
+            {
+                "text": "Simple text file (CSV format, 25KB)",
+                "url": "#"
+            },
+            {
+
+                "text": "Image (PNG format, 25KB)",
+                "url": "#"
+            }
+        ]},
+        "legend": "true",
+        "series": [
+        {
+                "data": [
+                    39.2, 47.1, 44.0, 46, 65.3, 53.2, 49.1, 49.3, 50.4, 48.1,
+                    43.9, 41.8
+                ],
+                "name": "Test series 3"
+            },
+            {
+                "data": [
+                    28.8, 23.2, 33.0, 25.8, 20.8, 39.8, 37.9, 28.2, 37.6, 46.7,
+                    43.9, 41.8
+                ],
+                "name": "Test series 2"
+            },
+            {
+                "data": [
+                    37.8, 41.0, 43.0, 42.9, 41.8, 39.8, 37.9, 38.2, 37.6, 36.7,
+                    33.9, 31.8
+                ],
+                "name": "Test series 1"
+            }
+        ],
+        "xAxis": {
+            "categories": [
+                "Mar 1901", "Mar 1902", "Mar 1903", "Mar 1904", "Mar 1905", "Mar 1906", "Mar 1907", "Mar 1908", "Mar 1909", "Mar 1910",
+                "Mar 1911", "Mar 1912"
+            ],
+            "title":  "Years",
+            "type": "linear"
+        },
+        "yAxis": {
+            "title": "Y axis title"
+        },
+        "percentageHeightDesktop": 50,
+        "percentageHeightMobile": 120,
+        "fallbackImageUrl": '/img/small/area-chart-screenshot.png'
+    })
+}}

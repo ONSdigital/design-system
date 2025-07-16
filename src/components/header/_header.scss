@@ -1,5 +1,6 @@
 // Block
 .ons-header {
+    $root: &;
     @include font-smoothing;
 
     display: block;
@@ -64,6 +65,15 @@
             margin: 0 0 1rem;
         }
     }
+
+    &__language {
+        display: none;
+
+        .ons-js-enabled & {
+            display: block;
+        }
+    }
+
     // Modifier - variants
     &--description {
         .ons-header {
@@ -168,13 +178,13 @@
     }
 
     &__org-logo--large {
-        @include mq('2xs', 454px) {
+        @include mq('2xs', 590px) {
             display: none;
         }
     }
 
     &__org-logo--small {
-        @include mq(455px) {
+        @include mq(591px) {
             display: none;
         }
     }
@@ -239,11 +249,39 @@
     &--basic & {
         &__grid-top {
             padding: 0;
+            flex-direction: column;
+            align-items: flex-start;
+
+            #{$root}__menu-links {
+                width: 100%;
+
+                #{$root}__language {
+                    display: block;
+                    padding-top: 1rem;
+
+                    // hide the language switcher within nav when js is enabled
+                    .ons-js-enabled & {
+                        display: none;
+                    }
+                }
+            }
+
+            // When JS is enabled, revert the no-js styles
+            .ons-js-enabled & {
+                flex-direction: inherit;
+                align-items: center;
+
+                #{$root}__menu-links {
+                    width: auto;
+                }
+            }
         }
     }
 
     &-nav-menu {
-        background-color: var(--ons-color-branded-tint);
+        margin-bottom: 0;
+        padding-bottom: 2.5rem;
+        position: relative;
         width: 100%;
 
         &__key-list {
@@ -275,6 +313,44 @@
             @include mq(m) {
                 padding-bottom: 0;
             }
+        }
+    }
+
+    // applies styles for non-js variant
+    &-nav-menu ~ &-nav-search {
+        border-top: 1px solid var(--ons-color-ocean-blue);
+    }
+
+    &-nav-menu,
+    &-nav-search {
+        background-color: var(--ons-color-branded-tint);
+
+        // updates styles when js is enabled
+        .ons-js-enabled & {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 100vw;
+            transform: translateX(-50%);
+            border-top: 0;
+            z-index: 500;
+        }
+    }
+
+    &__menu-links ~ &__links {
+        padding-bottom: 0.25rem;
+    }
+
+    &-nav-search {
+        @extend .ons-u-pt-2xl;
+        @extend .ons-u-pb-2xl;
+
+        &__input {
+            border-bottom: 1px solid var(--ons-color-ocean-blue);
+            @extend .ons-u-mb-2xl;
+            @extend .ons-u-pb-2xl;
+
+            row-gap: 1rem;
         }
     }
 
