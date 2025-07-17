@@ -58,7 +58,7 @@ async function getUrls() {
                 (path) =>
                     !path.includes('index.html') &&
                     !path.includes('example-skip-to-content.html') &&
-                    !knownIssueFiles.some((filename) => path.includes(filename)), // doesn't add index.html, example-skip-to-content and examples mentioned in knownIssueUrls.
+                    !knownIssueFiles.some((filename) => path.includes(filename)), // doesn't add index.html, example-skip-to-content and examples mentioned in knownIssueUrls
             );
             const filesWithExcludedUrls = files.filter((path) => knownIssueFiles.some((filename) => path.includes(filename)));
             for (const file of filteredFiles) {
