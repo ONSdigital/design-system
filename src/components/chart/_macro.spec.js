@@ -25,6 +25,7 @@ import {
     EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS,
     EXAMPLE_LINE_CHART_WITH_REFERENCE_LINE_ANNOTATIONS_PARAMS,
     EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS,
+    EXAMPLE_IFRAME_CHART_PARAMS,
 } from './_test-examples';
 
 describe('Macro: Chart', () => {
@@ -188,6 +189,52 @@ describe('Macro: Chart', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
                 test('THEN: it includes correct percentage height mobile', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-percentage-height-mobile')).toBe('120');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: fallbackImageUrl', () => {
+            describe('WHEN: fallbackImageUrl is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
+                        fallbackImageUrl: '/img/small/line-chart-screenshot.png',
+                    }),
+                );
+                const noScriptFallbackImage = $(`#fallback-image--chart-456`).html();
+                test('THEN: it renders the fallback image', () => {
+                    expect(noScriptFallbackImage).toContain('/img/small/line-chart-screenshot.png');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: fallbackImageAlt', () => {
+            describe('WHEN: fallbackImageAlt is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
+                        fallbackImageUrl: '/img/small/line-chart-screenshot.png',
+                        fallbackImageAlt: 'A description of the fallback image for screen readers',
+                    }),
+                );
+                const noScriptFallbackImage = $(`#fallback-image--chart-456`).html();
+                test('THEN: it renders the customised fallback image alt text', () => {
+                    expect(noScriptFallbackImage).toContain('alt="A description of the fallback image for screen readers"');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: no fallbackImageAlt', () => {
+            describe('WHEN: fallbackImageAlt is not provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS,
+                        fallbackImageUrl: '/img/small/line-chart-screenshot.png',
+                    }),
+                );
+                const noScriptFallbackImage = $(`#fallback-image--chart-456`).html();
+                test('THEN: it renders the default fallback image alt text', () => {
+                    expect(noScriptFallbackImage).toContain('alt="Fallback image for the chart as JavaScript is disabled"');
                 });
             });
         });
@@ -628,14 +675,14 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the footnotes', () => {
-                    expect($('.ons-chart__footnotes').text()).toContain('1');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test annotation');
-                    expect($('.ons-chart__footnotes').text()).toContain('2');
-                    expect($('.ons-chart__footnotes').text()).toContain('Another test annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('2');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('Another test annotation');
                 });
 
                 test('THEN: the footnotes are hidden from screen readers', () => {
-                    expect($('.ons-chart__footnotes').attr('aria-hidden')).toBe('true');
+                    expect($('.ons-chart__annotations-footnotes').attr('aria-hidden')).toBe('true');
                 });
 
                 test('THEN: it includes the Annotations JSON config', () => {
@@ -658,12 +705,12 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the footnotes', () => {
-                    expect($('.ons-chart__footnotes').text()).toContain('1');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test annotation');
                 });
 
                 test('THEN: the footnotes are hidden from screen readers', () => {
-                    expect($('.ons-chart__footnotes').attr('aria-hidden')).toBe('true');
+                    expect($('.ons-chart__annotations-footnotes').attr('aria-hidden')).toBe('true');
                 });
 
                 test('THEN: it includes the Annotations JSON config', () => {
@@ -687,12 +734,12 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the footnotes', () => {
-                    expect($('.ons-chart__footnotes').text()).toContain('1');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test annotation');
                 });
 
                 test('THEN: the footnotes are hidden from screen readers', () => {
-                    expect($('.ons-chart__footnotes').attr('aria-hidden')).toBe('true');
+                    expect($('.ons-chart__annotations-footnotes').attr('aria-hidden')).toBe('true');
                 });
 
                 test('THEN: it includes the Annotations JSON config', () => {
@@ -974,6 +1021,26 @@ describe('Macro: Chart', () => {
                     expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
                     expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
                     expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Footnotes', () => {
+            describe('WHEN: footnotes are provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_AREA_CHART_PARAMS,
+                        footnotes: {
+                            title: 'Footnotes',
+                            content:
+                                '<ol><li>Non-store retailing refers to retailers that do not have a store presence. While the majority is made up of online retailers, it also includes other retailers, such as stalls and markets.</li><li>More data are available in our Retail Sales Index datasets.</li></ol>',
+                        },
+                    }),
+                );
+                test('THEN: it renders the footnotes', () => {
+                    expect($('#footnotes--area-chart-123').length).toBe(1);
+                    expect($('#footnotes--area-chart-123').find('ol').length).toBe(1);
+                    expect($('#footnotes--area-chart-123').text()).toContain('Footnotes');
                 });
             });
         });
@@ -1304,16 +1371,16 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the footnotes sequentially', () => {
-                    expect($('.ons-chart__footnotes').text()).toContain('1');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test point annotation');
-                    expect($('.ons-chart__footnotes').text()).toContain('2');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test x axis range annotation');
-                    expect($('.ons-chart__footnotes').text()).toContain('3');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test y axis range annotation with the label inside');
-                    expect($('.ons-chart__footnotes').text()).toContain('4');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test x axis reference line annotation');
-                    expect($('.ons-chart__footnotes').text()).toContain('5');
-                    expect($('.ons-chart__footnotes').text()).toContain('A test y axis reference line annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test point annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('2');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test x axis range annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('3');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test y axis range annotation with the label inside');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('4');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test x axis reference line annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('5');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test y axis reference line annotation');
                 });
             });
         });
@@ -1453,6 +1520,192 @@ describe('Macro: Chart', () => {
                 expect(configScript).not.toContain('"max":10');
                 expect(configScript).not.toContain('"startOnTick":true');
                 expect(configScript).not.toContain('"endOnTick":true');
+            });
+        });
+    });
+
+    describe('FOR: Iframe chart', () => {
+        describe('GIVEN: Params: Iframe chart', () => {
+            describe('WHEN: an iframe url param is provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_IFRAME_CHART_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the iframe', () => {
+                    expect($('.ons-chart__iframe-wrapper').length).toBe(1);
+                });
+
+                test('THEN: it includes the iframe title as a data attribute', () => {
+                    const iframe = $('.ons-chart__iframe-wrapper');
+                    expect(iframe.attr('data-title')).toBe(EXAMPLE_IFRAME_CHART_PARAMS.title);
+                });
+
+                test('THEN: the theme parameter is ignored', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            theme: 'secondary',
+                        }),
+                    );
+
+                    expect($('[data-highcharts-theme]').length).toBe(0);
+                });
+
+                test('THEN: the percentageHeightDesktop and percentageHeightMobile parameters are ignored', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            percentageHeightDesktop: 50,
+                            percentageHeightMobile: 10,
+                        }),
+                    );
+
+                    expect($('[data-highcharts-percentage-height-desktop]').length).toBe(0);
+                    expect($('[data-highcharts-percentage-height-mobile]').length).toBe(0);
+                });
+
+                test('THEN: the tickIntervalDesktop and tickIntervalMobile parameters are ignored', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            xAxis: {
+                                tickIntervalDesktop: 10,
+                                tickIntervalMobile: 5,
+                            },
+                            yAxis: {
+                                tickIntervalDesktop: 10,
+                                tickIntervalMobile: 5,
+                            },
+                        }),
+                    );
+
+                    expect($('[data-highcharts-x-axis-tick-interval-desktop]').length).toBe(0);
+                    expect($('[data-highcharts-x-axis-tick-interval-mobile]').length).toBe(0);
+                    expect($('[data-highcharts-y-axis-tick-interval-desktop]').length).toBe(0);
+                    expect($('[data-highcharts-y-axis-tick-interval-mobile]').length).toBe(0);
+                });
+
+                test('THEN: the tickIntervalDesktop and tickIntervalMobile parameters are ignored', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            estimateLineLabel: 'Estimated value',
+                            uncertaintyRangeLabel: '95% Confidence Interval',
+                        }),
+                    );
+
+                    expect($('[data-highcharts-estimate-line-label]').length).toBe(0);
+                    expect($('[data-highcharts-uncertainty-range-label]').length).toBe(0);
+                });
+
+                test('THEN: the customReferenceLineValue parameter is ignored', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            yAxis: {
+                                customReferenceLineValue: 10,
+                            },
+                        }),
+                    );
+
+                    expect($('[data-highcharts-custom-reference-line-value]').length).toBe(0);
+                });
+
+                test('THEN: the legend for boxplot charts is not rendered', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            chartType: 'boxplot',
+                            legend: true,
+                            estimateLineLabel: 'Estimated value',
+                            uncertaintyRangeLabel: '95% Confidence Interval',
+                        }),
+                    );
+
+                    expect($('.ons-chart__boxplot-legend').length).toBe(0);
+                });
+
+                test('THEN: the Highcharts config is not included', () => {
+                    const configScript = $(`script[data-highcharts-config--iframe-chart-123]`).html();
+                    expect(configScript).toBeNull();
+                });
+
+                test('THEN: the annotations footnotes and scripts are not rendered', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            annotations: [
+                                {
+                                    text: 'A test point annotation',
+                                    point: { x: 2, y: 3 },
+                                    labelOffsetX: 10,
+                                    labelOffsetY: -50,
+                                },
+                            ],
+                            rangeAnnotations: [
+                                {
+                                    text: 'A test x axis range annotation',
+                                    range: { axisValue1: 10, axisValue2: 15 },
+                                    axis: 'x',
+                                    labelOffsetX: 150,
+                                    labelOffsetY: 0,
+                                },
+                                {
+                                    text: 'A test y axis range annotation with the label inside',
+                                    range: { axisValue1: 5, axisValue2: 10 },
+                                    axis: 'y',
+                                    labelInside: true,
+                                    labelWidth: 250,
+                                },
+                            ],
+                            referenceLineAnnotations: [
+                                {
+                                    text: 'A test x axis reference line annotation',
+                                    value: 34,
+                                    axis: 'x',
+                                },
+                                {
+                                    text: 'A test y axis reference line annotation',
+                                    value: 12,
+                                    axis: 'y',
+                                    labelWidth: 100,
+                                },
+                            ],
+                        }),
+                    );
+
+                    expect($('[data-annotations-footnotes]').length).toBe(0);
+                    expect($('[data-highcharts-annotations--iframe-chart-123]').length).toBe(0);
+                    expect($('[data-highcharts-range-annotations--iframe-chart-123]').length).toBe(0);
+                    expect($('[data-highcharts-reference-line-annotations--iframe-chart-123]').length).toBe(0);
+                });
+
+                test('THEN: invalid chart type is ignored', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            chartType: 'foobar',
+                        }),
+                    );
+
+                    expect($('[data-invalid-chart-type]').length).toBe(0);
+                });
+            });
+
+            describe('WHEN: Params: fallbackImageUrl is set', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        fallbackImageUrl: '/img/small/line-chart-screenshot.png',
+                    }),
+                );
+                const iframe = $(`.ons-chart__iframe-wrapper`);
+                test('THEN: the iframe is hidden when JavaScript is disabled', () => {
+                    expect(iframe.attr('class')).toContain('ons-chart__non-js-hide');
+                });
             });
         });
     });
