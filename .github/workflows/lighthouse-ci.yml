@@ -8,14 +8,14 @@ env:
 
 jobs:
     lhci:
-        name: Lighthouse CI - ${{ matrix.config }}
+        name: Lighthouse CI ${{ matrix.config }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                config:
-                    - name: urls with known issues
+                include:
+                    - name: on urls with known issues
                       config: ./lighthouse/lighthouserc.skipAriaAllowed.js
-                    - name: urls without known issues
+                    - name: on urls without known issues
                       config: ./lighthouse/lighthouserc.js
         steps:
             - uses: actions/checkout@v4
