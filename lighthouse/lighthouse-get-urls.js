@@ -64,7 +64,7 @@ async function getUrls() {
             for (const file of filteredFiles) {
                 data.urls.push(file.replace('build/', 'http://localhost/'));
             }
-            //add the examples mentioned in knownIssueUrls in a seperate array
+            //add the examples mentioned in knownIssueUrls in a separate array
             for (const file of filesWithExcludedUrls) {
                 data.excludedUrls.push(file.replace('build/', 'http://localhost/'));
             }
