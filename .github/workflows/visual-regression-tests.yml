@@ -1,6 +1,9 @@
 name: Run visual regression tests
 on: [push]
 
+permissions:
+    contents: read
+
 env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     RUNNING_IN_CI: true
