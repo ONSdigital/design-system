@@ -8,7 +8,7 @@ env:
 
 jobs:
     lhci:
-        name: Lighthouse CI - - ${{ matrix.config }}
+        name: Lighthouse CI - ${{ matrix.config }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
