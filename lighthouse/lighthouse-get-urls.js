@@ -15,8 +15,8 @@ async function createUrlsFile() {
 
 async function getUrls() {
     let data = {};
-    data.urls = [];
-    data.excludedUrls = [];
+    data.urlsWithoutKnownIssues = [];
+    data.urlsWithKnownIssues = [];
     const directories = [
         {
             path: './build/components',
@@ -54,19 +54,20 @@ async function getUrls() {
         const folders = await readdir(directory.path);
         for (const folder of folders) {
             const files = await glob(`${directory.path}/${folder}/**/*.html`);
-            const filteredFiles = files.filter(
+            const filesWithoutKnownIssues = files.filter(
                 (path) =>
                     !path.includes('index.html') &&
                     !path.includes('example-skip-to-content.html') &&
                     !knownIssueFiles.some((filename) => path.includes(filename)), // doesn't add index.html, example-skip-to-content and examples mentioned in knownIssueUrls
             );
-            const filesWithExcludedUrls = files.filter((path) => knownIssueFiles.some((filename) => path.includes(filename)));
-            for (const file of filteredFiles) {
-                data.urls.push(file.replace('build/', 'http://localhost/'));
+            for (const file of filesWithoutKnownIssues) {
+                data.urlsWithoutKnownIssues.push(file.replace('build/', 'http://localhost/'));
             }
+
+            const filesWithKnownIssues = files.filter((path) => knownIssueFiles.some((filename) => path.includes(filename)));
             //add the examples mentioned in knownIssueUrls in a separate array
-            for (const file of filesWithExcludedUrls) {
-                data.excludedUrls.push(file.replace('build/', 'http://localhost/'));
+            for (const file of filesWithKnownIssues) {
+                data.urlsWithKnownIssues.push(file.replace('build/', 'http://localhost/'));
             }
         }
     }

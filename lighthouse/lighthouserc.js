@@ -2,7 +2,7 @@ module.exports = {
     ci: {
         collect: {
             staticDistDir: './build',
-            url: require('./urls.json').urls,
+            url: require('./urls.json').urlsWithoutKnownIssues,
             numberOfRuns: 1,
             settings: {
                 onlyCategories: ['accessibility'],
