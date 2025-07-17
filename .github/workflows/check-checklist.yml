@@ -7,6 +7,9 @@ on:
             - synchronize
             - reopened
 
+permissions:
+    pull-requests: read
+
 jobs:
     check-tasks:
         runs-on: ubuntu-latest
