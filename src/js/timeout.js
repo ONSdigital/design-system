@@ -1,3 +1,5 @@
+import purify from '../../lib/purify';
+
 export default class Timeout {
     constructor(context, sessionExpiryEndpoint, initialExpiryTime, enableTimeoutReset, startOnLoad) {
         this.context = context;
@@ -77,23 +79,23 @@ export default class Timeout {
                 ($this.endWithFullStop ? '.' : '');
 
             if (timerExpired) {
-                $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
-                $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
+                $this.countdown.innerHTML = purify.sanitize('<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>');
+                $this.accessibleCountdown.innerHTML = purify.sanitize($this.countdownExpiredText);
                 setTimeout($this.redirect.bind($this), 2000);
             } else {
                 seconds--;
                 $this.expiryTimeInMilliseconds = seconds * 1000;
-                $this.countdown.innerHTML = timeLeftText;
+                $this.countdown.innerHTML = purify.sanitize(timeLeftText);
 
                 if (minutesLeft < 1 && secondsLeft < 20) {
                     $this.accessibleCountdown.setAttribute('aria-live', 'assertive');
                 }
 
                 if (!$this.timerRunOnce) {
-                    $this.accessibleCountdown.innerHTML = timeLeftText;
+                    $this.accessibleCountdown.innerHTML = purify.sanitize(timeLeftText);
                     $this.timerRunOnce = true;
                 } else if (secondsLeft % 15 === 0) {
-                    $this.accessibleCountdown.innerHTML = timeLeftText;
+                    $this.accessibleCountdown.innerHTML = purify.sanitize(timeLeftText);
                 }
 
                 timers.push(setTimeout(runTimer.bind($this), 1000));
@@ -165,7 +167,8 @@ export default class Timeout {
     }
 
     redirect() {
-        window.location.replace(this.timeOutRedirectUrl);
+        const sanitizedUrl = purify.sanitize(this.timeOutRedirectUrl);
+        window.location.replace(sanitizedUrl);
     }
 
     clearTimers() {
