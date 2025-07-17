@@ -1,3 +1,5 @@
+import purify from '../../../lib/purify';
+
 let clearAlertAnnounced;
 export default class ClearRadios {
     constructor(inputs, button, otherInput) {
@@ -32,7 +34,7 @@ export default class ClearRadios {
     setClearAttributes() {
         this.button.classList.remove('ons-u-db-no-js_enabled');
         if (clearAlertAnnounced === false) {
-            this.ariaElement.innerHTML = this.clearAlert;
+            this.ariaElement.innerHTML = purify.sanitize(this.clearAlert);
             clearAlertAnnounced = true;
         }
     }
@@ -49,7 +51,7 @@ export default class ClearRadios {
         }
 
         this.button.classList.add('ons-u-db-no-js_enabled');
-        this.ariaElement.innerHTML = this.clearedAlert;
+        this.ariaElement.innerHTML = purify.sanitize(this.clearedAlert);
         clearAlertAnnounced = false;
     }
 }
