@@ -1,3 +1,5 @@
+import purify from '../../../lib/purify';
+
 export default class Relationships {
     constructor(context) {
         this.context = context;
@@ -20,9 +22,9 @@ export default class Relationships {
         if (radio) {
             const title = radio.getAttribute('data-title');
 
-            this.legend.innerHTML = DOMPurify.sanitize(title);
+            this.legend.innerHTML = purify.sanitize(title);
 
-            this.playback.innerHTML = DOMPurify.sanitize(radio.getAttribute('data-playback'));
+            this.playback.innerHTML = purify.sanitize(radio.getAttribute('data-playback'));
         }
     }
 }
