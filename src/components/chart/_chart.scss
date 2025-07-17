@@ -7,6 +7,12 @@
         overflow: visible !important;
     }
 
+    &__container:focus {
+        box-shadow: 0 0 0 3px black !important;
+        outline: 4px solid var(--ons-color-focus) !important;
+        outline-offset: 2px !important;
+    }
+
     &__download-title {
         @extend .ons-u-pt-l;
         @extend .ons-u-fs-r--b;
