@@ -259,7 +259,7 @@ export default class Tabs {
     }
 
     getPanel(tab) {
-        const panelSelector = this.getHref(tab).replace(/([ #.:[\]{}()<>?+*~=|^$!\\])/g, '\\$1');
+        const panelSelector = this.getHref(tab).replace(/([ .:[\]{}()<>?+*~=|^$!\\])/g, '\\$1');
         const panel = this.component.querySelector(panelSelector);
         return panel;
     }
