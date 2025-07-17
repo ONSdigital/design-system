@@ -168,25 +168,7 @@ export default class Timeout {
 
     redirect() {
         const sanitizedUrl = purify.sanitize(this.timeOutRedirectUrl);
-        if (this.isValidUrl(this.sanitizedUrl)) {
-            window.location.replace(sanitizedUrl);
-        } else {
-            console.error('Invalid redirect URL:', sanitizedUrl);
-            // Optionally redirect to a default safe URL
-            window.location.replace('/default-safe-url');
-        }
-    }
-
-    isValidUrl(url) {
-        try {
-            const parsedUrl = new URL(url, window.location.origin);
-            // Ensure the URL uses a safe protocol (e.g., https) and belongs to a trusted domain
-            const trustedDomains = ['example.com', 'trusted-site.com'];
-            const isTrustedDomain = trustedDomains.some((domain) => parsedUrl.hostname.endsWith(domain));
-            return (parsedUrl.protocol === 'https:' || parsedUrl.protocol === 'http:') && isTrustedDomain;
-        } catch (e) {
-            return false;
-        }
+        window.location.replace(sanitizedUrl);
     }
 
     clearTimers() {
