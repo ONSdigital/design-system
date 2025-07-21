@@ -1,4 +1,4 @@
-import purify from '../../../lib/purify';
+import DOMPurify from 'dompurify';
 
 let clearAlertAnnounced;
 export default class ClearRadios {
@@ -34,7 +34,7 @@ export default class ClearRadios {
     setClearAttributes() {
         this.button.classList.remove('ons-u-db-no-js_enabled');
         if (clearAlertAnnounced === false) {
-            this.ariaElement.innerHTML = purify.sanitize(this.clearAlert);
+            this.ariaElement.innerHTML = DOMPurify.sanitize(this.clearAlert);
             clearAlertAnnounced = true;
         }
     }
@@ -51,7 +51,7 @@ export default class ClearRadios {
         }
 
         this.button.classList.add('ons-u-db-no-js_enabled');
-        this.ariaElement.innerHTML = purify.sanitize(this.clearedAlert);
+        this.ariaElement.innerHTML = DOMPurify.sanitize(this.clearedAlert);
         clearAlertAnnounced = false;
     }
 }
