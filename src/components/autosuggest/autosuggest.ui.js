@@ -1,7 +1,7 @@
 import abortableFetch from '../../js/abortable-fetch';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
 import runFuse from './fuse-config';
-import purify from '../../../lib/purify';
+import DOMPurify from 'dompurify';
 
 export const baseClass = 'ons-js-autosuggest';
 
@@ -399,7 +399,7 @@ export default class AutosuggestUI {
                 const listElement = document.createElement('li');
                 listElement.className = `${classAutosuggestOption} ${classAutosuggestOptionMoreResults}`;
                 listElement.setAttribute('aria-hidden', 'true');
-                listElement.innerHTML = purify.sanitize(this.moreResults);
+                listElement.innerHTML = DOMPurify.sanitize(this.moreResults);
                 this.listbox.appendChild(listElement);
             }
 
@@ -437,7 +437,7 @@ export default class AutosuggestUI {
         if (status === 400 || status === false) {
             message = this.typeMore;
             this.setAriaStatus(message);
-            this.listbox.innerHTML = purify.sanitize(
+            this.listbox.innerHTML = DOMPurify.sanitize(
                 `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
             );
         } else if (status > 400 || status === '') {
@@ -456,7 +456,7 @@ export default class AutosuggestUI {
             this.resultsTitleContainer.remove();
         } else {
             message = this.noResults;
-            this.listbox.innerHTML = purify.sanitize(
+            this.listbox.innerHTML = DOMPurify.sanitize(
                 `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
             );
         }
@@ -508,7 +508,7 @@ export default class AutosuggestUI {
                 }
             }
         }
-        this.ariaStatus.innerHTML = purify.sanitize(content);
+        this.ariaStatus.innerHTML = DOMPurify.sanitize(content);
     }
 
     selectResult(index) {
@@ -553,7 +553,7 @@ export default class AutosuggestUI {
         warningSpanElement.innerHTML = '!';
 
         warningBodyElement.className = 'ons-panel__body';
-        warningBodyElement.innerHTML = purify.sanitize(content);
+        warningBodyElement.innerHTML = DOMPurify.sanitize(content);
 
         warningElement.appendChild(warningSpanElement);
         warningElement.appendChild(warningBodyElement);
