@@ -53,11 +53,11 @@ export default class Accordion {
 
     setButton() {
         if (this.canClose()) {
-            this.buttonInner.innerHTML = purify.sanitze(this.closeButton);
+            this.buttonInner.innerHTML = purify.sanitize(this.closeButton);
             this.button.setAttribute('data-ga-label', this.buttonOpen);
             this.button.setAttribute('aria-expanded', 'true');
         } else {
-            this.buttonInner.innerHTML = purify.sanitze(this.buttonOpen);
+            this.buttonInner.innerHTML = purify.sanitize(this.buttonOpen);
             this.button.setAttribute('data-ga-label', this.closeButton);
             this.button.setAttribute('aria-expanded', 'false');
         }
