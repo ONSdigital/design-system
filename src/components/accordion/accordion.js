@@ -1,4 +1,4 @@
-import purify from '../../../lib/purify';
+import DOMPurify from 'dompurify';
 export default class Accordion {
     constructor(button, detailsEls) {
         this.openDetailsEls = 0;
@@ -53,11 +53,11 @@ export default class Accordion {
 
     setButton() {
         if (this.canClose()) {
-            this.buttonInner.innerHTML = purify.sanitize(this.closeButton);
+            this.buttonInner.innerHTML = DOMPurify.sanitize(this.closeButton);
             this.button.setAttribute('data-ga-label', this.buttonOpen);
             this.button.setAttribute('aria-expanded', 'true');
         } else {
-            this.buttonInner.innerHTML = purify.sanitize(this.buttonOpen);
+            this.buttonInner.innerHTML = DOMPurify.sanitize(this.buttonOpen);
             this.button.setAttribute('data-ga-label', this.closeButton);
             this.button.setAttribute('aria-expanded', 'false');
         }
