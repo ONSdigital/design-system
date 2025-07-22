@@ -30,10 +30,6 @@ async function getUrls() {
     ];
     // collect all the examples fail at 'aria-allowed-attr' audit check
     const knownIssueFiles = [
-        'example-errors-proto.html',
-        'example-errors-proto-errors.html',
-        'example-feedback-form.html',
-        'example-feedback-form-errors.html',
         'example-radios-with-revealed-text-input.html',
         'example-radios-with-revealed-text-input-expanded.html',
         'example-radios-with-revealed-text-area.html',
@@ -46,9 +42,10 @@ async function getUrls() {
         'example-radios-with-revealed-checkboxes-expanded.html',
         'example-radios-with-clear-button.html',
         'example-radios-with-clear-button-expanded.html',
-        'example-accordion.html',
-        'example-button-custom.html',
-        'example-button-download.html',
+        'example-errors-proto.html',
+        'example-errors-proto-errors.html',
+        'example-feedback-form.html',
+        'example-feedback-form-errors.html',
     ];
     for (const directory of directories) {
         const folders = await readdir(directory.path);
