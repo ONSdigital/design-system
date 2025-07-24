@@ -44,10 +44,3 @@ jobs:
                   fi
               env:
                   LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-    lighthouse-ci-status:
-        name: Lighthouse CI
-        needs: lhci
-        runs-on: ubuntu-latest
-        if: always()
-        steps:
-            - run: echo "All Lighthouse checks completed."
