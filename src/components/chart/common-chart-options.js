@@ -62,6 +62,9 @@ class CommonChartOptions {
                         enabled: false,
                     },
                     enabled: true,
+                    seriesNavigation: {
+                        mode: 'serialize',
+                    },
                 },
             },
             yAxis: {
