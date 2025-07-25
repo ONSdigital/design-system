@@ -1,3 +1,4 @@
+import DOMPurify from 'dompurify';
 export default class Video {
     constructor(component) {
         this.component = component;
@@ -30,24 +31,12 @@ export default class Video {
     }
     addDNTtoVimeoVideos() {
         let src = this.iframe.getAttribute('data-src');
-        src = this.sanitizeSrc(src);
+        src = DOMPurify.sanitize(src);
         if (src.includes('player.vimeo.com/video') && src.includes('?dnt=1') === false) {
             src += '?dnt=1';
             return src;
         } else {
             return src;
         }
-    }
-
-    sanitizeSrc(src) {
-        try {
-            const url = new URL(src);
-            if (url.hostname === 'player.vimeo.com') {
-                return url.toString();
-            }
-        } catch (e) {
-            console.error('Invalid src URL:', src);
-        }
-        return '';
     }
 }
