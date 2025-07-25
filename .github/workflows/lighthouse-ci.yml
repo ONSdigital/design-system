@@ -33,7 +33,7 @@ jobs:
               run: node ./lighthouse/lighthouse-get-urls.js
             - name: Run Lighthouse CI
               run: |
-                  npm install -g @lhci/cli@0.14.x
+                  npm install -g @lhci/cli@0.15.1
                   lhci collect --config=${{ matrix.config }}
                   if ! lhci assert --config=${{ matrix.config }}; then
                   echo "Assertions failed"
