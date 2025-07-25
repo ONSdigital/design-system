@@ -1,6 +1,7 @@
 import abortableFetch from '../../js/abortable-fetch';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
 import runFuse from './fuse-config';
+import DOMPurify from 'dompurify';
 
 export const baseClass = 'ons-js-autosuggest';
 
@@ -438,8 +439,8 @@ export default class AutosuggestUI {
             this.setAriaStatus(message);
             this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
         } else if (status > 400 || status === '') {
-            message =
-                this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>.' : '');
+            const sanitizedHref = DOMPurify.sanitize(window.location.href);
+            message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + sanitizedHref + '">' + this.errorAPILinkText + '</a>.' : '');
             let ariaMessage = this.errorAPI + (this.errorAPILinkText ? ' ' + this.errorAPILinkText : '');
 
             this.input.setAttribute('disabled', true);
@@ -548,7 +549,7 @@ export default class AutosuggestUI {
         warningSpanElement.innerHTML = '!';
 
         warningBodyElement.className = 'ons-panel__body';
-        warningBodyElement.innerHTML = content;
+        warningBodyElement.innerHTML = DOMPurify.sanitize(content);
 
         warningElement.appendChild(warningSpanElement);
         warningElement.appendChild(warningBodyElement);
