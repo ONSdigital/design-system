@@ -57,6 +57,15 @@ class CommonChartOptions {
             },
             accessibility: {
                 enabled: true,
+                keyboardNavigation: {
+                    focusBorder: {
+                        enabled: false,
+                    },
+                    enabled: true,
+                    seriesNavigation: {
+                        mode: 'serialize',
+                    },
+                },
             },
             yAxis: {
                 labels: {
