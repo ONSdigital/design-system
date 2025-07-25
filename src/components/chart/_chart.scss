@@ -8,10 +8,7 @@
     }
 
     @media (forced-colors: active) {
-        .highcharts-annotation-label text {
-            fill: CanvasText !important; /* Forces the color used for text in high contrast mode */
-        }
-
+        .highcharts-annotation-label text,
         .highcharts-plot-line-label {
             fill: CanvasText !important; /* Forces the color used for text in high contrast mode */
         }
@@ -188,50 +185,54 @@
 @media (forced-colors: active) {
     .ons-chart__boxplot-legend-item--uncertainty,
     .highcharts-boxplot-box {
-        background-color: SelectedItem !important;
-        fill: SelectedItem !important;
+        background-color: SelectedItem;
+        fill: SelectedItem;
     }
 
     .ons-chart__boxplot-legend-item--estimate,
     .highcharts-boxplot-median {
-        background-color: WindowText !important;
-        stroke: WindowText !important;
+        background-color: WindowText;
+        stroke: WindowText;
     }
-    .highcharts-color-1 {
-        fill: #a6f0ff !important;
-        stroke: #a6f0ff !important;
+    .highcharts-color-0,
+    .highcharts-color-0 .highcharts-area {
+        fill: #007faa;
     }
-    .highcharts-color-2 {
-        fill: #70d49e !important;
-        stroke: #70d49e !important;
+    .highcharts-color-1,
+    .highcharts-color-1 .highcharts-area {
+        fill: #a6f0ff;
     }
-    .highcharts-color-3 {
-        fill: #e898a5 !important;
-        stroke: #e898a5 !important;
+    .highcharts-color-2,
+    .highcharts-color-2 .highcharts-area {
+        fill: #70d49e;
     }
-    .highcharts-color-4 {
-        fill: #007faa !important;
-        stroke: #007faa !important;
+    .highcharts-color-3,
+    .highcharts-color-3 .highcharts-area {
+        fill: #e898a5;
     }
-    .highcharts-color-5 {
-        fill: #f9db72 !important;
-        stroke: #f9db72 !important;
+    .highcharts-color-4,
+    .highcharts-color-4 .highcharts-area {
+        fill: #dadfe1;
     }
-    .highcharts-color-6 {
-        fill: #f45b5b !important;
-        stroke: #f45b5b !important;
+    .highcharts-color-5,
+    .highcharts-color-5 .highcharts-area {
+        fill: #f9db72;
     }
-    .highcharts-color-7 {
-        fill: #1e824c !important;
-        stroke: #1e824c !important;
+    .highcharts-color-6,
+    .highcharts-color-6 .highcharts-area {
+        fill: #f45b5b;
     }
-    .highcharts-color-8 {
-        fill: #e7934c !important;
-        stroke: #e7934c !important;
+    .highcharts-color-7,
+    .highcharts-color-7 .highcharts-area {
+        fill: #1e824c;
     }
-    .highcharts-color-9 {
-        fill: #a0618b !important;
-        stroke: #a0618b !important;
+    .highcharts-color-8,
+    .highcharts-color-8 .highcharts-area {
+        fill: #e7934c;
+    }
+    .highcharts-color-9,
+    .highcharts-color-9 .highcharts-area {
+        fill: #a0618b;
     }
 }
 // Allow last label to overflow
