@@ -7,6 +7,18 @@
         overflow: visible !important;
     }
 
+    @media (forced-colors: active) {
+        .highcharts-annotation-label text,
+        .highcharts-plot-line-label {
+            fill: CanvasText !important; /* Forces the color used for text in high contrast mode */
+        }
+
+        .highcharts-annotation-label-box {
+            fill: Canvas !important; /* Sets the background to match system background */
+            stroke: CanvasText !important; /* Ensures border is visible in contrast mode */
+        }
+    }
+
     &__download-title {
         @extend .ons-u-pt-l;
         @extend .ons-u-fs-r--b;
@@ -170,6 +182,59 @@
     border-left: 1px solid var(--ons-color-grey-100);
 }
 
+@media (forced-colors: active) {
+    .ons-chart__boxplot-legend-item--uncertainty,
+    .highcharts-boxplot-box {
+        background-color: SelectedItem;
+        fill: SelectedItem;
+    }
+
+    .ons-chart__boxplot-legend-item--estimate,
+    .highcharts-boxplot-median {
+        background-color: WindowText;
+        stroke: WindowText;
+    }
+    .highcharts-color-0,
+    .highcharts-color-0 .highcharts-area {
+        fill: #007faa;
+    }
+    .highcharts-color-1,
+    .highcharts-color-1 .highcharts-area {
+        fill: #a6f0ff;
+    }
+    .highcharts-color-2,
+    .highcharts-color-2 .highcharts-area {
+        fill: #70d49e;
+    }
+    .highcharts-color-3,
+    .highcharts-color-3 .highcharts-area {
+        fill: #e898a5;
+    }
+    .highcharts-color-4,
+    .highcharts-color-4 .highcharts-area {
+        fill: #dadfe1;
+    }
+    .highcharts-color-5,
+    .highcharts-color-5 .highcharts-area {
+        fill: #f9db72;
+    }
+    .highcharts-color-6,
+    .highcharts-color-6 .highcharts-area {
+        fill: #f45b5b;
+    }
+    .highcharts-color-7,
+    .highcharts-color-7 .highcharts-area {
+        fill: #1e824c;
+    }
+    .highcharts-color-8,
+    .highcharts-color-8 .highcharts-area {
+        fill: #e7934c;
+    }
+    .highcharts-color-9,
+    .highcharts-color-9 .highcharts-area {
+        fill: #a0618b;
+    }
+}
 // Allow last label to overflow
 .highcharts-container {
     overflow: visible !important;
