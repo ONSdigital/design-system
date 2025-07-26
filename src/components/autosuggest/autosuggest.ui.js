@@ -441,8 +441,8 @@ export default class AutosuggestUI {
                 `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
             );
         } else if (status > 400 || status === '') {
-            message =
-                this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>.' : '');
+            const sanitizedHref = DOMPurify.sanitize(window.location.href);
+            message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + sanitizedHref + '">' + this.errorAPILinkText + '</a>.' : '');
             let ariaMessage = this.errorAPI + (this.errorAPILinkText ? ' ' + this.errorAPILinkText : '');
 
             this.input.setAttribute('disabled', true);
