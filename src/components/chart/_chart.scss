@@ -14,8 +14,8 @@
         }
 
         .highcharts-annotation-label-box {
-            fill: Canvas !important; /* Sets the background to match system background */
-            stroke: CanvasText !important; /* Ensures border is visible in contrast mode */
+            fill: Canvas; /* Sets the background to match system background */
+            stroke: CanvasText; /* Ensures border is visible in contrast mode */
         }
     }
 
