@@ -9,7 +9,8 @@
 
     @media (forced-colors: active) {
         .highcharts-annotation-label text,
-        .highcharts-plot-line-label {
+        .highcharts-plot-line-label,
+        .highcharts-plot-band-label {
             fill: CanvasText !important; /* Forces the color used for text in high contrast mode */
         }
 

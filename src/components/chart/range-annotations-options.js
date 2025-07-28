@@ -20,7 +20,6 @@ class RangeAnnotationsOptions {
                 to: adjustedRangeValues.axisValue2,
                 label: {
                     text: rangeAnnotation.text,
-                    useHTML: true,
                     className: rangeAnnotation.labelInside
                         ? `ons-chart__range-annotation-label ons-chart__range-annotation-label--${rangeAnnotation.axis}`
                         : 'ons-chart__range-annotation-label--outside',
