@@ -63,6 +63,16 @@ describe('Macro: Chart', () => {
                     expect($('figcaption').length).toBe(0);
                     expect($('.ons-chart__download-title').length).toBe(0);
                 });
+
+                test('THEN: it renders the chart container with the correct aria attributes', () => {
+                    expect($('.ons-chart__container').attr('aria-label')).toBe('chart container');
+                });
+
+                test('THEN: it renders the instructions with the provided instructions text', () => {
+                    expect($('#chart-instructions-chart-123').text().trim()).toBe(
+                        'Use the Tab key to move focus into the chart. Once inside, use the arrow keys to navigate between data points. As you move, tooltips will be announced to describe each point.',
+                    );
+                });
             });
         });
 
@@ -288,7 +298,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe('An accessible description for screen readers.');
+                    expect($('#chart-audio-description-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -465,7 +475,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe('An accessible description for screen readers.');
+                    expect($('#chart-audio-description-bar-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -612,7 +622,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe('An accessible description for screen readers.');
+                    expect($('#chart-audio-description-column-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -837,7 +847,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe('An accessible description for screen readers.');
+                    expect($('#chart-audio-description-column-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -993,7 +1003,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe('An accessible description for screen readers.');
+                    expect($('#chart-audio-description-area-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -1170,7 +1180,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe(accessibleDescription);
+                    expect($('#chart-audio-description-uuid').text()).toBe(accessibleDescription);
                 });
             });
         });
@@ -1254,7 +1264,7 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it still renders the description', () => {
-                    expect($('.ons-u-vh').text()).toBe('A detailed description');
+                    expect($('#chart-audio-description-invalid-chart-123').text()).toBe('A detailed description');
                 });
 
                 test('THEN: it still renders the caption', () => {
