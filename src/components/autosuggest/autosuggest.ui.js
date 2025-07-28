@@ -399,7 +399,7 @@ export default class AutosuggestUI {
                 const listElement = document.createElement('li');
                 listElement.className = `${classAutosuggestOption} ${classAutosuggestOptionMoreResults}`;
                 listElement.setAttribute('aria-hidden', 'true');
-                listElement.innerHTML = this.moreResults;
+                listElement.innerHTML = DOMPurify.sanitize(this.moreResults);
                 this.listbox.appendChild(listElement);
             }
 
@@ -437,7 +437,9 @@ export default class AutosuggestUI {
         if (status === 400 || status === false) {
             message = this.typeMore;
             this.setAriaStatus(message);
-            this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
+            this.listbox.innerHTML = DOMPurify.sanitize(
+                `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
+            );
         } else if (status > 400 || status === '') {
             const sanitizedHref = DOMPurify.sanitize(window.location.href);
             message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + sanitizedHref + '">' + this.errorAPILinkText + '</a>.' : '');
@@ -454,7 +456,9 @@ export default class AutosuggestUI {
             this.resultsTitleContainer.remove();
         } else {
             message = this.noResults;
-            this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
+            this.listbox.innerHTML = DOMPurify.sanitize(
+                `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
+            );
         }
     }
 
@@ -504,7 +508,7 @@ export default class AutosuggestUI {
                 }
             }
         }
-        this.ariaStatus.innerHTML = content;
+        this.ariaStatus.innerHTML = DOMPurify.sanitize(content);
     }
 
     selectResult(index) {
