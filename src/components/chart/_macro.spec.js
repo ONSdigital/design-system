@@ -69,9 +69,9 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the instructions with the provided instructions text', () => {
-                    expect($('#chart-instructions-chart-123').text().trim()).toBe(
-                        'Use the Tab key to move focus into the chart. Once inside, use the arrow keys to navigate between data points. As you move, tooltips will be announced to describe each point.',
-                    );
+                    const expectedText =
+                        'Use the Tab key to move focus into the chart. Once inside, use the arrow keys to navigate between data points. As you move, tooltips will be announced to describe each point.';
+                    expect($('#chart-instructions-chart-123').text().replace(/\s+/g, ' ').trim()).toBe(expectedText);
                 });
             });
         });
