@@ -1,5 +1,33 @@
 $breadcrumb-chevron-height: 0.65rem;
 
+.ons-hero-wrapper {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -2rem;
+    &--hero-grey {
+        background-color: var(--ons-color-banner-bg);
+    }
+
+    &--hero-dark {
+        background-color: var(--ons-color-hero-bg-dark);
+    }
+
+    &--hero-default {
+        background-color: var(--ons-color-hero-bg);
+    }
+
+    &--hero-navy-blue {
+        background-color: var(--hero-navy-blue);
+    }
+
+    &--hero-soft-blue-grey {
+        background-color: var(--hero-soft-blue-grey);
+    }
+    .ons-breadcrumbs {
+        padding: 1rem;
+    }
+}
+
 .ons-breadcrumbs {
     align-items: center;
     display: flex;
