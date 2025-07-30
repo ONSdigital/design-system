@@ -2,17 +2,17 @@ module.exports = {
     id: 'ds-vr-test',
     viewports: [
         {
-            label: 'desktop',
+            name: 'desktop',
             width: 1920,
             height: 1080,
         },
         {
-            label: 'tablet',
+            name: 'tablet',
             width: 768,
             height: 1024,
         },
         {
-            label: 'mobile',
+            name: 'mobile',
             width: 375,
             height: 667,
         },
@@ -35,10 +35,10 @@ module.exports = {
             '--disable-dev-shm-usage',
             '--cap-add=SYS_ADMIN',
         ],
-        headless: true,
+        headless: 'old',
         gotoParameters: { waitUntil: 'networkidle0' },
     },
     report: process.env.RUNNING_IN_CI === 'true' ? [] : ['browser'],
     dockerCommandTemplate:
-        'docker run --rm -it --add-host=host.docker.internal:host-gateway --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
+        'docker run --rm -i --add-host=host.docker.internal:host-gateway --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
 };
