@@ -16,6 +16,8 @@
     {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
     {% set audioDescriptionId = "chart-audio-description-" ~ params.id %}
     {% set instructionsId = "chart-instructions-" ~ params.id %}
+    {% set instructions = params.instructions | default('Use the Tab key to move focus into the chart. Once inside, use the arrow keys to navigate between data points. As you move, tooltips will be announced to describe each point.') %}
+
     <div
         {% if not params.iframeUrl %}
             data-highcharts-base-chart data-highcharts-type="{{ params.chartType }}" data-highcharts-theme="{{ params.theme }}"
@@ -94,10 +96,7 @@
                         aria-label="chart container"
                         aria-describedby="{{ instructionsId }}"
                     >
-                        <div id="{{ instructionsId }}" class="ons-u-vh">
-                            Use the Tab key to move focus into the chart. Once inside, use the arrow keys to navigate between data points.
-                            As you move, tooltips will be announced to describe each point.
-                        </div>
+                        <div id="{{ instructionsId }}" class="ons-u-vh">{{ instructions | safe }}</div>
                         <div data-highcharts-chart class="ons-chart__chart"></div>
                     </div>
                 {% else %}
