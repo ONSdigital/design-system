@@ -8,15 +8,11 @@
     }
 
     @media (forced-colors: active) {
-        .highcharts-annotation-label text,
-        .highcharts-plot-line-label,
-        .highcharts-plot-band-label {
-            fill: CanvasText !important; /* Forces the color used for text in high contrast mode */
+        .highcharts-plot-band {
+            fill: #e2b500; /* Forces the color used for text in high contrast mode */
         }
-
         .highcharts-annotation-label-box {
-            fill: Canvas; /* Sets the background to match system background */
-            stroke: CanvasText; /* Ensures border is visible in contrast mode */
+            stroke: CanvasText; /* Ensures visibility in contrast mode */
         }
     }
 
@@ -196,43 +192,53 @@
         stroke: WindowText;
     }
     .highcharts-color-0,
-    .highcharts-color-0 .highcharts-area {
+    .highcharts-color-0 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-0 rect {
         fill: #007faa;
     }
     .highcharts-color-1,
-    .highcharts-color-1 .highcharts-area {
+    .highcharts-color-1 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-1 rect {
         fill: #a6f0ff;
     }
     .highcharts-color-2,
-    .highcharts-color-2 .highcharts-area {
+    .highcharts-color-2 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-2 rect {
         fill: #70d49e;
     }
     .highcharts-color-3,
-    .highcharts-color-3 .highcharts-area {
+    .highcharts-color-3 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-3 rect {
         fill: #e898a5;
     }
     .highcharts-color-4,
-    .highcharts-color-4 .highcharts-area {
+    .highcharts-color-4 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-4 rect {
         fill: #dadfe1;
     }
     .highcharts-color-5,
-    .highcharts-color-5 .highcharts-area {
+    .highcharts-color-5 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-5 rect {
         fill: #f9db72;
     }
     .highcharts-color-6,
-    .highcharts-color-6 .highcharts-area {
+    .highcharts-color-6 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-6 rect {
         fill: #f45b5b;
     }
     .highcharts-color-7,
-    .highcharts-color-7 .highcharts-area {
+    .highcharts-color-7 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-7 rect {
         fill: #1e824c;
     }
     .highcharts-color-8,
-    .highcharts-color-8 .highcharts-area {
+    .highcharts-color-8 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-8 rect {
         fill: #e7934c;
     }
     .highcharts-color-9,
-    .highcharts-color-9 .highcharts-area {
+    .highcharts-color-9 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-9 rect {
         fill: #a0618b;
     }
 }
