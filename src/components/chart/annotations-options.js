@@ -32,7 +32,6 @@ class AnnotationsOptions {
                     xAxis: 0,
                     yAxis: 0,
                 },
-                useHTML: true,
                 text: annotation.text,
                 x: annotation.labelOffsetX,
                 y: annotation.labelOffsetY,

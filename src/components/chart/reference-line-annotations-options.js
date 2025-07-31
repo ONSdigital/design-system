@@ -13,7 +13,6 @@ class ReferenceLineAnnotationsOptions {
             let referenceLineConfig = {
                 label: {
                     text: referenceLineAnnotation.text,
-                    useHTML: true,
                     style: {
                         color: this.constants.labelColor,
                         fontSize: this.constants.defaultFontSize,
