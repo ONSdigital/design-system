@@ -1,9 +1,10 @@
-| Name      | Type                     | Required | Description                                                             |
-| --------- | ------------------------ | -------- | ----------------------------------------------------------------------- |
-| classes   | string                   | false    | Custom classes to add to the breadcrumbs `nav` element                  |
-| ariaLabel | string                   | false    | The `aria-label` added to the `nav` element. Defaults to “Breadcrumbs”. |
-| id        | string                   | false    | The `id` added to the `nav` element                                     |
-| itemsList | `Array<BreadcrumbsItem>` | true     | An array of [breadcrumb items](#breadcrumbsitem)                        |
+| Name      | Type                     | Required | Description                                                                                                                         |
+| --------- | ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| classes   | string                   | false    | Custom classes to add to the breadcrumbs `nav` element                                                                              |
+| ariaLabel | string                   | false    | The `aria-label` added to the `nav` element. Defaults to “Breadcrumbs”.                                                             |
+| id        | string                   | false    | The `id` added to the `nav` element                                                                                                 |
+| itemsList | `Array<BreadcrumbsItem>` | true     | An array of [breadcrumb items](#breadcrumbsitem)                                                                                    |
+| variant   | string                   | true     | Set variant to "hero-grey", "hero-dark", "hero-default", "hero-pale-blue", "hero-navy-blue" for matching color of the hero variants |
 
 ## BreadcrumbsItem
 
