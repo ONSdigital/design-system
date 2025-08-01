@@ -67,10 +67,30 @@ describe('Macro: Chart', () => {
                 test('THEN: it renders the chart container with the correct aria attributes', () => {
                     expect($('.ons-chart__container').attr('aria-label')).toBe('chart container');
                 });
+            });
+        });
 
-                test('THEN: it renders the instructions with the provided instructions text', () => {
+        describe('GIVEN: Params: Instructions', () => {
+            describe('WHEN: instructions is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        instructions: 'Some custom instructions for the chart.',
+                    }),
+                );
+
+                test('THEN: it renders the chart with the correct instructions text', () => {
+                    const expectedText = 'Some custom instructions for the chart.';
+                    expect($('#chart-instructions-chart-123').text().replace(/\s+/g, ' ').trim()).toBe(expectedText);
+                });
+            });
+
+            describe('WHEN: instructions is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_REQUIRED_PARAMS));
+
+                test('THEN: it renders the chart with the default instructions text', () => {
                     const expectedText =
-                        'Use the Tab key to move focus into the chart. Once inside, use the arrow keys to navigate between data points. As you move, tooltips will be announced to describe each point.';
+                        'Use the Tab key to move focus into the chart. Once inside, use the arrow keys to navigate between data points. As you move, tooltips will be announced to describe each point. Touch device users, explore by touch or with swipe gestures.';
                     expect($('#chart-instructions-chart-123').text().replace(/\s+/g, ' ').trim()).toBe(expectedText);
                 });
             });
