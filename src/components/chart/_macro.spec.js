@@ -63,6 +63,36 @@ describe('Macro: Chart', () => {
                     expect($('figcaption').length).toBe(0);
                     expect($('.ons-chart__download-title').length).toBe(0);
                 });
+
+                test('THEN: it renders the chart container with the correct aria attributes', () => {
+                    expect($('.ons-chart__container').attr('aria-label')).toBe('chart container');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Instructions', () => {
+            describe('WHEN: instructions is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        instructions: 'Some custom instructions for the chart.',
+                    }),
+                );
+
+                test('THEN: it renders the chart with the correct instructions text', () => {
+                    const expectedText = 'Some custom instructions for the chart.';
+                    expect($('#chart-instructions-chart-123').text().trim()).toBe(expectedText);
+                });
+            });
+
+            describe('WHEN: instructions is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_REQUIRED_PARAMS));
+
+                test('THEN: it renders the chart with the default instructions text', () => {
+                    const expectedText =
+                        'Use the Tab key to move focus into the chart. Once inside, use the arrow keys to navigate between data points. As you move, tooltips will be announced to describe each point. Touch device users, explore by touch or with swipe gestures.';
+                    expect($('#chart-instructions-chart-123').text().trim()).toBe(expectedText);
+                });
             });
         });
 
@@ -288,7 +318,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe('An accessible description for screen readers.');
+                    expect($('#chart-audio-description-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -465,7 +495,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe('An accessible description for screen readers.');
+                    expect($('#chart-audio-description-bar-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -612,7 +642,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe('An accessible description for screen readers.');
+                    expect($('#chart-audio-description-column-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -837,7 +867,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe('An accessible description for screen readers.');
+                    expect($('#chart-audio-description-column-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -993,7 +1023,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe('An accessible description for screen readers.');
+                    expect($('#chart-audio-description-area-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -1170,7 +1200,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('.ons-u-vh').text()).toBe(accessibleDescription);
+                    expect($('#chart-audio-description-uuid').text()).toBe(accessibleDescription);
                 });
             });
         });
@@ -1254,7 +1284,7 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it still renders the description', () => {
-                    expect($('.ons-u-vh').text()).toBe('A detailed description');
+                    expect($('#chart-audio-description-invalid-chart-123').text()).toBe('A detailed description');
                 });
 
                 test('THEN: it still renders the caption', () => {

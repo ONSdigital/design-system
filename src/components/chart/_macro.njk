@@ -15,6 +15,9 @@
     {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 2) %}
     {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
     {% set audioDescriptionId = "chart-audio-description-" ~ params.id %}
+    {% set instructionsId = "chart-instructions-" ~ params.id %}
+    {% set instructions = params.instructions | default('Use the Tab key to move focus into the chart. Once inside, use the arrow keys to navigate between data points. As you move, tooltips will be announced to describe each point. Touch device users, explore by touch or with swipe gestures.') %}
+
     <div
         {% if not params.iframeUrl %}
             data-highcharts-base-chart data-highcharts-type="{{ params.chartType }}" data-highcharts-theme="{{ params.theme }}"
@@ -60,7 +63,7 @@
 
             {% if params.iframeUrl %}
                 <div
-                    class="ons-chart__iframe-wrapper{% if params.fallbackImageUrl %} ons-chart__non-js-hide{% endif %}"
+                    class="ons-chart__iframe-wrapper{{ ' ons-chart__non-js-hide' if params.fallbackImageUrl else '' }}"
                     id="{{ params.id }}"
                     data-url="{{ params.iframeUrl }}"
                     data-title="{{ params.title }}"
@@ -85,7 +88,17 @@
                     </div>
                 {% endif %}
                 {% if params.chartType in supportedChartTypes %}
-                    <div data-highcharts-chart class="ons-chart__chart"></div>
+                    <div
+                        data-highcharts-chart-container
+                        class="ons-chart__container"
+                        tabindex="0"
+                        role="region"
+                        aria-label="chart container"
+                        aria-describedby="{{ instructionsId }}"
+                    >
+                        <div id="{{ instructionsId }}" class="ons-u-vh">{{ instructions }}</div>
+                        <div data-highcharts-chart class="ons-chart__chart"></div>
+                    </div>
                 {% else %}
                     <p data-invalid-chart-type data-unsupported-chart-text>
                         <b>{{ '"' + params.chartType + '" - ' + (params.unsupportedChartText or 'chart type is not supported') }}</b>
