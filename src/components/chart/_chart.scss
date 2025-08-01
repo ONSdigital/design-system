@@ -11,8 +11,15 @@
         .highcharts-plot-band {
             fill: #206095; /* Forces the color used for text in high contrast mode */
         }
+        .highcharts-annotation-label text,
+        .highcharts-plot-line-label,
+        .highcharts-plot-band-label {
+            fill: CanvasText !important; /* Forces the color used for text in high contrast mode */
+        }
+
         .highcharts-annotation-label-box {
-            stroke: CanvasText; /* Ensures visibility in contrast mode */
+            fill: Canvas; /* Sets the background to match system background */
+            stroke: CanvasText; /* Ensures border is visible in contrast mode */
         }
     }
 
