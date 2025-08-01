@@ -4,6 +4,7 @@ const { glob } = require('glob');
 const readdir = util.promisify(fs.readdir);
 
 const testUrl = `http://host.docker.internal:3010`;
+const onReadyScript = require('../../../onReady.js');
 
 export default async () => {
     let urls = [];
@@ -24,7 +25,13 @@ export default async () => {
             const files = await glob(`${directory.path}/${folder}/**/example-*.njk`);
             for (const file of files) {
                 const urlPath = file.replace(/^/, './').replace(/^\.\/src\/(.*\/example-.*?)\.njk$/, '/$1');
-                urls.push({ url: `${testUrl}${urlPath}`, label: urlPath, delay: 2000, misMatchThreshold: 0.05 });
+                urls.push({
+                    url: `${testUrl}${urlPath}`,
+                    label: urlPath,
+                    delay: 2000,
+                    misMatchThreshold: 0.05,
+                    onReadyScript: onReadyScript,
+                });
             }
         }
     }
