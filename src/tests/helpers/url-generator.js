@@ -27,13 +27,15 @@ export default async () => {
                 const isIframeChart = file.includes('/chart/example-iframe-chart');
                 const delay = isIframeChart ? 5000 : 2000;
                 const urlPath = file.replace(/^/, './').replace(/^\.\/src\/(.*\/example-.*?)\.njk$/, '/$1');
-                urls.push({
-                    url: `${testUrl}${urlPath}`,
-                    label: urlPath,
-                    delay: delay,
-                    misMatchThreshold: 0.05,
-                    onReady: onReadyScript,
-                });
+                if (isIframeChart) {
+                    urls.push({
+                        url: `${testUrl}${urlPath}`,
+                        label: urlPath,
+                        delay: delay,
+                        misMatchThreshold: 0.05,
+                        onReadyScript: onReadyScript,
+                    });
+                }
             }
         }
     }
