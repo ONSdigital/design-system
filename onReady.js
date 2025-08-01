@@ -1,5 +1,4 @@
-module.exports = async (page, scenario) => {
-    await require('./clickAndHoverHelper')(page, scenario);
+module.exports = async (page) => {
     const selector = '.ons-chart__iframe';
     await page.waitFor(selector);
     await page.evaluate((selector) => {
