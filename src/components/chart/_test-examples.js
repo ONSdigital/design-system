@@ -413,7 +413,7 @@ export const EXAMPLE_BOXPLOT_CHART_PARAMS = {
     theme: 'primary',
     title: 'Example Boxplot Chart',
     subtitle: 'A sample subtitle',
-    id: 'uuid',
+    id: 'boxplot-chart-123',
     legend: true,
     series: [
         {
@@ -451,7 +451,7 @@ export const EXAMPLE_COLUMN_RANGE_CHART_PARAMS = {
     title: 'Food stores showed a strong rise on the month, while non-food stores fell',
     subtitle:
         'Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise',
-    id: 'uuid',
+    id: 'column-range-chart-123',
     legend: true,
     xAxis: {
         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],

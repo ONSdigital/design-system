@@ -8,9 +8,9 @@
     }
 
     &__container:focus {
-        box-shadow: 0 0 0 3px var(--ons-color-black) !important;
-        outline: 4px solid var(--ons-color-focus) !important;
-        outline-offset: 2px !important;
+        box-shadow: 0 0 0 3px var(--ons-color-black);
+        outline: 4px solid var(--ons-color-focus);
+        outline-offset: 2px;
     }
 
     &__download-title {

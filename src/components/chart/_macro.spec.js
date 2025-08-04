@@ -1080,7 +1080,7 @@ describe('Macro: Chart', () => {
         describe('GIVEN: Params: required', () => {
             describe('WHEN: required params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_BOXPLOT_CHART_PARAMS));
-                const configScript = $(`script[data-highcharts-config--uuid]`).html();
+                const configScript = $(`script[data-highcharts-config--boxplot-chart-123]`).html();
 
                 test('THEN: it passes jest-axe checks', async () => {
                     const results = await axe($.html());
@@ -1096,7 +1096,7 @@ describe('Macro: Chart', () => {
                     expect(chartContainer.attr('data-highcharts-type')).toBe('boxplot');
                     expect(chartContainer.attr('data-highcharts-theme')).toBe('primary');
                     expect(chartContainer.attr('data-highcharts-title')).toBe('Example Boxplot Chart');
-                    expect(chartContainer.attr('data-highcharts-id')).toBe('uuid');
+                    expect(chartContainer.attr('data-highcharts-id')).toBe('boxplot-chart-123');
                 });
 
                 test('THEN: it includes the Highcharts JSON config', () => {
@@ -1200,7 +1200,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('#chart-audio-description-uuid').text()).toBe(accessibleDescription);
+                    expect($('#chart-audio-description-boxplot-chart-123').text()).toBe(accessibleDescription);
                 });
             });
         });
@@ -1232,7 +1232,7 @@ describe('Macro: Chart', () => {
         describe('GIVEN: Params: Required', () => {
             describe('WHEN: required params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_RANGE_CHART_PARAMS));
-                const configScript = $(`script[data-highcharts-config--uuid]`).html();
+                const configScript = $(`script[data-highcharts-config--column-range-chart-123]`).html();
 
                 test('THEN: it passes jest-axe accessibility checks', async () => {
                     const results = await axe($.html());
@@ -1246,7 +1246,7 @@ describe('Macro: Chart', () => {
                     expect(baseChart.attr('data-highcharts-title')).toBe(
                         'Food stores showed a strong rise on the month, while non-food stores fell',
                     );
-                    expect(baseChart.attr('data-highcharts-id')).toBe('uuid');
+                    expect(baseChart.attr('data-highcharts-id')).toBe('column-range-chart-123');
                 });
 
                 test('THEN: it includes columnrange and scatter series types', () => {
