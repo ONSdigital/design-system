@@ -4,7 +4,6 @@ const { glob } = require('glob');
 const readdir = util.promisify(fs.readdir);
 
 const testUrl = `http://host.docker.internal:3010`;
-const onReadyScript = require('../../../onReady.js');
 
 export default async () => {
     let urls = [];
@@ -25,6 +24,7 @@ export default async () => {
             const files = await glob(`${directory.path}/${folder}/**/example-*.njk`);
             for (const file of files) {
                 const isIframeChart = file.includes('/chart/example-iframe-chart');
+                const onReadyScript = isIframeChart ? './onReady.js' : '';
                 const delay = isIframeChart ? 5000 : 2000;
                 const urlPath = file.replace(/^/, './').replace(/^\.\/src\/(.*\/example-.*?)\.njk$/, '/$1');
                 urls.push({

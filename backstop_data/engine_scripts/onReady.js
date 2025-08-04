@@ -7,11 +7,9 @@ module.exports = async (page) => {
         await page.evaluate((sel) => {
             const iframe = document.querySelector(sel);
             if (iframe) {
-                console.log('Scrolling iframe into view:', iframe);
                 iframe.scrollIntoView({ behavior: 'auto', block: 'center' });
             }
         }, selector);
-        await page.waitForTimeout(3000); // Give time for iframe content to load visually
     }
 
     await waitForVisibleIframe(page, iframeSelector);
