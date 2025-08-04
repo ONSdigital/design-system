@@ -24,11 +24,13 @@ export default async () => {
         for (const folder of folders) {
             const files = await glob(`${directory.path}/${folder}/**/example-*.njk`);
             for (const file of files) {
+                const isIframeChart = file.includes('/chart/example-iframe-chart');
+                const delay = isIframeChart ? 5000 : 2000;
                 const urlPath = file.replace(/^/, './').replace(/^\.\/src\/(.*\/example-.*?)\.njk$/, '/$1');
                 urls.push({
                     url: `${testUrl}${urlPath}`,
                     label: urlPath,
-                    delay: 2000,
+                    delay: delay,
                     misMatchThreshold: 0.05,
                     onReadyScript: onReadyScript,
                 });
