@@ -17,11 +17,11 @@ $breadcrumb-chevron-height: 0.65rem;
     }
 
     &--hero-navy-blue {
-        background-color: var(--hero-navy-blue);
+        background-color: var(--ons-color-navy-blue-light);
     }
 
-    &--hero-soft-blue-grey {
-        background-color: var(--hero-soft-blue-grey);
+    &--hero-pale-blue {
+        background-color: var(--ons-color-pale-blue);
     }
     .ons-breadcrumbs {
         padding: 1rem;
@@ -54,7 +54,6 @@ $breadcrumb-chevron-height: 0.65rem;
             vertical-align: middle;
             width: $breadcrumb-chevron-height;
             .ons-hero-wrapper--hero-dark &,
-            .ons-hero-wrapper--hero-default &,
             .ons-hero-wrapper--hero-navy-blue & {
                 color: var(--ons-color-text-inverse);
             }
@@ -109,7 +108,6 @@ $breadcrumb-chevron-height: 0.65rem;
         text-decoration: underline;
 
         .ons-hero-wrapper--hero-dark &,
-        .ons-hero-wrapper--hero-default &,
         .ons-hero-wrapper--hero-navy-blue & {
             color: var(--ons-color-text-inverse);
             text-decoration: underline;
@@ -120,7 +118,6 @@ $breadcrumb-chevron-height: 0.65rem;
             text-decoration: underline solid var(--ons-color-text) 2px;
 
             .ons-hero-wrapper--hero-dark &,
-            .ons-hero-wrapper--hero-default &,
             .ons-hero-wrapper--hero-navy-blue & {
                 color: var(--ons-color-text-inverse);
                 text-decoration: underline solid var(--ons-color-text-inverse) 2px;
@@ -129,14 +126,12 @@ $breadcrumb-chevron-height: 0.65rem;
 
         &:focus {
             .ons-hero-wrapper--hero-dark &,
-            .ons-hero-wrapper--hero-default &,
             .ons-hero-wrapper--hero-navy-blue & {
                 color: var(--ons-color-text);
             }
         }
         &:focus:hover {
             .ons-hero-wrapper--hero-dark &,
-            .ons-hero-wrapper--hero-default &,
             .ons-hero-wrapper--hero-navy-blue & {
                 color: var(--ons-color-text);
                 text-decoration: none;
