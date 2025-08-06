@@ -434,8 +434,6 @@ describe('script: download-resources', () => {
     describe('"Reset all filters" button', () => {
         beforeEach(async () => {
             await setTestPage('/test', RENDERED_EXAMPLE_PAGE);
-            await page.click('#general-public');
-            await page.click('#logo');
             await page.click('.ons-js-adv-filter__reset');
         });
 
