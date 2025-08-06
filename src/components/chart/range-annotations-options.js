@@ -160,7 +160,7 @@ class RangeAnnotationsOptions {
             }
 
             // Create and add the connecting line
-            const line = document.createElement('div');
+            const line = document.createElement('tspan');
             line.classList.add('ons-chart__connector-line');
             line.setAttribute('data-range-annotation-line', true);
             labelElement.appendChild(line);
