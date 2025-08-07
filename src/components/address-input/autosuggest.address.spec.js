@@ -628,7 +628,7 @@ describe('script: address-input', () => {
                 await page.keyboard.press('ArrowDown');
                 await page.keyboard.press('Enter');
 
-                await setTimeout(50);
+                await setTimeout(100);
             });
 
             it('then the retrieveAddress function will be called', async () => {
@@ -738,7 +738,7 @@ describe('script: address-input', () => {
         it('provides expected parameters to the address API', async () => {
             await page.$eval('.ons-js-autosuggest-input', (node) => (node.value = '196 coll'));
             await page.type('.ons-js-autosuggest-input', 'e');
-            await setTimeout(50);
+            await setTimeout(100);
 
             expect(await apiFaker.getRequestCount(searchEndpoint)).toBe(1);
         });
