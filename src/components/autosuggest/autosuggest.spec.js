@@ -389,6 +389,7 @@ describe('script: autosuggest', () => {
 
             await page.type('.ons-js-autosuggest-input', 'state', { delay: 20 });
             await page.keyboard.press('ArrowDown');
+
             await page.hover('.ons-autosuggest__option:nth-child(1)');
 
             const focusedClassCount = await page.$$eval('.ons-autosuggest__option--focused', (nodes) => nodes.length);
