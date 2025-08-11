@@ -18,6 +18,9 @@ $breadcrumb-chevron-height: 0.65rem;
 
     &--hero-navy-blue {
         background-color: var(--ons-color-navy-blue-light);
+        @include mq(l) {
+            margin-bottom: -3.5rem;
+        }
     }
 
     &--hero-pale-blue {

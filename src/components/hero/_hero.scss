@@ -129,7 +129,7 @@
                 height: 59px;
                 position: absolute;
                 right: 289px;
-                top: -11px;
+                top: 58px;
                 width: 59px;
             }
         }
@@ -141,7 +141,7 @@
                 position: absolute;
                 height: 30px;
                 right: 193px;
-                top: 11px;
+                top: 65px;
                 width: 30px;
             }
         }
@@ -150,7 +150,7 @@
             @include mq(l) {
                 height: 60px;
                 right: 112px;
-                top: 25px;
+                top: 75px;
                 width: 60px;
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
@@ -165,7 +165,7 @@
                 height: 60px;
                 position: absolute;
                 right: 208px;
-                top: 80px;
+                top: 130px;
                 width: 60px;
             }
 
@@ -191,7 +191,7 @@
                 height: 14px;
                 position: absolute;
                 right: 222px;
-                top: 187px;
+                top: 237px;
                 width: 14px;
             }
 
@@ -217,7 +217,7 @@
                 height: 15px;
                 position: absolute;
                 right: 135px;
-                top: 188px;
+                top: 238px;
                 width: 15px;
             }
         }
@@ -342,18 +342,6 @@
         }
 
         &__circle-1 {
-            @include mq(l) {
-                background-color: var(--ons-color-soft-blue-grey);
-                border-radius: 50%;
-                height: 440px;
-                position: absolute;
-                right: 59px;
-                top: -339px;
-                width: 440px;
-            }
-        }
-
-        &__circle-2 {
             background-color: var(--ons-color-light-orange);
             border-radius: 50%;
             bottom: 4%;
@@ -379,7 +367,7 @@
             }
         }
 
-        &__circle-3 {
+        &__circle-2 {
             background-color: var(--ons-color-ocean-blue);
             border-radius: 50%;
             bottom: 7%;
