@@ -132,4 +132,30 @@ describe('FOR: Macro: Breadcrumbs', () => {
             });
         });
     });
+
+    describe('GIVEN: Params: variant', () => {
+        describe('WHEN: variant is in hero variants', () => {
+            const $ = cheerio.load(
+                renderComponent('breadcrumbs', {
+                    ...EXAMPLE_BREADCRUMBS_REQUIRED_PARAMS,
+                    variant: 'hero-grey',
+                }),
+            );
+            test('THEN: wraps breadcrumbs in hero wrapper with correct modifier class', () => {
+                expect($('.ons-hero-wrapper').hasClass('ons-hero-wrapper--hero-grey')).toBe(true);
+            });
+        });
+
+        describe('WHEN: variant is not in hero variants', () => {
+            const $ = cheerio.load(
+                renderComponent('breadcrumbs', {
+                    ...EXAMPLE_BREADCRUMBS_REQUIRED_PARAMS,
+                    variant: 'test-variant',
+                }),
+            );
+            test('THEN: does not render hero-wrapper', () => {
+                expect($('.ons-hero-wrapper').length).toBe(0);
+            });
+        });
+    });
 });
