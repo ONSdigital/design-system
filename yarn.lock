@@ -10321,7 +10321,7 @@ puppeteer@^19.7.0:
     proxy-from-env "1.1.0"
     puppeteer-core "19.11.1"
 
-puppeteer@^24.16.0:
+puppeteer@^24.0.0:
   version "24.16.0"
   resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-24.16.0.tgz#267d4325db2a6ca22e04dc7ae111800c5e8979cb"
   integrity sha512-5qxFGOpdAzYexoPwKPEF4L/IYKYOFE1MxWsqcp7K33HySM8N8S/yZwSQCaV0rzmJsTLX5LxU4zt65+ceNiVDgQ==

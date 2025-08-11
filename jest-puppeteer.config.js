@@ -11,7 +11,6 @@ module.exports = {
             '--disable-gpu',
             '--disable-software-rasterizer',
         ],
-        dumpio: true,
     },
     server: {
         command: `yarn test:start-server`,
