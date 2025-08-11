@@ -441,6 +441,13 @@ describe('script: download-resources', () => {
             await setTimeout(50);
         });
 
+        it('resets state of all filter checkboxes ', async () => {
+            const selector = '.ons-js-adv-filter__item .ons-js-checkbox';
+            const checkboxStates = await page.$$eval(selector, (nodes) => nodes.map((node) => `${node.id}: ${node.checked}`));
+
+            expect(checkboxStates).toEqual(['community-groups: false', 'general-public: false', 'booklet: false', 'logo: false']);
+        });
+
         it('shows all documents ', async () => {
             const hiddenTitles = await getHiddenDocumentTitles(page);
             expect(hiddenTitles).toEqual([]);
@@ -459,13 +466,6 @@ describe('script: download-resources', () => {
         it('hides the "No results" content', async () => {
             const isHidden = await page.$eval('.ons-adv-filter__no-results', (node) => node.classList.contains('ons-u-hidden'));
             expect(isHidden).toBe(true);
-        });
-
-        it('resets state of all filter checkboxes ', async () => {
-            const selector = '.ons-js-adv-filter__item .ons-js-checkbox';
-            const checkboxStates = await page.$$eval(selector, (nodes) => nodes.map((node) => `${node.id}: ${node.checked}`));
-
-            expect(checkboxStates).toEqual(['community-groups: false', 'general-public: false', 'booklet: false', 'logo: false']);
         });
     });
 
