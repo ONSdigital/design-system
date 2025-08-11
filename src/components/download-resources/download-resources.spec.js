@@ -432,27 +432,26 @@ describe('script: download-resources', () => {
     });
 
     describe('"Reset all filters" button', () => {
+        const { setTimeout } = require('node:timers/promises');
         beforeEach(async () => {
             await setTestPage('/test', RENDERED_EXAMPLE_PAGE);
             await page.click('#general-public');
             await page.click('#logo');
             await page.click('.ons-js-adv-filter__reset');
+            await setTimeout(50);
         });
 
         it('shows all documents ', async () => {
-            await new Promise((r) => setTimeout(r, 100));
             const hiddenTitles = await getHiddenDocumentTitles(page);
             expect(hiddenTitles).toEqual([]);
         });
 
         it('updates filter selection labels ', async () => {
-            await new Promise((r) => setTimeout(r, 100));
             const filterSelectionLabels = await getFilterSelectionLabels(page);
             expect(filterSelectionLabels).toEqual(['All audiences', 'All types']);
         });
 
         it('updates result count text', async () => {
-            await new Promise((r) => setTimeout(r, 100));
             const resultsCount = await page.$eval('.ons-js-adv-filter__results-count', (node) => node.textContent.trim());
             expect(resultsCount).toBe('3');
         });
