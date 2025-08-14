@@ -47,7 +47,14 @@ class BarChart {
                 tickWidth: 0,
                 tickLength: 0,
                 tickColor: 'transparent',
-                title: { align: 'high', textAlign: 'middle', reserveSpace: false, rotation: 0, y: -25, useHTML: true },
+                title: {
+                    text: '', // Set to an empty string to hide the x-axis title for bar charts
+                    textAlign: 'middle',
+                    reserveSpace: false,
+                    rotation: 0,
+                    y: -25,
+                    useHTML: true,
+                },
             },
             yAxis: {
                 labels: {
