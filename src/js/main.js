@@ -1,9 +1,9 @@
 import './inpagelink.dom';
 import './print-button';
 import './analytics';
+import './details';
 import './cookies-settings.dom';
 import '../components/mutually-exclusive/mutually-exclusive.dom';
-import '../components/textarea/textarea.dom';
 import '../components/password/password.dom';
 import '../components/tabs/tabs.dom';
 import '../components/table-of-contents/table-of-contents.dom';
@@ -32,3 +32,5 @@ import '../components/timeout-panel/timeout-panel.dom';
 import '../components/video/video.dom';
 import '../components/chart/chart';
 import '../components/chart/chart.dom';
+import '../components/chart/chart-iframe-resize';
+import '../components/chart/chart-iframe-resize.dom';

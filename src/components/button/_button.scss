@@ -147,6 +147,15 @@ $button-shadow-size: 3px;
         top: ems($button-shadow-size);
     }
 
+    &.disabled {
+        cursor: not-allowed;
+        border: 0;
+
+        &:hover {
+            border: 0;
+        }
+    }
+
     // Small buttons
     &--small,
     &--mobile {
@@ -156,6 +165,7 @@ $button-shadow-size: 3px;
     &--small & {
         &__inner {
             padding: 0.5rem 0.75rem;
+
             .ons-icon {
                 height: 16px;
                 width: 16px;
@@ -600,9 +610,6 @@ $button-shadow-size: 3px;
     }
 
     &--menu {
-        align-items: center;
-        display: flex;
-        padding: 1rem;
         border-bottom: 4px solid rgb(0 0 0 / 0%);
         .ons-icon {
             transform: rotate(90deg);
@@ -689,9 +696,14 @@ $button-shadow-size: 3px;
     &--search-icon,
     &--close {
         border-bottom: 4px solid transparent;
+    }
+
+    &--menu,
+    &--search-icon,
+    &--close {
         align-items: center;
         display: flex;
-        padding: 1rem;
+        padding: 1.25rem 1rem 1rem;
     }
 
     &--search-icon &,
@@ -758,8 +770,8 @@ $button-shadow-size: 3px;
     }
 
     &--search-icon:focus {
-        background-color: var(--ons-color-focus);
-        border-color: var(--ons-color-text-link-focus);
+        background-color: var(--ons-color-focus) !important;
+        border-color: var(--ons-color-text-link-focus) !important;
     }
 
     &--search-icon:focus &,

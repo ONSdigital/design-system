@@ -28,7 +28,7 @@
 }
 
 .ons-page__body {
-    h2:not(.ons-document-list__item-title, .ons-details__title) {
+    h2:not(.ons-document-list__item-title, .ons-details__title, .ons-card__title) {
         @extend .ons-u-fs-xl;
     }
     h3,
@@ -47,7 +47,7 @@
             margin-top: 0;
         }
     }
-    h2:not(:first-child) {
+    h2:not(:first-child, .ons-card__title) {
         margin-top: 2.5rem;
     }
 }

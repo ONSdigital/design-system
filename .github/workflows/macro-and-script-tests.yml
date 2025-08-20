@@ -1,5 +1,7 @@
 name: Run macro and script tests
 on: [push]
+permissions:
+    contents: read
 
 env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -21,4 +23,4 @@ jobs:
             - name: Clear jest cache
               run: yarn test:clear-cache
             - name: Run macro and script tests
-              run: yarn test | grep -v "Google analytics not connected"
+              run: yarn test

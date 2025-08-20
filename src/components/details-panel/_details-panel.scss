@@ -20,6 +20,27 @@
         background-color: var(--ons-color-ocean-blue);
         color: var(--ons-color-white);
         border: 1px solid var(--ons-color-ocean-blue);
+
+        // remove browser default arrow for <details>
+        &::marker,
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &:focus {
+            outline: 0;
+
+            #{$root}__banner-detail {
+                background: var(--ons-color-focus);
+                box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-text-link-focus);
+                color: var(--ons-color-text-link-focus);
+                outline: none;
+            }
+
+            #{$root}__banner-detail-title {
+                text-decoration: none;
+            }
+        }
     }
 
     &__banner-contents {
@@ -29,22 +50,28 @@
     &__banner-detail {
         width: fit-content;
         cursor: pointer;
-
-        &:focus {
-            background: var(--ons-color-focus);
-            box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-text-link-focus);
-            color: var(--ons-color-text-link-focus);
-            outline: none;
-        }
     }
 
     &__banner-detail-title {
         text-decoration: underline var(--ons-color-white) 2px;
         text-underline-position: under;
-    }
+        display: inline-block;
 
-    &__banner-detail:focus &__banner-detail-title {
-        text-decoration: none;
+        &--open {
+            display: inline;
+
+            #{$root}[open] & {
+                display: none;
+            }
+        }
+
+        &--close {
+            display: none;
+
+            #{$root}[open] & {
+                display: inline;
+            }
+        }
     }
 
     &__banner-detail-icon {
@@ -65,19 +92,12 @@
         #{$root}[open] & {
             display: block;
         }
-
-        .ons-details--initialised & {
-            display: none;
-        }
     }
 
     &__item {
         display: flex;
         flex-direction: column;
         border-bottom: 1px solid var(--ons-color-borders);
-        @extend .ons-u-pb-xl;
-        @extend .ons-u-mb-l;
-        @extend .ons-u-ml-2xs;
 
         @include mq('m') {
             flex-direction: row;
@@ -85,14 +105,16 @@
         }
 
         &:last-child {
-            border-bottom: 0;
             @extend .ons-u-mb-no;
             @extend .ons-u-pb-no;
+
+            border-bottom: 0;
         }
     }
 
     &__content-meta {
         @extend .ons-u-mb-no;
+
         @include mq('m') {
             flex-basis: 25%;
             min-width: 16.5rem;
@@ -101,7 +123,9 @@
 
     &__content-heading {
         color: var(--ons-color-black);
-        @extend .ons-u-fs-r--b;
-        @extend .ons-u-mb-no;
+    }
+
+    &__content-description {
+        margin-left: 0;
     }
 }

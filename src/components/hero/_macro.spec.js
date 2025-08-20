@@ -109,7 +109,7 @@ describe('macro: hero', () => {
         const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'grey', officialStatisticsBadge: true }));
 
         expect($('.ons-hero__badge').length).toBe(1);
-        expect($('.ons-hero__badge svg title').text().trim()).toBe('Offical Statistics Badge');
+        expect($('.ons-hero__badge svg title').text().trim()).toBe('Official Statistics Badge - Accredited');
     });
 
     it('outputs the statistics badge as a link when officialStatisticsBadgeUrl is provided', () => {
@@ -175,6 +175,28 @@ describe('macro: hero', () => {
                 expect($('.ons-hero__panel').text().trim()).toBe('Some panel text');
                 expect($('.ons-hero__link > a').text().trim()).toBe('Some link text');
                 expect($('.ons-hero__link > a').attr('href')).toBe('#0');
+            });
+
+            it('renders the `informationPanel` link with a custom aria-label', () => {
+                const $ = cheerio.load(
+                    renderComponent('hero', {
+                        ...EXAMPLE_HERO,
+                        variants: 'grey',
+                        informationPanel: {
+                            panelText: 'Some panel text',
+                            panelType: 'ons-green',
+                            panelLink: {
+                                text: 'Some link text',
+                                url: '#0',
+                                ariaLabel: 'Some link aria label',
+                            },
+                        },
+                    }),
+                );
+                const link = $('.ons-hero__link > a');
+                expect(link.attr('aria-label')).toBe('Some link aria label');
+                expect(link.text().trim()).toBe('Some link text');
+                expect(link.attr('href')).toBe('#0');
             });
         });
 

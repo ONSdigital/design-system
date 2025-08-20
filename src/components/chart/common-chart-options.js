@@ -2,7 +2,7 @@ import ChartConstants from './chart-constants';
 
 // Options that are common to all chart types - these are set once in the Highcharts.setOptions() method
 class CommonChartOptions {
-    constructor(xAxisTickInterval, yAxisTickInterval) {
+    constructor() {
         this.constants = ChartConstants.constants();
 
         this.options = {
@@ -57,6 +57,15 @@ class CommonChartOptions {
             },
             accessibility: {
                 enabled: true,
+                keyboardNavigation: {
+                    focusBorder: {
+                        enabled: false,
+                    },
+                    enabled: true,
+                    seriesNavigation: {
+                        mode: 'serialize',
+                    },
+                },
             },
             yAxis: {
                 labels: {
@@ -81,20 +90,10 @@ class CommonChartOptions {
                 },
                 lineColor: this.constants.gridLineColor,
                 gridLineColor: this.constants.gridLineColor,
-                // Add zero line
-                plotLines: [
-                    {
-                        color: this.constants.zeroLineColor,
-                        width: 1.5,
-                        value: 0,
-                        zIndex: 2,
-                    },
-                ],
                 // Add tick marks
                 tickWidth: 1,
                 tickLength: 6,
                 tickColor: this.constants.gridLineColor,
-                tickInterval: yAxisTickInterval,
             },
             xAxis: {
                 labels: {
@@ -118,12 +117,9 @@ class CommonChartOptions {
                 tickWidth: 1,
                 tickLength: 6,
                 tickColor: this.constants.gridLineColor,
-                tickInterval: xAxisTickInterval,
             },
             plotOptions: {
                 series: {
-                    // disables the tooltip on hover
-                    enableMouseTracking: false,
                     animation: false,
 
                     // disables the legend item hover
@@ -138,89 +134,13 @@ class CommonChartOptions {
                     },
                 },
             },
+            tooltip: {
+                animation: false,
+            },
         };
     }
 
     getOptions = () => this.options;
-
-    getMobileOptions = (xAxisTickInterval, yAxisTickInterval) => {
-        return {
-            xAxis: {
-                tickInterval: xAxisTickInterval,
-            },
-            yAxis: {
-                tickInterval: yAxisTickInterval,
-            },
-        };
-    };
-
-    hideDataLabels = (series) => {
-        series.forEach((series) => {
-            series.update({
-                dataLabels: {
-                    enabled: false,
-                },
-            });
-        });
-    };
-
-    disableLegendForSingleSeries = (config) => {
-        if (config.series.length === 1) {
-            config.legend = {
-                enabled: false,
-            };
-            config.chart.marginTop = 50;
-        }
-    };
-
-    updateLegendSymbols = (chart) => {
-        if (chart.legend.options.enabled) {
-            chart.legend.allItems.forEach((item) => {
-                const { legendItem, userOptions } = item;
-                const seriesType = userOptions?.type;
-                // symbol is defined for bar / column series, and line is defined for line series
-                // if symbol is defined for a line series, it is the marker symbol
-                const { label, symbol } = legendItem || {};
-
-                if (seriesType === 'line') {
-                    symbol?.attr({
-                        x: 16, // Position the marker to the right of the line
-                    });
-
-                    label?.attr({
-                        x: 30, // Adjust label position to account for longer line
-                    });
-                } else {
-                    // Set the symbol size for bar / column series
-                    symbol.attr({
-                        width: 12,
-                        height: 12,
-                        y: 8,
-                    });
-                }
-            });
-        }
-    };
-
-    adjustChartHeight = (currentChart, percentageHeightDesktop, percentageHeightMobile) => {
-        // get height and width of the plot area
-        const plotHeight = currentChart.plotHeight;
-        const plotWidth = currentChart.plotWidth;
-        // calculate the new plot height based on the percentage height
-        // default to the current height
-        let newPlotHeight = plotHeight;
-        if (plotWidth > 400) {
-            newPlotHeight = plotWidth * (percentageHeightDesktop / 100);
-        } else {
-            newPlotHeight = plotWidth * (percentageHeightMobile / 100);
-        }
-        const totalHeight = currentChart.plotTop + newPlotHeight + currentChart.marginBottom;
-
-        // set the new size of the chart
-        if (totalHeight !== currentChart.chartHeight) {
-            currentChart.setSize(null, totalHeight, false);
-        }
-    };
 }
 
 export default CommonChartOptions;

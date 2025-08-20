@@ -155,7 +155,10 @@ export const EXAMPLE_HEADER_SEARCH_LINKS = {
     searchLinks: {
         id: 'search-links-id',
         searchNavigationAriaLabel: 'Header Search',
-        searchButtonAriaLabel: 'Example aria label',
+        searchNavigationButtonAriaLabel: 'Custom search nav button aria label',
+        searchNavigationInputLabel: 'Custom search input label',
+        searchNavigationButtonText: 'Custom search button text',
+        searchButtonAriaLabel: 'Custom search button aria label',
         classes: 'custom-class',
         heading: 'Header Search',
         itemsList: [
@@ -177,7 +180,14 @@ export const EXAMPLE_HEADER_SEARCH_LINKS = {
 
 export const EXAMPLE_HEADER_SEARCH_AND_MENU_LINKS = {
     ...EXAMPLE_HEADER_SEARCH_LINKS,
+    title: 'Header title',
+    variants: 'basic',
     menuLinks: {
+        id: 'menu-links-id',
+        toggleMenuButton: {
+            text: 'Menu',
+            ariaLabel: 'Toggle menu',
+        },
         keyLinks: [
             {
                 heading: 'Taking part in a survey?',
@@ -277,5 +287,17 @@ export const EXAMPLE_HEADER_SEARCH_AND_MENU_LINKS = {
                 ],
             },
         ],
+    },
+};
+
+export const EXAMPLE_HEADER_MENU_LINKS = {
+    title: 'Header title',
+    variants: 'basic',
+    menuLinks: {
+        id: 'menu-links-id',
+        toggleMenuButton: {
+            text: 'Menu',
+            ariaLabel: 'Toggle menu',
+        },
     },
 };

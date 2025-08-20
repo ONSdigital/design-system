@@ -38,6 +38,7 @@ class BarChart {
                 // Update the category label colours for bar charts
                 labels: {
                     style: {
+                        textOverflow: 'ellipsis',
                         color: this.constants.categoryLabelColor,
                     },
                     useHTML: false,
@@ -46,7 +47,14 @@ class BarChart {
                 tickWidth: 0,
                 tickLength: 0,
                 tickColor: 'transparent',
-                title: { align: 'high', textAlign: 'middle', reserveSpace: false, rotation: 0, y: -25, useHTML: true },
+                title: {
+                    text: '', // Set to an empty string to hide the x-axis title for bar charts
+                    textAlign: 'middle',
+                    reserveSpace: false,
+                    rotation: 0,
+                    y: -25,
+                    useHTML: true,
+                },
             },
             yAxis: {
                 labels: {
@@ -70,39 +78,63 @@ class BarChart {
     };
 
     // Updates the config to move the data labels inside the bars, but only if the bar is wide enough
-    // This may also need to run when the chart is resized
+    // See the checkHideDataLabels function in chart.js for more details about when this function is run
+    // This also runs when the chart is resized
     postLoadDataLabels = (currentChart) => {
-        const insideOptions = {
-            dataLabels: this.getBarChartLabelsInsideOptions(),
-        };
-        const outsideOptions = {
-            dataLabels: this.getBarChartLabelsOutsideOptions(),
-        };
-
+        const insideOptions = this.getBarChartLabelsInsideOptions();
+        const outsideOptions = this.getBarChartLabelsOutsideOptions();
         currentChart.series.forEach((series) => {
+            // If we have a bar chart with an extra line, exit early for the line series
+            if (series.type == 'line') {
+                return;
+            }
+
+            if (series.type == 'scatter') {
+                // If we have a bar chart with confidence levels, exit early for the scatter series
+                return;
+            }
+
             const points = series.data;
+
             points.forEach((point) => {
-                // Get the actual width of the data label
-                const labelWidth = point.dataLabel && point.dataLabel.getBBox().width;
-                // Move the data labels inside the bar if the bar is wider than the label plus some padding
-                if (series.type == 'line') {
-                    // If we have a bar chart with an extra line, exit early for the line series
-                    return;
-                }
-                if (point.shapeArgs.height > labelWidth + 20) {
-                    point.update(insideOptions, false);
-                } else {
-                    point.update(outsideOptions, false);
+                if (point.dataLabel) {
+                    // Get the actual width of the data label
+                    const labelWidth = point.dataLabel.getBBox().width;
+
+                    // Move the data labels inside the bar if the bar is wider than the label plus some padding
+                    if (point.shapeArgs.height > labelWidth + 5) {
+                        // Negative values are aligned on the left, positive values on the right
+                        if (point.y < 0) {
+                            point.update(
+                                {
+                                    dataLabels: {
+                                        ...insideOptions,
+                                        align: 'left',
+                                    },
+                                },
+                                false,
+                            );
+                        } else {
+                            point.update(
+                                {
+                                    dataLabels: {
+                                        ...insideOptions,
+                                        align: 'right',
+                                    },
+                                },
+                                false,
+                            );
+                        }
+                    } else {
+                        point.update({ dataLabels: outsideOptions }, false);
+                    }
                 }
             });
         });
-
-        currentChart.redraw();
     };
 
     getBarChartLabelsInsideOptions = () => ({
         inside: true,
-        align: 'right',
         verticalAlign: 'middle',
         style: {
             color: 'white',
@@ -114,6 +146,7 @@ class BarChart {
         inside: false,
         align: undefined,
         verticalAlign: undefined,
+        overflow: 'allow',
         style: {
             textOutline: 'none',
             // The design system does not include a semibold font weight, so we use 700 (bold) as an alternative.
