@@ -142,7 +142,7 @@ describe('FOR: Macro: Breadcrumbs', () => {
                 }),
             );
             test('THEN: wraps breadcrumbs in hero wrapper with correct modifier class', () => {
-                expect($('.ons-hero-wrapper').hasClass('ons-hero-wrapper--grey')).toBe(true);
+                expect($('.ons-breadcrumbs-wrapper').hasClass('ons-hero-wrapper--grey')).toBe(true);
             });
         });
 
@@ -154,7 +154,7 @@ describe('FOR: Macro: Breadcrumbs', () => {
                 }),
             );
             test('THEN: does not render hero-wrapper', () => {
-                expect($('.ons-hero-wrapper').length).toBe(0);
+                expect($('.ons-breadcrumbs-wrapper').length).toBe(0);
             });
         });
     });

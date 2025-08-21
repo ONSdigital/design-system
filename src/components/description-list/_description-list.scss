@@ -14,13 +14,6 @@
         margin-left: 0; /* As normalize adds a 40px left margin */
     }
 
-    &__link {
-        .ons-hero--navy-blue &,
-        .ons-hero--dark & {
-            color: var(--ons-color-text-inverse);
-        }
-    }
-
     &__item {
         &:not(:first-child) {
             .ons-description-list__term {

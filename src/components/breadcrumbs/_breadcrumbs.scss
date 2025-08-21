@@ -1,6 +1,6 @@
 $breadcrumb-chevron-height: 0.65rem;
 
-.ons-hero-wrapper {
+.ons-breadcrumbs-wrapper {
     position: relative;
     z-index: 10;
     margin-bottom: -2rem;
@@ -53,8 +53,8 @@ $breadcrumb-chevron-height: 0.65rem;
             margin: 0 0.25rem;
             vertical-align: middle;
             width: $breadcrumb-chevron-height;
-            .ons-hero-wrapper--dark &,
-            .ons-hero-wrapper--navy-blue & {
+            .ons-breadcrumbs-wrapper--dark &,
+            .ons-breadcrumbs-wrapper--navy-blue & {
                 color: var(--ons-color-text-inverse);
             }
         }
@@ -107,8 +107,8 @@ $breadcrumb-chevron-height: 0.65rem;
         color: var(--ons-color-text);
         text-decoration: underline;
 
-        .ons-hero-wrapper--dark &,
-        .ons-hero-wrapper--navy-blue & {
+        .ons-breadcrumbs-wrapper--dark &,
+        .ons-breadcrumbs-wrapper--navy-blue & {
             color: var(--ons-color-text-inverse);
             text-decoration: underline;
         }
@@ -117,22 +117,22 @@ $breadcrumb-chevron-height: 0.65rem;
             color: var(--ons-color-text);
             text-decoration: underline solid var(--ons-color-text) 2px;
 
-            .ons-hero-wrapper--dark &,
-            .ons-hero-wrapper--navy-blue & {
+            .ons-breadcrumbs-wrapper--dark &,
+            .ons-breadcrumbs-wrapper--navy-blue & {
                 color: var(--ons-color-text-inverse);
                 text-decoration: underline solid var(--ons-color-text-inverse) 2px;
             }
         }
 
         &:focus {
-            .ons-hero-wrapper--dark &,
-            .ons-hero-wrapper--navy-blue & {
+            .ons-breadcrumbs-wrapper--dark &,
+            .ons-breadcrumbs-wrapper--navy-blue & {
                 color: var(--ons-color-text);
             }
         }
         &:focus:hover {
-            .ons-hero-wrapper--dark &,
-            .ons-hero-wrapper--navy-blue & {
+            .ons-breadcrumbs-wrapper--dark &,
+            .ons-breadcrumbs-wrapper--navy-blue & {
                 color: var(--ons-color-text);
                 text-decoration: none;
             }
