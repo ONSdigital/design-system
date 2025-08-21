@@ -133,6 +133,11 @@
         }
     }
 
+    .ons-chart__iframe-wrapper iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+
     &__non-js-hide {
         @media (scripting: none) {
             display: none;
