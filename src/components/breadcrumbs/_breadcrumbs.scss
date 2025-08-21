@@ -4,19 +4,19 @@ $breadcrumb-chevron-height: 0.65rem;
     position: relative;
     z-index: 10;
     margin-bottom: -2rem;
-    &--hero-grey {
+    &--grey {
         background-color: var(--ons-color-banner-bg);
     }
 
-    &--hero-dark {
+    &--dark {
         background-color: var(--ons-color-hero-bg-dark);
     }
 
-    &--hero-default {
+    &--default {
         background-color: var(--ons-color-hero-bg);
     }
 
-    &--hero-navy-blue {
+    &--navy-blue {
         background-color: var(--ons-color-navy-blue-light);
         margin-bottom: -1.75rem;
         @include mq(l) {
@@ -24,7 +24,7 @@ $breadcrumb-chevron-height: 0.65rem;
         }
     }
 
-    &--hero-pale-blue {
+    &--pale-blue {
         background-color: var(--ons-color-pale-blue);
     }
     .ons-breadcrumbs {
@@ -57,8 +57,8 @@ $breadcrumb-chevron-height: 0.65rem;
             margin: 0 0.25rem;
             vertical-align: middle;
             width: $breadcrumb-chevron-height;
-            .ons-hero-wrapper--hero-dark &,
-            .ons-hero-wrapper--hero-navy-blue & {
+            .ons-hero-wrapper--dark &,
+            .ons-hero-wrapper--navy-blue & {
                 color: var(--ons-color-text-inverse);
             }
         }
@@ -111,8 +111,8 @@ $breadcrumb-chevron-height: 0.65rem;
         color: var(--ons-color-text);
         text-decoration: underline;
 
-        .ons-hero-wrapper--hero-dark &,
-        .ons-hero-wrapper--hero-navy-blue & {
+        .ons-hero-wrapper--dark &,
+        .ons-hero-wrapper--navy-blue & {
             color: var(--ons-color-text-inverse);
             text-decoration: underline;
         }
@@ -121,22 +121,22 @@ $breadcrumb-chevron-height: 0.65rem;
             color: var(--ons-color-text);
             text-decoration: underline solid var(--ons-color-text) 2px;
 
-            .ons-hero-wrapper--hero-dark &,
-            .ons-hero-wrapper--hero-navy-blue & {
+            .ons-hero-wrapper--dark &,
+            .ons-hero-wrapper--navy-blue & {
                 color: var(--ons-color-text-inverse);
                 text-decoration: underline solid var(--ons-color-text-inverse) 2px;
             }
         }
 
         &:focus {
-            .ons-hero-wrapper--hero-dark &,
-            .ons-hero-wrapper--hero-navy-blue & {
+            .ons-hero-wrapper--dark &,
+            .ons-hero-wrapper--navy-blue & {
                 color: var(--ons-color-text);
             }
         }
         &:focus:hover {
-            .ons-hero-wrapper--hero-dark &,
-            .ons-hero-wrapper--hero-navy-blue & {
+            .ons-hero-wrapper--dark &,
+            .ons-hero-wrapper--navy-blue & {
                 color: var(--ons-color-text);
                 text-decoration: none;
             }

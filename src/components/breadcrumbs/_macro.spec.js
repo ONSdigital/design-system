@@ -138,11 +138,11 @@ describe('FOR: Macro: Breadcrumbs', () => {
             const $ = cheerio.load(
                 renderComponent('breadcrumbs', {
                     ...EXAMPLE_BREADCRUMBS_REQUIRED_PARAMS,
-                    variant: 'hero-grey',
+                    variant: 'grey',
                 }),
             );
             test('THEN: wraps breadcrumbs in hero wrapper with correct modifier class', () => {
-                expect($('.ons-hero-wrapper').hasClass('ons-hero-wrapper--hero-grey')).toBe(true);
+                expect($('.ons-hero-wrapper').hasClass('ons-hero-wrapper--grey')).toBe(true);
             });
         });
 
