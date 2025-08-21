@@ -16,6 +16,7 @@
     {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
     {% set audioDescriptionId = "chart-audio-description-" ~ params.id %}
     {% set instructionsId = "chart-instructions-" ~ params.id %}
+    {% set iframeAspectRatio = params.iframeAspectRatio | default('16-9') %}
     {% set instructions = params.instructions | default('Use the Tab key to move focus into the chart. Once inside, use the arrow keys to navigate between data points. As you move, tooltips will be announced to describe each point. Touch device users, explore by touch or with swipe gestures.') %}
 
     <div
@@ -65,10 +66,14 @@
                 <div
                     class="ons-chart__iframe-wrapper{{ ' ons-chart__non-js-hide' if params.fallbackImageUrl else '' }}"
                     id="{{ params.id }}"
-                    data-url="{{ params.iframeUrl }}"
-                    data-title="{{ params.title }}"
                 >
-                    <iframe src="{{ params.iframeUrl }}" title="{{ params.title }}" class="ons-chart__iframe"></iframe>
+                    <iframe
+                        src="{{ params.iframeUrl }}"
+                        title="{{ params.title }}"
+                        class="ons-chart__iframe ons-chart__iframe--{{ iframeAspectRatio }}"
+                        frameborder="0"
+                        scrolling="no"
+                    ></iframe>
                 </div>
             {% else %}
                 {% if params.chartType == 'boxplot' and (params.estimateLineLabel or params.uncertaintyRangeLabel) and params.legend == true %}
