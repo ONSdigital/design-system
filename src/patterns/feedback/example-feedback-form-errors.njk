@@ -46,21 +46,9 @@ layout: ~
         }}
     {% endcall %}
 
-    {%
-        call onsQuestion ({
-            "variant": "success",
-            "id": "survey-success",
-            "iconType": "check",
-            "iconSize": "xl",
-            "classes": "ons-u-mb-m"
-        })
-    %}
-        <h1>Thank you for completing the survey</h1>
-        <p>Your answers have been submitted</p>
-    {% endcall %}
+    <h1>Give feedback about this service</h1>
 
     <div class="ons-feedback">
-        <h1>Give feedback about this service</h1>
         <form action="#0">
             {{
                 onsRadios({

@@ -8,7 +8,6 @@ layout: ~
 {% from "components/textarea/_macro.njk" import onsTextarea %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/question/_macro.njk" import onsQuestion %}
 {%
     set pageConfig = {
         "header": {
@@ -20,21 +19,7 @@ layout: ~
 {% block main %}
     <h1>Give feedback about this service</h1>
 
-    {%
-        call onsQuestion ({
-           "variant": "success",
-            "id": "survey-success",
-            "iconType": "check",
-            "iconSize": "xl",
-            "classes": "ons-u-mb-m"
-        })
-    %}
-        <h1>Thank you for completing the survey</h1>
-        <p>Your answers have been submitted</p>
-    {% endcall %}
     <div class="ons-feedback">
-        <h2>Give feedback about this service</h2>
-
         <form action="#0">
             {{
                 onsRadios({
