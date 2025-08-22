@@ -147,7 +147,7 @@
                         }}
                     {% endblock %}
                     {% block banner %}
-                        {% if pageConfig.banner %}
+                        {% if pageConfig.announcementBanner %}
                             {% from "components/announcement-banner/_macro.njk" import onsAnnouncementBanner %}
                             {{
                                 onsAnnouncementBanner({
