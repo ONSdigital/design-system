@@ -7,8 +7,8 @@
 
 ## Link
 
-| Name       | Type   | Required | Description                                                               |
-| ---------- | ------ | -------- | ------------------------------------------------------------------------- |
-| url        | string | true     | The URL for the HTML `href` attribute of the summary link                 |
-| text       | string | true     | The text for the summary link                                             |
-| attributes | object | false    | HTML attributes (for example, data attributes) to add to the summary link |
+| Name       | Type   | Required | Description                                                              |
+| ---------- | ------ | -------- | ------------------------------------------------------------------------ |
+| url        | string | true     | The URL for the HTML `href` attribute of the banner link                 |
+| text       | string | true     | The text for the banner link                                             |
+| attributes | object | false    | HTML attributes (for example, data attributes) to add to the banner link |
