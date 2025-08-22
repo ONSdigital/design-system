@@ -46,3 +46,14 @@ $nbsp-width: 0.288rem;
         #{$padding-width + $chars-width + $num-chars-width + $chars-space-width + $spaces-width} + #{($input-border-width * 2) + 2px}
     );
 }
+
+$iframe-ratios: '16-9', '4-3', '21-9', '1-1', '3-2', '9-16';
+
+@mixin iframe-aspect-ratio($class-name, $ratios: $iframe-ratios) {
+    @each $ratio in $ratios {
+        .#{str-replace($class-name, '{x}', $ratio)} {
+            aspect-ratio: #{str-replace($ratio, '-', '/')};
+            width: 100%;
+        }
+    }
+}

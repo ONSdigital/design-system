@@ -1568,9 +1568,16 @@ describe('Macro: Chart', () => {
                     expect($('.ons-chart__iframe-wrapper').length).toBe(1);
                 });
 
-                test('THEN: it includes the iframe title as a data attribute', () => {
-                    const iframe = $('.ons-chart__iframe-wrapper');
-                    expect(iframe.attr('data-title')).toBe(EXAMPLE_IFRAME_CHART_PARAMS.title);
+                test('THEN: it includes the aspect ratio class if set', () => {
+                    const aspectRatio = '16-9';
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            iframeAspectRatio: aspectRatio,
+                        }),
+                    );
+                    const iframe = $('.ons-chart__iframe');
+                    expect(iframe.hasClass(`ons-chart__iframe--${aspectRatio}`)).toBe(true);
                 });
 
                 test('THEN: the theme parameter is ignored', () => {
