@@ -26,6 +26,15 @@ const FULL_EXAMPLE = `
         "description": "Twitter description",
         "twitterImage": "twitter-image.png"
     },
+    "announcementBanner": {
+        "variant": "black",
+        "title": "ONS Announcement",
+        "description": "This is an important announcement from ONS.",
+        "link": {
+            "url": "/announcement",
+            "text": "Read more"
+        }
+    },
     "header": {
         "title": 'ONS Service',
         "variants": 'neutral',

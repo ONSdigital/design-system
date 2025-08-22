@@ -146,6 +146,19 @@
                             })
                         }}
                     {% endblock %}
+                    {% block banner %}
+                        {% if pageConfig.banner %}
+                            {% from "components/announcement-banner/_macro.njk" import onsAnnouncementBanner %}
+                            {{
+                                onsAnnouncementBanner({
+                                    "variant": pageConfig.announcementBanner.variant,
+                                    "title": pageConfig.announcementBanner.title,
+                                    "description": pageConfig.announcementBanner.description,
+                                    "link": pageConfig.announcementBanner.link
+                                })
+                            }}
+                        {% endif %}
+                    {% endblock %}
                     {% block header %}
                         {{
                             onsHeader({

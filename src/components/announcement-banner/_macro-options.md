@@ -1,0 +1,6 @@
+| Name        | Type   | Required | Description                                                                                                                                                                             |
+| ----------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title       | string | true     | The contents of the panel. This can contain HTML.                                                                                                                                       |
+| description | string | false    | The title for the error summary panel (not supported for the warn, warn-branded, announcement, announcement-red, announcement-teal and bare panels )                                    |
+| link        | int    | false    | Number used to determine the heading level of the title. Use to ensure the title has a correct semantic order on the page. Defaults to `2`                                              |
+| variant     | string | false    | A single value to adjust the component using available variants: "info", “success”, “bare”, “error”, “warn”, “warn-branded”, “announcement”, “announcement-red” and “announcement-teal” |

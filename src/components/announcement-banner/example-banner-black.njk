@@ -1,0 +1,13 @@
+{% from "components/banner/_macro.njk" import onsBanner %}
+
+{{
+    onsBanner({
+        "variant": 'black',
+        "title": 'This is a black banner',
+        "description": 'This is a description for the black banner',
+        "link": {
+            "text": 'Find out more',
+            "url": '#0'
+        }
+    })
+}}
