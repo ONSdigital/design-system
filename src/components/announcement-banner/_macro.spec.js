@@ -16,27 +16,27 @@ describe('FOR: Macro: Announcement-banner', () => {
             });
 
             test('THEN: the title has the provided text', async () => {
-                const title = $('ons-announcement-banner__title');
+                const title = $('.ons-announcement-banner__title');
                 expect(title.text().trim()).toBe('This is a black banner');
             });
 
             test('THEN: the description has the provided text', async () => {
-                const description = $('ons-announcement-banner__description');
+                const description = $('.ons-announcement-banner__description');
                 expect(description.text().trim()).toBe('This is a description for the black banner');
             });
 
             test('THEN: the link points to the provided URL', async () => {
-                const linkUrl = $('ons-announcement-banner__link');
+                const linkUrl = $('.ons-announcement-banner__link');
                 expect(linkUrl.attr('href')).toBe('http://example.com');
             });
 
             test('THEN: the link has the provided link text', async () => {
-                const linkText = $('ons-announcement-banner__link');
+                const linkText = $('.ons-announcement-banner__link');
                 expect(linkText.text().trim()).toBe('Find out more');
             });
 
             test('THEN: it defaults to the black variant', async () => {
-                const variant = $('ons-announcement-banner--black');
+                const variant = $('.ons-announcement-banner--black');
                 expect(variant.length).toBe(1);
             });
         });
@@ -46,7 +46,7 @@ describe('FOR: Macro: Announcement-banner', () => {
         const $ = cheerio.load(renderComponent('announcement-banner', EXAMPLE_FULL_ANNOUNCEMENT_BANNER));
         describe('WHEN: link attributes are provided', () => {
             test('THEN: the link has the provided attributes', async () => {
-                const link = $('ons-announcement-banner__link');
+                const link = $('.ons-announcement-banner__link');
                 expect(link.attr('abc')).toBe('123');
                 expect(link.attr('def')).toBe('456');
             });
@@ -57,7 +57,7 @@ describe('FOR: Macro: Announcement-banner', () => {
         const $ = cheerio.load(renderComponent('announcement-banner', EXAMPLE_FULL_ANNOUNCEMENT_BANNER));
         describe('WHEN: variant is provided', () => {
             test('THEN: the banner has the correct variant class', async () => {
-                const banner = $('ons-announcement-banner');
+                const banner = $('.ons-announcement-banner');
                 expect(banner.hasClass('ons-announcement-banner--red')).toBe(true);
             });
         });
