@@ -1,0 +1,33 @@
+.ons-feedback {
+    border: 3px solid var(--ons-color-branded);
+    margin-bottom: 2rem;
+    padding: 1rem;
+    position: relative;
+    &__link {
+        font-weight: $font-weight-bold;
+    }
+    &::before {
+        border-bottom: 15px solid transparent;
+        border-left: 15px solid var(--ons-color-branded);
+        border-right: 15px solid transparent;
+        border-top: 15px solid var(--ons-color-branded);
+        bottom: -30px;
+        content: '';
+        height: 0;
+        left: 17px;
+        position: absolute;
+        width: 0;
+    }
+    &::after {
+        border-bottom: 12px solid transparent;
+        border-left: 12px solid #fff;
+        border-right: 12px solid transparent;
+        border-top: 12px solid #fff;
+        bottom: -23px;
+        content: '';
+        height: 0;
+        left: 20px;
+        position: absolute;
+        width: 0;
+    }
+}

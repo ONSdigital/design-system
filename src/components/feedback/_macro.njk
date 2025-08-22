@@ -1,0 +1,12 @@
+{% macro onsFeedback(params) %}
+    {% set headingLevel = params.headingLevel | default(2) | string %}
+    {% set openingHeadingTag = "<h" + headingLevel %}
+    {% set closingHeadingTag = "</h" + headingLevel + ">" %}
+    <div {% if params.id %}id="{{ params.id }}"{% endif %} class="ons-feedback{{ ' ' + params.classes if params.classes else '' }}">
+        {{ openingHeadingTag | safe }} class="ons-feedback__heading{{ ' ' + params.headingClasses if params.headingClasses else '' }}">
+        {{ params.heading }}
+        {{ closingHeadingTag | safe }}
+        <p class="ons-feedback__content">{{- params.content | safe -}}</p>
+        <a href="{{ params.linkUrl }}" class="ons-feedback__link">{{- params.linkText -}}</a>
+    </div>
+{% endmacro %}

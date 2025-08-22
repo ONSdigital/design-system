@@ -1,0 +1,14 @@
+{% from "components/feedback/_macro.njk" import onsFeedback %}
+<div class="ons-grid">
+    <div class="ons-grid__col ons-col-8@m">
+        {{
+            onsFeedback({
+                "heading": "What do you think about this service?",
+                "headingClasses": 'test',
+                "content": "Your comments will help us make improvements",
+                "linkUrl": "#0",
+                "linkText": "Give feedback"
+            })
+        }}
+    </div>
+</div>
