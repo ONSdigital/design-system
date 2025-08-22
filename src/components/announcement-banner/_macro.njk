@@ -1,12 +1,16 @@
 {% macro onsAnnouncementBanner(params) %}
-    <div class="ons-announcement-banner ons-announcement-banner--{{ params.variant | default('black') }}">
-        <h2 class="ons-announcement-banner__title">{{ params.title }}</h2>
-        <p class="ons-announcement-banner__description">{{ params.description }}</p>
-        <a
-            class="ons-announcement-banner__link"
-            {% if params.link.attributes %}{% for attribute, value in (params.link.attributes.items() if params.link.attributes is mapping and params.link.attributes.items else params.link.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
-            href="{{ params.link.url }}"
-            >{{ params.link.text }}</a
-        >
+    <div class="ons-announcement-banner--{{ params.variant | default('black') }}">
+        <div class="ons-container">
+            <div class="ons-announcement-banner ons-announcement-banner--{{ params.variant | default('black') }}">
+                <h2 class="ons-announcement-banner__title">{{ params.title }}</h2>
+                <p class="ons-announcement-banner__description">{{ params.description }}</p>
+                <a
+                    class="ons-announcement-banner__link"
+                    {% if params.link.attributes %}{% for attribute, value in (params.link.attributes.items() if params.link.attributes is mapping and params.link.attributes.items else params.link.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                    href="{{ params.link.url }}"
+                    >{{ params.link.text }}</a
+                >
+            </div>
+        </div>
     </div>
 {% endmacro %}

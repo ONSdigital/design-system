@@ -61,5 +61,8 @@ describe('FOR: Macro: Announcement-banner', () => {
                 expect(banner.hasClass('ons-announcement-banner--red')).toBe(true);
             });
         });
+        it('creates containers with the correct classes', () => {
+            expect($('.ons-announcement-banner--red > .ons-container').length).toBe(1);
+        });
     });
 });
