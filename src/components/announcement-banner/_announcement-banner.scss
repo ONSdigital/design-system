@@ -1,0 +1,24 @@
+.ons-announcement-banner {
+    color: var(--ons-color-text-inverse);
+    padding: 1rem;
+    &--black {
+        background-color: var(--ons-color-gov-black);
+    }
+
+    &--teal {
+        background-color: var(--ons-color-gov-teal);
+    }
+
+    &--red {
+        background-color: var(--ons-color-gov-red);
+    }
+
+    &__link {
+        color: var(--ons-color-text-inverse);
+
+        &:hover {
+            color: var(--ons-color-text-inverse);
+            text-decoration: underline solid var(--ons-color-text-inverse) 2px;
+        }
+    }
+}
