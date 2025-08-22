@@ -47,7 +47,7 @@ $nbsp-width: 0.288rem;
     );
 }
 
-$iframe-ratios: '16-9', '4-3', '1-1', '21-9';
+$iframe-ratios: '16-9', '4-3', '21-9', '1-1', '3-2', '9-16';
 
 @mixin iframe-aspect-ratio($class-name, $ratios: $iframe-ratios) {
     @each $ratio in $ratios {
