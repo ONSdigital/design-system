@@ -16,13 +16,13 @@ describe('FOR: Macro: Announcement-banner', () => {
             });
 
             test('THEN: the title has the provided text', async () => {
-                const $title = $('ons-announcement-banner__title');
-                expect($title.text().trim()).toBe('This is a black banner');
+                const title = $('ons-announcement-banner__title');
+                expect(title.text().trim()).toBe('This is a black banner');
             });
 
             test('THEN: the description has the provided text', async () => {
-                const $description = $('ons-announcement-banner__description');
-                expect($description.text().trim()).toBe('This is a description for the black banner');
+                const description = $('ons-announcement-banner__description');
+                expect(description.text().trim()).toBe('This is a description for the black banner');
             });
 
             test('THEN: the link points to the provided URL', async () => {
