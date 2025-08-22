@@ -1,2 +1,7 @@
 {% macro onsAnnouncementBanner(params) %}
+    <div class="ons-announcement-banner ons-announcement-banner--{{ params.variant | default('black') }}">
+        <h2 class="ons-announcement-banner__title">{{ params.title }}</h2>
+        <p class="ons-announcement-banner__description">{{ params.description }}</p>
+        <a class="ons-announcement-banner__link" href="{{ params.link.url }}">{{ params.link.text }}</a>
+    </div>
 {% endmacro %}
