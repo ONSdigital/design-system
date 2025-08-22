@@ -61,6 +61,9 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                     
                     
                         
+                    
+                    
+                        
     
     
     
@@ -1059,6 +1062,9 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                     
                     
                         
+                    
+                    
+                        
     
     
     
@@ -1300,6 +1306,9 @@ exports[`base page template matches the footer block override snapshot 1`] = `
     
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
 
+                    
+                    
+                        
                     
                     
                         
@@ -1567,6 +1576,9 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
 
+                    
+                    
+                        
                     
                     
                         
@@ -2867,6 +2879,9 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                     
                     
                         
+                    
+                    
+                        
     
     
     
@@ -3092,6 +3107,9 @@ exports[`base page template matches the social block override snapshot 1`] = `
     
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
 
+                    
+                    
+                        
                     
                     
                         
