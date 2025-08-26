@@ -67,7 +67,7 @@ describe('FOR: Macro: Announcement-banner', () => {
         });
         describe('WHEN: wide is provided as one of the variants', () => {
             const $ = cheerio.load(renderComponent('announcement-banner', EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER_WIDE));
-            it('THEN: containers are created with the correct classes', () => {
+            it('THEN: containers are not created with the correct classes', () => {
                 expect($('.ons-announcement-banner--red > .ons-container').length).toBe(0);
             });
         });
@@ -80,8 +80,8 @@ describe('FOR: Macro: Announcement-banner', () => {
         });
         describe('WHEN: wide is not provided as one of the variants', () => {
             const $ = cheerio.load(renderComponent('announcement-banner', EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER));
-            it('THEN: containers are not created', () => {
-                expect($('.ons-announcement-banner--black > .ons-container').length).toBe(0);
+            it('THEN: containers are created', () => {
+                expect($('.ons-announcement-banner--black > .ons-container').length).toBe(1);
             });
         });
     });
