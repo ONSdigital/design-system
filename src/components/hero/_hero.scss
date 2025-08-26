@@ -452,9 +452,6 @@
         padding-top: 2rem;
         position: relative;
         z-index: 5;
-        #{$root}--with-breadcrumbs & {
-            padding-top: 1rem;
-        }
     }
 
     &__title-container {
