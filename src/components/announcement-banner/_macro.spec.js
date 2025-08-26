@@ -68,7 +68,7 @@ describe('FOR: Macro: Announcement-banner', () => {
             });
         });
         describe('WHEN: red is provided alongside other variants', () => {
-            const $ = cheerio.load(renderComponent('announcement-banner', EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER_WIDE));
+            const $ = cheerio.load(renderComponent('announcement-banner', EXAMPLE_FULL_ANNOUNCEMENT_BANNER_WIDE));
             test('THEN: the banner has the correct variant class', async () => {
                 const banner = $('.ons-announcement-banner');
                 expect(banner.hasClass('ons-announcement-banner--red')).toBe(true);
