@@ -40,8 +40,8 @@ describe('FOR: Macro: Announcement-banner', () => {
             });
 
             test('THEN: it defaults to the black variant', async () => {
-                const variant = $('.ons-announcement-banner--black');
-                expect(variant.length).toBe(1);
+                const banner = $('.ons-announcement-banner');
+                expect(banner.hasClass('ons-announcement-banner--black')).toBe(true);
             });
 
             it('THEN: containers are created', () => {
