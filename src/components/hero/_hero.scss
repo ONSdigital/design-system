@@ -399,25 +399,6 @@
         }
     }
 
-    &--dark,
-    &--navy-blue {
-        .ons-breadcrumbs__link {
-            color: var(--ons-color-text-inverse);
-
-            &:hover {
-                color: var(--ons-color-text-inverse);
-                text-decoration: underline solid var(--ons-color-text-inverse) 2px;
-            }
-            &:focus {
-                color: var(--ons-color-text);
-            }
-            &:focus:hover {
-                color: var(--ons-color-text);
-                text-decoration: none;
-            }
-        }
-    }
-
     &__badge-link {
         display: block;
         width: fit-content;
