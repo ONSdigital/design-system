@@ -1,9 +1,9 @@
-| Name        | Type   | Required | Description                                                                                                            |
-| ----------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------- |
-| title       | string | true     | The title for the announcement banner                                                                                  |
-| description | string | true     | The description for the announcement banner                                                                            |
-| link        | object | true     | The link for the announcement banner                                                                                   |
-| variant     | string | false    | A single value to change the colour of the banner, available variants: "black", “teal” and “red” (defaults to "black") |
+| Name        | Type            | Required | Description                                                                                                                                           |
+| ----------- | --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title       | string          | true     | The title for the announcement banner                                                                                                                 |
+| description | string          | true     | The description for the announcement banner                                                                                                           |
+| link        | object          | true     | The link for the announcement banner                                                                                                                  |
+| variants    | array or string | false    | An array of values or single value (string) to adjust the component using available variants: “black”, “red”, ”teal” and “wide” (defaults to "black") |
 
 ## Link
 

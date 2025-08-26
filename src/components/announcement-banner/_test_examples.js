@@ -1,5 +1,5 @@
 export const EXAMPLE_FULL_ANNOUNCEMENT_BANNER = {
-    variant: 'red',
+    variants: 'red',
     title: 'This is a red banner',
     description: 'This is a description for the red banner',
     link: {
@@ -9,6 +9,16 @@ export const EXAMPLE_FULL_ANNOUNCEMENT_BANNER = {
             abc: '123',
             def: '456',
         },
+    },
+};
+
+export const EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER_WIDE = {
+    variants: ['wide', 'red'],
+    title: 'This is a red banner',
+    description: 'This is a description for the red banner',
+    link: {
+        text: 'Find out more',
+        url: 'http://example.com',
     },
 };
 

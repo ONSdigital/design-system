@@ -53,16 +53,32 @@ describe('FOR: Macro: Announcement-banner', () => {
         });
     });
 
-    describe('GIVEN: Params: variant', () => {
+    describe('GIVEN: Params: variants', () => {
         const $ = cheerio.load(renderComponent('announcement-banner', EXAMPLE_FULL_ANNOUNCEMENT_BANNER));
-        describe('WHEN: variant is provided', () => {
+        describe('WHEN: variants is provided as a string', () => {
             test('THEN: the banner has the correct variant class', async () => {
                 const banner = $('.ons-announcement-banner');
                 expect(banner.hasClass('ons-announcement-banner--red')).toBe(true);
             });
         });
-        it('creates containers with the correct classes', () => {
-            expect($('.ons-announcement-banner--red > .ons-container').length).toBe(1);
+        describe('WHEN: wide is provided as one of the variants', () => {
+            const $ = cheerio.load(renderComponent('announcement-banner', EXAMPLE_FULL_ANNOUNCEMENT_BANNER_WIDE));
+            it('THEN: containers are created with the correct classes', () => {
+                expect($('.ons-announcement-banner--red > .ons-container').length).toBe(0);
+            });
+        });
+        describe('WHEN: red is provided alongside other variants', () => {
+            const $ = cheerio.load(renderComponent('announcement-banner', EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER_WIDE));
+            test('THEN: the banner has the correct variant class', async () => {
+                const banner = $('.ons-announcement-banner');
+                expect(banner.hasClass('ons-announcement-banner--red')).toBe(true);
+            });
+        });
+        describe('WHEN: wide is not provided as one of the variants', () => {
+            const $ = cheerio.load(renderComponent('announcement-banner', EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER));
+            it('THEN: containers are not created', () => {
+                expect($('.ons-announcement-banner--black > .ons-container').length).toBe(0);
+            });
         });
     });
 });
