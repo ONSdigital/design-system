@@ -1579,6 +1579,42 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     
                     
                         
+                            
+                            
+
+    
+        
+    
+
+    
+
+    
+
+    
+        <div class="
+        
+            
+                 ons-announcement-banner--red
+            
+        
+    ">
+            <div class="ons-container">
+        <div class="ons-announcement-banner
+        
+            
+                 ons-announcement-banner--red
+            
+        
+    ">
+            <h2 class="ons-announcement-banner__title">ONS Announcement</h2>
+            <p class="ons-announcement-banner__description">This is an important announcement from ONS.</p>
+            <a class="ons-announcement-banner__link" href="/announcement">Read more</a>
+        </div>
+    </div>
+        </div>
+    
+
+                        
                     
                     
                         

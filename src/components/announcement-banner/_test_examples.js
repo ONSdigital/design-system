@@ -12,7 +12,7 @@ export const EXAMPLE_FULL_ANNOUNCEMENT_BANNER = {
     },
 };
 
-export const EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER_WIDE = {
+export const EXAMPLE_FULL_ANNOUNCEMENT_BANNER_WIDE = {
     variants: ['wide', 'red'],
     title: 'This is a red banner',
     description: 'This is a description for the red banner',
