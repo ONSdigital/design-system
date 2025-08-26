@@ -6,22 +6,10 @@
         {% endif %}
     {% endif %}
 
-    {% set variantClasses %}
-        {% if params.variants %}
-            {% if params.variants and params.variants is not string %}
-                {% for variant in params.variants %}
-                    {{ ' ' }}ons-announcement-banner--{{ variant }}
-                {% endfor %}
-            {% elif params.variants %}
-                {{ ' ' }}ons-announcement-banner--{{ params.variants }}
-            {% endif %}
-        {% else %}
-            {{ ' ' }}ons-announcement-banner--black
-        {% endif %}
-    {% endset %}
-
     {% set content %}
-        <div class="ons-announcement-banner{{ variantClasses }}">
+        <div
+            class="ons-announcement-banner{% if params.variants %}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-announcement-banner--{{ variant }}{% endfor %}{% elif params.variants %}{{ ' ' }}ons-announcement-banner--{{ params.variants }}{% endif %}{% else %}{{ ' ' }}ons-announcement-banner--black{% endif %}"
+        >
             <h2 class="ons-announcement-banner__title">{{ params.title }}</h2>
             <p class="ons-announcement-banner__description">{{ params.description }}</p>
             <a
@@ -34,7 +22,9 @@
     {% endset %}
 
     {% if width != "wide" %}
-        <div class="{{ variantClasses }}">
+        <div
+            class="ons-announcement-banner__container{% if params.variants %}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-announcement-banner--{{ variant }}{% endfor %}{% elif params.variants %}{{ ' ' }}ons-announcement-banner--{{ params.variants }}{% endif %}{% else %}{{ ' ' }}ons-announcement-banner--black{% endif %}"
+        >
             <div class="ons-container">{{ content | safe }}</div>
         </div>
     {% else %}
