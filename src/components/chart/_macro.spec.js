@@ -1569,7 +1569,7 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it includes the aspect ratio class if set', () => {
-                    const aspectRatio = '16-9';
+                    const aspectRatio = '21-9';
                     const $ = cheerio.load(
                         renderComponent('chart', {
                             ...EXAMPLE_IFRAME_CHART_PARAMS,
@@ -1578,6 +1578,27 @@ describe('Macro: Chart', () => {
                     );
                     const iframe = $('.ons-chart__iframe');
                     expect(iframe.hasClass(`ons-chart__iframe--${aspectRatio}`)).toBe(true);
+                });
+
+                test('THEN: the aspect ratio defaults to 16-9 when not set', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        }),
+                    );
+                    const iframe = $('.ons-chart__iframe');
+                    expect(iframe.hasClass('ons-chart__iframe--16-9')).toBe(true);
+                });
+
+                test('THEN: the aspect ratio defaults to 16-9 when unsupported value is set', () => {
+                    const $ = cheerio.load(
+                        renderComponent('chart', {
+                            ...EXAMPLE_IFRAME_CHART_PARAMS,
+                            iframeAspectRatio: '16-10',
+                        }),
+                    );
+                    const iframe = $('.ons-chart__iframe');
+                    expect(iframe.hasClass('ons-chart__iframe--16-9')).toBe(true);
                 });
 
                 test('THEN: the theme parameter is ignored', () => {
