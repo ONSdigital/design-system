@@ -1,0 +1,201 @@
+---
+title: 'Example: Table of contents on full page'
+layout: ~
+---
+
+{% from "components/hero/_macro.njk" import onsHero %}
+{% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+{% extends "layout/_template.njk" %}
+{%
+    set pageConfig = {
+        "header": {
+            "variants": 'basic',
+            "menuLinks": {
+            "id": "menu-links",
+            "keyLinks": [
+                {
+                    'heading': 'Taking part in a survey?',
+                    'description': 'It’s never been more important.'
+                },
+                {
+                    'heading': 'Release calendar',
+                    'description': 'View our latest and upcoming releases.'
+                },
+                {
+                    'heading': 'Explore local statistics',
+                    'url': '#0',
+                    'description': 'Explore statistics across the UK.'
+                }
+            ],
+            "columns": [
+                {
+                    "groups": [
+                        {
+                            "heading": "People, population and community",
+                            "groupItems": [
+                                {
+                                    "text": "Armed forces community"
+                                },
+                                {
+                                    "text": "Births, deaths and marriages"
+                                },
+                                {
+                                    "text": "Crime and justice"
+                                },
+                                {
+                                    "text": "Cultural identity"
+                                },
+                                {
+                                    "text": "Education and childcare"
+                                },
+                                {
+                                    "text": "Elections"
+                                },
+                                {
+                                    "text": "Health and social care"
+                                },
+                                {
+                                    "text": "Household characteristics"
+                                },
+                                {
+                                    "text": "Housing"
+                                },
+                                {
+                                    "text": "Leisure and tourism"
+                                },
+                                {
+                                    "text": "Personal and household finances"
+                                },
+                                {
+                                    "text": "Population and migration"
+                                },
+                                {
+                                    "text": "Well-being"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "groups": [
+                        {
+                            "heading": "Business, industry and trade",
+                            "groupItems": [
+                                {
+                                    "text": "Business"
+                                },
+                                {
+                                    "text": "Changes to business"
+                                },
+                                {
+                                    "text": "Construction industry"
+                                },
+                                {
+                                    "text": "International trade"
+                                },
+                                {
+                                    "text": "IT and internet industry"
+                                },
+                                {
+                                    "text": "Manufacturing and production industry"
+                                },
+                                {
+                                    "text": "Retail industry",
+                                    "url": "#0"
+                                },
+                                {
+                                    "text": "Tourism industry"
+                                }
+                            ]
+                        },
+                        {
+                            "heading": "Employment and labour market",
+                            "url": "#0",
+                            "groupItems":
+                            [
+                                {
+                                    "text": "People in work"
+                                },
+                                {
+                                    "text": "People not in work"
+                                }
+                            ]
+
+                        }
+                    ]
+                },
+                {
+                    "groups": [
+                        {
+                            "heading": "Economy",
+                            "groupItems": [
+                                {
+                                    "text": "Economic output and productivity"
+                                },
+                                {
+                                    "text": "Government, public sector and taxes"
+                                },
+                                {
+                                    "text": "Gross Value Added (GVA)"
+                                },
+                                {
+                                    "text": "Investments, pensions and trusts"
+                                },
+                                {
+                                    "text": "Regional accounts"
+                                },
+                                {
+                                    "text": "Environmental accounts"
+                                },
+                                {
+                                    "text": "Gross Domestic Product (GDP)"
+                                },
+                                {
+                                    "text": "Inflation and price indices"
+                                },
+                                {
+                                    "text": "National accounts"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+        }
+    }
+%}
+{% block pageContent %}
+    {{
+        onsBreadcrumbs({
+            "ariaLabel": 'Breadcrumbs',
+            "variant": "pale-blue",
+            "itemsList": [
+                {
+                    "url": '/',
+                    "text": 'Home'
+                },
+                {
+                    "url": '/',
+                    "text": 'Business, industry and trade'
+                },
+                {
+                    "url": '/',
+                    "text": 'Retail industry'
+                }
+            ]
+        })
+    }}
+    <main id="main-content">
+        {{
+            onsHero({
+                "title": 'Design and build digital services for the ONS',
+                "text": 'Everything you need to make accessible, consistent digital products',
+                "button": {
+                    "url": '#0',
+                    "text": 'Get started'
+                }
+            })
+        }}
+    </main>
+{% endblock %}
