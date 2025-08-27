@@ -4,11 +4,7 @@ import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
-import {
-    EXAMPLE_FULL_ANNOUNCEMENT_BANNER,
-    EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER,
-    EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER_WIDE,
-} from './_test_examples';
+import { EXAMPLE_FULL_ANNOUNCEMENT_BANNER, EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER } from './_test_examples';
 
 describe('FOR: Macro: Announcement-banner', () => {
     describe('GIVEN: Params: required', () => {
@@ -70,16 +66,40 @@ describe('FOR: Macro: Announcement-banner', () => {
             });
         });
         describe('WHEN: wide is provided as one of the variants', () => {
-            const $ = cheerio.load(renderComponent('announcement-banner', EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER_WIDE));
+            const $ = cheerio.load(
+                renderComponent('announcement-banner', { ...EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER, variants: ['wide', 'red'] }),
+            );
             test('THEN: containers are not created with the correct classes', () => {
                 expect($('.ons-announcement-banner--red > .ons-container').length).toBe(0);
             });
         });
         describe('WHEN: red is provided alongside other variants', () => {
-            const $ = cheerio.load(renderComponent('announcement-banner', EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER_WIDE));
+            const $ = cheerio.load(
+                renderComponent('announcement-banner', { ...EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER, variants: ['wide', 'red'] }),
+            );
             test('THEN: the banner has the correct variant class', async () => {
                 const banner = $('.ons-announcement-banner');
                 expect(banner.hasClass('ons-announcement-banner--red')).toBe(true);
+            });
+        });
+        describe('WHEN: wide is provided as the only variant as a string', () => {
+            const $ = cheerio.load(renderComponent('announcement-banner', { ...EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER, variants: 'wide' }));
+            test('THEN: it defaults to the black variant', async () => {
+                const banner = $('.ons-announcement-banner');
+                expect(banner.hasClass('ons-announcement-banner--black')).toBe(true);
+            });
+            test('THEN: containers are not created with the correct classes', () => {
+                expect($('.ons-announcement-banner--black > .ons-container').length).toBe(0);
+            });
+        });
+        describe('WHEN: wide is provided as the only variant in an array', () => {
+            const $ = cheerio.load(renderComponent('announcement-banner', { ...EXAMPLE_REQUIRED_ANNOUNCEMENT_BANNER, variants: ['wide'] }));
+            test('THEN: it defaults to the black variant', async () => {
+                const banner = $('.ons-announcement-banner');
+                expect(banner.hasClass('ons-announcement-banner--black')).toBe(true);
+            });
+            test('THEN: containers are not created with the correct classes', () => {
+                expect($('.ons-announcement-banner--black > .ons-container').length).toBe(0);
             });
         });
     });
