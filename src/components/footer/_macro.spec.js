@@ -412,12 +412,12 @@ describe('macro: footer', () => {
             });
         });
         describe('correct link for language', () => {
-            it('has the Welsh lang link when the default Welsh lang ons icon is present', () => {
+            it('has the Welsh lang link when the default Welsh lang ONS icon is present', () => {
                 const $ = cheerio.load(renderComponent('footer', { lang: 'cy' }));
 
                 expect($('.ons-footer__logo-link').attr('href')).toBe('https://cy.ons.gov.uk/');
             });
-            it('has the English lang link when the default English lang ons icon is present', () => {
+            it('has the English lang link when the default English lang ONS icon is present', () => {
                 const $ = cheerio.load(renderComponent('footer', { lang: 'en' }));
 
                 expect($('.ons-footer__logo-link').attr('href')).toBe('https://www.ons.gov.uk/');
