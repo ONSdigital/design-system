@@ -14,20 +14,24 @@ Nunjucks macros for components and templates are available from npm. Built CSS a
 yarn add @ons/design-system
 ```
 
-## Run Locally
+## Running the DS Locally
 
-You'll need [Git](https://help.github.com/articles/set-up-git/), [Node.js](https://nodejs.org/en/), and [Yarn](https://yarnpkg.com/en/docs/getting-started) to run this project locally.
+You'll need to install:
+
+-   [Git](https://help.github.com/articles/set-up-git/)
+-   [Node.js](https://nodejs.org/en/)
+-   [Yarn](https://yarnpkg.com/en/docs/getting-started) (When installing yarn be sure to install yarn through brew using `brew install yarn` not using npm)
 
 The version of node required is outlined in [.nvmrc](./.nvmrc).
 
-### Using nvm (optional)
+### Using NVM
 
 If you work across multiple Node.js projects there's a good chance they require different Node.js and npm versions.
 
 To enable this we use [nvm (Node Version Manager)](https://github.com/creationix/nvm) to switch between versions easily.
 
 1. [install nvm](https://github.com/creationix/nvm#installation)
-2. Run nvm install in the project directory (this will use .nvmrc)
+2. Run `nvm install` in the project directory (this will use .nvmrc)
 
 ### Install dependencies
 
