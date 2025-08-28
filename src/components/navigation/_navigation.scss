@@ -133,6 +133,10 @@
     &--sub-neutral & {
         &__link {
             color: var(--ons-color-black);
+            &:hover,
+            &:focus {
+                color: var(--ons-color-black);
+            }
         }
         &__item {
             &:hover {
@@ -142,6 +146,10 @@
                 border-color: var(--ons-color-black);
             }
         }
+    }
+
+    &--sub-mobile.ons-navigation--sub-neutral {
+        background: var(--ons-color-white);
     }
 
     &__item--active > &__link {

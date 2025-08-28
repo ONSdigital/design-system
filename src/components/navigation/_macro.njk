@@ -77,7 +77,7 @@
                 <div
                     class="ons-container ons-container--gutterless@2xs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}"
                 >
-                    <ul class="ons-navigation__list">
+                    <ul class="ons-navigation__list ons-navigation__list">
                         {% for item in params.navigation.subNavigation.itemsList %}
                             <li
                                 class="ons-navigation__item{{ ' ' + item.classes if item.classes else '' }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}"
@@ -100,7 +100,9 @@
                 </div>
             </nav>
         {% endif %}
-        <div class="ons-u-d-no@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes else '' }}">
+        <div
+            class="ons-u-d-no@l{{ ' ons-navigation--neutral' if params.variants == 'neutral' else '' }}{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes else '' }}"
+        >
             {{
                 onsButton({
                     "text": params.navigation.currentPageTitle,
@@ -115,7 +117,7 @@
                 })
             }}
             <nav
-                class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-2xs"
+                class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-2xs{{ ' ons-navigation--sub-neutral' if params.variants == 'neutral' else '' }}"
                 id="{{ params.navigation.subNavigation.id }}--mobile"
                 aria-hidden="true"
                 aria-label="{{ params.navigation.subNavigation.ariaLabel | default('Section menu') }}"
