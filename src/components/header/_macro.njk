@@ -482,28 +482,33 @@
                             </div>
                         {% endif %}
                         {% if params.navigation or params.siteSearchAutosuggest %}
-                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
+                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@2xs@xs ons-u-d-no@l">
                                 {% if params.siteSearchAutosuggest %}
+                                    <<<<<<< Updated upstream
                                     {% if params.variants == 'neutral' %}
                                         {% set buttonVariant = ["small", "ghost-dark"] %}
                                     {% else %}
                                         {% set buttonVariant = ["small", "ghost"] %}
                                     {% endif %}
                                     <span class="ons-grid ons-u-d-no@2xs@xs ons-u-ml-no ons-u-d-no@l">
-                                        {{
-                                            onsButton({
-                                                "text": params.searchLinks.searchNavigationButtonText | default('Search'),
-                                                "classes": "ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search",
-                                                "variants": buttonVariant,
-                                                "iconType": "search",
-                                                "iconPosition": "only",
-                                                "attributes": {
-                                                    "aria-label": params.searchLinks.searchNavigationButtonAriaLabel | default('Toggle search'),
-                                                    "aria-controls": "ons-site-search",
-                                                    "aria-expanded": "false"
-                                                }
-                                            })
-                                        }}
+                                        =======
+                                        <span class="ons-grid ons-u-ml-no">
+                                            >>>>>>> Stashed changes
+                                            {{
+                                                onsButton({
+                                                    "text": params.searchLinks.searchNavigationButtonText | default('Search'),
+                                                    "classes": "ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search",
+                                                    "variants": buttonVariant,
+                                                    "iconType": "search",
+                                                    "iconPosition": "only",
+                                                    "attributes": {
+                                                        "aria-label": params.searchLinks.searchNavigationButtonAriaLabel | default('Toggle search'),
+                                                        "aria-controls": "ons-site-search",
+                                                        "aria-expanded": "false"
+                                                    }
+                                                })
+                                            }}
+                                        </span>
                                     </span>
                                 {% endif %}
                                 {% if params.navigation.toggleNavigationButton %}
