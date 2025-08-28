@@ -99,7 +99,7 @@ $button-shadow-size: 3px;
         }
     }
 
-    // When preceded by another button (for example, in a group)
+    // When preceded by another button (for example in a group)
     & + & {
         margin-left: 0.5rem;
     }
@@ -569,6 +569,34 @@ $button-shadow-size: 3px;
     &--dropdown.active:focus & {
         &__inner {
             background: var(--ons-color-branded-secondary);
+            color: var(--ons-color-white);
+            .ons-icon {
+                fill: var(--ons-color-white);
+            }
+        }
+    }
+
+    .ons-navigation--neutral &--dropdown {
+        .ons-btn__inner {
+            background: var(--ons-color-grey-15);
+            color: var(--ons-color-black);
+            .ons-icon {
+                fill: var(--ons-color-black);
+            }
+        }
+        &:focus {
+            .ons-btn__inner {
+                background: var(--ons-color-focus);
+            }
+        }
+    }
+
+    .ons-navigation--neutral &--dropdown:active &,
+    .ons-navigation--neutral &--dropdown.active &,
+    .ons-navigation--neutral &--dropdown:active:focus &,
+    .ons-navigation--neutral &--dropdown.active:focus & {
+        &__inner {
+            background: var(--ons-color-grey-100);
             color: var(--ons-color-white);
             .ons-icon {
                 fill: var(--ons-color-white);

@@ -461,17 +461,12 @@
                         </div>
 
                         {% if params.button %}
-                            {% if params.variants == 'neutral' %}
-                                {% set buttonVariant = "ghost-dark" %}
-                            {% else %}
-                                {% set buttonVariant = "ghost" %}
-                            {% endif %}
                             <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
                                 {{
                                     onsButton({
                                         "text": params.button.text,
                                         "classes": "ons-u-d-no@2xs@l" if params.navigation else "ons-u-d-no@2xs@m",
-                                        "variants": buttonVariant,
+                                        "variants": "ghost",
                                         "name": params.button.name,
                                         "attributes": params.button.attributes,
                                         "url": params.button.url,
@@ -484,17 +479,12 @@
                         {% if params.navigation or params.siteSearchAutosuggest %}
                             <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
                                 {% if params.siteSearchAutosuggest %}
-                                    {% if params.variants == 'neutral' %}
-                                        {% set buttonVariant = ["small", "ghost-dark"] %}
-                                    {% else %}
-                                        {% set buttonVariant = ["small", "ghost"] %}
-                                    {% endif %}
                                     <span class="ons-grid ons-u-d-no@2xs@xs ons-u-ml-no ons-u-d-no@l">
                                         {{
                                             onsButton({
                                                 "text": params.searchLinks.searchNavigationButtonText | default('Search'),
                                                 "classes": "ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search",
-                                                "variants": buttonVariant,
+                                                "variants": ["small", "ghost"],
                                                 "iconType": "search",
                                                 "iconPosition": "only",
                                                 "attributes": {
@@ -507,12 +497,11 @@
                                     </span>
                                 {% endif %}
                                 {% if params.navigation.toggleNavigationButton %}
-                                    {% set buttonVariant = ["mobile", "ghost"] %}
                                     {{
                                         onsButton({
                                             "text": params.navigation.toggleNavigationButton.text,
                                             "classes": "ons-u-ml-2xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l",
-                                            "variants": buttonVariant,
+                                            "variants": ["mobile", "ghost"],
                                             "attributes": {
                                                 "aria-label": params.navigation.toggleNavigationButton.ariaLabel | default("Toggle main menu") ,
                                                 "aria-controls": params.navigation.id,
