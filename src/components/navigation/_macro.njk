@@ -7,25 +7,18 @@
         >
             {% if params.siteSearchAutosuggest %}
                 <div class="ons-navigation-search ons-js-navigation-search">
-                    {% set autosuggestClasses = "ons-input-search ons-input-search--icon" %}
-                    {% set autosuggestLabelClasses = "ons-u-pl-xl" %}
-                    {% if params.variants == "neutral" %}
-                        {% set autosuggestClasses = autosuggestClasses + ' ons-input-search--dark' %}
-                    {% else %}
-                        {% set autosuggestLabelClasses = autosuggestLabelClasses + ' ons-label--white' %}
-                    {% endif %}
                     {{
                         onsAutosuggest({
                             "id": "ons-site-search",
                             "containerClasses": "ons-autosuggest--header",
                             "input": {
-                                "classes": autosuggestClasses,
+                                "classes": "ons-input-search ons-input-search--icon",
                                 "accessiblePlaceholder": true,
                                 "autocomplete": "off",
                                 "label": {
                                     "text": params.siteSearchAutosuggest.label,
                                     "id": "ons-site-search-label",
-                                    "classes": autosuggestLabelClasses
+                                    "classes": "ons-u-pl-xl ons-label--white"
                                 }
                             },
                             "instructions": params.siteSearchAutosuggest.instructions,
@@ -48,13 +41,13 @@
             <nav
                 class="ons-navigation ons-navigation--main ons-js-navigation"
                 id="{{ params.navigation.id }}"
-                aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}"
+                aria-label="{{ params.navigation.ariaLabel | default('Main menu') }}"
                 data-analytics="header-navigation"
             >
                 <ul class="ons-navigation__list">
                     {% for item in params.navigation.itemsList %}
                         <li
-                            class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}"
+                            class="ons-navigation__item{{ ' ' + item.classes if item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}"
                         >
                             <a
                                 class="ons-navigation__link"
@@ -76,7 +69,7 @@
     {% if params.navigation.subNavigation %}
         {% if not params.navigation.subNavigation.removeHorizontalSubNav %}
             <nav
-                class="ons-navigation ons-navigation--sub ons-u-d-no@2xs@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes else '' }}"
+                class="ons-navigation ons-u-d-no@2xs@l{{ ' ons-navigation--sub-neutral' if params.variants == 'neutral' else ' ons-navigation--sub' }}{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes else '' }}"
                 id="{{ params.navigation.subNavigation.id }}"
                 aria-label="{{ params.navigation.subNavigation.ariaLabel | default('Section menu') }}"
                 data-analytics="header-section-navigation"
@@ -84,13 +77,13 @@
                 <div
                     class="ons-container ons-container--gutterless@2xs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}"
                 >
-                    <ul class="ons-navigation__list ons-navigation__list">
+                    <ul class="ons-navigation__list">
                         {% for item in params.navigation.subNavigation.itemsList %}
                             <li
                                 class="ons-navigation__item{{ ' ' + item.classes if item.classes else '' }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}"
                             >
                                 <a
-                                    class="ons-navigation__link ons-navigation__link"
+                                    class="ons-navigation__link"
                                     href="{{ item.url }}"
                                     {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}"{% endif %}
                                     {% if item.id %}id="{{ item.id }}"{% endif %}
@@ -125,7 +118,7 @@
                 class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-2xs"
                 id="{{ params.navigation.subNavigation.id }}--mobile"
                 aria-hidden="true"
-                aria-label="{{ params.navigation.subNavigation.ariaLabel | default("Section menu") }}"
+                aria-label="{{ params.navigation.subNavigation.ariaLabel | default('Section menu') }}"
                 data-analytics="header-section-navigation"
             >
                 <div

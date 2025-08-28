@@ -14,6 +14,11 @@
         padding-top: 0.5rem;
     }
 
+    &--sub-neutral {
+        background: var(--ons-color-grey-15);
+        padding-top: 0.5rem;
+    }
+
     &--sub-mobile {
         border-bottom: 4px solid var(--ons-color-branded-tint);
     }
@@ -122,6 +127,20 @@
             display: inline-block;
             margin: 0;
             padding: 0;
+        }
+    }
+
+    &--sub-neutral & {
+        &__link {
+            color: var(--ons-color-black);
+        }
+        &__item {
+            &:hover {
+                border-color: var(--ons-color-black);
+            }
+            &--active {
+                border-color: var(--ons-color-black);
+            }
         }
     }
 
