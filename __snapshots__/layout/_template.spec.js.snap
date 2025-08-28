@@ -2020,7 +2020,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
             <nav class="ons-navigation ons-u-d-no@2xs@l ons-navigation--sub-neutral" id="sub-nav" aria-label="Section menu" data-analytics="header-section-navigation">
                 <div class="ons-container ons-container--gutterless@2xs@l">
-                    <ul class="ons-navigation__list">
+                    <ul class="ons-navigation__list ons-navigation__list">
                         
                             <li class="ons-navigation__item">
                                 <a class="ons-navigation__link" href="#0">
@@ -2058,7 +2058,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                 </div>
             </nav>
         
-        <div class="ons-u-d-no@l">
+        <div class="ons-u-d-no@l ons-navigation--neutral">
             
 
     
@@ -2091,7 +2091,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     </button>
 
-            <nav class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-2xs" id="sub-nav--mobile" aria-hidden="true" aria-label="Section menu" data-analytics="header-section-navigation">
+            <nav class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-2xs ons-navigation--sub-neutral" id="sub-nav--mobile" aria-hidden="true" aria-label="Section menu" data-analytics="header-section-navigation">
                 <div class="ons-container ons-container--gutterless@2xs@l">
                     <ul class="ons-navigation__list ons-navigation__list--parent">
                         <li class="ons-navigation__item">
