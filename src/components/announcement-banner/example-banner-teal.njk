@@ -1,0 +1,13 @@
+{% from "components/announcement-banner/_macro.njk" import onsAnnouncementBanner %}
+
+{{
+    onsAnnouncementBanner({
+        "variants": 'teal',
+        "title": 'Local emergency',
+        "description": 'This is a level 2 incident',
+        "link": {
+            "text": 'More information',
+            "url": '#0'
+        }
+    })
+}}
