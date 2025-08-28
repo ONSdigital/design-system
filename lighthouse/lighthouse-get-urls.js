@@ -46,6 +46,7 @@ async function getUrls() {
         'example-errors-proto-errors.html',
         'example-feedback-form.html',
         'example-feedback-form-errors.html',
+        'example-confirmation-page.html',
     ];
     for (const directory of directories) {
         const folders = await readdir(directory.path);
