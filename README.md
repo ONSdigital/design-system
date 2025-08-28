@@ -33,7 +33,7 @@ To enable this we use [nvm (Node Version Manager)](https://github.com/creationix
 
 ```bash
 yarn install
-yarn husky install
+yarn husky
 ```
 
 ### Start a local server
