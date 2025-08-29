@@ -728,7 +728,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: XAxis', () => {
+        describe('GIVEN: Params: xAxis', () => {
             describe('WHEN: xAxis options are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_PARAMS));
                 const configScript = $(`script[data-highcharts-config--bar-chart-123]`).html();
