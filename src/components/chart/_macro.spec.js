@@ -1194,7 +1194,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: UseStackedLayout', () => {
+        describe('GIVEN: Params: useStackedLayout', () => {
             describe('WHEN: Stacked layout is enabled', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
