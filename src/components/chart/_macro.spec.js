@@ -247,7 +247,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: YAxis', () => {
+        describe('GIVEN: Params: yAxis', () => {
             describe('WHEN: yAxis options are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
                 const configScript = $(`script[data-highcharts-config--chart-456]`).html();
