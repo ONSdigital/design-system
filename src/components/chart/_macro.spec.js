@@ -70,7 +70,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Instructions', () => {
+        describe('GIVEN: Params: instructions', () => {
             describe('WHEN: instructions is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -96,7 +96,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Theme', () => {
+        describe('GIVEN: Params: theme', () => {
             describe('WHEN: theme is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -111,7 +111,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Heading Level', () => {
+        describe('GIVEN: Params: headingLevel', () => {
             describe('WHEN: heading level is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -141,7 +141,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Tick Interval', () => {
+        describe('GIVEN: Params: tickInterval', () => {
             describe('WHEN: tick interval is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -173,7 +173,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Legend', () => {
+        describe('GIVEN: Params: legend', () => {
             describe('WHEN: legend is true', () => {
                 const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS, legend: true }));
 
@@ -327,7 +327,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Series', () => {
+        describe('GIVEN: Params: series', () => {
             describe('WHEN: series data is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
                 const configScript = $(`script[data-highcharts-config--chart-456]`).html();
@@ -341,7 +341,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Desktop', () => {
+        describe('GIVEN: Params: percentageHeightDesktop', () => {
             describe('WHEN: percentage height desktop is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
                 test('THEN: it includes correct percentage height desktop', () => {
@@ -350,7 +350,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Mobile', () => {
+        describe('GIVEN: Params: percentageHeightMobile', () => {
             describe('WHEN: percentage height mobile is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
                 test('THEN: it includes correct percentage height mobile', () => {
@@ -405,7 +405,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Caption', () => {
+        describe('GIVEN: Params: caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -444,7 +444,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Description', () => {
+        describe('GIVEN: Params: description', () => {
             describe('WHEN: description is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -459,7 +459,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Download', () => {
+        describe('GIVEN: Params: download', () => {
             describe('WHEN: download object is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -486,7 +486,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Legend', () => {
+        describe('GIVEN: Params: legend', () => {
             describe('WHEN: legend parameter is provided and set to true', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -535,7 +535,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Range annotations', () => {
+        describe('GIVEN: Params: rangeAnnotations', () => {
             describe('WHEN: range annotations params are provided on the yaxis with label width', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS),
@@ -591,7 +591,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Reference line annotations', () => {
+        describe('GIVEN: Params: referenceLineAnnotations', () => {
             describe('WHEN: reference line annotations params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_REFERENCE_LINE_ANNOTATIONS_PARAMS));
 
@@ -615,7 +615,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Annotations', () => {
+        describe('GIVEN: Params: annotations', () => {
             describe('WHEN: annotations params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_ANNOTATIONS_PARAMS));
 
@@ -644,7 +644,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Mixed annotations', () => {
+        describe('GIVEN: Params: mixedAnnotations', () => {
             describe('WHEN: mixed annotations params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS));
 
@@ -699,7 +699,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Legend', () => {
+        describe('GIVEN: Params: legend', () => {
             describe('WHEN: legend is true', () => {
                 const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_BAR_CHART_PARAMS, legend: true }));
 
@@ -851,7 +851,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Desktop', () => {
+        describe('GIVEN: Params: percentageHeightDesktop', () => {
             describe('WHEN: percentage height desktop is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_WITH_PERCENTAGE_HEIGHT_PARAMS));
                 test('THEN: it does not include percentage height desktop', () => {
@@ -860,7 +860,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Mobile', () => {
+        describe('GIVEN: Params: percentageHeightMobile', () => {
             describe('WHEN: percentage height mobile is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_WITH_PERCENTAGE_HEIGHT_PARAMS));
                 test('THEN: it does not include percentage height mobile', () => {
@@ -869,7 +869,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Caption', () => {
+        describe('GIVEN: Params: caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -884,7 +884,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Description', () => {
+        describe('GIVEN: Params: description', () => {
             describe('WHEN: description is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -899,7 +899,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Download', () => {
+        describe('GIVEN: Params: download', () => {
             describe('WHEN: download object is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -926,7 +926,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: UseStackedLayout', () => {
+        describe('GIVEN: Params: useStackedLayout', () => {
             describe('WHEN: useStackedLayout is set to true', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -945,7 +945,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Annotations', () => {
+        describe('GIVEN: Params: annotations', () => {
             describe('WHEN: annotations params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_WITH_ANNOTATIONS_PARAMS));
                 test('THEN: it passes jest-axe checks', async () => {
@@ -1002,7 +1002,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Legend', () => {
+        describe('GIVEN: Params: legend', () => {
             describe('WHEN: legend is true', () => {
                 const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_COLUMN_CHART_PARAMS, legend: true }));
 
@@ -1119,7 +1119,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Desktop', () => {
+        describe('GIVEN: Params: percentageHeightDesktop', () => {
             describe('WHEN: percentage height desktop is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_PARAMS));
                 test('THEN: it includes correct percentage height desktop', () => {
@@ -1128,7 +1128,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Mobile', () => {
+        describe('GIVEN: Params: percentageHeightMobile', () => {
             describe('WHEN: percentage height mobile is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_PARAMS));
                 test('THEN: it includes correct percentage height mobile', () => {
@@ -1137,7 +1137,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Caption', () => {
+        describe('GIVEN: Params: caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1152,7 +1152,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Description', () => {
+        describe('GIVEN: Params: description', () => {
             describe('WHEN: description is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1167,7 +1167,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Download', () => {
+        describe('GIVEN: Params: download', () => {
             describe('WHEN: download object is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1213,7 +1213,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Annotations', () => {
+        describe('GIVEN: Params: annotations', () => {
             describe('WHEN: annotations params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_WITH_ANNOTATIONS_PARAMS));
 
@@ -1290,7 +1290,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Legend', () => {
+        describe('GIVEN: Params: legend', () => {
             describe('WHEN: legend is enabled', () => {
                 const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS, legend: false }));
 
@@ -1301,7 +1301,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Caption', () => {
+        describe('GIVEN: Params: caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1316,7 +1316,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Description', () => {
+        describe('GIVEN: Params: description', () => {
             describe('WHEN: description is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1331,7 +1331,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Download', () => {
+        describe('GIVEN: Params: download', () => {
             describe('WHEN: download object is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1358,7 +1358,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Series', () => {
+        describe('GIVEN: Params: series', () => {
             describe('WHEN: a series item has an invalid type', () => {
                 const invalidTypeParams = {
                     ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
@@ -1379,7 +1379,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: ChartType', () => {
+        describe('GIVEN: Params: chartType', () => {
             describe('WHEN: chartType is not compatible with line series', () => {
                 const params = {
                     ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
@@ -1415,6 +1415,7 @@ describe('Macro: Chart', () => {
                 });
             });
         });
+
         describe('GIVEN: Params: xAxis', () => {
             describe('WHEN: xAxis options are provided', () => {
                 test('THEN: xAxis min and max are included in config', () => {
@@ -1582,7 +1583,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Legend', () => {
+        describe('GIVEN: Params: legend', () => {
             describe('WHEN: legend is enabled', () => {
                 const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_AREA_CHART_PARAMS, legend: false }));
 
@@ -1593,7 +1594,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Caption', () => {
+        describe('GIVEN: Params: caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1608,7 +1609,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Description', () => {
+        describe('GIVEN: Params: description', () => {
             describe('WHEN: description is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1623,7 +1624,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Download', () => {
+        describe('GIVEN: Params: download', () => {
             describe('WHEN: download object are provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1650,7 +1651,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Footnotes', () => {
+        describe('GIVEN: Params: footnotes', () => {
             describe('WHEN: footnotes are provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1670,7 +1671,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: YAxis', () => {
+        describe('GIVEN: Params: yAxis', () => {
             describe('WHEN: yAxis options are provided', () => {
                 test('THEN: yAxis min and max are included in config', () => {
                     const params = {
@@ -1770,7 +1771,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Legend', () => {
+        describe('GIVEN: Params: legend', () => {
             describe('WHEN: both labels are provided and legend is enabled', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1853,7 +1854,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Description', () => {
+        describe('GIVEN: Params: description', () => {
             describe('WHEN: description is provided', () => {
                 const accessibleDescription = 'An accessible description for screen readers.';
                 const $ = cheerio.load(
@@ -1869,7 +1870,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Estimate Line Label', () => {
+        describe('GIVEN: Params: estimateLineLabel', () => {
             describe('WHEN: estimateLineLabel is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1885,7 +1886,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Uncertainty Range Label', () => {
+        describe('GIVEN: Params: uncertaintyRangeLabel', () => {
             describe('WHEN: uncertaintyRangeLabel is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1901,7 +1902,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: YAxis', () => {
+        describe('GIVEN: Params: yAxis', () => {
             describe('WHEN: yAxis min and max are provided', () => {
                 test('THEN: yAxis min and max are included in config ', () => {
                     const params = {
@@ -1972,7 +1973,7 @@ describe('Macro: Chart', () => {
     });
 
     describe('FOR: Column Range Chart', () => {
-        describe('GIVEN: Params: Required', () => {
+        describe('GIVEN: Params: required', () => {
             describe('WHEN: required params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_RANGE_CHART_PARAMS));
                 const configScript = $(`script[data-highcharts-config--column-range-chart-123]`).html();
@@ -1999,7 +2000,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: YAxis', () => {
+        describe('GIVEN: Params: yAxis', () => {
             describe('WHEN: yAxis min and max are provided', () => {
                 test('THEN: yAxis min and max are included in config', () => {
                     const params = {
@@ -2070,7 +2071,7 @@ describe('Macro: Chart', () => {
     });
 
     describe('FOR: Invalid Chart', () => {
-        describe('GIVEN: Params: Chart type', () => {
+        describe('GIVEN: Params: chartType', () => {
             describe('WHEN: an invalid chart type is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_INVALID_CHART_PARAMS));
 
@@ -2131,7 +2132,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Theme', () => {
+        describe('GIVEN: Params: theme', () => {
             describe('WHEN: theme is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -2146,7 +2147,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Desktop', () => {
+        describe('GIVEN: Params: percentageHeightDesktop', () => {
             describe('WHEN: percentageHeightDesktop is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -2161,7 +2162,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Mobile', () => {
+        describe('GIVEN: Params: percentageHeightMobile', () => {
             describe('WHEN: percentageHeightMobile is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -2176,7 +2177,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Tick Interval', () => {
+        describe('GIVEN: Params: tickInterval', () => {
             describe('WHEN: tickIntervalDesktop and tickIntervalMobile are provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -2195,7 +2196,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Estimate Line Label', () => {
+        describe('GIVEN: Params: estimateLineLabel', () => {
             describe('WHEN: estimateLineLabel is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -2210,7 +2211,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Uncertainty Range Label', () => {
+        describe('GIVEN: Params: uncertaintyRangeLabel', () => {
             describe('WHEN: uncertaintyRangeLabel is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -2225,7 +2226,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Custom Reference Line Value', () => {
+        describe('GIVEN: Params: customReferenceLineValue', () => {
             describe('WHEN: customReferenceLineValue is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -2240,7 +2241,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: ChartType', () => {
+        describe('GIVEN: Params: chartType', () => {
             describe('WHEN: chartType is boxplot and legend params are provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -2258,7 +2259,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Invalid Chart Type', () => {
+        describe('GIVEN: Params: invalidChartType', () => {
             describe('WHEN: an invalid chart type is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -2273,7 +2274,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Annotations', () => {
+        describe('GIVEN: Params: annotations', () => {
             describe('WHEN: annotations, rangeAnnotations and referenceLineAnnotations are provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -2296,7 +2297,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Iframe Aspect Ratio', () => {
+        describe('GIVEN: Params: iframeAspectRatio', () => {
             describe('WHEN: iframeAspectRatio is not set', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_IFRAME_CHART_PARAMS));
 
@@ -2333,7 +2334,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: FallbackImageUrl', () => {
+        describe('GIVEN: Params: fallbackImageUrl', () => {
             describe('WHEN: fallbackImageUrl is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
