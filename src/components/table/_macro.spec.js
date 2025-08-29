@@ -55,6 +55,42 @@ describe('macro: table', () => {
         expect($('.ons-table').hasClass('another-extra-class')).toBe(true);
     });
 
+    it('renders "scrollable" container element', () => {
+        const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
+
+        expect($('.ons-table-scrollable').length).toBe(1);
+        expect($('.ons-table-scrollable--on').length).toBe(1);
+    });
+
+    it('renders "content" container element', () => {
+        const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
+
+        expect($('.ons-table-scrollable__content').length).toBe(1);
+    });
+
+    it('renders an appropriate `aria-label` attribute on the "content" container element', () => {
+        const $ = cheerio.load(
+            renderComponent('table', {
+                ...EXAMPLE_TABLE,
+                caption: 'Example table caption',
+            }),
+        );
+
+        expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Scrollable table');
+    });
+
+    it('renders a custom `aria-label` attribute on the "content" container element', () => {
+        const $ = cheerio.load(
+            renderComponent('table', {
+                ...EXAMPLE_TABLE,
+                caption: 'Example table caption',
+                ariaLabel: 'Special table',
+            }),
+        );
+
+        expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Special table');
+    });
+
     describe('header row', () => {
         it('renders header cells with expected text', () => {
             const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
@@ -493,50 +529,6 @@ describe('macro: table', () => {
 
             const footerCellValues = mapAll($('.ons-table__foot .ons-table__cell'), (node) => node.text().trim());
             expect(footerCellValues).toEqual(['Footer Cell 1', 'Footer Cell 2', 'Footer Cell 3']);
-        });
-    });
-
-    describe('scrollable variant', () => {
-        const params = {
-            ...EXAMPLE_TABLE,
-            variants: ['scrollable'],
-            caption: 'Example table caption',
-        };
-
-        it('has the "scrollable" variant class', () => {
-            const $ = cheerio.load(renderComponent('table', params));
-
-            expect($('.ons-table').hasClass('ons-table--scrollable')).toBe(true);
-        });
-
-        it('renders "scrollable" container element', () => {
-            const $ = cheerio.load(renderComponent('table', params));
-
-            expect($('.ons-table-scrollable').length).toBe(1);
-            expect($('.ons-table-scrollable--on').length).toBe(1);
-        });
-
-        it('renders "content" container element', () => {
-            const $ = cheerio.load(renderComponent('table', params));
-
-            expect($('.ons-table-scrollable__content').length).toBe(1);
-        });
-
-        it('renders an appropriate `aria-label` attribute on the "content" container element', () => {
-            const $ = cheerio.load(renderComponent('table', params));
-
-            expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Scrollable table');
-        });
-
-        it('renders a custom `aria-label` attribute on the "content" container element', () => {
-            const $ = cheerio.load(
-                renderComponent('table', {
-                    ...params,
-                    ariaLabel: 'Special table',
-                }),
-            );
-
-            expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Special table');
         });
     });
 
