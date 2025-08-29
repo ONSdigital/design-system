@@ -1923,7 +1923,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             </div>
                         
                         
-                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@2xs@xs ons-u-d-no@l">
+                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@l">
                                 
                                 
                                     
