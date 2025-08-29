@@ -1042,7 +1042,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: YAxis', () => {
+        describe('GIVEN: Params: yAxis', () => {
             describe('WHEN: yAxis options are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_PARAMS));
                 const configScript = $(`script[data-highcharts-config--column-chart-123]`).html();
