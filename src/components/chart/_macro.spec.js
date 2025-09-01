@@ -213,7 +213,7 @@ describe('Macro: Chart', () => {
                 });
             });
 
-            describe('WHEN: xaxis min and max are provided', () => {
+            describe('WHEN: xAxis min and max are provided', () => {
                 test('THEN: xAxis min and max are ignored', () => {
                     const params = {
                         id: 'test-chart',
