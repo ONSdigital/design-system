@@ -291,7 +291,7 @@ describe('Macro: Chart', () => {
                 });
             });
 
-            describe('WHEN: yaxis min and max are not provided', () => {
+            describe('WHEN: yAxis min and max are not provided', () => {
                 test('THEN: yAxis min and max are not included in config', () => {
                     const params = {
                         id: 'test-chart',
