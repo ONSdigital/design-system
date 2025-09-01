@@ -173,35 +173,6 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: legend', () => {
-            describe('WHEN: legend is true', () => {
-                const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS, legend: true }));
-
-                test('THEN: it renders the legend', () => {
-                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
-                    expect(configScript).toContain('"legend":{"enabled":true}');
-                });
-            });
-
-            describe('WHEN: legend is false', () => {
-                const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS, legend: false }));
-
-                test('THEN: it disables the legend', () => {
-                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
-                    expect(configScript).toContain('"legend":{"enabled":false}');
-                });
-            });
-
-            describe('WHEN: legend is not provided', () => {
-                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS));
-
-                test('THEN: it defaults to enabled', () => {
-                    const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
-                    expect(configScript).toContain('"legend":{"enabled":true}');
-                });
-            });
-        });
-
         describe('GIVEN: Params: xAxis', () => {
             describe('WHEN: xAxis options are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
@@ -388,9 +359,7 @@ describe('Macro: Chart', () => {
                     expect(noScriptFallbackImage).toContain('alt="A description of the fallback image for screen readers"');
                 });
             });
-        });
 
-        describe('GIVEN: Params: fallbackImageAlt', () => {
             describe('WHEN: fallbackImageAlt is not provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -525,10 +494,10 @@ describe('Macro: Chart', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
-                        legend: 'false',
+                        legend: 'flase',
                     }),
                 );
-                test('THEN: it renders the legend', () => {
+                test('THEN: it renders the legend default value', () => {
                     const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
                     expect(configScript).toContain('"legend":{"enabled":true}');
                 });
@@ -1625,7 +1594,7 @@ describe('Macro: Chart', () => {
         });
 
         describe('GIVEN: Params: download', () => {
-            describe('WHEN: download object are provided', () => {
+            describe('WHEN: download object is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_AREA_CHART_PARAMS,
