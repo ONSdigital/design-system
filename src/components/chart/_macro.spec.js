@@ -554,7 +554,7 @@ describe('Macro: Chart', () => {
                 });
             });
 
-            describe('WHEN: range annotations params are provided on the xaxis', () => {
+            describe('WHEN: range annotations params are provided on the xAxis', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS));
 
                 test('THEN: it passes jest-axe checks', async () => {
