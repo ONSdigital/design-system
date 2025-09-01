@@ -536,7 +536,7 @@ describe('Macro: Chart', () => {
         });
 
         describe('GIVEN: Params: rangeAnnotations', () => {
-            describe('WHEN: range annotations params are provided on the yaxis with label width', () => {
+            describe('WHEN: range annotations params are provided on the yAxis with label width', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS),
                 );
