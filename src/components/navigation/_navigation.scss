@@ -131,17 +131,14 @@
     }
 
     &--sub-neutral & {
-        &__link {
-            color: var(--ons-color-black);
-            &:hover,
-            &:focus {
-                color: var(--ons-color-black);
-            }
+        &__link,
+        &__link:hover,
+        &__link:focus {
+            color: var(--ons-color-red);
         }
+
         &__item {
-            &:hover {
-                border-color: var(--ons-color-black);
-            }
+            &:hover,
             &--active {
                 border-color: var(--ons-color-black);
             }
