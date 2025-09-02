@@ -61,6 +61,9 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                     
                     
                         
+                    
+                    
+                        
     
     
     
@@ -1059,6 +1062,9 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                     
                     
                         
+                    
+                    
+                        
     
     
     
@@ -1300,6 +1306,9 @@ exports[`base page template matches the footer block override snapshot 1`] = `
     
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
 
+                    
+                    
+                        
                     
                     
                         
@@ -1567,6 +1576,31 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
 
+                    
+                    
+                        
+                            
+                            
+
+    
+        
+    
+
+    
+
+    
+        <div class="ons-announcement-banner__container ons-announcement-banner--red">
+            <div class="ons-container">
+        <div class="ons-announcement-banner ons-announcement-banner--red">
+            <h2 class="ons-announcement-banner__title">ONS Announcement</h2>
+            <p class="ons-announcement-banner__description">This is an important announcement from ONS.</p>
+            <a class="ons-announcement-banner__link" href="/announcement">Read more</a>
+        </div>
+    </div>
+        </div>
+    
+
+                        
                     
                     
                         
@@ -1889,7 +1923,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             </div>
                         
                         
-                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
+                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@l">
                                 
                                 
                                     
@@ -2872,6 +2906,9 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                     
                     
                         
+                    
+                    
+                        
     
     
     
@@ -3097,6 +3134,9 @@ exports[`base page template matches the social block override snapshot 1`] = `
     
     <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
 
+                    
+                    
+                        
                     
                     
                         
