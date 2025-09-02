@@ -477,9 +477,9 @@
                             </div>
                         {% endif %}
                         {% if params.navigation or params.siteSearchAutosuggest %}
-                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
+                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@l">
                                 {% if params.siteSearchAutosuggest %}
-                                    <span class="ons-grid ons-u-d-no@2xs@xs ons-u-ml-no ons-u-d-no@l">
+                                    <span class="ons-grid ons-u-ml-no ons-u-d-no@2xs@xs">
                                         {{
                                             onsButton({
                                                 "text": params.searchLinks.searchNavigationButtonText | default('Search'),
