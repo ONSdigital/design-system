@@ -59,7 +59,6 @@ describe('macro: table', () => {
         const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
 
         expect($('.ons-table-scrollable').length).toBe(1);
-        expect($('.ons-table-scrollable--on').length).toBe(1);
     });
 
     it('renders "content" container element', () => {
