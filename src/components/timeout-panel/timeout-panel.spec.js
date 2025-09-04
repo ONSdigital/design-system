@@ -137,7 +137,7 @@ describe('script: timeout panel', () => {
         });
     });
 
-    describe('when Javascript is disabled', () => {
+    describe('when JavaScript is disabled', () => {
         beforeEach(async () => {
             const expiryTime = new Date(Date.now() + 1 * 1000);
             const expiryTimeInISOFormat = new Date(expiryTime).toISOString();

@@ -38,6 +38,7 @@ class BarChart {
                 // Update the category label colours for bar charts
                 labels: {
                     style: {
+                        textOverflow: 'ellipsis',
                         color: this.constants.categoryLabelColor,
                     },
                     useHTML: false,
@@ -46,7 +47,14 @@ class BarChart {
                 tickWidth: 0,
                 tickLength: 0,
                 tickColor: 'transparent',
-                title: { align: 'high', textAlign: 'middle', reserveSpace: false, rotation: 0, y: -25, useHTML: true },
+                title: {
+                    text: '', // Set to an empty string to hide the x-axis title for bar charts
+                    textAlign: 'middle',
+                    reserveSpace: false,
+                    rotation: 0,
+                    y: -25,
+                    useHTML: true,
+                },
             },
             yAxis: {
                 labels: {
@@ -70,6 +78,7 @@ class BarChart {
     };
 
     // Updates the config to move the data labels inside the bars, but only if the bar is wide enough
+    // See the checkHideDataLabels function in chart.js for more details about when this function is run
     // This also runs when the chart is resized
     postLoadDataLabels = (currentChart) => {
         const insideOptions = this.getBarChartLabelsInsideOptions();

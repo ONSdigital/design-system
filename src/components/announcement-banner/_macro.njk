@@ -1,0 +1,33 @@
+{% macro onsAnnouncementBanner(params) %}
+
+    {% if params.variants %}
+        {% if 'wide' in params.variants %}
+            {% set width = "wide" %}
+        {% endif %}
+    {% endif %}
+
+    {% set content %}
+        <div
+            class="ons-announcement-banner{% if params.variants %}{% if params.variants == 'wide' or params.variants | length == 1 and 'wide' in params.variants %}{{ ' ' }}ons-announcement-banner--black{% elif params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-announcement-banner--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-announcement-banner--{{ params.variants }}{% endif %}{% else %}{{ ' ' }}ons-announcement-banner--black{% endif %}"
+        >
+            <h2 class="ons-announcement-banner__title">{{ params.title }}</h2>
+            <p class="ons-announcement-banner__description">{{ params.description }}</p>
+            <a
+                class="ons-announcement-banner__link"
+                {% if params.link.attributes %}{% for attribute, value in (params.link.attributes.items() if params.link.attributes is mapping and params.link.attributes.items else params.link.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                href="{{ params.link.url }}"
+                >{{ params.link.text }}</a
+            >
+        </div>
+    {% endset %}
+
+    {% if width != "wide" %}
+        <div
+            class="ons-announcement-banner__container{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-announcement-banner--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-announcement-banner--{{ params.variants }}{% endif %}{% else %}{{ ' ' }}ons-announcement-banner--black{% endif %}"
+        >
+            <div class="ons-container">{{ content | safe }}</div>
+        </div>
+    {% else %}
+        {{ content | safe }}
+    {% endif %}
+{% endmacro %}

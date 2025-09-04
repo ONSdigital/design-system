@@ -65,7 +65,7 @@ class RangeAnnotationsOptions {
                     // So that if we have both types of annotations, the numbers will be sequential
                     text: `${annotationsLength + index + 1}`,
                     useHTML: true,
-                    className: 'ons-chart__footnote-number',
+                    className: 'ons-chart__annotations-footnotes-number',
                     allowOverlap: true,
                     style: {
                         color: this.constants.labelColor,
@@ -160,7 +160,7 @@ class RangeAnnotationsOptions {
             }
 
             // Create and add the connecting line
-            const line = document.createElement('div');
+            const line = document.createElement('tspan');
             line.classList.add('ons-chart__connector-line');
             line.setAttribute('data-range-annotation-line', true);
             labelElement.appendChild(line);

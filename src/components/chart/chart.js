@@ -31,6 +31,11 @@ class HighchartsBaseChart {
             console.error('No chart node found');
             return;
         }
+
+        // Add a CSS class to the chart based on the chart type (e.g., 'bar-chart-container', 'line-chart-container')
+        // This allows type-specific styling in CSS.
+        chartNode.classList.add(`${this.chartType}-chart-container`);
+
         this.id = this.node.dataset.highchartsId;
         this.useStackedLayout = this.node.hasAttribute('data-highcharts-use-stacked-layout');
         this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.id}]`).textContent);
@@ -187,9 +192,15 @@ class HighchartsBaseChart {
     };
 
     // Check if the data labels should be hidden
-    // They should be hidden for clustered bar charts with more than 2 series, and also for stacked bar charts
+    // They should be hidden where there are more than 20 data points in a series, for clustered bar charts with more than 2 series, and also for stacked bar charts
     checkHideDataLabels = () => {
-        return (this.chartType === 'bar' && this.config.series.length > 2) || this.useStackedLayout === true;
+        let hideDataLabels = (this.chartType === 'bar' && this.config.series.length > 2) || this.useStackedLayout === true;
+        this.config.series.forEach((series) => {
+            if (series.data.length > 20) {
+                hideDataLabels = true;
+            }
+        });
+        return hideDataLabels;
     };
 
     // Adjust font size and annotations for smaller width of chart
