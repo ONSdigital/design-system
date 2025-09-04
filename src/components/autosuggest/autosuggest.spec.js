@@ -386,9 +386,11 @@ describe('script: autosuggest', () => {
     describe('when the mouse moves over a result and a suggestion is focused', () => {
         it('removes the focused class', async () => {
             await setTestPage('/test', renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
+            await page.mouse.move(0, 0); // move out of the component
 
             await page.type('.ons-js-autosuggest-input', 'state', { delay: 20 });
             await page.keyboard.press('ArrowDown');
+
             await page.hover('.ons-autosuggest__option:nth-child(2)');
 
             const focusedClassCount = await page.$$eval('.ons-autosuggest__option--focused', (nodes) => nodes.length);

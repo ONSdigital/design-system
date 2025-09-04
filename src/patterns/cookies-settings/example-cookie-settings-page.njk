@@ -9,44 +9,6 @@ layout: ~
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/details/_macro.njk" import onsDetails %}
 {% from "components/table/_macro.njk" import onsTable %}
-{% block head %}
-    <!-- Google Tag Manager -->
-    <script>
-        function loadGTM() {
-            (function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-                var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s),
-                    dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' +
-                    i +
-                    dl +
-                    '&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x';
-                f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-TLWR59T');
-        }
-        var a = /^(.*)?\s*'usage':true\s*[^;]+(.*)?$/;
-        if (document.cookie.match(a)) {
-            loadGTM();
-        }
-    </script>
-    <!-- End Google Tag Manager -->
-{% endblock %}
-{% block bodyStart %}
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-        ><iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-TLWR59T&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x"
-            height="0"
-            width="0"
-            style="display:none;visibility:hidden"
-        ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-{% endblock %}
 {% block preHeader %}
     {% from "components/cookies-banner/_macro.njk" import onsCookiesBanner %}
     {{ onsCookiesBanner() }}
@@ -95,7 +57,7 @@ layout: ~
         <p>We use cookies to store information about how you use the ONS website, such as the pages you visit.</p>
         <h2>Cookie settings</h2>
         <div class="ons-u-db-no-js_enabled">
-            <p>We use JavaScript to set our cookies. Javascript is not running on your browser so you cannot change your settings.</p>
+            <p>We use JavaScript to set our cookies. JavaScript is not running on your browser so you cannot change your settings.</p>
             <p>You can try:</p>
             <ul>
                 <li>turning on JavaScript in your browser</li>
@@ -337,7 +299,7 @@ layout: ~
                 <p>These essential cookies do things like:</p>
                 <ul>
                     <li>remember the notifications you've seen so we do not show them to you again</li>
-                    <li>remember your progress through a form (for example, an ons study)</li>
+                    <li>remember your progress through a form (for example, an ONS study)</li>
                 </ul>
                 <p>They always need to be on.</p>
                 {%

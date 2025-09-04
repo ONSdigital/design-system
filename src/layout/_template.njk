@@ -146,6 +146,19 @@
                             })
                         }}
                     {% endblock %}
+                    {% block announcementBanner %}
+                        {% if pageConfig.announcementBanner %}
+                            {% from "components/announcement-banner/_macro.njk" import onsAnnouncementBanner %}
+                            {{
+                                onsAnnouncementBanner({
+                                    "variants": pageConfig.announcementBanner.variants,
+                                    "title": pageConfig.announcementBanner.title,
+                                    "description": pageConfig.announcementBanner.description,
+                                    "link": pageConfig.announcementBanner.link
+                                })
+                            }}
+                        {% endif %}
+                    {% endblock %}
                     {% block header %}
                         {{
                             onsHeader({
@@ -167,7 +180,10 @@
                                 "title": pageConfig.header.title | default(pageConfig.title),
                                 "description": pageConfig.header.description,
                                 "titleAsH1": pageConfig.header.titleAsH1,
-                                "titleLogo": pageConfig.header.titleLogo
+                                "titleLogo": pageConfig.header.titleLogo,
+                                "mastheadLogoAltText": pageConfig.header.mastheadLogoAltText,
+                                "menuLinks": pageConfig.header.menuLinks,
+                                "searchLinks": pageConfig.header.searchLinks
                             })
                         }}
                     {% endblock %}

@@ -7,6 +7,7 @@
     {% set openingTag = "<" + titleTag %}
     {% set closingTag = "</" + titleTag + ">" %}
     {% set currentLanguageIsoCode = "en" %}
+    {% set logoAltText = params.mastheadLogoAltText or params.mastheadLogo.altText %}
 
     {% if params.language and params.language.languages %}
         {% set currentLanguage = params.language.languages | selectattr("current") | first %}
@@ -15,7 +16,6 @@
 
     <header
         class="ons-header{{ ' '+ params.classes if params.classes }}{% if params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-header--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-header--{{ params.variants }}{% endif %}"
-        role="banner"
     >
         {{
             onsBrowserBanner({
@@ -43,7 +43,6 @@
                 >
                     <div class="ons-grid__col ons-col-auto">
                         {%- if not params.mastheadLogo.multipleLogos -%}
-
                             {% set mastheadLogo %}
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
                                     {% if params.mastheadLogo.large %}
@@ -52,7 +51,7 @@
                                         {{-
                                             onsIcon({
                                                 "iconType": 'ons-logo-' + currentLanguageIsoCode,
-                                                "altText": 'Office for National Statistics homepage'
+                                                "altText": logoAltText | default('Office for National Statistics logo')
                                             })
                                         -}}
                                     {% endif %}
@@ -66,7 +65,7 @@
                                         {{-
                                             onsIcon({
                                                 "iconType": 'ons-logo-stacked-' + currentLanguageIsoCode,
-                                                "altText": 'Office for National Statistics logo'
+                                                "altText": logoAltText | default('Office for National Statistics logo')
                                             })
                                         -}}
                                     {% endif %}
@@ -89,7 +88,7 @@
                                             {{-
                                                 onsIcon({
                                                     "iconType": 'ons-logo-stacked-' + currentLanguageIsoCode,
-                                                    "altText": 'Office for National Statistics logo'
+                                                    "altText": logoAltText | default('Office for National Statistics logo')
                                                 })
                                             -}}
                                         {% endif %}
@@ -103,12 +102,206 @@
                             </div>
                         {%- endif -%}
                     </div>
-                    {% if params.language or params.serviceLinks %}
-                        <div class="ons-header__links ons-grid__col ons-u-ml-auto">
+
+                    {% if params.variants == "basic" %}
+                        <div class="ons-grid__col ons-col-auto ons-header__menu-links ons-u-ml-auto">
+                            {% if params.menuLinks %}
+                                <div class="ons-header__links ons-grid__col">
+                                    {{
+                                        onsButton({
+                                            "text": params.menuLinks.toggleMenuButton.text | default("Menu"),
+                                            "classes": "ons-u-fs-s--b ons-js-toggle-nav-menu button-nav active disabled",
+                                            "type": "button",
+                                            "variants": "menu",
+                                            "iconType": "chevron",
+                                            "iconPosition": "before",
+                                            "attributes": {
+                                                "aria-label": params.menuLinks.toggleMenuButton.ariaLabel | default("Toggle menu"),
+                                                "aria-controls": params.menuLinks.id,
+                                                "aria-expanded": "true",
+                                                "aria-disabled": "true"
+                                            }
+                                        })
+                                    }}
+                                </div>
+                            {% endif %}
+
                             {% if params.language %}
                                 <div class="ons-grid__col ons-col-auto{{ ' ons-u-mr-s ons-u-d-no@2xs@xs' if params.serviceLinks }}">
-                                    {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
-                                    {{ onsLanguageSelector(params.language) }}
+                                    <div class="ons-header__language">
+                                        {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                                        {{ onsLanguageSelector(params.language) }}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if params.variants == "basic" and params.menuLinks %}
+                                <nav
+                                    class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl"
+                                    id="{{ params.menuLinks.id }}"
+                                    aria-label="{{ params.menuLinks.ariaLabel | default("Menu navigation") }}"
+                                    aria-hidden="false"
+                                >
+                                    {% if params.menuLinks.keyLinks %}
+                                        <div class="ons-container">
+                                            <ul class="ons-grid ons-header-nav-menu__key-list">
+                                                {% for keyLink in params.menuLinks.keyLinks %}
+                                                    {% if keyLink.heading %}
+                                                        <li class="ons-grid__col ons-col-4@m ons-header-nav-menu__col">
+                                                            <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
+                                                                {% if keyLink.url %}
+                                                                    <a href="{{ keyLink.url }}" class="ons-header-nav-menu__link"
+                                                                        >{{ keyLink.heading }}</a
+                                                                    >
+                                                                {% else %}
+                                                                    {{ keyLink.heading }}
+                                                                {% endif %}
+                                                            </h2>
+                                                            {% if keyLink.description %}
+                                                                <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">
+                                                                    {{ keyLink.description }}
+                                                                </p>
+                                                            {% endif %}
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                    {% if params.menuLinks.columns %}
+                                        <div class="ons-container">
+                                            <ul class="ons-grid ons-list ons-list--bare">
+                                                {% for column in params.menuLinks.columns %}
+                                                    <li class="ons-grid__col ons-col-4@m ons-u-mb-no ons-header-nav-menu__col">
+                                                        {% for group in column.groups %}
+                                                            {% if group.heading %}
+                                                                <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
+                                                                    {% if group.url %}
+                                                                        <a href="{{ group.url }}" class="ons-header-nav-menu__link"
+                                                                            >{{ group.heading }}</a
+                                                                        >
+                                                                    {% else %}
+                                                                        {{ group.heading }}
+                                                                    {% endif %}
+                                                                </h2>
+                                                            {% endif %}
+                                                            {% if group.groupItems %}
+                                                                <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
+                                                                    {% for groupItem in group.groupItems %}
+                                                                        {% if groupItem.text %}
+                                                                            <li class="ons-u-mb-no">
+                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                                    {% if groupItem.url %}
+                                                                                        <a
+                                                                                            href="{{ groupItem.url }}"
+                                                                                            class="ons-header-nav-menu__link"
+                                                                                        >
+                                                                                            {{ groupItem.text }}
+                                                                                        </a>
+                                                                                    {% else %}
+                                                                                        {{ groupItem.text }}
+                                                                                    {% endif %}
+                                                                                </p>
+                                                                            </li>
+                                                                        {% endif %}
+                                                                    {% endfor %}
+                                                                </ul>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </nav>
+                            {% endif %}
+
+                            {% if params.searchLinks %}
+                                <div class="ons-header__links ons-grid__col ons-header__menu-link">
+                                    {{
+                                        onsButton({
+                                            "classes": "ons-u-fs-s--b ons-js-toggle-header-search ons-btn--close ons-btn--search-icon active disabled",
+                                            "type": "button",
+                                            "variants": "search",
+                                            "iconType": "search",
+                                            "attributes": {
+                                                "aria-label": params.searchLinks.searchButtonAriaLabel | default("Toggle search"),
+                                                "aria-controls": params.searchLinks.id,
+                                                "aria-expanded": "true",
+                                                "aria-disabled": "true"
+                                            }
+                                        })
+                                    }}
+                                </div>
+                            {% endif %}
+
+                            {% if params.variants == "basic" and params.searchLinks %}
+                                <nav
+                                    class="ons-js-header-search ons-header-nav-search {{ params.searchLinks.classes }}"
+                                    id="{{ params.searchLinks.id }}"
+                                    aria-label="{{ params.searchLinks.searchNavigationAriaLabel | default('Search navigation') }}"
+                                    aria-hidden="false"
+                                >
+                                    <div class="ons-container">
+                                        <div class="ons-header-nav-search__input">
+                                            {% from "components/input/_macro.njk" import onsInput %}
+                                            {{
+                                                onsInput({
+                                                    "id": 'search-field',
+                                                    "width": 'full',
+                                                    "label": {
+                                                        "text": params.searchLinks.searchNavigationInputLabel | default('Search the ONS'),
+                                                        "id": "header-search-input-label"
+                                                    },
+                                                    "searchButton": {
+                                                        "visuallyHideButtonText": true,
+                                                        "text": params.searchLinks.searchNavigationButtonText | default('Search'),
+                                                        "iconType": 'search',
+                                                        'variant': 'header'
+                                                    }
+                                                })
+                                            }}
+                                        </div>
+                                    </div>
+                                    {% if params.searchLinks %}
+                                        <div class="ons-container">
+                                            <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">
+                                                {{ params.searchLinks.heading }}
+                                            </h2>
+                                            <ul class="ons-list ons-list--bare ons-list--inline">
+                                                {% for item in params.searchLinks.itemsList %}
+                                                    {# Limiting the popular searches to 5 #}
+                                                    {% if loop.index <= 5 %}
+                                                        <li class="ons-list__item">
+                                                            {% if item.text %}
+                                                                {% if item.url %}
+                                                                    <a href="{{ item.url }}" class="ons-u-fs-r ons-header-nav-search__text"
+                                                                        >{{ item.text }}
+                                                                    </a>
+                                                                {% else %}
+                                                                    <p class="ons-u-fs-r ons-header-nav-search__text">{{ item.text }}</p>
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </nav>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    {% if params.language or params.serviceLinks %}
+                        <div
+                            class="ons-header__links ons-grid__col{{ ' ons-u-ml-auto' if not params.searchLinks and not params.menuLinks }}"
+                        >
+                            {% if params.language %}
+                                <div class="ons-grid__col ons-col-auto{{ ' ons-u-mr-s ons-u-d-no@2xs@xs' if params.serviceLinks }}">
+                                    <div class="ons-header__language">
+                                        {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                                        {{ onsLanguageSelector(params.language) }}
+                                    </div>
                                 </div>
                             {% endif %}
                             {% if params.serviceLinks %}
@@ -180,29 +373,6 @@
                             {% endif %}
                         </div>
                     {% endif %}
-                    {% if params.menuLinks %}
-                        <div class="ons-header__links ons-grid__col ons-u-ml-auto">
-                            {% if params.menuLinks %}
-                                <div class="ons-grid__col ons-col-auto">
-                                    {{
-                                        onsButton({
-                                            "text": params.menuLinks.toggleNavButton.text | default("Menu"),
-                                            "classes": "ons-u-fs-s--b ons-js-toggle-services button-nav",
-                                            "type": "button",
-                                            "variants": "menu",
-                                            "iconType": "chevron",
-                                            "iconPosition": "before",
-                                            "attributes": {
-                                                "aria-label": params.menuLinks.toggleNavButton.ariaLabel | default("Toggle menu"),
-                                                "aria-controls": params.menuLinks.id,
-                                                "aria-expanded": "false"
-                                            }
-                                        })
-                                    }}
-                                </div>
-                            {% endif %}
-                        </div>
-                    {% endif %}
                 </div>
             </div>
             {% if params.serviceLinks %}
@@ -235,79 +405,9 @@
                         {% endfor %}
                     </ul>
                     {% if params.language %}
-                        {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
-                        {{ onsLanguageSelector(params.language) }}
-                    {% endif %}
-                </nav>
-            {% endif %}
-            {% if params.menuLinks %}
-                <nav
-                    class="ons-u-d-no ons-js-services-mobile-nav ons-header-nav-menu ons-u-mb-s ons-u-pt-2xl"
-                    id="{{ params.menuLinks.id }}"
-                    aria-label="{{ params.menuLinks.ariaLabel | default("Menu navigation") }}"
-                >
-                    {% if params.menuLinks.keyLinks %}
-                        <div class="ons-container">
-                            <ul class="ons-grid ons-header-nav-menu__key-list">
-                                {% for keyLink in params.menuLinks.keyLinks %}
-                                    {% if keyLink.heading %}
-                                        <li class="ons-grid__col ons-col-4@m">
-                                            <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
-                                                {% if keyLink.url %}
-                                                    <a href="{{ keyLink.url }}" class="ons-header-nav-menu__link">{{ keyLink.heading }}</a>
-                                                {% else %}
-                                                    {{ keyLink.heading }}
-                                                {% endif %}
-                                            </h2>
-                                            {% if keyLink.description %}
-                                                <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">
-                                                    {{ keyLink.description }}
-                                                </p>
-                                            {% endif %}
-                                        </li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    {% endif %}
-                    {% if params.menuLinks.columns %}
-                        <div class="ons-container">
-                            <ul class="ons-grid ons-list ons-list--bare">
-                                {% for column in params.menuLinks.columns %}
-                                    <li class="ons-grid__col ons-col-4@m ons-u-mb-no">
-                                        {% for group in column.groups %}
-                                            {% if group.heading %}
-                                                <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
-                                                    {% if group.url %}
-                                                        <a href="{{ group.url }}" class="ons-header-nav-menu__link">{{ group.heading }}</a>
-                                                    {% else %}
-                                                        {{ group.heading }}
-                                                    {% endif %}
-                                                </h2>
-                                            {% endif %}
-                                            {% if group.groupItems %}
-                                                <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
-                                                    {% for groupItem in group.groupItems %}
-                                                        {% if groupItem.text %}
-                                                            <li class="ons-u-mb-no">
-                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                    {% if groupItem.url %}
-                                                                        <a href="{{ groupItem.url }}" class="ons-header-nav-menu__link">
-                                                                            {{ groupItem.text }}
-                                                                        </a>
-                                                                    {% else %}
-                                                                        {{ groupItem.text }}
-                                                                    {% endif %}
-                                                                </p>
-                                                            </li>
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                </ul>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </li>
-                                {% endfor %}
-                            </ul>
+                        <div class="ons-header__language">
+                            {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                            {{ onsLanguageSelector(params.language) }}
                         </div>
                     {% endif %}
                 </nav>
@@ -382,23 +482,23 @@
                             </div>
                         {% endif %}
                         {% if params.navigation or params.siteSearchAutosuggest %}
-                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
+                            <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@l">
                                 {% if params.siteSearchAutosuggest %}
                                     {% if params.variants == 'neutral' %}
                                         {% set buttonVariant = ["small", "ghost-dark"] %}
                                     {% else %}
                                         {% set buttonVariant = ["small", "ghost"] %}
                                     {% endif %}
-                                    <span class="ons-grid ons-u-d-no@2xs@xs ons-u-ml-no ons-u-d-no@l">
+                                    <span class="ons-grid ons-u-ml-no ons-u-d-no@2xs@xs">
                                         {{
                                             onsButton({
-                                                "text": "Search",
+                                                "text": params.searchLinks.searchNavigationButtonText | default('Search'),
                                                 "classes": "ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search",
                                                 "variants": buttonVariant,
                                                 "iconType": "search",
                                                 "iconPosition": "only",
                                                 "attributes": {
-                                                    "aria-label": "Toggle search" ,
+                                                    "aria-label": params.searchLinks.searchNavigationButtonAriaLabel | default('Toggle search'),
                                                     "aria-controls": "ons-site-search",
                                                     "aria-expanded": "false"
                                                 }

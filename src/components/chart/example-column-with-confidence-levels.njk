@@ -1,0 +1,58 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+
+{{
+    onsChart({
+        "chartType": "boxplot",
+        "description": "Public sector net debt excluding public sector banks, percentage of gross domestic product (GDP), UK, financial year ending (FYE) 1901 to October 2024",
+        "title": "Figure 6: Net debt as a percentage of GDP remains at levels last seen in the early 1960s",
+        "subtitle": "Public sector net debt excluding public sector banks, percentage of gross domestic product (GDP), UK, financial year ending (FYE) 1901 to October 2024",
+        "id": "uuid",
+        "caption": "Source: Public sector finances from the Office for Budget Responsibility (OBR) and the Office for National Statistics",
+        "download": {
+            'title': 'Download Figure 1 data',
+            'itemsList': [
+                {
+                    "text": "Excel spreadsheet (XLSX format, 18KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Simple text file (CSV format, 25KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Image (PNG format, 25KB)",
+                    "url": "#"
+                }
+            ]
+        },
+        "legend": true,
+        "series": [
+            {
+                "data": [
+                    [760, 801, 848, 895, 965],
+                    [733, 853, 939, 980, 1080],
+                    [714, 762, 817, 870, 918],
+                    [724, 802, 806, 871, 950],
+                    [834, 836, 864, 882, 910],
+                    [939, 939, 939, 939, 939],
+                    [817, 817, 817, 817, 817],
+                    [806, 806, 806, 806, 806],
+                    [864, 864, 864, 864, 864]
+                ]
+            }
+        ],
+        'estimateLineLabel': 'Data line',
+        'uncertaintyRangeLabel': 'Confidence interval',
+        "xAxis": {
+            "categories": ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+            "title":  "Years",
+            "type": "linear",
+            "tickIntervalMobile": 5
+        },
+        "yAxis": {
+            "title": "Percentage of GDP"
+        },
+        "percentageHeightDesktop": 35,
+        "percentageHeightMobile": 90
+    })
+}}
