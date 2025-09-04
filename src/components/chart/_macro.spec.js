@@ -70,7 +70,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Instructions', () => {
+        describe('GIVEN: Params: instructions', () => {
             describe('WHEN: instructions is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -96,7 +96,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Theme', () => {
+        describe('GIVEN: Params: theme', () => {
             describe('WHEN: theme is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -111,7 +111,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Heading Level', () => {
+        describe('GIVEN: Params: headingLevel', () => {
             describe('WHEN: heading level is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -141,7 +141,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Tick Interval', () => {
+        describe('GIVEN: Params: tickInterval', () => {
             describe('WHEN: tick interval is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -173,39 +173,146 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Config', () => {
-            describe('WHEN: config params are provided', () => {
+        describe('GIVEN: Params: xAxis', () => {
+            describe('WHEN: xAxis options are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
                 const configScript = $(`script[data-highcharts-config--chart-456]`).html();
 
-                test('THEN: it renders the legend when enabled', () => {
-                    expect(configScript).toContain('"enabled":true');
-                });
-
-                test('THEN: it includes correct xAxis properties', () => {
+                test('THEN: it renders the xAxis correctly', () => {
                     expect(configScript).toContain('"text":"X Axis Label"');
                     expect(configScript).toContain('"categories":["A","B","C"]');
-                    expect(configScript).toContain('"type":"linear"');
                 });
+            });
 
-                test('THEN: it includes correct yAxis properties', () => {
-                    expect(configScript).toContain('"text":"Y Axis Label"');
-                    expect(configScript).toContain('"labels":{"format":"{value:,.f}"}');
-                });
+            describe('WHEN: xAxis min and max are provided', () => {
+                test('THEN: xAxis min and max are ignored', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        chartType: 'line',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                            min: 1,
+                            max: 10,
+                            startOnTick: true,
+                            endOnTick: true,
+                        },
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                        },
+                        series: [],
+                    };
 
-                test('THEN: it includes correct series data', () => {
-                    expect(configScript).toContain('"name":"Category 1"');
-                    expect(configScript).toContain('"data":[5,15,25]');
-                    expect(configScript).toContain('"name":"Category 2"');
-                    expect(configScript).toContain('"data":[10,20,30]');
-                    expect(configScript).toContain('"connectNulls":true');
-                    expect(configScript).toContain('"marker":{"enabled":true}');
-                    expect(configScript).toContain('"dataLabels":{"enabled":true}');
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    expect(configScript).not.toContain('"min":1');
+                    expect(configScript).not.toContain('"max":10');
+                    expect(configScript).not.toContain('"startOnTick":true');
+                    expect(configScript).not.toContain('"endOnTick":true');
                 });
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Desktop', () => {
+        describe('GIVEN: Params: yAxis', () => {
+            describe('WHEN: yAxis options are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
+                const configScript = $(`script[data-highcharts-config--chart-456]`).html();
+
+                test('THEN: it renders the yAxis correctly', () => {
+                    expect(configScript).toContain('"text":"Y Axis Label"');
+                    expect(configScript).toContain('"labels":{"format":"{value:,.f}"}');
+                });
+            });
+
+            describe('WHEN: yAxis min and max are provided', () => {
+                test('THEN: yAxis min and max are included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'line',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: 0,
+                            max: 100,
+                            startOnTick: false,
+                            endOnTick: true,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    expect(configScript).toContain('"min":0');
+                    expect(configScript).toContain('"max":100');
+                    expect(configScript).toContain('"startOnTick":false');
+                    expect(configScript).toContain('"endOnTick":true');
+                });
+            });
+
+            describe('WHEN: yAxis min and max are not provided', () => {
+                test('THEN: yAxis min and max are not included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'line',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: undefined,
+                            max: undefined,
+                            startOnTick: undefined,
+                            endOnTick: undefined,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    const config = JSON.parse(configScript);
+
+                    expect(config.yAxis.min).toBeUndefined();
+                    expect(config.yAxis.max).toBeUndefined();
+                    expect(config.yAxis.startOnTick).toBeUndefined();
+                    expect(config.yAxis.endOnTick).toBeUndefined();
+                });
+            });
+        });
+
+        describe('GIVEN: Params: series', () => {
+            describe('WHEN: series data is provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
+                const configScript = $(`script[data-highcharts-config--chart-456]`).html();
+
+                test('THEN: it renders the series correctly', () => {
+                    expect(configScript).toContain('"name":"Category 1"');
+                    expect(configScript).toContain('"data":[5,15,25]');
+                    expect(configScript).toContain('"name":"Category 2"');
+                    expect(configScript).toContain('"data":[10,20,30]');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: percentageHeightDesktop', () => {
             describe('WHEN: percentage height desktop is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
                 test('THEN: it includes correct percentage height desktop', () => {
@@ -214,7 +321,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Mobile', () => {
+        describe('GIVEN: Params: percentageHeightMobile', () => {
             describe('WHEN: percentage height mobile is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_CONFIG_PARAMS));
                 test('THEN: it includes correct percentage height mobile', () => {
@@ -252,9 +359,7 @@ describe('Macro: Chart', () => {
                     expect(noScriptFallbackImage).toContain('alt="A description of the fallback image for screen readers"');
                 });
             });
-        });
 
-        describe('GIVEN: Params: no fallbackImageAlt', () => {
             describe('WHEN: fallbackImageAlt is not provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -269,7 +374,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Caption', () => {
+        describe('GIVEN: Params: caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -308,7 +413,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Description', () => {
+        describe('GIVEN: Params: description', () => {
             describe('WHEN: description is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -323,8 +428,8 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Download', () => {
-            describe('WHEN: download object are provided', () => {
+        describe('GIVEN: Params: download', () => {
+            describe('WHEN: download object is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
@@ -350,7 +455,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Legend', () => {
+        describe('GIVEN: Params: legend', () => {
             describe('WHEN: legend parameter is provided and set to true', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -392,9 +497,142 @@ describe('Macro: Chart', () => {
                         legend: 'false',
                     }),
                 );
-                test('THEN: it renders the legend', () => {
+                test('THEN: it renders the legend default value', () => {
                     const configScript = $(`script[data-highcharts-config--line-chart-legend-tests-123]`).html();
                     expect(configScript).toContain('"legend":{"enabled":true}');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: rangeAnnotations', () => {
+            describe('WHEN: range annotations params are provided on the yAxis with label width', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS),
+                );
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the range annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-range-annotations--line-chart-range-annotations-y-axis-123]`).html();
+                    expect(configScript).toContain('"text":"A test y axis range annotation with a label width of 250px"');
+                    expect(configScript).toContain('"axis":"y"');
+                    expect(configScript).toContain('"labelWidth":250');
+                });
+            });
+
+            describe('WHEN: range annotations params are provided on the xAxis', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the range annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-range-annotations--line-chart-range-annotations-x-axis-123]`).html();
+                    expect(configScript).toContain('"text":"A test x axis range annotation"');
+                    expect(configScript).toContain('"range":{"axisValue1":10,"axisValue2":15}');
+                    expect(configScript).toContain('"axis":"x"');
+                    expect(configScript).toContain('"labelOffsetX":150');
+                    expect(configScript).toContain('"labelOffsetY":0');
+                });
+            });
+
+            describe('WHEN: range annotations params are provided with label inside', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the range annotations JSON config', () => {
+                    const configScript = $(
+                        `script[data-highcharts-range-annotations--line-chart-range-annotations-label-inside-123]`,
+                    ).html();
+                    expect(configScript).toContain('"text":"A test y axis range annotation with the label inside"');
+                    expect(configScript).toContain('"axis":"y"');
+                    expect(configScript).toContain('"labelInside":true');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: referenceLineAnnotations', () => {
+            describe('WHEN: reference line annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_REFERENCE_LINE_ANNOTATIONS_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it includes the reference line annotations JSON config', () => {
+                    const configScript = $(
+                        `script[data-highcharts-reference-line-annotations--line-chart-reference-line-annotations-123]`,
+                    ).html();
+                    expect(configScript).toContain('"text":"A test x axis reference line annotation"');
+                    expect(configScript).toContain('"value":34');
+                    expect(configScript).toContain('"axis":"x"');
+                    expect(configScript).toContain('"text":"A test y axis reference line annotation"');
+                    expect(configScript).toContain('"value":12');
+                    expect(configScript).toContain('"axis":"y"');
+                    expect(configScript).toContain('"labelWidth":100');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: annotations', () => {
+            describe('WHEN: annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_ANNOTATIONS_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the footnotes', () => {
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('2');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('Another test annotation');
+                });
+
+                test('THEN: the footnotes are hidden from screen readers', () => {
+                    expect($('.ons-chart__annotations-footnotes').attr('aria-hidden')).toBe('true');
+                });
+
+                test('THEN: it includes the annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-annotations--line-chart-annotations-123]`).html();
+                    expect(configScript).toContain('"text":"A test annotation"');
+                    expect(configScript).toContain('"point":{"x":10,"y":1.3}');
+                    expect(configScript).toContain('"labelOffsetX":10,"labelOffsetY":-50');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: mixedAnnotations', () => {
+            describe('WHEN: mixed annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS));
+
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the footnotes sequentially', () => {
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test point annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('2');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test x axis range annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('3');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test y axis range annotation with the label inside');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('4');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test x axis reference line annotation');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('5');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test y axis reference line annotation');
                 });
             });
         });
@@ -430,29 +668,159 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Config', () => {
-            describe('WHEN: config params are provided', () => {
-                const $ = cheerio.load(
-                    renderComponent('chart', {
-                        ...EXAMPLE_BAR_CHART_PARAMS,
-                        legend: true,
-                    }),
-                );
+        describe('GIVEN: Params: legend', () => {
+            describe('WHEN: legend is true', () => {
+                const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_BAR_CHART_PARAMS, legend: true }));
 
-                test('THEN: it renders the legend when enabled', () => {
+                test('THEN: it renders the legend', () => {
                     const configScript = $(`script[data-highcharts-config--bar-chart-123]`).html();
-                    expect(configScript).toContain('"enabled":true');
+                    expect(configScript).toContain('"legend":{"enabled":true}');
                 });
+            });
 
-                test('THEN: it includes correct xAxis and yAxis titles', () => {
+            describe('WHEN: legend is false', () => {
+                const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_BAR_CHART_PARAMS, legend: false }));
+
+                test('THEN: it disables the legend', () => {
                     const configScript = $(`script[data-highcharts-config--bar-chart-123]`).html();
-                    expect(configScript).toContain('"text":"X Axis Title"');
-                    expect(configScript).toContain('"text":"Y Axis Title"');
+                    expect(configScript).toContain('"legend":{"enabled":false}');
+                });
+            });
+
+            describe('WHEN: legend is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_PARAMS));
+
+                test('THEN: it defaults to enabled', () => {
+                    const configScript = $(`script[data-highcharts-config--bar-chart-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":true}');
                 });
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Desktop', () => {
+        describe('GIVEN: Params: xAxis', () => {
+            describe('WHEN: xAxis options are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_PARAMS));
+                const configScript = $(`script[data-highcharts-config--bar-chart-123]`).html();
+
+                test('THEN: it renders the xAxis correctly', () => {
+                    expect(configScript).toContain('"text":"X Axis Title"');
+                });
+            });
+
+            describe('WHEN: xAxis min and max are provided', () => {
+                test('THEN: xAxis min and max are ignored', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        chartType: 'bar',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                            min: 1,
+                            max: 10,
+                            startOnTick: true,
+                            endOnTick: true,
+                        },
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    expect(configScript).not.toContain('"min":1');
+                    expect(configScript).not.toContain('"max":10');
+                    expect(configScript).not.toContain('"startOnTick":true');
+                    expect(configScript).not.toContain('"endOnTick":true');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: yAxis', () => {
+            describe('WHEN: yAxis options are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_PARAMS));
+                const configScript = $(`script[data-highcharts-config--bar-chart-123]`).html();
+
+                test('THEN: it renders the yAxis correctly', () => {
+                    expect(configScript).toContain('"text":"Y Axis Title"');
+                });
+            });
+
+            describe('WHEN: yAxis min and max are provided', () => {
+                test('THEN: yAxis min and max are included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'line',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: 0,
+                            max: 100,
+                            startOnTick: false,
+                            endOnTick: true,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    expect(configScript).toContain('"min":0');
+                    expect(configScript).toContain('"max":100');
+                    expect(configScript).toContain('"startOnTick":false');
+                    expect(configScript).toContain('"endOnTick":true');
+                });
+            });
+
+            describe('WHEN: yAxis min and max are not provided', () => {
+                test('THEN: yAxis min and max are not included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'line',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: undefined,
+                            max: undefined,
+                            startOnTick: undefined,
+                            endOnTick: undefined,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    const config = JSON.parse(configScript);
+
+                    expect(config.yAxis.min).toBeUndefined();
+                    expect(config.yAxis.max).toBeUndefined();
+                    expect(config.yAxis.startOnTick).toBeUndefined();
+                    expect(config.yAxis.endOnTick).toBeUndefined();
+                });
+            });
+        });
+
+        describe('GIVEN: Params: percentageHeightDesktop', () => {
             describe('WHEN: percentage height desktop is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_WITH_PERCENTAGE_HEIGHT_PARAMS));
                 test('THEN: it does not include percentage height desktop', () => {
@@ -461,7 +829,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Mobile', () => {
+        describe('GIVEN: Params: percentageHeightMobile', () => {
             describe('WHEN: percentage height mobile is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_WITH_PERCENTAGE_HEIGHT_PARAMS));
                 test('THEN: it does not include percentage height mobile', () => {
@@ -470,7 +838,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Caption', () => {
+        describe('GIVEN: Params: caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -485,7 +853,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Description', () => {
+        describe('GIVEN: Params: description', () => {
             describe('WHEN: description is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -500,8 +868,8 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Download', () => {
-            describe('WHEN: download object are provided', () => {
+        describe('GIVEN: Params: download', () => {
+            describe('WHEN: download object is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_BAR_CHART_PARAMS,
@@ -527,8 +895,8 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Stacked Bar Chart', () => {
-            describe('WHEN: Stacked layout is enabled', () => {
+        describe('GIVEN: Params: useStackedLayout', () => {
+            describe('WHEN: useStackedLayout is set to true', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_BAR_CHART_PARAMS,
@@ -542,6 +910,49 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it renders a bar chart with stacked series', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-type')).toBe('bar');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: annotations', () => {
+            describe('WHEN: annotations params are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_WITH_ANNOTATIONS_PARAMS));
+                test('THEN: it passes jest-axe checks', async () => {
+                    const results = await axe($.html());
+                    expect(results).toHaveNoViolations();
+                });
+
+                test('THEN: it renders the footnotes', () => {
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
+                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test annotation');
+                });
+
+                test('THEN: the footnotes are hidden from screen readers', () => {
+                    expect($('.ons-chart__annotations-footnotes').attr('aria-hidden')).toBe('true');
+                });
+
+                test('THEN: it includes the annotations JSON config', () => {
+                    const configScript = $(`script[data-highcharts-annotations--bar-chart-annotations-123]`).html();
+                    expect(configScript).toContain('"text":"A test annotation"');
+                    expect(configScript).toContain('"point":{"x":2,"y":3}');
+                    expect(configScript).toContain('"labelOffsetX":10,"labelOffsetY":-50');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: Series', () => {
+            describe('WHEN: chartType is not compatible with line series', () => {
+                const params = {
+                    ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
+                    chartType: 'bar',
+                };
+
+                const $ = cheerio.load(renderComponent('chart', params));
+                const configScript = $('script[data-highcharts-config--column-chart-123]').html();
+
+                test('THEN: it falls back to chartType and does not include "line" series', () => {
+                    expect(configScript).not.toContain('"type":"line"');
+                    expect(configScript).toContain('"type":"bar"');
                 });
             });
         });
@@ -577,29 +988,124 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Config', () => {
-            describe('WHEN: config params are provided', () => {
-                const $ = cheerio.load(
-                    renderComponent('chart', {
-                        ...EXAMPLE_COLUMN_CHART_PARAMS,
-                        legend: true,
-                    }),
-                );
+        describe('GIVEN: Params: legend', () => {
+            describe('WHEN: legend is true', () => {
+                const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_COLUMN_CHART_PARAMS, legend: true }));
 
-                test('THEN: it renders the legend when enabled', () => {
+                test('THEN: it renders the legend', () => {
                     const configScript = $(`script[data-highcharts-config--column-chart-123]`).html();
-                    expect(configScript).toContain('"enabled":true');
+                    expect(configScript).toContain('"legend":{"enabled":true}');
                 });
+            });
 
-                test('THEN: it includes correct xAxis and yAxis titles', () => {
+            describe('WHEN: legend is false', () => {
+                const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_COLUMN_CHART_PARAMS, legend: false }));
+
+                test('THEN: it disables the legend', () => {
                     const configScript = $(`script[data-highcharts-config--column-chart-123]`).html();
-                    expect(configScript).toContain('"text":"X Axis Title"');
-                    expect(configScript).toContain('"text":"Y Axis Title"');
+                    expect(configScript).toContain('"legend":{"enabled":false}');
+                });
+            });
+
+            describe('WHEN: legend is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_PARAMS));
+
+                test('THEN: it defaults to enabled', () => {
+                    const configScript = $(`script[data-highcharts-config--column-chart-123]`).html();
+                    expect(configScript).toContain('"legend":{"enabled":true}');
                 });
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Desktop', () => {
+        describe('GIVEN: Params: xAxis', () => {
+            describe('WHEN: xAxis options are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_PARAMS));
+                const configScript = $(`script[data-highcharts-config--column-chart-123]`).html();
+
+                test('THEN: it renders the xAxis correctly', () => {
+                    expect(configScript).toContain('"text":"X Axis Title"');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: yAxis', () => {
+            describe('WHEN: yAxis options are provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_PARAMS));
+                const configScript = $(`script[data-highcharts-config--column-chart-123]`).html();
+
+                test('THEN: it renders the yAxis correctly', () => {
+                    expect(configScript).toContain('"text":"Y Axis Title"');
+                });
+            });
+            describe('WHEN: yAxis min and max are provided', () => {
+                test('THEN: yAxis min and max are included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'column',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: 0,
+                            max: 100,
+                            startOnTick: false,
+                            endOnTick: true,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    expect(configScript).toContain('"min":0');
+                    expect(configScript).toContain('"max":100');
+                    expect(configScript).toContain('"startOnTick":false');
+                    expect(configScript).toContain('"endOnTick":true');
+                });
+            });
+            describe('WHEN: yAxis min and max are not provided', () => {
+                test('THEN: yAxis min and max are not included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'column',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: undefined,
+                            max: undefined,
+                            startOnTick: undefined,
+                            endOnTick: undefined,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    const config = JSON.parse(configScript);
+
+                    expect(config.yAxis.min).toBeUndefined();
+                    expect(config.yAxis.max).toBeUndefined();
+                    expect(config.yAxis.startOnTick).toBeUndefined();
+                    expect(config.yAxis.endOnTick).toBeUndefined();
+                });
+            });
+        });
+
+        describe('GIVEN: Params: percentageHeightDesktop', () => {
             describe('WHEN: percentage height desktop is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_PARAMS));
                 test('THEN: it includes correct percentage height desktop', () => {
@@ -608,7 +1114,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Percentage Height Mobile', () => {
+        describe('GIVEN: Params: percentageHeightMobile', () => {
             describe('WHEN: percentage height mobile is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_PARAMS));
                 test('THEN: it includes correct percentage height mobile', () => {
@@ -617,7 +1123,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Caption', () => {
+        describe('GIVEN: Params: caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -632,7 +1138,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Description', () => {
+        describe('GIVEN: Params: description', () => {
             describe('WHEN: description is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -647,8 +1153,8 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Download', () => {
-            describe('WHEN: download object are provided', () => {
+        describe('GIVEN: Params: download', () => {
+            describe('WHEN: download object is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_COLUMN_CHART_PARAMS,
@@ -674,7 +1180,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Stacked Column Chart', () => {
+        describe('GIVEN: Params: useStackedLayout', () => {
             describe('WHEN: Stacked layout is enabled', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -692,69 +1198,8 @@ describe('Macro: Chart', () => {
                 });
             });
         });
-    });
 
-    describe('FOR: Line chart with annotations', () => {
-        describe('GIVEN: Params: Annotations', () => {
-            describe('WHEN: annotations params are provided', () => {
-                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_ANNOTATIONS_PARAMS));
-
-                test('THEN: it passes jest-axe checks', async () => {
-                    const results = await axe($.html());
-                    expect(results).toHaveNoViolations();
-                });
-
-                test('THEN: it renders the footnotes', () => {
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test annotation');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('2');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('Another test annotation');
-                });
-
-                test('THEN: the footnotes are hidden from screen readers', () => {
-                    expect($('.ons-chart__annotations-footnotes').attr('aria-hidden')).toBe('true');
-                });
-
-                test('THEN: it includes the Annotations JSON config', () => {
-                    const configScript = $(`script[data-highcharts-annotations--line-chart-annotations-123]`).html();
-                    expect(configScript).toContain('"text":"A test annotation"');
-                    expect(configScript).toContain('"point":{"x":10,"y":1.3}');
-                    expect(configScript).toContain('"labelOffsetX":10,"labelOffsetY":-50');
-                });
-            });
-        });
-    });
-
-    describe('FOR: Bar chart with annotations', () => {
-        describe('GIVEN: Params: Annotations', () => {
-            describe('WHEN: annotations params are provided', () => {
-                const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_WITH_ANNOTATIONS_PARAMS));
-                test('THEN: it passes jest-axe checks', async () => {
-                    const results = await axe($.html());
-                    expect(results).toHaveNoViolations();
-                });
-
-                test('THEN: it renders the footnotes', () => {
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test annotation');
-                });
-
-                test('THEN: the footnotes are hidden from screen readers', () => {
-                    expect($('.ons-chart__annotations-footnotes').attr('aria-hidden')).toBe('true');
-                });
-
-                test('THEN: it includes the Annotations JSON config', () => {
-                    const configScript = $(`script[data-highcharts-annotations--bar-chart-annotations-123]`).html();
-                    expect(configScript).toContain('"text":"A test annotation"');
-                    expect(configScript).toContain('"point":{"x":2,"y":3}');
-                    expect(configScript).toContain('"labelOffsetX":10,"labelOffsetY":-50');
-                });
-            });
-        });
-    });
-
-    describe('FOR: Column chart with annotations', () => {
-        describe('GIVEN: Params: Annotations', () => {
+        describe('GIVEN: Params: annotations', () => {
             describe('WHEN: annotations params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_CHART_WITH_ANNOTATIONS_PARAMS));
 
@@ -772,7 +1217,7 @@ describe('Macro: Chart', () => {
                     expect($('.ons-chart__annotations-footnotes').attr('aria-hidden')).toBe('true');
                 });
 
-                test('THEN: it includes the Annotations JSON config', () => {
+                test('THEN: it includes the annotations JSON config', () => {
                     const configScript = $(`script[data-highcharts-annotations--column-chart-annotations-123]`).html();
                     expect(configScript).toContain('"text":"A test annotation"');
                     expect(configScript).toContain('"point":{"x":11,"y":31.8}');
@@ -780,11 +1225,9 @@ describe('Macro: Chart', () => {
                 });
             });
         });
-    });
 
-    describe('FOR: Column Chart with Line', () => {
-        describe('GIVEN: Params: required', () => {
-            describe('WHEN: required params are provided', () => {
+        describe('GIVEN: Params: series', () => {
+            describe('WHEN: seriesType is line and required params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS));
                 const configScript = $(`script[data-highcharts-config--column-chart-123]`).html();
 
@@ -811,7 +1254,8 @@ describe('Macro: Chart', () => {
                     expect(configScript).toContain('"text":"Y Axis Title"');
                 });
             });
-            describe('WHEN: more than one line is provided', () => {
+
+            describe('WHEN: seriesType is line and more than one line is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
@@ -829,78 +1273,8 @@ describe('Macro: Chart', () => {
                     expect(lineTypeMatches).toBe(1);
                 });
             });
-        });
 
-        describe('GIVEN: Params: Legend', () => {
-            describe('WHEN: legend is enabled', () => {
-                const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS, legend: false }));
-
-                test('THEN: it renders the legend', () => {
-                    const configScript = $(`script[data-highcharts-config--column-chart-123]`).html();
-                    expect(configScript).toContain('"enabled":false');
-                });
-            });
-        });
-
-        describe('GIVEN: Params: Caption', () => {
-            describe('WHEN: caption is provided', () => {
-                const $ = cheerio.load(
-                    renderComponent('chart', {
-                        ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
-                        caption: 'This is an example caption for the chart.',
-                    }),
-                );
-
-                test('THEN: it renders the caption when provided', () => {
-                    expect($('figcaption').text()).toBe('This is an example caption for the chart.');
-                });
-            });
-        });
-
-        describe('GIVEN: Params: Description', () => {
-            describe('WHEN: description is provided', () => {
-                const $ = cheerio.load(
-                    renderComponent('chart', {
-                        ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
-                        description: 'An accessible description for screen readers.',
-                    }),
-                );
-
-                test('THEN: it renders the description for accessibility', () => {
-                    expect($('#chart-audio-description-column-chart-123').text()).toBe('An accessible description for screen readers.');
-                });
-            });
-        });
-
-        describe('GIVEN: Params: Download', () => {
-            describe('WHEN: download object is provided', () => {
-                const $ = cheerio.load(
-                    renderComponent('chart', {
-                        ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
-                        download: {
-                            title: 'Download Chart Data',
-                            itemsList: [
-                                { text: 'Download as PNG', url: 'https://example.com/chart.png' },
-                                { text: 'Download as CSV', url: 'https://example.com/chart.csv' },
-                            ],
-                        },
-                    }),
-                );
-
-                test('THEN: it renders the download section correctly', () => {
-                    expect($('.ons-chart__download-title').text()).toBe('Download Chart Data');
-
-                    const downloadLinks = $('.ons-chart__download-title').next().find('li a');
-                    expect(downloadLinks.eq(0).text()).toBe('Download as PNG');
-                    expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
-                    expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
-                    expect(downloadLinks.eq(1).attr('href')).toBe('https://example.com/chart.csv');
-                });
-            });
-        });
-
-        describe('GIVEN: Params: Series: Type', () => {
-            describe('WHEN: a series has an invalid type', () => {
+            describe('WHEN: a series item has an invalid type', () => {
                 const invalidTypeParams = {
                     ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
                     series: [
@@ -916,23 +1290,6 @@ describe('Macro: Chart', () => {
                     expect(configScript).not.toContain('"type":"scatter"');
                     expect(configScript).toContain('"type":"column"');
                     expect(configScript).toContain('"type":"line"');
-                });
-            });
-        });
-
-        describe('GIVEN: Params: ChartType', () => {
-            describe('WHEN: chartType is not compatible with line series', () => {
-                const params = {
-                    ...EXAMPLE_COLUMN_WITH_LINE_CHART_PARAMS,
-                    chartType: 'bar',
-                };
-
-                const $ = cheerio.load(renderComponent('chart', params));
-                const configScript = $('script[data-highcharts-config--column-chart-123]').html();
-
-                test('THEN: it falls back to chartType and does not include "line" series', () => {
-                    expect(configScript).not.toContain('"type":"line"');
-                    expect(configScript).toContain('"type":"bar"');
                 });
             });
         });
@@ -953,6 +1310,143 @@ describe('Macro: Chart', () => {
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-theme')).toBe('primary');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-title')).toBe('Example Scatter Chart');
                     expect($('[data-highcharts-base-chart]').attr('data-highcharts-id')).toBe('scatter-chart-123');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: xAxis', () => {
+            describe('WHEN: xAxis options are provided', () => {
+                test('THEN: xAxis min and max are included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        chartType: 'scatter',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                            min: 1,
+                            max: 10,
+                            startOnTick: true,
+                            endOnTick: false,
+                        },
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    expect(configScript).toContain('"min":1');
+                    expect(configScript).toContain('"max":10');
+                    expect(configScript).toContain('"startOnTick":true');
+                    expect(configScript).toContain('"endOnTick":false');
+                });
+            });
+
+            describe('WHEN: xAxis options are not provided', () => {
+                test('THEN: xAxis min and max are not included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        chartType: 'scatter',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                            min: undefined,
+                            max: undefined,
+                            startOnTick: undefined,
+                            endOnTick: undefined,
+                        },
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    const config = JSON.parse(configScript);
+
+                    expect(config.xAxis.min).toBeUndefined();
+                    expect(config.xAxis.max).toBeUndefined();
+                    expect(config.xAxis.startOnTick).toBeUndefined();
+                    expect(config.xAxis.endOnTick).toBeUndefined();
+                });
+            });
+            describe('WHEN: yAxis options are provided', () => {
+                test('THEN: yAxis min and max are included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'scatter',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: 0,
+                            max: 100,
+                            startOnTick: false,
+                            endOnTick: true,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    expect(configScript).toContain('"min":0');
+                    expect(configScript).toContain('"max":100');
+                    expect(configScript).toContain('"startOnTick":false');
+                    expect(configScript).toContain('"endOnTick":true');
+                });
+            });
+
+            describe('WHEN: yAxis options are not provided', () => {
+                test('THEN: yAxis min and max are not included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'scatter',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: undefined,
+                            max: undefined,
+                            startOnTick: undefined,
+                            endOnTick: undefined,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    const config = JSON.parse(configScript);
+
+                    expect(config.yAxis.min).toBeUndefined();
+                    expect(config.yAxis.max).toBeUndefined();
+                    expect(config.yAxis.startOnTick).toBeUndefined();
+                    expect(config.yAxis.endOnTick).toBeUndefined();
                 });
             });
         });
@@ -987,7 +1481,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Legend', () => {
+        describe('GIVEN: Params: legend', () => {
             describe('WHEN: legend is enabled', () => {
                 const $ = cheerio.load(renderComponent('chart', { ...EXAMPLE_AREA_CHART_PARAMS, legend: false }));
 
@@ -998,7 +1492,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Caption', () => {
+        describe('GIVEN: Params: caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1013,7 +1507,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Description', () => {
+        describe('GIVEN: Params: description', () => {
             describe('WHEN: description is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1028,8 +1522,8 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Download', () => {
-            describe('WHEN: download object are provided', () => {
+        describe('GIVEN: Params: download', () => {
+            describe('WHEN: download object is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_AREA_CHART_PARAMS,
@@ -1055,7 +1549,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Footnotes', () => {
+        describe('GIVEN: Params: footnotes', () => {
             describe('WHEN: footnotes are provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1071,6 +1565,75 @@ describe('Macro: Chart', () => {
                     expect($('#footnotes--area-chart-123').length).toBe(1);
                     expect($('#footnotes--area-chart-123').find('ol').length).toBe(1);
                     expect($('#footnotes--area-chart-123').text()).toContain('Footnotes');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: yAxis', () => {
+            describe('WHEN: yAxis options are provided', () => {
+                test('THEN: yAxis min and max are included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'area',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: 0,
+                            max: 100,
+                            startOnTick: false,
+                            endOnTick: true,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    expect(configScript).toContain('"min":0');
+                    expect(configScript).toContain('"max":100');
+                    expect(configScript).toContain('"startOnTick":false');
+                    expect(configScript).toContain('"endOnTick":true');
+                });
+            });
+            describe('WHEN: yAxis options are not provided', () => {
+                test('THEN: yAxis min and max are not included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'area',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: undefined,
+                            max: undefined,
+                            startOnTick: undefined,
+                            endOnTick: undefined,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    const config = JSON.parse(configScript);
+
+                    expect(config.yAxis.min).toBeUndefined();
+                    expect(config.yAxis.max).toBeUndefined();
+                    expect(config.yAxis.startOnTick).toBeUndefined();
+                    expect(config.yAxis.endOnTick).toBeUndefined();
                 });
             });
         });
@@ -1106,7 +1669,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Legend', () => {
+        describe('GIVEN: Params: legend', () => {
             describe('WHEN: both labels are provided and legend is enabled', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
@@ -1189,7 +1752,7 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Description', () => {
+        describe('GIVEN: Params: description', () => {
             describe('WHEN: description is provided', () => {
                 const accessibleDescription = 'An accessible description for screen readers.';
                 const $ = cheerio.load(
@@ -1205,13 +1768,12 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: Estimate Line and Uncertainty Range Labels', () => {
-            describe('WHEN: both labels are provided', () => {
+        describe('GIVEN: Params: estimateLineLabel', () => {
+            describe('WHEN: estimateLineLabel is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_BOXPLOT_CHART_PARAMS,
                         estimateLineLabel: 'Estimated value',
-                        uncertaintyRangeLabel: '95% Confidence Interval',
                     }),
                 );
 
@@ -1219,6 +1781,17 @@ describe('Macro: Chart', () => {
                     const baseChart = $('[data-highcharts-base-chart]');
                     expect(baseChart.attr('data-highcharts-estimate-line-label')).toBe('Estimated value');
                 });
+            });
+        });
+
+        describe('GIVEN: Params: uncertaintyRangeLabel', () => {
+            describe('WHEN: uncertaintyRangeLabel is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BOXPLOT_CHART_PARAMS,
+                        uncertaintyRangeLabel: '95% Confidence Interval',
+                    }),
+                );
 
                 test('THEN: it sets the uncertainty range label as a data attribute', () => {
                     const baseChart = $('[data-highcharts-base-chart]');
@@ -1226,10 +1799,79 @@ describe('Macro: Chart', () => {
                 });
             });
         });
+
+        describe('GIVEN: Params: yAxis', () => {
+            describe('WHEN: yAxis min and max are provided', () => {
+                test('THEN: yAxis min and max are included in config ', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'boxplot',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: 0,
+                            max: 100,
+                            startOnTick: false,
+                            endOnTick: true,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    expect(configScript).toContain('"min":0');
+                    expect(configScript).toContain('"max":100');
+                    expect(configScript).toContain('"startOnTick":false');
+                    expect(configScript).toContain('"endOnTick":true');
+                });
+            });
+            describe('WHEN: yAxis min and max are not provided', () => {
+                test('THEN: yAxis min and max are not included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'boxplot',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: undefined,
+                            max: undefined,
+                            startOnTick: undefined,
+                            endOnTick: undefined,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    const config = JSON.parse(configScript);
+
+                    expect(config.yAxis.min).toBeUndefined();
+                    expect(config.yAxis.max).toBeUndefined();
+                    expect(config.yAxis.startOnTick).toBeUndefined();
+                    expect(config.yAxis.endOnTick).toBeUndefined();
+                });
+            });
+        });
     });
 
     describe('FOR: Column Range Chart', () => {
-        describe('GIVEN: Params: Required', () => {
+        describe('GIVEN: Params: required', () => {
             describe('WHEN: required params are provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_COLUMN_RANGE_CHART_PARAMS));
                 const configScript = $(`script[data-highcharts-config--column-range-chart-123]`).html();
@@ -1255,10 +1897,79 @@ describe('Macro: Chart', () => {
                 });
             });
         });
+
+        describe('GIVEN: Params: yAxis', () => {
+            describe('WHEN: yAxis min and max are provided', () => {
+                test('THEN: yAxis min and max are included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'columnrange',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: 0,
+                            max: 100,
+                            startOnTick: false,
+                            endOnTick: true,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    expect(configScript).toContain('"min":0');
+                    expect(configScript).toContain('"max":100');
+                    expect(configScript).toContain('"startOnTick":false');
+                    expect(configScript).toContain('"endOnTick":true');
+                });
+            });
+            describe('WHEN: yAxis min and max are not provided', () => {
+                test('THEN: yAxis min and max are not included in config', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'columnrange',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: undefined,
+                            max: undefined,
+                            startOnTick: undefined,
+                            endOnTick: undefined,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    const config = JSON.parse(configScript);
+
+                    expect(config.yAxis.min).toBeUndefined();
+                    expect(config.yAxis.max).toBeUndefined();
+                    expect(config.yAxis.startOnTick).toBeUndefined();
+                    expect(config.yAxis.endOnTick).toBeUndefined();
+                });
+            });
+        });
     });
 
     describe('FOR: Invalid Chart', () => {
-        describe('GIVEN: Invalid chart type', () => {
+        describe('GIVEN: Params: chartType', () => {
             describe('WHEN: an invalid chart type is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_INVALID_CHART_PARAMS));
 
@@ -1298,265 +2009,9 @@ describe('Macro: Chart', () => {
         });
     });
 
-    describe('FOR: Line chart with range annotation on the x axis', () => {
-        describe('GIVEN: Params: Range annotations', () => {
-            describe('WHEN: range annotations params are provided', () => {
-                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_X_AXIS_PARAMS));
-
-                test('THEN: it passes jest-axe checks', async () => {
-                    const results = await axe($.html());
-                    expect(results).toHaveNoViolations();
-                });
-
-                test('THEN: it includes the range annotations JSON config', () => {
-                    const configScript = $(`script[data-highcharts-range-annotations--line-chart-range-annotations-x-axis-123]`).html();
-                    expect(configScript).toContain('"text":"A test x axis range annotation"');
-                    expect(configScript).toContain('"range":{"axisValue1":10,"axisValue2":15}');
-                    expect(configScript).toContain('"axis":"x"');
-                    expect(configScript).toContain('"labelOffsetX":150');
-                    expect(configScript).toContain('"labelOffsetY":0');
-                });
-            });
-        });
-    });
-
-    describe('FOR: Line chart with range annotation on the y axis with label width', () => {
-        describe('GIVEN: Params: Range annotations', () => {
-            describe('WHEN: range annotations params are provided', () => {
-                const $ = cheerio.load(
-                    renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_ON_Y_AXIS_WITH_LABEL_WIDTH_PARAMS),
-                );
-
-                test('THEN: it passes jest-axe checks', async () => {
-                    const results = await axe($.html());
-                    expect(results).toHaveNoViolations();
-                });
-
-                test('THEN: it includes the range annotations JSON config', () => {
-                    const configScript = $(`script[data-highcharts-range-annotations--line-chart-range-annotations-y-axis-123]`).html();
-                    expect(configScript).toContain('"text":"A test y axis range annotation with a label width of 250px"');
-                    expect(configScript).toContain('"axis":"y"');
-                    expect(configScript).toContain('"labelWidth":250');
-                });
-            });
-        });
-    });
-
-    describe('FOR: Line chart with range annotation with the label inside', () => {
-        describe('GIVEN: Params: Range annotations', () => {
-            describe('WHEN: range annotations params are provided', () => {
-                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_RANGE_ANNOTATION_WITH_LABEL_INSIDE_PARAMS));
-
-                test('THEN: it passes jest-axe checks', async () => {
-                    const results = await axe($.html());
-                    expect(results).toHaveNoViolations();
-                });
-
-                test('THEN: it includes the range annotations JSON config', () => {
-                    const configScript = $(
-                        `script[data-highcharts-range-annotations--line-chart-range-annotations-label-inside-123]`,
-                    ).html();
-                    expect(configScript).toContain('"text":"A test y axis range annotation with the label inside"');
-                    expect(configScript).toContain('"axis":"y"');
-                    expect(configScript).toContain('"labelInside":true');
-                });
-            });
-        });
-    });
-
-    describe('FOR: Line chart with reference line annotations', () => {
-        describe('GIVEN: Params: Reference line annotations', () => {
-            describe('WHEN: reference line annotations params are provided', () => {
-                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_REFERENCE_LINE_ANNOTATIONS_PARAMS));
-
-                test('THEN: it passes jest-axe checks', async () => {
-                    const results = await axe($.html());
-                    expect(results).toHaveNoViolations();
-                });
-
-                test('THEN: it includes the reference line annotations JSON config', () => {
-                    const configScript = $(
-                        `script[data-highcharts-reference-line-annotations--line-chart-reference-line-annotations-123]`,
-                    ).html();
-                    expect(configScript).toContain('"text":"A test x axis reference line annotation"');
-                    expect(configScript).toContain('"value":34');
-                    expect(configScript).toContain('"axis":"x"');
-                    expect(configScript).toContain('"text":"A test y axis reference line annotation"');
-                    expect(configScript).toContain('"value":12');
-                    expect(configScript).toContain('"axis":"y"');
-                    expect(configScript).toContain('"labelWidth":100');
-                });
-            });
-        });
-    });
-
-    describe('FOR: Line chart with mixed annotation types', () => {
-        describe('GIVEN: Params: Mixed annotations', () => {
-            describe('WHEN: mixed annotations params are provided', () => {
-                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_WITH_MIXED_ANNOTATION_TYPES_PARAMS));
-
-                test('THEN: it passes jest-axe checks', async () => {
-                    const results = await axe($.html());
-                    expect(results).toHaveNoViolations();
-                });
-
-                test('THEN: it renders the footnotes sequentially', () => {
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('1');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test point annotation');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('2');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test x axis range annotation');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('3');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test y axis range annotation with the label inside');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('4');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test x axis reference line annotation');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('5');
-                    expect($('.ons-chart__annotations-footnotes').text()).toContain('A test y axis reference line annotation');
-                });
-            });
-        });
-    });
-
-    describe('FOR: Axis Min, Max, startOnTick, endOnTick', () => {
-        const BASE_PARAMS = {
-            id: 'test-chart',
-            title: 'Test Chart',
-            xAxis: {
-                title: 'X Axis Title',
-                categories: ['A', 'B', 'C'],
-                type: 'linear',
-                labelFormat: '{value}',
-            },
-            yAxis: {
-                title: 'Y Axis Title',
-                labelFormat: '{value}',
-            },
-            series: [],
-        };
-
-        describe('GIVEN: chartType supports xAxis min/max (bar, scatter)', () => {
-            test('THEN: xAxis min and max are included in config when provided', () => {
-                const params = {
-                    ...BASE_PARAMS,
-                    chartType: 'scatter',
-                    xAxis: {
-                        ...BASE_PARAMS.xAxis,
-                        min: 1,
-                        max: 10,
-                        startOnTick: true,
-                        endOnTick: false,
-                    },
-                };
-
-                const $ = cheerio.load(renderComponent('chart', params));
-                const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
-
-                expect(configScript).toContain('"min":1');
-                expect(configScript).toContain('"max":10');
-                expect(configScript).toContain('"startOnTick":true');
-                expect(configScript).toContain('"endOnTick":false');
-            });
-
-            test('THEN: xAxis min and max are NOT included if not defined', () => {
-                const params = {
-                    ...BASE_PARAMS,
-                    chartType: 'scatter',
-                    xAxis: {
-                        ...BASE_PARAMS.xAxis,
-                        min: undefined,
-                        max: undefined,
-                        startOnTick: undefined,
-                        endOnTick: undefined,
-                    },
-                };
-
-                const $ = cheerio.load(renderComponent('chart', params));
-                const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
-
-                const config = JSON.parse(configScript);
-
-                expect(config.xAxis.min).toBeUndefined();
-                expect(config.xAxis.max).toBeUndefined();
-                expect(config.xAxis.startOnTick).toBeUndefined();
-                expect(config.xAxis.endOnTick).toBeUndefined();
-            });
-        });
-
-        describe('GIVEN: chartType supports yAxis min/max (line, bar, column, scatter, area, columnrange, boxplot)', () => {
-            test('THEN: yAxis min and max are included in config when provided', () => {
-                const params = {
-                    ...BASE_PARAMS,
-                    chartType: 'line',
-                    yAxis: {
-                        ...BASE_PARAMS.yAxis,
-                        min: 0,
-                        max: 100,
-                        startOnTick: false,
-                        endOnTick: true,
-                    },
-                };
-
-                const $ = cheerio.load(renderComponent('chart', params));
-                const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
-
-                expect(configScript).toContain('"min":0');
-                expect(configScript).toContain('"max":100');
-                expect(configScript).toContain('"startOnTick":false');
-                expect(configScript).toContain('"endOnTick":true');
-            });
-
-            test('THEN: yAxis min and max are NOT included if not defined', () => {
-                const params = {
-                    ...BASE_PARAMS,
-                    chartType: 'line',
-                    yAxis: {
-                        ...BASE_PARAMS.yAxis,
-                        min: undefined,
-                        max: undefined,
-                        startOnTick: undefined,
-                        endOnTick: undefined,
-                    },
-                };
-
-                const $ = cheerio.load(renderComponent('chart', params));
-                const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
-
-                const config = JSON.parse(configScript);
-
-                expect(config.yAxis.min).toBeUndefined();
-                expect(config.yAxis.max).toBeUndefined();
-                expect(config.yAxis.startOnTick).toBeUndefined();
-                expect(config.yAxis.endOnTick).toBeUndefined();
-            });
-        });
-
-        describe('GIVEN: chartType does NOT support axis min/max', () => {
-            test('THEN: xAxis min and max are ignored', () => {
-                const params = {
-                    ...BASE_PARAMS,
-                    chartType: 'line',
-                    xAxis: {
-                        ...BASE_PARAMS.xAxis,
-                        min: 1,
-                        max: 10,
-                        startOnTick: true,
-                        endOnTick: true,
-                    },
-                };
-
-                const $ = cheerio.load(renderComponent('chart', params));
-                const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
-
-                expect(configScript).not.toContain('"min":1');
-                expect(configScript).not.toContain('"max":10');
-                expect(configScript).not.toContain('"startOnTick":true');
-                expect(configScript).not.toContain('"endOnTick":true');
-            });
-        });
-    });
-
-    describe('FOR: Iframe chart', () => {
-        describe('GIVEN: Params: Iframe chart', () => {
-            describe('WHEN: an iframe url param is provided', () => {
+    describe('FOR: Iframe Chart', () => {
+        describe('GIVEN: Params: required', () => {
+            describe('WHEN: iframeUrl param is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_IFRAME_CHART_PARAMS));
 
                 test('THEN: it passes jest-axe checks', async () => {
@@ -1568,173 +2023,226 @@ describe('Macro: Chart', () => {
                     expect($('.ons-chart__iframe-wrapper').length).toBe(1);
                 });
 
-                test('THEN: it includes the iframe title as a data attribute', () => {
-                    const iframe = $('.ons-chart__iframe-wrapper');
-                    expect(iframe.attr('data-title')).toBe(EXAMPLE_IFRAME_CHART_PARAMS.title);
+                test('THEN: the Highcharts config is not included', () => {
+                    const configScript = $(`script[data-highcharts-config--iframe-chart-123]`).html();
+                    expect(configScript).toBeNull();
                 });
+            });
+        });
+
+        describe('GIVEN: Params: theme', () => {
+            describe('WHEN: theme is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        theme: 'secondary',
+                    }),
+                );
 
                 test('THEN: the theme parameter is ignored', () => {
-                    const $ = cheerio.load(
-                        renderComponent('chart', {
-                            ...EXAMPLE_IFRAME_CHART_PARAMS,
-                            theme: 'secondary',
-                        }),
-                    );
-
                     expect($('[data-highcharts-theme]').length).toBe(0);
                 });
+            });
+        });
 
-                test('THEN: the percentageHeightDesktop and percentageHeightMobile parameters are ignored', () => {
-                    const $ = cheerio.load(
-                        renderComponent('chart', {
-                            ...EXAMPLE_IFRAME_CHART_PARAMS,
-                            percentageHeightDesktop: 50,
-                            percentageHeightMobile: 10,
-                        }),
-                    );
+        describe('GIVEN: Params: percentageHeightDesktop', () => {
+            describe('WHEN: percentageHeightDesktop is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        percentageHeightDesktop: 50,
+                    }),
+                );
 
+                test('THEN: the percentageHeightDesktop parameter is ignored', () => {
                     expect($('[data-highcharts-percentage-height-desktop]').length).toBe(0);
+                });
+            });
+        });
+
+        describe('GIVEN: Params: percentageHeightMobile', () => {
+            describe('WHEN: percentageHeightMobile is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        percentageHeightMobile: 10,
+                    }),
+                );
+
+                test('THEN: the percentageHeightMobile parameter is ignored', () => {
                     expect($('[data-highcharts-percentage-height-mobile]').length).toBe(0);
                 });
+            });
+        });
+
+        describe('GIVEN: Params: tickInterval', () => {
+            describe('WHEN: tickIntervalDesktop and tickIntervalMobile are provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        xAxis: { tickIntervalDesktop: 10, tickIntervalMobile: 5 },
+                        yAxis: { tickIntervalDesktop: 10, tickIntervalMobile: 5 },
+                    }),
+                );
 
                 test('THEN: the tickIntervalDesktop and tickIntervalMobile parameters are ignored', () => {
-                    const $ = cheerio.load(
-                        renderComponent('chart', {
-                            ...EXAMPLE_IFRAME_CHART_PARAMS,
-                            xAxis: {
-                                tickIntervalDesktop: 10,
-                                tickIntervalMobile: 5,
-                            },
-                            yAxis: {
-                                tickIntervalDesktop: 10,
-                                tickIntervalMobile: 5,
-                            },
-                        }),
-                    );
-
                     expect($('[data-highcharts-x-axis-tick-interval-desktop]').length).toBe(0);
                     expect($('[data-highcharts-x-axis-tick-interval-mobile]').length).toBe(0);
                     expect($('[data-highcharts-y-axis-tick-interval-desktop]').length).toBe(0);
                     expect($('[data-highcharts-y-axis-tick-interval-mobile]').length).toBe(0);
                 });
+            });
+        });
 
-                test('THEN: the tickIntervalDesktop and tickIntervalMobile parameters are ignored', () => {
-                    const $ = cheerio.load(
-                        renderComponent('chart', {
-                            ...EXAMPLE_IFRAME_CHART_PARAMS,
-                            estimateLineLabel: 'Estimated value',
-                            uncertaintyRangeLabel: '95% Confidence Interval',
-                        }),
-                    );
+        describe('GIVEN: Params: estimateLineLabel', () => {
+            describe('WHEN: estimateLineLabel is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        estimateLineLabel: 'Estimated value',
+                    }),
+                );
 
+                test('THEN: the estimateLineLabel parameter is ignored', () => {
                     expect($('[data-highcharts-estimate-line-label]').length).toBe(0);
+                });
+            });
+        });
+
+        describe('GIVEN: Params: uncertaintyRangeLabel', () => {
+            describe('WHEN: uncertaintyRangeLabel is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        uncertaintyRangeLabel: '95% Confidence Interval',
+                    }),
+                );
+
+                test('THEN: the uncertaintyRangeLabel parameter is ignored', () => {
                     expect($('[data-highcharts-uncertainty-range-label]').length).toBe(0);
                 });
+            });
+        });
+
+        describe('GIVEN: Params: customReferenceLineValue', () => {
+            describe('WHEN: customReferenceLineValue is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        yAxis: { customReferenceLineValue: 10 },
+                    }),
+                );
 
                 test('THEN: the customReferenceLineValue parameter is ignored', () => {
-                    const $ = cheerio.load(
-                        renderComponent('chart', {
-                            ...EXAMPLE_IFRAME_CHART_PARAMS,
-                            yAxis: {
-                                customReferenceLineValue: 10,
-                            },
-                        }),
-                    );
-
                     expect($('[data-highcharts-custom-reference-line-value]').length).toBe(0);
                 });
+            });
+        });
 
-                test('THEN: the legend for boxplot charts is not rendered', () => {
-                    const $ = cheerio.load(
-                        renderComponent('chart', {
-                            ...EXAMPLE_IFRAME_CHART_PARAMS,
-                            chartType: 'boxplot',
-                            legend: true,
-                            estimateLineLabel: 'Estimated value',
-                            uncertaintyRangeLabel: '95% Confidence Interval',
-                        }),
-                    );
+        describe('GIVEN: Params: chartType', () => {
+            describe('WHEN: chartType is boxplot and legend params are provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        chartType: 'boxplot',
+                        legend: true,
+                        estimateLineLabel: 'Estimated value',
+                        uncertaintyRangeLabel: '95% Confidence Interval',
+                    }),
+                );
 
+                test('THEN: the boxplot legend is not rendered', () => {
                     expect($('.ons-chart__boxplot-legend').length).toBe(0);
                 });
+            });
+        });
 
-                test('THEN: the Highcharts config is not included', () => {
-                    const configScript = $(`script[data-highcharts-config--iframe-chart-123]`).html();
-                    expect(configScript).toBeNull();
+        describe('GIVEN: Params: invalidChartType', () => {
+            describe('WHEN: an invalid chart type is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        chartType: 'foobar',
+                    }),
+                );
+
+                test('THEN: the invalid chart type is ignored', () => {
+                    expect($('[data-invalid-chart-type]').length).toBe(0);
+                });
+            });
+        });
+
+        describe('GIVEN: Params: annotations', () => {
+            describe('WHEN: annotations, rangeAnnotations and referenceLineAnnotations are provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        annotations: [{ text: 'A test point annotation', point: { x: 2, y: 3 } }],
+                        rangeAnnotations: [{ text: 'Range annotation', range: { axisValue1: 10, axisValue2: 15 }, axis: 'x' }],
+                        referenceLineAnnotations: [{ text: 'Reference line', value: 34, axis: 'x' }],
+                    }),
+                );
+
+                test('THEN: annotations footnotes are not rendered', () => {
+                    expect($('[data-annotations-footnotes]').length).toBe(0);
                 });
 
-                test('THEN: the annotations footnotes and scripts are not rendered', () => {
-                    const $ = cheerio.load(
-                        renderComponent('chart', {
-                            ...EXAMPLE_IFRAME_CHART_PARAMS,
-                            annotations: [
-                                {
-                                    text: 'A test point annotation',
-                                    point: { x: 2, y: 3 },
-                                    labelOffsetX: 10,
-                                    labelOffsetY: -50,
-                                },
-                            ],
-                            rangeAnnotations: [
-                                {
-                                    text: 'A test x axis range annotation',
-                                    range: { axisValue1: 10, axisValue2: 15 },
-                                    axis: 'x',
-                                    labelOffsetX: 150,
-                                    labelOffsetY: 0,
-                                },
-                                {
-                                    text: 'A test y axis range annotation with the label inside',
-                                    range: { axisValue1: 5, axisValue2: 10 },
-                                    axis: 'y',
-                                    labelInside: true,
-                                    labelWidth: 250,
-                                },
-                            ],
-                            referenceLineAnnotations: [
-                                {
-                                    text: 'A test x axis reference line annotation',
-                                    value: 34,
-                                    axis: 'x',
-                                },
-                                {
-                                    text: 'A test y axis reference line annotation',
-                                    value: 12,
-                                    axis: 'y',
-                                    labelWidth: 100,
-                                },
-                            ],
-                        }),
-                    );
-
-                    expect($('[data-annotations-footnotes]').length).toBe(0);
+                test('THEN: annotation scripts are not rendered', () => {
                     expect($('[data-highcharts-annotations--iframe-chart-123]').length).toBe(0);
                     expect($('[data-highcharts-range-annotations--iframe-chart-123]').length).toBe(0);
                     expect($('[data-highcharts-reference-line-annotations--iframe-chart-123]').length).toBe(0);
                 });
+            });
+        });
 
-                test('THEN: invalid chart type is ignored', () => {
-                    const $ = cheerio.load(
-                        renderComponent('chart', {
-                            ...EXAMPLE_IFRAME_CHART_PARAMS,
-                            chartType: 'foobar',
-                        }),
-                    );
+        describe('GIVEN: Params: iframeAspectRatio', () => {
+            describe('WHEN: iframeAspectRatio is not set', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_IFRAME_CHART_PARAMS));
 
-                    expect($('[data-invalid-chart-type]').length).toBe(0);
+                test('THEN: it defaults to 16-9', () => {
+                    expect($('.ons-chart__iframe').hasClass('ons-chart__iframe--16-9')).toBe(true);
                 });
             });
 
-            describe('WHEN: Params: fallbackImageUrl is set', () => {
+            describe('WHEN: iframeAspectRatio is unsupported', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        iframeAspectRatio: '16-10',
+                    }),
+                );
+
+                test('THEN: it defaults to 16-9', () => {
+                    expect($('.ons-chart__iframe').hasClass('ons-chart__iframe--16-9')).toBe(true);
+                });
+            });
+
+            describe('WHEN: iframeAspectRatio is supported', () => {
+                const aspectRatio = '21-9';
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_IFRAME_CHART_PARAMS,
+                        iframeAspectRatio: aspectRatio,
+                    }),
+                );
+
+                test('THEN: it applies the aspect ratio class', () => {
+                    expect($('.ons-chart__iframe').hasClass(`ons-chart__iframe--${aspectRatio}`)).toBe(true);
+                });
+            });
+        });
+
+        describe('GIVEN: Params: fallbackImageUrl', () => {
+            describe('WHEN: fallbackImageUrl is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_IFRAME_CHART_PARAMS,
                         fallbackImageUrl: '/img/small/line-chart-screenshot.png',
                     }),
                 );
-                const iframe = $(`.ons-chart__iframe-wrapper`);
-                test('THEN: the iframe is hidden when JavaScript is disabled', () => {
-                    expect(iframe.attr('class')).toContain('ons-chart__non-js-hide');
+
+                test('THEN: the iframe wrapper is hidden when JavaScript is disabled', () => {
+                    expect($('.ons-chart__iframe-wrapper').attr('class')).toContain('ons-chart__non-js-hide');
                 });
             });
         });
