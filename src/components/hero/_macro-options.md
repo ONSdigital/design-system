@@ -12,7 +12,6 @@
 | officialStatisticsBadge    | boolean                                                   | false    | Set to “true” display the official statistics badge (only available for the "grey" hero variant)                                   |
 | officialStatisticsBadgeUrl | string                                                    | false    | URL for the Statistics Badge                                                                                                       |
 | topic                      | string                                                    | false    | Topic for the hero                                                                                                                 |
-| breadcrumbs                | `Breadcrumbs` [_(ref)_](/components/breadcrumbs)          | false    | Settings to set the Breadcrumbs component within the HTML `<hero>` element                                                         |
 | censusLogo                 | boolean                                                   | false    | Set to “true” display the census 2021 logo (only available for the "grey" hero variant)                                            |
 | informationPanel           | `Object<InformationPanel>`                                | false    | Settings for the information panel (only available for the "grey" hero variant)                                                    |
 
