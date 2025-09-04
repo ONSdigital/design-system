@@ -116,12 +116,6 @@
             background: var(--ons-color-grey-75);
             border-radius: 20px;
         }
-        &--on {
-            .ons-table__header,
-            .ons-table__cell {
-                white-space: nowrap;
-            }
-        }
         &__content {
             overflow: visible;
             overflow-x: auto;
@@ -133,12 +127,6 @@
                     0 0 0 8px var(--ons-color-focus);
                 outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
                 outline-offset: 1px;
-            }
-            .ons-table__header,
-            .ons-table__cell {
-                @include mq('2xs', m) {
-                    white-space: nowrap;
-                }
             }
             .ons-table__right-shadow,
             .ons-table__left-shadow {

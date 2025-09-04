@@ -19,120 +19,115 @@
         {% endfor %}
     {% endfor %}
 
-    {% set table %}
-        <table
-            {% if params.id %}id="{{ params.id }}"{% endif %}
-            class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{% if hasRowSpan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% if variants %}{% if variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}{% endif %}"
-            {% if params.sortBy and 'sortable' in variants %}
-                data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"
-            {% endif %}
+    <div class="ons-table-scrollable ons-table-scrollable--on">
+        <div
+            class="ons-table-scrollable__content"
+            tabindex="0"
+            role="region"
+            aria-label="{{ params.caption }}. {{ params.ariaLabel | default('Scrollable table') }}"
         >
-            {% if params.caption %}
-                <caption class="ons-table__caption{{ " ons-u-vh" if params.hideCaption }}">
-                    {{ params.caption }}
-                </caption>
-            {% endif %}
-            <thead class="ons-table__head">
-                {# Uses thList if multiple-row headers, otherwise wrap single ths array into a default group #}
-                {% if params.thList %}
-                    {% set thGroups = params.thList %}
-                {% else %}
-                    {% set thGroups = [ { ths: params.ths } ] %}
+            <table
+                {% if params.id %}id="{{ params.id }}"{% endif %}
+                class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{% if hasRowSpan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% if variants %}{% if variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}{% endif %}"
+                {% if params.sortBy and 'sortable' in variants %}
+                    data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"
                 {% endif %}
-                {% for headerCols in thGroups %}
-                    <tr class="ons-table__row">
-                        {% for th in headerCols.ths %}
-                            <th
-                                scope="col"
-                                class="ons-table__header{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric' if th.numeric }}"
-                                {% if th.colspan %}colspan="{{ th.colspan }}"{% endif %}
-                                {% if th.rowspan %}rowspan="{{ th.rowspan }}"{% endif %}
-                                {% if 'sortable' in variants %}aria-sort="{{ th.ariaSort | default('none') }}"{% endif %}
-                                {% if th.widthPercentage %}width="{{ th.widthPercentage }}%"{% endif %}
-                            >
-                                <span class="ons-table__header-text">{{ th.value | safe }}</span>
-                                {% if 'sortable' in variants %}
-                                    {{-
-                                        onsIcon({
-                                            "iconType": "sort-sprite",
-                                            "id": th.value | replace(' ', '-'),
-                                            "classes": 'ons-u-d-no'
-                                        })
-                                    -}}
-                                {% endif %}
-                            </th>
-                        {% endfor %}
-                    </tr>
-                {% endfor %}
-            </thead>
-            <tbody class="ons-table__body">
-                {% for tr in params.trs %}
-                    <tr class="ons-table__row{{ ' ons-table__row--highlight' if tr.highlight }}" {% if tr.id %}id="{{ tr.id }}"{% endif %}>
-                        {% for td in tr.tds %}
-                            {% if td.heading == true %}
-                                {% set openingTag = '<th' %}
-                                {% set closingTag = '</th>' %}
-                            {% else %}
-                                {% set openingTag = '<td' %}
-                                {% set closingTag = '</td>' %}
-                            {% endif %}
-                            {% set isFirstRow = loop.index == 0 and td.rowspan %}
-                            {% set rowSpan = isFirstRow and loop.index0 == rowspanCount %}
-                            {{ openingTag | safe }}
-                            class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses else '' }}{{ ' ons-table__cell--numeric' if td.numeric }}"
-                            {% if td.id %}id="{{ td.id }}"{% endif %}
-                            {% if td.data %}{{ ' ' }}data-th="{{ td.data }}"{% endif %}
-                            {% if td.colspan %}colspan="{{ td.colspan }}"{% endif %}
-                            {% if td.rowspan %}rowspan="{{ td.rowspan }}"{% endif %}
-                            {% if td.dataSort %}{{ ' ' }}data-sort-value="{{ td.dataSort }}"{% endif %}
-                            {% if td.heading %}scope="row"{% endif %}
-                            >
-                            {% if td.form %}
-                                <form action="{{ td.form.action }}" method="{{ td.form.method | default('POST') }}">
-                                    {{ onsButton(td.form.button) }}
-                                    {% if td.form.hiddenFormField %}
-                                        {% for hiddenField in td.form.hiddenFormField %}
-                                            <input
-                                                type="hidden"
-                                                {% if hiddenField.name %}name="{{ hiddenField.name }}"{% endif %}
-                                                {% if hiddenField.value %}value="{{ hiddenField.value }}"{% endif %}
-                                            />
-                                        {% endfor %}
-                                    {% endif %}
-                                </form>
-                            {% endif %}
-                            {% if td.value %}
-                                {{ td.value | safe }}
-                            {% endif %}
-                            {{ closingTag | safe }}
-                        {% endfor %}
-                    </tr>
-                {% endfor %}
-            </tbody>
-            {% if params.tfoot %}
-                <tfoot class="ons-table__foot">
-                    <tr class="ons-table__row">
-                        {% for tfootCell in params.tfoot %}
-                            <td class="ons-table__cell ons-u-fs-s">{{ tfootCell.value }}</td>
-                        {% endfor %}
-                    </tr>
-                </tfoot>
-            {% endif %}
-        </table>
-    {% endset %}
-
-    {% if 'scrollable' in variants %}
-        <div class="ons-table-scrollable ons-table-scrollable--on">
-            <div
-                class="ons-table-scrollable__content"
-                tabindex="0"
-                role="region"
-                aria-label="{{ params.caption }}. {{ params.ariaLabel | default('Scrollable table') }}"
             >
-                {{ table | safe }}
-            </div>
+                {% if params.caption %}
+                    <caption class="ons-table__caption{{ " ons-u-vh" if params.hideCaption }}">
+                        {{ params.caption }}
+                    </caption>
+                {% endif %}
+                <thead class="ons-table__head">
+                    {# Uses thList if multiple-row headers, otherwise wrap single ths array into a default group #}
+                    {% if params.thList %}
+                        {% set thGroups = params.thList %}
+                    {% else %}
+                        {% set thGroups = [ { ths: params.ths } ] %}
+                    {% endif %}
+                    {% for headerCols in thGroups %}
+                        <tr class="ons-table__row">
+                            {% for th in headerCols.ths %}
+                                <th
+                                    scope="col"
+                                    class="ons-table__header{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric' if th.numeric }}"
+                                    {% if th.colspan %}colspan="{{ th.colspan }}"{% endif %}
+                                    {% if th.rowspan %}rowspan="{{ th.rowspan }}"{% endif %}
+                                    {% if 'sortable' in variants %}aria-sort="{{ th.ariaSort | default('none') }}"{% endif %}
+                                    {% if th.widthPercentage %}width="{{ th.widthPercentage }}%"{% endif %}
+                                >
+                                    <span class="ons-table__header-text">{{ th.value | safe }}</span>
+                                    {% if 'sortable' in variants %}
+                                        {{-
+                                            onsIcon({
+                                                "iconType": "sort-sprite",
+                                                "id": th.value | replace(' ', '-'),
+                                                "classes": 'ons-u-d-no'
+                                            })
+                                        -}}
+                                    {% endif %}
+                                </th>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </thead>
+                <tbody class="ons-table__body">
+                    {% for tr in params.trs %}
+                        <tr
+                            class="ons-table__row{{ ' ons-table__row--highlight' if tr.highlight }}"
+                            {% if tr.id %}id="{{ tr.id }}"{% endif %}
+                        >
+                            {% for td in tr.tds %}
+                                {% if td.heading == true %}
+                                    {% set openingTag = '<th' %}
+                                    {% set closingTag = '</th>' %}
+                                {% else %}
+                                    {% set openingTag = '<td' %}
+                                    {% set closingTag = '</td>' %}
+                                {% endif %}
+                                {% set isFirstRow = loop.index == 0 and td.rowspan %}
+                                {% set rowSpan = isFirstRow and loop.index0 == rowspanCount %}
+                                {{ openingTag | safe }}
+                                class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses else '' }}{{ ' ons-table__cell--numeric' if td.numeric }}"
+                                {% if td.id %}id="{{ td.id }}"{% endif %}
+                                {% if td.data %}{{ ' ' }}data-th="{{ td.data }}"{% endif %}
+                                {% if td.colspan %}colspan="{{ td.colspan }}"{% endif %}
+                                {% if td.rowspan %}rowspan="{{ td.rowspan }}"{% endif %}
+                                {% if td.dataSort %}{{ ' ' }}data-sort-value="{{ td.dataSort }}"{% endif %}
+                                {% if td.heading %}scope="row"{% endif %}
+                                >
+                                {% if td.form %}
+                                    <form action="{{ td.form.action }}" method="{{ td.form.method | default('POST') }}">
+                                        {{ onsButton(td.form.button) }}
+                                        {% if td.form.hiddenFormField %}
+                                            {% for hiddenField in td.form.hiddenFormField %}
+                                                <input
+                                                    type="hidden"
+                                                    {% if hiddenField.name %}name="{{ hiddenField.name }}"{% endif %}
+                                                    {% if hiddenField.value %}value="{{ hiddenField.value }}"{% endif %}
+                                                />
+                                            {% endfor %}
+                                        {% endif %}
+                                    </form>
+                                {% endif %}
+                                {% if td.value %}
+                                    {{ td.value | safe }}
+                                {% endif %}
+                                {{ closingTag | safe }}
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                {% if params.tfoot %}
+                    <tfoot class="ons-table__foot">
+                        <tr class="ons-table__row">
+                            {% for tfootCell in params.tfoot %}
+                                <td class="ons-table__cell ons-u-fs-s">{{ tfootCell.value }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tfoot>
+                {% endif %}
+            </table>
         </div>
-    {% else %}
-        {{ table | safe }}
-    {% endif %}
+    </div>
 {% endmacro %}
