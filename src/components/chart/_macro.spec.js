@@ -931,7 +931,7 @@ describe('Macro: Chart', () => {
                     expect($('.ons-chart__annotations-footnotes').attr('aria-hidden')).toBe('true');
                 });
 
-                test('THEN: it includes the Annotations JSON config', () => {
+                test('THEN: it includes the annotations JSON config', () => {
                     const configScript = $(`script[data-highcharts-annotations--bar-chart-annotations-123]`).html();
                     expect(configScript).toContain('"text":"A test annotation"');
                     expect(configScript).toContain('"point":{"x":2,"y":3}');
