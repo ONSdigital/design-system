@@ -494,7 +494,7 @@ describe('Macro: Chart', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_LINE_CHART_WITH_LEGEND_UNSET_PARAMS,
-                        legend: 'flase',
+                        legend: 'false',
                     }),
                 );
                 test('THEN: it renders the legend default value', () => {
