@@ -2011,7 +2011,7 @@ describe('Macro: Chart', () => {
 
     describe('FOR: Iframe Chart', () => {
         describe('GIVEN: Params: required', () => {
-            describe('WHEN: iframe url param is provided', () => {
+            describe('WHEN: iframeUrl param is provided', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_IFRAME_CHART_PARAMS));
 
                 test('THEN: it passes jest-axe checks', async () => {
