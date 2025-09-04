@@ -9,6 +9,7 @@
         {% if params.label %}
             {{
                 onsLabel({
+                    "id": params.id ~ "-label",
                     "for": params.id,
                     "text": params.label.text,
                     "description": params.label.description,
