@@ -18,14 +18,6 @@ $button-shadow-size: 3px;
     vertical-align: top;
     white-space: nowrap;
 
-    // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
-    &::after {
-        border: ems($button-shadow-size) solid transparent;
-        inset: 0 0 - (ems($button-shadow-size)) 0; // Makes sure button shadow is selectable
-        content: '';
-        position: absolute;
-    }
-
     &--search {
         .ons-icon {
             margin: 0.125rem 0.5rem 0.125rem 0;
@@ -88,7 +80,7 @@ $button-shadow-size: 3px;
         color: var(--ons-color-text-inverse);
         display: flex;
         align-items: center;
-        padding: 0.75rem 1rem;
+        padding: 0.875rem 1rem;
         // Required for Google Tag Manager
         pointer-events: none;
         position: relative;
