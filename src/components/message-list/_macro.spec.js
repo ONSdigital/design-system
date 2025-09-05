@@ -42,7 +42,7 @@ const EXAMPLE_MESSAGE_LIST = {
     ariaLabelMetaData: 'Message information',
 };
 
-const EXAMPLE_MESSAGE_LIST_WIHTOUT_BODYLABEL_PARAM = {
+const EXAMPLE_MESSAGE_LIST_WITHOUT_BODYLABEL_PARAM = {
     unreadText: 'New',
     fromLabel: 'From',
     dateLabel: 'Date',
@@ -118,24 +118,14 @@ describe('macro: message-list', () => {
         expect($('.ons-message-item__link:first').text()).toContain('Read the message: ');
     });
 
-    it('has visually hidden label `bodyLabel` when only `bodyLabel` is provided`', () => {
+    it('has visually hidden label `bodyLabel` when `bodyLabel` is provided`', () => {
         const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_MINIMAL));
 
         expect($('.ons-message-item__metadata-term--body:first').text().trim()).toBe('Body:');
     });
 
-    it('has visually hidden label `bodyLabel` when both `bodyLabel` is provided`', () => {
-        const $ = cheerio.load(
-            renderComponent('message-list', {
-                ...EXAMPLE_MESSAGE_LIST_MINIMAL,
-            }),
-        );
-
-        expect($('.ons-message-item__metadata-term--body:first').text().trim()).toBe('Body:');
-    });
-
     it('has the default text for visually hidden label `bodyLabel` when `bodyLabel` is not provided', () => {
-        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_WIHTOUT_BODYLABEL_PARAM));
+        const $ = cheerio.load(renderComponent('message-list', EXAMPLE_MESSAGE_LIST_WITHOUT_BODYLABEL_PARAM));
 
         expect($('.ons-message-item__metadata-term--body:first').text().trim()).toBe('Message text:');
     });
