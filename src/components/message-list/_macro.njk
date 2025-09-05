@@ -16,9 +16,7 @@
                         {{ message.dateText }}
                     </dd>
                     <dt class="ons-message-item__metadata-term ons-message-item__metadata-term--body ons-u-vh">
-                        {% if params.bodyLabel %}
-                            {{ params.bodyLabel | default("Message text") }}:
-                        {% endif %}
+                        {{ params.bodyLabel | default("Message text") }}:
                     </dt>
                     <dd class="ons-message-item__metadata-value ons-message-item__metadata-value--body ons-u-fs-r ons-u-mt-s">
                         {{ message.body | safe }}
