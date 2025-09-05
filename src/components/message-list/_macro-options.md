@@ -1,13 +1,12 @@
 | Name              | Type             | Required | Description                                                                                                                  |
 | ----------------- | ---------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| ariaLabel         | string           | false    | The `aria-label` attribute for the message list element. Defaults to “Message List”.                                         |
+| ariaLabel         | string           | false    | The `aria-label` attribute for the message list element. Defaults to “Message List”                                          |
 | unreadText        | string           | true     | Text label for each unread message suffix displayed in brackets, for example, “New”                                          |
-| ariaLabelMetaData | string           | false    | The `aria-label` attribute for each message metadata information. Defaults to “Message metadata”.                            |
-| ariaLabelMsg      | string           | false    | (DEPRECATED) The `aria-label` attribute for each message body preview. Defaults to “Message text”.                           |
+| ariaLabelMetaData | string           | false    | The `aria-label` attribute for each message metadata information. Defaults to “Message metadata”                             |
 | fromLabel         | string           | true     | The visually hidden screen reader “From” prefix for each message metadata information                                        |
 | dateLabel         | string           | true     | The visually hidden screen reader “Sent” prefix for each message metadata information                                        |
 | hiddenReadLabel   | string           | true     | The visually hidden screen reader “Read the message” prefix for each visually hidden link to the message conversation thread |
-| bodyLabel         | string           | false    | (NEW) The visually hidden screen reader "body" prefix for message body                                                       |
+| bodyLabel         | string           | false    | The visually hidden screen reader "body" prefix for message body. Defaults to “Message text”                                 |
 | messages          | `Array<Message>` | true     | Settings for each [message item](#message)                                                                                   |
 
 ## Message
