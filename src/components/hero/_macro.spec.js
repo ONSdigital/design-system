@@ -252,35 +252,6 @@ describe('macro: hero', () => {
         });
     });
 
-    it('outputs the correct breadcrumbs', () => {
-        const $ = cheerio.load(
-            renderComponent('hero', {
-                ...EXAMPLE_HERO,
-                variants: 'grey',
-                breadcrumbs: {
-                    ariaLabel: 'Breadcrumbs',
-                    itemsList: [
-                        {
-                            url: '/breadcrumb-1',
-                            text: 'Breadcrumbs 1',
-                        },
-                        {
-                            url: '/breadcrumb-2',
-                            text: 'Breadcrumbs 2',
-                        },
-                    ],
-                },
-            }),
-        );
-
-        const breadcrumbs = $('.ons-breadcrumbs__link');
-        expect($(breadcrumbs).length).toBe(2);
-        expect($(breadcrumbs[0]).attr('href')).toBe('/breadcrumb-1');
-        expect($(breadcrumbs[0]).text().trim()).toBe('Breadcrumbs 1');
-        expect($(breadcrumbs[1]).attr('href')).toBe('/breadcrumb-2');
-        expect($(breadcrumbs[1]).text().trim()).toBe('Breadcrumbs 2');
-    });
-
     it('outputs the correct description list value', () => {
         const $ = cheerio.load(
             renderComponent('hero', {

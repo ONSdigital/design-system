@@ -6,7 +6,7 @@
     {% set detailsColumns = params.detailsColumns | default ('8') %}
 
     <section
-        class="ons-hero ons-grid--gutterless{% if params.breadcrumbs %}{{ ' ' }}ons-hero--with-breadcrumbs{% endif %}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-hero--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-hero--{{ params.variants }}{% endif %}"
+        class="ons-hero ons-grid--gutterless{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-hero--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-hero--{{ params.variants }}{% endif %}"
     >
         {% if params.variants == 'navy-blue' %}
             <div class="ons-hero__circles" aria-hidden="true">
@@ -23,18 +23,6 @@
         {% endif %}
         <div class="ons-hero__container ons-container{{ ' ons-container--wide' if params.wide }}">
             <div class="ons-hero__details ons-grid__col ons-col-{{ detailsColumns }}@m col-10@s@m">
-                {% if params.breadcrumbs %}
-                    {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
-                    {{
-                        onsBreadcrumbs({
-                            "itemsList": params.breadcrumbs.itemsList,
-                            "ariaLabel": params.breadcrumbs.ariaLabel,
-                            "id": params.breadcrumbs.id,
-                            "classes": 'ons-u-pt-no' ~ (' ' + params.breadcrumbs.classes if params.breadcrumbs.classes else '')
-                        })
-                    }}
-                {% endif %}
-
                 <div class="ons-hero__content">
                     <div class="ons-hero__title-container">
                         <header>

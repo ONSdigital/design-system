@@ -178,6 +178,7 @@ describe('macro: textarea', () => {
         faker.renderComponent('textarea', EXAMPLE_TEXTAREA);
 
         expect(labelSpy.occurrences).toContainEqual({
+            id: 'example-id-label',
             for: 'example-id',
             text: 'Please provide some feedback',
             description: 'For example, describe any difficulties you experienced in the use of this service',
