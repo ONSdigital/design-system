@@ -16,6 +16,6 @@ jobs:
         if: github.event.pull_request.user.login != 'dependabot[bot]' # ignore pull requests raised by dependabot
         steps:
             - name: Check tasks
-              uses: mheap/require-checklist-action@v2
+              uses: mheap/require-checklist-action@46d2ca1a0f90144bd081fd13a80b1dc581759365 # v2.5.0
               with:
                   requireChecklist: true
