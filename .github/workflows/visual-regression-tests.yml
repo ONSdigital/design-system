@@ -14,24 +14,24 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
               with:
                   lfs: true
             - name: Install Node
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
               with:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
               run: yarn install
             - name: Set up Docker
-              uses: docker/setup-buildx-action@v3
+              uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3.11.1
             - name: Run visual regression tests
               id: vr
               run: yarn test-visual
             # Archive report artifacts if visual regression tests fail
             - name: Archive BackstopJS reports
               if: ${{ failure() }}
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
               with:
                   name: backstop-reports
                   path: |
