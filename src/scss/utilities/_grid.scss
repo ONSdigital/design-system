@@ -1,4 +1,8 @@
 @use 'sass:math';
+@use '../scss/vars';
+@use '../scss/helpers';
+
+$grid-gutters: vars.$grid-gutters;
 
 .ons-grid {
     box-sizing: border-box;
@@ -112,7 +116,7 @@
         margin-left: 0;
         flex-flow: column nowrap;
 
-        @include mq('m') {
+        @include helpers.mq('m') {
             flex-direction: row;
         }
 
@@ -154,7 +158,7 @@
 
         &--sticky\@m {
             /* if parent element is set to flex, override the default align-self property
-            from stretch to flex-start so that it stays sticky on scroll after medium breakpoint - 
+            from stretch to flex-start so that it stays sticky on scroll after medium breakpoint -
             this is set for the table of contents component specifically */
             .ons-grid-flex &,
             .ons-grid-flex-gap & {
@@ -190,15 +194,15 @@
     }
 }
 
-@include bp-suffix(ons-grid-flex--no-wrap) {
+@include helpers.bp-suffix(ons-grid-flex--no-wrap) {
     flex-wrap: nowrap;
 }
 
-@include bp-suffix(ons-grid-flex--column, $create-between-breakpoints: true) {
+@include helpers.bp-suffix(ons-grid-flex--column, $create-between-breakpoints: true) {
     flex-direction: column;
 }
 
-@include bp-suffix(ons-grid--bordered, false) {
+@include helpers.bp-suffix(ons-grid--bordered, false) {
     margin-left: 0;
 
     .ons-grid__col {
@@ -214,16 +218,16 @@
     }
 }
 
-@include bp-suffix(ons-grid__col--sticky) {
+@include helpers.bp-suffix(ons-grid__col--sticky) {
     position: sticky;
     top: 2rem;
 }
 
-@each $breakpoint-min, $size in $grid-bp {
-    @for $column from 1 through $grid-cols {
-        $width: math.percentage(math.div($column, $grid-cols));
+@each $breakpoint-min, $size in vars.$grid-bp {
+    @for $column from 1 through vars.$grid-cols {
+        $width: math.percentage(math.div($column, vars.$grid-cols));
 
-        @include mq($breakpoint-min) {
+        @include helpers.mq($breakpoint-min) {
             .ons-col-#{$column}\@#{$breakpoint-min} {
                 max-width: $width;
                 width: $width;
@@ -241,11 +245,11 @@
         }
     }
 
-    @each $breakpoint-max, $size in $grid-bp {
-        @for $column from 1 through $grid-cols {
-            $width: math.percentage(math.div($column, $grid-cols));
+    @each $breakpoint-max, $size in vars.$grid-bp {
+        @for $column from 1 through vars.$grid-cols {
+            $width: math.percentage(math.div($column, vars.$grid-cols));
 
-            @include mq($breakpoint-min, $breakpoint-max) {
+            @include helpers.mq($breakpoint-min, $breakpoint-max) {
                 .ons-col-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
                     max-width: $width;
                     width: $width;
@@ -265,7 +269,7 @@
     }
 }
 
-@include bp-suffix(ons-col-auto) {
+@include helpers.bp-suffix(ons-col-auto) {
     width: auto;
 
     .ons-grid-flex & {
@@ -274,34 +278,34 @@
     }
 }
 
-@include bp-suffix(ons-u-flex-shrink) {
+@include helpers.bp-suffix(ons-u-flex-shrink) {
     flex-shrink: 1;
 }
 
-@include bp-suffix(ons-u-flex-no-shrink) {
+@include helpers.bp-suffix(ons-u-flex-no-shrink) {
     flex-shrink: 0;
 }
 
-@include bp-suffix(ons-u-flex-grow) {
+@include helpers.bp-suffix(ons-u-flex-grow) {
     flex-grow: 1;
 }
 
-@include bp-suffix(ons-u-flex-no-grow) {
+@include helpers.bp-suffix(ons-u-flex-no-grow) {
     flex-grow: 0;
 }
 
-@include bp-suffix(ons-u-flex-no-basis) {
+@include helpers.bp-suffix(ons-u-flex-no-basis) {
     flex-basis: 0;
 }
 
-@include bp-suffix(ons-u-flex-align-bottom) {
+@include helpers.bp-suffix(ons-u-flex-align-bottom) {
     align-self: flex-end;
 }
 
-@include bp-suffix('ons-nopull-', false) {
+@include helpers.bp-suffix('ons-nopull-', false) {
     left: 0;
 }
 
-@include bp-suffix('ons-nopush-', false) {
+@include helpers.bp-suffix('ons-nopush-', false) {
     left: 0;
 }

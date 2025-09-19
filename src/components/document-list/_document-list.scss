@@ -1,3 +1,7 @@
+@use '../../scss/helpers';
+@use '../../scss/utilities';
+@use '../list/list';
+
 .ons-document-list {
     @extend .ons-list--bare;
 
@@ -8,7 +12,7 @@
         margin: 0 0 1.5rem;
         padding: 0 0 1.5rem;
 
-        @include mq(xs) {
+        @include helpers.mq(xs) {
             align-items: flex-start;
             display: flex;
         }
@@ -27,7 +31,7 @@
             outline-offset: -2px;
             padding: 2rem;
 
-            @include mq(m) {
+            @include helpers.mq(m) {
                 align-items: flex-start;
                 display: flex;
 
@@ -46,7 +50,7 @@
                     }
                 }
 
-                @include mq(m) {
+                @include helpers.mq(m) {
                     margin-right: 2.5rem;
                     width: 379px;
 
@@ -90,11 +94,11 @@
         margin-bottom: 1rem;
         width: 136px;
 
-        @include mq(xs) {
+        @include helpers.mq(xs) {
             margin-right: 1.5rem;
         }
 
-        @include mq(m) {
+        @include helpers.mq(m) {
             margin-bottom: 0;
         }
     }

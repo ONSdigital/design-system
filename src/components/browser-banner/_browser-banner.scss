@@ -1,3 +1,5 @@
+@use '../../scss/utilities';
+
 .ons-browser-banner {
     background-color: var(--ons-color-banner-browser-bg);
     display: none; // Hides unsupported browser banner unless targeted below

@@ -1,4 +1,7 @@
 @use 'sass:math';
+@use '../../scss/helpers';
+@use '../../scss/vars';
+@use '../../scss/utilities';
 
 $summary-row-spacing: 1rem;
 $summary-col-spacing: 1rem;
@@ -31,7 +34,7 @@ $hub-row-spacing: 1.3rem;
             @extend .ons-u-fs-m;
 
             border-width: 2px;
-            font-weight: $font-weight-bold;
+            font-weight: vars.$font-weight-bold;
 
             .ons-summary__values {
                 padding-top: 23px;
@@ -98,7 +101,7 @@ $hub-row-spacing: 1.3rem;
     &__item--error & {
         &__row-title--error {
             color: var(--ons-color-errors);
-            font-weight: $font-weight-bold;
+            font-weight: vars.$font-weight-bold;
             padding: $summary-row-spacing $summary-col-spacing;
             flex: 0 0 100%;
         }
@@ -110,7 +113,7 @@ $hub-row-spacing: 1.3rem;
             padding-left: $summary-col-spacing;
             padding-right: $summary-col-spacing;
 
-            @include mq('s') {
+            @include helpers.mq('s') {
                 padding-left: math.div($summary-col-spacing, 2);
                 padding-right: math.div($summary-col-spacing, 2);
 
@@ -146,7 +149,7 @@ $hub-row-spacing: 1.3rem;
     }
 
     // Breakpoints
-    @include mq('2xs', m, none, '<') {
+    @include helpers.mq('2xs', m, none, '<') {
         &__item-title,
         &__values,
         &__actions {
@@ -164,7 +167,7 @@ $hub-row-spacing: 1.3rem;
         }
     }
 
-    @include mq(m) {
+    @include helpers.mq(m) {
         &__item-title,
         &__values,
         &__actions {

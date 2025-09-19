@@ -1,12 +1,16 @@
-html {
-    @include font-smoothing;
+@use '../../scss/helpers';
+@use '../../scss/vars';
+@use '../utilities';
 
-    font-size: calc((100% / 16) * strip-unit($base));
+html {
+    @include helpers.font-smoothing;
+
+    font-size: calc((100% / 16) * strip-unit(vars.$base));
 }
 
 body {
     color: var(--ons-color-text);
-    font-family: $font-sans;
+    font-family: vars.$font-sans;
     font-feature-settings: 'ss01';
 }
 
@@ -29,7 +33,7 @@ h6 {
 mark {
     @extend .ons-highlight;
 
-    font-weight: $font-weight-bold;
+    font-weight: vars.$font-weight-bold;
 }
 
 code {
@@ -47,5 +51,5 @@ li {
 
 em {
     font-style: normal;
-    font-weight: $font-weight-bold;
+    font-weight: vars.$font-weight-bold;
 }

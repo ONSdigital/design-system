@@ -1,3 +1,7 @@
+@use '../scss/vars';
+@use '../scss/helpers';
+@use '../../scss/utilities';
+
 .ons-list {
     margin: 0;
     padding: 0 0 0 1.5rem;
@@ -59,7 +63,7 @@
 
     &__prefix,
     &__suffix {
-        font-family: $font-mono;
+        font-family: vars.$font-mono;
     }
 
     &--prefix,
@@ -117,7 +121,7 @@
     }
 }
 
-@include bp-suffix('ons-list--inline') {
+@include helpers.bp-suffix('ons-list--inline') {
     &:not(.ons-list--icons) {
         margin: 0 1rem 0 0;
         .ons-list__item {

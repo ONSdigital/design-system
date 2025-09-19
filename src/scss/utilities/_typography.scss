@@ -1,32 +1,34 @@
 @use 'sass:map';
+@use '../vars';
+@use '../helpers';
 
 @mixin font-size($props, $base) {
     $small-size: map.get($props, small);
     $large-size: map.get($props, large);
 
-    font-size: rems($small-size, $base);
+    font-size: rems($small-size, vars.$base);
     font-weight: map.get($props, weight);
     line-height: map.get($props, line-height-mobile);
 
     @if $small-size != $large-size {
-        @include mq(m) {
-            font-size: rems($large-size, $base);
+        @include helpers.mq(m) {
+            font-size: rems($large-size, vars.$base);
             line-height: map.get($props, line-height-desktop);
         }
     }
 }
 
-@each $name, $props in $type-matrix {
+@each $name, $props in vars.$type-matrix {
     .#{$name} {
-        @include font-size($props, $base);
+        @include font-size($props, vars.$base);
     }
 }
 
-@each $breakpoint, $size in $grid-bp {
-    @each $name, $props in $type-matrix {
-        @include mq($breakpoint) {
+@each $breakpoint, $size in vars.$grid-bp {
+    @each $name, $props in vars.$type-matrix {
+        @include helpers.mq($breakpoint) {
             .#{$name}\@#{$breakpoint} {
-                @include font-size($props, $base);
+                @include font-size($props, vars.$base);
             }
         }
     }
@@ -49,11 +51,11 @@ h4 {
 }
 
 .ons-u-fw-b {
-    font-weight: $font-weight-bold;
+    font-weight: vars.$font-weight-bold;
 }
 
 .ons-u-fw-n {
-    font-weight: $font-weight-regular;
+    font-weight: vars.$font-weight-regular;
 }
 
 .ons-u-fs-i {
@@ -74,7 +76,7 @@ h4 {
 }
 
 .ons-u-f-mono {
-    font-family: $font-mono;
+    font-family: vars.$font-mono;
     letter-spacing: 0.1em;
 }
 

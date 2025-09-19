@@ -1,3 +1,6 @@
+@use '../../scss/vars';
+@use '../../scss/helpers';
+
 .ons-description-list {
     &__items {
         margin: 0 0 2rem;
@@ -6,7 +9,7 @@
     &__term {
         clear: both;
         float: left;
-        font-weight: $font-weight-bold;
+        font-weight: vars.$font-weight-bold;
     }
 
     &__value {
@@ -21,7 +24,7 @@
             }
 
             .ons-description-list__value:nth-of-type(1) {
-                @include mq(m) {
+                @include helpers.mq(m) {
                     margin-top: 0.5rem;
                 }
             }
@@ -29,10 +32,10 @@
             .ons-description-list--inline & {
                 .ons-description-list__value:nth-of-type(1),
                 .ons-description-list__term {
-                    @include mq(l) {
+                    @include helpers.mq(l) {
                         margin-top: 0;
                     }
-                    @include mq(xs, l) {
+                    @include helpers.mq(xs, l) {
                         margin-top: 0.5rem;
                     }
                 }
@@ -41,7 +44,7 @@
     }
 
     &--inline {
-        @include mq(l) {
+        @include helpers.mq(l) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-auto-rows: auto;
