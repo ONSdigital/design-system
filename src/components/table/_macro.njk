@@ -10,6 +10,7 @@
             role="region"
             aria-label="{{ params.caption }}. {{ params.ariaLabel | default('Scrollable table') }}"
         >
+            {# Uses multiple loops to set the rowspan class so that it can work in both nunjucks and jinja2 environments due to the scoping rules of each language #}
             <table
                 {% if params.id %}id="{{ params.id }}"{% endif %}
                 class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{% for row in params.thList %}{% for th in row.ths %}{% if th.rowspan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% endfor %}{% endfor %}{% for row in params.trs %}{% for td in row.tds %}{% if td.rowspan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% endfor %}{% endfor %}{% if variants %}{% if variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}{% endif %}"
