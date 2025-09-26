@@ -7,8 +7,8 @@
     {% set firstPage = params.pages | first %}
     {% set prevPageIndex = currentPageIndex - 1 %}
     {% set nextPageIndex = currentPageIndex + 1 %}
-    {% set prevPageAriaLabel = (params.previousAriaLabel or 'Go to the previous page') %}
-    {% set nextPageAriaLabel = (params.nextAriaLabel or 'Go to the next page') %}
+    {% set prevPageAriaLabel = (params.previousAriaLabel or 'Previous page') %}
+    {% set nextPageAriaLabel = (params.nextAriaLabel or 'Next page') %}
 
     <nav
         class="ons-pagination{{ ' ' + params.classes if params.classes else '' }}{{ ' ons-pagination--no-indicator' if params.hideRangeIndicator }}"
@@ -41,7 +41,7 @@
                     <a
                         href="{{ firstPage.url }}"
                         class="ons-pagination__link"
-                        aria-label="{{ params.firstAriaLabel | default('Go to the first page') }}"
+                        aria-label="{{ params.firstAriaLabel | default('First page') }}"
                         >1</a
                     >
                 </li>
@@ -63,9 +63,9 @@
                             href="{{ page.url }}"
                             class="ons-pagination__link"
                             {%- if loop.index == currentPageIndex -%}
-                                aria-current="true" aria-label="{{ params.currentAriaLabel | default('Current page') }} ({{ position }})"
+                                aria-current="true" aria-label="{{ params.currentAriaLabel | default('Page') }} ({{ position }})"
                             {%- else -%}
-                                aria-label="{{ params.goToAriaLabel | default('Go to page') }} {{ loop.index }}"
+                                aria-label="{{ params.goToAriaLabel | default('Page') }} {{ loop.index }}"
                             {%- endif -%}
                             {%- if loop.index == currentPageIndex - 1 -%}
                                 rel="prev"
@@ -86,7 +86,7 @@
                     <a
                         href="{{ lastPage.url }}"
                         class="ons-pagination__link"
-                        aria-label="{{ params.lastAriaLabel | default('Go to the last page') }} ({{ totalPages }})"
+                        aria-label="{{ params.lastAriaLabel | default('Last page') }} ({{ totalPages }})"
                         >{{ totalPages }}</a
                     >
                 </li>
