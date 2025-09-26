@@ -28,7 +28,7 @@
                     {% if params.thList %}
                         {% set thGroups = params.thList %}
                     {% else %}
-                        {% set thGroups = [ { ths: params.ths } ] %}
+                        {% set thGroups = [ { "ths": params.ths } ] %}
                     {% endif %}
                     {% for headerCols in thGroups %}
                         <tr class="ons-table__row">
