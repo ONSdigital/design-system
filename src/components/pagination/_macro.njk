@@ -63,7 +63,8 @@
                             href="{{ page.url }}"
                             class="ons-pagination__link"
                             {%- if loop.index == currentPageIndex -%}
-                                aria-current="true" aria-label="{{ params.currentAriaLabel | default('Page') }} ({{ position }})"
+                                aria-current="true"
+                                aria-label="{% if params.currentAriaLabel %}{{ params.currentAriaLabel }} ({{ position }}){% else %}{{ position }}{% endif %}"
                             {%- else -%}
                                 aria-label="{{ params.goToAriaLabel | default('Page') }} {{ loop.index }}"
                             {%- endif -%}

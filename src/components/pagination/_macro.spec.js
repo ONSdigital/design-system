@@ -75,7 +75,7 @@ describe('macro: pagination', () => {
 
         it('has a single list item', () => {
             expect($('li').length).toBe(1);
-            assertIsCurrentPage($('.ons-pagination__item'), '/page/1', 'Page (Page 1 of 1)', '1');
+            assertIsCurrentPage($('.ons-pagination__item'), '/page/1', 'Page 1 of 1', '1');
         });
     });
 
@@ -103,7 +103,7 @@ describe('macro: pagination', () => {
 
         it('has a 3 list items ("1", "2", "Next page")', () => {
             expect($('li').length).toBe(3);
-            assertIsCurrentPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Page (Page 1 of 2)', '1');
+            assertIsCurrentPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Page 1 of 2', '1');
             assertIsNextPage($('.ons-pagination__item:nth-child(2)'), '/page/2', 'Page 2', '2');
             assertIsNextPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Next page (2)', 'Next page');
         });
@@ -135,7 +135,7 @@ describe('macro: pagination', () => {
             expect($('li').length).toBe(3);
             assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Previous page (1)', 'Previous page');
             assertIsPreviousPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Page 1', '1');
-            assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Page (Page 2 of 2)', '2');
+            assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Page 2 of 2', '2');
         });
     });
 
@@ -165,7 +165,7 @@ describe('macro: pagination', () => {
             expect($('li').length).toBe(5);
             assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Previous page (1)', 'Previous page');
             assertIsPreviousPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Page 1', '1');
-            assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Page (Page 2 of 3)', '2');
+            assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Page 2 of 3', '2');
             assertIsNextPage($('.ons-pagination__item:nth-child(4)'), '/page/3', 'Page 3', '3');
             assertIsNextPage($('.ons-pagination__item:nth-child(5)'), '/page/3', 'Next page (3)', 'Next page');
         });
@@ -197,7 +197,7 @@ describe('macro: pagination', () => {
             expect($('li').length).toBe(7);
             assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Previous page (1)', 'Previous page');
             assertIsPreviousPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Page 1', '1');
-            assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Page (Page 2 of 5)', '2');
+            assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Page 2 of 5', '2');
             assertIsNextPage($('.ons-pagination__item:nth-child(4)'), '/page/3', 'Page 3', '3');
             assertIsOtherPage($('.ons-pagination__item:nth-child(5)'), '/page/4', 'Page 4', '4');
             assertIsOtherPage($('.ons-pagination__item:nth-child(6)'), '/page/5', 'Last page (5)', '5');
@@ -238,7 +238,7 @@ describe('macro: pagination', () => {
             expect($('li').length).toBe(7);
             assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Previous page (1)', 'Previous page');
             assertIsPreviousPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Page 1', '1');
-            assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Page (Page 2 of 6)', '2');
+            assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Page 2 of 6', '2');
             assertIsNextPage($('.ons-pagination__item:nth-child(4)'), '/page/3', 'Page 3', '3');
             assertIsGap($('.ons-pagination__item:nth-child(5)'));
             assertIsOtherPage($('.ons-pagination__item:nth-child(6)'), '/page/6', 'Last page (6)', '6');
@@ -286,7 +286,7 @@ describe('macro: pagination', () => {
             assertIsOtherPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'First page', '1');
             assertIsGap($('.ons-pagination__item:nth-child(3)'));
             assertIsPreviousPage($('.ons-pagination__item:nth-child(4)'), '/page/4', 'Page 4', '4');
-            assertIsCurrentPage($('.ons-pagination__item:nth-child(5)'), '/page/5', 'Page (Page 5 of 11)', '5');
+            assertIsCurrentPage($('.ons-pagination__item:nth-child(5)'), '/page/5', 'Page 5 of 11', '5');
             assertIsNextPage($('.ons-pagination__item:nth-child(6)'), '/page/6', 'Page 6', '6');
             assertIsGap($('.ons-pagination__item:nth-child(7)'));
             assertIsOtherPage($('.ons-pagination__item:nth-child(8)'), '/page/11', 'Last page (11)', '11');
@@ -334,7 +334,7 @@ describe('macro: pagination', () => {
             assertIsOtherPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'First page', '1');
             assertIsGap($('.ons-pagination__item:nth-child(3)'));
             assertIsPreviousPage($('.ons-pagination__item:nth-child(4)'), '/page/9', 'Page 9', '9');
-            assertIsCurrentPage($('.ons-pagination__item:nth-child(5)'), '/page/10', 'Page (Page 10 of 11)', '10');
+            assertIsCurrentPage($('.ons-pagination__item:nth-child(5)'), '/page/10', 'Page 10 of 11', '10');
             assertIsNextPage($('.ons-pagination__item:nth-child(6)'), '/page/11', 'Page 11', '11');
             assertIsNextPage($('.ons-pagination__item:nth-child(7)'), '/page/11', 'Next page (11)', 'Next page');
         });
@@ -454,7 +454,7 @@ describe('macro: pagination', () => {
                 }),
             );
             const currentPageLink = $('.ons-pagination__item--current a');
-            expect(currentPageLink.attr('aria-label')).toBe('Page (Page 2 of 3)');
+            expect(currentPageLink.attr('aria-label')).toBe('Page 2 of 3');
         });
     });
 
