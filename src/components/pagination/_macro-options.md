@@ -10,7 +10,7 @@
 | nextAriaLabel      | string        | false    | Optional aria label text for 'Next' button, comes before page number. Defaults to "Next page"         |
 | currentAriaLabel   | string        | false    | Optional aria label for the current page link. Defaults to "Current page"                             |
 | lastAriaLabel      | string        | false    | Optional aria label for the last page link. Defaults to "Last page"                                   |
-| goToAriaLabel      | string        | false    | Optional aria label for the 'go to page' link. Defaults to " page"                                    |
+| goToAriaLabel      | string        | false    | Optional aria label for the 'go to page' link. Defaults to "page"                                     |
 | classes            | string        | false    | Classes to add to the pagination HTML `nav` element                                                   |
 | hideRangeIndicator | boolean       | false    | Set to “true” to hide the range indicator on viewports &geq; 740px                                    |
 
