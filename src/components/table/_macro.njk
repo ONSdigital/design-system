@@ -2,22 +2,6 @@
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/icon/_macro.njk" import onsIcon %}
     {% set variants = params.variants if params.variants %}
-    {% set hasRowSpan = false %}
-    {% for row in params.thList %}
-        {% for th in row.ths %}
-            {% if th.rowspan %}
-                {% set hasRowSpan = true %}
-            {% endif %}
-        {% endfor %}
-    {% endfor %}
-
-    {% for row in params.trs %}
-        {% for td in row.tds %}
-            {% if td.rowspan %}
-                {% set hasRowSpan = true %}
-            {% endif %}
-        {% endfor %}
-    {% endfor %}
 
     <div class="ons-table-scrollable ons-table-scrollable--on">
         <div
@@ -26,15 +10,16 @@
             role="region"
             aria-label="{{ params.caption }}. {{ params.ariaLabel | default('Scrollable table') }}"
         >
+            {# Uses multiple loops to set the rowspan class so that it can work in both nunjucks and jinja2 environments due to the scoping rules of each language #}
             <table
                 {% if params.id %}id="{{ params.id }}"{% endif %}
-                class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{% if hasRowSpan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% if variants %}{% if variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}{% endif %}"
+                class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{% for row in params.thList %}{% for th in row.ths %}{% if th.rowspan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% endfor %}{% endfor %}{% for row in params.trs %}{% for td in row.tds %}{% if td.rowspan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% endfor %}{% endfor %}{% if variants %}{% if variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}{% endif %}"
                 {% if params.sortBy and 'sortable' in variants %}
                     data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"
                 {% endif %}
             >
                 {% if params.caption %}
-                    <caption class="ons-table__caption{{ " ons-u-vh" if params.hideCaption }}">
+                    <caption class="ons-table__caption{{ ' ons-u-vh' if params.hideCaption }}">
                         {{ params.caption }}
                     </caption>
                 {% endif %}
@@ -43,7 +28,7 @@
                     {% if params.thList %}
                         {% set thGroups = params.thList %}
                     {% else %}
-                        {% set thGroups = [ { ths: params.ths } ] %}
+                        {% set thGroups = [ { "ths": params.ths } ] %}
                     {% endif %}
                     {% for headerCols in thGroups %}
                         <tr class="ons-table__row">
