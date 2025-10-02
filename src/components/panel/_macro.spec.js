@@ -15,6 +15,7 @@ describe('macro: panel', () => {
         ['info', 'Important information:'],
         ['bare', 'Important information:'],
         ['error', 'Error:'],
+        ['pending', 'Pending:'],
         ['warn', 'Warning:'],
         ['warn-branded', 'Warning:'],
         ['branded', 'Important information:'],
