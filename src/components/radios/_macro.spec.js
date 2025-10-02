@@ -581,7 +581,7 @@ describe('macro: radios', () => {
                 id: 'other-textarea-input',
                 name: 'other-answer',
                 value: 'other answer',
-                attributes: EXAMPLE_RADIO_ITEM_INPUT.other.attributes,
+                attributes: { a: 42 },
                 label: {
                     id: 'other-textarea-input-label',
                     text: 'Example radio with Text area',
