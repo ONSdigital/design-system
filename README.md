@@ -1,7 +1,9 @@
 # ONS Design System
 
 [![GitHub release](https://img.shields.io/github/release/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/releases)
-[![Tests](https://github.com/ONSdigital/design-system/actions/workflows/tests.yml/badge.svg)](https://github.com/ONSdigital/design-system/actions/workflows/tests.yml)
+[![Macro and script tests](https://github.com/ONSdigital/design-system/actions/workflows/macro-and-script-tests.yml/badge.svg)](https://github.com/ONSdigital/design-system/actions/workflows/macro-and-script-tests.yml)
+[![Visual regression tests](https://github.com/ONSdigital/design-system/actions/workflows/visual-regression-tests.yml/badge.svg)](https://github.com/ONSdigital/design-system/actions/workflows/visual-regression-tests.yml)
+[![Lighthouse tests](https://github.com/ONSdigital/design-system/actions/workflows/lighthouse-ci.yml/badge.svg)](https://github.com/ONSdigital/design-system/actions/workflows/lighthouse-ci.yml)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/pulls)
 [![Github last commit](https://img.shields.io/github/last-commit/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/commits)
 [![Github contributors](https://img.shields.io/github/contributors/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/graphs/contributors)
