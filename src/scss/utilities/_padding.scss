@@ -1,11 +1,18 @@
 $sizes: (
     no: 0,
-    xxs: 0.25rem,
-    xs: 0.5rem,
+    4xs: 0.125rem,
+    3xs: 0.25rem,
+    2xs: 0.5rem,
+    xs: 0.75rem,
     s: 1rem,
-    m: 1.5rem,
-    l: 2rem,
-    xl: 3rem,
+    m: 1.25rem,
+    l: 1.5rem,
+    xl: 2rem,
+    2xl: 2.5rem,
+    3xl: 3rem,
+    4xl: 4rem,
+    5xl: 5rem,
+    auto: auto,
 );
 
 $padding: (
@@ -20,6 +27,10 @@ $padding: (
     @each $abbr, $dec in $padding {
         @include bp-suffix(ons-u-#{$abbr}-#{$key}, $create-between-breakpoints: true) {
             #{$dec}: #{$value} !important;
+        }
+
+        @include bp-suffix(ons-u-#{$abbr}-#{$key}-not-important, $create-between-breakpoints: true) {
+            #{$dec}: #{$value};
         }
     }
 }

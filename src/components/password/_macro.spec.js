@@ -115,7 +115,7 @@ describe('macro: password', () => {
             id: 'example-password',
             name: 'example-password-name',
             type: 'password',
-            classes: 'ons-u-mt-xs ons-js-password-input',
+            classes: 'ons-u-mt-2xs ons-js-password-input',
             dontWrap: true,
         });
     });
@@ -130,7 +130,7 @@ describe('macro: password', () => {
             id: 'example-password',
             name: 'example-password-name',
             type: 'password',
-            classes: 'ons-u-mt-xs ons-js-password-input ons-input--error',
+            classes: 'ons-u-mt-2xs ons-js-password-input ons-input--error',
             dontWrap: true,
         });
     });

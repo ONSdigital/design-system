@@ -9,7 +9,7 @@ const FULL_EXAMPLE = `
 {% set pageConfig = {
     "bodyClasses": "custom-class",
     "title": "Social survey",
-    "assetsURL": "/some-path",
+    "assetsUrl": "/some-path",
     "meta": {
         "description": "Meta description",
         "canonicalUrl": "/some-url",
@@ -25,6 +25,15 @@ const FULL_EXAMPLE = `
         "title": "Twitter title",
         "description": "Twitter description",
         "twitterImage": "twitter-image.png"
+    },
+    "announcementBanner": {
+        "variants": "red",
+        "title": "ONS Announcement",
+        "description": "This is an important announcement from ONS.",
+        "link": {
+            "url": "/announcement",
+            "text": "Read more"
+        }
     },
     "header": {
         "title": 'ONS Service',
@@ -46,13 +55,13 @@ const FULL_EXAMPLE = `
             "languages": [
                 {
                     "url": "#0",
-                    "ISOCode": "en",
+                    "isoCode": "en",
                     "text": "English",
                     "current": true
                 },
                 {
                     "url": "#0",
-                    "ISOCode": "cy",
+                    "isoCode": "cy",
                     "text": "Cymraeg",
                     "current": false
                 }
@@ -110,7 +119,7 @@ const FULL_EXAMPLE = `
             },
             "subNavigation": {
                 "id": 'sub-nav',
-                "overviewURL": '#0',
+                "overviewUrl": '#0',
                 "overviewText": 'Overview',
                 "ariaLabel": 'Section menu',
                 "itemsList": [
@@ -288,7 +297,7 @@ const FULL_EXAMPLE = `
                 ]
             }
         ],
-        "OGLLink": true
+        "oglLink": true
     }
 } %}
 
@@ -348,6 +357,195 @@ const NO_FAVICONS_EXAMPLE = `
 {% block favicons %}{% endblock %}
 `;
 
+const HEADER_BASIC_EXAMPLE = `
+{% set pageConfig = {
+    "header": {
+        "variants": "basic",
+        "mastheadLogoAltText": "Custom alt text for logo",
+        "menuLinks": {
+            "id": "menu-links",
+            "keyLinks": [
+                {
+                    'heading': 'Taking part in a survey?',
+                    'description': 'It’s never been more important.'
+                },
+                {
+                    'heading': 'Release calendar',
+                    'description': 'View our latest and upcoming releases.'
+                },
+                {
+                    'heading': 'Explore local statistics',
+                    'url': '#0',
+                    'description': 'Explore statistics across the UK.'
+                }
+            ],
+            "columns": [
+                {
+                    "groups": [
+                        {
+                            "heading": "People, population and community",
+                            "groupItems": [
+                                {
+                                    "text": "Armed forces community"
+                                },
+                                {
+                                    "text": "Births, deaths and marriages"
+                                },
+                                {
+                                    "text": "Crime and justice"
+                                },
+                                {
+                                    "text": "Cultural identity"
+                                },
+                                {
+                                    "text": "Education and childcare"
+                                },
+                                {
+                                    "text": "Elections"
+                                },
+                                {
+                                    "text": "Health and social care"
+                                },
+                                {
+                                    "text": "Household characteristics"
+                                },
+                                {
+                                    "text": "Housing"
+                                },
+                                {
+                                    "text": "Leisure and tourism"
+                                },
+                                {
+                                    "text": "Personal and household finances"
+                                },
+                                {
+                                    "text": "Population and migration"
+                                },
+                                {
+                                    "text": "Well-being"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "groups": [
+                        {
+                            "heading": "Business, industry and trade",
+                            "groupItems": [
+                                {
+                                    "text": "Business"
+                                },
+                                {
+                                    "text": "Changes to business"
+                                },
+                                {
+                                    "text": "Construction industry"
+                                },
+                                {
+                                    "text": "International trade"
+                                },
+                                {
+                                    "text": "IT and internet industry"
+                                },
+                                {
+                                    "text": "Manufacturing and production industry"
+                                },
+                                {
+                                    "text": "Retail industry",
+                                    "url": "#0"
+                                },
+                                {
+                                    "text": "Tourism industry"
+                                }
+                            ]
+                        },
+                        {
+                            "heading": "Employment and labour market",
+                            "url": "#0",
+                            "groupItems": [
+                                {
+                                    "text": "People in work"
+                                },
+                                {
+                                    "text": "People not in work"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "groups": [
+                        {
+                            "heading": "Economy",
+                            "groupItems": [
+                                {
+                                    "text": "Economic output and productivity"
+                                },
+                                {
+                                    "text": "Government, public sector and taxes"
+                                },
+                                {
+                                    "text": "Gross Value Added (GVA)"
+                                },
+                                {
+                                    "text": "Investments, pensions and trusts"
+                                },
+                                {
+                                    "text": "Regional accounts"
+                                },
+                                {
+                                    "text": "Environmental accounts"
+                                },
+                                {
+                                    "text": "Gross Domestic Product (GDP)"
+                                },
+                                {
+                                    "text": "Inflation and price indices"
+                                },
+                                {
+                                    "text": "National accounts"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "searchLinks": {
+            "id": "search-links",
+            "searchNavigationAriaLabel": "Nav Search",
+            "searchButtonAriaLabel": "Toggle search",
+            "heading": "Popular searches",
+            "itemsList": [
+                {
+                    "url": "#1",
+                    "text": "Cost of living"
+                },
+                {
+                    "url": "#1",
+                    "text": "Inflation"
+                },
+                {
+                    "url": "#3",
+                    "text": "NHS waiting times"
+                },
+                {
+                    "url": "#0",
+                    "text": "Wellbeing"
+                },
+                {
+                    "url": "#0",
+                    "text": "Baby names"
+                }
+            ]
+        }
+    }
+} %}
+
+{% block main %}{% endblock %}
+`;
+
 describe('base page template', () => {
     it('passes jest-axe checks', async () => {
         const $ = cheerio.load(renderBaseTemplate(FULL_EXAMPLE));
@@ -368,6 +566,7 @@ describe('base page template', () => {
         ['social block override', NO_SOCIAL_EXAMPLE],
         ['meta block override', NO_META_EXAMPLE],
         ['favicons block override', NO_FAVICONS_EXAMPLE],
+        ['basic variant header', HEADER_BASIC_EXAMPLE],
     ])('matches the %s snapshot', (_, params) => {
         const $ = cheerio.load(renderBaseTemplate(params));
 

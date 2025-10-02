@@ -1,11 +1,11 @@
 {%- macro onsCard(params) -%}
-    {% set headingLevel = params.headingLevel | default(2) | string %}
+    {% set headingLevel = params.title.headingLevel | default(2) | string %}
     {% set openingHeadingTag = "<h" + headingLevel %}
     {% set closingHeadingTag = "</h" + headingLevel + ">" %}
-    {% set placeholderSrcset = (params.image.placeholderURL if params.image.placeholderURL else "") + "/img/small/placeholder-card.png 1x, " + (params.image.placeholderURL if params.image.placeholderURL else "") + "/img/large/placeholder-card.png 2x" %}
+    {% set placeholderSrcset = (params.image.placeholderUrl if params.image.placeholderUrl else "") + "/img/small/placeholder-card.png 1x, " + (params.image.placeholderUrl if params.image.placeholderUrl else "") + "/img/large/placeholder-card.png 2x" %}
 
-    <div class="ons-card">
-        <a href="{{ params.url }}" class="ons-card__link">
+    <div class="ons-card{% if params.variant == 'feature' %}{{ ' ' }}ons-card--feature ons-u-flex-grow{% endif %}">
+        {% set imageBlock %}
             {%- if params.image -%}
                 {% if params.image.smallSrc %}
                     <img
@@ -17,31 +17,52 @@
                         alt="{{ params.image.alt }}"
                         loading="lazy"
                     />
-                {% elif params.image == true or params.image.placeholderURL %}
+                {% elif params.image == true or params.image.placeholderUrl %}
                     <img
                         class="ons-card__image ons-u-mb-s "
                         height="100"
                         width="303"
                         srcset="{{ placeholderSrcset }}"
-                        src="{{- params.image.placeholderURL if params.image.placeholderURL -}}/img/small/placeholder-card.png"
+                        src="{{- params.image.placeholderUrl if params.image.placeholderUrl -}}/img/small/placeholder-card.png"
                         alt=""
                         loading="lazy"
                     />
                 {% endif %}
             {%- endif -%}
+        {% endset %}
+
+        {% set titleBlock %}
             {{ openingHeadingTag | safe }}
-            class="ons-card__title {{ params.titleClasses | default('ons-u-fs-m') }}" id="{{ params.id }}"> {{ params.title }}
+            class="ons-card__title {{ params.title.classes | default('ons-u-fs-m') }}" id="{{ params.title.id }}"> {{ params.title.text }}
             {{ closingHeadingTag | safe }}
-        </a>
+        {% endset %}
 
-        <p id="{{ params.textId }}">{{ params.text }}</p>
+        {% if params.title.url %}
+            <a href="{{ params.title.url }}" class="ons-card__link{% if params.title.subtitle %}{{ ' ' }}ons-u-mb-xs{% endif %}">
+                {{ imageBlock | safe }}
+                {{ titleBlock | safe }}
+            </a>
+        {% else %}
+            {{ imageBlock | safe }}
+            {{ titleBlock | safe }}
+        {% endif %}
 
-        {%- if params.itemsList -%}
+        {% if params.title.subtitle %}
+            <p class="ons-card__subtitle ons-u-fs-s">{{ params.title.subtitle }}</p>
+        {% endif %}
+
+        {% if params.body.figure %}
+            <p class="ons-card__figure ons-u-fs-3xl ons-u-fw-b ons-u-mb-no">{{ params.body.figure }}</p>
+        {% endif %}
+
+        <p id="{{ params.body.id }}" class="ons-card__body">{{ params.body.text }}</p>
+
+        {%- if params.body.itemsList -%}
             {% from "components/list/_macro.njk" import onsList %}
             {{
                 onsList({
                     "variants": 'dashed',
-                    "itemsList": params.itemsList
+                    "itemsList": params.body.itemsList
                 })
             }}
         {% endif %}

@@ -14,26 +14,30 @@ Nunjucks macros for components and templates are available from npm. Built CSS a
 yarn add @ons/design-system
 ```
 
-## Run Locally
+## Running the DS Locally
 
-You'll need [Git](https://help.github.com/articles/set-up-git/), [Node.js](https://nodejs.org/en/), and [Yarn](https://yarnpkg.com/en/docs/getting-started) to run this project locally.
+You'll need to install:
+
+-   [Git](https://help.github.com/articles/set-up-git/)
+-   [Node.js](https://nodejs.org/en/)
+-   [Yarn](https://yarnpkg.com/en/docs/getting-started) (When installing yarn be sure to install yarn through brew using `brew install yarn` not using npm)
 
 The version of node required is outlined in [.nvmrc](./.nvmrc).
 
-### Using nvm (optional)
+### Using NVM
 
 If you work across multiple Node.js projects there's a good chance they require different Node.js and npm versions.
 
 To enable this we use [nvm (Node Version Manager)](https://github.com/creationix/nvm) to switch between versions easily.
 
 1. [install nvm](https://github.com/creationix/nvm#installation)
-2. Run nvm install in the project directory (this will use .nvmrc)
+2. Run `nvm install` in the project directory (this will use .nvmrc)
 
 ### Install dependencies
 
 ```bash
 yarn install
-yarn husky install
+yarn husky
 ```
 
 ### Start a local server
@@ -43,6 +47,15 @@ yarn start
 ```
 
 Once the server has started, navigate to <http://localhost:3030>
+
+## Lighthouse Testing - local
+
+This project uses [LHCI](https://www.npmjs.com/package/@lhci/cli).
+
+```bash
+yarn global add @lhci/cli
+yarn test-lighthouse
+```
 
 ## Testing - macros and scripts
 
@@ -106,13 +119,13 @@ _Note_: This command is of limited use since JavaScript and SCSS files will only
 
 It is sometimes useful to adjust the following settings when writing tests or diagnosing issues:
 
--   `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `await page.waitForTimeout(100000)` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
+-   `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `await new Promise(r => setTimeout(r, 100000));` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
 
 -   `testTimeout` in 'jest.config.js' - set to a high value such as `1000000` to prevent tests from timing out when doing the above.
 
 ## Testing - Visual regression tests
 
-This project uses [Backstop JS](https://github.com/garris/BackstopJS) for visual regression testing. The tests run in Chrome headless using pupeteer inside docker and run in three viewports; 1920 (desktop), 768 (tablet) and 375 (mobile). Reference images are stored in Git LFS and any approved changes will automatically be stored in Git LFS when pushed to the repository.
+This project uses [Backstop JS](https://github.com/garris/BackstopJS) for visual regression testing. The tests run in Chrome headless using Puppeteer inside docker and run in three viewports; 1920 (desktop), 768 (tablet) and 375 (mobile). Reference images are stored in Git LFS and any approved changes will automatically be stored in Git LFS when pushed to the repository.
 
 The visual tests will run automatically on pull requests and the result will be available in the Github Action logs. If the tests fail, the process for viewing the failures and approving changes will need to be handled locally using the following workflow and commands.
 

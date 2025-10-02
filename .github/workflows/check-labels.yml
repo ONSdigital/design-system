@@ -15,8 +15,8 @@ jobs:
         permissions:
             pull-requests: read
         steps:
-            - uses: docker://onsdigital/github-pr-label-checker:latest
+            - uses: docker://onsdigital/github-pr-label-checker:v1.6.65
               with:
-                  one_of: Accessibility,Bug,Documentation,Dependencies,Enhancement,Example,Component,Pattern,CI/CD,Tech improvements
+                  one_of: Accessibility,Bug,Documentation,Dependencies,Enhancement,Example,Component,Pattern,CI/CD,Tech improvements,Breaking changes
                   none_of: Awaiting resource,Do not merge,Duplicate,Needs validating,Not doing
                   repo_token: ${{ secrets.GITHUB_TOKEN }}

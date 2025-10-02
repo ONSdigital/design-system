@@ -29,7 +29,7 @@ const PARAMS = {
     ],
     subNavigation: {
         id: 'sub-nav',
-        overviewURL: '#overview',
+        overviewUrl: '#overview',
         overviewText: 'Overview',
         ariaLabel: 'Section menu',
         itemsList: [
@@ -75,7 +75,6 @@ const SITE_SEARCH_AUTOSUGGEST = {
         "Use up and down keys to navigate results once you've typed more than two characters. Use the enter key to select a result. Touch device users, explore by touch or with swipe gestures.",
     ariaYouHaveSelected: 'You have selected',
     ariaMinChars: 'Enter 3 or more characters for results.',
-    ariaResultsLabel: 'Search results',
     ariaOneResult: 'There is one result available.',
     ariaNResults: 'There are {n} results available.',
     ariaLimitedResults: 'Results have been limited to 10 results. Type more characters to improve your search',
@@ -138,7 +137,7 @@ describe('macro: navigation', () => {
                     classes: 'ons-input-search ons-input-search--icon',
                     label: {
                         id: 'ons-site-search-label',
-                        classes: 'ons-u-pl-l ons-label--white',
+                        classes: 'ons-u-pl-xl ons-label--white',
                     },
                 },
             });

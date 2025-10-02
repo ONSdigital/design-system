@@ -1,0 +1,59 @@
+{% from "components/card/_macro.njk" import onsCard %}
+
+<div class="ons-container">
+    <div class="ons-grid ons-grid-flex-gap ons-grid-flex-gap--s ons-grid-flex--vertical-top">
+        <div class="ons-grid__col ons-grid__col--flex-col ons-grid__col--stretch">
+            {{
+                onsCard({
+                    "variant": 'feature',
+                    "title": {
+                        "id": 'card-set-1',
+                        "text": 'Deaths registered annually',
+                        "subtitle": 'England and Wales'
+                    },
+                    "body":{
+                        "id": 'text1',
+                        "figure": '581,363',
+                        "text": 'In 2023, up 0.7% from 2022'
+                    }
+                })
+            }}
+        </div>
+
+        <div class="ons-grid__col ons-grid__col--flex-col ons-grid__col--stretch">
+            {{
+                onsCard({
+                    "variant": 'feature',
+                    "title": {
+                        "id": 'card-set-2',
+                        "text": 'Alcohol-specific deaths',
+                        "subtitle": 'UK'
+                    },
+                    "body":{
+                        "id": 'text2',
+                        "figure": '10,473',
+                        "text": 'In 2023, the highest number on record'
+                    }
+                })
+            }}
+        </div>
+
+        <div class="ons-grid__col ons-grid__col--flex-col ons-grid__col--stretch">
+            {{
+                onsCard({
+                    "variant": 'feature',
+                    "title": {
+                        "id": 'card-set-3',
+                        "text": 'Suicides registered',
+                        "subtitle": 'England and Wales'
+                    },
+                    "body":{
+                        "id": 'text3',
+                        "figure": '6069',
+                        "text": 'In 2023, up 7.6% from 2022'
+                    }
+                })
+            }}
+        </div>
+    </div>
+</div>

@@ -2,13 +2,12 @@
     color: inherit;
     display: block;
     font-weight: $font-weight-bold;
-    margin: 0 0 0.6rem;
+    margin: 0 0 0.5rem;
 
     &__description {
         @extend .ons-u-fs-s;
 
         display: block;
-        line-height: 1.4;
     }
 
     &--with-description {
@@ -17,7 +16,6 @@
     }
 
     &--placeholder {
-        font-size: 1rem;
         font-weight: $font-weight-regular;
         color: var(--ons-color-placeholder);
         left: 10px;

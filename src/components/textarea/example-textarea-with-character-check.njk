@@ -1,0 +1,20 @@
+{% from "components/textarea/_macro.njk" import onsTextarea %}
+
+{{
+    onsTextarea({
+        "id": "textarea-char-limit",
+        "name": "feedback-limited",
+        "width": "30",
+        "label": {
+            "text": "Please provide some feedback",
+            "description": "For example, describe any difficulties you experienced in the use of this service"
+        },
+        "charCheckLimit": {
+            "limit": 200,
+            "charCountSingular": "You have {x} character remaining",
+            "charCountPlural": "You have {x} characters remaining",
+            "charCountOverLimitSingular": "{x} character too many",
+            "charCountOverLimitPlural": "{x} characters too many"
+        }
+    })
+}}

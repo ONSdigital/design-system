@@ -3,36 +3,28 @@
     {% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
     <div class="ons-navigation-wrapper{{ ' ons-navigation-wrapper--neutral' if params.variants == 'neutral' }}">
         <div
-            class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}"
+            class="ons-container ons-container--gutterless@2xs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}"
         >
             {% if params.siteSearchAutosuggest %}
                 <div class="ons-navigation-search ons-js-navigation-search">
-                    {% set autosuggestClasses = "ons-input-search ons-input-search--icon" %}
-                    {% set autosuggestLabelClasses = "ons-u-pl-l" %}
-                    {% if params.variants == "neutral" %}
-                        {% set autosuggestClasses = autosuggestClasses + ' ons-input-search--dark' %}
-                    {% else %}
-                        {% set autosuggestLabelClasses = autosuggestLabelClasses + ' ons-label--white' %}
-                    {% endif %}
                     {{
                         onsAutosuggest({
                             "id": "ons-site-search",
                             "containerClasses": "ons-autosuggest--header",
                             "input": {
-                                "classes": autosuggestClasses,
+                                "classes": "ons-input-search ons-input-search--icon",
                                 "accessiblePlaceholder": true,
                                 "autocomplete": "off",
                                 "label": {
                                     "text": params.siteSearchAutosuggest.label,
                                     "id": "ons-site-search-label",
-                                    "classes": autosuggestLabelClasses
+                                    "classes": "ons-u-pl-xl ons-label--white"
                                 }
                             },
                             "instructions": params.siteSearchAutosuggest.instructions,
                             "ariaYouHaveSelected":params.siteSearchAutosuggest.ariaYouHaveSelected,
                             "minChars": params.siteSearchAutosuggest.minChars,
                             "ariaMinChars": params.siteSearchAutosuggest.ariaMinChars,
-                            "ariaResultsLabel": params.siteSearchAutosuggest.ariaResultsLabel,
                             "ariaOneResult": params.siteSearchAutosuggest.ariaOneResult,
                             "ariaNResults": params.siteSearchAutosuggest.ariaNResults,
                             "ariaLimitedResults": params.siteSearchAutosuggest.ariaLimitedResults,
@@ -49,13 +41,13 @@
             <nav
                 class="ons-navigation ons-navigation--main ons-js-navigation"
                 id="{{ params.navigation.id }}"
-                aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}"
+                aria-label="{{ params.navigation.ariaLabel | default('Main menu') }}"
                 data-analytics="header-navigation"
             >
                 <ul class="ons-navigation__list">
                     {% for item in params.navigation.itemsList %}
                         <li
-                            class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}"
+                            class="ons-navigation__item{{ ' ' + item.classes if item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}"
                         >
                             <a
                                 class="ons-navigation__link"
@@ -77,13 +69,13 @@
     {% if params.navigation.subNavigation %}
         {% if not params.navigation.subNavigation.removeHorizontalSubNav %}
             <nav
-                class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes else '' }}"
+                class="ons-navigation ons-u-d-no@2xs@l{{ ' ons-navigation--sub-neutral' if params.variants == 'neutral' else ' ons-navigation--sub' }}{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes else '' }}"
                 id="{{ params.navigation.subNavigation.id }}"
                 aria-label="{{ params.navigation.subNavigation.ariaLabel | default('Section menu') }}"
                 data-analytics="header-section-navigation"
             >
                 <div
-                    class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}"
+                    class="ons-container ons-container--gutterless@2xs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}"
                 >
                     <ul class="ons-navigation__list ons-navigation__list">
                         {% for item in params.navigation.subNavigation.itemsList %}
@@ -91,7 +83,7 @@
                                 class="ons-navigation__item{{ ' ' + item.classes if item.classes else '' }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and item.url in params.navigation.currentPath) }}"
                             >
                                 <a
-                                    class="ons-navigation__link ons-navigation__link"
+                                    class="ons-navigation__link"
                                     href="{{ item.url }}"
                                     {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}"{% endif %}
                                     {% if item.id %}id="{{ item.id }}"{% endif %}
@@ -108,7 +100,9 @@
                 </div>
             </nav>
         {% endif %}
-        <div class="ons-u-d-no@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes else '' }}">
+        <div
+            class="ons-u-d-no@l{{ ' ons-navigation--neutral' if params.variants == 'neutral' else '' }}{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes else '' }}"
+        >
             {{
                 onsButton({
                     "text": params.navigation.currentPageTitle,
@@ -123,20 +117,20 @@
                 })
             }}
             <nav
-                class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-xs"
+                class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-2xs{{ ' ons-navigation--sub-neutral' if params.variants == 'neutral' else '' }}"
                 id="{{ params.navigation.subNavigation.id }}--mobile"
                 aria-hidden="true"
-                aria-label="{{ params.navigation.subNavigation.ariaLabel | default("Section menu") }}"
+                aria-label="{{ params.navigation.subNavigation.ariaLabel | default('Section menu') }}"
                 data-analytics="header-section-navigation"
             >
                 <div
-                    class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.navigation.fullWidth }}{{ ' ons-container--wide' if params.navigation.wide }}"
+                    class="ons-container ons-container--gutterless@2xs@l{{ ' ons-container--full-width' if params.navigation.fullWidth }}{{ ' ons-container--wide' if params.navigation.wide }}"
                 >
                     <ul class="ons-navigation__list ons-navigation__list--parent">
                         <li
-                            class="ons-navigation__item{{ ' ons-navigation__item--active' if (params.navigation.subNavigation.overviewURL == params.navigation.subNavigation.currentPath) }}"
+                            class="ons-navigation__item{{ ' ons-navigation__item--active' if (params.navigation.subNavigation.overviewUrl == params.navigation.subNavigation.currentPath) }}"
                         >
-                            <a class="ons-navigation__link" href="{{ params.navigation.subNavigation.overviewURL }}"
+                            <a class="ons-navigation__link" href="{{ params.navigation.subNavigation.overviewUrl }}"
                                 >{{ params.navigation.subNavigation.overviewText | default('Overview') }}</a
                             >
                         </li>
@@ -162,7 +156,7 @@
                                             <h3 class="ons-navigation__list-header">{{ section.sectionTitle }}</h3>
                                         {% endif %}
                                         <ul
-                                            class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs"
+                                            class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-2xs"
                                         >
                                             {% for child in section.children %}
                                                 <li

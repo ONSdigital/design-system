@@ -8,12 +8,12 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 const EXAMPLE_SUMMARY_ROWS = {
     rows: [
         {
-            // Contains - row with icon, attributes and rowTitleAttributes, other value, no action
+            // Contains - row with icon, attributes and titleAttributes, other value, no action
             id: 'row-id-1',
-            rowTitle: 'row title 1',
-            rowItems: [
+            title: 'row title 1',
+            itemsList: [
                 {
-                    rowTitleAttributes: {
+                    titleAttributes: {
                         a: 123,
                         b: 456,
                     },
@@ -36,10 +36,10 @@ const EXAMPLE_SUMMARY_ROWS = {
         {
             // Contains - row with error and multiple actions
             id: 'row-id-2',
-            rowTitle: 'row title 2',
+            title: 'row title 2',
             error: true,
             errorMessage: 'there are errors',
-            rowItems: [
+            itemsList: [
                 {
                     id: 'item-id-2',
                     valueList: [
@@ -69,8 +69,8 @@ const EXAMPLE_SUMMARY_ROWS = {
         {
             // Contains - row with multiple rows and multiple values
             id: 'row-id-3',
-            rowTitle: 'row title 3',
-            rowItems: [
+            title: 'row title 3',
+            itemsList: [
                 {
                     id: 'item-id-3',
                     valueList: [
@@ -95,9 +95,9 @@ const EXAMPLE_SUMMARY_ROWS = {
         {
             // Contains - row with total
             id: 'row-id-4',
-            rowTitle: 'row title 4',
+            title: 'row title 4',
             total: true,
-            rowItems: [
+            itemsList: [
                 {
                     id: 'item-id-5',
                     valueList: [
@@ -115,7 +115,7 @@ const EXAMPLE_SUMMARY_GROUPS = {
     groups: [
         {
             id: 'group-id-1',
-            groupTitle: 'group title',
+            title: 'group title',
             ...EXAMPLE_SUMMARY_ROWS,
         },
     ],
@@ -139,9 +139,9 @@ const EXAMPLE_SUMMARY_GROUPS_NO_ROWS = {
 const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
     rows: [
         {
-            rowItems: [
+            itemsList: [
                 {
-                    rowTitle: 'row item 1',
+                    title: 'row item 1',
                     valueList: [
                         {
                             text: 'list item 1',
@@ -161,7 +161,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
                     ],
                 },
                 {
-                    rowTitle: 'row item 2',
+                    title: 'row item 2',
                     valueList: [
                         {
                             text: 'list item 2',
@@ -176,7 +176,7 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
                     ],
                 },
                 {
-                    rowTitle: 'row item 3',
+                    title: 'row item 3',
                     valueList: [
                         {
                             text: 'list item 3',
@@ -193,34 +193,9 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
             ],
         },
         {
-            rowItems: [
+            itemsList: [
                 {
-                    rowTitle: 'row item 4',
-                    valueList: [
-                        {
-                            text: 'list item 4',
-                        },
-                    ],
-                    actions: [
-                        {
-                            text: 'Change',
-                            visuallyHiddenText: 'change answer',
-                            url: '#0',
-                        },
-                        {
-                            text: 'Remove',
-                            visuallyHiddenText: 'remove list item',
-                            url: '#0',
-                        },
-                    ],
-                },
-                {
-                    rowTitle: 'row item 5',
-                    valueList: [
-                        {
-                            text: 'list item 5',
-                        },
-                    ],
+                    title: 'row item 4',
                     actions: [
                         {
                             text: 'Change',
@@ -230,7 +205,15 @@ const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
                     ],
                 },
                 {
-                    rowTitle: 'row item 6',
+                    title: 'row item 5',
+                    valueList: [
+                        {
+                            text: 'list item 5',
+                        },
+                    ],
+                },
+                {
+                    title: 'row item 6',
                     valueList: [
                         {
                             text: 'list item 6',
@@ -264,7 +247,7 @@ const EXAMPLE_SUMMARY_BASIC = {
 const EXAMPLE_SUMMARY_WITH_TITLE = {
     summaries: [
         {
-            summaryTitle: 'summary title',
+            title: 'summary title',
             ...EXAMPLE_SUMMARY_GROUPS,
         },
     ],
@@ -273,7 +256,7 @@ const EXAMPLE_SUMMARY_WITH_TITLE = {
 const EXAMPLE_SUMMARY_WITH_NO_ROWS = {
     summaries: [
         {
-            summaryTitle: 'summary title',
+            title: 'summary title',
             ...EXAMPLE_SUMMARY_GROUPS_NO_ROWS,
         },
     ],
@@ -282,22 +265,37 @@ const EXAMPLE_SUMMARY_WITH_NO_ROWS = {
 const EXAMPLE_SUMMARY_MULTIPLE_GROUPS = {
     summaries: [
         {
-            summaryTitle: 'summary title',
+            title: 'summary title',
             groups: [
                 {
                     id: 'group-id-1',
-                    groupTitle: 'group title',
+                    title: 'group title',
                     ...EXAMPLE_SUMMARY_ROWS,
                 },
                 {
                     id: 'group-id-2',
-                    groupTitle: 'group title',
+                    title: 'group title',
                     ...EXAMPLE_SUMMARY_HOUSEHOLD_GROUP,
                 },
                 {
                     id: 'group-id-3',
-                    groupTitle: 'group title',
+                    title: 'group title',
                     ...EXAMPLE_SUMMARY_ROWS,
+                },
+            ],
+        },
+    ],
+};
+
+const EXAMPLE_SUMMARY_SINGLE_GROUP = {
+    summaries: [
+        {
+            title: 'summary title',
+            groups: [
+                {
+                    id: 'group-id-1',
+                    title: 'group title',
+                    ...EXAMPLE_SUMMARY_HOUSEHOLD_GROUP,
                 },
             ],
         },
@@ -345,13 +343,13 @@ describe('macro: summary', () => {
                 expect($('#group-id-1').length).toBe(1);
             });
 
-            it('has the correct `groupTitle` tag', () => {
+            it('has the correct group `title` tag', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect($('.ons-summary__group-title')[0].tagName).toBe('h2');
             });
 
-            it('has the `groupTitle` text', () => {
+            it('has the group `title` text', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect($('.ons-summary__group-title').text()).toBe('group title');
@@ -360,7 +358,7 @@ describe('macro: summary', () => {
             it('has larger margin between groups if the top one is a household style summary', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_MULTIPLE_GROUPS));
 
-                expect($('.ons-summary__group:nth-last-of-type(2) .ons-summary__link').hasClass('ons-u-mb-xl')).toBe(true);
+                expect($('.ons-summary__group:nth-last-of-type(2) .ons-summary__link').hasClass('ons-u-mb-3xl')).toBe(true);
             });
         });
 
@@ -377,13 +375,13 @@ describe('macro: summary', () => {
                 expect($('.ons-summary__items .ons-summary__item:nth-of-type(4)').hasClass('ons-summary__item--total')).toBe(true);
             });
 
-            it('displays the `rowTitle` text', () => {
+            it('displays the row `title` text', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect($('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__row-title').text()).toBe('row title 3');
             });
 
-            it('overrides the `rowTitle` with the `errorMessage` if provided', () => {
+            it('overrides the row `title` with the `errorMessage` if provided', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_WITH_TITLE));
 
                 expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__row-title--error').text()).toBe(
@@ -399,13 +397,7 @@ describe('macro: summary', () => {
                 expect($('#row-id-3').length).toBe(1);
             });
 
-            it('has the correct class for each row when there is a `valueList`', () => {
-                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
-
-                expect($('.ons-summary__row--has-values').length).toBe(5);
-            });
-
-            it('has custom `rowTitleAttributes`', () => {
+            it('has custom row `titleAttributes`', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect($('.ons-summary__item-title').attr('a')).toBe('123');
@@ -414,12 +406,12 @@ describe('macro: summary', () => {
         });
 
         describe('part: item title', () => {
-            it('displays the `rowTitle` text', () => {
+            it('displays the row `title` text', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-                expect($('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__item--text').text().trim()).toBe(
-                    'row title 1',
-                );
+                expect(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__item--text:nth-of-type(1)').text().trim(),
+                ).toBe('row title 1');
             });
 
             it('has a custom icon `iconType`', () => {
@@ -462,24 +454,32 @@ describe('macro: summary', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__row .ons-summary__values .ons-summary__text')
-                        .text()
-                        .trim(),
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__values .ons-summary__text').text().trim(),
                 ).toBe('row value 1');
             });
 
             it('displays the `other` text', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-                expect(
-                    $('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__row .ons-summary__values ul li').text().trim(),
-                ).toBe('other value');
+                expect($('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__values ul li').text().trim()).toBe(
+                    'other value',
+                );
             });
 
             it('wraps the `valueList` in a ul if multiple values provided', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
                 expect($('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__values ul').length).toBe(1);
+            });
+
+            it('adds the `ons-summary__column-size--2` class if no `valueList` is provided', () => {
+                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_SINGLE_GROUP));
+
+                expect(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions').hasClass(
+                        'ons-summary__column-size--2',
+                    ),
+                ).toBe(true);
             });
         });
 
@@ -522,6 +522,12 @@ describe('macro: summary', () => {
                 ).toBe('Action 2');
             });
 
+            it('has the correct `id` added to the actions', () => {
+                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
+
+                expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions').attr('id')).toBe('item-id-2');
+            });
+
             it('has the correct visually hidden <span> text', () => {
                 const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
@@ -551,6 +557,14 @@ describe('macro: summary', () => {
                     ),
                 ).toBe('def');
             });
+
+            it('adds the `ons-summary__column-size--2` class if no action is provided', () => {
+                const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_SINGLE_GROUP));
+
+                expect(
+                    $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__values').hasClass('ons-summary__column-size--2'),
+                ).toBe(true);
+            });
         });
     });
 
@@ -562,7 +576,7 @@ describe('macro: summary', () => {
             expect(results).toHaveNoViolations();
         });
 
-        it('displays the `summaryTitle`', () => {
+        it('displays the summary `title`', () => {
             const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_WITH_TITLE));
 
             expect($('.ons-summary__title').text()).toBe('summary title');
@@ -593,7 +607,7 @@ describe('macro: summary', () => {
             expect($('.ons-summary').hasClass('ons-summary--hub')).toBe(true);
         });
 
-        it('has the value rendered after the `rowTitle` that shows on mobile', () => {
+        it('has the value rendered after the row `title` that shows on mobile', () => {
             const $ = cheerio.load(
                 renderComponent('summary', {
                     ...EXAMPLE_SUMMARY_BASIC,
@@ -601,9 +615,7 @@ describe('macro: summary', () => {
                 }),
             );
 
-            expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__row .ons-summary__item-title span').text()).toBe(
-                ' — row value 2',
-            );
+            expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__item-title span').text()).toBe(' — row value 2');
         });
     });
 

@@ -4,7 +4,6 @@ layout: ~
 ---
 
 {% extends "layout/_template.njk" %}
-{% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/textarea/_macro.njk" import onsTextarea %}
 {% from "components/input/_macro.njk" import onsInput %}
@@ -72,7 +71,7 @@ layout: ~
         }}
     {% endcall %}
 
-    <h1 class="ons-u-fs-xxl ons-u-mt-l">Web form</h1>
+    <h1 class="ons-u-fs-2xl ons-u-mt-xl">Web form</h1>
 
     {{
         onsRadios({
@@ -148,7 +147,7 @@ layout: ~
         })
     }}
 
-    <h2 class="ons-u-mt-m">Your contact details</h2>
+    <h2 class="ons-u-mt-l">Your contact details</h2>
 
     {{
         onsInput({
@@ -185,7 +184,7 @@ layout: ~
 
     {{
         onsButton({
-            "classes": 'ons-u-mb-m ons-u-mt-l',
+            "classes": 'ons-u-mb-l ons-u-mt-xl',
             "text": 'Send message'
         })
     }}

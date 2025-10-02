@@ -31,13 +31,13 @@ layout: ~
 {% block main %}
     <div class="ons-grid">
         <div class="ons-grid__col ons-col-7@m">
-            <h1 class="ons-u-fs-xxl">All articles for <strong>Integrated data</strong></h1>
+            <h1 class="ons-u-fs-2xl">All articles for <strong>Integrated data</strong></h1>
         </div>
     </div>
 
     <div class="ons-grid">
         <div class="ons-grid__col ons-col-7@m">
-            <div class="ons-u-mt-m ons-u-mb-m">
+            <div class="ons-u-mt-l ons-u-mb-l">
                 {{
                     onsDocumentList({
                         "documents": [
@@ -46,10 +46,12 @@ layout: ~
                                     "smallSrc": '/img/small/alison-pritchard.jpg',
                                     "largeSrc": '/img/large/alison-pritchard.jpg'
                                 },
-                                "url": '#0',
-                                "title": 'ONS launches Integrated Data Service to boost government collaboration on data sharing',
+                                "title": {
+                                    "text": 'ONS launches Integrated Data Service to boost government collaboration on data sharing',
+                                    "url": '#0'
+                                },
                                 "metadata": {
-                                    "type": {
+                                    "object": {
                                         "text": 'Press releases',
                                         "url": '#0'
                                     },
@@ -62,10 +64,12 @@ layout: ~
                             },
                             {
                                 "thumbnail": true,
-                                "url": '#0',
-                                "title": 'Integrated Data Service',
+                                 "title": {
+                                    "text": 'Integrated Data Service',
+                                    "url": '#0'
+                                },
                                 "metadata": {
-                                    "type": {
+                                    "object": {
                                         "text": 'Press releases',
                                         "url": '#0'
                                     },
@@ -78,10 +82,12 @@ layout: ~
                             },
                             {
                                 "thumbnail": true,
-                                "url": '#0',
-                                "title": 'Integrated Data for Population Statistics Conference 2018',
+                                 "title": {
+                                    "text": 'Integrated Data for Population Statistics Conference 2018',
+                                    "url": '#0'
+                                },
                                 "metadata": {
-                                    "type": {
+                                    "object": {
                                         "text": 'Press releases',
                                         "url": '#0'
                                     },
@@ -137,7 +143,7 @@ layout: ~
                             "id": 'follow-us',
                             "title": 'Follow us',
                             "iconPosition": 'before',
-                            "iconSize": 'xxl',
+                            "iconSize": '2xl',
                             "itemsList": [
                                 {
                                     "url": '#0',

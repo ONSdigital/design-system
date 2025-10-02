@@ -1,6 +1,7 @@
 import abortableFetch from '../../js/abortable-fetch';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
 import runFuse from './fuse-config';
+import DOMPurify from 'dompurify';
 
 export const baseClass = 'ons-js-autosuggest';
 
@@ -37,6 +38,7 @@ export default class AutosuggestUI {
         errorAPI,
         errorAPILinkText,
         typeMore,
+        customResultsThreshold,
     }) {
         // DOM Elements
         this.context = context;
@@ -65,6 +67,7 @@ export default class AutosuggestUI {
         this.errorAPI = errorAPI || context.getAttribute('data-error-api');
         this.errorAPILinkText = errorAPILinkText || context.getAttribute('data-error-api-link-text');
         this.typeMore = typeMore || context.getAttribute('data-type-more');
+        this.customResultsThreshold = customResultsThreshold || context.getAttribute('data-result-threshold');
         this.language = context.getAttribute('data-lang');
         this.allowMultiple = context.getAttribute('data-allow-multiple') || false;
         this.listboxId = this.listbox.getAttribute('id');
@@ -293,9 +296,30 @@ export default class AutosuggestUI {
 
     async fetchSuggestions(sanitisedQuery, data) {
         this.abortFetch();
-        const results = await runFuse(sanitisedQuery, data, this.lang, this.resultLimit);
+
+        const threshold =
+            this.customResultsThreshold != null && this.customResultsThreshold >= 0 && this.customResultsThreshold <= 1
+                ? this.customResultsThreshold
+                : 0.2;
+
+        let distance;
+        if (threshold >= 0.6) {
+            distance = 500;
+        } else if (threshold >= 0.4) {
+            distance = 300;
+        } else {
+            distance = 100;
+        }
+
+        const results = await runFuse(sanitisedQuery, data, this.lang, threshold, distance);
+
         results.forEach((result) => {
-            result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
+            const resultItem = result.item ?? result;
+
+            result.sanitisedText = sanitiseAutosuggestText(
+                resultItem[this.lang] ?? resultItem['formattedAddress'],
+                this.sanitisedQueryReplaceChars,
+            );
         });
         return {
             status: this.responseStatus,
@@ -345,16 +369,18 @@ export default class AutosuggestUI {
             this.listbox.innerHTML = '';
             if (this.results) {
                 this.resultOptions = this.results.map((result, index) => {
-                    let innerHTML = this.emboldenMatch(result[this.lang], this.query);
+                    const resultItem = result.item ?? result;
+
+                    let innerHTML = this.emboldenMatch(resultItem[this.lang] ?? resultItem['formattedAddress'], this.query);
 
                     const listElement = document.createElement('li');
                     listElement.className = classAutosuggestOption;
                     listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
                     listElement.setAttribute('role', 'option');
-                    if (result.category) {
+                    if (resultItem.category) {
                         innerHTML =
                             innerHTML +
-                            `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${result.category}</span>`;
+                            `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${resultItem.category}</span>`;
                     }
                     listElement.innerHTML = innerHTML;
                     listElement.addEventListener('click', () => {
@@ -373,7 +399,7 @@ export default class AutosuggestUI {
                 const listElement = document.createElement('li');
                 listElement.className = `${classAutosuggestOption} ${classAutosuggestOptionMoreResults}`;
                 listElement.setAttribute('aria-hidden', 'true');
-                listElement.innerHTML = this.moreResults;
+                listElement.innerHTML = DOMPurify.sanitize(this.moreResults);
                 this.listbox.appendChild(listElement);
             }
 
@@ -411,10 +437,12 @@ export default class AutosuggestUI {
         if (status === 400 || status === false) {
             message = this.typeMore;
             this.setAriaStatus(message);
-            this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
+            this.listbox.innerHTML = DOMPurify.sanitize(
+                `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
+            );
         } else if (status > 400 || status === '') {
-            message =
-                this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>.' : '');
+            const sanitizedHref = DOMPurify.sanitize(window.location.href);
+            message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + sanitizedHref + '">' + this.errorAPILinkText + '</a>.' : '');
             let ariaMessage = this.errorAPI + (this.errorAPILinkText ? ' ' + this.errorAPILinkText : '');
 
             this.input.setAttribute('disabled', true);
@@ -428,7 +456,9 @@ export default class AutosuggestUI {
             this.resultsTitleContainer.remove();
         } else {
             message = this.noResults;
-            this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
+            this.listbox.innerHTML = DOMPurify.sanitize(
+                `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
+            );
         }
     }
 
@@ -478,23 +508,26 @@ export default class AutosuggestUI {
                 }
             }
         }
-        this.ariaStatus.innerHTML = content;
+        this.ariaStatus.innerHTML = DOMPurify.sanitize(content);
     }
 
     selectResult(index) {
         if (this.results.length) {
             this.settingResult = true;
             const result = this.results[index || this.highlightedResultIndex || 0];
+            const resultItem = result.item ?? result;
+            const resultValue = resultItem[this.lang] ?? resultItem['formattedAddress'];
+
             this.resultSelected = true;
 
             if (this.allowMultiple === 'true') {
-                let value = this.storeExistingSelections(result[this.lang]);
+                let value = this.storeExistingSelections(resultValue);
                 result.displayText = value;
-            } else if (result.url) {
-                result.displayText = result[this.lang];
-                window.location = result.url;
+            } else if (resultItem.url) {
+                result.displayText = resultValue;
+                window.location = resultItem.url;
             } else {
-                result.displayText = result[this.lang];
+                result.displayText = resultValue;
             }
             this.onSelect(result).then(() => (this.settingResult = false));
 
@@ -511,6 +544,7 @@ export default class AutosuggestUI {
         const warningSpanElement = document.createElement('span');
         const warningBodyElement = document.createElement('div');
 
+        warningContainer.id = this.listbox.getAttribute('id');
         warningContainer.className = 'ons-autosuggest__warning';
         warningElement.className = 'ons-panel ons-panel--warn ons-autosuggest__panel';
 
@@ -519,7 +553,7 @@ export default class AutosuggestUI {
         warningSpanElement.innerHTML = '!';
 
         warningBodyElement.className = 'ons-panel__body';
-        warningBodyElement.innerHTML = content;
+        warningBodyElement.innerHTML = DOMPurify.sanitize(content);
 
         warningElement.appendChild(warningSpanElement);
         warningElement.appendChild(warningBodyElement);

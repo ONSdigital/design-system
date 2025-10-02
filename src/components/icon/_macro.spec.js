@@ -88,11 +88,11 @@ describe('macro: icon', () => {
             const $ = cheerio.load(
                 renderComponent('icon', {
                     iconType,
-                    iconSize: 'xxl',
+                    iconSize: '2xl',
                 }),
             );
 
-            expect($('svg').hasClass('ons-icon--xxl')).toBe(true);
+            expect($('svg').hasClass('ons-icon--2xl')).toBe(true);
         });
     });
 

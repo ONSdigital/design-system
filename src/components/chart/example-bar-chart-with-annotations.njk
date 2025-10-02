@@ -1,0 +1,62 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+
+{{
+    onsChart({
+        "chartType": "bar",
+        "description": "Volume sales, seasonally adjusted, Great Britain, January 2022 to January 2025",
+        "theme": "primary",
+        "title": "Food stores showed a strong rise on the month, while non-food stores fell",
+        "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
+        "id": "uuid",
+        "caption": "Source: Monthly Business Survey, Retail Sales Inquiry from the Office for National Statistics",
+        "download": {
+            'title': 'Download Figure 1 data',
+            'itemsList': [
+                {
+                    "text": "Excel spreadsheet (XLSX format, 18KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Simple text file (CSV format, 25KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Image (PNG format, 25KB)",
+                    "url": "#"
+                }
+            ]
+        },
+        "xAxis": {
+            "categories": [
+                "All retailing",
+                "All retailing excluding Automotive fuel",
+                "Food stores",
+                "Department stores",
+                "Other non-food stores",
+                "Textile clothing \u0026 footwear stores",
+                "Household goods stores",
+                "Non-store retailing",
+                "Automotive fuel"
+            ],
+            "type": "linear"
+        },
+        "yAxis": {
+            "title": "Percent (%)"
+        },
+        "series": [
+            {
+                "data": [1.7, 2.1, 5.6, 0, -0.6, -2.7, -1.7, 2.4, -1.2],
+                "dataLabels": true,
+                "name": "Jan-25"
+            }
+        ],
+        "annotations": [
+            {
+                "text": "A test point annotation",
+                "point": {"x": 2, "y": 3},
+                "labelOffsetX": 40,
+                "labelOffsetY": -30
+            }
+        ]
+    })
+}}

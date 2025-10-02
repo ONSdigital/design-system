@@ -2,12 +2,11 @@
     background: var(--ons-color-white);
     border-bottom: 1px solid var(--ons-color-borders);
     padding: 0.5rem 0;
-
     &__badge {
         background: var(--ons-color-black);
         color: var(--ons-color-white);
-        font-size: 0.85rem;
-        line-height: 1em;
+        @extend .ons-u-fs-s--b;
+
         margin: 0 0.5rem 0 0;
         outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
         padding: 0.4rem;
@@ -15,6 +14,6 @@
     }
 
     &__desc {
-        margin-top: 0.3rem;
+        margin-top: 0.25rem;
     }
 }

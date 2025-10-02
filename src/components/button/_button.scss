@@ -7,9 +7,8 @@ $button-shadow-size: 3px;
     cursor: pointer;
     display: inline-block;
     font-family: inherit;
-    font-size: 1rem;
-    font-weight: $font-weight-bold;
-    line-height: 1.35;
+    @extend .ons-u-fs-r--b;
+
     margin: 0;
     padding: 0;
     position: relative;
@@ -19,43 +18,80 @@ $button-shadow-size: 3px;
     vertical-align: top;
     white-space: nowrap;
 
-    // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
-    &::after {
-        border: ems($button-shadow-size) solid transparent;
-        inset: 0 0 - (ems($button-shadow-size)) 0; // Makes sure button shadow is selectable
-        content: '';
-        position: absolute;
-    }
-
     &--search {
         .ons-icon {
-            @include mq(s, l) {
-                margin-right: 0.5rem;
+            margin: 0.125rem 0.5rem 0.125rem 0;
+            @include mq(xs, s) {
+                margin-right: 0;
             }
+        }
+    }
+
+    &--header-search &,
+    &--header-search:focus &,
+    &--header-search:active &,
+    &--header-search.active &,
+    &--header-search:active:focus &,
+    &--header-search.active:focus & {
+        &__inner {
+            background: var(--ons-color-ocean-blue) !important;
+        }
+    }
+
+    &--header-search &,
+    &--header-search:active &,
+    &--header-search.active & {
+        &__inner {
+            padding: 0.75rem !important;
+            border: 2px solid var(--ons-color-ocean-blue);
+            border-radius: 0;
+            box-shadow: none;
+            .ons-icon {
+                fill: var(--ons-color-text-inverse) !important;
+                height: 28px;
+                width: 28px;
+            }
+        }
+    }
+
+    &--header-search:hover & {
+        &__inner {
+            background: var(--ons-color-night-blue) !important;
+            border-color: var(--ons-color-text-link-hover);
+        }
+    }
+
+    &--header-search:focus & {
+        &__inner {
+            box-shadow:
+                0 0 0 1px var(--ons-color-black),
+                0 0 0 4px var(--ons-color-focus) !important;
+            outline: 3px solid rgb(0 0 0 / 0%);
+            outline-offset: 1px;
+            z-index: 4;
+            border: 2px solid var(--ons-color-black);
         }
     }
 
     &__inner {
         background: var(--ons-color-button);
         border-radius: $input-radius;
-        box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
+        box-shadow: 0 rems($button-shadow-size) 0 var(--ons-color-button-shadow);
         color: var(--ons-color-text-inverse);
-        display: inherit;
-        padding: 0.7em 1em 0.8em;
+        display: flex;
+        align-items: center;
+        padding: 0.875rem 1rem;
         // Required for Google Tag Manager
         pointer-events: none;
         position: relative;
-
         .ons-icon {
             fill: var(--ons-color-text-inverse);
             height: 18px;
-            margin-top: -$button-shadow-size;
-            vertical-align: middle;
             width: 18px;
         }
     }
 
-    // When preceded by another button (for example, in a group)
+    // When preceded by another button (for example in a group)
     & + & {
         margin-left: 0.5rem;
     }
@@ -103,15 +139,25 @@ $button-shadow-size: 3px;
         top: ems($button-shadow-size);
     }
 
+    &.disabled {
+        cursor: not-allowed;
+        border: 0;
+
+        &:hover {
+            border: 0;
+        }
+    }
+
     // Small buttons
     &--small,
     &--mobile {
-        font-size: 0.9rem;
+        line-height: 1.25rem !important;
     }
 
     &--small & {
         &__inner {
-            padding: 0.5em 0.7em;
+            padding: 0.5rem 0.75rem;
+
             .ons-icon {
                 height: 16px;
                 width: 16px;
@@ -122,7 +168,7 @@ $button-shadow-size: 3px;
     &--small.ons-btn--ghost &,
     &--mobile & {
         &__inner {
-            padding: 0.5em 0.7em;
+            padding: 0.5rem 0.75rem;
         }
     }
 
@@ -391,6 +437,9 @@ $button-shadow-size: 3px;
                 transition: opacity 0.3s ease-in-out;
                 width: 27px;
             }
+            .ons-btn__text {
+                margin-left: 0;
+            }
         }
     }
 
@@ -405,7 +454,8 @@ $button-shadow-size: 3px;
         &__inner {
             color: transparent;
             .ons-icon {
-                margin-left: 0 !important;
+                @extend .ons-u-ml-no;
+
                 opacity: 1;
             }
         }
@@ -429,7 +479,8 @@ $button-shadow-size: 3px;
     }
 
     &--mobile[aria-expanded='true'],
-    &--text-link[aria-expanded='true'] {
+    &--text-link[aria-expanded='true'],
+    &--menu[aria-expanded='true'] {
         .ons-icon {
             transform: rotate(270deg);
         }
@@ -482,7 +533,6 @@ $button-shadow-size: 3px;
             box-shadow: none;
             color: var(--ons-color-branded-text);
             display: block;
-            font-size: 1rem;
             font-weight: $font-weight-regular;
             padding: 0.6rem 1rem;
             text-align: left;
@@ -490,7 +540,7 @@ $button-shadow-size: 3px;
             .ons-icon {
                 fill: var(--ons-color-branded-text);
                 float: right;
-                margin-top: 3px;
+                margin-top: 0.25rem;
             }
         }
     }
@@ -511,6 +561,34 @@ $button-shadow-size: 3px;
     &--dropdown.active:focus & {
         &__inner {
             background: var(--ons-color-branded-secondary);
+            color: var(--ons-color-white);
+            .ons-icon {
+                fill: var(--ons-color-white);
+            }
+        }
+    }
+
+    .ons-navigation--neutral &--dropdown {
+        .ons-btn__inner {
+            background: var(--ons-color-grey-15);
+            color: var(--ons-color-black);
+            .ons-icon {
+                fill: var(--ons-color-black);
+            }
+        }
+        &:focus {
+            .ons-btn__inner {
+                background: var(--ons-color-focus);
+            }
+        }
+    }
+
+    .ons-navigation--neutral &--dropdown:active &,
+    .ons-navigation--neutral &--dropdown.active &,
+    .ons-navigation--neutral &--dropdown:active:focus &,
+    .ons-navigation--neutral &--dropdown.active:focus & {
+        &__inner {
+            background: var(--ons-color-grey-100);
             color: var(--ons-color-white);
             .ons-icon {
                 fill: var(--ons-color-white);
@@ -550,10 +628,219 @@ $button-shadow-size: 3px;
             }
         }
     }
+
+    &--menu {
+        border-bottom: 4px solid rgb(0 0 0 / 0%);
+        .ons-icon {
+            transform: rotate(90deg);
+        }
+    }
+
+    &--menu & {
+        &__inner {
+            background: rgb(0 0 0 / 0%);
+            box-shadow: none;
+            color: var(--ons-color-text-link);
+            padding: 0;
+            .ons-icon {
+                fill: var(--ons-color-text-link);
+                height: 1rem;
+                margin-top: 0;
+                width: 1rem;
+            }
+            .ons-btn__text {
+                height: 24px;
+            }
+        }
+    }
+
+    &--menu:focus {
+        background-color: var(--ons-color-focus) !important;
+        border-color: var(--ons-color-black) !important;
+    }
+
+    &--menu:hover {
+        border-color: var(--ons-color-text-link-hover);
+    }
+
+    &--menu:focus & {
+        &__inner {
+            .ons-icon {
+                fill: var(--ons-color-text-link-focus) !important;
+            }
+            .ons-btn__text {
+                color: var(--ons-color-text-link-focus);
+            }
+
+            box-shadow: none;
+        }
+    }
+
+    &--menu:focus:hover:not(:active, .active) {
+        .ons-btn__inner {
+            background: none;
+        }
+    }
+
+    &--menu:active,
+    &--menu[aria-expanded='true'] {
+        background-color: var(--ons-color-branded-tint);
+        border-color: var(--ons-color-text-link-hover);
+    }
+
+    &--menu:hover &,
+    &--menu:active &,
+    &--menu.active & {
+        &__inner {
+            background: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+
+    &--menu:active &,
+    &--menu:active:focus &,
+    &--menu.active &,
+    &--menu.active:focus & {
+        &__inner {
+            background: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+
+    &--search-icon,
+    &--close {
+        border-bottom: 4px solid transparent;
+    }
+
+    &--menu,
+    &--search-icon,
+    &--close {
+        align-items: center;
+        display: flex;
+        padding: 1.25rem 1rem 1rem;
+    }
+
+    &--search-icon &,
+    &--close & {
+        &__inner {
+            background: rgb(0 0 0 / 0%);
+            box-shadow: none;
+            padding: 0;
+            .ons-icon {
+                @extend .ons-u-m-no;
+
+                fill: var(--ons-color-text-link);
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+        }
+    }
+
+    &--search-icon:hover {
+        border-bottom: 4px solid rgb(0 0 0 / 0%);
+        border-color: var(--ons-color-text-link-hover);
+    }
+
+    &--search-icon:focus:hover:not(:active, .active) {
+        .ons-btn__inner {
+            background: none;
+            box-shadow: none;
+        }
+    }
+
+    &--close:focus:hover:not(:active, .active) {
+        .ons-btn__inner {
+            background: none;
+            box-shadow: none;
+        }
+    }
+
+    &--close:active,
+    &--close[aria-expanded='true'] {
+        @extend .ons-u-ml-no;
+
+        border-color: var(--ons-color-text-link-hover);
+        background-color: var(--ons-color-branded-tint);
+        .ons-btn__inner {
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+
+    &--search-icon:hover &,
+    &--search-icon:active &,
+    &--search-icon:active:focus &,
+    &--search-icon.active &,
+    &--search-icon.active:focus & {
+        &__inner {
+            background: none;
+            box-shadow: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+
+    &--search-icon:focus {
+        background-color: var(--ons-color-focus) !important;
+        border-color: var(--ons-color-text-link-focus) !important;
+    }
+
+    &--search-icon:focus &,
+    &--close:focus & {
+        &__inner {
+            background: none;
+            box-shadow: none;
+            .ons-icon {
+                fill: var(--ons-color-text-link-focus) !important;
+            }
+        }
+    }
+
+    &--close:focus {
+        background: var(--ons-color-focus);
+        border-color: var(--ons-color-black);
+    }
+
+    &--search-icon:active {
+        background-color: var(--ons-color-branded-tint);
+        border-color: var(--ons-color-text-link-hover);
+    }
+
+    &--close:hover &,
+    &--close:active &,
+    &--close.active &,
+    &--close.active:focus &,
+    &--close:active:focus & {
+        &__inner {
+            background: none !important;
+            box-shadow: none;
+            color: var(--ons-color-text-link-hover);
+            .ons-icon {
+                fill: var(--ons-color-text-link-hover);
+            }
+        }
+    }
+}
+
+.ons-search__btn {
+    height: 92.5%; //this is to allow the button to be fully aligned with the input by accounting for the shadow box of 3px
+    .ons-btn__inner:has(> .ons-icon) {
+        padding-right: 0.75rem;
+        height: 100%;
+    }
 }
 
 .ons-btn-group {
-    @extend .ons-u-mb-m;
+    @extend .ons-u-mb-l;
 
     align-items: baseline;
     display: flex;
@@ -561,6 +848,6 @@ $button-shadow-size: 3px;
 
     .ons-btn,
     a {
-        margin: 0 1rem 1rem 0;
+        margin: 0 1.5rem 1rem 0;
     }
 }

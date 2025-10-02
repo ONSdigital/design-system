@@ -1,0 +1,131 @@
+.ons-details-panel {
+    $root: &;
+
+    background-color: var(--ons-color-info-tint);
+
+    &__info-icon {
+        background: var(--ons-color-white);
+        border-radius: 50%;
+        color: var(--ons-color-ocean-blue);
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 2rem;
+        height: 2rem;
+        width: 2rem;
+        text-align: center;
+    }
+
+    &__banner {
+        list-style: none;
+        background-color: var(--ons-color-ocean-blue);
+        color: var(--ons-color-white);
+        border: 1px solid var(--ons-color-ocean-blue);
+
+        // remove browser default arrow for <details>
+        &::marker,
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &:focus {
+            outline: 0;
+
+            #{$root}__banner-detail {
+                background: var(--ons-color-focus);
+                box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-text-link-focus);
+                color: var(--ons-color-text-link-focus);
+                outline: none;
+            }
+
+            #{$root}__banner-detail-title {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__banner-contents {
+        display: flex;
+    }
+
+    &__banner-detail {
+        width: fit-content;
+        cursor: pointer;
+    }
+
+    &__banner-detail-title {
+        text-decoration: underline var(--ons-color-white) 2px;
+        text-underline-position: under;
+        display: inline-block;
+
+        &--open {
+            display: inline;
+
+            #{$root}[open] & {
+                display: none;
+            }
+        }
+
+        &--close {
+            display: none;
+
+            #{$root}[open] & {
+                display: inline;
+            }
+        }
+    }
+
+    &__banner-detail-icon {
+        .ons-icon {
+            width: 1rem;
+            height: 1rem;
+            transform: rotate(90deg);
+        }
+
+        #{$root}[open] & {
+            .ons-icon {
+                transform: rotate(270deg);
+            }
+        }
+    }
+
+    &__content {
+        #{$root}[open] & {
+            display: block;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid var(--ons-color-borders);
+
+        @include mq('m') {
+            flex-direction: row;
+            column-gap: 2.5rem;
+        }
+
+        &:last-child {
+            @extend .ons-u-mb-no;
+            @extend .ons-u-pb-no;
+
+            border-bottom: 0;
+        }
+    }
+
+    &__content-meta {
+        @extend .ons-u-mb-no;
+
+        @include mq('m') {
+            flex-basis: 25%;
+            min-width: 16.5rem;
+        }
+    }
+
+    &__content-heading {
+        color: var(--ons-color-black);
+    }
+
+    &__content-description {
+        margin-left: 0;
+    }
+}

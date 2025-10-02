@@ -1,0 +1,30 @@
+{% from "components/details-panel/_macro.njk" import onsDetailsPanel %}
+
+{{
+    onsDetailsPanel({
+        "title": "Correction and Notice",
+        "headingLevel": 3,
+        "detailsItems": [
+            {
+                "text": 'Correction',
+                "date": {
+                    "iso": '2025-01-22T16:30Z',
+                    "short": '22nd January 2025, 4:30PM'
+                },
+                "description": '<p>The Non-Financial Business Economy publication uses estimates from the Annual Business Survey (ABS). A weighting error means these data have now been revised, with the overall impact being minimal.</p>
+                <p>ONS apologises for any inconvenience caused.</p>',
+                "url": '#0',
+                "urlAriaLabel": 'View superseded version of this publication'
+            },
+            {
+                "text": 'Notice',
+                "date": {
+                    "iso": '2025-01-22T16:30Z',
+                    "short": '22nd January 2025, 4:30PM'
+                },
+                "description": '<p>To improve the timeliness of our publications, we have discontinued the previously published <a href="#0">Non-financial business economy<a>, <a href="#0">UK and regional (Annual Business Survey)</a>.
+                We will now deliver the UK and regional elements separately, in our <a href="#0">Non-financial business economy</a>, <a href="#0">UK (Annual Business Survey)</a> and <a href="#0">Non-financial business economy</a>, <a href="#0">regional (Annual Business Survey) bulletins</a>.</p>'
+            }
+        ]
+    })
+}}

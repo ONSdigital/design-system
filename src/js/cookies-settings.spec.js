@@ -38,7 +38,7 @@ const EXAMPLE_PART_COOKIES_SETTINGS_PAGE = `
 
 describe('script: cookies-settings', () => {
     beforeEach(async () => {
-        const client = await page.target().createCDPSession();
+        const client = await page.createCDPSession();
         await client.send('Network.clearBrowserCookies');
     });
 
