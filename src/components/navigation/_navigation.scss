@@ -3,7 +3,6 @@
 
     &-wrapper {
         background: var(--ons-color-header);
-        margin-top: -0.03rem;
 
         &--neutral {
             background: var(--ons-color-header-neutral);
@@ -12,6 +11,11 @@
 
     &--sub {
         background: var(--ons-color-branded-tint);
+        padding-top: 0.5rem;
+    }
+
+    &--sub-neutral {
+        background: var(--ons-color-grey-15);
         padding-top: 0.5rem;
     }
 
@@ -42,8 +46,7 @@
         }
 
         &-header {
-            font-size: 1rem;
-            margin: 0.75rem 0 0.6rem;
+            margin: 0.75rem 0 0.5rem;
             padding: 0 0 0 1rem;
         }
     }
@@ -51,7 +54,6 @@
     &__item {
         border-left: 4px solid transparent;
         display: block;
-        margin: 0 0 0.2rem;
         &--active,
         &:hover {
             border-color: var(--ons-color-white);
@@ -72,7 +74,7 @@
             border-left: 0;
             display: inline-block;
             margin: 0 0 0 1rem;
-            padding: 0 0 0.3rem;
+            padding: 0 0 0.25rem;
             position: relative;
             text-align: center;
 
@@ -123,10 +125,28 @@
 
         @include mq(l) {
             display: inline-block;
-            font-size: 1rem;
             margin: 0;
             padding: 0;
         }
+    }
+
+    &--sub-neutral & {
+        &__link,
+        &__link:hover,
+        &__link:focus {
+            color: var(--ons-color-black);
+        }
+
+        &__item {
+            &:hover,
+            &--active {
+                border-color: var(--ons-color-black);
+            }
+        }
+    }
+
+    &--sub-mobile.ons-navigation--sub-neutral {
+        background: var(--ons-color-white);
     }
 
     &__item--active > &__link {

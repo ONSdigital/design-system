@@ -1,0 +1,272 @@
+.ons-chart {
+    margin: 0;
+    container-type: inline-size;
+    max-width: $grid-max-width;
+
+    &__chart {
+        overflow: visible !important;
+    }
+
+    @media (forced-colors: active) {
+        .highcharts-plot-band {
+            fill: var(--ons-color-grey-75); /* Forces the color used for text in high contrast mode */
+        }
+        .highcharts-annotation-label text,
+        .highcharts-plot-line-label,
+        .highcharts-plot-band-label {
+            fill: CanvasText !important; /* Forces the color used for text in high contrast mode */
+        }
+
+        .highcharts-annotation-label-box {
+            fill: Canvas; /* Sets the background to match system background */
+            stroke: CanvasText; /* Ensures border is visible in contrast mode */
+        }
+    }
+
+    &__container:focus {
+        box-shadow: 0 0 0 3px var(--ons-color-black);
+        outline: 4px solid var(--ons-color-focus);
+        outline-offset: 2px;
+    }
+
+    &__download-title {
+        @extend .ons-u-pt-l;
+        @extend .ons-u-fs-r--b;
+    }
+
+    &__caption {
+        color: var(--ons-color-grey-75);
+    }
+
+    &__annotations-footnotes-number {
+        // !important is necessary for some range annotation labels at mobile, otherwise
+        // the inline-styled block display takes precedence. This inline style is only
+        // applied in some cases - it seems to happen when the shaded area is narrower than the label width.
+        display: flex !important;
+        flex-shrink: 0;
+        flex-grow: 0;
+        align-items: center;
+        justify-content: center;
+        min-width: 1.125rem; // 18px
+        min-height: 1.125rem; // 18px
+        padding: 0.2143em; // 3px;
+        aspect-ratio: 1;
+        border: 1px solid var(--ons-color-grey-100);
+        border-radius: 50%;
+        font-size: 0.875rem; // 14px
+        line-height: 0;
+        background-color: var(--ons-color-white);
+        color: var(--ons-color-grey-100);
+    }
+
+    /* Override Highcharts styling */
+    &__annotations-footnotes-number span {
+        position: static !important;
+        transform-origin: 0 0 !important;
+        font-size: inherit !important;
+        color: inherit !important;
+        top: 0 !important;
+        left: 0 !important;
+    }
+
+    &__annotations-footnotes {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1rem;
+
+        // We need to use a container query here in order to match the responsive rules for Highcharts
+        // which is based on the width that the chart renders not the viewport
+        // Update the breakpoint value here if the Highcharts responsive rules change
+        @container (min-width: 601px) {
+            display: none;
+        }
+    }
+
+    &__annotations-footnotes_item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        font-size: 0.875rem; // 14px
+        color: var(--ons-color-grey-100);
+        line-height: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__boxplot-legend {
+        display: flex;
+        gap: 2rem;
+        font-size: 0.875rem; // 14px
+        padding-left: 1rem;
+        align-items: center;
+
+        &-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        &-item {
+            &--uncertainty {
+                width: 12px;
+                height: 12px;
+                background-color: rgb(32 96 149 / 65%);
+            }
+
+            &--estimate {
+                width: 20px;
+                height: 3px;
+                background-color: #003c57;
+            }
+        }
+
+        &-label {
+            font-size: inherit;
+        }
+    }
+
+    &__iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9; // Default aspect ratio
+
+        @media (scripting: none) {
+            // Approximately matches the aspect ratio of the fallback image inside the iframe
+            aspect-ratio: 16 / 9;
+        }
+    }
+
+    &__non-js-hide {
+        @media (scripting: none) {
+            display: none;
+        }
+    }
+}
+
+@include iframe-aspect-ratio('ons-chart__iframe--{x}');
+
+// This is a workaround to position the axis title to the left
+.highcharts-axis-title {
+    width: 100%;
+}
+
+.highcharts-xaxis-labels span {
+    display: block !important;
+    white-space: nowrap !important;
+}
+
+// Enforce cursor as auto in the legend
+.highcharts-a11y-proxy-group-legend button {
+    cursor: auto !important;
+}
+
+.ons-chart__range-annotation-label {
+    &--x {
+        padding: 0 1.25rem;
+    }
+
+    &--outside {
+        padding: 0;
+        overflow: visible !important;
+    }
+
+    &--right {
+        text-align: left !important;
+        padding-left: 0.3125rem;
+    }
+
+    &--left {
+        text-align: right !important;
+        padding-right: 0.3125rem;
+    }
+
+    &--top {
+        text-align: center !important;
+        padding-bottom: 0.3125rem;
+    }
+
+    &--bottom {
+        text-align: center !important;
+        padding-top: 0.3125rem;
+    }
+}
+
+.ons-chart__connector-line {
+    position: absolute;
+    border-top: 1px solid var(--ons-color-grey-100);
+    border-left: 1px solid var(--ons-color-grey-100);
+}
+
+@media (forced-colors: active) {
+    .ons-chart__boxplot-legend-item--uncertainty,
+    .highcharts-boxplot-box {
+        background-color: SelectedItem;
+        fill: SelectedItem;
+    }
+
+    .ons-chart__boxplot-legend-item--estimate,
+    .highcharts-boxplot-median {
+        background-color: WindowText;
+        stroke: WindowText;
+    }
+    .highcharts-color-0,
+    .highcharts-color-0 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-0 rect {
+        fill: #007faa;
+    }
+    .highcharts-color-1,
+    .highcharts-color-1 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-1 rect {
+        fill: #a6f0ff;
+    }
+    .highcharts-color-2,
+    .highcharts-color-2 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-2 rect {
+        fill: #70d49e;
+    }
+    .highcharts-color-3,
+    .highcharts-color-3 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-3 rect {
+        fill: #e898a5;
+    }
+    .highcharts-color-4,
+    .highcharts-color-4 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-4 rect {
+        fill: #dadfe1;
+    }
+    .highcharts-color-5,
+    .highcharts-color-5 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-5 rect {
+        fill: #f9db72;
+    }
+    .highcharts-color-6,
+    .highcharts-color-6 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-6 rect {
+        fill: #f45b5b;
+    }
+    .highcharts-color-7,
+    .highcharts-color-7 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-7 rect {
+        fill: #1e824c;
+    }
+    .highcharts-color-8,
+    .highcharts-color-8 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-8 rect {
+        fill: #e7934c;
+    }
+    .highcharts-color-9,
+    .highcharts-color-9 .highcharts-area,
+    .highcharts-legend-item.highcharts-color-9 rect {
+        fill: #a0618b;
+    }
+}
+// Allow last label to overflow
+.highcharts-container {
+    overflow: visible !important;
+}
+
+.highcharts-xaxis-labels span:last-child {
+    overflow: visible !important;
+}
+
+.bar-chart-container .highcharts-yaxis-labels span:last-child {
+    overflow: visible !important;
+}

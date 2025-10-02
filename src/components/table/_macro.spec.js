@@ -55,6 +55,41 @@ describe('macro: table', () => {
         expect($('.ons-table').hasClass('another-extra-class')).toBe(true);
     });
 
+    it('renders "scrollable" container element', () => {
+        const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
+
+        expect($('.ons-table-scrollable').length).toBe(1);
+    });
+
+    it('renders "content" container element', () => {
+        const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
+
+        expect($('.ons-table-scrollable__content').length).toBe(1);
+    });
+
+    it('renders an appropriate `aria-label` attribute on the "content" container element', () => {
+        const $ = cheerio.load(
+            renderComponent('table', {
+                ...EXAMPLE_TABLE,
+                caption: 'Example table caption',
+            }),
+        );
+
+        expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Scrollable table');
+    });
+
+    it('renders a custom `aria-label` attribute on the "content" container element', () => {
+        const $ = cheerio.load(
+            renderComponent('table', {
+                ...EXAMPLE_TABLE,
+                caption: 'Example table caption',
+                ariaLabel: 'Special table',
+            }),
+        );
+
+        expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Special table');
+    });
+
     describe('header row', () => {
         it('renders header cells with expected text', () => {
             const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
@@ -95,6 +130,36 @@ describe('macro: table', () => {
 
             expect($('.ons-table__header').attr('width')).toBe('50%');
         });
+        it('adds additional colspan attribute to column header', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    ths: [
+                        {
+                            value: 'Column 1',
+                            colspan: 2,
+                        },
+                    ],
+                }),
+            );
+
+            expect($('.ons-table__header').attr('colspan')).toBe('2');
+        });
+        it('adds additional rowspan attribute to column header', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    ths: [
+                        {
+                            value: 'Column 1',
+                            rowspan: 2,
+                        },
+                    ],
+                }),
+            );
+
+            expect($('.ons-table__header').attr('rowspan')).toBe('2');
+        });
 
         it('does not add "numeric" modifier class to column header when `td.numeric` is not provided', () => {
             const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
@@ -132,6 +197,28 @@ describe('macro: table', () => {
             faker.renderComponent('table', EXAMPLE_TABLE);
 
             expect(iconsSpy.occurrences.length).toBe(0);
+        });
+    });
+
+    describe('Multiple Header Rows', () => {
+        it('renders expected header row cells', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    thList: [
+                        {
+                            ths: [{ value: 'Column 1' }, { value: 'Column 2' }],
+                        },
+                        {
+                            ths: [{ value: 'Column A' }, { value: 'Column B' }],
+                        },
+                    ],
+                }),
+            );
+            const row1Values = mapAll($('.ons-table__row:nth-child(1) .ons-table__header'), (node) => node.text().trim());
+            expect(row1Values).toEqual(['Column 1', 'Column 2']);
+            const row2Values = mapAll($('.ons-table__row:nth-child(2) .ons-table__header'), (node) => node.text().trim());
+            expect(row2Values).toEqual(['Column A', 'Column B']);
         });
     });
 
@@ -291,6 +378,44 @@ describe('macro: table', () => {
 
             expect($('.ons-table__cell').hasClass('ons-table__cell--numeric')).toBe(true);
         });
+        it('adds additional colspan attribute to row header', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    trs: [
+                        {
+                            tds: [
+                                {
+                                    value: 'Column 1',
+                                    colspan: 2,
+                                },
+                            ],
+                        },
+                    ],
+                }),
+            );
+
+            expect($('.ons-table__cell').attr('colspan')).toBe('2');
+        });
+        it('adds additional rowspan attribute to row header', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    trs: [
+                        {
+                            tds: [
+                                {
+                                    value: 'Column 1',
+                                    rowspan: 2,
+                                },
+                            ],
+                        },
+                    ],
+                }),
+            );
+
+            expect($('.ons-table__cell').attr('rowspan')).toBe('2');
+        });
 
         describe('form', () => {
             const params = {
@@ -403,50 +528,6 @@ describe('macro: table', () => {
 
             const footerCellValues = mapAll($('.ons-table__foot .ons-table__cell'), (node) => node.text().trim());
             expect(footerCellValues).toEqual(['Footer Cell 1', 'Footer Cell 2', 'Footer Cell 3']);
-        });
-    });
-
-    describe('scrollable variant', () => {
-        const params = {
-            ...EXAMPLE_TABLE,
-            variants: ['scrollable'],
-            caption: 'Example table caption',
-        };
-
-        it('has the "scrollable" variant class', () => {
-            const $ = cheerio.load(renderComponent('table', params));
-
-            expect($('.ons-table').hasClass('ons-table--scrollable')).toBe(true);
-        });
-
-        it('renders "scrollable" container element', () => {
-            const $ = cheerio.load(renderComponent('table', params));
-
-            expect($('.ons-table-scrollable').length).toBe(1);
-            expect($('.ons-table-scrollable--on').length).toBe(1);
-        });
-
-        it('renders "content" container element', () => {
-            const $ = cheerio.load(renderComponent('table', params));
-
-            expect($('.ons-table-scrollable__content').length).toBe(1);
-        });
-
-        it('renders an appropriate `aria-label` attribute on the "content" container element', () => {
-            const $ = cheerio.load(renderComponent('table', params));
-
-            expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Scrollable table');
-        });
-
-        it('renders a custom `aria-label` attribute on the "content" container element', () => {
-            const $ = cheerio.load(
-                renderComponent('table', {
-                    ...params,
-                    ariaLabel: 'Special table',
-                }),
-            );
-
-            expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Special table');
         });
     });
 

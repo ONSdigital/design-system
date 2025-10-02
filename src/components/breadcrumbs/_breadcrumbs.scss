@@ -1,5 +1,58 @@
 $breadcrumb-chevron-height: 0.65rem;
 
+.ons-breadcrumbs-wrapper {
+    position: relative;
+    z-index: 10;
+    margin-bottom: -2rem;
+    &--grey {
+        background-color: var(--ons-color-banner-bg);
+    }
+
+    &--dark {
+        background-color: var(--ons-color-hero-bg-dark);
+    }
+
+    &--navy-blue {
+        background-color: var(--ons-color-navy-blue-light);
+        margin-bottom: -1.75rem;
+        @include mq(l) {
+            margin-bottom: -3.25rem;
+        }
+    }
+
+    &--dark,
+    &--navy-blue {
+        .ons-icon {
+            color: var(--ons-color-text-inverse);
+        }
+
+        .ons-breadcrumbs__link {
+            color: var(--ons-color-text-inverse);
+            text-decoration: underline;
+
+            &:hover {
+                color: var(--ons-color-text-inverse);
+                text-decoration: underline solid var(--ons-color-text-inverse) 2px;
+            }
+
+            &:focus {
+                color: var(--ons-color-text);
+            }
+
+            &:focus:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &--pale-blue {
+        background-color: var(--ons-color-pale-blue);
+    }
+    .ons-breadcrumbs {
+        padding: 1rem;
+    }
+}
+
 .ons-breadcrumbs {
     align-items: center;
     display: flex;
@@ -22,7 +75,7 @@ $breadcrumb-chevron-height: 0.65rem;
 
         .ons-icon {
             height: $breadcrumb-chevron-height;
-            margin: 0 0.2rem;
+            margin: 0 0.25rem;
             vertical-align: middle;
             width: $breadcrumb-chevron-height;
         }
@@ -77,6 +130,7 @@ $breadcrumb-chevron-height: 0.65rem;
 
         &:hover {
             color: var(--ons-color-text);
+            text-decoration: underline solid var(--ons-color-text) 2px;
         }
     }
 }

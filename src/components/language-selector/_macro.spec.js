@@ -9,14 +9,14 @@ const EXAMPLE_WITH_TWO_LANGUAGES = {
     languages: [
         {
             url: '/english',
-            ISOCode: 'en',
+            isoCode: 'en',
             text: 'English',
             abbrText: 'EN',
             current: true,
         },
         {
             url: '/cymraeg',
-            ISOCode: 'cy',
+            isoCode: 'cy',
             text: 'Cymraeg',
             abbrText: 'CY',
             current: false,
@@ -32,19 +32,19 @@ const EXAMPLE_WITH_THREE_LANGUAGES = {
     languages: [
         {
             url: '/english',
-            ISOCode: 'en',
+            isoCode: 'en',
             text: 'English',
             current: false,
         },
         {
             url: '/cymraeg',
-            ISOCode: 'cy',
+            isoCode: 'cy',
             text: 'Cymraeg',
             current: true,
         },
         {
             url: '/polski',
-            ISOCode: 'pl',
+            isoCode: 'pl',
             text: 'Polski',
             current: false,
         },
@@ -96,13 +96,13 @@ describe('macro: language-selector', () => {
         it('does not have a visibility class applied', () => {
             const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_TWO_LANGUAGES));
 
-            expect($('.ons-language-links').hasClass('ons-u-d-no@xxs@m')).toBe(false);
+            expect($('.ons-language-links').hasClass('ons-u-d-no@2xs@m')).toBe(false);
         });
 
         it('has the `abbrText` rendered', () => {
             const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_TWO_LANGUAGES));
 
-            expect($('.ons-language-links__item a span:first-child').text()).toBe('CY');
+            expect($('.ons-language-links__item a span:nth-child(2)').text()).toBe('CY');
         });
     });
 
@@ -124,14 +124,60 @@ describe('macro: language-selector', () => {
         it('does not show the current language', () => {
             const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_THREE_LANGUAGES));
 
-            expect($('.ons-language-links__item:first-child a').text()).toBe('English');
-            expect($('.ons-language-links__item:last-child a').text()).toBe('Polski');
+            // .replace(/\s+/g, ' ') will replace any sequence of whitespace characters (spaces, tabs, newlines) with a single space
+            expect($('.ons-language-links__item:first-child a').text().replace(/\s+/g, ' ').trim()).toBe('Change language to English');
+            expect($('.ons-language-links__item:last-child a').text().replace(/\s+/g, ' ').trim()).toBe('Change language to Polski');
         });
 
         it('has the visibility class applied', () => {
             const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_THREE_LANGUAGES));
 
-            expect($('.ons-language-links').hasClass('ons-u-d-no@xxs@m')).toBe(true);
+            expect($('.ons-language-links').hasClass('ons-u-d-no@2xs@m')).toBe(true);
+        });
+    });
+
+    describe('srText parameter', () => {
+        it('renders custom srText when provided', () => {
+            const params = {
+                languages: [
+                    {
+                        url: '/welsh',
+                        isoCode: 'cy',
+                        text: 'Cymraeg',
+                        srText: 'Custom screen reader text',
+                        current: false,
+                    },
+                    {
+                        url: '/english',
+                        isoCode: 'en',
+                        text: 'English',
+                        current: true,
+                    },
+                ],
+            };
+            const $ = cheerio.load(renderComponent('language-selector', params));
+            expect($('.ons-language-links__item a .ons-u-vh').text().trim()).toBe('Custom screen reader text');
+        });
+
+        it('renders default srText when not provided', () => {
+            const params = {
+                languages: [
+                    {
+                        url: '/welsh',
+                        isoCode: 'cy',
+                        text: 'Cymraeg',
+                        current: false,
+                    },
+                    {
+                        url: '/english',
+                        isoCode: 'en',
+                        text: 'English',
+                        current: true,
+                    },
+                ],
+            };
+            const $ = cheerio.load(renderComponent('language-selector', params));
+            expect($('.ons-language-links__item a .ons-u-vh').text().trim()).toBe('Change language to');
         });
     });
 });

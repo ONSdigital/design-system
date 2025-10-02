@@ -1,5 +1,6 @@
 // Block
 .ons-header {
+    $root: &;
     @include font-smoothing;
 
     display: block;
@@ -16,12 +17,12 @@
         row-gap: 0.5rem;
 
         @include mq(xs) {
-            padding: 0.75rem 0;
+            padding: 0.875rem 0;
         }
     }
     &__main {
         background: var(--ons-color-header);
-        padding: 0.56rem 0;
+        padding: 0.5rem 0;
 
         &--border {
             border-bottom: 3px solid var(--ons-color-header);
@@ -31,13 +32,13 @@
     }
     &__title {
         @extend .ons-u-fs-r--b;
-        @extend .ons-u-fs-xl\@xxs;
+        @extend .ons-u-fs-xl\@2xs;
 
         color: var(--ons-color-white);
 
         @include mq(m) {
             margin-bottom: 1rem;
-            margin-top: 0.8rem;
+            margin-top: 1rem;
         }
 
         &-link {
@@ -61,15 +62,24 @@
         margin: 0;
 
         @include mq(m) {
-            margin: 0 0 1.1rem;
+            margin: 0 0 1rem;
         }
     }
+
+    &__language {
+        display: none;
+
+        .ons-js-enabled & {
+            display: block;
+        }
+    }
+
     // Modifier - variants
     &--description {
         .ons-header {
             &__title {
                 @extend .ons-u-fs-m;
-                @extend .ons-u-fs-xxl\@m;
+                @extend .ons-u-fs-2xl\@m;
 
                 margin-bottom: 0;
             }
@@ -151,7 +161,6 @@
     &__org-logo-link,
     &__title-logo-link {
         display: block;
-        font-size: 0;
         &:hover {
             text-decoration: none;
         }
@@ -169,13 +178,13 @@
     }
 
     &__org-logo--large {
-        @include mq(xxs, 454px) {
+        @include mq('2xs', 590px) {
             display: none;
         }
     }
 
     &__org-logo--small {
-        @include mq(455px) {
+        @include mq(591px) {
             display: none;
         }
     }
@@ -236,10 +245,112 @@
             }
         }
     }
-    &__lang-adjustment {
-        @include mq(l) {
-            margin-right: 21rem;
-            margin-top: -5px !important;
+
+    &--basic & {
+        &__grid-top {
+            padding: 0;
+            flex-direction: column;
+            align-items: flex-start;
+
+            #{$root}__menu-links {
+                width: 100%;
+
+                #{$root}__language {
+                    display: block;
+                    padding-top: 1rem;
+
+                    // hide the language switcher within nav when js is enabled
+                    .ons-js-enabled & {
+                        display: none;
+                    }
+                }
+            }
+
+            // When JS is enabled, revert the no-js styles
+            .ons-js-enabled & {
+                flex-direction: inherit;
+                align-items: center;
+
+                #{$root}__menu-links {
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    &-nav-menu {
+        margin-bottom: 0;
+        padding-bottom: 2.5rem;
+        position: relative;
+        width: 100%;
+
+        &__key-list {
+            border-bottom: 1px solid var(--ons-color-ocean-blue);
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            padding-left: 0;
+            row-gap: 1rem;
+        }
+
+        &__link,
+        &__heading,
+        &__text,
+        &__description {
+            line-height: 1.714 !important;
+        }
+
+        &__groupItem-list:not(:last-of-type) {
+            margin-bottom: 2rem !important;
+        }
+
+        .ons-grid {
+            margin-left: 0;
+        }
+
+        .ons-grid__col {
+            padding-left: 0;
+            padding-bottom: 1rem;
+            @include mq(m) {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    // applies styles for non-js variant
+    &-nav-menu ~ &-nav-search {
+        border-top: 1px solid var(--ons-color-ocean-blue);
+    }
+
+    &-nav-menu,
+    &-nav-search {
+        background-color: var(--ons-color-branded-tint);
+
+        // updates styles when js is enabled
+        .ons-js-enabled & {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 100vw;
+            transform: translateX(-50%);
+            border-top: 0;
+            z-index: 500;
+        }
+    }
+
+    &__menu-links ~ &__links {
+        padding-bottom: 0.25rem;
+    }
+
+    &-nav-search {
+        @extend .ons-u-pt-2xl;
+        @extend .ons-u-pb-2xl;
+
+        &__input {
+            border-bottom: 1px solid var(--ons-color-ocean-blue);
+            @extend .ons-u-mb-2xl;
+            @extend .ons-u-pb-2xl;
+
+            row-gap: 1rem;
         }
     }
 

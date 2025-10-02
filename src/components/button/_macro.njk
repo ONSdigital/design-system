@@ -11,7 +11,7 @@
             {# Default icon position before label #}
             {% set iconPosition = "before" %}
         {% endif %}
-    {% elif params.iconType is not defined and params.noIcon is not defined %}
+    {% elif params.iconType is not defined and params.noIcon != true %}
         {% if params.url and params.newWindow %}
             {# CTA link opening in new tab #}
             {% set iconType = "external-link" %}
@@ -61,6 +61,10 @@
             {% set iconType = "loader" %}
             {% set iconPosition = "after" %}
             {% set variantClasses = " ons-btn--loader ons-js-loader ons-js-submit-btn" %}
+        {% elif 'search' in params.variants %}
+            {% set iconType = "search" %}
+        {% elif 'close' in params.variants %}
+            {% set iconType = "close" %}
         {% endif %}
     {% endif %}
     {% set tag = "a" if params.url else "button" %}
@@ -72,7 +76,7 @@
     {% else %}
         type="{{ buttonType }}"
     {% endif %}
-    class="ons-btn{{ ' ' + params.classes if params.classes else '' }}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-btn--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-btn--{{ params.variants }}{% endif %}{{ ' ons-btn--link ons-js-submit-btn' if params.url }}{{ variantClasses }}"
+    class="ons-btn{{ ' ' + params.classes if params.classes else '' }}{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-btn--{{ variant }}{% endfor %}{% elif params.variants %}{{ ' ' }}ons-btn--{{ params.variants }}{% endif %}{{ ' ons-btn--link ons-js-submit-btn' if params.url }}{{ variantClasses }}"
     {% if params.id %}id="{{ params.id }}"{% endif %}
     {% if params.value and tag != "a" %}value="{{ params.value }}"{% endif %}
     {% if params.name and tag != "a" %}name="{{ params.name }}"{% endif %}
@@ -86,7 +90,7 @@
                 {{-
                     onsIcon({
                         "iconType": iconType,
-                        "classes": 'ons-u-mr-xs'
+                        "classes": 'ons-u-mr-2xs'
                     })
                 -}}
             {%- endif -%}
@@ -95,7 +99,7 @@
                 {{-
                     onsIcon({
                         "iconType": iconType,
-                        "classes": 'ons-u-ml-xs'
+                        "classes": 'ons-u-ml-2xs'
                     })
                 -}}
             {%- endif -%}
@@ -105,13 +109,13 @@
                     "iconType": iconType
                 })
             -}}
-            <span class="ons-btn__text ons-u-vh@xxs@s">{{- params.html | safe if params.html else params.text -}}</span>
+            <span class="ons-btn__text ons-u-vh@2xs@s">{{- params.html | safe if params.html else params.text -}}</span>
         {%- else -%}
             <span class="ons-btn__text">{{- params.html | safe if params.html else params.text -}}</span>
         {%- endif -%}
     </span>
     {% if params.url and params.newWindow %}
-        <span class="ons-btn__new-window-description ons-u-vh"> ({{ params.newWindowDescription | default("opens in a new tab") }})</span>
+        <span class="ons-btn__new-window-description ons-u-vh">({{ params.newWindowDescription | default("opens in a new tab") }})</span>
     {% endif %}
     {% if params.buttonContext %}
         <span class="ons-btn__context ons-u-vh">{{ params.buttonContext }}</span>

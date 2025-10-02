@@ -3,13 +3,16 @@ on:
     release:
         types: [published]
 
+permissions:
+    contents: write
+
 jobs:
     add-templates-to-release:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
             - name: Install Node
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
               with:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
@@ -21,7 +24,7 @@ jobs:
             - name: Zip templates
               run: zip -r templates.zip templates/*
             - name: Release
-              uses: softprops/action-gh-release@v1
+              uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
               with:
                   files: templates.zip
               env:

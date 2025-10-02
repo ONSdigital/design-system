@@ -1,0 +1,67 @@
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+
+{%
+    call onsQuestion({
+        "title": "Do you have any dietary requirements?",
+        "legendIsQuestionTitle": true,
+        "classes": "ons-u-mt-no"
+    })
+%}
+    {{
+        onsCheckboxes({
+            "checkboxesLabel": "Select all that apply",
+            "dontWrap": true,
+            "checkboxes": [
+                {
+                    "id": "gluten-free-example-checkbox-with-revealed-text-area",
+                    "label": {
+                        "text": "Gluten free"
+                    },
+                    "value": "gluten-free"
+                },
+                {
+                    "id": "lactose-intolerant-example-checkbox-with-revealed-text-area",
+                    "label": {
+                        "text": "Lactose intolerant"
+                    },
+                    "value": "lactose-intolerant"
+                },
+                {
+                    "id": "vegan-example-checkbox-with-revealed-text-area",
+                    "label": {
+                        "text": "Vegan"
+                    },
+                    "value": "vegan"
+                },
+                {
+                    "id": "vegetarian-example-checkbox-with-revealed-text-area",
+                    "label": {
+                        "text": "Vegetarian"
+                    },
+                    "value": "vegetarian"
+                },
+                {
+                    "id": "other-checkbox-with-revealed-text-area",
+                    "label": {
+                        "text": "Other"
+                    },
+                    "value": "other",
+                    "other": {
+                        "otherType": "textarea",
+                        "id": "other-textbox-example-checkbox-with-revealed-text-area",
+                        "name": "other-answer",
+                        "label": {
+                            "text": "Provide more details"
+                        },
+                        "charCheckLimit": {
+                            "limit": 200,
+                            "charCountSingular": "You have {x} character remaining",
+                            "charCountPlural": "You have {x} characters remaining"
+                        }
+                    }
+                }
+            ]
+        })
+    }}
+{% endcall %}

@@ -1,6 +1,8 @@
 module.exports = {
     ci: {
         collect: {
+            staticDistDir: './build',
+            url: require('./urls.json').urlsWithoutKnownIssues,
             numberOfRuns: 1,
             settings: {
                 onlyCategories: ['accessibility'],
@@ -8,7 +10,7 @@ module.exports = {
         },
         assert: {
             assertions: {
-                'categories:accessibility': ['warn', { minScore: 1 }],
+                'categories:accessibility': ['error', { minScore: 1 }],
             },
         },
         upload: {

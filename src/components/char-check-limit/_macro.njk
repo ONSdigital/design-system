@@ -5,11 +5,12 @@
     {% endif %}
     <span
         id="{{ params.id }}"
-        class="ons-input__limit ons-u-fs-s--b ons-u-d-no ons-u-mt-xs"
-        data-charcount-singular="{{ params.charCountSingular }}"
-        data-charcount-plural="{{ params.charCountPlural }}"
-        data-charcount-limit-singular="{{ params.charCountOverLimitSingular }}"
-        data-charcount-limit-plural="{{ params.charCountOverLimitPlural }}"
+        class="ons-input__limit ons-u-fs-s--b ons-u-d-no ons-u-mt-2xs"
+        data-count-type="{{ params.variant if params.variant == 'word' else 'char' }}"
+        data-message-singular="{% if params.variant == 'word' %}{{ params.wordCountSingular }}{% else %}{{ params.charCountSingular }}{% endif %}"
+        data-message-plural="{% if params.variant == 'word' %}{{ params.wordCountPlural }}{% else %}{{ params.charCountPlural }}{% endif %}"
+        data-message-over-limit-singular="{% if params.variant == 'word' %}{{ params.wordCountOverLimitSingular | default("You have exceeded the word limit by {x} word") }}{% else %}{{ params.charCountOverLimitSingular | default("You have exceeded the character limit by {x} character") }}{% endif %}"
+        data-message-over-limit-plural="{% if params.variant == 'word' %}{{ params.wordCountOverLimitPlural | default("You have exceeded the word limit by {x} words") }}{% else %}{{ params.charCountOverLimitPlural | default("You have exceeded the character limit by {x} characters") }}{% endif %}"
     >
     </span>
 {% endmacro %}

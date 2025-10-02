@@ -13,10 +13,15 @@
         text-align: left;
     }
 
+    &__row:not(.ons-table__row--after-rowspan) {
+        .ons-table__cell,
+        .ons-table__header {
+            @include nth-element(1, 0);
+        }
+    }
+
     &__header,
     &__cell {
-        @include nth-element(1, 0);
-
         border-bottom: 2px solid var(--ons-color-grey-75);
         overflow: hidden;
         padding: 0.5rem 0 0.5rem 1rem;
@@ -24,6 +29,13 @@
         vertical-align: top;
         &--numeric {
             text-align: right;
+        }
+    }
+
+    &--has-rowspan {
+        .ons-table__header,
+        .ons-table__cell {
+            padding: 0.5rem 1.5rem 0.5rem 0;
         }
     }
 
@@ -36,7 +48,7 @@
         background: var(--ons-color-highlight);
     }
 
-    &:not(.ons-table--responsive) .ons-table__body .ons-table__row:last-child {
+    &:not(.ons-table--responsive, .ons-table--has-rowspan) .ons-table__body .ons-table__row:last-child {
         .ons-table__cell,
         .ons-table__header--row {
             border: 0;
@@ -63,7 +75,7 @@
     }
 
     &--responsive {
-        @include mq(xxs, s) {
+        @include mq('2xs', s) {
             .ons-table__header {
                 display: none;
             }
@@ -104,12 +116,6 @@
             background: var(--ons-color-grey-75);
             border-radius: 20px;
         }
-        &--on {
-            .ons-table__header,
-            .ons-table__cell {
-                white-space: nowrap;
-            }
-        }
         &__content {
             overflow: visible;
             overflow-x: auto;
@@ -121,12 +127,6 @@
                     0 0 0 8px var(--ons-color-focus);
                 outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
                 outline-offset: 1px;
-            }
-            .ons-table__header,
-            .ons-table__cell {
-                @include mq(xxs, m) {
-                    white-space: nowrap;
-                }
             }
             .ons-table__right-shadow,
             .ons-table__left-shadow {
@@ -207,7 +207,6 @@
                 display: inline-block;
                 font-family: $font-sans;
                 font-weight: $font-weight-bold;
-                line-height: 1rem;
                 padding: 0 0 0.2rem;
                 white-space: nowrap;
 

@@ -57,10 +57,10 @@ export default class AutosuggestAddress {
         });
 
         // Set up AIMS api variables and auth
-        this.APIDomain = this.container.getAttribute('data-api-domain');
-        this.lookupURL = `${this.APIDomain}/addresses/eq?input=`;
-        this.lookupGroupURL = `${this.APIDomain}/addresses/eq/bucket?`;
-        this.retrieveURL = `${this.APIDomain}/addresses/eq/uprn/`;
+        this.apiDomain = this.container.getAttribute('data-api-domain');
+        this.lookupUrl = `${this.apiDomain}/addresses/eq?input=`;
+        this.lookupGroupUrl = `${this.apiDomain}/addresses/eq/bucket?`;
+        this.retrieveUrl = `${this.apiDomain}/addresses/eq/uprn/`;
 
         // Query string options
         this.manualQueryParams = this.container.getAttribute('data-query-params');
@@ -77,7 +77,7 @@ export default class AutosuggestAddress {
     }
 
     async checkAPIStatus() {
-        this.fetch = abortableFetch(this.lookupURL + 'cf142&limit=10', {
+        this.fetch = abortableFetch(this.lookupUrl + 'cf142&limit=10', {
             method: 'GET',
             headers: this.setAuthorization(this.authorizationToken),
         });
@@ -109,24 +109,24 @@ export default class AutosuggestAddress {
     }
 
     async findAddress(text, grouped) {
-        let queryURL, fullQueryURL;
+        let queryUrl, fullQueryUrl;
 
         if (this.manualQueryParams) {
             const manualQueryParams = this.container.getAttribute('data-query-params');
-            fullQueryURL = this.lookupURL + text + manualQueryParams;
+            fullQueryUrl = this.lookupUrl + text + manualQueryParams;
         } else {
             const fullPostcodeQuery = this.testFullPostcodeQuery(text);
             let limit = fullPostcodeQuery ? 100 : 10;
 
-            queryURL = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
+            queryUrl = grouped ? this.lookupGroupUrl + this.groupQuery : this.lookupUrl + text + '&limit=' + limit;
 
-            fullQueryURL = this.generateURLParams(queryURL);
+            fullQueryUrl = this.generateUrlParams(queryUrl);
             if (fullPostcodeQuery && grouped !== false) {
-                fullQueryURL = fullQueryURL + '&groupfullpostcodes=combo';
+                fullQueryUrl = fullQueryUrl + '&groupfullpostcodes=combo';
             }
         }
 
-        this.fetch = abortableFetch(fullQueryURL, {
+        this.fetch = abortableFetch(fullQueryUrl, {
             method: 'GET',
             headers: this.setAuthorization(this.authorizationToken),
         });
@@ -248,11 +248,11 @@ export default class AutosuggestAddress {
     }
 
     async retrieveAddress(id, type = null) {
-        let retrieveUrl = this.retrieveURL + id;
+        let retrieveUrl = this.retrieveUrl + id;
 
-        const fullUPRNURL = this.generateURLParams(retrieveUrl, id, type);
+        const fullUprnUrl = this.generateUrlParams(retrieveUrl, id, type);
 
-        this.fetch = abortableFetch(fullUPRNURL, {
+        this.fetch = abortableFetch(fullUprnUrl, {
             method: 'GET',
             headers: this.setAuthorization(this.authorizationToken),
         });
@@ -315,8 +315,8 @@ export default class AutosuggestAddress {
         };
     }
 
-    generateURLParams(baseURL, uprn, type) {
-        let fullURL = baseURL,
+    generateUrlParams(baseUrl, uprn, type) {
+        let fullUrl = baseUrl,
             addressType;
 
         const classificationFilterParam = '&classificationfilter=',
@@ -336,37 +336,37 @@ export default class AutosuggestAddress {
 
         if (!uprn) {
             if (this.classificationFilter && this.classificationFilter !== 'residential') {
-                fullURL = fullURL + classificationFilterParam + this.classificationFilter;
+                fullUrl = fullUrl + classificationFilterParam + this.classificationFilter;
             }
 
             if (this.classificationFilter === 'workplace') {
                 if (this.regionCode === 'gb-eng') {
-                    fullURL = fullURL + eboostParam;
+                    fullUrl = fullUrl + eboostParam;
                 } else if (this.regionCode === 'gb-wls') {
-                    fullURL = fullURL + wboostParam;
+                    fullUrl = fullUrl + wboostParam;
                 }
             }
 
             if (this.regionCode === 'gb-nir') {
                 if (this.classificationFilter === 'educational') {
-                    fullURL = fullURL + nionlyParam;
+                    fullUrl = fullUrl + nionlyParam;
                 } else {
-                    fullURL = fullURL + niboostParam;
+                    fullUrl = fullUrl + niboostParam;
                 }
             }
 
             if (this.lang === 'cy') {
-                fullURL = fullURL + favourwelshParam;
+                fullUrl = fullUrl + favourwelshParam;
             }
         } else if (uprn) {
-            fullURL = baseURL + addresstypeParam + addressType;
+            fullUrl = baseUrl + addresstypeParam + addressType;
         }
 
         if (this.epoch === 'true') {
-            fullURL = fullURL + epochParam;
+            fullUrl = fullUrl + epochParam;
         }
 
-        return fullURL;
+        return fullUrl;
     }
 
     handleAPIError() {

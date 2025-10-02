@@ -16,7 +16,6 @@ const EXAMPLE_AUTOSUGGEST = {
     ariaYouHaveSelected: 'You have selected',
     ariaMinChars: 'Enter 3 or more characters for suggestions.',
     minChars: 3,
-    ariaResultsLabel: 'Country suggestions',
     ariaOneResult: 'There is one suggestion available.',
     ariaNResults: 'There are {n} suggestions available.',
     ariaLimitedResults: 'Type more characters to improve your search',
@@ -40,7 +39,6 @@ const EXAMPLE_AUTOSUGGEST_WITH_LANGUAGE = {
     ariaYouHaveSelected: 'You have selected',
     ariaMinChars: 'Enter 3 or more characters for suggestions.',
     minChars: 3,
-    ariaResultsLabel: 'Country suggestions',
     ariaOneResult: 'There is one suggestion available.',
     ariaNResults: 'There are {n} suggestions available.',
     ariaLimitedResults: 'Type more characters to improve your search',
@@ -52,6 +50,8 @@ const EXAMPLE_AUTOSUGGEST_WITH_LANGUAGE = {
     autosuggestData: '/test/fake/api/countries',
     language: 'en-gb',
 };
+
+const { setTimeout } = require('node:timers/promises');
 
 describe('script: autosuggest', () => {
     const apiFaker = new PuppeteerEndpointFaker('/test/fake/api');
@@ -298,11 +298,11 @@ describe('script: autosuggest', () => {
             const suggestionCountSample1 = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.length);
             expect(suggestionCountSample1).toBe(2);
 
-            await page.waitForTimeout(200);
+            await setTimeout(200);
             const suggestionCountSample2 = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.length);
             expect(suggestionCountSample2).toBe(2);
 
-            await page.waitForTimeout(320);
+            await setTimeout(320);
             const suggestionCountSample3 = await page.$$eval('.ons-autosuggest__option', (nodes) => nodes.length);
             expect(suggestionCountSample3).toBe(0);
         });
@@ -312,7 +312,7 @@ describe('script: autosuggest', () => {
 
             await page.type('.ons-js-autosuggest-input', 'Unite', { delay: 20 });
             await page.keyboard.press('Tab');
-            await page.waitForTimeout(320);
+            await setTimeout(320);
 
             const listboxInnerHTML = await page.$eval('.ons-js-autosuggest-listbox', (node) => node.innerHTML);
             expect(listboxInnerHTML).toBe('');
@@ -323,7 +323,7 @@ describe('script: autosuggest', () => {
 
             await page.type('.ons-js-autosuggest-input', 'Unite', { delay: 20 });
             await page.keyboard.press('Tab');
-            await page.waitForTimeout(320);
+            await setTimeout(320);
 
             const hasClass = await page.$eval('.ons-autosuggest', (node) => node.classList.contains('ons-autosuggest--has-results'));
             expect(hasClass).toBe(false);
@@ -334,7 +334,7 @@ describe('script: autosuggest', () => {
 
             await page.type('.ons-js-autosuggest-input', 'Unite', { delay: 20 });
             await page.keyboard.press('Tab');
-            await page.waitForTimeout(320);
+            await setTimeout(320);
 
             const attributes = await getNodeAttributes(page, '.ons-js-autosuggest-input');
             expect(attributes['aria-activedescendant']).toBeUndefined();
@@ -386,9 +386,11 @@ describe('script: autosuggest', () => {
     describe('when the mouse moves over a result and a suggestion is focused', () => {
         it('removes the focused class', async () => {
             await setTestPage('/test', renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
+            await page.mouse.move(0, 0); // move out of the component
 
             await page.type('.ons-js-autosuggest-input', 'state', { delay: 20 });
             await page.keyboard.press('ArrowDown');
+
             await page.hover('.ons-autosuggest__option:nth-child(2)');
 
             const focusedClassCount = await page.$$eval('.ons-autosuggest__option--focused', (nodes) => nodes.length);
@@ -595,7 +597,7 @@ describe('script: autosuggest', () => {
                         ...EXAMPLE_AUTOSUGGEST,
                         errorTitle: 'There is a problem with your answer',
                         errorMessage: 'Enter an address ',
-                        errorMessageAPI: 'Sorry, there is a problem.',
+                        errorMessageApi: 'Sorry, there is a problem.',
                     }),
                 );
 
@@ -607,6 +609,8 @@ describe('script: autosuggest', () => {
                 expect(resultsItemCount).toBe(1);
                 const warningText = await page.$eval('.ons-autosuggest__warning', (node) => node.textContent);
                 expect(warningText.trim()).toBe('!Sorry, there is a problem.');
+                const warningContainer = await page.$eval('.ons-autosuggest__warning', (node) => node.id);
+                expect(warningContainer).toBe('country-of-birth-listbox');
             });
 
             it('the list and results element should be removed from the page', async () => {
@@ -655,7 +659,7 @@ describe('script: autosuggest', () => {
                 await page.type('.ons-js-autosuggest-input', 'England', { delay: 20 });
                 await page.keyboard.press('ArrowUp');
                 await page.keyboard.press('Enter');
-                // Defocus the autosuggest input.
+                // Unfocus the autosuggest input
                 await page.keyboard.press('Tab');
                 await page.focus('.ons-js-autosuggest-input');
 

@@ -1,5 +1,7 @@
 name: Run macro and script tests
 on: [push]
+permissions:
+    contents: read
 
 env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -11,12 +13,14 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
             - name: Install Node
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
               with:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
               run: yarn install
+            - name: Clear jest cache
+              run: yarn test:clear-cache
             - name: Run macro and script tests
               run: yarn test

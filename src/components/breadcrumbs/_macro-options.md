@@ -1,9 +1,10 @@
-| Name      | Type                     | Required | Description                                                             |
-| --------- | ------------------------ | -------- | ----------------------------------------------------------------------- |
-| classes   | string                   | false    | Custom classes to add to the breadcrumbs `nav` element                  |
-| ariaLabel | string                   | false    | The `aria-label` added to the `nav` element. Defaults to “Breadcrumbs”. |
-| id        | string                   | false    | The `id` added to the `nav` element                                     |
-| itemsList | `Array<BreadcrumbsItem>` | true     | An array of [breadcrumb items](#breadcrumbsitem)                        |
+| Name      | Type                     | Required | Description                                                                                                                                                                                                                                           |
+| --------- | ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| classes   | string                   | false    | Custom classes to add to the breadcrumbs `nav` element                                                                                                                                                                                                |
+| ariaLabel | string                   | false    | The `aria-label` added to the `nav` element. Defaults to “Breadcrumbs”.                                                                                                                                                                               |
+| id        | string                   | false    | The `id` added to the `nav` element                                                                                                                                                                                                                   |
+| itemsList | `Array<BreadcrumbsItem>` | true     | An array of [breadcrumb items](#breadcrumbsitem)                                                                                                                                                                                                      |
+| variant   | string                   | false    | When using breadcrumbs alongside a hero banner, set variant to "grey", "dark", "pale-blue" or "navy-blue" to match the colour of the hero and make the breadcrumbs visually integrated within the hero. Use this option only alongside a hero banner. |
 
 ## BreadcrumbsItem
 

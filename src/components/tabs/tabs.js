@@ -40,8 +40,8 @@ export default class Tabs {
 
     // Set up checks for responsive functionality
     // The tabs will display as tabs up until this.breakpoint is reached
-    // Tabs will display as a TOC list and show full content for <this.breakpoint viewports
-    // Aria tags are added only in toc view
+    // Tabs will then display as a table of contents list and show full content for this.breakpoint viewports
+    // Aria tags are added only in table of contents view
     setupViewportChecks() {
         const breakpoint = () => {
             let finalBreakpoint = 0;
@@ -134,7 +134,7 @@ export default class Tabs {
         window.removeEventListener('hashchange', this.component.boundOnHashChange, true);
     }
 
-    // Handle haschange so that the browser can cycle through the tab history
+    // Handle hashchange so that the browser can cycle through the tab history
     onHashChange() {
         const hash = window.location.hash;
         const tabWithHash = this.getTab(hash);
@@ -183,7 +183,7 @@ export default class Tabs {
         panel.classList.add(this.jsHiddenClass);
     }
 
-    // Remove aria tags for TOC view
+    // Remove aria tags for table of contents view
     unsetAttributes(tab) {
         tab.removeAttribute('id');
         tab.removeAttribute('role');
@@ -259,7 +259,7 @@ export default class Tabs {
     }
 
     getPanel(tab) {
-        const panelSelector = this.getHref(tab).replace(/\./g, '\\.');
+        const panelSelector = this.getHref(tab).replace(/([ .:[\]{}()<>?+*~=|^$!\\])/g, '\\$1');
         const panel = this.component.querySelector(panelSelector);
         return panel;
     }

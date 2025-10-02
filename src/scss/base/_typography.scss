@@ -1,8 +1,7 @@
 html {
     @include font-smoothing;
 
-    font-size: $base;
-    line-height: 1.6;
+    font-size: calc((100% / 16) * strip-unit($base));
 }
 
 body {
@@ -21,7 +20,6 @@ h3,
 h4,
 h5,
 h6 {
-    line-height: 1.2;
     margin: 0 0 1rem;
     strong {
         @extend .ons-highlight;

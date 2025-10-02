@@ -33,11 +33,11 @@
 
     // Removes inherited bottom margin to make whitespace inside panel equal
     > *:last-child {
-        margin-bottom: 0;
+        @extend .ons-u-mb-no;
     }
 
     .ons-field {
-        margin-bottom: 0;
+        @extend .ons-u-mb-no;
     }
 
     &:focus {
@@ -66,17 +66,17 @@
         // Removes inherited bottom margin to make whitespace inside panel equal
         > *:last-child,
         strong > *:last-child {
-            margin-bottom: 0;
+            @extend .ons-u-mb-no;
         }
 
-        &.ons-icon-margin--xxxl {
+        &.ons-icon-margin--3xl {
             padding-left: 2.7rem !important;
 
             @include mq(m) {
                 padding-left: 3.5rem !important;
             }
         }
-        &.ons-icon-margin--xxl {
+        &.ons-icon-margin--2xl {
             padding-left: 2.45rem !important;
 
             @include mq(m) {
@@ -121,7 +121,8 @@
 
         &--footer {
             background-color: var(--ons-color-grey-15) !important;
-            margin-bottom: 0;
+            @extend .ons-u-mb-no;
+
             padding: 1rem 0 !important;
         }
     }
@@ -130,7 +131,8 @@
     &--announcement {
         border: 0 !important;
         color: var(--ons-color-white);
-        margin-bottom: 0;
+        @extend .ons-u-mb-no;
+
         outline: none !important;
         padding: 1rem 0 !important;
         a {
@@ -198,6 +200,7 @@
         }
 
         &__icon {
+            top: 1.2rem;
             background-color: var(--ons-color-white);
             color: var(--ons-color-black);
             display: flex;
@@ -217,10 +220,10 @@
     &--success & {
         &__icon {
             left: 0;
+            top: 0.875rem;
             padding-left: 1rem;
             .ons-icon {
                 fill: var(--ons-color-success) !important;
-                margin-top: -15% !important;
             }
         }
     }
@@ -231,6 +234,7 @@
 
     &--bare & {
         &__icon {
+            top: -0.2rem;
             height: 1.3rem;
             width: 1.3rem;
         }

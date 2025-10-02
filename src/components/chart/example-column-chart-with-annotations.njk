@@ -1,0 +1,63 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+
+{{
+    onsChart({
+        "chartType": "column",
+        "description": "Public sector net debt excluding public sector banks, percentage of gross domestic product (GDP), UK, financial year ending (FYE) 1901 to October 2024",
+        "theme": "primary",
+        "title": "Figure 6: Net debt as a percentage of GDP remains at levels last seen in the early 1960s",
+        "subtitle": "Public sector net debt excluding public sector banks, percentage of gross domestic product (GDP), UK, financial year ending (FYE) 1901 to October 2024",
+        "id": "uuid",
+        "caption": "Source: Public sector finances from the Office for Budget Responsibility (OBR) and the Office for National Statistics",
+        "download": {
+            'title': 'Download Figure 1 data',
+            'itemsList': [
+                {
+                    "text": "Excel spreadsheet (XLSX format, 18KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Simple text file (CSV format, 25KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Image (PNG format, 25KB)",
+                    "url": "#"
+                }
+            ]
+        },
+        "legend": false,
+        "series": [
+            {
+                "data": [
+                    37.8, 41.0, 43.0, 42.9, 41.8, 39.8, 37.9, 38.2, 37.6, 36.7,
+                    33.9, 31.8
+                ],
+                "dataLabels": false,
+                "name": "Public sector net debt as a % of GDP (PSND)"
+            }
+        ],
+        "xAxis": {
+            "categories": [
+                "Mar 1901", "Mar 1902", "Mar 1903", "Mar 1904", "Mar 1905", "Mar 1906", "Mar 1907", "Mar 1908", "Mar 1909", "Mar 1910",
+                "Mar 1911", "Mar 1912"
+            ],
+            "title":  "Years",
+            "type": "linear",
+            "tickIntervalMobile": 5
+        },
+        "yAxis": {
+            "title": "Percentage of GDP"
+        },
+        "percentageHeightDesktop": 35,
+        "percentageHeightMobile": 90,
+        "annotations": [
+            {
+                "text": "A test point annotation",
+                "point": {"x": 11, "y": 31.8},
+                "labelOffsetX": 10,
+                "labelOffsetY": -50
+            }
+        ]
+    })
+}}

@@ -1,11 +1,11 @@
 import domready from '../../js/domready';
 
 async function backToTop() {
-    const bttElement = [...document.querySelectorAll('.ons-js-back-to-top')];
+    const backToTop = [...document.querySelectorAll('.ons-js-back-to-top')];
 
-    if (bttElement) {
-        const Btt = (await import('./back-to-top')).default;
-        bttElement.forEach((btn) => new Btt(btn));
+    if (backToTop) {
+        const BackToTop = (await import('./back-to-top')).default;
+        backToTop.forEach((btn) => new BackToTop(btn));
     }
 }
 

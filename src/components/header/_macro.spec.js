@@ -5,18 +5,22 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 import { mapAll } from '../../tests/helpers/cheerio';
+import NavigationToggle from '../../components/navigation/navigation';
 
 import {
     EXAMPLE_HEADER_BASIC,
     EXAMPLE_SERVICE_LINKS_CONFIG,
+    EXAMPLE_HEADER_SEARCH_LINKS,
     EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE,
     EXAMPLE_HEADER_SERVICE_LINKS_SINGLE,
     EXAMPLE_HEADER_LANGUAGE_CONFIG,
     EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG,
     EXAMPLE_HEADER_NAVIGATION_WITH_SITESEARCHAUTOSUGGEST,
-} from './_test_examples';
+    EXAMPLE_HEADER_MENU_LINKS,
+    EXAMPLE_HEADER_SEARCH_AND_MENU_LINKS,
+} from './_test-examples';
 
-describe('FOR: Header', () => {
+describe('FOR: Macro: Header', () => {
     describe('GIVEN: Params: none', () => {
         describe('WHEN: All params are at default state', () => {
             const $ = cheerio.load(
@@ -41,6 +45,16 @@ describe('FOR: Header', () => {
             test('THEN: renders with variant style classes matching variant provided', () => {
                 expect($('.ons-header--variant-a').length).toBe(1);
                 expect($('.ons-header--variant-b').length).toBe(1);
+            });
+        });
+        describe('WHEN: variants is set to basic', () => {
+            test('THEN: does not render the main part of the header', () => {
+                const $ = cheerio.load(
+                    renderComponent('header', {
+                        variants: 'basic',
+                    }),
+                );
+                expect($('.ons-header > .ons-header__main').length).toBe(0);
             });
         });
     });
@@ -92,7 +106,7 @@ describe('FOR: Header', () => {
                 expect(iconsSpy.occurrences[0].iconType).toBe('ons-logo-en');
             });
             test('THEN: renders logo with correct default alt-text on large screen', () => {
-                expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics homepage');
+                expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics logo');
             });
             test('THEN: renders default small logo on small screen', () => {
                 expect(iconsSpy.occurrences[1].iconType).toBe('ons-logo-stacked-en');
@@ -139,8 +153,32 @@ describe('FOR: Header', () => {
             });
         });
     });
+    describe('GIVEN: Params: mastheadLogoAltText', () => {
+        describe('WHEN: mastheadLogoAltText is provided', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_BASIC,
+                mastheadLogoAltText: 'Custom alt text for logo',
+            });
+            test('THEN: renders logo with provided alt text', () => {
+                expect(iconsSpy.occurrences[0].altText).toBe('Custom alt text for logo');
+            });
+        });
+        describe('WHEN: mastheadLogoAltText is not provided', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_BASIC,
+                mastheadLogoAltText: undefined,
+            });
+            test('THEN: renders logo with default alt text', () => {
+                expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics logo');
+            });
+        });
+    });
     describe('GIVEN: Params: multipleLogos', () => {
-        describe('WHEN: logoImage parameter is set to "ONS Logo"', () => {
+        describe('WHEN: image parameter is set to "ONS Logo"', () => {
             const faker = templateFaker();
             const iconsSpy = faker.spy('icon');
 
@@ -149,7 +187,7 @@ describe('FOR: Header', () => {
                 mastheadLogo: {
                     multipleLogos: {
                         logo1: {
-                            logoImage: 'ONS Logo',
+                            image: 'ONS Logo',
                         },
                     },
                 },
@@ -158,15 +196,15 @@ describe('FOR: Header', () => {
                 expect(iconsSpy.occurrences[0].iconType).toBe('ons-logo-stacked-en');
             });
         });
-        describe('WHEN: logoURL parameter is set ', () => {
+        describe('WHEN: url parameter is set ', () => {
             const $ = cheerio.load(
                 renderComponent('header', {
                     ...EXAMPLE_HEADER_BASIC,
                     mastheadLogo: {
                         multipleLogos: {
                             logo1: {
-                                logoImage: '<img src="a-logo.svg">',
-                                logoURL: '#0',
+                                image: '<img src="a-logo.svg">',
+                                url: '#0',
                             },
                         },
                     },
@@ -183,13 +221,13 @@ describe('FOR: Header', () => {
                     mastheadLogo: {
                         multipleLogos: {
                             logo1: {
-                                logoImage: '<img src="a-logo.svg">',
+                                image: '<img src="a-logo.svg">',
                             },
                             logo2: {
-                                logoImage: '<img src="a-second-logo.svg">',
+                                image: '<img src="a-second-logo.svg">',
                             },
                             logo3: {
-                                logoImage: '<img src="a-third-logo.svg">',
+                                image: '<img src="a-third-logo.svg">',
                             },
                         },
                     },
@@ -209,7 +247,7 @@ describe('FOR: Header', () => {
                         large: '<img src="big-logo.svg">',
                         multipleLogos: {
                             logo1: {
-                                logoImage: '<img src="a-logo.svg">',
+                                image: '<img src="a-logo.svg">',
                             },
                         },
                     },
@@ -329,7 +367,7 @@ describe('FOR: Header', () => {
             test('THEN: renders button with provided parameters', () => {
                 expect(buttonSpy.occurrences).toContainEqual({
                     text: 'Save and sign out',
-                    classes: 'ons-u-d-no@xxs@m',
+                    classes: 'ons-u-d-no@2xs@m',
                     variants: 'ghost',
                     name: 'button-name',
                     attributes: {
@@ -407,7 +445,7 @@ describe('FOR: Header', () => {
             faker.renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE);
 
             test('THEN: renders with correct display class on large screen', () => {
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@m')).toBe(true);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@m')).toBe(true);
             });
             test('THEN: renders button on small screen', () => {
                 expect(buttonSpy.occurrences).toContainEqual({
@@ -426,8 +464,8 @@ describe('FOR: Header', () => {
         describe('WHEN: one item is provided to the itemsList parameter', () => {
             const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_SINGLE));
             test('THEN: renders without multiple link display class on large screen', () => {
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@m')).toBe(false);
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@xs')).toBe(false);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@m')).toBe(false);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@xs')).toBe(false);
             });
             test('THEN: does not render button on small screen', () => {
                 expect($('.ons-js-toggle-services').length).toBe(0);
@@ -515,7 +553,7 @@ describe('FOR: Header', () => {
                 }),
             );
             test('THEN: renders with correct display class', () => {
-                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@xxs@xs')).toBe(true);
+                expect($('.ons-header__links .ons-grid__col').hasClass('ons-u-d-no@2xs@xs')).toBe(true);
             });
         });
     });
@@ -574,7 +612,7 @@ describe('FOR: Header', () => {
             test('THEN: renders button to toggle menu on small screen', () => {
                 expect(buttonSpy.occurrences[0]).toEqual({
                     text: 'Menu',
-                    classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
+                    classes: 'ons-u-ml-2xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
                     variants: ['mobile', 'ghost'],
                     attributes: {
                         'aria-label': 'Toggle main menu',
@@ -647,7 +685,7 @@ describe('FOR: Header', () => {
             test('THEN: renders button to toggle search on small screen', () => {
                 expect(buttonSpy.occurrences[0]).toEqual({
                     text: 'Search',
-                    classes: 'ons-btn--search ons-u-ml-xs ons-u-d-no ons-js-toggle-search',
+                    classes: 'ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search',
                     variants: ['small', 'ghost'],
                     iconType: 'search',
                     iconPosition: 'only',
@@ -713,7 +751,6 @@ describe('FOR: Header', () => {
                     ariaMinChars: 'Enter 3 or more characters for suggestions.',
                     ariaNResults: 'There are {n} suggestions available.',
                     ariaOneResult: 'There is one suggestion available.',
-                    ariaResultsLabel: 'Country suggestions',
                     ariaYouHaveSelected: 'You have selected',
                     containerClasses: 'ons-autosuggest--header',
                     id: 'ons-site-search',
@@ -722,7 +759,7 @@ describe('FOR: Header', () => {
                         autocomplete: 'off',
                         classes: 'ons-input-search ons-input-search--icon',
                         label: {
-                            classes: 'ons-u-pl-l ons-label--white',
+                            classes: 'ons-u-pl-xl ons-label--white',
                             id: 'ons-site-search-label',
                             text: 'label',
                         },
@@ -772,6 +809,313 @@ describe('FOR: Header', () => {
                     const suggestionCount = $('.ons-autosuggest__option').length;
                     expect(suggestionCount).toBe(1);
                 }, 20);
+            });
+        });
+    });
+    describe('GIVEN: Params: searchLinks', () => {
+        describe('WHEN: searchLinks are provided', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' });
+
+            test('THEN: renders search icon button', () => {
+                expect(buttonSpy.occurrences[0]).toEqual({
+                    iconType: 'search',
+                    classes: 'ons-u-fs-s--b ons-js-toggle-header-search ons-btn--close ons-btn--search-icon active disabled',
+                    type: 'button',
+                    variants: 'search',
+                    attributes: {
+                        'aria-controls': 'search-links-id',
+                        'aria-expanded': 'true',
+                        'aria-label': 'Custom search button aria label',
+                        'aria-disabled': 'true',
+                    },
+                });
+            });
+        });
+
+        describe('WHEN: itemsList are provided in searchLinks', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: renders items list', () => {
+                const itemsList = $('.ons-list--bare .ons-list__item').length;
+                expect(itemsList).toBeGreaterThan(0);
+            });
+
+            test('THEN: renders correct links for items list', () => {
+                const searchItemsLinks = mapAll($('.ons-list--bare .ons-list__item a'), (node) => node.attr('href'));
+                expect(searchItemsLinks).toEqual(['#1', '#2', '#3']);
+            });
+
+            test('THEN: renders correct text for items list', () => {
+                const searchItemsText = mapAll($('.ons-list--bare .ons-list__item a'), (node) => node.text().trim());
+                expect(searchItemsText).toEqual(['Popular Search 1', 'Popular Search 2', 'Popular Search 3']);
+            });
+        });
+
+        describe('WHEN: searchLinks parameter is missing', () => {
+            const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_BASIC));
+
+            test('THEN: does not render search icon button', () => {
+                expect($('.ons-js-toggle-services').length).toBe(0);
+            });
+
+            test('THEN: does not render search input form', () => {
+                expect($('.ons-header-nav-search').length).toBe(0);
+            });
+
+            test('THEN: does not render items list', () => {
+                expect($('.ons-list--bare').length).toBe(0);
+            });
+        });
+
+        describe('WHEN: searchLinks are provided and the header variant is not basic', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'neutral' }));
+
+            test('THEN: does not render the search icon button', () => {
+                expect($('.ons-js-toggle-services').length).toBe(0);
+            });
+        });
+
+        describe('WHEN: heading parameter is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: it renders heading with provided text', () => {
+                expect($('.ons-header-nav-search__heading').text().trim()).toBe('Header Search');
+            });
+        });
+
+        describe('WHEN: id parameter is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: applies id to search links ', () => {
+                expect($('#search-links-id').length).toBe(1);
+            });
+        });
+
+        describe('WHEN: ariaLabel parameter is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: applies aria label to the search links', () => {
+                expect($('.ons-header-nav-search').attr('aria-label')).toBe('Header Search');
+            });
+        });
+
+        describe('WHEN: classes parameter is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: it renders classes with provided value', () => {
+                expect($('.ons-header-nav-search').hasClass('custom-class')).toBe(true);
+            });
+        });
+
+        describe('WHEN: using basic header variant and search is active & disabled by default before JS loads', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+            const $searchBtn = $('.ons-js-toggle-header-search');
+
+            test('THEN: adds the "active" class to the search toggle button', () => {
+                expect($searchBtn.hasClass('active')).toBe(true);
+            });
+
+            test('THEN: adds the "disabled" class to the search toggle button', () => {
+                expect($searchBtn.hasClass('disabled')).toBe(true);
+            });
+
+            test('THEN: sets aria-disabled="true" on the search toggle button', () => {
+                expect($searchBtn.attr('aria-disabled')).toBe('true');
+            });
+        });
+
+        describe('WHEN: searchLinks are provided with all custom properties', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' });
+            test('THEN: renders search icon button with custom aria-label', () => {
+                expect(buttonSpy.occurrences[0]).toBeDefined();
+                expect(buttonSpy.occurrences[0].attributes['aria-label']).toBe('Custom search button aria label');
+            });
+        });
+        describe('WHEN: searchButtonAriaLabel is not provided', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_SEARCH_LINKS,
+                searchLinks: {
+                    ...EXAMPLE_HEADER_SEARCH_LINKS.searchLinks,
+                    searchButtonAriaLabel: undefined,
+                },
+                variants: 'basic',
+            });
+            test('THEN: renders search icon button with default aria-label', () => {
+                expect(buttonSpy.occurrences[0]).toBeDefined();
+                expect(buttonSpy.occurrences[0].attributes['aria-label']).toBe('Toggle search');
+            });
+        });
+        describe('WHEN: searchNavigationButtonAriaLabel is provided', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_SEARCH_LINKS,
+                siteSearchAutosuggest: {},
+            });
+            test('THEN: renders search navigation button with custom aria-label', () => {
+                const found = buttonSpy.occurrences.find(
+                    (btn) => btn.attributes && btn.attributes['aria-label'] === 'Custom search nav button aria label',
+                );
+                expect(found).toBeDefined();
+            });
+        });
+        describe('WHEN: searchNavigationButtonAriaLabel is not provided', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_SEARCH_LINKS,
+                searchLinks: {
+                    ...EXAMPLE_HEADER_SEARCH_LINKS.searchLinks,
+                    searchNavigationButtonAriaLabel: undefined,
+                },
+                siteSearchAutosuggest: {},
+            });
+            test('THEN: renders search navigation button with default aria-label', () => {
+                const found = buttonSpy.occurrences.find((btn) => btn.attributes && btn.attributes['aria-label'] === 'Toggle search');
+                expect(found).toBeDefined();
+            });
+        });
+        describe('WHEN: searchNavigationInputLabel is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+            test('THEN: renders search input with custom label', () => {
+                expect($('#header-search-input-label').text().trim()).toBe('Custom search input label');
+            });
+        });
+        describe('WHEN: searchNavigationInputLabel is not provided', () => {
+            const $ = cheerio.load(
+                renderComponent('header', {
+                    ...EXAMPLE_HEADER_SEARCH_LINKS,
+                    searchLinks: {
+                        ...EXAMPLE_HEADER_SEARCH_LINKS.searchLinks,
+                        searchNavigationInputLabel: undefined,
+                    },
+                    variants: 'basic',
+                }),
+            );
+            test('THEN: renders search input with default label', () => {
+                expect($('#header-search-input-label').text().trim()).toBe('Search the ONS');
+            });
+        });
+        describe('WHEN: searchNavigationButtonText is provided', () => {
+            const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
+
+            test('THEN: renders the visually hidden search navigation button text', () => {
+                const $button = $('.ons-search__btn.ons-btn--header-search');
+                const hiddenText = $button.find('.ons-u-vh').text().trim();
+                expect(hiddenText).toBe(EXAMPLE_HEADER_SEARCH_LINKS.searchLinks.searchNavigationButtonText);
+            });
+        });
+        describe('WHEN: searchNavigationButtonText is not provided', () => {
+            const $ = cheerio.load(
+                renderComponent('header', {
+                    ...EXAMPLE_HEADER_SEARCH_LINKS,
+                    searchLinks: {
+                        ...EXAMPLE_HEADER_SEARCH_LINKS.searchLinks,
+                        searchNavigationButtonText: undefined,
+                    },
+                    variants: 'basic',
+                }),
+            );
+
+            test('THEN: renders the default fallback search navigation button text', () => {
+                const $button = $('.ons-search__btn.ons-btn--header-search');
+                const hiddenText = $button.find('.ons-u-vh').text().trim();
+                expect(hiddenText).toBe('Search');
+            });
+        });
+    });
+
+    describe('GIVEN: Params: menuLinks', () => {
+        describe('WHEN: using basic header variant and menu toggle is rendered before JS loads', () => {
+            const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_MENU_LINKS));
+            const $menuBtn = $('.ons-js-toggle-nav-menu');
+
+            test('THEN: adds the "active" class to the menu toggle button', () => {
+                expect($menuBtn.hasClass('active')).toBe(true);
+            });
+
+            test('THEN: adds the "disabled" class to the menu toggle button', () => {
+                expect($menuBtn.hasClass('disabled')).toBe(true);
+            });
+
+            test('THEN: sets aria-disabled="true" on the menu toggle button', () => {
+                expect($menuBtn.attr('aria-disabled')).toBe('true');
+            });
+
+            test('THEN: sets aria-expanded="true" on the menu toggle button', () => {
+                expect($menuBtn.attr('aria-expanded')).toBe('true');
+            });
+
+            test('THEN: sets aria-controls to the correct menu ID', () => {
+                expect($menuBtn.attr('aria-controls')).toBe('menu-links-id');
+            });
+        });
+
+        describe('GIVEN: Progressive enhancement via JS', () => {
+            describe('WHEN: both menu and search toggles are present', () => {
+                let $, menuBtn, searchBtn, menuEl, searchEl;
+
+                beforeEach(() => {
+                    $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SEARCH_AND_MENU_LINKS));
+                    document.body.innerHTML = $.html();
+
+                    menuBtn = document.querySelector('.ons-js-toggle-nav-menu');
+                    menuEl = document.querySelector('.ons-js-nav-menu');
+                    searchBtn = document.querySelector('.ons-js-toggle-header-search');
+                    searchEl = document.querySelector('.ons-js-header-search');
+
+                    if (menuBtn && menuEl) {
+                        const navToggleMenu = new NavigationToggle(menuBtn, menuEl, 'ons-u-d-no');
+                        navToggleMenu.registerEvents();
+                    }
+
+                    if (searchBtn && searchEl) {
+                        const navToggleSearch = new NavigationToggle(searchBtn, searchEl, 'ons-u-d-no');
+                        navToggleSearch.registerEvents();
+                    }
+                });
+
+                test('THEN: menu toggle is active (aria-disabled false, no disabled class)', () => {
+                    expect(menuBtn).not.toBeNull();
+                    expect(menuBtn.getAttribute('aria-disabled')).toBe('false');
+                    expect(menuBtn.classList.contains('disabled')).toBe(false);
+                });
+
+                test('THEN: search toggle is active (aria-disabled false, no disabled class)', () => {
+                    expect(searchBtn).not.toBeNull();
+                    expect(searchBtn.getAttribute('aria-disabled')).toBe('false');
+                    expect(searchBtn.classList.contains('disabled')).toBe(false);
+                });
+
+                test('WHEN: clicking menu toggle closes search if open', () => {
+                    expect(menuBtn && searchBtn).not.toBeNull();
+
+                    // open search followed by menu
+                    searchBtn.click();
+                    menuBtn.click();
+
+                    expect(searchBtn.classList.contains('active')).toBe(false);
+                    expect(searchEl.getAttribute('aria-hidden')).toBe('true');
+                    expect(searchEl.classList.contains('ons-u-d-no')).toBe(true);
+                });
+
+                test('WHEN: clicking search toggle closes menu if open', () => {
+                    expect(menuBtn && searchBtn).not.toBeNull();
+
+                    // open menu followed by search
+                    menuBtn.click();
+                    searchBtn.click();
+
+                    expect(menuBtn.classList.contains('active')).toBe(false);
+                    expect(menuEl.getAttribute('aria-hidden')).toBe('true');
+                    expect(menuEl.classList.contains('ons-u-d-no')).toBe(true);
+                });
             });
         });
     });
