@@ -1,7 +1,7 @@
 {
     "name": "@ons/design-system",
     "description": "ONS Design System built CSS, JS, and Nunjucks templates",
-    "version": "73.0.0",
+    "version": "3.0.1",
     "main": "index.js",
     "license": "MIT",
     "author": {
