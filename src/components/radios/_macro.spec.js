@@ -129,6 +129,15 @@ const EXAMPLE_RADIO_ITEM_TEXTAREA_WITH_PRESET_VALUE = {
         id: 'other-textarea-input',
         name: 'other-answer',
         value: 'other answer',
+        attributes: { a: 42 },
+        label: {
+            text: 'Example radio with Text area',
+        },
+        charCheckLimit: {
+            limit: 200,
+            charCountSingular: 'You have {x} character remaining',
+            charCountPlural: 'You have {x} characters remaining',
+        },
     },
 };
 
@@ -557,6 +566,33 @@ describe('macro: radios', () => {
             );
 
             expect($('.ons-input--textarea').text()).toBe('other answer');
+        });
+
+        it('renders other "textarea" component for item', () => {
+            const faker = templateFaker();
+            const textareaSpy = faker.spy('textarea');
+
+            faker.renderComponent('radios', {
+                ...EXAMPLE_RADIOS_MINIMAL,
+                radios: [EXAMPLE_RADIO_ITEM_TEXTAREA_WITH_PRESET_VALUE],
+            });
+
+            expect(textareaSpy.occurrences).toContainEqual({
+                id: 'other-textarea-input',
+                name: 'other-answer',
+                value: 'other answer',
+                attributes: { a: 42 },
+                label: {
+                    id: 'other-textarea-input-label',
+                    text: 'Example radio with Text area',
+                    classes: 'ons-u-fw-n',
+                },
+                charCheckLimit: {
+                    limit: 200,
+                    charCountSingular: 'You have {x} character remaining',
+                    charCountPlural: 'You have {x} characters remaining',
+                },
+            });
         });
     });
 
