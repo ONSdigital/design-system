@@ -210,6 +210,7 @@
                 cursor: pointer;
                 display: inline-block;
                 font-family: vars.$font-sans;
+                font-size: inherit;
                 font-weight: vars.$font-weight-bold;
                 padding: 0 0 0.2rem;
                 white-space: nowrap;
