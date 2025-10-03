@@ -1,3 +1,6 @@
+@use '../../scss/helpers';
+@use '../../scss/utilities';
+
 .ons-page {
     display: flex;
     flex-direction: column;
