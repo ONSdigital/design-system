@@ -1,11 +1,12 @@
 @use '../../scss/helpers';
 @use '../../scss/vars';
 @use '../utilities';
+@use 'sass:math';
 
 html {
     @include helpers.font-smoothing;
 
-    font-size: calc((100% / 16) * strip-unit(vars.$base));
+    font-size: calc((100% / 16) * helpers.strip-unit(vars.$base));
 }
 
 body {

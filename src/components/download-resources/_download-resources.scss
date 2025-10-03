@@ -1,5 +1,6 @@
 @use '../../scss/vars';
 @use '../../scss/helpers';
+@use 'sass:math';
 
 .ons-adv-filter {
     &__gallery {

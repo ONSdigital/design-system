@@ -1,4 +1,5 @@
 @use '../helpers/functions';
+@use 'sass:math';
 
 $input-radius: 3px;
 $input-padding-vertical: 0.25rem;

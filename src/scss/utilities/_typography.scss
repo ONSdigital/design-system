@@ -6,13 +6,13 @@
     $small-size: map.get($props, small);
     $large-size: map.get($props, large);
 
-    font-size: rems($small-size, vars.$base);
+    font-size: helpers.rems($small-size, vars.$base);
     font-weight: map.get($props, weight);
     line-height: map.get($props, line-height-mobile);
 
     @if $small-size != $large-size {
         @include helpers.mq(m) {
-            font-size: rems($large-size, vars.$base);
+            font-size: helpers.rems($large-size, vars.$base);
             line-height: map.get($props, line-height-desktop);
         }
     }

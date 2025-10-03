@@ -18,7 +18,7 @@
 /// @param {Number} $number - Number to remove unit from
 /// @return {Number} - Unitless number
 @function strip-unit($num) {
-    @return $num / ($num * 0 + 1);
+    @return math.div($num, $num * 0 + 1);
 }
 
 @function map-set($map, $key, $value) {
