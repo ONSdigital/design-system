@@ -247,6 +247,7 @@
     &--bare,
     &--success,
     &--warn,
+    &--pending,
     &--warn-branded,
     &--announcement {
         .ons-panel__icon {
@@ -257,6 +258,7 @@
 
 @include panel-variant(error, var(--ons-color-errors), var(--ons-color-errors-tint));
 @include panel-variant(success, var(--ons-color-success), var(--ons-color-success-tint));
+@include panel-variant(pending, var(--ons-color-pending), var(--ons-color-pending-tint));
 @include panel-variant(info, var(--ons-color-info), var(--ons-color-info-tint));
 @include panel-variant(branded, var(--ons-color-branded), var(--ons-color-branded-tint));
 @include panel-variant(warn, transparent, transparent);
