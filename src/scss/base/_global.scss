@@ -1,3 +1,6 @@
+@use '../helpers';
+@use '../utilities';
+
 *,
 *::before,
 *::after {
@@ -53,7 +56,7 @@ a {
             text-decoration-thickness: 3px;
         }
 
-        @include mq(m) {
+        @include helpers.mq(m) {
             .ons-u-fs-m &,
             h2 &,
             h3 & {

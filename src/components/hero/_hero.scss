@@ -1,3 +1,6 @@
+@use '../../scss/helpers';
+@use '../../scss/utilities';
+
 // Default
 @mixin panel-variant($name, $color, $color-bg) {
     .ons-hero__panel {
@@ -32,7 +35,7 @@
             left: -40%;
             position: absolute;
             width: 150%;
-            @include mq(l) {
+            @include helpers.mq(l) {
                 border-radius: 0 0 300% 150%;
                 left: 0;
                 width: 100%;
@@ -52,7 +55,7 @@
             left: -40%;
             position: absolute;
             width: 150%;
-            @include mq(l) {
+            @include helpers.mq(l) {
                 border-radius: 0 0 80% 50%;
                 left: -25%;
                 width: 130%;
@@ -70,14 +73,14 @@
             left: -40%;
             position: absolute;
             width: 150%;
-            @include mq(l) {
+            @include helpers.mq(l) {
                 border-radius: 0 0 300% 150%;
                 left: 0;
                 width: 100%;
             }
         }
         .ons-hero__title-container {
-            @include mq(l) {
+            @include helpers.mq(l) {
                 width: 85%;
             }
         }
@@ -120,7 +123,7 @@
         &__details {
             color: var(--ons-color-text-inverse);
             padding: 2rem 0 6rem;
-            @include mq(l) {
+            @include helpers.mq(l) {
                 padding: 4rem 0;
             }
         }
@@ -130,7 +133,7 @@
         }
 
         &__circle-1 {
-            @include mq(l) {
+            @include helpers.mq(l) {
                 background-color: var(--ons-color-spring-green);
                 border-radius: 50%;
                 height: 59px;
@@ -142,7 +145,7 @@
         }
 
         &__circle-2 {
-            @include mq(l) {
+            @include helpers.mq(l) {
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
                 position: absolute;
@@ -154,7 +157,7 @@
         }
 
         &__circle-3 {
-            @include mq(l) {
+            @include helpers.mq(l) {
                 height: 60px;
                 right: 112px;
                 top: 75px;
@@ -166,7 +169,7 @@
         }
 
         &__circle-4 {
-            @include mq(l) {
+            @include helpers.mq(l) {
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
                 height: 60px;
@@ -177,7 +180,7 @@
             }
 
             &::before {
-                @include mq(l) {
+                @include helpers.mq(l) {
                     background-color: var(--ons-color-ocean-blue);
                     border-radius: 50%;
                     content: '';
@@ -192,7 +195,7 @@
         }
 
         &__circle-5 {
-            @include mq(l) {
+            @include helpers.mq(l) {
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
                 height: 14px;
@@ -203,7 +206,7 @@
             }
 
             &::before {
-                @include mq(l) {
+                @include helpers.mq(l) {
                     background-color: var(--ons-color-sky-blue);
                     border-radius: 50%;
                     content: '';
@@ -218,7 +221,7 @@
         }
 
         &__circle-6 {
-            @include mq(l) {
+            @include helpers.mq(l) {
                 background-color: var(--ons-color-spring-green);
                 border-radius: 50%;
                 height: 15px;
@@ -230,7 +233,7 @@
         }
 
         &__circle-7 {
-            @include mq(l) {
+            @include helpers.mq(l) {
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
                 height: 60px;
@@ -241,7 +244,7 @@
             }
 
             &::before {
-                @include mq(l) {
+                @include helpers.mq(l) {
                     background-color: var(--ons-color-night-blue);
                     border-radius: 50%;
                     content: '';
@@ -256,7 +259,7 @@
         }
 
         &__circle-8 {
-            @include mq(l) {
+            @include helpers.mq(l) {
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
                 bottom: 70px;
@@ -275,7 +278,7 @@
             right: 15px;
             width: 40px;
             height: 40px;
-            @include mq(l) {
+            @include helpers.mq(l) {
                 bottom: 40px;
                 height: 30px;
                 position: absolute;
@@ -285,7 +288,7 @@
         }
 
         &__circle-10 {
-            @include mq(l) {
+            @include helpers.mq(l) {
                 background-color: var(--ons-color-white);
                 border-radius: 50%;
                 bottom: 63px;
@@ -296,7 +299,7 @@
             }
 
             &::before {
-                @include mq(l) {
+                @include helpers.mq(l) {
                     background-color: var(--ons-color-aqua-teal);
                     border-radius: 50%;
                     content: '';
@@ -318,7 +321,7 @@
             position: absolute;
             bottom: -7px;
             right: 50px;
-            @include mq(l) {
+            @include helpers.mq(l) {
                 bottom: 33px;
                 height: 30px;
                 position: absolute;
@@ -328,7 +331,7 @@
         }
 
         &__circle-12 {
-            @include mq(l) {
+            @include helpers.mq(l) {
                 background-color: var(--ons-color-night-blue);
                 border-radius: 50%;
                 bottom: -35px;
@@ -343,7 +346,7 @@
     &--pale-blue & {
         &__details {
             padding-bottom: 6rem;
-            @include mq(l) {
+            @include helpers.mq(l) {
                 padding-bottom: 4rem;
             }
         }
@@ -356,19 +359,19 @@
             position: absolute;
             right: 15%;
             width: 40px;
-            @include mq(xl) {
+            @include helpers.mq(xl) {
                 bottom: 30%;
                 height: 72px;
                 right: 346px;
                 width: 72px;
             }
-            @include mq(l, 1299px) {
+            @include helpers.mq(l, 1299px) {
                 bottom: 30%;
                 height: 72px;
                 right: 25%;
                 width: 72px;
             }
-            @include mq(m, 979px) {
+            @include helpers.mq(m, 979px) {
                 bottom: 8%;
                 right: 10%;
             }
@@ -383,17 +386,17 @@
             right: -26px;
             width: 80px;
 
-            @include mq(xl) {
+            @include helpers.mq(xl) {
                 right: 43px;
             }
 
-            @include mq(l) {
+            @include helpers.mq(l) {
                 height: 156px;
                 right: 2%;
                 width: 156px;
             }
 
-            @include mq(m) {
+            @include helpers.mq(m) {
                 bottom: 9%;
             }
         }
@@ -416,7 +419,7 @@
     }
 
     &__content {
-        @include mq(l) {
+        @include helpers.mq(l) {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -442,7 +445,7 @@
     &__pre-title {
         margin-bottom: 0.5rem;
 
-        @include mq('2xs', m) {
+        @include helpers.mq('2xs', m) {
             max-width: 145px;
         }
     }
@@ -455,7 +458,7 @@
     }
 
     &__title-container {
-        @include mq(l) {
+        @include helpers.mq(l) {
             display: grid;
             align-items: start;
             justify-content: space-between;
