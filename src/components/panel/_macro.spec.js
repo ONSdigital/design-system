@@ -191,6 +191,7 @@ describe('macro: panel', () => {
     describe.each([
         ['error', 'h2'],
         ['success', 'div'],
+        ['pending', 'h2'],
     ])('mode: %s', (panelVariant, tagEl) => {
         it('has the default id set', () => {
             const $ = cheerio.load(
