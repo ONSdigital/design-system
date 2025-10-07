@@ -12,7 +12,7 @@
 | legendIsQuestionTitle | boolean                              | false                           | Creates an `h1` inside the legend. Use when the radios are [the only fieldset on the page](/components/fieldset#legend-as-pagequestion-title) |
 | value                 | string                               | false                           | Set to “true” to preset the checked radio. This can also be achieved by setting the `checked` parameter on the `Radio` item to “true”.        |
 | error                 | `Error` [_(ref)_](/components/error) | false                           | Configuration for validation errors                                                                                                           |
-| or                    | string                               | false                           | Text for the “Or” seperator label                                                                                                             |
+| or                    | string                               | false                           | Text for the “Or” separator label                                                                                                             |
 | clearRadios           | object`<ClearRadios>`                | false                           | Settings for for the [clear selection button](#clearradios)                                                                                   |
 
 ## Radio
