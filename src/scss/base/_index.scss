@@ -1,4 +1,4 @@
-@import './fonts';
-@import './forms';
-@import './global';
-@import './typography';
+@forward './fonts';
+@forward './forms';
+@forward './global';
+@forward './typography';

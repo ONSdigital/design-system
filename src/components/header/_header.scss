@@ -1,7 +1,10 @@
+@use '../../scss/helpers';
+@use '../../scss/utilities';
+
 // Block
 .ons-header {
     $root: &;
-    @include font-smoothing;
+    @include helpers.font-smoothing;
 
     display: block;
     margin: 0;
@@ -16,7 +19,7 @@
         padding: 1rem 0;
         row-gap: 0.5rem;
 
-        @include mq(xs) {
+        @include helpers.mq(xs) {
             padding: 0.875rem 0;
         }
     }
@@ -36,7 +39,7 @@
 
         color: var(--ons-color-white);
 
-        @include mq(m) {
+        @include helpers.mq(m) {
             margin-bottom: 1rem;
             margin-top: 1rem;
         }
@@ -61,7 +64,7 @@
         color: var(--ons-color-white);
         margin: 0;
 
-        @include mq(m) {
+        @include helpers.mq(m) {
             margin: 0 0 1rem;
         }
     }
@@ -178,13 +181,13 @@
     }
 
     &__org-logo--large {
-        @include mq('2xs', 590px) {
+        @include helpers.mq('2xs', 590px) {
             display: none;
         }
     }
 
     &__org-logo--small {
-        @include mq(591px) {
+        @include helpers.mq(591px) {
             display: none;
         }
     }
@@ -310,7 +313,7 @@
         .ons-grid__col {
             padding-left: 0;
             padding-bottom: 1rem;
-            @include mq(m) {
+            @include helpers.mq(m) {
                 padding-bottom: 0;
             }
         }

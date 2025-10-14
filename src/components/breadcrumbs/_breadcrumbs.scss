@@ -1,3 +1,5 @@
+@use '../../scss/helpers';
+
 $breadcrumb-chevron-height: 0.65rem;
 
 .ons-breadcrumbs-wrapper {
@@ -15,7 +17,7 @@ $breadcrumb-chevron-height: 0.65rem;
     &--navy-blue {
         background-color: var(--ons-color-navy-blue-light);
         margin-bottom: -1.75rem;
-        @include mq(l) {
+        @include helpers.mq(l) {
             margin-bottom: -3.25rem;
         }
     }
@@ -89,7 +91,7 @@ $breadcrumb-chevron-height: 0.65rem;
             }
         }
 
-        @include mq(s) {
+        @include helpers.mq(s) {
             // Big screen
             &:not(:nth-last-child(1)) {
                 // not last child
