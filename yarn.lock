@@ -1746,14 +1746,6 @@
   resolved "https://registry.yarnpkg.com/@npmcli/name-from-folder/-/name-from-folder-2.0.0.tgz#c44d3a7c6d5c184bb6036f4d5995eee298945815"
   integrity sha512-pwK+BfEBZJbKdNYpHHRTNBwBoqrN/iIMO0AiGvYsp3Hoaq0WbgGSWQR6SCldZovoDpY3yje5lkFUe6gsDgJ2vg==
 
-"@ons/design-system@^73.0.2":
-  version "73.0.2"
-  resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-73.0.2.tgz#a831c55c8b58012f1141df989f318968784cfe45"
-  integrity sha512-RaW+adgzYcvyVjQ3bULYbCCvEwynpuTOdD7qkD3a/eQ9HFwIMxV1TJQ++Hs8hsSeyU29kuOoA41vLvaCvdkaUg==
-  dependencies:
-    highcharts "12.1.2"
-    pym.js "1.3.2"
-
 "@opentelemetry/api-logs@0.57.2":
   version "0.57.2"
   resolved "https://registry.yarnpkg.com/@opentelemetry/api-logs/-/api-logs-0.57.2.tgz#d4001b9aa3580367b40fe889f3540014f766cc87"
