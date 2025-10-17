@@ -1,15 +1,9 @@
 {% from "components/button/_macro.njk" import onsButton %}
 
-{% if not isDesignSystemExample %}
-    {% set chatUrl = "/design-system/patterns/send-a-web-form/example-form" %}
-{% else %}
-    {% set chatUrl = "/patterns/send-a-web-form/example-form" %}
-{% endif %}
-
 {{
     onsButton({
         "text": 'Web chat',
-        "url": chatUrl,
+        "url": '#0',
         "newWindow": true,
         "newWindowDescription": 'opens in a new window',
         "attributes": {
