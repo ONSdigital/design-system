@@ -880,8 +880,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                 
                             
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
+                                <div class="ons-grid__col ons-col-12@m">
+                                    <main id="main-content" class="ons-page__main">
                                         
                                     </main>
                                 </div>
@@ -1201,8 +1201,8 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                                 
                             
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
+                                <div class="ons-grid__col ons-col-12@m">
+                                    <main id="main-content" class="ons-page__main">
                                         
                                     </main>
                                 </div>
@@ -1448,8 +1448,8 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                                 
                             
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
+                                <div class="ons-grid__col ons-col-12@m">
+                                    <main id="main-content" class="ons-page__main">
                                         
                                     </main>
                                 </div>
@@ -2288,8 +2288,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                 
                             
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
+                                <div class="ons-grid__col ons-col-12@m">
+                                    <main id="main-content" class="ons-page__main">
                                         
     <h1>Page Title</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -3041,8 +3041,8 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                                 
                             
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
+                                <div class="ons-grid__col ons-col-12@m">
+                                    <main id="main-content" class="ons-page__main">
                                         
                                     </main>
                                 </div>
@@ -3272,8 +3272,8 @@ exports[`base page template matches the social block override snapshot 1`] = `
                                 
                             
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
+                                <div class="ons-grid__col ons-col-12@m">
+                                    <main id="main-content" class="ons-page__main">
                                         
                                     </main>
                                 </div>
