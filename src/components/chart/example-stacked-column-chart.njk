@@ -2,55 +2,66 @@
 {{
     onsChart({
         "chartType": "column",
-        "description": "Monthly percentage change in retail sales volume by store type, Great Britain, January to June 2025",
+        "description": "Volume sales, seasonally adjusted, Great Britain, January 2022 to January 2025",
         "theme": "primary",
         "title": "Food stores showed a strong rise on the month, while non-food stores fell",
-        "subtitle": "Figure 6: Upward contribution to monthly percentage change in total retail sales",
+        "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
         "id": "uuid",
         "useStackedLayout": true,
         "caption": "Source: Monthly Business Survey, Retail Sales Inquiry from the Office for National Statistics",
         "download": {
-            "title": "Download Figure 6 data",
-            "itemsList": [
-                { "text": "Excel spreadsheet (XLSX format, 22KB)", "url": "#" },
-                { "text": "Simple text file (CSV format, 28KB)", "url": "#" },
-                { "text": "Image (PNG format, 32KB)", "url": "#" }
+            'title': 'Download Figure 1 data',
+            'itemsList': [
+                {
+                    "text": "Excel spreadsheet (XLSX format, 18KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Simple text file (CSV format, 25KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Image (PNG format, 25KB)",
+                    "url": "#"
+                }
             ]
         },
         "legend": true,
         "series": [
             {
-                "name": "Food stores",
-                "data": [1.5, 0.8, 1.2, 0.9, 1.1, 1.4]
+                "data": [5, 3, 4, 6, 2, 2, 3, 7],
+                "dataLabels": false,
+                "name": "2022"
             },
             {
-                "name": "Non-food stores",
-                "data": [0.5, -0.2, 0.6, 0.8, 0.3, 0.4]
+                "data": [2, 2, 3, 7, 3, 4, 4, 1],
+                "dataLabels": false,
+                "name": "2023"
             },
             {
-                "name": "Non-store retailing",
-                "data": [0.2, 0.1, 0.3, 0.2, 0.4, 0.3]
-            },
-            {
-                "name": "Automotive fuel",
-                "data": [0.3, 0.2, -0.1, 0.4, 0.2, 0.5]
+                "data": [3, 4, 4, 1, 5, 3, 4, 6],
+                "dataLabels": false,
+                "name": "2024"
             }
         ],
         "xAxis": {
             "categories": [
-                "Jan 2025",
-                "Feb 2025",
-                "Mar 2025",
-                "Apr 2025",
-                "May 2025",
-                "Jun 2025"
+                "Food stores",
+                "Non-food stores",
+                "Non-store retailing ",
+                "Automotive fuel",
+                "Household goods stores",
+                "Clothing stores",
+                "Other stores",
+                "All retailing"
             ],
-            "title": "Month"
+            "title": "Items",
+            "type": "linear"
         },
         "yAxis": {
-            "title": "Monthly percentage change (%)"
+            "title": "Percentage of GDP (%)"
         },
-        "percentageHeightDesktop": 40,
+        "percentageHeightDesktop": 35,
         "percentageHeightMobile": 90
     })
 }}
