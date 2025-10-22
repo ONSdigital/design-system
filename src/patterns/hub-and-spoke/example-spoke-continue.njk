@@ -19,7 +19,7 @@ layout: ~
         "breadcrumbs": {
             "itemsList": [
                 {
-                    "url": '#0',
+                    "url": '#',
                     "text": 'Back'
                 }
             ]
@@ -32,7 +32,7 @@ layout: ~
     {% call onsPanel() %}
         <p>
             <strong>This is the last viewed question in this section</strong><br />
-            You can also <a href="#0">go back to the start of the section</a>
+            You can also <a href="#">go back to the start of the section</a>
         </p>
     {% endcall %}
     {%
@@ -79,5 +79,5 @@ layout: ~
             })
         }}
     {% endcall %}
-    <p class="ons-u-mt-l"><a href="#0">Choose another section and return to this later</a></p>
+    <p class="ons-u-mt-l"><a href="#">Choose another section and return to this later</a></p>
 {% endblock %}
