@@ -8,7 +8,12 @@ class SpecificChartOptions {
         this.config = config;
 
         this.options = {
-            colors: this.theme === 'alternate' ? this.constants.alternateTheme : this.constants.primaryTheme,
+            colors:
+                this.theme === 'alternate'
+                    ? this.constants.alternateTheme
+                    : type == 'line'
+                      ? this.constants.linePrimaryTheme
+                      : this.constants.primaryTheme,
             chart: {
                 type: type,
                 marginTop: this.config.legend.enabled ? (type === 'boxplot' ? 50 : undefined) : 50,
