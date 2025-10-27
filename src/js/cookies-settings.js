@@ -11,11 +11,11 @@ export default class CookiesSettings {
 
         this.component.addEventListener('submit', this.submitSettingsForm.bind(this));
 
-        if (this.returnLink && document.referrer) {
-            this.returnLink.setAttribute('href', document.referrer);
-        } else {
-            this.returnLink.setAttribute('href', '/');
+        if (this.returnLink) {
+            const href = document.referrer || '/';
+            this.returnLink.setAttribute('href', href);
         }
+
         this.setInitialFormValues();
     }
 
