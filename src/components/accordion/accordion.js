@@ -55,9 +55,13 @@ export default class Accordion {
         if (this.canClose()) {
             this.buttonInner.innerHTML = DOMPurify.sanitize(this.closeButton);
             this.button.setAttribute('data-ga-label', this.buttonOpen);
+            //this.button.setAttribute('aria-label',  this.closeButton + ' button');
+            this.button.setAttribute('aria-label', this.button.getAttribute('data-close-aria-label'));
             this.button.setAttribute('aria-expanded', 'true');
         } else {
             this.buttonInner.innerHTML = DOMPurify.sanitize(this.buttonOpen);
+            //this.button.setAttribute('aria-label', this.buttonOpen + ' button');
+            this.button.setAttribute('aria-label', this.button.getAttribute('data-open-aria-label'));
             this.button.setAttribute('data-ga-label', this.closeButton);
             this.button.setAttribute('aria-expanded', 'false');
         }
