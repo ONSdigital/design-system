@@ -4,7 +4,6 @@
     {% if params.lang == 'cy' %}
         {% set ariaLabel = 'Cwcis' %}
         {% set serviceName = 'ons.gov.uk' %}
-        {% set defaultCookiesLink = '/cwics' %}
         {% set statementTitle = 'Cwcis ar' %}
         {% set settingsLinkText = 'Gweld cwcis' %}
         {% set acceptButtonText = 'Derbyn cwcis ychwanegol' %}
@@ -20,7 +19,6 @@
     {% else %}
         {% set ariaLabel = 'Cookies banner' %}
         {% set serviceName = 'ons.gov.uk' %}
-        {% set defaultCookiesLink = '/cookies' %}
         {% set statementTitle = 'Cookies on' %}
         {% set settingsLinkText = 'View cookies' %}
         {% set acceptButtonText = 'Accept additional cookies' %}
@@ -36,7 +34,7 @@
     {% endif %}
 
     {% if not isDesignSystemExample %}
-        {% set settingsLinkUrl = params.settingsLinkUrl | default(defaultCookiesLink) %}
+        {% set settingsLinkUrl = params.settingsLinkUrl | default('/cookies') %}
     {% else %}
         {% set settingsLinkUrl = '#0' %}
     {% endif %}
