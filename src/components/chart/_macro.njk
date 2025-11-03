@@ -184,12 +184,9 @@
         {% if (params.chartType in supportedChartTypes) and not params.iframeUrl %}
             {% set series = [] %}
             {% set lineSeriesCount = 0 %}
-            {% set seriesCount = 0 %}
             {% for item in params.series %}
                 {% if item.type == 'line' and lineSeriesCount > 0 %}
                     {# skip extra line series as the DS guidelines only allow for one extra line series #}
-                {% elif seriesCount > 5 %}
-                    {# skip extra series beyond 6 as per DS guidelines #}
                 {% else %}
                     {%
                         set seriesItem = {
@@ -208,11 +205,8 @@
                     {# Use `set` tag to avoid printing the return value of extend #}
                     {% set _ = extend(series, seriesItem) %}
                 {% endif %}
-
                 {% if item.type == 'line' %}
                     {% set lineSeriesCount = lineSeriesCount + 1 %}
-                {% else %}
-                    {% set seriesCount = seriesCount + 1 %}
                 {% endif %}
             {% endfor %}
             {# Set the legend value to true by default #}
