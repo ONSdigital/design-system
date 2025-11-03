@@ -202,7 +202,46 @@ describe('FOR: Macro: Accordion', () => {
                 expect($('button.ons-accordion__toggle-all').attr('b')).toBe('456');
             });
         });
+
+        describe('WHEN: openAriaLabel and closeAriaLabel are provided', () => {
+            const $ = cheerio.load(
+                renderComponent('accordion', {
+                    ...EXAMPLE_ACCORDION,
+                    allButton: {
+                        open: 'Open label',
+                        close: 'Close label',
+                        openAriaLabel: 'Open all sections',
+                        closeAriaLabel: 'Close all sections',
+                    },
+                }),
+            );
+            test('THEN: renders toggle all button with provided openAriaLabel', () => {
+                expect($('button.ons-accordion__toggle-all').attr('data-open-aria-label')).toBe('Open all sections');
+            });
+            test('THEN: renders toggle all button with provided closeAriaLabel', () => {
+                expect($('button.ons-accordion__toggle-all').attr('data-close-aria-label')).toBe('Close all sections');
+            });
+        });
+
+        describe('WHEN: openAriaLabel and closeAriaLabel are NOT provided', () => {
+            const $ = cheerio.load(
+                renderComponent('accordion', {
+                    ...EXAMPLE_ACCORDION,
+                    allButton: {
+                        open: 'Open label',
+                        close: 'Close label',
+                    },
+                }),
+            );
+            test('THEN: renders toggle all button with default openAriaLabel', () => {
+                expect($('button.ons-accordion__toggle-all').attr('data-open-aria-label')).toBe('Show all buttons');
+            });
+            test('THEN: renders toggle all button with default closeAriaLabel', () => {
+                expect($('button.ons-accordion__toggle-all').attr('data-close-aria-label')).toBe('Hide all buttons');
+            });
+        });
     });
+
     describe('GIVEN: Params: saveState', () => {
         describe('WHEN: saveState param is not provided', () => {
             const $ = cheerio.load(

@@ -8,8 +8,8 @@
             {%
                 set attributes = attributes | setAttributes({
                     "data-close-all": params.allButton.close,
-                    "data-open-aria-label": params.allButton.openAriaLabel,
-                    "data-close-aria-label": params.allButton.closeAriaLabel,
+                    "data-open-aria-label": params.allButton.openAriaLabel | default("Show all buttons"),
+                    "data-close-aria-label": params.allButton.closeAriaLabel | default("Hide all buttons"),
                     "data-group": params.id
                 })
             %}
