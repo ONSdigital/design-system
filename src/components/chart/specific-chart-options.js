@@ -46,6 +46,16 @@ class SpecificChartOptions {
         };
     }
 
+    limitSeriesToThemeLength = () => {
+        // Get the theme array from ChartConstants based on the theme name
+        const themeArray = this.theme === 'alternate' ? this.constants.alternateTheme : this.constants.primaryTheme;
+
+        // Limit the series to the theme array length
+        if (this.config.series.length > themeArray.length) {
+            this.config.series.length = themeArray.length;
+        }
+    };
+
     getOptions = () => this.options;
 
     getMobileOptions = (xAxisTickInterval, yAxisTickInterval) => {
