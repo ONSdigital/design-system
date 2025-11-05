@@ -8,7 +8,12 @@ class SpecificChartOptions {
         this.config = config;
 
         this.options = {
-            colors: this.theme === 'alternate' ? this.constants.alternateTheme : this.constants.primaryTheme,
+            colors:
+                this.theme === 'alternate'
+                    ? this.constants.alternateTheme
+                    : type == 'line'
+                      ? this.constants.linePrimaryTheme
+                      : this.constants.primaryTheme,
             chart: {
                 type: type,
                 marginTop: this.config.legend.enabled ? (type === 'boxplot' ? 50 : undefined) : 50,
@@ -40,6 +45,16 @@ class SpecificChartOptions {
             },
         };
     }
+
+    limitSeriesToThemeLength = () => {
+        // Get the theme array from ChartConstants based on the theme name
+        const themeArray = this.theme === 'alternate' ? this.constants.alternateTheme : this.constants.primaryTheme;
+
+        // Limit the series to the theme array length
+        if (this.config.series.length > themeArray.length) {
+            this.config.series.length = themeArray.length;
+        }
+    };
 
     getOptions = () => this.options;
 

@@ -187,6 +187,8 @@ class HighchartsBaseChart {
             }
         }
 
+        this.specificChartOptions.limitSeriesToThemeLength();
+
         // Disable the legend for single series charts
         this.specificChartOptions.disableLegendForSingleSeries(this.config);
     };
