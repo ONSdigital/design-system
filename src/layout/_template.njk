@@ -107,12 +107,12 @@
                     assetsUrl + '/favicons/x.png'
                 %}
                 <!-- X -->
-                <meta name="x:card" content="summary" />
-                <meta name="x:site" content="{{ pageConfig.social.xSite }}" />
-                <meta name="x:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}" />
-                <meta name="x:title" content="{{ pageConfig.social.title | default(pageConfig.title) }}" />
-                <meta name="x:description" content="{{ pageConfig.social.description | default(pageConfig.description) }}" />
-                <meta name="x:image" content="{{ xImagePath }}" />
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:site" content="{{ pageConfig.social.xSite }}" />
+                <meta name="twitter:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}" />
+                <meta name="twitter:title" content="{{ pageConfig.social.title | default(pageConfig.title) }}" />
+                <meta name="twitter:description" content="{{ pageConfig.social.description | default(pageConfig.description) }}" />
+                <meta name="twitter:image" content="{{ xImagePath }}" />
             {% endif %}
         {% endblock %}
 

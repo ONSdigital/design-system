@@ -1539,12 +1539,12 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             
                 
                 <!-- X -->
-                <meta name="x:card" content="summary">
-                <meta name="x:site" content="X">
-                <meta name="x:url" content="/some-url">
-                <meta name="x:title" content="X title">
-                <meta name="x:description" content="X description">
-                <meta name="x:image" content="x-image.png">
+                <meta name="twitter:card" content="summary">
+                <meta name="twitter:site" content="X">
+                <meta name="twitter:url" content="/some-url">
+                <meta name="twitter:title" content="X title">
+                <meta name="twitter:description" content="X description">
+                <meta name="twitter:image" content="x-image.png">
             
         
 
