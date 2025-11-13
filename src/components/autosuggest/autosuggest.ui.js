@@ -1,6 +1,6 @@
 import abortableFetch from '../../js/abortable-fetch';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
-import runMiniSearch from './fuse-config';
+import runFlexSearch from './fuse-config';
 import DOMPurify from 'dompurify';
 
 export const baseClass = 'ons-js-autosuggest';
@@ -297,12 +297,16 @@ export default class AutosuggestUI {
     async fetchSuggestions(sanitisedQuery, data) {
         this.abortFetch();
 
-        const results = await runMiniSearch(sanitisedQuery, data, this.lang);
+        // Swap Fuse → FlexSearch
+        const results = await runFlexSearch(
+            sanitisedQuery,
+            data,
+            this.lang, // searchField
+        );
 
         results.forEach((result) => {
-            const resultItem = result || result.item; // MiniSearch returns plain objects
             result.sanitisedText = sanitiseAutosuggestText(
-                resultItem[this.lang] ?? resultItem['formattedAddress'],
+                result[this.lang] ?? result['formattedAddress'],
                 this.sanitisedQueryReplaceChars,
             );
         });

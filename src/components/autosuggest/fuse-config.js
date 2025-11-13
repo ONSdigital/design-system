@@ -1,23 +1,38 @@
-import MiniSearch from 'minisearch';
+import FlexSearch from 'flexsearch';
 
-export default function runMiniSearch(query, data, searchField) {
-    // MiniSearch needs unique IDs, so we generate them if missing
+export default function runFlexSearch(query, data, searchField) {
+    // FlexSearch requires unique IDs
     const indexedData = data.map((item, index) => ({
         id: index,
         ...item,
     }));
 
-    const miniSearch = new MiniSearch({
-        fields: [searchField, 'formattedAddress', 'tags'], // searchable fields
-        storeFields: [searchField, 'formattedAddress', 'tags'], // returned fields
-        searchOptions: {
-            fuzzy: false, // exact + prefix + substring (no fuzzy threshold)
-            prefix: true, // allows "South Sa" to match full long strings
-            combineWith: 'AND', // all search tokens must match (same as fuse)
+    // Correct FlexSearch Document index config
+    const index = new FlexSearch.Document({
+        document: {
+            id: 'id',
+            index: [searchField, 'formattedAddress', 'tags'],
+            store: [searchField, 'formattedAddress', 'tags'],
         },
+        tokenize: 'forward', // supports substring-like matching
+        context: false, // disable contextual scoring (safer)
     });
 
-    miniSearch.addAll(indexedData);
+    // Insert documents
+    for (const doc of indexedData) {
+        index.add(doc);
+    }
 
-    return miniSearch.search(query);
+    // Perform search on all indexed fields
+    const resultGroups = index.search(query);
+
+    // Flatten results
+    const flatResults = [];
+    for (const group of resultGroups) {
+        for (const id of group.result) {
+            flatResults.push(indexedData[id]);
+        }
+    }
+
+    return flatResults;
 }
