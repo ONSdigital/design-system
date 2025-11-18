@@ -1,38 +1,24 @@
-import FlexSearch from 'flexsearch';
+export default function runRawSearch(query, data, searchField) {
+    if (!query || !query.trim()) return [];
 
-export default function runFlexSearch(query, data, searchField) {
-    // FlexSearch requires unique IDs
-    const indexedData = data.map((item, index) => ({
-        id: index,
-        ...item,
-    }));
+    const q = query.toLowerCase();
 
-    // Correct FlexSearch Document index config
-    const index = new FlexSearch.Document({
-        document: {
-            id: 'id',
-            index: [searchField, 'formattedAddress', 'tags'],
-            store: [searchField, 'formattedAddress', 'tags'],
-        },
-        tokenize: 'forward', // supports substring-like matching
-        context: false, // disable contextual scoring (safer)
-    });
+    return data
+        .map((item) => {
+            const combined = [item[searchField] ?? '', item.formattedAddress ?? '', Array.isArray(item.tags) ? item.tags.join(' ') : '']
+                .join(' ')
+                .toLowerCase();
 
-    // Insert documents
-    for (const doc of indexedData) {
-        index.add(doc);
-    }
+            const index = combined.indexOf(q);
 
-    // Perform search on all indexed fields
-    const resultGroups = index.search(query);
+            if (index === -1) return null;
 
-    // Flatten results
-    const flatResults = [];
-    for (const group of resultGroups) {
-        for (const id of group.result) {
-            flatResults.push(indexedData[id]);
-        }
-    }
-
-    return flatResults;
+            return {
+                item,
+                score: index, // earlier match is better
+            };
+        })
+        .filter(Boolean)
+        .sort((a, b) => a.score - b.score) // closest match first
+        .map((r) => r.item);
 }

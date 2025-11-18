@@ -1,6 +1,6 @@
 import abortableFetch from '../../js/abortable-fetch';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
-import runFlexSearch from './fuse-config';
+import runRawSearch from './fuse-config';
 import DOMPurify from 'dompurify';
 
 export const baseClass = 'ons-js-autosuggest';
@@ -298,18 +298,21 @@ export default class AutosuggestUI {
         this.abortFetch();
 
         // Swap Fuse → FlexSearch
-        const results = await runFlexSearch(
+        const results = await runRawSearch(
             sanitisedQuery,
             data,
             this.lang, // searchField
         );
 
         results.forEach((result) => {
-            result.sanitisedText = sanitiseAutosuggestText(
-                result[this.lang] ?? result['formattedAddress'],
-                this.sanitisedQueryReplaceChars,
-            );
+            result.sanitisedText = sanitiseAutosuggestText(result[this.lang] ?? result.formattedAddress, this.sanitisedQueryReplaceChars);
         });
+        // results.forEach((result) => {
+        //     result.sanitisedText = sanitiseAutosuggestText(
+        //         result[this.lang] ?? result['formattedAddress'],
+        //         this.sanitisedQueryReplaceChars,
+        //     );
+        // });
 
         return {
             status: this.responseStatus,
