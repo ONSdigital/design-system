@@ -1,6 +1,6 @@
 import abortableFetch from '../../js/abortable-fetch';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
-import runRawSearch from './fuse-config';
+import runFlexSearchIndex from './fuse-config';
 import DOMPurify from 'dompurify';
 
 export const baseClass = 'ons-js-autosuggest';
@@ -298,7 +298,7 @@ export default class AutosuggestUI {
         this.abortFetch();
 
         // Swap Fuse → FlexSearch
-        const results = await runRawSearch(
+        const results = await runFlexSearchIndex(
             sanitisedQuery,
             data,
             this.lang, // searchField

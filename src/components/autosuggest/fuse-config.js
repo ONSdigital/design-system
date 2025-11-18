@@ -1,24 +1,27 @@
-export default function runRawSearch(query, data, searchField) {
-    if (!query || !query.trim()) return [];
+import FlexSearch from 'flexsearch';
 
-    const q = query.toLowerCase();
+export default function runFlexSearchIndex(query, data, searchField) {
+    const index = new FlexSearch.Index({
+        preset: 'match', // enables raw substring scanning
+        tokenize: 'forward', // needed for substring matching
+        cache: true,
+        encode: false,
+        depth: 3, // improves substring matching window
+    });
 
-    return data
-        .map((item) => {
-            const combined = [item[searchField] ?? '', item.formattedAddress ?? '', Array.isArray(item.tags) ? item.tags.join(' ') : '']
-                .join(' ')
-                .toLowerCase();
+    const documents = [];
 
-            const index = combined.indexOf(q);
+    // Add documents
+    data.forEach((item, id) => {
+        const text =
+            (item[searchField] || '') + ' ' + (item.formattedAddress || '') + ' ' + (Array.isArray(item.tags) ? item.tags.join(' ') : '');
 
-            if (index === -1) return null;
+        index.add(id, text);
+        documents[id] = item;
+    });
 
-            return {
-                item,
-                score: index, // earlier match is better
-            };
-        })
-        .filter(Boolean)
-        .sort((a, b) => a.score - b.score) // closest match first
-        .map((r) => r.item);
+    // Perform substring search
+    const resultIds = index.search(query);
+
+    return resultIds.map((id) => documents[id]);
 }
