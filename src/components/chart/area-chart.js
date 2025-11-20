@@ -5,6 +5,9 @@ class AreaChart {
                 symbolWidth: 12,
                 symbolHeight: 12,
             },
+            yAxis: {
+                reversedStacks: false,
+            },
             plotOptions: {
                 area: {
                     fillOpacity: 1,
