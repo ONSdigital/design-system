@@ -21,10 +21,10 @@ const FULL_EXAMPLE = `
         ]
     },
     "social": {
-        "twitterSite": "Twitter",
-        "title": "Twitter title",
-        "description": "Twitter description",
-        "twitterImage": "twitter-image.png"
+        "xSite": "X",
+        "title": "X title",
+        "description": "X description",
+        "xImage": "x-image.png"
     },
     "announcementBanner": {
         "variants": "red",

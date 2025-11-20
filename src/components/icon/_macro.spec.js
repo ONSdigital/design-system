@@ -22,7 +22,7 @@ describe('macro: icon', () => {
         'search',
         'sort-sprite',
         'facebook',
-        'twitter',
+        'x',
         'instagram',
         'linkedin',
         'loader',
@@ -80,7 +80,7 @@ describe('macro: icon', () => {
         'quote',
         'search',
         'facebook',
-        'twitter',
+        'x',
         'instagram',
         'linkedin',
     ])('icon type: %s', (iconType) => {
