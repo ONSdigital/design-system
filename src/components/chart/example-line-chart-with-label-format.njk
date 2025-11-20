@@ -1,0 +1,88 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+
+{{
+    onsChart({
+        "chartType": "line",
+        "description": "Line chart showing the annual rate of inflation for the Consumer Prices Index including owner occupiers’ housing costs (CPIH) and its components.",
+        "theme": "primary",
+        "title": "Sales volumes and values saw moderate growth in July 2024",
+        "subtitle": "Figure 6: Upward contribution from housing and household services (including energy) saw the annual CPIH inflation rate rise",
+        "id": "id",
+        "headingLevel": 4,
+        "caption": "Source: Monthly Business Survey, Retails Sales Inquiry from the Office for National Statistics",
+        "download": {
+            'title': 'Download Figure 1 data',
+            'itemsList': [
+            {
+                "text": "Excel spreadsheet (XLSX format, 18KB)",
+                "url": "#"
+            },
+            {
+                "text": "Simple text file (CSV format, 25KB)",
+                "url": "#"
+            },
+            {
+
+                "text": "Image (PNG format, 25KB)",
+                "url": "#"
+            }
+        ]},
+        "footnotes": {
+            "title": "Footnotes",
+            "content": "<ol><li>Non-store retailing refers to retailers that do not have a store presence. While the majority is made up of online retailers, it also includes other retailers, such as stalls and markets.</li><li>More data are available in our Retail Sales Index datasets.</li></ol>"
+        },
+        "legend": true,
+        "xAxis": {
+            "title": "Year",
+            "type": "linear",
+            "labelFormat": "{value:,.2f}",
+            "categories": [
+                'Oct 2014',
+                'Nov 2014',
+                'Dec 2014',
+                'Jan 2015',
+                'Feb 2015',
+                'Mar 2015',
+                'Apr 2015',
+                'May 2015',
+                'Jun 2015',
+                'Jul 2015',
+                'Aug 2015',
+                'Sep 2015'
+            ]
+        },
+        "yAxis": {
+            "title": "Sales",
+            "labelFormat": "{value:,.2f}"
+        },
+        "series": [
+            {
+                "name": 'CPIH',
+                "data": [
+                    1.3, 1.1, 0.7, 0.5, 0.4, 0.3, 0.3, 0.4, 0.3, 0.5, 0.4, 0.2
+                ]
+            },
+            {
+                "name": 'Goods',
+                "data": [
+                    0.3, 0.2, 1.0, 1.5, 2.0, 2.1, 1.9, 1.8, 2.0, 1.8, 2.0, 2.3
+                ]
+            },
+            {
+                "name": 'Services',
+                "data": [
+                    2.2, 2.1, 2.1, 2.1, 2.2, 2.2, 2.0, 2.1, 2.1, 2.2, 2.2, 2.2
+                ]
+            },
+            {
+                "name": 'CPIH excl energy, food, alcohol & tobacco',
+                "data": [
+                    1.5, 1.3, 1.4, 1.5, 1.4, 1.2, 1.1, 1.2, 1.0, 1.3, 1.2, 1.2
+                ]
+            }
+        ],
+        "percentageHeightDesktop": 35,
+        "percentageHeightMobile": 90,
+        "fallbackImageUrl": '/img/small/line-chart-screenshot.png'
+    })
+}}

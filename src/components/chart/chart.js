@@ -146,6 +146,7 @@ class HighchartsBaseChart {
         if (this.chartType === 'line') {
             // Merge the line chart options with the existing config
             this.config = mergeConfigs(this.config, lineChartOptions);
+            console.log(this.config);
         }
 
         if (this.chartType === 'bar') {
