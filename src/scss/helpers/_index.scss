@@ -1,3 +1,3 @@
-@import './functions';
-@import './mixins';
-@import './mq';
+@forward './functions';
+@forward './mixins';
+@forward './mq';

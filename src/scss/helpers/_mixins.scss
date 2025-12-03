@@ -2,6 +2,7 @@
 @use 'sass:string';
 @use 'sass:list';
 @use 'sass:map';
+@use '../helpers/functions';
 
 @mixin rem($property, $values...) {
     $max: list.length($values);
@@ -34,19 +35,6 @@
     @include rem(font-size, $size-value);
 }
 
-// =============================================================================
-// String Replace
-// =============================================================================
-@function str-replace($string, $search, $replace: '') {
-    $index: string.index($string, $search);
-
-    @if $index {
-        @return string.slice($string, 1, $index - 1) + $replace +
-            str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
-    }
-
-    @return $string;
-}
 // =============================================================================
 // Font Face
 // =============================================================================
