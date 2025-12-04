@@ -73,7 +73,28 @@ layout: ~
                             { "url": '#section28', "text": 'Appendix L: Technical notes' },
                             { "url": '#section29', "text": 'Appendix M: User guide' },
                             { "url": '#section30', "text": 'Appendix N: Further reading'}
-                        ]
+                        ],
+                        "relatedLinks": {
+                            "title": 'Related publications',
+                            "itemsList":
+                            [
+                                {
+                                    "url": '#0',
+                                    "text": 'Example publication title'
+                                },
+                                {
+                                    "url": '#0',
+                                    "text": 'Example publication title 2'
+                                },
+                                {
+                                    "url": '#0',
+                                    "text": 'Example publication title 3'
+                                }
+                            ]
+                        },
+                        "button": {
+                            "text": 'Save or print this page'
+                        }
                     })
                 }}
             </div>
@@ -121,26 +142,6 @@ layout: ~
                                 Appendix C: Methodological notes
                             {%- elif i == 20 -%}
                                 Appendix D: Contact details
-                            {%- elif i == 21 -%}
-                                Appendix E: Additional information
-                            {%- elif i == 22 -%}
-                                Appendix F: Legal framework
-                            {%- elif i == 23 -%}
-                                Appendix G: Acknowledgements
-                            {%- elif i == 24 -%}
-                                Appendix H: Change log
-                            {%- elif i == 25 -%}
-                                Appendix I: Feedback
-                            {%- elif i == 26 -%}
-                                Appendix J: Related links
-                            {%- elif i == 27 -%}
-                                Appendix K: Data sources
-                            {%- elif i == 28 -%}
-                                Appendix L: Technical notes
-                            {%- elif i == 29 -%}
-                                Appendix M: User guide
-                            {%- elif i == 30 -%}
-                                Appendix N: Further reading
                             {%- endif -%}
                         </h2>
                         {% for j in range(1, 8) %}
