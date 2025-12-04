@@ -1,6 +1,7 @@
 export default class TableOfContents {
     constructor(component) {
         this.component = component;
+        //this.content = this.component.previousElementSibling;
         this.sections = [...this.component.querySelectorAll('section[id]')].filter((section) => section.id);
         this.tocLinks = {};
         this.activeSection = null;
@@ -19,6 +20,28 @@ export default class TableOfContents {
         this.sections.forEach((section) => this.observer.observe(section));
 
         this.setInitialActiveSection();
+
+        // const gridCol = document.querySelector('.ons-grid__col');
+        // if (!gridCol) return;
+        // // Get the number of TOC items
+        // const tocItems = this.component.querySelectorAll('.ons-list__link');
+        // const tocItemCount = tocItems.length;
+
+        // // Get the height of the TOC container
+        // const tocRect = this.component.getBoundingClientRect();
+        // const tocHeight = tocRect.height;
+        // const windowHeight = window.innerHeight;
+
+        // // Set sticky only if less than 20 items and TOC fits in viewport
+        // if (tocItemCount < 6 && tocHeight > windowHeight) {
+        //     console.log('TOC item count is:', tocItemCount);
+        //     console.log('Setting TOC as sticky');
+        //     gridCol.classList.add('ons-grid__col--sticky@m');
+        // } else {
+        //     console.log('TOC item count is:', tocItemCount);
+        //     console.log('Removing sticky from TOC');
+        //     gridCol.classList.remove('ons-grid__col--sticky@m');
+        // }
     }
 
     setInitialActiveSection() {
