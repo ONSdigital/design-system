@@ -6,7 +6,11 @@
     {% set detailsColumns = params.detailsColumns | default ('8') %}
 
     <section
-        class="ons-hero ons-grid--gutterless{% if params.variants and params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-hero--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-hero--{{ params.variants }}{% endif %}"
+        class="ons-hero ons-grid--gutterless
+        {% if params.variants and (params.variants is not string and params.variants | length > 0) %}
+            {% for variant in params.variants %}{{ ' ' }}ons-hero--{{ variant }}{% endfor %}
+            {% elseif params.variants is string and params.variants != '' %}{{ ' ' }}ons-hero--{{ params.variants }}
+        {% endif %}"
     >
         {% if params.variants == 'navy-blue' %}
             <div class="ons-hero__circles" aria-hidden="true">
