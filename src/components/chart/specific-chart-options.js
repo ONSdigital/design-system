@@ -51,8 +51,15 @@ class SpecificChartOptions {
         const themeArray = this.theme === 'alternate' ? this.constants.alternateTheme : this.constants.primaryTheme;
 
         // Limit the series to the theme array length
-        if (this.config.series.length > themeArray.length) {
+        if (this.type !== 'scatter' && this.config.series.length > themeArray.length) {
             this.config.series.length = themeArray.length;
+        }
+    };
+
+    limitSeriesForScatterChart = () => {
+        // Scatter charts only support up to 4 series for readability
+        if (this.config.series.length > 4) {
+            this.config.series.length = 4;
         }
     };
 
