@@ -12,9 +12,18 @@
             fill: var(--ons-color-grey-75); /* Forces the color used for text in high contrast mode */
         }
         .highcharts-annotation-label text,
-        .highcharts-plot-line-label,
-        .highcharts-plot-band-label {
+        .highcharts-plot-line-label {
             fill: CanvasText !important; /* Forces the color used for text in high contrast mode */
+        }
+
+        .highcharts-plot-band-label .ons-chart__connector-line {
+            forced-color-adjust: auto !important; /* Allows the connector line to adapt to contrast mode */
+        }
+
+        .highcharts-plot-band-label {
+            forced-color-adjust: none;
+            background: transparent !important; /* Ensures background does not obscure text in contrast mode */
+            color: CanvasText !important;
         }
 
         .highcharts-annotation-label-box {
