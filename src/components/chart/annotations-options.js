@@ -11,6 +11,7 @@ class AnnotationsOptions {
             {
                 labels: [],
                 labelOptions: {
+                    useHTML: true,
                     shape: 'connector',
                     borderColor: this.constants.labelColor,
                     padding: 3,
