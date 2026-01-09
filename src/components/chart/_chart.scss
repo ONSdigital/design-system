@@ -17,16 +17,6 @@
             fill: CanvasText !important; /* Forces the color used for text in high contrast mode */
         }
 
-        // .highcharts-plot-band-label .ons-chart__connector-line {
-        //     forced-color-adjust: auto !important; /* Allows the connector line to adapt to contrast mode */
-        // }
-
-        // .highcharts-plot-band-label {
-        //     forced-color-adjust: none;
-        //     background: transparent !important; /* Ensures background does not obscure text in contrast mode */
-        //     color: CanvasText !important;
-        // }
-
         .highcharts-annotation-label-box {
             fill: Canvas; /* Sets the background to match system background */
             stroke: CanvasText; /* Ensures border is visible in contrast mode */
