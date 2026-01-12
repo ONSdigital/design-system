@@ -167,6 +167,7 @@ class HighchartsBaseChart {
         if (this.chartType === 'scatter') {
             // Merge the scatter chart options with the existing config
             this.config = mergeConfigs(this.config, scatterChartOptions);
+            this.specificChartOptions.limitSeriesForScatterChart();
         }
         if (this.chartType === 'boxplot') {
             // Merge the boxplot chart options with the existing config
@@ -187,6 +188,7 @@ class HighchartsBaseChart {
             }
         }
 
+        // Limit the number of series to the theme length
         this.specificChartOptions.limitSeriesToThemeLength();
 
         // Disable the legend for single series charts
