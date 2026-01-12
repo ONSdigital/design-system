@@ -442,7 +442,7 @@ describe('script: address-input', () => {
                 await page.type('.ons-js-autosuggest-input', '2', { delay: 20 });
                 await page.keyboard.press('ArrowDown');
                 await page.keyboard.press('Enter');
-                await setTimeout(100);
+                await setTimeout(150);
 
                 const isManualElementHidden = await page.$eval('.ons-js-address-input__manual', (node) =>
                     node.classList.contains('ons-u-db-no-js_enabled'),
@@ -748,7 +748,7 @@ describe('script: address-input', () => {
             await page.type('.ons-js-autosuggest-input', 'e', { delay: 20 });
             await page.keyboard.press('ArrowDown');
             await page.keyboard.press('Enter');
-            await setTimeout(50);
+            await setTimeout(100);
 
             expect(await apiFaker.getRequestCount(uprnEndpoint)).toBe(1);
         });
