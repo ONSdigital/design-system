@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`base page template matches the basic variant header snapshot 1`] = `
 "<!DOCTYPE html><html lang="en"><head>
