@@ -243,11 +243,16 @@
                                     aria-hidden="false"
                                 >
                                     <div class="ons-container">
-                                        <div class="ons-header-nav-search__input">
+                                        <form
+                                            class="ons-header-nav-search__input"
+                                            method="get"
+                                            action="{{ params.searchLinks.searchRequest | default('#') }}"
+                                        >
                                             {% from "components/input/_macro.njk" import onsInput %}
                                             {{
                                                 onsInput({
                                                     "id": 'search-field',
+                                                    "name": params.searchLinks.searchInputName | default('q'),
                                                     "width": 'full',
                                                     "label": {
                                                         "text": params.searchLinks.searchNavigationInputLabel | default('Search the ONS'),
@@ -261,7 +266,7 @@
                                                     }
                                                 })
                                             }}
-                                        </div>
+                                        </form>
                                     </div>
                                     {% if params.searchLinks %}
                                         <div class="ons-container">
