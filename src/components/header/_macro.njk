@@ -216,7 +216,7 @@
                                 </nav>
                             {% endif %}
 
-                            {% if params.search %}
+                            {% if params.search or params.searchLinks %}
                                 <div class="ons-header__links ons-grid__col ons-header__menu-link">
                                     {{
                                         onsButton({
@@ -268,7 +268,7 @@
                                             }}
                                         </form>
                                     </div>
-                                    {% if params.searchLinks or params.search %}
+                                    {% if params.search or params.searchLinks %}
                                         <div class="ons-container">
                                             <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">
                                                 {{ params.search.links.heading if params.search.links else params.searchLinks.heading }}
