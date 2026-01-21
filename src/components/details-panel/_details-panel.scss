@@ -1,3 +1,7 @@
+@use '../../scss/helpers';
+@use '../../scss/vars';
+@use '../../scss/utilities';
+
 .ons-details-panel {
     $root: &;
 
@@ -32,7 +36,7 @@
 
             #{$root}__banner-detail {
                 background: var(--ons-color-focus);
-                box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-text-link-focus);
+                box-shadow: 0 ems(vars.$button-shadow-size) 0 var(--ons-color-text-link-focus);
                 color: var(--ons-color-text-link-focus);
                 outline: none;
             }
@@ -99,7 +103,7 @@
         flex-direction: column;
         border-bottom: 1px solid var(--ons-color-borders);
 
-        @include mq('m') {
+        @include helpers.mq('m') {
             flex-direction: row;
             column-gap: 2.5rem;
         }
@@ -115,7 +119,7 @@
     &__content-meta {
         @extend .ons-u-mb-no;
 
-        @include mq('m') {
+        @include helpers.mq('m') {
             flex-basis: 25%;
             min-width: 16.5rem;
         }
