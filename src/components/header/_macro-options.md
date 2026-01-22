@@ -20,7 +20,7 @@
 | siteSearchAutosuggest | `Autosuggest` [_(ref)_](/components/autosuggest)  | false                                                       | Sets the autosuggest functionality in the header                                                                                               |
 | menuLinks             | object`<MenuLinks>`                               | false                                                       | Settings for the [menu button navigation](#menuLinks) in the masthead                                                                          |
 | search                | object`<Search>`                                  | false                                                       | Settings for the [search button navigation](#search) in the masthead                                                                           |
-| searchLinks           | object`<SearchLinks>`                             | false                                                       | Settings for the [search button navigation](#searchLinks) in the masthead(Will be Depricated in the next major release)                        |
+| searchLinks           | object`<SearchLinks>`                             | false                                                       | DEPRECATED. Settings for the [search button navigation](#searchLinks) in the masthead                                                          |
 
 ## MastheadLogo
 
@@ -82,7 +82,7 @@
 | Name               | Type            | Required | Description                                                                                                                           |
 | ------------------ | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | id                 | string          | true     | The HTML `id` of the `nav` element. Used for the `aria-controls` attribute for the search toggle button displayed on small viewports. |
-| classes            | string          | false    | Classes to add to the `nav` element                                                                                                   |
+| classes            | string          | false    | Classes to add to the `nav` element.                                                                                                  |
 | navAriaLabel       | string          | false    | The `aria-label` attribute added to the search `navigation` element. Defaults to Search navigation”.                                  |
 | navButtonAriaLabel | string          | false    | The `aria-label` attribute added to the search `navigation` button toggle element on mobile. Defaults to "Toggle search".             |
 | form               | object<`Form`>  | false    | Use the [form](#form) object to configure the search form in the Header.                                                              |
@@ -105,7 +105,7 @@
 | heading   | string              | true     | The heading label for the search items list                                                                                   |
 | itemsList | array`<SearchItem>` | true     | Settings for an array of [searches](#searchitem) associated with each search link. The list can contain a maximum of 5 items. |
 
-## SearchLinks
+## SearchLinks (DEPRECATED. Use Search and Search.Links instead)
 
 | Name                            | Type                | Required | Description                                                                                                                                                            |
 | ------------------------------- | ------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
