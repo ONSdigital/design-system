@@ -225,7 +225,7 @@
                                             "variants": "search",
                                             "iconType": "search",
                                             "attributes": {
-                                                "aria-label": params.search.toggleAriaLabel if params.search.toggleAriaLabel else params.searchLinks.searchButtonAriaLabel | default("Toggle search"),
+                                                "aria-label": (params.search.toggleAriaLabel if params.search.toggleAriaLabel else params.searchLinks.searchButtonAriaLabel) | default("Toggle search"),
                                                 "aria-controls": params.search.id if params.search.id else params.searchLinks.id,
                                                 "aria-expanded": "true",
                                                 "aria-disabled": "true"
@@ -237,30 +237,30 @@
 
                             {% if params.variants == "basic" and (params.searchLinks or params.search) %}
                                 <nav
-                                    class="ons-js-header-search ons-header-nav-search {{ params.searchLinks.classes }}"
+                                    class="ons-js-header-search ons-header-nav-search {{ params.searchLinks.classes if params.searchLinks and params.searchLinks.classes else '' }}{{ params.search.classes if params.search and params.search.classes else '' }}"
                                     id="{{ params.search.id if params.search else params.searchLinks.id }}"
-                                    aria-label="{{ params.search.navAriaLabel if params.search else params.searchLinks.searchNavigationAriaLabel | default('Search navigation') }}"
+                                    aria-label="{{ (params.search.navAriaLabel if params.search else params.searchLinks.searchNavigationAriaLabel) | default('Search navigation') }}"
                                     aria-hidden="false"
                                 >
                                     <div class="ons-container">
                                         <form
                                             class="ons-header-nav-search__input"
                                             method="get"
-                                            action="{{ params.search.form.action if params.search.form | default('') }}"
+                                            action="{{ params.search.form.action | default('') }}"
                                         >
                                             {% from "components/input/_macro.njk" import onsInput %}
                                             {{
                                                 onsInput({
                                                     "id": 'search-field',
-                                                    "name": params.search.form.inputName if params.search.form | default('q'),
+                                                    "name": params.search.form.inputName | default('q'),
                                                     "width": 'full',
                                                     "label": {
-                                                        "text": params.search.form.inputLabel if params.search.form else params.searchLinks.searchNavigationInputLabel | default('Search the ONS'),
+                                                        "text": (params.search.form.inputLabel if params.search.form else params.searchLinks.searchNavigationInputLabel) | default('Search the ONS'),
                                                         "id": "header-search-input-label"
                                                     },
                                                     "searchButton": {
                                                         "visuallyHideButtonText": true,
-                                                        "text":  params.search.form.buttonText if params.search.form else params.searchLinks.searchNavigationButtonText | default('Search'),
+                                                        "text":  (params.search.form.buttonText if params.search.form else params.searchLinks.searchNavigationButtonText) | default('Search'),
                                                         "iconType": 'search',
                                                         'variant': 'header'
                                                     }
@@ -515,13 +515,13 @@
                                     <span class="ons-grid ons-u-ml-no ons-u-d-no@2xs@xs">
                                         {{
                                             onsButton({
-                                                "text": params.search.form.buttonText if params.search.form.buttonText else searchLinks.searchNavigationButtonText | default('Search'),
+                                                "text": (params.search.form.buttonText if params.search.form.buttonText else searchLinks.searchNavigationButtonText) | default('Search'),
                                                 "classes": "ons-btn--search ons-u-ml-2xs ons-u-d-no ons-js-toggle-search",
                                                 "variants": ["small", "ghost"],
                                                 "iconType": "search",
                                                 "iconPosition": "only",
                                                 "attributes": {
-                                                    "aria-label": params.search.form.ariaLabel if params.search.form.ariaLabel else params.searchLinks.searchNavigationButtonAriaLabel | default('Toggle search'),
+                                                    "aria-label":(params.search.navButtonAriaLabel if params.search.navButtonAriaLabel else params.searchLinks.searchNavigationButtonAriaLabel) | default('Toggle search'),
                                                     "aria-controls": "ons-site-search",
                                                     "aria-expanded": "false"
                                                 }
