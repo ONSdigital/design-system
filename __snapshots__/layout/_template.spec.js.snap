@@ -741,7 +741,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                 
 
                 
-        <input type="search" id="search-field" class="ons-input ons-input--text ons-input-type__input ons-search__input ons-input--header-search ons-input--w-full">
+        <input type="search" id="search-field" class="ons-input ons-input--text ons-input-type__input ons-search__input ons-input--header-search ons-input--w-full" name="q">
         
         
     
