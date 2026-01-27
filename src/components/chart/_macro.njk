@@ -71,9 +71,10 @@
                     <iframe
                         src="{{ params.iframeUrl }}"
                         title="{{ params.title }}"
-                        class="ons-chart__iframe ons-chart__iframe--{{ iframeAspectRatio }}"
+                        class="ons-chart__iframe"
                         frameborder="0"
                         scrolling="no"
+                        height="{{ params.iframeHeight }}"
                     ></iframe>
                 </div>
             {% else %}
