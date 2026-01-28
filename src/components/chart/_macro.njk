@@ -74,7 +74,7 @@
                         class="ons-chart__iframe"
                         frameborder="0"
                         scrolling="no"
-                        height="{{ params.iframeHeight }}"
+                        {% if params.iframeHeight %}height="{{ params.iframeHeight }}"{% endif %}
                     ></iframe>
                 </div>
             {% else %}
