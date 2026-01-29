@@ -178,6 +178,40 @@ export const EXAMPLE_HEADER_SEARCH_LINKS = {
     },
 };
 
+export const EXAMPLE_HEADER_SEARCH = {
+    search: {
+        id: 'search-id',
+        navAriaLabel: 'Header Search',
+        navButtonAriaLabel: 'Custom search nav button aria label',
+        toggleAriaLabel: 'Custom search button aria label',
+        form: {
+            action: '/search',
+            inputName: 'q',
+            buttonAriaLabel: 'Custom search nav button aria label',
+            inputLabel: 'Custom search input label',
+            buttonText: 'Custom search button text',
+        },
+        classes: 'custom-class',
+        links: {
+            heading: 'Header Search',
+            itemsList: [
+                {
+                    url: '#1',
+                    text: 'Popular Search 1',
+                },
+                {
+                    url: '#2',
+                    text: 'Popular Search 2',
+                },
+                {
+                    url: '#3',
+                    text: 'Popular Search 3',
+                },
+            ],
+        },
+    },
+};
+
 export const EXAMPLE_HEADER_SEARCH_AND_MENU_LINKS = {
     ...EXAMPLE_HEADER_SEARCH_LINKS,
     title: 'Header title',

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`base page template matches the basic variant header snapshot 1`] = `
 "<!DOCTYPE html><html lang="en"><head>
@@ -692,7 +692,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                             
                                 <nav class="ons-js-header-search ons-header-nav-search " id="search-links" aria-label="Nav Search" aria-hidden="false">
                                     <div class="ons-container">
-                                        <div class="ons-header-nav-search__input">
+                                        <form class="ons-header-nav-search__input" method="get" action="">
                                             
                                             
     
@@ -741,7 +741,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                 
 
                 
-        <input type="search" id="search-field" class="ons-input ons-input--text ons-input-type__input ons-search__input ons-input--header-search ons-input--w-full">
+        <input type="search" id="search-field" class="ons-input ons-input--text ons-input-type__input ons-search__input ons-input--header-search ons-input--w-full" name="q">
         
         
     
@@ -788,7 +788,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
 
     
 
-                                        </div>
+                                        </form>
                                     </div>
                                     
                                         <div class="ons-container">
@@ -798,64 +798,67 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                             <ul class="ons-list ons-list--bare ons-list--inline">
                                                 
                                                     
+                                                        
+                                                        
+                                                            <li class="ons-list__item">
+                                                                
+                                                                    
+                                                                        <a href="#1" class="ons-u-fs-r ons-header-nav-search__text">Cost of living
+                                                                        </a>
+                                                                    
+                                                                
+                                                            </li>
+                                                        
                                                     
-                                                        <li class="ons-list__item">
-                                                            
+                                                        
+                                                        
+                                                            <li class="ons-list__item">
                                                                 
-                                                                    <a href="#1" class="ons-u-fs-r ons-header-nav-search__text">Cost of living
-                                                                    </a>
+                                                                    
+                                                                        <a href="#1" class="ons-u-fs-r ons-header-nav-search__text">Inflation
+                                                                        </a>
+                                                                    
                                                                 
-                                                            
-                                                        </li>
+                                                            </li>
+                                                        
+                                                    
+                                                        
+                                                        
+                                                            <li class="ons-list__item">
+                                                                
+                                                                    
+                                                                        <a href="#3" class="ons-u-fs-r ons-header-nav-search__text">NHS waiting times
+                                                                        </a>
+                                                                    
+                                                                
+                                                            </li>
+                                                        
+                                                    
+                                                        
+                                                        
+                                                            <li class="ons-list__item">
+                                                                
+                                                                    
+                                                                        <a href="#0" class="ons-u-fs-r ons-header-nav-search__text">Wellbeing
+                                                                        </a>
+                                                                    
+                                                                
+                                                            </li>
+                                                        
+                                                    
+                                                        
+                                                        
+                                                            <li class="ons-list__item">
+                                                                
+                                                                    
+                                                                        <a href="#0" class="ons-u-fs-r ons-header-nav-search__text">Baby names
+                                                                        </a>
+                                                                    
+                                                                
+                                                            </li>
+                                                        
                                                     
                                                 
-                                                    
-                                                    
-                                                        <li class="ons-list__item">
-                                                            
-                                                                
-                                                                    <a href="#1" class="ons-u-fs-r ons-header-nav-search__text">Inflation
-                                                                    </a>
-                                                                
-                                                            
-                                                        </li>
-                                                    
-                                                
-                                                    
-                                                    
-                                                        <li class="ons-list__item">
-                                                            
-                                                                
-                                                                    <a href="#3" class="ons-u-fs-r ons-header-nav-search__text">NHS waiting times
-                                                                    </a>
-                                                                
-                                                            
-                                                        </li>
-                                                    
-                                                
-                                                    
-                                                    
-                                                        <li class="ons-list__item">
-                                                            
-                                                                
-                                                                    <a href="#0" class="ons-u-fs-r ons-header-nav-search__text">Wellbeing
-                                                                    </a>
-                                                                
-                                                            
-                                                        </li>
-                                                    
-                                                
-                                                    
-                                                    
-                                                        <li class="ons-list__item">
-                                                            
-                                                                
-                                                                    <a href="#0" class="ons-u-fs-r ons-header-nav-search__text">Baby names
-                                                                    </a>
-                                                                
-                                                            
-                                                        </li>
-                                                    
                                                 
                                             </ul>
                                         </div>
