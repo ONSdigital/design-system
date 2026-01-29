@@ -10,7 +10,11 @@ export default class CookiesSettings {
         this.cookiesBanner = document.querySelector('.ons-cookies-banner');
 
         this.component.addEventListener('submit', this.submitSettingsForm.bind(this));
-        this.returnLink?.addEventListener('click', this.goBackToPrevPage.bind(this));
+
+        if (this.returnLink) {
+            const href = document.referrer || '/';
+            this.returnLink.setAttribute('href', href);
+        }
 
         this.setInitialFormValues();
     }
@@ -99,9 +103,5 @@ export default class CookiesSettings {
         } else {
             this.returnLink.style.display = 'none';
         }
-    }
-
-    goBackToPrevPage() {
-        window.history.back();
     }
 }
