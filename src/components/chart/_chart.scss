@@ -12,8 +12,8 @@
             fill: var(--ons-color-grey-75); /* Forces the color used for text in high contrast mode */
         }
         .highcharts-annotation-label text,
-        .highcharts-plot-line-label,
-        .highcharts-plot-band-label {
+        .highcharts-plot-band-label,
+        .highcharts-plot-line-label {
             fill: CanvasText !important; /* Forces the color used for text in high contrast mode */
         }
 
