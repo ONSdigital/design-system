@@ -13,7 +13,7 @@
                     {{ openingTag | safe }}
                     class="ons-details-panel__banner-title ons-u-fs-m ons-u-mb-2xs">{{ params.title }}{{ closingTag | safe }}
                     <span class="ons-details-panel__banner-detail">
-                        <span class="ons-details-panel__banner-detail-icon">
+                        <span class="ons-details-panel__banner-detail-icon ons-u-mr-3xs">
                             {% from "components/icon/_macro.njk" import onsIcon %}
                             {{
                                 onsIcon({
@@ -21,7 +21,7 @@
                                 })
                             }}
                         </span>
-                        <span class="ons-details-panel__banner-detail-title ons-u-mr-3xs">
+                        <span class="ons-details-panel__banner-detail-title">
                             <span class="ons-details-panel__banner-detail-title--open"> {{ openText }} </span>
                             <span class="ons-details-panel__banner-detail-title--close"> {{ closeText }} </span>
                         </span>
