@@ -1,3 +1,6 @@
+@use '../../scss/vars';
+@use './_field-group';
+
 .ons-field {
     position: relative;
 
@@ -22,4 +25,4 @@
     }
 }
 
-@include input-width('ons-field__item--w-{x}');
+@include vars.input-width('ons-field__item--w-{x}');

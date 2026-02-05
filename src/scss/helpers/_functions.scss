@@ -1,21 +1,24 @@
 @use 'sass:math';
 @use 'sass:string';
 @use 'sass:map';
+@use '../vars/typography' as vars;
 
-@function ems($pxval, $base: $base) {
+@function ems($pxval, $base: vars.$base) {
     $em-size: math.div($pxval, $base);
 
     @return #{$em-size}em;
 }
 
-@function rems($pxval, $base: $base) {
+@function rems($pxval, $base: vars.$base) {
     $rem-size: math.div($pxval, $base);
 
     @return #{$rem-size}rem;
 }
 
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
 @function strip-unit($num) {
-    @return $num / ($num * 0 + 1);
+    @return math.div($num, $num * 0 + 1);
 }
 
 @function map-set($map, $key, $value) {
@@ -27,7 +30,7 @@
 }
 
 @function str-replace($string, $search, $replace: '') {
-    $string: to-string($string);
+    $string: $string;
     $index: string.index($string, $search);
 
     @if $index {

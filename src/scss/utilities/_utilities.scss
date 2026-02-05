@@ -1,3 +1,5 @@
+@use '../helpers';
+
 .ons-u-dib {
     display: inline-block;
 }
@@ -7,7 +9,7 @@
 }
 
 .ons-u-db {
-    display: block;
+    display: block !important;
 }
 
 // Utility class to override the height property to 'auto'
@@ -31,6 +33,6 @@
 }
 
 // Set an element's width to be auto at specified breakpoint
-@include bp-suffix(ons-u-wa--) {
+@include helpers.bp-suffix(ons-u-wa--) {
     width: auto !important;
 }

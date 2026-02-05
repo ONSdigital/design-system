@@ -1,17 +1,20 @@
+@use '../../scss/vars';
+@use '../helpers';
+
 .ons-container {
     box-sizing: border-box;
     margin: 0 auto;
-    max-width: $grid-max-width;
-    padding: 0 $grid-gutters;
+    max-width: vars.$grid-max-width;
+    padding: 0 vars.$grid-gutters;
     position: relative;
     width: 100%;
 
-    @include mq(s) {
-        padding: 0 $grid-gutters;
+    @include helpers.mq(s) {
+        padding: 0 vars.$grid-gutters;
     }
 
     &--wide {
-        max-width: $grid-max-1280;
+        max-width: vars.$grid-max-1280;
     }
 
     &--full-width {
@@ -29,6 +32,6 @@
     font-size: 1.125rem;
 }
 
-@include bp-suffix('ons-container--gutterless', $create-between-breakpoints: true) {
+@include helpers.bp-suffix('ons-container--gutterless', $create-between-breakpoints: true) {
     padding: 0;
 }

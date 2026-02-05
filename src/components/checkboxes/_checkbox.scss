@@ -1,3 +1,6 @@
+@use '../../scss/utilities';
+@use '../input/input';
+
 $checkbox-input-width: 22px;
 $checkbox-padding: 10px;
 
@@ -15,6 +18,7 @@ $checkbox-padding: 10px;
         box-sizing: border-box;
         cursor: pointer;
         height: $checkbox-input-width;
+        margin: 0;
         left: $checkbox-padding;
         position: absolute;
         top: $checkbox-padding + 3px;

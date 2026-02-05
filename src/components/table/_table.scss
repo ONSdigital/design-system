@@ -1,3 +1,7 @@
+@use '../../scss/helpers';
+@use '../../scss/vars';
+@use '../../scss/base';
+
 .ons-table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -9,14 +13,14 @@
     }
 
     &__caption {
-        font-weight: $font-weight-bold;
+        font-weight: vars.$font-weight-bold;
         text-align: left;
     }
 
     &__row:not(.ons-table__row--after-rowspan) {
         .ons-table__cell,
         .ons-table__header {
-            @include nth-element(1, 0);
+            @include helpers.nth-element(1, 0);
         }
     }
 
@@ -75,7 +79,7 @@
     }
 
     &--responsive {
-        @include mq('2xs', s) {
+        @include helpers.mq('2xs', s) {
             .ons-table__header {
                 display: none;
             }
@@ -100,7 +104,7 @@
                 &::before {
                     content: attr(data-th);
                     float: left;
-                    font-weight: $font-weight-bold;
+                    font-weight: vars.$font-weight-bold;
                     padding-right: 1rem;
                 }
             }
@@ -205,8 +209,9 @@
                 color: var(--ons-color-text-link);
                 cursor: pointer;
                 display: inline-block;
-                font-family: $font-sans;
-                font-weight: $font-weight-bold;
+                font-family: vars.$font-sans;
+                font-size: inherit;
+                font-weight: vars.$font-weight-bold;
                 padding: 0 0 0.2rem;
                 white-space: nowrap;
 

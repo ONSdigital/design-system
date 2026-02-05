@@ -1,3 +1,6 @@
+@use '../../scss/helpers';
+@use '../../scss/utilities';
+
 $pagination-item-padding: 0.5rem;
 $pagination-item-width: 2.5rem;
 
@@ -11,7 +14,7 @@ $pagination-item-width: 2.5rem;
         padding: 0;
 
         &--no-previous {
-            @include mq(m) {
+            @include helpers.mq(m) {
                 margin: 0;
             }
         }
@@ -26,7 +29,7 @@ $pagination-item-width: 2.5rem;
             display: inline-block;
         }
 
-        @include mq(m) {
+        @include helpers.mq(m) {
             &:not(&--previous) {
                 display: inline-block;
             }
@@ -73,7 +76,7 @@ $pagination-item-width: 2.5rem;
 
     &--no-indicator & {
         &__position {
-            @include mq(m) {
+            @include helpers.mq(m) {
                 display: none;
             }
         }
