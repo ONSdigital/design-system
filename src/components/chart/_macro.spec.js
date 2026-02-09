@@ -260,6 +260,39 @@ describe('Macro: Chart', () => {
                     expect(configScript).toContain('"startOnTick":false');
                     expect(configScript).toContain('"endOnTick":true');
                 });
+
+                test('THEN: yAxis min and max are included in config with the correct values and tick interval', () => {
+                    const params = {
+                        id: 'test-chart',
+                        title: 'Test Chart',
+                        xAxis: {
+                            title: 'X Axis Title',
+                            categories: ['A', 'B', 'C'],
+                            type: 'linear',
+                            labelFormat: '{value}',
+                        },
+                        chartType: 'line',
+                        yAxis: {
+                            title: 'Y Axis Title',
+                            labelFormat: '{value}',
+                            min: 20.5,
+                            max: 99.5,
+                            tickIntervalDesktop: 0.5,
+                            startOnTick: false,
+                            endOnTick: true,
+                        },
+                        series: [],
+                    };
+
+                    const $ = cheerio.load(renderComponent('chart', params));
+                    const configScript = $(`script[data-highcharts-config--${params.id}]`).html();
+
+                    expect(configScript).toContain('"min":20.5');
+                    expect(configScript).toContain('"max":99.5');
+                    expect(configScript).toContain('"tickInterval":0.5');
+                    expect(configScript).toContain('"startOnTick":false');
+                    expect(configScript).toContain('"endOnTick":true');
+                });
             });
 
             describe('WHEN: yAxis min and max are not provided', () => {
