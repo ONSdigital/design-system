@@ -56,16 +56,16 @@ class HighchartsBaseChart {
         this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
         this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
         this.xAxisTickIntervalMobile = this.node.dataset.highchartsXAxisTickIntervalMobile
-            ? parseInt(this.node.dataset.highchartsXAxisTickIntervalMobile)
+            ? parseFloat(this.node.dataset.highchartsXAxisTickIntervalMobile)
             : undefined;
         this.xAxisTickIntervalDesktop = this.node.dataset.highchartsXAxisTickIntervalDesktop
-            ? parseInt(this.node.dataset.highchartsXAxisTickIntervalDesktop)
+            ? parse(this.node.dataset.highchartsXAxisTickIntervalDesktop)
             : undefined;
         this.yAxisTickIntervalMobile = this.node.dataset.highchartsYAxisTickIntervalMobile
-            ? parseInt(this.node.dataset.highchartsYAxisTickIntervalMobile)
+            ? parseFloat(this.node.dataset.highchartsYAxisTickIntervalMobile)
             : undefined;
         this.yAxisTickIntervalDesktop = this.node.dataset.highchartsYAxisTickIntervalDesktop
-            ? parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop)
+            ? parseFloat(this.node.dataset.highchartsYAxisTickIntervalDesktop)
             : undefined;
         this.commonChartOptions = new CommonChartOptions();
         this.estimateLineLabel = this.node.dataset.highchartsEstimateLineLabel;
@@ -74,6 +74,7 @@ class HighchartsBaseChart {
             ? parseFloat(this.node.dataset.highchartsCustomReferenceLineValue)
             : undefined;
 
+        console.log('Chart config:', this.config);
         this.specificChartOptions = new SpecificChartOptions(
             this.theme,
             this.chartType,
