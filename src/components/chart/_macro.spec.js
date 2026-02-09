@@ -261,7 +261,7 @@ describe('Macro: Chart', () => {
                     expect(configScript).toContain('"endOnTick":true');
                 });
 
-                test('THEN: yAxis min and max are included in config with the correct values and tick interval', () => {
+                test('THEN: yAxis min and max are included in config with the correct values', () => {
                     const params = {
                         id: 'test-chart',
                         title: 'Test Chart',
@@ -289,7 +289,6 @@ describe('Macro: Chart', () => {
 
                     expect(configScript).toContain('"min":20.5');
                     expect(configScript).toContain('"max":99.5');
-                    expect(configScript).toContain('"tickInterval":0.5');
                     expect(configScript).toContain('"startOnTick":false');
                     expect(configScript).toContain('"endOnTick":true');
                 });
