@@ -59,7 +59,7 @@ class HighchartsBaseChart {
             ? parseFloat(this.node.dataset.highchartsXAxisTickIntervalMobile)
             : undefined;
         this.xAxisTickIntervalDesktop = this.node.dataset.highchartsXAxisTickIntervalDesktop
-            ? parse(this.node.dataset.highchartsXAxisTickIntervalDesktop)
+            ? parseFloat(this.node.dataset.highchartsXAxisTickIntervalDesktop)
             : undefined;
         this.yAxisTickIntervalMobile = this.node.dataset.highchartsYAxisTickIntervalMobile
             ? parseFloat(this.node.dataset.highchartsYAxisTickIntervalMobile)
