@@ -107,6 +107,11 @@
         &.ons-icon-margin--s {
             padding-left: 1.7rem !important;
         }
+        .ons-list--p {
+            .ons-list__item {
+                margin: 0;
+            }
+        }
     }
 
     &__error {
