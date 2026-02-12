@@ -74,7 +74,6 @@ class HighchartsBaseChart {
             ? parseFloat(this.node.dataset.highchartsCustomReferenceLineValue)
             : undefined;
 
-        console.log('Chart config:', this.config);
         this.specificChartOptions = new SpecificChartOptions(
             this.theme,
             this.chartType,
