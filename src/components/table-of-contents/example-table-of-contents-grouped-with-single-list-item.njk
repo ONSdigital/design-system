@@ -1,0 +1,34 @@
+{% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
+
+{{-
+    onsTableOfContents({
+        "title": 'Contents',
+        "ariaLabel": 'Links to page sections',
+        "skipLink": {
+            "url": '#0',
+            "text": 'Skip to guide content'
+        },
+        "lists": [
+            {
+                "listHeading": 'Household questions',
+                "listHeadingHidden": 'help topics',
+                "itemsList": [
+                    {
+                        "url": '#household1',
+                        "text": 'Household and who lives here'
+                    }
+                ]
+            },
+            {
+                "listHeading": 'Individual questions',
+                "listHeadingHidden": 'help topics',
+                "itemsList": [
+                    {
+                        "url": '#individual1',
+                        "text": 'Name, date of birth and marital status'
+                    }
+                ]
+            }
+        ]
+    })
+-}}
