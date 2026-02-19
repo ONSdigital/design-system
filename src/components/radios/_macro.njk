@@ -18,7 +18,7 @@
         <div class="ons-radios__items">
             {% for radio in params.radios %}
                 {% if params.or and loop.revindex0 == 0 %}
-                    <span class="ons-radios__label ons-u-mt-s ons-u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
+                    <span class="ons-radios__label ons-u-mt-2xs ons-u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
                 {% endif %}
                 <span class="ons-radios__item{{ " ons-radios__item--no-border" if params.borderless }}">
                     <span class="ons-radio{{ " ons-radio--no-border" if params.borderless }}">
