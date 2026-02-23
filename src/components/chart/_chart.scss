@@ -141,8 +141,6 @@
     }
 }
 
-@include iframe-aspect-ratio('ons-chart__iframe--{x}');
-
 // This is a workaround to position the axis title to the left
 .highcharts-axis-title {
     width: 100%;
