@@ -35,7 +35,7 @@
                             {% for th in headerCols.ths %}
                                 <th
                                     scope="col"
-                                    class="ons-table__header{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric' if th.numeric }}"
+                                    class="ons-table__header{{ ' ons-table__header--' + params.thsAlignment if params.thsAlignment else ' ons-table__header--top' }}{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric' if th.numeric }}"
                                     {% if th.colspan %}colspan="{{ th.colspan }}"{% endif %}
                                     {% if th.rowspan %}rowspan="{{ th.rowspan }}"{% endif %}
                                     {% if 'sortable' in variants %}aria-sort="{{ th.ariaSort | default('none') }}"{% endif %}
@@ -73,7 +73,7 @@
                                 {% set isFirstRow = loop.index == 0 and td.rowspan %}
                                 {% set rowSpan = isFirstRow and loop.index0 == rowspanCount %}
                                 {{ openingTag | safe }}
-                                class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses else '' }}{{ ' ons-table__cell--numeric' if td.numeric }}"
+                                class="ons-table__cell{{ ' ons-table__cell--' + params.trsAlignment if params.trsAlignment else ' ons-table__cell--top' }}{{ ' ' + td.tdClasses if td.tdClasses else '' }}{{ ' ons-table__cell--numeric' if td.numeric }}"
                                 {% if td.id %}id="{{ td.id }}"{% endif %}
                                 {% if td.data %}{{ ' ' }}data-th="{{ td.data }}"{% endif %}
                                 {% if td.colspan %}colspan="{{ td.colspan }}"{% endif %}

@@ -29,6 +29,15 @@
         &--numeric {
             text-align: right;
         }
+        &--top {
+            vertical-align: top;
+        }
+        &--bottom {
+            vertical-align: bottom;
+        }
+        &--center {
+            vertical-align: middle;
+        }
     }
 
     &--has-rowspan {
