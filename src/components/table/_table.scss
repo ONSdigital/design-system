@@ -26,9 +26,17 @@
         overflow: hidden;
         padding: 0.5rem 0 0.5rem 1rem;
         text-align: left;
-        vertical-align: top;
         &--numeric {
             text-align: right;
+        }
+        &--top {
+            vertical-align: top;
+        }
+        &--bottom {
+            vertical-align: bottom;
+        }
+        &--center {
+            vertical-align: middle;
         }
     }
 
