@@ -141,5 +141,8 @@
     "dependencies": {
         "highcharts": "12.1.2",
         "pym.js": "1.3.2"
+    },
+     "resolutions": {
+      "basic-ftp": "^5.2.0"
     }
 }
