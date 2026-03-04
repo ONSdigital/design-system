@@ -13,6 +13,7 @@
 | ariaDesc     | string          | false (unless “sortable” variant set) | Sets the `data-aria-desc` attribute for the table. Used to update `aria-sort` attribute to announce to screen readers how a table is sorted by a column, for example, "Sort by Date, **descending**".    |
 | tfoot        | Array`<tfoot>`  | false                                 | An array of `td` elements for a `tfoot` [footer element](#tfoot)                                                                                                                                         |
 | thList       | Array`<ths>`    | true (unless "ths" is set)            | An array of `ths` [multiple header cell elements](#ths) for table                                                                                                                                        |
+| valign       | string          | false                                 | Specifies the vertical alignment of the content in the cell. Values to include "top", "middle", and "bottom". Defaults to "top".                                                                         |
 
 ## th
 
