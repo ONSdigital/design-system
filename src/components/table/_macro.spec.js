@@ -99,6 +99,7 @@ describe('macro: table', () => {
                     ths: [
                         {
                             value: 'Column 1',
+                            valign: 'middle',
                         },
                     ],
                 }),
@@ -117,10 +118,9 @@ describe('macro: table', () => {
             const $ = cheerio.load(
                 renderComponent('table', {
                     ...EXAMPLE_TABLE,
-                    valign: 'middle',
                     trs: [
                         {
-                            tds: [{ value: 'Row 1 Cell 1' }],
+                            tds: [{ value: 'Row 1 Cell 1', valign: 'middle' }],
                         },
                     ],
                 }),
