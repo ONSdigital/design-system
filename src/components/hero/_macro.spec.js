@@ -55,6 +55,32 @@ describe('macro: hero', () => {
         expect(title).toBe('Hero text');
     });
 
+    it('has expected `richText` when `text` is not provided', () => {
+        const $ = cheerio.load(
+            renderComponent('hero', {
+                ...EXAMPLE_HERO,
+                text: undefined,
+                richText: '<p>Hero <strong>rich</strong> text</p>',
+            }),
+        );
+
+        expect($('.ons-hero__text').length).toBe(0);
+        expect($('.ons-hero__richtext').length).toBe(1);
+        expect($('.ons-hero__richtext').html().trim()).toBe('<p>Hero <strong>rich</strong> text</p>');
+    });
+
+    it('does not render `richText` when `text` is provided', () => {
+        const $ = cheerio.load(
+            renderComponent('hero', {
+                ...EXAMPLE_HERO,
+                richText: '<p>Hero rich text</p>',
+            }),
+        );
+
+        expect($('.ons-hero__text').length).toBe(1);
+        expect($('.ons-hero__richtext').length).toBe(0);
+    });
+
     it('has expected `html`', () => {
         const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, html: '<span class="some-html">some html</span>' }));
 
