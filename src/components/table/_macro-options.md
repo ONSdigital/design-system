@@ -25,6 +25,7 @@
 | widthPercentage | integer | false    | Sets the `width` attribute for the `th` element                                                                                                              |
 | rowspan         | integer | false    | Set the `rowspan` to merge multiple row `th` elements                                                                                                        |
 | colspan         | integer | false    | Set the `colspan` to merge multiple column `th` elements                                                                                                     |
+| valign          | string  | false    | Specifies the vertical alignment of the content in the cell. Values to include "top", "middle", and "bottom". Defaults to "top".                             |
 
 ## tr
 
@@ -48,6 +49,7 @@
 | rowspan   | integer        | false                                      | Set the `rowspan` to merge mulitple row `th` elements.                                                                                |
 | colspan   | integer        | false                                      | Set the `colspan` to merge multiple column `th` elements.                                                                             |
 | heading   | boolean        | false                                      | Set `heading` to change `td` to `th` element.                                                                                         |
+| valign    | string         | false                                      | Specifies the vertical alignment of the content in the cell. Values to include "top", "middle", and "bottom". Defaults to "top".      |
 
 ## form
 
