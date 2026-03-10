@@ -55,6 +55,16 @@ class CommonChartOptions {
                 // Remove Highcharts watermark
                 enabled: false,
             },
+            lang: {
+                accessibility: {
+                    // We use only the title so screen readers don't hear Highcharts interactive chart text.
+                    chartContainerLabel: '{title}',
+                    // The default "Interactive chart" creates a redundant landmark on
+                    // the SVG element. The outer chart region already has the title
+                    // label, so we clear this to avoid duplicate announcements.
+                    svgContainerLabel: '',
+                },
+            },
             accessibility: {
                 enabled: true,
                 keyboardNavigation: {

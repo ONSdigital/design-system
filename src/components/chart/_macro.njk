@@ -52,6 +52,9 @@
             {% if params.yAxis.customReferenceLineValue %}
                 data-highcharts-custom-reference-line-value="{{ params.yAxis.customReferenceLineValue }}"
             {% endif %}
+            {% if params.enableMobileTooltips %}
+                data-highcharts-enable-mobile-tooltips
+            {% endif %}
         {% endif %}
     >
         <figure class="ons-chart" aria-describedby="{{ audioDescriptionId }}">
@@ -252,6 +255,7 @@
                         "startOnTick": params.xAxis.startOnTick if params.xAxis.startOnTick is defined and params.chartType in supportedChartTypesWithXAxisMinAndMax else undefined,
                         "endOnTick": params.xAxis.endOnTick if params.xAxis.endOnTick is defined and params.chartType in supportedChartTypesWithXAxisMinAndMax else undefined
                     },
+                    "tooltip": params.tooltip if params.tooltip is defined else undefined,
                     "series": series
                 }
             %}
