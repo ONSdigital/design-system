@@ -2227,39 +2227,26 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: iframeAspectRatio', () => {
-            describe('WHEN: iframeAspectRatio is not set', () => {
+        describe('GIVEN: Params: iframeHeight', () => {
+            describe('WHEN: iframeHeight is not set', () => {
                 const $ = cheerio.load(renderComponent('chart', EXAMPLE_IFRAME_CHART_PARAMS));
 
-                test('THEN: it defaults to 16-9', () => {
-                    expect($('.ons-chart__iframe').hasClass('ons-chart__iframe--16-9')).toBe(true);
+                test('THEN: the iframe height is not set', () => {
+                    expect($('iframe').attr('height')).toBe(undefined);
                 });
             });
 
-            describe('WHEN: iframeAspectRatio is unsupported', () => {
+            describe('WHEN: iframeHeight is set', () => {
+                const height = '219';
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_IFRAME_CHART_PARAMS,
-                        iframeAspectRatio: '16-10',
+                        iframeHeight: height,
                     }),
                 );
 
-                test('THEN: it defaults to 16-9', () => {
-                    expect($('.ons-chart__iframe').hasClass('ons-chart__iframe--16-9')).toBe(true);
-                });
-            });
-
-            describe('WHEN: iframeAspectRatio is supported', () => {
-                const aspectRatio = '21-9';
-                const $ = cheerio.load(
-                    renderComponent('chart', {
-                        ...EXAMPLE_IFRAME_CHART_PARAMS,
-                        iframeAspectRatio: aspectRatio,
-                    }),
-                );
-
-                test('THEN: it applies the aspect ratio class', () => {
-                    expect($('.ons-chart__iframe').hasClass(`ons-chart__iframe--${aspectRatio}`)).toBe(true);
+                test('THEN: it applies the correct height', () => {
+                    expect($('iframe').attr('height')).toBe(height);
                 });
             });
         });
