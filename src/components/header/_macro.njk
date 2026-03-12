@@ -278,10 +278,10 @@
         </div>
         {% if params.variants == "basic" and params.menuLinks %}
             <nav
-                class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl"
+                class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl ons-u-d-no"
                 id="{{ params.menuLinks.id }}"
                 aria-label="{{ params.menuLinks.ariaLabel | default("Menu navigation") }}"
-                aria-hidden="false"
+                aria-hidden="true"
             >
                 {% if params.menuLinks.keyLinks %}
                     <div class="ons-container">
