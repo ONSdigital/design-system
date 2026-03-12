@@ -40,9 +40,12 @@
                         </header>
 
                         {% if params.text %}
-                            <p class="ons-hero__text">{{ params.text | safe }}</p>
-                        {% elif params.richText %}
-                            <div class="ons-hero__richtext">{{ params.richText | safe }}</div>
+                            {% set hasMarkup = (params.text | striptags) != params.text %}
+                            {% if hasMarkup %}
+                                {{ params.text | safe }}
+                            {% else %}
+                                <p class="ons-hero__text">{{ params.text | safe }}</p>
+                            {% endif %}
                         {% endif %}
 
                     </div>
