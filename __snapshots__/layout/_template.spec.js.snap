@@ -246,7 +246,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
             
         </div>
         
-            <nav class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl" id="menu-links" aria-label="Menu navigation" aria-hidden="false">
+            <nav class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl" id="menu-links" aria-label="Menu navigation" aria-hidden="true">
                 
                     <div class="ons-container">
                         <ul class="ons-grid ons-header-nav-menu__key-list">
