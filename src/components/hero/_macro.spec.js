@@ -53,32 +53,22 @@ describe('macro: hero', () => {
 
         const title = $('.ons-hero__text').html().trim();
         expect(title).toBe('Hero text');
+        expect($('p.ons-hero__text').length).toBe(1);
+        expect($('.ons-hero__text')[0].tagName).toBe('p');
     });
 
-    it('has expected `richText` when `text` is not provided', () => {
+    it('renders `text` as rich text when markup is provided', () => {
         const $ = cheerio.load(
             renderComponent('hero', {
                 ...EXAMPLE_HERO,
-                text: undefined,
-                richText: '<p>Hero <strong>rich</strong> text</p>',
+                text: '<div>Hero <strong>rich</strong> text</div>',
             }),
         );
 
-        expect($('.ons-hero__text').length).toBe(0);
-        expect($('.ons-hero__richtext').length).toBe(1);
-        expect($('.ons-hero__richtext').html().trim()).toBe('<p>Hero <strong>rich</strong> text</p>');
-    });
-
-    it('does not render `richText` when `text` is provided', () => {
-        const $ = cheerio.load(
-            renderComponent('hero', {
-                ...EXAMPLE_HERO,
-                richText: '<p>Hero rich text</p>',
-            }),
-        );
-
-        expect($('.ons-hero__text').length).toBe(1);
-        expect($('.ons-hero__richtext').length).toBe(0);
+        expect($('p.ons-hero__text').length).toBe(0);
+        expect($('.ons-hero__title-container > div').length).toBe(1);
+        expect($('.ons-hero__title-container > div').html().trim()).toBe('Hero <strong>rich</strong> text');
+        expect($('.ons-hero__title-container > div strong').length).toBe(1);
     });
 
     it('has expected `html`', () => {
