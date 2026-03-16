@@ -578,11 +578,6 @@ describe('macro: table', () => {
             const $ = cheerio.load(
                 renderComponent('table', {
                     ...EXAMPLE_TABLE,
-                    trs: [
-                        {
-                            tds: [{ value: 'Row 1 Cell 1', valign: 'middle' }],
-                        },
-                    ],
                     tfoot: [
                         { value: 'Footer Cell 1', valign: 'middle' },
                         { value: 'Footer Cell 2', valign: 'middle' },
