@@ -95,7 +95,6 @@ describe('macro: table', () => {
             const $ = cheerio.load(
                 renderComponent('table', {
                     ...EXAMPLE_TABLE,
-                    valign: 'middle',
                     ths: [
                         {
                             value: 'Column 1',
@@ -574,6 +573,24 @@ describe('macro: table', () => {
 
             const footerCellValues = mapAll($('.ons-table__foot .ons-table__cell'), (node) => node.text().trim());
             expect(footerCellValues).toEqual(['Footer Cell 1', 'Footer Cell 2', 'Footer Cell 3']);
+        });
+        it('adds "ons-table__row--middle" class to row when valign is middle', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    trs: [
+                        {
+                            tds: [{ value: 'Row 1 Cell 1', valign: 'middle' }],
+                        },
+                    ],
+                    tfoot: [
+                        { value: 'Footer Cell 1', valign: 'middle' },
+                        { value: 'Footer Cell 2', valign: 'middle' },
+                    ],
+                }),
+            );
+
+            expect($('.ons-table__cell').hasClass('ons-table__cell--middle')).toBe(true);
         });
     });
 

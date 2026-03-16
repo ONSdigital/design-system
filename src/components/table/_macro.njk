@@ -108,7 +108,7 @@
                     <tfoot class="ons-table__foot">
                         <tr class="ons-table__row">
                             {% for tfootCell in params.tfoot %}
-                                <td class="ons-table__cell ons-table__cell--{{ params.td.valign | default('top') }} ons-u-fs-s">
+                                <td class="ons-table__cell ons-table__cell--{{ tfootCell.valign | default('top') }} ons-u-fs-s">
                                     {{ tfootCell.value }}
                                 </td>
                             {% endfor %}
