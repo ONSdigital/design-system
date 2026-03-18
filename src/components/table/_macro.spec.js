@@ -574,7 +574,7 @@ describe('macro: table', () => {
             const footerCellValues = mapAll($('.ons-table__foot .ons-table__cell'), (node) => node.text().trim());
             expect(footerCellValues).toEqual(['Footer Cell 1', 'Footer Cell 2', 'Footer Cell 3']);
         });
-        it('adds "ons-table__row--middle" class to row when valign is middle', () => {
+        it('adds "ons-table__cell--middle" class to row when valign is middle', () => {
             const $ = cheerio.load(
                 renderComponent('table', {
                     ...EXAMPLE_TABLE,
