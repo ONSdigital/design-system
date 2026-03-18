@@ -90,6 +90,51 @@ describe('macro: table', () => {
         expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Special table');
     });
 
+    describe('Vertical Alignment', () => {
+        it('adds "ons-table__header--middle" class to column header when valign is set', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    ths: [
+                        {
+                            value: 'Column 1',
+                            valign: 'middle',
+                        },
+                    ],
+                }),
+            );
+
+            expect($('.ons-table__header').hasClass('ons-table__header--middle')).toBe(true);
+        });
+
+        it('adds "ons-table__header--top" class to column header when valign is not set', () => {
+            const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
+
+            expect($('.ons-table__header').hasClass('ons-table__header--top')).toBe(true);
+        });
+
+        it('adds "ons-table__cell--middle" class to row when valign is middle', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    trs: [
+                        {
+                            tds: [{ value: 'Row 1 Cell 1', valign: 'middle' }],
+                        },
+                    ],
+                }),
+            );
+
+            expect($('.ons-table__cell').hasClass('ons-table__cell--middle')).toBe(true);
+        });
+
+        it('adds "ons-table__cell--top" class to row when valign is not set', () => {
+            const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
+
+            expect($('.ons-table__cell').hasClass('ons-table__cell--top')).toBe(true);
+        });
+    });
+
     describe('header row', () => {
         it('renders header cells with expected text', () => {
             const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
@@ -528,6 +573,19 @@ describe('macro: table', () => {
 
             const footerCellValues = mapAll($('.ons-table__foot .ons-table__cell'), (node) => node.text().trim());
             expect(footerCellValues).toEqual(['Footer Cell 1', 'Footer Cell 2', 'Footer Cell 3']);
+        });
+        it('adds "ons-table__cell--middle" class to row when valign is middle', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    tfoot: [
+                        { value: 'Footer Cell 1', valign: 'middle' },
+                        { value: 'Footer Cell 2', valign: 'middle' },
+                    ],
+                }),
+            );
+
+            expect($('.ons-table__cell').hasClass('ons-table__cell--middle')).toBe(true);
         });
     });
 

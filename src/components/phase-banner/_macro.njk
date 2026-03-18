@@ -8,7 +8,16 @@
                     </div>
                 {% endif %}
                 <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
-                    <p class="ons-phase-banner__desc ons-u-fs-s ons-u-mb-no">{{ params.html | safe }}</p>
+                    <p class="ons-phase-banner__desc ons-u-fs-s ons-u-mb-no">
+                        {% if params.html %}
+                            {{ params.html | safe }}
+                        {% else %}
+                            {{ params.text }}
+                            {% if params.feedbackLink %}
+                                {{ params.feedbackLink | safe }}
+                            {% endif %}
+                        {% endif %}
+                    </p>
                 </div>
             </div>
         </div>
