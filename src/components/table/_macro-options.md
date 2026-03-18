@@ -49,7 +49,7 @@
 | rowspan   | integer        | false                                      | Set the `rowspan` to merge mulitple row `th` elements.                                                                                |
 | colspan   | integer        | false                                      | Set the `colspan` to merge multiple column `th` elements.                                                                             |
 | heading   | boolean        | false                                      | Set `heading` to change `td` to `th` element.                                                                                         |
-| valign    | string         | false                                      | Specifies the vertical alignment of the content in the cell. Possible Value are "top", "middle", and "bottom". Defaults to "top".     |
+| valign    | string         | false                                      | Specifies the vertical alignment of the content in the cell. Possible values are "top", "middle", and "bottom". Defaults to "top".    |
 
 ## form
 
