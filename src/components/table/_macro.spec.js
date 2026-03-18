@@ -113,7 +113,7 @@ describe('macro: table', () => {
             expect($('.ons-table__header').hasClass('ons-table__header--top')).toBe(true);
         });
 
-        it('adds "ons-table__row--middle" class to row when valign is middle', () => {
+        it('adds "ons-table__cell--middle" class to row when valign is middle', () => {
             const $ = cheerio.load(
                 renderComponent('table', {
                     ...EXAMPLE_TABLE,
