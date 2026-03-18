@@ -1,0 +1,18 @@
+{% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+
+{% set feedbackLink %}
+    {{
+        onsExternalLink({
+            "url": "#0",
+            "text": "give feedback"
+        })
+    }}
+{% endset %}
+
+{{
+    onsPhaseBanner({
+        "text": "This is a new service. To help us improve it,",
+        "feedbackLink": feedbackLink
+    })
+}}
