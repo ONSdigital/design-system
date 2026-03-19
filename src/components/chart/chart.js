@@ -73,8 +73,6 @@ class HighchartsBaseChart {
         this.customReferenceLineValue = this.node.dataset.highchartsCustomReferenceLineValue
             ? parseFloat(this.node.dataset.highchartsCustomReferenceLineValue)
             : undefined;
-        this.enableMobileTooltips = this.node.hasAttribute('data-highcharts-enable-mobile-tooltips');
-
         this.specificChartOptions = new SpecificChartOptions(
             this.theme,
             this.chartType,
@@ -233,12 +231,7 @@ class HighchartsBaseChart {
     // All responsive rules should be defined here to avoid overriding existing rules
     setResponsiveOptions = () => {
         let mobileChartOptions = this.specificChartOptions.getMobileOptions(this.xAxisTickIntervalMobile, this.yAxisTickIntervalMobile);
-        if (this.enableMobileTooltips) {
-            mobileChartOptions.tooltip = {
-                ...(mobileChartOptions.tooltip || {}),
-                enabled: true,
-            };
-        }
+        // ...existing code...
         if (this.chartType === 'column' || this.chartType === 'boxplot') {
             const mobileColumnChartOptions = this.columnChart.getColumnChartMobileOptions(
                 this.config,
