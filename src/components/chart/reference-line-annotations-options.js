@@ -6,6 +6,19 @@ class ReferenceLineAnnotationsOptions {
         this.referenceLineAnnotations = referenceLineAnnotations;
     }
 
+    buildReferenceLineAccessibilityDescription = (referenceLineAnnotation) => {
+        const axisLabel = referenceLineAnnotation.axis === 'x' ? 'x-axis' : 'y-axis';
+        const valueText = referenceLineAnnotation.value !== undefined ? `at ${referenceLineAnnotation.value}` : 'at a value';
+        return `Reference line annotation on the ${axisLabel} ${valueText}: ${referenceLineAnnotation.text}`;
+    };
+
+    // Returns an array of plain-text descriptions for all reference line annotations
+    getAccessibilityDescriptions = () => {
+        return this.referenceLineAnnotations.map((referenceLineAnnotation) =>
+            this.buildReferenceLineAccessibilityDescription(referenceLineAnnotation),
+        );
+    };
+
     getReferenceLineAnnotationsOptionsDesktop = () => {
         let xAxisPlotLines = [];
         let yAxisPlotLines = [];
@@ -24,6 +37,9 @@ class ReferenceLineAnnotationsOptions {
                     rotation: 0,
                     align: 'left',
                     textAlign: 'left',
+                    accessibility: {
+                        description: this.buildReferenceLineAccessibilityDescription(referenceLineAnnotation),
+                    },
                 },
                 color: this.constants.zeroLineColor,
                 // note this works to give a dashed line with 4px and a 4px gap, but
@@ -61,6 +77,9 @@ class ReferenceLineAnnotationsOptions {
                     useHTML: true,
                     className: 'ons-chart__annotations-footnotes-number',
                     allowOverlap: true,
+                    accessibility: {
+                        description: this.buildReferenceLineAccessibilityDescription(referenceLineAnnotation),
+                    },
                     style: {
                         color: this.constants.labelColor,
                         fontSize: this.constants.defaultFontSize,

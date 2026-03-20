@@ -6,6 +6,14 @@ class RangeAnnotationsOptions {
         this.rangeAnnotations = rangeAnnotations;
     }
 
+    buildRangeAccessibilityDescription = (rangeAnnotation) => {
+        const axisLabel = rangeAnnotation.axis === 'x' ? 'x-axis' : 'y-axis';
+        const fromValue = rangeAnnotation.range?.axisValue1;
+        const toValue = rangeAnnotation.range?.axisValue2;
+        const rangeText = fromValue !== undefined && toValue !== undefined ? `from ${fromValue} to ${toValue}` : 'for a range';
+        return `Range annotation on the ${axisLabel} ${rangeText}: ${rangeAnnotation.text}`;
+    };
+
     getRangeAnnotationsOptionsDesktop = (chartType) => {
         let xAxisPlotBands = [];
         let yAxisPlotBands = [];
@@ -25,6 +33,9 @@ class RangeAnnotationsOptions {
                         ? `ons-chart__range-annotation-label ons-chart__range-annotation-label--${rangeAnnotation.axis}`
                         : 'ons-chart__range-annotation-label--outside',
                     allowOverlap: true,
+                    accessibility: {
+                        description: this.buildRangeAccessibilityDescription(rangeAnnotation),
+                    },
                     style: {
                         color: this.constants.labelColor,
                         fontSize: this.constants.defaultFontSize,
@@ -67,6 +78,9 @@ class RangeAnnotationsOptions {
                     useHTML: true,
                     className: 'ons-chart__annotations-footnotes-number',
                     allowOverlap: true,
+                    accessibility: {
+                        description: this.buildRangeAccessibilityDescription(rangeAnnotation),
+                    },
                     style: {
                         color: this.constants.labelColor,
                         fontSize: this.constants.defaultFontSize,
@@ -204,9 +218,11 @@ class RangeAnnotationsOptions {
         });
     };
 
-    // For bar and column charts, we want the range to
-    // start and end flush with the edges of the columns / bars,
-    // not halfway through as is the Highcharts default.
+    // Returns an array of plain-text descriptions for all range annotations.
+    getAccessibilityDescriptions = () => {
+        return this.rangeAnnotations.map((rangeAnnotation) => this.buildRangeAccessibilityDescription(rangeAnnotation));
+    };
+
     adjustRangeForCategoryAxis = (rangeAnnotation, chartType) => {
         let axisValue1 = rangeAnnotation.range.axisValue1;
         let axisValue2 = rangeAnnotation.range.axisValue2;
