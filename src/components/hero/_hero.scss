@@ -466,6 +466,27 @@
         display: flex;
         flex-direction: column-reverse;
     }
+
+    .ons-description-list--inline {
+        @include mq($to: l, $to-operator: '<') {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            gap: 0 0.5rem;
+            align-items: baseline;
+
+            .ons-description-list__item {
+                display: contents;
+            }
+
+            .ons-description-list__term,
+            .ons-description-list__value {
+                float: none;
+                margin-top: 0;
+                max-width: none;
+                width: auto;
+            }
+        }
+    }
 }
 
 @include panel-variant(ons-red, var(--ons-color-errors), var(--ons-color-errors-tint));

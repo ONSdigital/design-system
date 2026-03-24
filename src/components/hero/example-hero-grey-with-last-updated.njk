@@ -1,0 +1,27 @@
+---
+'fullWidth': true
+---
+
+{% from "components/hero/_macro.njk" import onsHero %}
+{{
+    onsHero({
+        "variants": 'grey',
+        "detailsColumns": '12',
+        "title": 'Lorem Ipsum',
+        "text": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        "descriptionList": {
+            "termCol": "5",
+            "descriptionCol": "7",
+            "itemsList": [
+                {
+                    "term": "Last updated:",
+                    "descriptions": [
+                        {
+                            "description": "23 February 2024"
+                        }
+                    ]
+                }
+            ]
+        }
+    })
+}}
