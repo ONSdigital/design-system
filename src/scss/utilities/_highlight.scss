@@ -1,6 +1,11 @@
 .ons-highlight {
     background-image: linear-gradient(to top, var(--ons-color-highlight) 88%, transparent 88%);
+    box-decoration-break: clone;
     box-shadow: 0 4px 0 0 var(--ons-color-text-link-focus);
     font-style: normal;
     padding: 0 2px;
+
+    @include mq($to: m) {
+        background-image: linear-gradient(to top, var(--ons-color-highlight) 86%, transparent 86%);
+    }
 }
