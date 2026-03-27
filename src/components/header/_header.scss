@@ -1,4 +1,3 @@
-// Block
 .ons-header {
     $root: &;
     @include font-smoothing;
@@ -74,7 +73,6 @@
         }
     }
 
-    // Modifier - variants
     &--description {
         .ons-header {
             &__title {
@@ -90,7 +88,6 @@
         &__top {
             background: var(--ons-color-header-masthead-internal);
             .ons-icon--logo {
-                display: block;
                 .ons-icon--logo__group--text,
                 .ons-icon--logo__group--primary {
                     fill: var(--ons-color-white);
@@ -118,7 +115,6 @@
     &--neutral & {
         &__top {
             .ons-icon--logo {
-                display: block;
                 .ons-icon--logo__group--text,
                 .ons-icon--logo__group--primary,
                 .ons-icon--logo__group--secondary {
@@ -261,14 +257,12 @@
                     display: block;
                     padding-top: 1rem;
 
-                    // hide the language switcher within nav when js is enabled
                     .ons-js-enabled & {
                         display: none;
                     }
                 }
             }
 
-            // When JS is enabled, revert the no-js styles
             .ons-js-enabled & {
                 flex-direction: inherit;
                 align-items: center;
@@ -327,7 +321,6 @@
     &-nav-search {
         background-color: var(--ons-color-branded-tint);
 
-        // updates styles when js is enabled
         .ons-js-enabled & {
             position: relative;
             left: 50%;
@@ -368,6 +361,34 @@ body:not(.ons-js-enabled) {
 
     .ons-js-toggle-nav-menu,
     .ons-js-toggle-header-search {
-        display: none;
+        display: flex !important;
+    }
+
+    .ons-js-toggle-nav-menu {
+        .ons-icon {
+            transform: rotate(270deg) !important;
+        }
+    }
+
+    .ons-header--basic .ons-header__grid-top {
+        flex-direction: row !important;
+        align-items: center !important;
+
+        .ons-header__menu-links {
+            width: auto !important;
+            margin-left: auto !important;
+
+            .ons-header__menu-link {
+                order: 2;
+            }
+
+            > .ons-grid__col:not(.ons-header__links) {
+                order: 3;
+            }
+        }
+
+        .ons-header__language {
+            padding-top: 0 !important;
+        }
     }
 }
