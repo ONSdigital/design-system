@@ -358,3 +358,16 @@
         top: 0 !important;
     }
 }
+
+// No-JS fallback: show nav panels open and hide toggle buttons
+body:not(.ons-js-enabled) {
+    .ons-js-nav-menu,
+    .ons-js-header-search {
+        display: block !important;
+    }
+
+    .ons-js-toggle-nav-menu,
+    .ons-js-toggle-header-search {
+        display: none;
+    }
+}
