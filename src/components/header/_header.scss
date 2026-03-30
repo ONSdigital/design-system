@@ -364,12 +364,6 @@ body:not(.ons-js-enabled) {
         display: flex !important;
     }
 
-    .ons-js-toggle-nav-menu {
-        .ons-icon {
-            transform: rotate(270deg) !important;
-        }
-    }
-
     .ons-header--basic .ons-header__grid-top {
         flex-direction: row !important;
         align-items: center !important;
