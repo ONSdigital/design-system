@@ -35,6 +35,100 @@ describe('FOR: Macro: Header', () => {
             });
         });
     });
+
+    describe('Accessibility: search heading', () => {
+        test('THEN: axe passes when search heading is present (params.search.links.heading)', async () => {
+            const params = {
+                ...EXAMPLE_HEADER_BASIC,
+                variants: 'basic',
+                search: {
+                    links: {
+                        heading: 'Popular searches',
+                        itemsList: [{ text: 'Census', url: '/census' }],
+                    },
+                    form: { action: '/search' },
+                },
+                searchLinks: undefined,
+            };
+            const $ = cheerio.load(renderComponent('header', params));
+            const results = await axe($.html());
+            expect(results).toHaveNoViolations();
+            expect($('.ons-header-nav-search__heading').text()).toBe('Popular searches');
+        });
+
+        test('THEN: axe passes when search heading is present (params.searchLinks.heading)', async () => {
+            const params = {
+                ...EXAMPLE_HEADER_BASIC,
+                variants: 'basic',
+                search: undefined,
+                searchLinks: {
+                    heading: 'Other searches',
+                    itemsList: [{ text: 'Population', url: '/population' }],
+                },
+            };
+            const $ = cheerio.load(renderComponent('header', params));
+            const results = await axe($.html());
+            expect(results).toHaveNoViolations();
+            expect($('.ons-header-nav-search__heading').text()).toBe('Other searches');
+        });
+
+        test('THEN: axe passes and no h2 is rendered when no heading present', async () => {
+            const params = {
+                ...EXAMPLE_HEADER_BASIC,
+                variants: 'basic',
+                search: { links: { itemsList: [] }, form: { action: '/search' } },
+                searchLinks: undefined,
+            };
+            const $ = cheerio.load(renderComponent('header', params));
+            const results = await axe($.html());
+            expect(results).toHaveNoViolations();
+            expect($('.ons-header-nav-search__heading').length).toBe(0);
+        });
+    });
+
+    describe('Snapshot: search heading', () => {
+        test('matches snapshot when search heading is present (params.search.links.heading)', () => {
+            const params = {
+                ...EXAMPLE_HEADER_BASIC,
+                variants: 'basic',
+                search: {
+                    links: {
+                        heading: 'Popular searches',
+                        itemsList: [{ text: 'Census', url: '/census' }],
+                    },
+                    form: { action: '/search' },
+                },
+                searchLinks: undefined,
+            };
+            const $ = cheerio.load(renderComponent('header', params));
+            expect($.html()).toMatchSnapshot();
+        });
+
+        test('matches snapshot when search heading is present (params.searchLinks.heading)', () => {
+            const params = {
+                ...EXAMPLE_HEADER_BASIC,
+                variants: 'basic',
+                search: undefined,
+                searchLinks: {
+                    heading: 'Other searches',
+                    itemsList: [{ text: 'Population', url: '/population' }],
+                },
+            };
+            const $ = cheerio.load(renderComponent('header', params));
+            expect($.html()).toMatchSnapshot();
+        });
+
+        test('matches snapshot when no search heading is present', () => {
+            const params = {
+                ...EXAMPLE_HEADER_BASIC,
+                variants: 'basic',
+                search: { links: { itemsList: [] }, form: { action: '/search' } },
+                searchLinks: undefined,
+            };
+            const $ = cheerio.load(renderComponent('header', params));
+            expect($.html()).toMatchSnapshot();
+        });
+    });
     describe('GIVEN: Params: variants', () => {
         describe('WHEN: variants are provided', () => {
             const $ = cheerio.load(
