@@ -314,6 +314,7 @@
             padding-bottom: 1rem;
             @include mq(m) {
                 padding-bottom: 0;
+                padding-right: 2.5rem;
             }
         }
     }
