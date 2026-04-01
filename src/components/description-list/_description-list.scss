@@ -15,6 +15,24 @@
     }
 
     &__item {
+        .ons-description-list--inline & {
+            .ons-description-list__term {
+                @include mq(xs, l) {
+                    max-width: 100%;
+                    width: 100%;
+                }
+            }
+
+            .ons-description-list__value {
+                @include mq(xs, l) {
+                    clear: both;
+                    float: left;
+                    max-width: 100%;
+                    width: 100%;
+                }
+            }
+        }
+
         &:not(:first-child) {
             .ons-description-list__term {
                 margin-top: 0.5rem;
@@ -53,7 +71,10 @@
             }
 
             .ons-description-list__value {
+                float: none;
                 grid-column-start: 2;
+                justify-self: start;
+                text-align: left;
             }
 
             .ons-description-list__item {
