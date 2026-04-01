@@ -327,18 +327,6 @@
     &-nav-search {
         background-color: var(--ons-color-branded-tint);
 
-        // Prevent flash of the non-JS, always-visible panels when JS is enabled.
-        // Panels are shown only when NavigationToggle sets aria-hidden="false".
-        body.ons-js-enabled .ons-header.ons-header--basic &.ons-js-nav-menu:not([aria-hidden='false']),
-        body.ons-js-enabled .ons-header.ons-header--basic &.ons-js-header-search:not([aria-hidden='false']) {
-            display: none !important;
-        }
-
-        body.ons-js-enabled .ons-header.ons-header--basic &.ons-js-nav-menu[aria-hidden='false'],
-        body.ons-js-enabled .ons-header.ons-header--basic &.ons-js-header-search[aria-hidden='false'] {
-            display: block !important;
-        }
-
         // updates styles when js is enabled
         .ons-js-enabled & {
             position: relative;

@@ -823,12 +823,12 @@ describe('FOR: Macro: Header', () => {
             test('THEN: renders search icon button', () => {
                 expect(buttonSpy.occurrences[0]).toEqual({
                     iconType: 'search',
-                    classes: 'ons-u-fs-s--b ons-js-toggle-header-search ons-u-db-no-js_disabled ons-btn--search-icon disabled',
+                    classes: 'ons-u-fs-s--b ons-js-toggle-header-search ons-btn--close ons-btn--search-icon active disabled',
                     type: 'button',
                     variants: 'search',
                     attributes: {
                         'aria-controls': 'search-id',
-                        'aria-expanded': 'false',
+                        'aria-expanded': 'true',
                         'aria-label': 'Custom search button aria label',
                         'aria-disabled': 'true',
                     },
@@ -911,12 +911,12 @@ describe('FOR: Macro: Header', () => {
             });
         });
 
-        describe('WHEN: using basic header variant and search is disabled by default before JS loads', () => {
+        describe('WHEN: using basic header variant and search is active & disabled by default before JS loads', () => {
             const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH, variants: 'basic' }));
             const $searchBtn = $('.ons-js-toggle-header-search');
 
-            test('THEN: does not add the "active" class to the search toggle button', () => {
-                expect($searchBtn.hasClass('active')).toBe(false);
+            test('THEN: adds the "active" class to the search toggle button', () => {
+                expect($searchBtn.hasClass('active')).toBe(true);
             });
 
             test('THEN: adds the "disabled" class to the search toggle button', () => {
@@ -925,10 +925,6 @@ describe('FOR: Macro: Header', () => {
 
             test('THEN: sets aria-disabled="true" on the search toggle button', () => {
                 expect($searchBtn.attr('aria-disabled')).toBe('true');
-            });
-
-            test('THEN: sets aria-expanded="false" on the search toggle button', () => {
-                expect($searchBtn.attr('aria-expanded')).toBe('false');
             });
         });
 
@@ -1048,12 +1044,12 @@ describe('FOR: Macro: Header', () => {
             test('THEN: renders search icon button', () => {
                 expect(buttonSpy.occurrences[0]).toEqual({
                     iconType: 'search',
-                    classes: 'ons-u-fs-s--b ons-js-toggle-header-search ons-u-db-no-js_disabled ons-btn--search-icon disabled',
+                    classes: 'ons-u-fs-s--b ons-js-toggle-header-search ons-btn--close ons-btn--search-icon active disabled',
                     type: 'button',
                     variants: 'search',
                     attributes: {
                         'aria-controls': 'search-links-id',
-                        'aria-expanded': 'false',
+                        'aria-expanded': 'true',
                         'aria-label': 'Custom search button aria label',
                         'aria-disabled': 'true',
                     },
@@ -1136,12 +1132,12 @@ describe('FOR: Macro: Header', () => {
             });
         });
 
-        describe('WHEN: using basic header variant and search is disabled by default before JS loads', () => {
+        describe('WHEN: using basic header variant and search is active & disabled by default before JS loads', () => {
             const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH_LINKS, variants: 'basic' }));
             const $searchBtn = $('.ons-js-toggle-header-search');
 
-            test('THEN: does not add the "active" class to the search toggle button', () => {
-                expect($searchBtn.hasClass('active')).toBe(false);
+            test('THEN: adds the "active" class to the search toggle button', () => {
+                expect($searchBtn.hasClass('active')).toBe(true);
             });
 
             test('THEN: adds the "disabled" class to the search toggle button', () => {
@@ -1150,10 +1146,6 @@ describe('FOR: Macro: Header', () => {
 
             test('THEN: sets aria-disabled="true" on the search toggle button', () => {
                 expect($searchBtn.attr('aria-disabled')).toBe('true');
-            });
-
-            test('THEN: sets aria-expanded="false" on the search toggle button', () => {
-                expect($searchBtn.attr('aria-expanded')).toBe('false');
             });
         });
 
@@ -1267,8 +1259,8 @@ describe('FOR: Macro: Header', () => {
             const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_MENU_LINKS));
             const $menuBtn = $('.ons-js-toggle-nav-menu');
 
-            test('THEN: does not add the "active" class to the menu toggle button', () => {
-                expect($menuBtn.hasClass('active')).toBe(false);
+            test('THEN: adds the "active" class to the menu toggle button', () => {
+                expect($menuBtn.hasClass('active')).toBe(true);
             });
 
             test('THEN: adds the "disabled" class to the menu toggle button', () => {
@@ -1279,8 +1271,8 @@ describe('FOR: Macro: Header', () => {
                 expect($menuBtn.attr('aria-disabled')).toBe('true');
             });
 
-            test('THEN: sets aria-expanded="false" on the menu toggle button', () => {
-                expect($menuBtn.attr('aria-expanded')).toBe('false');
+            test('THEN: sets aria-expanded="true" on the menu toggle button', () => {
+                expect($menuBtn.attr('aria-expanded')).toBe('true');
             });
 
             test('THEN: sets aria-controls to the correct menu ID', () => {
