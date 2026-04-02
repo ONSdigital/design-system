@@ -90,14 +90,32 @@ export default class NavigationToggle {
     }
 
     isHidden(el) {
-        return el.offsetParent === null;
+        if (!el) {
+            return true;
+        }
+
+        const style = window.getComputedStyle(el);
+        if (style.display === 'none') {
+            return true;
+        }
+
+        // `offsetParent` can be `null` for reasons other than `display: none` (e.g. fixed positioning),
+        // so use layout rects as a more reliable proxy for visibility.
+        return el.getClientRects().length === 0;
     }
 
-    setAria() {
+    setAria(viewportDetails = null) {
         const isToggleHidden = this.isHidden(this.toggle);
         this.toggle.setAttribute(attrDisabled, 'false');
 
         this.searchToggleBtn?.setAttribute(attrDisabled, 'false');
+
+        // iOS Safari/Chrome can change viewport height during scroll when the browser chrome
+        // hides/shows, which can trigger resize events. If the user has the navigation open
+        // on a small screen, don't force-close it in response to these resizes.
+        if (viewportDetails && !isToggleHidden && this.navigation.getAttribute(attrHidden) === 'false') {
+            return;
+        }
 
         if (!isToggleHidden) {
             // close nav by default if toggle button is visible
