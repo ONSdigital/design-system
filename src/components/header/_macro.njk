@@ -385,9 +385,10 @@
                 </div>
                 {% if params.search or params.searchLinks %}
                     <div class="ons-container">
-                        <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">
-                            {{ params.search.links.heading if params.search.links else params.searchLinks.heading }}
-                        </h2>
+                        {% set searchHeading = params.search.links.heading if params.search.links else params.searchLinks.heading %}
+                        {% if searchHeading %}
+                            <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">{{ searchHeading }}</h2>
+                        {% endif %}
                         <ul class="ons-list ons-list--bare ons-list--inline">
                             {% if params.searchLinks %}
                                 {% for item in params.searchLinks.itemsList %}

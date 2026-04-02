@@ -791,9 +791,10 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                 </div>
                 
                     <div class="ons-container">
-                        <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">
-                            Popular searches
-                        </h2>
+                        
+                        
+                            <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">Popular searches</h2>
+                        
                         <ul class="ons-list ons-list--bare ons-list--inline">
                             
                                 
