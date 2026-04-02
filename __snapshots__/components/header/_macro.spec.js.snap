@@ -90,8 +90,6 @@ exports[`FOR: Macro: Header Snapshot: search heading matches snapshot when no se
                             
 
                             
-
-                            
                                 <div class="ons-header__links ons-grid__col ons-header__menu-link">
                                     
 
@@ -130,6 +128,7 @@ exports[`FOR: Macro: Header Snapshot: search heading matches snapshot when no se
                                 </div>
                             
                         </div>
+                        
                     
                     
                 </div>
@@ -348,8 +347,6 @@ exports[`FOR: Macro: Header Snapshot: search heading matches snapshot when searc
                             
 
                             
-
-                            
                                 <div class="ons-header__links ons-grid__col ons-header__menu-link">
                                     
 
@@ -388,6 +385,7 @@ exports[`FOR: Macro: Header Snapshot: search heading matches snapshot when searc
                                 </div>
                             
                         </div>
+                        
                     
                     
                 </div>
@@ -620,8 +618,6 @@ exports[`FOR: Macro: Header Snapshot: search heading matches snapshot when searc
                             
 
                             
-
-                            
                                 <div class="ons-header__links ons-grid__col ons-header__menu-link">
                                     
 
@@ -660,6 +656,7 @@ exports[`FOR: Macro: Header Snapshot: search heading matches snapshot when searc
                                 </div>
                             
                         </div>
+                        
                     
                     
                 </div>
