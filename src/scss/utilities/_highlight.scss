@@ -4,7 +4,6 @@
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 100% calc(var(--ons-line-height, 28px) - 4px);
-    box-decoration-break: clone; // Safari/Chrome
     box-decoration-break: clone; // Firefox
     box-shadow: 0 4px 0 0 var(--ons-color-text-link-focus);
     font-style: normal;
