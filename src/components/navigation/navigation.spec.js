@@ -259,6 +259,28 @@ describe('script: navigation', () => {
                     expect(hasClass).toBe(false);
                 });
             });
+
+            describe('when the navigation is open and only the viewport height changes', () => {
+                beforeEach(async () => {
+                    await page.focus(buttonEl);
+                    await page.keyboard.press('Enter');
+                    // Simulate iOS address bar show/hide which changes height during scroll
+                    // without any meaningful layout/breakpoint change.
+                    await setViewport(page, { width: 600, height: 900 });
+                });
+
+                it('keeps aria-hidden set as `false` on the navigation list', async () => {
+                    const nav = await page.$(navEl);
+                    const hasAriaAttribute = await nav.evaluate((node) => node.getAttribute('aria-hidden') === 'false');
+                    expect(hasAriaAttribute).toBe(true);
+                });
+
+                it('keeps aria-expanded set as `true` on the navigation toggle button', async () => {
+                    const button = await page.$(buttonEl);
+                    const ariaExpandedIsTrue = await button.evaluate((node) => node.getAttribute('aria-expanded') === 'true');
+                    expect(ariaExpandedIsTrue).toBe(true);
+                });
+            });
         });
     });
 
