@@ -63,6 +63,28 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- iOS Edge can render content under the notch/Dynamic Island in some orientations -->
+        <script {% if pageConfig.cspNonce %}nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %}nonce="{{ csp_nonce() }}"{% endif %}>
+            (function () {
+                var userAgent = window.navigator && window.navigator.userAgent ? window.navigator.userAgent : '';
+
+                if (!/EdgiOS/i.test(userAgent)) {
+                    return;
+                }
+
+                document.documentElement.classList.add('ons-edge-ios');
+
+                var viewportMeta = document.querySelector('meta[name="viewport"]');
+                if (!viewportMeta) {
+                    return;
+                }
+
+                var currentContent = viewportMeta.getAttribute('content') || '';
+                if (!/viewport-fit\s*=\s*/i.test(currentContent)) {
+                    viewportMeta.setAttribute('content', currentContent + ', viewport-fit=cover');
+                }
+            })();
+        </script>
         <title>{{ pageTitle }}</title>
         <link rel="stylesheet" href="{{ assetsUrl }}/css/main.css" />
         <link rel="stylesheet" media="print" href="{{ assetsUrl }}/css/print.css" />
