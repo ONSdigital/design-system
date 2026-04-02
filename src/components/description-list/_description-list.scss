@@ -15,24 +15,6 @@
     }
 
     &__item {
-        .ons-description-list--inline & {
-            .ons-description-list__term {
-                @include mq(xs, l) {
-                    max-width: 100%;
-                    width: 100%;
-                }
-            }
-
-            .ons-description-list__value {
-                @include mq(xs, l) {
-                    clear: both;
-                    float: left;
-                    max-width: 100%;
-                    width: 100%;
-                }
-            }
-        }
-
         &:not(:first-child) {
             .ons-description-list__term {
                 margin-top: 0.5rem;
@@ -43,22 +25,31 @@
                     margin-top: 0.5rem;
                 }
             }
-
-            .ons-description-list--inline & {
-                .ons-description-list__value:nth-of-type(1),
-                .ons-description-list__term {
-                    @include mq(l) {
-                        margin-top: 0;
-                    }
-                    @include mq(xs, l) {
-                        margin-top: 0.5rem;
-                    }
-                }
-            }
         }
     }
 
     &--inline {
+        @include mq(xs, l) {
+            .ons-description-list__term,
+            .ons-description-list__value {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .ons-description-list__value {
+                clear: both;
+                float: left;
+                margin-top: 0.5rem;
+            }
+
+            .ons-description-list__item:not(:first-child) {
+                .ons-description-list__value:nth-of-type(1),
+                .ons-description-list__term {
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+
         @include mq(l) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -81,6 +72,13 @@
                 display: grid;
                 grid-template-columns: auto 1fr;
                 grid-column-gap: 1rem;
+
+                &:not(:first-child) {
+                    .ons-description-list__value:nth-of-type(1),
+                    .ons-description-list__term {
+                        margin-top: 0;
+                    }
+                }
             }
         }
     }
