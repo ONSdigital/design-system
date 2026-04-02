@@ -126,15 +126,6 @@
                                 </div>
                             {% endif %}
 
-                            {% if params.language %}
-                                <div class="ons-grid__col ons-col-auto{{ ' ons-u-mr-s ons-u-d-no@2xs@xs' if params.serviceLinks }}">
-                                    <div class="ons-header__language">
-                                        {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
-                                        {{ onsLanguageSelector(params.language) }}
-                                    </div>
-                                </div>
-                            {% endif %}
-
                             {% if params.search or params.searchLinks %}
                                 <div class="ons-header__links ons-grid__col ons-header__menu-link">
                                     {{
@@ -154,8 +145,16 @@
                                 </div>
                             {% endif %}
                         </div>
+                        {% if params.language %}
+                            <div class="ons-header__links ons-grid__col ons-col-auto ons-u-d-no@2xs@s">
+                                <div class="ons-header__language">
+                                    {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                                    {{ onsLanguageSelector(params.language) }}
+                                </div>
+                            </div>
+                        {% endif %}
                     {% endif %}
-                    {% if params.language or params.serviceLinks %}
+                    {% if params.variants!== 'basic' and (params.language or params.serviceLinks) %}
                         <div
                             class="ons-header__links ons-grid__col{{ ' ons-u-ml-auto' if not (params.searchLinks or params.search) and not params.menuLinks }}"
                         >
@@ -283,6 +282,14 @@
                 aria-label="{{ params.menuLinks.ariaLabel | default("Menu navigation") }}"
                 aria-hidden="true"
             >
+                {% if params.language %}
+                    <div class="ons-container ons-u-d-no@s ons-u-d-no@2xl">
+                        <div class="ons-header-nav-menu__language">
+                            {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                            {{ onsLanguageSelector(params.language) }}
+                        </div>
+                    </div>
+                {% endif %}
                 {% if params.menuLinks.keyLinks %}
                     <div class="ons-container">
                         <ul class="ons-grid ons-header-nav-menu__key-list">
