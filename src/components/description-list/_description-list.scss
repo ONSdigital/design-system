@@ -1,4 +1,8 @@
 .ons-description-list {
+    $item-spacing: 0.5rem;
+    $inline-item-gap: 1rem;
+    $inline-grid-gap: 2.5rem;
+
     &__items {
         margin: 0 0 2rem;
     }
@@ -14,22 +18,20 @@
         margin-left: 0; /* As normalize adds a 40px left margin */
     }
 
-    &__item {
-        &:not(:first-child) {
-            .ons-description-list__term {
-                margin-top: 0.5rem;
-            }
+    &__item:not(:first-child) {
+        .ons-description-list__term {
+            margin-top: $item-spacing;
+        }
 
-            .ons-description-list__value:nth-of-type(1) {
-                @include mq(m) {
-                    margin-top: 0.5rem;
-                }
+        .ons-description-list__value:nth-of-type(1) {
+            @include mq(m) {
+                margin-top: $item-spacing;
             }
         }
     }
 
     &--inline {
-        @include mq(xs, l) {
+        @include mq(xs, m) {
             .ons-description-list__term,
             .ons-description-list__value {
                 max-width: 100%;
@@ -39,14 +41,43 @@
             .ons-description-list__value {
                 clear: both;
                 float: left;
-                margin-top: 0.5rem;
+                margin-top: $item-spacing;
             }
 
             .ons-description-list__item:not(:first-child) {
                 .ons-description-list__value:nth-of-type(1),
                 .ons-description-list__term {
-                    margin-top: 0.5rem;
+                    margin-top: $item-spacing;
                 }
+            }
+        }
+
+        @include mq(m, l) {
+            .ons-description-list__item {
+                align-items: flex-start;
+                display: flex;
+                gap: $inline-item-gap;
+
+                &:not(:first-child) {
+                    margin-top: $item-spacing;
+
+                    .ons-description-list__value:nth-of-type(1),
+                    .ons-description-list__term {
+                        margin-top: 0;
+                    }
+                }
+            }
+
+            .ons-description-list__term,
+            .ons-description-list__value {
+                clear: none;
+                float: none;
+                max-width: none;
+                width: auto;
+            }
+
+            .ons-description-list__value {
+                margin-top: 0;
             }
         }
 
@@ -55,7 +86,7 @@
             grid-template-columns: repeat(3, 1fr);
             grid-auto-rows: auto;
             grid-auto-flow: row;
-            gap: 0.5rem 2.5rem;
+            gap: $item-spacing $inline-grid-gap;
 
             &-single {
                 grid-template-columns: 1fr;
