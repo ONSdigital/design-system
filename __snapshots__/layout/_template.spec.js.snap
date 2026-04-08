@@ -186,7 +186,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
     
     
     
-    <button type="button" class="ons-btn ons-u-fs-s--b ons-js-toggle-nav-menu button-nav active disabled ons-btn--menu" aria-label="Toggle menu" aria-controls="menu-links" aria-expanded="true" aria-disabled="true">
+    <button type="button" class="ons-btn ons-u-fs-s--b ons-js-toggle-nav-menu ons-u-db-no-js_disabled button-nav disabled ons-btn--menu" aria-label="Toggle menu" aria-controls="menu-links" aria-expanded="false" aria-disabled="true">
     <span class="ons-btn__inner"><svg class="ons-icon ons-u-mr-2xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" aria-hidden="true">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg><span class="ons-btn__text">Menu</span></span>
@@ -196,8 +196,6 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
     </button>
 
                                 </div>
-                            
-
                             
 
                             
@@ -227,7 +225,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
     
     
     
-    <button type="button" class="ons-btn ons-u-fs-s--b ons-js-toggle-header-search ons-btn--close ons-btn--search-icon active disabled ons-btn--search" aria-label="Toggle search" aria-controls="search-links" aria-expanded="true" aria-disabled="true">
+    <button type="button" class="ons-btn ons-u-fs-s--b ons-js-toggle-header-search ons-u-db-no-js_disabled ons-btn--search-icon disabled ons-btn--search" aria-label="Toggle search" aria-controls="search-links" aria-expanded="false" aria-disabled="true">
     <span class="ons-btn__inner"><svg class="ons-icon ons-u-mr-2xs" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" role="img">
             <path d="M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z"></path>
         </svg><span class="ons-btn__text"></span></span>
@@ -239,6 +237,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                 </div>
                             
                         </div>
+                        
                     
                     
                 </div>
@@ -246,7 +245,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
             
         </div>
         
-            <nav class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl ons-u-d-no" id="menu-links" aria-label="Menu navigation" aria-hidden="true">
+            <nav class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl" id="menu-links" aria-label="Menu navigation">
+                
                 
                     <div class="ons-container">
                         <ul class="ons-grid ons-header-nav-menu__key-list">
@@ -689,7 +689,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
             </nav>
         
         
-            <nav class="ons-js-header-search ons-header-nav-search " id="search-links" aria-label="Nav Search" aria-hidden="false">
+            <nav class="ons-js-header-search ons-header-nav-search " id="search-links" aria-label="Nav Search">
                 <div class="ons-container">
                     <form class="ons-header-nav-search__input" method="get" action="">
                         
@@ -791,9 +791,10 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                 </div>
                 
                     <div class="ons-container">
-                        <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">
-                            Popular searches
-                        </h2>
+                        
+                        
+                            <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">Popular searches</h2>
+                        
                         <ul class="ons-list ons-list--bare ons-list--inline">
                             
                                 
