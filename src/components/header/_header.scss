@@ -353,6 +353,8 @@
             width: 100vw;
             transform: translateX(-50%);
             border-top: 0;
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
         }
     }
 
