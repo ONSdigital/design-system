@@ -246,6 +246,20 @@
         }
     }
 
+    &--basic {
+        .ons-header__links--language-section {
+            padding: 0 1.5rem !important;
+        }
+
+        .ons-header__language {
+            margin-bottom: 4px !important;
+        }
+
+        .ons-language-links__item {
+            margin: 0 !important;
+        }
+    }
+
     &--basic & {
         &__grid-top {
             padding: 0;
