@@ -1,6 +1,6 @@
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 import { EXAMPLE_HEADER_SEARCH_AND_MENU_LINKS } from './_test-examples';
-import { getNodeAttributes } from '../../tests/helpers/puppeteer';
+import { getNodeAttributes, setViewport } from '../../tests/helpers/puppeteer';
 
 describe('script: header', () => {
     beforeEach(async () => {
@@ -106,6 +106,23 @@ describe('script: header', () => {
         it('then the navigation menu aria-hidden attribute is set to false', async () => {
             const isAriaHiddenFalse = await page.$eval('.ons-header-nav-menu', (el) => el.getAttribute('aria-hidden') === 'false');
             expect(isAriaHiddenFalse).toBe(true);
+        });
+
+        describe('and only the viewport height changes', () => {
+            beforeEach(async () => {
+                const viewport = page.viewport();
+                await setViewport(page, { width: viewport.width, height: viewport.height - 150 });
+            });
+
+            it('then the navigation menu stays displayed', async () => {
+                const isMenuNavVisible = await page.$eval('.ons-header-nav-menu', (el) => !el.classList.contains('ons-u-d-no'));
+                expect(isMenuNavVisible).toBe(true);
+            });
+
+            it('then the menu button stays marked as expanded', async () => {
+                const menuButtonAriaExpanded = await page.$eval('.ons-btn--menu', (el) => el.getAttribute('aria-expanded'));
+                expect(menuButtonAriaExpanded).toBe('true');
+            });
         });
     });
 
