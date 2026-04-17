@@ -188,7 +188,7 @@
                         }}
                     {% endblock %}
                     {% block pageContent %}
-                        <div class="ons-page__container ons-container{{ containerClasses }}">
+                        <main class="ons-page__container ons-container{{ containerClasses }}">
                             {% block preMain %}
                                 {% if pageConfig.breadcrumbs %}
                                     {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
@@ -203,12 +203,12 @@
                             {% endblock %}
                             <div class="ons-grid">
                                 <div class="ons-grid__col ons-col-{{ pageColNumber }}@m{{ pageColClasses }}">
-                                    <main id="main-content" class="ons-page__main{{ mainColClasses }}">
+                                    <div id="main-content" class="ons-page__main{{ mainColClasses }}">
                                         {% block main %}{% endblock %}
-                                    </main>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     {% endblock %}
                 </div>
                 {% block preFooter %}{% endblock %}

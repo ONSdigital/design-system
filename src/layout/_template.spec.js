@@ -317,7 +317,7 @@ const FULL_EXAMPLE = `
 {% endblock %}
 
 {% block head %}Some head content{% endblock %}
-{% block preHeader %}Some preHeader content{% endblock %}
+{% block preHeader %}<banner>Some preHeader content</banner>{% endblock %}
 {% block preFooter %}Some preFooter content{% endblock %}
 {% block scripts %}<script src="random-script.js"></script>{% endblock %}
 `;
