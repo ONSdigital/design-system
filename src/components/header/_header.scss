@@ -247,6 +247,14 @@
     }
 
     &--basic {
+        .ons-header__top {
+            .ons-container {
+                @include mq('2xs', m) {
+                    padding-right: 0;
+                }
+            }
+        }
+
         .ons-header__links--language-section {
             padding: 0 1.5rem !important;
         }
@@ -307,6 +315,14 @@
             padding-bottom: 1.5rem;
             padding-left: 0;
             row-gap: 1rem;
+        }
+
+        &__key-list {
+            @include mq('2xs', m) {
+                .ons-header-nav-menu__col:not(:last-of-type) {
+                    padding-bottom: 1rem;
+                }
+            }
         }
 
         &__language {
@@ -390,14 +406,10 @@
     }
 
     &-nav-search {
-        @extend .ons-u-pt-2xl;
-        @extend .ons-u-pb-2xl;
+        @extend .ons-u-pt-xl;
+        @extend .ons-u-pb-xl;
 
         &__input {
-            border-bottom: 1px solid var(--ons-color-ocean-blue);
-            @extend .ons-u-mb-2xl;
-            @extend .ons-u-pb-2xl;
-
             row-gap: 1rem;
         }
     }

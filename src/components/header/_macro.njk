@@ -127,7 +127,7 @@
                             {% endif %}
 
                             {% if params.search or params.searchLinks %}
-                                <div class="ons-header__links ons-grid__col ons-header__menu-links">
+                                <div class="ons-header__links ons-grid__col ons-header__search-links">
                                     {{
                                         onsButton({
                                             "classes": "ons-u-fs-s--b ons-js-toggle-header-search ons-u-db-no-js_disabled ons-btn--search-icon disabled",
@@ -296,7 +296,7 @@
                         <ul class="ons-grid ons-header-nav-menu__key-list">
                             {% for keyLink in params.menuLinks.keyLinks %}
                                 {% if keyLink.heading %}
-                                    <li class="ons-grid__col ons-col-4@m ons-header-nav-menu__col ons-u-pb-l@xs@m">
+                                    <li class="ons-grid__col ons-col-4@m ons-header-nav-menu__col">
                                         <h2 class="ons-u-fs-r--b ons-u-mb-no ons-header-nav-menu__heading">
                                             {% if keyLink.url %}
                                                 <a href="{{ keyLink.url }}" class="ons-header-nav-menu__link">{{ keyLink.heading }}</a>
