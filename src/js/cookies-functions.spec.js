@@ -25,6 +25,7 @@ export const setMockcookie = {
 describe('script: getDomain()', () => {
     beforeEach(() => {
         mockCookieStore = {}; // clear the cookie between tests
+        document.body.innerHTML = '';
     });
 
     test('should return service-manual.ons.gov.uk as the domain name when cookies can be set at the full subdomain', () => {
@@ -35,6 +36,26 @@ describe('script: getDomain()', () => {
     test('should remove `www` from the domain name www.ons.gov.uk', () => {
         const result = getDomain('www.ons.gov.uk', setMockcookie);
         expect(result).toBe('ons.gov.uk');
+    });
+
+    test('removes `www` when cookieScope is `legacy`', () => {
+        const banner = document.createElement('div');
+        banner.className = 'ons-cookies-banner';
+        banner.setAttribute('data-ons-cookie-scope', 'legacy');
+        document.body.appendChild(banner);
+
+        const result = getDomain('www.ons.gov.uk', setMockcookie);
+        expect(result).toBe('ons.gov.uk');
+    });
+
+    test('does not remove `www` when cookieScope is `day1`', () => {
+        const banner = document.createElement('div');
+        banner.className = 'ons-cookies-banner';
+        banner.setAttribute('data-ons-cookie-scope', 'day1');
+        document.body.appendChild(banner);
+
+        const result = getDomain('www.ons.gov.uk', setMockcookie);
+        expect(result).toBe('www.ons.gov.uk');
     });
 
     test('returns `ons.gov.uk` as the domain name when cookies can not be set at subdomain `new-website.ons.gov.uk`', () => {
