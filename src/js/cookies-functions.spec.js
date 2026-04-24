@@ -38,20 +38,20 @@ describe('script: getDomain()', () => {
         expect(result).toBe('ons.gov.uk');
     });
 
-    test('removes `www` when cookieScope is `legacy`', () => {
+    test('removes `www` when cookieDomainPolicy is `legacy`', () => {
         const banner = document.createElement('div');
         banner.className = 'ons-cookies-banner';
-        banner.setAttribute('data-ons-cookie-scope', 'legacy');
+        banner.setAttribute('data-ons-cookie-domain-policy', 'legacy');
         document.body.appendChild(banner);
 
         const result = getDomain('www.ons.gov.uk', setMockcookie);
         expect(result).toBe('ons.gov.uk');
     });
 
-    test('does not remove `www` when cookieScope is `day1`', () => {
+    test('does not remove `www` when cookieDomainPolicy is `day1`', () => {
         const banner = document.createElement('div');
         banner.className = 'ons-cookies-banner';
-        banner.setAttribute('data-ons-cookie-scope', 'day1');
+        banner.setAttribute('data-ons-cookie-domain-policy', 'day1');
         document.body.appendChild(banner);
 
         const result = getDomain('www.ons.gov.uk', setMockcookie);

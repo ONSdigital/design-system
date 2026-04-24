@@ -167,24 +167,24 @@ export function getCookie(name) {
     return null;
 }
 
-function getCookieScope() {
+function getCookieDomainPolicy() {
     const banner = document.querySelector('.ons-cookies-banner');
-    const scope = banner ? banner.getAttribute('data-ons-cookie-scope') : null;
+    const policy = banner ? banner.getAttribute('data-ons-cookie-domain-policy') : null;
 
-    // plan: add 'exact-domain' policy option in future and retire 'legacy' and 'day1'
-    switch (scope) {
+    // plan: add 'exact-host' policy in future and retire 'legacy' and 'day1'
+    switch (policy) {
         case 'legacy':
         case 'day1':
-            return scope;
+            return policy;
         default:
             return 'legacy';
     }
 }
 
 export function getDomain(domain, cookieHandler = document) {
-    const cookieScope = getCookieScope();
+    const cookieDomainPolicy = getCookieDomainPolicy();
 
-    if (cookieScope === 'legacy' && domain.startsWith('www.')) {
+    if (cookieDomainPolicy === 'legacy' && domain.startsWith('www.')) {
         domain = domain.substring(4);
     }
 

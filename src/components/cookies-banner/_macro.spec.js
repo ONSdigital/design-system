@@ -39,10 +39,10 @@ describe('macro: cookies-banner', () => {
             expect($('.ons-cookies-banner').attr('aria-label')).toBe('Cookies banner override');
         });
 
-        it('sets cookie scope data attribute when `cookieScope` is provided', () => {
-            const $ = cheerio.load(renderComponent('cookies-banner', { ...EXAMPLE_COOKIES_BANNER_PARAMS, cookieScope: 'day1' }));
+        it('sets cookie domain policy data attribute when `cookieDomainPolicy` is provided', () => {
+            const $ = cheerio.load(renderComponent('cookies-banner', { ...EXAMPLE_COOKIES_BANNER_PARAMS, cookieDomainPolicy: 'day1' }));
 
-            expect($('.ons-cookies-banner').attr('data-ons-cookie-scope')).toBe('day1');
+            expect($('.ons-cookies-banner').attr('data-ons-cookie-domain-policy')).toBe('day1');
         });
 
         describe('initial banner', () => {
