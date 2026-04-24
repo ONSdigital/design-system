@@ -367,16 +367,6 @@
             width: 100vw;
             transform: translateX(-50%);
             border-top: 0;
-            padding-left: env(safe-area-inset-left);
-            padding-right: env(safe-area-inset-right);
-
-            // iOS Edge can render 100vw breakout panels under the Dynamic Island in landscape.
-            // Keep panels in normal flow on touch landscape viewports so body safe-area insets apply.
-            @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
-                left: 0;
-                width: 100%;
-                transform: none;
-            }
         }
     }
 
