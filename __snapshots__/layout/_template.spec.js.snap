@@ -186,7 +186,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
     
     
     
-    <button type="button" class="ons-btn ons-u-fs-s--b ons-js-toggle-nav-menu ons-u-db-no-js_disabled button-nav disabled ons-btn--menu" aria-label="Toggle menu" aria-controls="menu-links" aria-expanded="false" aria-disabled="true">
+    <button type="button" class="ons-btn ons-u-fs-r--b ons-js-toggle-nav-menu ons-u-db-no-js_disabled button-nav disabled ons-btn--menu" aria-label="Toggle menu" aria-controls="menu-links" aria-expanded="false" aria-disabled="true">
     <span class="ons-btn__inner"><svg class="ons-icon ons-u-mr-2xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" aria-hidden="true">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg><span class="ons-btn__text">Menu</span></span>
@@ -199,7 +199,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                             
 
                             
-                                <div class="ons-header__links ons-grid__col ons-header__menu-link">
+                                <div class="ons-header__links ons-grid__col ons-header__menu-links">
                                     
 
     

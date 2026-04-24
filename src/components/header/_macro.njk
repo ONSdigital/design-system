@@ -110,7 +110,7 @@
                                     {{
                                         onsButton({
                                             "text": params.menuLinks.toggleMenuButton.text | default("Menu"),
-                                            "classes": "ons-u-fs-s--b ons-js-toggle-nav-menu ons-u-db-no-js_disabled button-nav disabled",
+                                            "classes": "ons-u-fs-r--b ons-js-toggle-nav-menu ons-u-db-no-js_disabled button-nav disabled",
                                             "type": "button",
                                             "variants": "menu",
                                             "iconType": "chevron",
@@ -127,7 +127,7 @@
                             {% endif %}
 
                             {% if params.search or params.searchLinks %}
-                                <div class="ons-header__links ons-grid__col ons-header__menu-link">
+                                <div class="ons-header__links ons-grid__col ons-header__menu-links">
                                     {{
                                         onsButton({
                                             "classes": "ons-u-fs-s--b ons-js-toggle-header-search ons-u-db-no-js_disabled ons-btn--search-icon disabled",
@@ -146,15 +146,15 @@
                             {% endif %}
                         </div>
                         {% if params.language %}
-                            <div class="ons-header__links ons-grid__col ons-col-auto ons-u-d-no@2xs@s">
-                                <div class="ons-header__language">
+                            <div class="ons-header__links ons-grid__col ons-col-auto ons-header__links--language-section ons-u-d-no@2xs@m">
+                                <div class="ons-header__language ons-u-fs-r--b">
                                     {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                                     {{ onsLanguageSelector(params.language) }}
                                 </div>
                             </div>
                         {% endif %}
                     {% endif %}
-                    {% if params.variants!== 'basic' and (params.language or params.serviceLinks) %}
+                    {% if params.variants != 'basic' and (params.language or params.serviceLinks) %}
                         <div
                             class="ons-header__links ons-grid__col{{ ' ons-u-ml-auto' if not (params.searchLinks or params.search) and not params.menuLinks }}"
                         >
@@ -282,7 +282,7 @@
                 aria-label="{{ params.menuLinks.ariaLabel | default("Menu navigation") }}"
             >
                 {% if params.language %}
-                    <div class="ons-container ons-u-d-no@s ons-u-d-no@2xl">
+                    <div class="ons-container ons-u-d-no@m ons-u-d-no@2xl">
                         <div class="ons-header-nav-menu__language ons-u-fs-s--b">
                             {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                             {{ onsLanguageSelector(params.language) }}
