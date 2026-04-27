@@ -57,7 +57,6 @@ export default class Accordion {
             this.button.setAttribute('data-ga-label', this.buttonOpen);
             this.button.setAttribute('aria-label', this.button.getAttribute('data-close-aria-label'));
             this.button.setAttribute('aria-expanded', 'true');
-            this.button.setAttribute('data-ga-interaction-value', 'open');
         } else {
             this.buttonInner.innerHTML = DOMPurify.sanitize(this.buttonOpen);
             this.button.setAttribute('aria-label', this.button.getAttribute('data-open-aria-label'));
