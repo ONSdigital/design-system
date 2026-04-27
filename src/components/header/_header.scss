@@ -247,6 +247,10 @@
     }
 
     &--basic {
+        .ons-header__org-logo--small {
+            width: 135px !important;
+        }
+
         .ons-header__top {
             .ons-container {
                 @include mq('2xs', m) {
