@@ -49,7 +49,9 @@ describe('script: details', () => {
         });
 
         it('sets the `ga` attributes', async () => {
-            const gaHeadingAttribute = await page.$eval('.ons-js-details-heading', (element) => element.getAttribute('data-ga-action'));
+            const gaHeadingAttribute = await page.$eval('.ons-js-details-heading', (element) =>
+                element.getAttribute('data-ga-interaction-value'),
+            );
 
             expect(gaHeadingAttribute).toBe('Open panel');
         });
