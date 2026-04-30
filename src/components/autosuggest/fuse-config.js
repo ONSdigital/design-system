@@ -1,27 +1,27 @@
-import Fuse from 'fuse.js';
+import FlexSearch from 'flexsearch';
 
-export default function runFuse(query, data, searchFields, threshold, distance) {
-    const options = {
-        shouldSort: true,
-        threshold: threshold,
-        distance: distance,
-        keys: [
-            {
-                name: searchFields,
-                weight: 0.9,
-            },
-            {
-                name: 'formattedAddress',
-                weight: 0.9,
-            },
-            {
-                name: 'tags',
-                weight: 0.1,
-            },
-        ],
-    };
+export default function runFlexSearchIndex(query, data, searchField) {
+    const index = new FlexSearch.Index({
+        preset: 'match', // enables raw substring scanning
+        tokenize: 'forward', // needed for substring matching
+        cache: true,
+        encode: false,
+        depth: 3, // improves substring matching window
+    });
 
-    const fuse = new Fuse(data, options);
-    let result = fuse.search(query);
-    return result;
+    const documents = [];
+
+    // Add documents
+    data.forEach((item, id) => {
+        const text =
+            (item[searchField] || '') + ' ' + (item.formattedAddress || '') + ' ' + (Array.isArray(item.tags) ? item.tags.join(' ') : '');
+
+        index.add(id, text);
+        documents[id] = item;
+    });
+
+    // Perform substring search
+    const resultIds = index.search(query);
+
+    return resultIds.map((id) => documents[id]);
 }
