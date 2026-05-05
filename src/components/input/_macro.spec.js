@@ -120,8 +120,8 @@ describe('macro: input', () => {
         );
 
         expect($('.ons-input').attr('type')).toBe('text');
-        expect($('.ons-input').attr('pattern')).toBe('[0-9]*');
-        expect($('.ons-input').attr('inputmode')).toBe('numeric');
+        expect($('.ons-input').attr('pattern')).toBeUndefined();
+        expect($('.ons-input').attr('inputmode')).toBe('decimal');
     });
 
     it('outputs number type with decimal `inputmode` and no pattern', () => {
