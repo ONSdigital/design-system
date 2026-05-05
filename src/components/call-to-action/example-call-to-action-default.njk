@@ -1,0 +1,15 @@
+---
+'fullWidth': true
+---
+
+{% from "components/call-to-action/_macro.njk" import onsCallToAction %}
+{{-
+    onsCallToAction({
+        "headingText": 'Call to action heading.',
+        "paragraphText": 'Descriptive text about call to action',
+        "button": {
+            "text": 'Start',
+            "url": '#0'
+        }
+    })
+-}}
