@@ -6,6 +6,7 @@
     {% set titleTag = "h1" if params.titleAsH1 else "div" %}
     {% set openingTag = "<" + titleTag %}
     {% set closingTag = "</" + titleTag + ">" %}
+    {% set rootElementTag = "div" if params.useDivForRootElement else "header" %}
     {% set currentLanguageIsoCode = "en" %}
     {% set logoAltText = params.mastheadLogoAltText or params.mastheadLogo.altText %}
 
@@ -13,10 +14,11 @@
         {% set currentLanguage = params.language.languages | selectattr("current") | first %}
         {% set currentLanguageIsoCode = currentLanguage.isoCode %}
     {% endif %}
-
-    <header
+    <!-- prettier-ignore-start -->
+    <{{ rootElementTag | safe }}
         class="ons-header{{ ' '+ params.classes if params.classes }}{% if params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-header--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-header--{{ params.variants }}{% endif %}"
     >
+    <!-- prettier-ignore-end -->
         {{
             onsBrowserBanner({
                 "lang": currentLanguageIsoCode,
@@ -535,5 +537,7 @@
         {% if params.navigation %}
             {{ onsNavigation(params) }}
         {% endif %}
-    </header>
+    <!-- prettier-ignore-start -->
+    </{{ rootElementTag | safe }}>
+    <!-- prettier-ignore-end -->
 {% endmacro %}

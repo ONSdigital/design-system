@@ -160,51 +160,64 @@
                         {% endif %}
                     {% endblock %}
                     {% block header %}
-                        {{
-                            onsHeader({
-                                "wide": pageConfig.wide,
-                                "fullWidth": pageConfig.fullWidth,
-                                "language": pageConfig.header.language,
-                                "button": pageConfig.header.signoutButton,
-                                "toggleNavigationButton": pageConfig.header.toggleNavigationButton,
-                                "navigation": pageConfig.header.navigation,
-                                "siteSearchAutosuggest": pageConfig.header.siteSearchAutosuggest,
-                                "browserBanner": pageConfig.header.browserBanner,
-                                "phase": pageConfig.header.phase,
-                                "serviceLinks": pageConfig.header.serviceLinks,
-                                "variants": pageConfig.header.variants,
-                                "classes": pageConfig.header.classes,
-                                "mastheadLogo": pageConfig.header.mastheadLogo,
-                                "mastheadLogoUrl": pageConfig.header.mastheadLogoUrl,
-                                "titleUrl": pageConfig.header.titleUrl,
-                                "title": pageConfig.header.title | default(pageConfig.title),
-                                "description": pageConfig.header.description,
-                                "titleAsH1": pageConfig.header.titleAsH1,
-                                "titleLogo": pageConfig.header.titleLogo,
-                                "mastheadLogoAltText": pageConfig.header.mastheadLogoAltText,
-                                "menuLinks": pageConfig.header.menuLinks,
-                                "searchLinks": pageConfig.header.searchLinks
-                            })
-                        }}
-                    {% endblock %}
-                    {% block pageContent %}
-                        <main class="ons-page__container ons-container{{ containerClasses }}">
-                            {% block preMain %}
+                        <header>
+                            {{
+                                onsHeader({
+                                    "wide": pageConfig.wide,
+                                    "fullWidth": pageConfig.fullWidth,
+                                    "language": pageConfig.header.language,
+                                    "button": pageConfig.header.signoutButton,
+                                    "toggleNavigationButton": pageConfig.header.toggleNavigationButton,
+                                    "navigation": pageConfig.header.navigation,
+                                    "siteSearchAutosuggest": pageConfig.header.siteSearchAutosuggest,
+                                    "browserBanner": pageConfig.header.browserBanner,
+                                    "phase": pageConfig.header.phase,
+                                    "serviceLinks": pageConfig.header.serviceLinks,
+                                    "variants": pageConfig.header.variants,
+                                    "classes": pageConfig.header.classes,
+                                    "mastheadLogo": pageConfig.header.mastheadLogo,
+                                    "mastheadLogoUrl": pageConfig.header.mastheadLogoUrl,
+                                    "titleUrl": pageConfig.header.titleUrl,
+                                    "title": pageConfig.header.title | default(pageConfig.title),
+                                    "description": pageConfig.header.description,
+                                    "titleAsH1": pageConfig.header.titleAsH1,
+                                    "titleLogo": pageConfig.header.titleLogo,
+                                    "mastheadLogoAltText": pageConfig.header.mastheadLogoAltText,
+                                    "menuLinks": pageConfig.header.menuLinks,
+                                    "searchLinks": pageConfig.header.searchLinks,
+                                    "useDivForRootElement": pageConfig.header.useDivForRootElement | default(true)
+                                })
+                            }}
+
+                            {% block breadcrumbs %}
                                 {% if pageConfig.breadcrumbs %}
-                                    {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
-                                    {{
-                                        onsBreadcrumbs({
-                                            "id": pageConfig.breadcrumbs.id,
-                                            "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
-                                            "itemsList": pageConfig.breadcrumbs.itemsList
-                                        })
-                                    }}
+                                        {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+                                        {{
+                                            onsBreadcrumbs({
+                                                "id": pageConfig.breadcrumbs.id,
+                                                "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
+                                                "itemsList": pageConfig.breadcrumbs.itemsList,
+                                                "wide": pageConfig.wide,
+                                                "fullWidth": pageConfig.fullWidth,
+                                                "variant": pageConfig.breadcrumbs.variant
+                                            })
+                                        }}
                                 {% endif %}
                             {% endblock %}
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m{{ pageColClasses }}">
-                                    <div id="main-content" class="ons-page__main{{ mainColClasses }}">
-                                        {% block main %}{% endblock %}
+                        </header>
+                    {% endblock %}
+                    {% block preMain %}
+                    {% endblock %}
+                    {% block pageContent %}
+                        <main id="main-content">
+                            {% block hero %}
+                            {% endblock %}
+                            <div class="ons-page__container ons-container{{ containerClasses }}">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-{{ pageColNumber }}@m{{ pageColClasses }}">
+                                        <div class="ons-page__main{{ mainColClasses }}">
+                                            {% block mainContent %}{% endblock %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
