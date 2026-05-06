@@ -4,7 +4,6 @@ layout: ~
 ---
 
 {% from "components/hero/_macro.njk" import onsHero %}
-{% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
 {% extends "layout/_template.njk" %}
 {%
     set pageConfig = {
@@ -162,12 +161,8 @@ layout: ~
                     }
                 ]
             }
-        }
-    }
-%}
-{% block pageContent %}
-    {{
-        onsBreadcrumbs({
+        },
+        "breadcrumbs": {
             "ariaLabel": 'Breadcrumbs',
             "variant": "dark",
             "itemsList": [
@@ -175,20 +170,21 @@ layout: ~
                     "url": '/',
                     "text": 'Home'
                 }
-            ]
+             ]
+        }
+    }
+%}
+
+{% block hero %}
+    {{
+        onsHero({
+            "title": 'Design and build digital services for the ONS test',
+            "text": 'Everything you need to make accessible, consistent digital products',
+            "button": {
+                "url": '#0',
+                "text": 'Get started'
+            },
+            "variants": 'dark'
         })
     }}
-    <main id="main-content">
-        {{
-            onsHero({
-                "title": 'Design and build digital services for the ONS',
-                "text": 'Everything you need to make accessible, consistent digital products',
-                "button": {
-                    "url": '#0',
-                    "text": 'Get started'
-                },
-                "variants": 'dark'
-            })
-        }}
-    </main>
 {% endblock %}

@@ -102,16 +102,13 @@
                     "toggleNavigationButton": {
                         "text": "Menu",
                         "ariaLabel": "Toggle main menu"
-                    }
+                    },
+                    "useDivForRootElement": "True"
                 }
             })
         }}
-    </div>
-
-    <div class="ons-ds-block">
-        <div class="ons-ds-block__label">block: pageContent</div>
         <div class="ons-ds-block">
-            <div class="ons-ds-block__label">block: preMain</div>
+            <div class="ons-ds-block__label">block: breadcrumbs</div>
             {{
                 onsBreadcrumbs({
                     "ariaLabel": 'Breadcrumbs',
@@ -128,15 +125,27 @@
                 })
             }}
         </div>
+    </div>
+
+    <div class="ons-ds-block">
+        <div class="ons-ds-block__label">block: preMain - should be wrapped in a landmark element</div>
+    </div>
+
+    <div class="ons-ds-block">
+        <div class="ons-ds-block__label">block: pageContent</div>
 
         <div class="ons-grid ons-grid-flex ons-grid-flex--column@2xs@m">
             <div class="ons-grid__col ons-u-flex-grow">
                 <div class="ons-ds-block">
-                    <div class="ons-ds-block__label">block: main</div>
+                    <div class="ons-ds-block__label">block: mainContent</div>
                     <h1>Page content</h1>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="ons-ds-block">
+        <div class="ons-ds-block__label">block: preFooter - should be wrapped in a landmark element</div>
     </div>
 
     <div class="ons-ds-block">
