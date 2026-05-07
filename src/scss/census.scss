@@ -17,4 +17,9 @@
     .ons-svg-logo {
         fill: var(--ons-color-white);
     }
+    &-link:focus {
+        .ons-svg-logo {
+            fill: var(--ons-color-black);
+        }
+    }
 }
