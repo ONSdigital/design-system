@@ -6,7 +6,6 @@ extends:
 plugins:
     - stylelint-scss
     - stylelint-order
-    - '@stylistic/stylelint-plugin'
 rules:
     # Line Spacing
     rule-empty-line-before:
@@ -44,7 +43,6 @@ rules:
     import-notation: 'string'
 
     # Nesting
-    '@stylistic/indentation': 4
     max-nesting-depth:
         - 6
         - ignore: ['blockless-at-rules', 'pseudo-classes']
