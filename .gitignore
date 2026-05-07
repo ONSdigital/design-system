@@ -9,6 +9,8 @@ package-lock.json
 .husky/pre-push
 .husky/post-commit
 .husky/post-merge
+core
+core.*
 
 # Generated from visual regression tests
 backstop_data/bitmaps_test/
