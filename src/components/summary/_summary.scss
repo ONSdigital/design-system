@@ -181,7 +181,7 @@ $hub-row-spacing: 1.3rem;
         &__actions {
             display: flex;
             justify-content: right;
-            & :not(.ons-summary__item-title--error) {
+            :not(.ons-summary__item-title--error) {
                 padding-right: 0;
             }
         }
