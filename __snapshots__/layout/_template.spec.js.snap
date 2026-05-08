@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`base page template matches the basic variant header snapshot 1`] = `
 "<!DOCTYPE html><html lang="en"><head>
@@ -56,7 +56,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                     
                         
     
-    <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
+    <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
 
                     
                     
@@ -186,7 +186,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
     
     
     
-    <button type="button" class="ons-btn ons-u-fs-s--b ons-js-toggle-nav-menu button-nav active disabled ons-btn--menu" aria-label="Toggle menu" aria-controls="menu-links" aria-expanded="true" aria-disabled="true">
+    <button type="button" class="ons-btn ons-u-fs-r--b ons-js-toggle-nav-menu ons-u-db-no-js_disabled button-nav disabled ons-btn--menu" aria-label="Toggle menu" aria-controls="menu-links" aria-expanded="false" aria-disabled="true">
     <span class="ons-btn__inner"><svg class="ons-icon ons-u-mr-2xs" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" aria-hidden="true">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg><span class="ons-btn__text">Menu</span></span>
@@ -199,459 +199,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                             
 
                             
-
-                            
-                                <nav class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl" id="menu-links" aria-label="Menu navigation" aria-hidden="false">
-                                    
-                                        <div class="ons-container">
-                                            <ul class="ons-grid ons-header-nav-menu__key-list">
-                                                
-                                                    
-                                                        <li class="ons-grid__col ons-col-4@m ons-header-nav-menu__col">
-                                                            <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
-                                                                
-                                                                    Taking part in a survey?
-                                                                
-                                                            </h2>
-                                                            
-                                                                <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">
-                                                                    It’s never been more important.
-                                                                </p>
-                                                            
-                                                        </li>
-                                                    
-                                                
-                                                    
-                                                        <li class="ons-grid__col ons-col-4@m ons-header-nav-menu__col">
-                                                            <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
-                                                                
-                                                                    Release calendar
-                                                                
-                                                            </h2>
-                                                            
-                                                                <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">
-                                                                    View our latest and upcoming releases.
-                                                                </p>
-                                                            
-                                                        </li>
-                                                    
-                                                
-                                                    
-                                                        <li class="ons-grid__col ons-col-4@m ons-header-nav-menu__col">
-                                                            <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
-                                                                
-                                                                    <a href="#0" class="ons-header-nav-menu__link">Explore local statistics</a>
-                                                                
-                                                            </h2>
-                                                            
-                                                                <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">
-                                                                    Explore statistics across the UK.
-                                                                </p>
-                                                            
-                                                        </li>
-                                                    
-                                                
-                                            </ul>
-                                        </div>
-                                    
-                                    
-                                        <div class="ons-container">
-                                            <ul class="ons-grid ons-list ons-list--bare">
-                                                
-                                                    <li class="ons-grid__col ons-col-4@m ons-u-mb-no ons-header-nav-menu__col">
-                                                        
-                                                            
-                                                                <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
-                                                                    
-                                                                        People, population and community
-                                                                    
-                                                                </h2>
-                                                            
-                                                            
-                                                                <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Armed forces community
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Births, deaths and marriages
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Crime and justice
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Cultural identity
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Education and childcare
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Elections
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Health and social care
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Household characteristics
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Housing
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Leisure and tourism
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Personal and household finances
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Population and migration
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Well-being
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                </ul>
-                                                            
-                                                        
-                                                    </li>
-                                                
-                                                    <li class="ons-grid__col ons-col-4@m ons-u-mb-no ons-header-nav-menu__col">
-                                                        
-                                                            
-                                                                <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
-                                                                    
-                                                                        Business, industry and trade
-                                                                    
-                                                                </h2>
-                                                            
-                                                            
-                                                                <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Business
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Changes to business
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Construction industry
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        International trade
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        IT and internet industry
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Manufacturing and production industry
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        <a href="#0" class="ons-header-nav-menu__link">
-                                                                                            Retail industry
-                                                                                        </a>
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Tourism industry
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                </ul>
-                                                            
-                                                        
-                                                            
-                                                                <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
-                                                                    
-                                                                        <a href="#0" class="ons-header-nav-menu__link">Employment and labour market</a>
-                                                                    
-                                                                </h2>
-                                                            
-                                                            
-                                                                <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        People in work
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        People not in work
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                </ul>
-                                                            
-                                                        
-                                                    </li>
-                                                
-                                                    <li class="ons-grid__col ons-col-4@m ons-u-mb-no ons-header-nav-menu__col">
-                                                        
-                                                            
-                                                                <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
-                                                                    
-                                                                        Economy
-                                                                    
-                                                                </h2>
-                                                            
-                                                            
-                                                                <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Economic output and productivity
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Government, public sector and taxes
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Gross Value Added (GVA)
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Investments, pensions and trusts
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Regional accounts
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Environmental accounts
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Gross Domestic Product (GDP)
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        Inflation and price indices
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                        
-                                                                            <li class="ons-u-mb-no">
-                                                                                <p class="ons-u-fs-s ons-header-nav-menu_text">
-                                                                                    
-                                                                                        National accounts
-                                                                                    
-                                                                                </p>
-                                                                            </li>
-                                                                        
-                                                                    
-                                                                </ul>
-                                                            
-                                                        
-                                                    </li>
-                                                
-                                            </ul>
-                                        </div>
-                                    
-                                </nav>
-                            
-
-                            
-                                <div class="ons-header__links ons-grid__col ons-header__menu-link">
+                                <div class="ons-header__links ons-grid__col ons-header__menu-links">
                                     
 
     
@@ -677,7 +225,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
     
     
     
-    <button type="button" class="ons-btn ons-u-fs-s--b ons-js-toggle-header-search ons-btn--close ons-btn--search-icon active disabled ons-btn--search" aria-label="Toggle search" aria-controls="search-links" aria-expanded="true" aria-disabled="true">
+    <button type="button" class="ons-btn ons-u-fs-s--b ons-js-toggle-header-search ons-u-db-no-js_disabled ons-btn--search-icon disabled ons-btn--search" aria-label="Toggle search" aria-controls="search-links" aria-expanded="false" aria-disabled="true">
     <span class="ons-btn__inner"><svg class="ons-icon ons-u-mr-2xs" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" role="img">
             <path d="M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z"></path>
         </svg><span class="ons-btn__text"></span></span>
@@ -688,13 +236,464 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
 
                                 </div>
                             
-
+                        </div>
+                        
+                    
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+            <nav class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl" id="menu-links" aria-label="Menu navigation">
+                
+                
+                    <div class="ons-container">
+                        <ul class="ons-grid ons-header-nav-menu__key-list">
                             
-                                <nav class="ons-js-header-search ons-header-nav-search " id="search-links" aria-label="Nav Search" aria-hidden="false">
-                                    <div class="ons-container">
-                                        <div class="ons-header-nav-search__input">
+                                
+                                    <li class="ons-grid__col ons-col-4@m ons-header-nav-menu__col">
+                                        <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
                                             
+                                                Taking part in a survey?
                                             
+                                        </h2>
+                                        
+                                            <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">It’s never been more important.</p>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li class="ons-grid__col ons-col-4@m ons-header-nav-menu__col">
+                                        <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
+                                            
+                                                Release calendar
+                                            
+                                        </h2>
+                                        
+                                            <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">View our latest and upcoming releases.</p>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li class="ons-grid__col ons-col-4@m ons-header-nav-menu__col">
+                                        <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
+                                            
+                                                <a href="#0" class="ons-header-nav-menu__link">Explore local statistics</a>
+                                            
+                                        </h2>
+                                        
+                                            <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">Explore statistics across the UK.</p>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    </div>
+                
+                
+                    <div class="ons-container">
+                        <ul class="ons-grid ons-list ons-list--bare">
+                            
+                                <li class="ons-grid__col ons-col-4@m ons-u-mb-no ons-header-nav-menu__col">
+                                    
+                                        
+                                            <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
+                                                
+                                                    People, population and community
+                                                
+                                            </h2>
+                                        
+                                        
+                                            <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Armed forces community
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Births, deaths and marriages
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Crime and justice
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Cultural identity
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Education and childcare
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Elections
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Health and social care
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Household characteristics
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Housing
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Leisure and tourism
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Personal and household finances
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Population and migration
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Well-being
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                            </ul>
+                                        
+                                    
+                                </li>
+                            
+                                <li class="ons-grid__col ons-col-4@m ons-u-mb-no ons-header-nav-menu__col">
+                                    
+                                        
+                                            <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
+                                                
+                                                    Business, industry and trade
+                                                
+                                            </h2>
+                                        
+                                        
+                                            <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Business
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Changes to business
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Construction industry
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    International trade
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    IT and internet industry
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Manufacturing and production industry
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    <a href="#0" class="ons-header-nav-menu__link">
+                                                                        Retail industry
+                                                                    </a>
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Tourism industry
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                            </ul>
+                                        
+                                    
+                                        
+                                            <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
+                                                
+                                                    <a href="#0" class="ons-header-nav-menu__link">Employment and labour market</a>
+                                                
+                                            </h2>
+                                        
+                                        
+                                            <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    People in work
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    People not in work
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                            </ul>
+                                        
+                                    
+                                </li>
+                            
+                                <li class="ons-grid__col ons-col-4@m ons-u-mb-no ons-header-nav-menu__col">
+                                    
+                                        
+                                            <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
+                                                
+                                                    Economy
+                                                
+                                            </h2>
+                                        
+                                        
+                                            <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Economic output and productivity
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Government, public sector and taxes
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Gross Value Added (GVA)
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Investments, pensions and trusts
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Regional accounts
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Environmental accounts
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Gross Domestic Product (GDP)
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    Inflation and price indices
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li class="ons-u-mb-no">
+                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                                
+                                                                    National accounts
+                                                                
+                                                            </p>
+                                                        </li>
+                                                    
+                                                
+                                            </ul>
+                                        
+                                    
+                                </li>
+                            
+                        </ul>
+                    </div>
+                
+            </nav>
+        
+        
+            <nav class="ons-js-header-search ons-header-nav-search " id="search-links" aria-label="Nav Search">
+                <div class="ons-container">
+                    <form class="ons-header-nav-search__input" method="get" action="">
+                        
+                        
     
     
     
@@ -741,7 +740,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                 
 
                 
-        <input type="search" id="search-field" class="ons-input ons-input--text ons-input-type__input ons-search__input ons-input--header-search ons-input--w-full">
+        <input type="search" id="search-field" class="ons-input ons-input--text ons-input-type__input ons-search__input ons-input--header-search ons-input--w-full" name="q">
         
         
     
@@ -788,87 +787,84 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
 
     
 
-                                        </div>
-                                    </div>
-                                    
-                                        <div class="ons-container">
-                                            <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">
-                                                Popular searches
-                                            </h2>
-                                            <ul class="ons-list ons-list--bare ons-list--inline">
-                                                
-                                                    
-                                                    
-                                                        <li class="ons-list__item">
-                                                            
-                                                                
-                                                                    <a href="#1" class="ons-u-fs-r ons-header-nav-search__text">Cost of living
-                                                                    </a>
-                                                                
-                                                            
-                                                        </li>
-                                                    
-                                                
-                                                    
-                                                    
-                                                        <li class="ons-list__item">
-                                                            
-                                                                
-                                                                    <a href="#1" class="ons-u-fs-r ons-header-nav-search__text">Inflation
-                                                                    </a>
-                                                                
-                                                            
-                                                        </li>
-                                                    
-                                                
-                                                    
-                                                    
-                                                        <li class="ons-list__item">
-                                                            
-                                                                
-                                                                    <a href="#3" class="ons-u-fs-r ons-header-nav-search__text">NHS waiting times
-                                                                    </a>
-                                                                
-                                                            
-                                                        </li>
-                                                    
-                                                
-                                                    
-                                                    
-                                                        <li class="ons-list__item">
-                                                            
-                                                                
-                                                                    <a href="#0" class="ons-u-fs-r ons-header-nav-search__text">Wellbeing
-                                                                    </a>
-                                                                
-                                                            
-                                                        </li>
-                                                    
-                                                
-                                                    
-                                                    
-                                                        <li class="ons-list__item">
-                                                            
-                                                                
-                                                                    <a href="#0" class="ons-u-fs-r ons-header-nav-search__text">Baby names
-                                                                    </a>
-                                                                
-                                                            
-                                                        </li>
-                                                    
-                                                
-                                            </ul>
-                                        </div>
-                                    
-                                </nav>
-                            
-                        </div>
-                    
-                    
+                    </form>
                 </div>
-            </div>
-            
-        </div>
+                
+                    <div class="ons-container">
+                        
+                        
+                            <h2 class="ons-u-fs-r--b ons-u-mb-s ons-header-nav-search__heading">Popular searches</h2>
+                        
+                        <ul class="ons-list ons-list--bare ons-list--inline">
+                            
+                                
+                                    
+                                    
+                                        <li class="ons-list__item">
+                                            
+                                                
+                                                    <a href="#1" class="ons-u-fs-r ons-header-nav-search__text">Cost of living
+                                                    </a>
+                                                
+                                            
+                                        </li>
+                                    
+                                
+                                    
+                                    
+                                        <li class="ons-list__item">
+                                            
+                                                
+                                                    <a href="#1" class="ons-u-fs-r ons-header-nav-search__text">Inflation
+                                                    </a>
+                                                
+                                            
+                                        </li>
+                                    
+                                
+                                    
+                                    
+                                        <li class="ons-list__item">
+                                            
+                                                
+                                                    <a href="#3" class="ons-u-fs-r ons-header-nav-search__text">NHS waiting times
+                                                    </a>
+                                                
+                                            
+                                        </li>
+                                    
+                                
+                                    
+                                    
+                                        <li class="ons-list__item">
+                                            
+                                                
+                                                    <a href="#0" class="ons-u-fs-r ons-header-nav-search__text">Wellbeing
+                                                    </a>
+                                                
+                                            
+                                        </li>
+                                    
+                                
+                                    
+                                    
+                                        <li class="ons-list__item">
+                                            
+                                                
+                                                    <a href="#0" class="ons-u-fs-r ons-header-nav-search__text">Baby names
+                                                    </a>
+                                                
+                                            
+                                        </li>
+                                    
+                                
+                            
+                            
+                        </ul>
+                    </div>
+                
+            </nav>
+        
         
         
     </header>
@@ -880,8 +876,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                 
                             
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
+                                <div class="ons-grid__col ons-col-12@m">
+                                    <main id="main-content" class="ons-page__main">
                                         
                                     </main>
                                 </div>
@@ -1057,7 +1053,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                     
                         
     
-    <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
+    <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
 
                     
                     
@@ -1168,6 +1164,8 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             
         </div>
         
+        
+        
             <div class="ons-header__main">
                 <div class="ons-container">
                     <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
@@ -1201,8 +1199,8 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                                 
                             
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
+                                <div class="ons-grid__col ons-col-12@m">
+                                    <main id="main-content" class="ons-page__main">
                                         
                                     </main>
                                 </div>
@@ -1304,7 +1302,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                     
                         
     
-    <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
+    <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
 
                     
                     
@@ -1415,6 +1413,8 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             
         </div>
         
+        
+        
             <div class="ons-header__main">
                 <div class="ons-container">
                     <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
@@ -1448,8 +1448,8 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                                 
                             
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
+                                <div class="ons-grid__col ons-col-12@m">
+                                    <main id="main-content" class="ons-page__main">
                                         
                                     </main>
                                 </div>
@@ -1538,13 +1538,13 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 
             
                 
-                <!-- Twitter -->
+                <!-- X -->
                 <meta name="twitter:card" content="summary">
-                <meta name="twitter:site" content="Twitter">
+                <meta name="twitter:site" content="X">
                 <meta name="twitter:url" content="/some-url">
-                <meta name="twitter:title" content="Twitter title">
-                <meta name="twitter:description" content="Twitter description">
-                <meta name="twitter:image" content="twitter-image.png">
+                <meta name="twitter:title" content="X title">
+                <meta name="twitter:description" content="X description">
+                <meta name="twitter:image" content="x-image.png">
             
         
 
@@ -1574,7 +1574,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     
                         
     
-    <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
+    <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
 
                     
                     
@@ -1647,7 +1647,11 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     </div>
                 
                 <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
-                    <p class="ons-phase-banner__desc ons-u-fs-s ons-u-mb-no">This is a new service – your <a href="#feedback">feedback</a> will help us improve it.</p>
+                    <p class="ons-phase-banner__desc ons-u-fs-s ons-u-mb-no">
+                        
+                            This is a new service – your <a href="#feedback">feedback</a> will help us improve it.
+                        
+                    </p>
                 </div>
             </div>
         </div>
@@ -1865,6 +1869,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                 </nav>
             
         </div>
+        
+        
         
             <div class="ons-header__main">
                 <div class="ons-container">
@@ -2288,8 +2294,8 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                 
                             
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
+                                <div class="ons-grid__col ons-col-12@m">
+                                    <main id="main-content" class="ons-page__main">
                                         
     <h1>Page Title</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -2897,7 +2903,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                     
                         
     
-    <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
+    <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
 
                     
                     
@@ -3008,6 +3014,8 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             
         </div>
         
+        
+        
             <div class="ons-header__main">
                 <div class="ons-container">
                     <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
@@ -3041,8 +3049,8 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                                 
                             
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
+                                <div class="ons-grid__col ons-col-12@m">
+                                    <main id="main-content" class="ons-page__main">
                                         
                                     </main>
                                 </div>
@@ -3128,7 +3136,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
                     
                         
     
-    <a class="ons-skip-to-content" href="#main-content">Skip to main content</a>
+    <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
 
                     
                     
@@ -3239,6 +3247,8 @@ exports[`base page template matches the social block override snapshot 1`] = `
             
         </div>
         
+        
+        
             <div class="ons-header__main">
                 <div class="ons-container">
                     <div class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap ons-grid--gutterless">
@@ -3272,8 +3282,8 @@ exports[`base page template matches the social block override snapshot 1`] = `
                                 
                             
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m ">
-                                    <main id="main-content" class="ons-page__main ">
+                                <div class="ons-grid__col ons-col-12@m">
+                                    <main id="main-content" class="ons-page__main">
                                         
                                     </main>
                                 </div>

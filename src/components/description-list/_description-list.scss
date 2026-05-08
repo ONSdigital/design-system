@@ -44,6 +44,32 @@
     }
 
     &--inline {
+        @include helpers.mq(600px, l, $to-operator: '<') {
+            .ons-description-list__item {
+                align-items: baseline;
+                column-gap: 0.25rem;
+                display: grid;
+                grid-template-columns: 10rem 1fr;
+            }
+
+            .ons-description-list__term,
+            .ons-description-list__value {
+                clear: none;
+                float: none;
+                max-width: none;
+                width: auto;
+            }
+
+            .ons-description-list__term {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .ons-description-list__value {
+                grid-column: 2;
+            }
+        }
+
         @include helpers.mq(l) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);

@@ -46,11 +46,11 @@
 {# Page columns #}
 {% set pageColNumber = pageConfig.pageColNumber | default("12") %}
 {%
-    set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else
+    set pageColClasses = ' ' + pageConfig.pageColClasses if pageConfig.pageColClasses else
     ''
 %}
 {%
-    set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else
+    set mainColClasses = ' ' + pageConfig.mainColClasses if pageConfig.mainColClasses else
     ''
 %}
 {%
@@ -103,16 +103,16 @@
 
             {% if pageConfig.social %}
                 {%
-                    set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else
-                    assetsUrl + '/favicons/twitter.png'
+                    set xImagePath = pageConfig.social.xImage if pageConfig.social.xImage else
+                    assetsUrl + '/favicons/x.png'
                 %}
-                <!-- Twitter -->
+                <!-- X -->
                 <meta name="twitter:card" content="summary" />
-                <meta name="twitter:site" content="{{ pageConfig.social.twitterSite }}" />
+                <meta name="twitter:site" content="{{ pageConfig.social.xSite }}" />
                 <meta name="twitter:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}" />
                 <meta name="twitter:title" content="{{ pageConfig.social.title | default(pageConfig.title) }}" />
                 <meta name="twitter:description" content="{{ pageConfig.social.description | default(pageConfig.description) }}" />
-                <meta name="twitter:image" content="{{ twitterImagePath }}" />
+                <meta name="twitter:image" content="{{ xImagePath }}" />
             {% endif %}
         {% endblock %}
 
@@ -202,8 +202,8 @@
                                 {% endif %}
                             {% endblock %}
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m {{ pageColClasses }}">
-                                    <main id="main-content" class="ons-page__main {{ mainColClasses }}">
+                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m{{ pageColClasses }}">
+                                    <main id="main-content" class="ons-page__main{{ mainColClasses }}">
                                         {% block main %}{% endblock %}
                                     </main>
                                 </div>

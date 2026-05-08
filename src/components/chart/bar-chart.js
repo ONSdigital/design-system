@@ -73,6 +73,7 @@ class BarChart {
                     reserveSpace: true,
                     useHTML: false,
                 },
+                reversedStacks: false,
             },
         };
     };

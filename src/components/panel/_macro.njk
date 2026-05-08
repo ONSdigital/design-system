@@ -69,8 +69,14 @@
                     <span class="ons-panel__assistive-text ons-u-vh"
                         >{{ params.assistiveTextPrefix | default("Important information: ") }}</span
                     >
-                {% elif params.variant == 'error' or params.variant == 'success' %}
-                    {% set defaultText = "Completed" if params.variant == "success" else "Error" %}
+                {% elif params.variant == 'error' or params.variant == 'success' or params.variant == 'pending' %}
+                    {% if params.variant == "success" %}
+                        {% set defaultText = "Completed" %}
+                    {% elif params.variant == "pending" %}
+                        {% set defaultText = "Pending" %}
+                    {% else %}
+                        {% set defaultText = "Error" %}
+                    {% endif %}
                     <span {% if params.variant == "success" %}id="alert"{% endif %}class="ons-panel__assistive-text ons-u-vh"
                         >{{ params.assistiveTextPrefix | default(defaultText ~ ": ") }}</span
                     >

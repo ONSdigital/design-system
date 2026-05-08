@@ -1,6 +1,9 @@
 class ColumnChart {
     getColumnChartOptions = (config, useStackedLayout, extraLines) => {
         return {
+            yAxis: {
+                reversedStacks: false,
+            },
             plotOptions: {
                 column: {
                     ...this.getPointPadding(config, useStackedLayout, extraLines, false),

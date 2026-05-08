@@ -633,6 +633,7 @@
 
     &--menu {
         border-bottom: 4px solid rgb(0 0 0 / 0%);
+        height: 72px;
         .ons-icon {
             transform: rotate(90deg);
         }
@@ -646,12 +647,7 @@
             padding: 0;
             .ons-icon {
                 fill: var(--ons-color-text-link);
-                height: 1rem;
                 margin-top: 0;
-                width: 1rem;
-            }
-            .ons-btn__text {
-                height: 24px;
             }
         }
     }
@@ -725,7 +721,8 @@
     &--close {
         align-items: center;
         display: flex;
-        padding: 1.25rem 1rem 1rem;
+        height: 72px;
+        padding: 0 1.5rem;
     }
 
     &--search-icon &,
