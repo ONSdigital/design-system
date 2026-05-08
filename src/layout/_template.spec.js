@@ -546,6 +546,45 @@ const HEADER_BASIC_EXAMPLE = `
 {% block main %}{% endblock %}
 `;
 
+const HEADER_USE_DIV_EXAMPLE = `
+{% set pageConfig = {
+    "header": {
+        "title": "Test service",
+        "useDivForRootElement": false
+    }
+} %}
+{% block main %}{% endblock %}
+`;
+
+const BREADCRUMBS_VARIANT_EXAMPLE = `
+{% set pageConfig = {
+    "header": {
+        "title": "Test service"
+    },
+    "breadcrumbs": {
+        "itemsList": [
+            { "url": "/", "text": "Home" }
+        ],
+        "variant": "grey"
+    }
+} %}
+{% block main %}{% endblock %}
+`;
+
+const BREADCRUMBS_NO_VARIANT_EXAMPLE = `
+{% set pageConfig = {
+    "header": {
+        "title": "Test service"
+    },
+    "breadcrumbs": {
+        "itemsList": [
+            { "url": "/", "text": "Home" }
+        ]
+    }
+} %}
+{% block main %}{% endblock %}
+`;
+
 describe('base page template', () => {
     it('passes jest-axe checks', async () => {
         const $ = cheerio.load(renderBaseTemplate(FULL_EXAMPLE));
@@ -571,5 +610,31 @@ describe('base page template', () => {
         const $ = cheerio.load(renderBaseTemplate(params));
 
         expect($.html()).toMatchSnapshot();
+    });
+
+    describe('pageConfig.header.useDivForRootElement', () => {
+        it('renders the header macro root as a div when useDivForRootElement is not set (defaults to true)', () => {
+            const $ = cheerio.load(renderBaseTemplate(FULL_EXAMPLE));
+            expect($('div.ons-header').length).toBe(1);
+            expect($('header.ons-header').length).toBe(0);
+        });
+
+        it('renders the header macro root as a header element when useDivForRootElement is false', () => {
+            const $ = cheerio.load(renderBaseTemplate(HEADER_USE_DIV_EXAMPLE));
+            expect($('header.ons-header').length).toBe(1);
+            expect($('div.ons-header').length).toBe(0);
+        });
+    });
+
+    describe('pageConfig.breadcrumbs.variant', () => {
+        it('renders breadcrumbs in a wrapper with the variant modifier class when variant is provided', () => {
+            const $ = cheerio.load(renderBaseTemplate(BREADCRUMBS_VARIANT_EXAMPLE));
+            expect($('.ons-breadcrumbs-wrapper').hasClass('ons-breadcrumbs-wrapper--grey')).toBe(true);
+        });
+
+        it('does not render a breadcrumbs wrapper when variant is not provided', () => {
+            const $ = cheerio.load(renderBaseTemplate(BREADCRUMBS_NO_VARIANT_EXAMPLE));
+            expect($('.ons-breadcrumbs-wrapper').length).toBe(0);
+        });
     });
 });

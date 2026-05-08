@@ -36,6 +36,33 @@ describe('FOR: Macro: Header', () => {
         });
     });
 
+    describe('GIVEN: Params: useDivForRootElement', () => {
+        describe('WHEN: useDivForRootElement is not set', () => {
+            const $ = cheerio.load(
+                renderComponent('header', {
+                    ...EXAMPLE_HEADER_BASIC,
+                }),
+            );
+            test('THEN: renders the root element as a header tag', () => {
+                expect($('header.ons-header').length).toBe(1);
+            });
+        });
+        describe('WHEN: useDivForRootElement is set to true', () => {
+            const $ = cheerio.load(
+                renderComponent('header', {
+                    ...EXAMPLE_HEADER_BASIC,
+                    useDivForRootElement: true,
+                }),
+            );
+            test('THEN: renders the root element as a div tag', () => {
+                expect($('div.ons-header').length).toBe(1);
+            });
+            test('THEN: does not render a header tag as the root element', () => {
+                expect($('header.ons-header').length).toBe(0);
+            });
+        });
+    });
+
     describe('Accessibility: search heading', () => {
         test('THEN: axe passes when search heading is present (params.search.links.heading)', async () => {
             const params = {
