@@ -1,3 +1,5 @@
+@use '../../scss/helpers';
+
 .ons-card {
     margin: 0 0 2rem;
     width: 100%;
@@ -23,7 +25,7 @@
         text-decoration-thickness: 3px;
     }
 
-    @include mq(m) {
+    @include helpers.mq(m) {
         margin: 0;
         .ons-grid__col & {
             padding-right: 1rem;

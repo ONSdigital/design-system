@@ -1,3 +1,6 @@
+@use '../../scss/vars';
+@use '../../scss/helpers';
+
 .ons-navigation {
     position: relative;
 
@@ -26,7 +29,7 @@
     &-search {
         padding: 1rem;
 
-        @include mq(l) {
+        @include helpers.mq(l) {
             background: none;
             bottom: 65px;
             padding: 0;
@@ -41,7 +44,7 @@
         margin: 0;
         padding: 0 0 0.5rem;
 
-        @include mq(l) {
+        @include helpers.mq(l) {
             padding: 0;
         }
 
@@ -69,7 +72,7 @@
             }
         }
 
-        @include mq(l) {
+        @include helpers.mq(l) {
             border-bottom: 4px solid transparent;
             border-left: 0;
             display: inline-block;
@@ -123,7 +126,7 @@
             }
         }
 
-        @include mq(l) {
+        @include helpers.mq(l) {
             display: inline-block;
             margin: 0;
             padding: 0;
@@ -150,6 +153,6 @@
     }
 
     &__item--active > &__link {
-        font-weight: $font-weight-bold;
+        font-weight: vars.$font-weight-bold;
     }
 }
