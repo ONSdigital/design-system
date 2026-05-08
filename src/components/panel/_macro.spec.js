@@ -15,6 +15,7 @@ describe('macro: panel', () => {
         ['info', 'Important information:'],
         ['bare', 'Important information:'],
         ['error', 'Error:'],
+        ['pending', 'Pending:'],
         ['warn', 'Warning:'],
         ['warn-branded', 'Warning:'],
         ['branded', 'Important information:'],
@@ -134,17 +135,22 @@ describe('macro: panel', () => {
         });
     });
 
-    describe('mode: info', () => {
+    describe.each([
+        ['info', 'div'],
+        ['', 'div'],
+        ['pending', 'div'],
+    ])('mode: %s', (panelVariant, tagEl) => {
         it('has the default title tag', () => {
             const $ = cheerio.load(
                 renderComponent('panel', {
                     ...EXAMPLE_PANEL_BASIC,
                     title: 'Panel title',
+                    variant: panelVariant,
                 }),
             );
 
             const titleTag = $('.ons-panel__title')[0].tagName;
-            expect(titleTag).toBe('div');
+            expect(titleTag).toBe(tagEl);
         });
 
         it('has the provided `headingLevel`', () => {
@@ -152,6 +158,7 @@ describe('macro: panel', () => {
                 renderComponent('panel', {
                     ...EXAMPLE_PANEL_BASIC,
                     title: 'Panel title',
+                    variant: panelVariant,
                     headingLevel: 3,
                 }),
             );
@@ -165,6 +172,7 @@ describe('macro: panel', () => {
                 renderComponent('panel', {
                     ...EXAMPLE_PANEL_BASIC,
                     title: 'Panel title',
+                    variant: panelVariant,
                 }),
             );
 
@@ -214,6 +222,20 @@ describe('macro: panel', () => {
 
             const titleTag = $('.ons-panel__title')[0].tagName;
             expect(titleTag).toBe(tagEl);
+        });
+
+        it('has the provided `headingLevel`', () => {
+            const $ = cheerio.load(
+                renderComponent('panel', {
+                    ...EXAMPLE_PANEL_BASIC,
+                    title: 'Panel title',
+                    variant: panelVariant,
+                    headingLevel: 3,
+                }),
+            );
+
+            const titleTag = $('.ons-panel__title')[0].tagName;
+            expect(titleTag).toBe('h3');
         });
 
         it('has aria-labelledby attribute set with default value', () => {

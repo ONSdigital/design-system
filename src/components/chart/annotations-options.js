@@ -1,16 +1,26 @@
 import ChartConstants from './chart-constants';
 
 class AnnotationsOptions {
-    constructor(annotations) {
+    constructor(annotations, xAxisCategories = []) {
         this.constants = ChartConstants.constants();
         this.annotations = annotations;
+        this.xAxisCategories = xAxisCategories;
     }
+
+    // Screen reader description that includes the annotated data point.
+    buildPointAccessibilityDescription = (annotation) => {
+        const x = annotation.point.x;
+        const y = annotation.point.y;
+        const xLabel = Number.isInteger(x) && this.xAxisCategories.length > x ? this.xAxisCategories[x] : x;
+        return `${annotation.text}. Related to ${xLabel}, ${y}`;
+    };
 
     getAnnotationsOptionsDesktop = () => {
         let annotations = [
             {
                 labels: [],
                 labelOptions: {
+                    useHTML: true,
                     shape: 'connector',
                     borderColor: this.constants.labelColor,
                     padding: 3,
@@ -35,6 +45,9 @@ class AnnotationsOptions {
                 text: annotation.text,
                 x: annotation.labelOffsetX,
                 y: annotation.labelOffsetY,
+                accessibility: {
+                    description: this.buildPointAccessibilityDescription(annotation),
+                },
             });
         });
         return annotations;
@@ -65,9 +78,9 @@ class AnnotationsOptions {
                 text: index + 1,
                 x: 0,
                 y: 0,
-                // Ensures the full label is read out by screen readers
+                // Ensures the full label is read out by screen readers, including data point context
                 accessibility: {
-                    description: annotation.text,
+                    description: this.buildPointAccessibilityDescription(annotation),
                 },
             });
         });

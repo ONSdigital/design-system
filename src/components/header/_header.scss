@@ -249,6 +249,20 @@
         }
     }
 
+    &--basic {
+        .ons-header__links--language-section {
+            padding: 0 1.5rem !important;
+        }
+
+        .ons-header__language {
+            margin-bottom: 4px !important;
+        }
+
+        .ons-language-links__item {
+            margin: 0 !important;
+        }
+    }
+
     &--basic & {
         &__grid-top {
             padding: 0;
@@ -257,6 +271,8 @@
 
             #{$root}__menu-links {
                 width: 100%;
+                display: flex;
+                align-items: center;
 
                 #{$root}__language {
                     display: block;
@@ -287,7 +303,8 @@
         position: relative;
         width: 100%;
 
-        &__key-list {
+        &__key-list,
+        &__language {
             border-bottom: 1px solid var(--ons-color-ocean-blue);
             margin-bottom: 1.25rem;
             padding-bottom: 1rem;
@@ -300,6 +317,11 @@
         &__text,
         &__description {
             line-height: 1.714 !important;
+        }
+        &__language {
+            .ons-language-links__item {
+                margin-left: 0 !important;
+            }
         }
 
         &__groupItem-list:not(:last-of-type) {
@@ -315,6 +337,7 @@
             padding-bottom: 1rem;
             @include helpers.mq(m) {
                 padding-bottom: 0;
+                padding-right: 2.5rem;
             }
         }
     }
@@ -328,15 +351,25 @@
     &-nav-search {
         background-color: var(--ons-color-branded-tint);
 
+        // Prevent flash of the non-JS, always-visible panels when JS is enabled.
+        // Panels are shown only when NavigationToggle sets aria-hidden="false".
+        body.ons-js-enabled .ons-header.ons-header--basic &.ons-js-nav-menu:not([aria-hidden='false']),
+        body.ons-js-enabled .ons-header.ons-header--basic &.ons-js-header-search:not([aria-hidden='false']) {
+            display: none !important;
+        }
+
+        body.ons-js-enabled .ons-header.ons-header--basic &.ons-js-nav-menu[aria-hidden='false'],
+        body.ons-js-enabled .ons-header.ons-header--basic &.ons-js-header-search[aria-hidden='false'] {
+            display: block !important;
+        }
+
         // updates styles when js is enabled
         .ons-js-enabled & {
-            position: absolute;
-            top: 100%;
+            position: relative;
             left: 50%;
             width: 100vw;
             transform: translateX(-50%);
             border-top: 0;
-            z-index: 500;
         }
     }
 

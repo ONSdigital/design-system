@@ -160,9 +160,7 @@ describe('PuppeteerEndpointFaker', () => {
 
     describe('setup(page)', () => {
         it('throws error when instance has already been setup', async () => {
-            await expect(async () => {
-                await apiFaker.setup(page);
-            }).rejects.toThrowError('faker has already been setup');
+            await expect(apiFaker.setup(page)).rejects.toThrow('faker has already been setup');
         });
     });
 

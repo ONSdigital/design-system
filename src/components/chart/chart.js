@@ -41,7 +41,7 @@ class HighchartsBaseChart {
         this.config = JSON.parse(this.node.querySelector(`[data-highcharts-config--${this.id}]`).textContent);
         if (this.node.querySelector(`[data-highcharts-annotations--${this.id}]`)) {
             this.annotations = JSON.parse(this.node.querySelector(`[data-highcharts-annotations--${this.id}]`).textContent);
-            this.annotationsOptions = new AnnotationsOptions(this.annotations);
+            this.annotationsOptions = new AnnotationsOptions(this.annotations, this.config.xAxis?.categories ?? []);
         }
         if (this.node.querySelector(`[data-highcharts-range-annotations--${this.id}]`)) {
             this.rangeAnnotations = JSON.parse(this.node.querySelector(`[data-highcharts-range-annotations--${this.id}]`).textContent);
@@ -56,16 +56,16 @@ class HighchartsBaseChart {
         this.percentageHeightDesktop = this.node.dataset.highchartsPercentageHeightDesktop;
         this.percentageHeightMobile = this.node.dataset.highchartsPercentageHeightMobile;
         this.xAxisTickIntervalMobile = this.node.dataset.highchartsXAxisTickIntervalMobile
-            ? parseInt(this.node.dataset.highchartsXAxisTickIntervalMobile)
+            ? parseFloat(this.node.dataset.highchartsXAxisTickIntervalMobile)
             : undefined;
         this.xAxisTickIntervalDesktop = this.node.dataset.highchartsXAxisTickIntervalDesktop
-            ? parseInt(this.node.dataset.highchartsXAxisTickIntervalDesktop)
+            ? parseFloat(this.node.dataset.highchartsXAxisTickIntervalDesktop)
             : undefined;
         this.yAxisTickIntervalMobile = this.node.dataset.highchartsYAxisTickIntervalMobile
-            ? parseInt(this.node.dataset.highchartsYAxisTickIntervalMobile)
+            ? parseFloat(this.node.dataset.highchartsYAxisTickIntervalMobile)
             : undefined;
         this.yAxisTickIntervalDesktop = this.node.dataset.highchartsYAxisTickIntervalDesktop
-            ? parseInt(this.node.dataset.highchartsYAxisTickIntervalDesktop)
+            ? parseFloat(this.node.dataset.highchartsYAxisTickIntervalDesktop)
             : undefined;
         this.commonChartOptions = new CommonChartOptions();
         this.estimateLineLabel = this.node.dataset.highchartsEstimateLineLabel;
@@ -73,7 +73,6 @@ class HighchartsBaseChart {
         this.customReferenceLineValue = this.node.dataset.highchartsCustomReferenceLineValue
             ? parseFloat(this.node.dataset.highchartsCustomReferenceLineValue)
             : undefined;
-
         this.specificChartOptions = new SpecificChartOptions(
             this.theme,
             this.chartType,
@@ -98,12 +97,32 @@ class HighchartsBaseChart {
         }
         this.hideDataLabels = this.checkHideDataLabels();
         this.setSpecificChartOptions();
+        this.setAnnotationsAccessibilityDescription();
         this.setResponsiveOptions();
         this.setLoadEvent();
         this.setRenderEvent();
         this.setWindowResizeEvent();
         this.chart = Highcharts.chart(chartNode, this.config);
     }
+
+    // Making these annotation types accessible to screen readers.  Point annotations are already
+    // handled by the Highcharts annotations module via {annotationsList}.
+    setAnnotationsAccessibilityDescription = () => {
+        const descriptions = [];
+        if (this.rangeAnnotationsOptions) {
+            descriptions.push(...this.rangeAnnotationsOptions.getAccessibilityDescriptions());
+        }
+        if (this.referenceLineAnnotationsOptions) {
+            descriptions.push(...this.referenceLineAnnotationsOptions.getAccessibilityDescriptions());
+        }
+        if (descriptions.length > 0) {
+            if (!this.config.accessibility) {
+                this.config.accessibility = {};
+            }
+            const listItems = descriptions.map((d) => `<li>${d}</li>`).join('');
+            this.config.accessibility.description = `<ul style="list-style-type: none">${listItems}</ul>`;
+        }
+    };
 
     // Check for the number of extra line series in the config
     checkForExtraLines = () => {
@@ -167,6 +186,7 @@ class HighchartsBaseChart {
         if (this.chartType === 'scatter') {
             // Merge the scatter chart options with the existing config
             this.config = mergeConfigs(this.config, scatterChartOptions);
+            this.specificChartOptions.limitSeriesForScatterChart();
         }
         if (this.chartType === 'boxplot') {
             // Merge the boxplot chart options with the existing config
@@ -186,6 +206,9 @@ class HighchartsBaseChart {
                 this.config = mergeConfigs(this.config, columnRangeChartOptions);
             }
         }
+
+        // Limit the number of series to the theme length
+        this.specificChartOptions.limitSeriesToThemeLength();
 
         // Disable the legend for single series charts
         this.specificChartOptions.disableLegendForSingleSeries(this.config);
@@ -314,6 +337,12 @@ class HighchartsBaseChart {
                         this.specificChartOptions.hideDataLabels([series]);
                     }
                 });
+            }
+            // Clear the SVG <desc> element that Highcharts unconditionally
+            // injects with "Created with Highcharts x.x.x".
+            const svgDesc = currentChart.renderer.box.querySelector('desc');
+            if (svgDesc) {
+                svgDesc.textContent = '';
             }
             currentChart.redraw(false);
         };

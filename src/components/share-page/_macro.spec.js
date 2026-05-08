@@ -10,7 +10,7 @@ const EXAMPLE_SHARE_PAGE = {
     pageTitle: 'An example page',
     pageUrl: 'https://example.com/an-example-page',
     facebook: true,
-    twitter: true,
+    x: true,
 };
 
 describe('macro: share-page', () => {
@@ -50,16 +50,16 @@ describe('macro: share-page', () => {
         expect(listsSpy.occurrences[0].iconSize).toBe('xl');
     });
 
-    describe('Share on Twitter', () => {
+    describe('Share on X', () => {
         it('has a link with the expected url', () => {
             const faker = templateFaker();
             const listsSpy = faker.spy('list');
 
             faker.renderComponent('share-page', EXAMPLE_SHARE_PAGE);
 
-            const twitterItem = listsSpy.occurrences[0].itemsList.find((item) => item.text === 'Twitter');
-            expect(twitterItem.url).toBe(
-                'https://twitter.com/intent/tweet?original_referer&text=An%20example%20page&url=https%3A%2F%2Fexample.com%2Fan-example-page',
+            const xItem = listsSpy.occurrences[0].itemsList.find((item) => item.text === 'X');
+            expect(xItem.url).toBe(
+                'https://x.com/intent/tweet?original_referer&text=An%20example%20page&url=https%3A%2F%2Fexample.com%2Fan-example-page',
             );
         });
 
@@ -69,10 +69,10 @@ describe('macro: share-page', () => {
 
             faker.renderComponent('share-page', EXAMPLE_SHARE_PAGE);
 
-            const twitterItem = listsSpy.occurrences[0].itemsList.find((item) => item.text === 'Twitter');
-            expect(twitterItem.rel).toContain('noreferrer');
-            expect(twitterItem.rel).toContain('external');
-            expect(twitterItem.target).toBe('_blank');
+            const xItem = listsSpy.occurrences[0].itemsList.find((item) => item.text === 'X');
+            expect(xItem.rel).toContain('noreferrer');
+            expect(xItem.rel).toContain('external');
+            expect(xItem.target).toBe('_blank');
         });
     });
 

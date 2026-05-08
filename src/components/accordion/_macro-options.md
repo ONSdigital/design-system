@@ -20,8 +20,10 @@
 
 ## AccordionButton
 
-| Name       | Type   | Required | Description                                                           |
-| ---------- | ------ | -------- | --------------------------------------------------------------------- |
-| open       | string | true     | Button label text to show when one or more accordion items are closed |
-| close      | string | true     | Button label text to show when all of the items are open              |
-| attributes | object | false    | HTML attributes (for example, data attributes) to add to the button   |
+| Name           | Type   | Required | Description                                                               |
+| -------------- | ------ | -------- | ------------------------------------------------------------------------- |
+| open           | string | true     | Button label text to show when one or more accordion items are closed     |
+| close          | string | true     | Button label text to show when all of the items are open                  |
+| openAriaLabel  | string | false    | Custom aria-label for the “open” button. Defaults to "Show all buttons".  |
+| closeAriaLabel | string | false    | Custom aria-label for the “close” button. Defaults to "Hide all buttons". |
+| attributes     | object | false    | HTML attributes (for example, data attributes) to add to the button       |
