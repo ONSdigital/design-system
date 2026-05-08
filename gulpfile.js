@@ -30,6 +30,9 @@ const terserOptions = {
 const sassOptions = {
     includePaths: ['./node_modules/normalize.css'],
     outputStyle: 'compressed',
+    // gulp-dart-sass still uses Sass's legacy JS API internally.
+    // Silence that one warning until the plugin has a modern-API path.
+    silenceDeprecations: ['legacy-js-api'],
 };
 
 const scripts = [
