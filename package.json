@@ -33,7 +33,7 @@
         "postpack": "pinst --enable"
     },
     "lint-staged": {
-        "*.js": [
+        "*.{js,mjs}": [
             "prettier --write",
             "eslint --fix"
         ],
