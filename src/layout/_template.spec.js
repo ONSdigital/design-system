@@ -317,7 +317,7 @@ const FULL_EXAMPLE = `
 {% endblock %}
 
 {% block head %}Some head content{% endblock %}
-{% block preHeader %}<banner>Some preHeader content</banner>{% endblock %}
+{% block preHeader %}<section>Some preHeader content</section>{% endblock %}
 {% block preFooter %}Some preFooter content{% endblock %}
 {% block scripts %}<script src="random-script.js"></script>{% endblock %}
 `;
@@ -546,16 +546,6 @@ const HEADER_BASIC_EXAMPLE = `
 {% block main %}{% endblock %}
 `;
 
-const HEADER_USE_DIV_EXAMPLE = `
-{% set pageConfig = {
-    "header": {
-        "title": "Test service",
-        "useDivForRootElement": false
-    }
-} %}
-{% block main %}{% endblock %}
-`;
-
 const BREADCRUMBS_VARIANT_EXAMPLE = `
 {% set pageConfig = {
     "header": {
@@ -610,20 +600,6 @@ describe('base page template', () => {
         const $ = cheerio.load(renderBaseTemplate(params));
 
         expect($.html()).toMatchSnapshot();
-    });
-
-    describe('pageConfig.header.useDivForRootElement', () => {
-        it('renders the header macro root as a div when useDivForRootElement is not set (defaults to true)', () => {
-            const $ = cheerio.load(renderBaseTemplate(FULL_EXAMPLE));
-            expect($('div.ons-header').length).toBe(1);
-            expect($('header.ons-header').length).toBe(0);
-        });
-
-        it('renders the header macro root as a header element when useDivForRootElement is false', () => {
-            const $ = cheerio.load(renderBaseTemplate(HEADER_USE_DIV_EXAMPLE));
-            expect($('header.ons-header').length).toBe(1);
-            expect($('div.ons-header').length).toBe(0);
-        });
     });
 
     describe('pageConfig.breadcrumbs.variant', () => {
