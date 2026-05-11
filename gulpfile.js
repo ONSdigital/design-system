@@ -16,7 +16,7 @@ const babelEsmConfig = require('./babel.conf.esm');
 const babelNomoduleConfig = require('./babel.conf.nomodule');
 const postCssPlugins = require('./postcss.config').default;
 const generateUrls = require('./src/tests/helpers/url-generator.js').default;
-const generateStaticPages = require('./lib/generate-static-pages').default;
+const generateStaticPages = require('./lib/generate-static-pages.mjs').default;
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;
@@ -122,7 +122,7 @@ gulp.task('watch-and-build', async () => {
 });
 
 gulp.task('start-dev-server', async () => {
-    await import('./lib/dev-server.js');
+    await import('./lib/dev-server.mjs');
 });
 
 gulp.task('build-assets', gulp.series('build-script', 'build-styles'));
