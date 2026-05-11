@@ -428,13 +428,13 @@
         flex-wrap: wrap;
         column-gap: 1rem;
 
-        & .ons-hero__panel {
+        .ons-hero__panel {
             padding: 0.5rem 1rem;
             border-left: 5px solid transparent;
             @extend .ons-u-fs-r--b;
         }
 
-        & .ons-hero__link {
+        .ons-hero__link {
             padding: 0.5rem 0;
         }
     }

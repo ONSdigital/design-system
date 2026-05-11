@@ -61,10 +61,9 @@ $hub-row-spacing: 1.3rem;
     &__actions {
         hyphens: manual;
         margin: 0;
-        overflow-wrap: break-word;
         padding: 0 0 $summary-row-spacing;
         vertical-align: top;
-        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     &__item-title {
@@ -182,7 +181,7 @@ $hub-row-spacing: 1.3rem;
         &__actions {
             display: flex;
             justify-content: right;
-            & :not(.ons-summary__item-title--error) {
+            :not(.ons-summary__item-title--error) {
                 padding-right: 0;
             }
         }
