@@ -1609,7 +1609,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
             <div class="ons-page">
                 <div class="ons-page__content">
-                    <banner>Some preHeader content</banner>
+                    <section>Some preHeader content</section>
                     
                         
     
