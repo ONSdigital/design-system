@@ -16,17 +16,25 @@ jobs:
             - name: Use Node.js
               uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
               with:
-                  ref: ${{ github.event.release.target_commitish }}
+                  ref: ${{ github.event.release.tag_name }}
+            - name: Determine version and npm dist-tag
+              run: |
+                  TAG_NAME="${{ github.event.release.tag_name }}"
+                  echo "RELEASE_VERSION=$TAG_NAME" >> $GITHUB_ENV
+
+                  if [[ "${{ github.event.release.prerelease }}" == "true" ]]; then
+                      echo "NPM_DIST_TAG=next" >> $GITHUB_ENV
+                  else
+                      echo "NPM_DIST_TAG=latest" >> $GITHUB_ENV
+                  fi
             - name: Install Node
               uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
               with:
                   node-version-file: '.nvmrc'
                   registry-url: https://registry.npmjs.org/
             - run: yarn install
-            - run: git config --global user.name "${{ github.actor }}"
-            - run: git config --global user.email "github-action-${{ github.actor }}@users.noreply.github.com"
-            - run: npm version ${{ github.event.release.tag_name }}
+            - run: npm version "$RELEASE_VERSION" --no-git-tag-version
             - run: yarn npm-bundle
-            - run: npm publish --access public
+            - run: npm publish --access public --tag "$NPM_DIST_TAG"
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

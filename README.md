@@ -159,6 +159,29 @@ Generate a build into `./build`.
 yarn build
 ```
 
+## Pre-releases
+
+When we want to work with a consumer to validate breaking changes before the next major version, use a long-lived pre-release branch and publish **GitHub pre-releases**. Use a branch called `next` from `main` and merge breaking-change work into `next` (keeping `main` stable).
+
+### Publishing a pre-release
+
+1. Create a tag from the `next` branch using a SemVer pre-release version, for example: `74.0.0-next.1`.
+2. Create a GitHub Release for that tag and ensure **"This is a pre-release"** is checked.
+
+GitHub Actions will publish to npm under the dist-tag `next`. Consumers can install the pre-release with:
+
+```bash
+yarn add @ons/design-system@next
+```
+
+### Publishing the stable major
+
+1. Merge `next` into `main`.
+2. Create a normal release tag, for example: `74.0.0`.
+3. Publish the GitHub Release (not marked as a pre-release).
+
+This will be published to npm under the default dist-tag `latest`.
+
 ## Manually publish to NPM
 
 Make sure you are logged into the CLI with the DS shared npm account
