@@ -41,7 +41,12 @@
     {% set statementText = beforeLinkStatementText + ' <a href="' + settingsLinkUrl + '">' + afterLinkStatementText %}
     {% set preferencesText = beforeLinkPreferencesUrl + ' <a href="' + settingsLinkUrl + '">' + afterLinkPreferencesUrl %}
 
-    <div class="ons-cookies-banner" role="region" aria-label="{{ params.ariaLabel | default(ariaLabel) }}"{% if params.cookieDomainPolicy %} data-ons-cookie-domain-policy="{{ params.cookieDomainPolicy }}"{% endif %}>
+    <section
+        role="banner"
+        class="ons-cookies-banner"
+        aria-label="{{ params.ariaLabel | default(ariaLabel) }}"
+        {% if params.cookieDomainPolicy %}data-ons-cookie-domain-policy="{{ params.cookieDomainPolicy }}"{% endif %}
+    >
         <div
             class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }} ons-cookies-banner__primary"
         >
@@ -112,5 +117,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 {% endmacro %}
