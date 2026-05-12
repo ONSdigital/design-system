@@ -120,8 +120,36 @@ describe('macro: input', () => {
         );
 
         expect($('.ons-input').attr('type')).toBe('text');
-        expect($('.ons-input').attr('pattern')).toBe('[0-9]*');
+        expect($('.ons-input').attr('pattern')).toBeUndefined();
+        expect($('.ons-input').attr('inputmode')).toBe('decimal');
+    });
+
+    it('outputs number type with decimal `inputmode` and no pattern', () => {
+        const $ = cheerio.load(
+            renderComponent('input', {
+                ...EXAMPLE_INPUT_MINIMAL,
+                type: 'number',
+                inputmode: 'decimal',
+            }),
+        );
+
+        expect($('.ons-input').attr('type')).toBe('text');
+        expect($('.ons-input').attr('inputmode')).toBe('decimal');
+        expect($('.ons-input').attr('pattern')).toBeUndefined();
+    });
+
+    it('keeps pattern when number `inputmode` is explicitly set to numeric', () => {
+        const $ = cheerio.load(
+            renderComponent('input', {
+                ...EXAMPLE_INPUT_MINIMAL,
+                type: 'number',
+                inputmode: 'numeric',
+            }),
+        );
+
+        expect($('.ons-input').attr('type')).toBe('text');
         expect($('.ons-input').attr('inputmode')).toBe('numeric');
+        expect($('.ons-input').attr('pattern')).toBe('[0-9]*');
     });
 
     it('has additionally provided style classes', () => {
@@ -255,6 +283,19 @@ describe('macro: input', () => {
 
         expect($('.ons-input').attr('type')).toBe(type);
         expect($('.ons-input').attr('pattern')).toBeUndefined();
+        expect($('.ons-input').attr('inputmode')).toBeUndefined();
+    });
+
+    it('does not output `inputmode` when `type` is not "number"', () => {
+        const $ = cheerio.load(
+            renderComponent('input', {
+                ...EXAMPLE_INPUT_MINIMAL,
+                type: 'text',
+                inputmode: 'decimal',
+            }),
+        );
+
+        expect($('.ons-input').attr('type')).toBe('text');
         expect($('.ons-input').attr('inputmode')).toBeUndefined();
     });
 
