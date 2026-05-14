@@ -898,6 +898,11 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
@@ -980,6 +985,11 @@ exports[`base page template matches the body block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
@@ -1221,6 +1231,11 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
@@ -1468,6 +1483,11 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
@@ -2825,6 +2845,11 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             (function() {
                 var s = [ '/some-path/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/some-path/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
@@ -3071,6 +3096,11 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
@@ -3304,6 +3334,11 @@ exports[`base page template matches the social block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
