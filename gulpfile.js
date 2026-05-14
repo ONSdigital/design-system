@@ -39,8 +39,18 @@ const scripts = [
         config: babelEsmConfig,
     },
     {
+        entryPoint: './src/js/chart.js',
+        outputFile: 'chart.js',
+        config: babelEsmConfig,
+    },
+    {
         entryPoint: ['./src/js/polyfills.js', './src/js/main.js'],
         outputFile: 'main.es5.js',
+        config: babelNomoduleConfig,
+    },
+    {
+        entryPoint: './src/js/chart.js',
+        outputFile: 'chart.es5.js',
         config: babelNomoduleConfig,
     },
 ];

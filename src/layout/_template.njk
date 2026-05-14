@@ -243,6 +243,11 @@
             (function() {
                 var s = [ '{{ assetsUrl }}/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('{{ assetsUrl }}/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
