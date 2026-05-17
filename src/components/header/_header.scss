@@ -247,6 +247,18 @@
     }
 
     &--basic {
+        .ons-header__org-logo--small {
+            width: 135px !important;
+        }
+
+        .ons-header__top {
+            .ons-container {
+                @include mq('2xs', m) {
+                    padding-right: 0;
+                }
+            }
+        }
+
         .ons-header__links--language-section {
             padding: 0 1.5rem !important;
         }
@@ -296,25 +308,27 @@
 
     &-nav-menu {
         margin-bottom: 0;
-        padding-bottom: 2.5rem;
+        padding: 2rem 0;
         position: relative;
         width: 100%;
 
         &__key-list,
         &__language {
             border-bottom: 1px solid var(--ons-color-ocean-blue);
-            margin-bottom: 1.25rem;
-            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
             padding-left: 0;
             row-gap: 1rem;
         }
 
-        &__link,
-        &__heading,
-        &__text,
-        &__description {
-            line-height: 1.714 !important;
+        &__key-list {
+            @include mq('2xs', m) {
+                .ons-header-nav-menu__col:not(:last-of-type) {
+                    padding-bottom: 1rem;
+                }
+            }
         }
+
         &__language {
             .ons-language-links__item {
                 margin-left: 0 !important;
@@ -322,7 +336,7 @@
         }
 
         &__groupItem-list:not(:last-of-type) {
-            margin-bottom: 2rem !important;
+            margin-bottom: 2.5rem !important;
         }
 
         .ons-grid {
@@ -331,10 +345,21 @@
 
         .ons-grid__col {
             padding-left: 0;
-            padding-bottom: 1rem;
+            padding-bottom: 2.5rem;
+            margin-bottom: 0;
             @include mq(m) {
                 padding-bottom: 0;
                 padding-right: 2.5rem;
+            }
+        }
+
+        .ons-grid__col:last-child {
+            padding-bottom: 0;
+        }
+
+        &__item:last-child {
+            .ons-header-nav-menu__text {
+                margin-bottom: 0 !important;
             }
         }
     }
@@ -375,14 +400,10 @@
     }
 
     &-nav-search {
-        @extend .ons-u-pt-2xl;
-        @extend .ons-u-pb-2xl;
+        @extend .ons-u-pt-xl;
+        @extend .ons-u-pb-xl;
 
         &__input {
-            border-bottom: 1px solid var(--ons-color-ocean-blue);
-            @extend .ons-u-mb-2xl;
-            @extend .ons-u-pb-2xl;
-
             row-gap: 1rem;
         }
     }
