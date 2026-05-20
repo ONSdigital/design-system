@@ -42,7 +42,7 @@
     {% set preferencesText = beforeLinkPreferencesUrl + ' <a href="' + settingsLinkUrl + '">' + afterLinkPreferencesUrl %}
 
     <section
-        role="banner"
+        role="region"
         class="ons-cookies-banner"
         aria-label="{{ params.ariaLabel | default(ariaLabel) }}"
         {% if params.cookieDomainPolicy %}data-ons-cookie-domain-policy="{{ params.cookieDomainPolicy }}"{% endif %}
