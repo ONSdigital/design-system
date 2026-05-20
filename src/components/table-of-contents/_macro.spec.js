@@ -101,6 +101,23 @@ describe('macro: table-of-contents', () => {
         expect($('.ons-table-of-contents').attr('aria-label')).toBe('Contents');
     });
 
+    it('renders a default aria label for the aside', () => {
+        const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_SINGLE));
+
+        expect($('.ons-table-of-contents-container').attr('aria-label')).toBe('Table of contents');
+    });
+
+    it('renders the provided `ariaLabelForAside`', () => {
+        const $ = cheerio.load(
+            renderComponent('table-of-contents', {
+                ...EXAMPLE_TABLE_OF_CONTENTS_SINGLE,
+                ariaLabelForAside: 'Contents sidebar',
+            }),
+        );
+
+        expect($('.ons-table-of-contents-container').attr('aria-label')).toBe('Contents sidebar');
+    });
+
     it('renders title as heading element', () => {
         const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_SINGLE));
 
