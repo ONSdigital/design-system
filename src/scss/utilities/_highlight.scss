@@ -3,7 +3,7 @@
     background-image: linear-gradient(var(--ons-color-highlight), var(--ons-color-highlight));
     background-position: bottom;
     background-repeat: no-repeat;
-    background-size: 100% calc(var(--ons-line-height, 28px) - 4px);
+    background-size: 100% calc(var(--ons-line-height, 1.75rem) - 0.25rem);
     box-decoration-break: clone; // Firefox
     box-shadow: 0 4px 0 0 var(--ons-color-text-link-focus);
     font-style: normal;

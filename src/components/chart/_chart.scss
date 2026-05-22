@@ -103,9 +103,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
 
-        &-item {
             &--uncertainty {
                 width: 12px;
                 height: 12px;
@@ -204,7 +202,7 @@
 
     .ons-chart__boxplot-legend-item--estimate,
     .highcharts-boxplot-median {
-        background-color: WindowText;
+        background-color: CanvasText;
         stroke: WindowText;
     }
     .highcharts-color-0,

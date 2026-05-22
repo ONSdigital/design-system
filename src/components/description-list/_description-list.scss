@@ -85,7 +85,7 @@
             .ons-description-list__item {
                 display: grid;
                 grid-template-columns: auto 1fr;
-                grid-column-gap: 1rem;
+                column-gap: 1rem;
             }
         }
     }
