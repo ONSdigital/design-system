@@ -17,6 +17,11 @@ body {
     height: 100%;
     margin: 0;
     position: relative;
+
+    @media (orientation: landscape) {
+        padding-left: env(safe-area-inset-left, 0px);
+        padding-right: env(safe-area-inset-right, 0px);
+    }
 }
 
 img {
