@@ -1,6 +1,6 @@
 import abortableFetch from '../../js/abortable-fetch';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
-import runFuse from './fuse-config';
+import runFlexSearchIndex from './fuse-config';
 import DOMPurify from 'dompurify';
 
 export const baseClass = 'ons-js-autosuggest';
@@ -297,30 +297,23 @@ export default class AutosuggestUI {
     async fetchSuggestions(sanitisedQuery, data) {
         this.abortFetch();
 
-        const threshold =
-            this.customResultsThreshold != null && this.customResultsThreshold >= 0 && this.customResultsThreshold <= 1
-                ? this.customResultsThreshold
-                : 0.2;
-
-        let distance;
-        if (threshold >= 0.6) {
-            distance = 500;
-        } else if (threshold >= 0.4) {
-            distance = 300;
-        } else {
-            distance = 100;
-        }
-
-        const results = await runFuse(sanitisedQuery, data, this.lang, threshold, distance);
+        // Swap Fuse → FlexSearch
+        const results = await runFlexSearchIndex(
+            sanitisedQuery,
+            data,
+            this.lang, // searchField
+        );
 
         results.forEach((result) => {
-            const resultItem = result.item ?? result;
-
-            result.sanitisedText = sanitiseAutosuggestText(
-                resultItem[this.lang] ?? resultItem['formattedAddress'],
-                this.sanitisedQueryReplaceChars,
-            );
+            result.sanitisedText = sanitiseAutosuggestText(result[this.lang] ?? result.formattedAddress, this.sanitisedQueryReplaceChars);
         });
+        // results.forEach((result) => {
+        //     result.sanitisedText = sanitiseAutosuggestText(
+        //         result[this.lang] ?? result['formattedAddress'],
+        //         this.sanitisedQueryReplaceChars,
+        //     );
+        // });
+
         return {
             status: this.responseStatus,
             results,
