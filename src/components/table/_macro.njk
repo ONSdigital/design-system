@@ -8,7 +8,7 @@
             class="ons-table-scrollable__content"
             tabindex="0"
             role="region"
-            aria-label="{% if params.caption %}{{ params.caption }}.{% endif %}{{ params.ariaLabel }}"
+            aria-label="{% if params.caption %}{{ params.caption }}. {% endif %}{{ params.ariaLabel }}"
         >
             {# Uses multiple loops to set the rowspan class so that it can work in both nunjucks and jinja2 environments due to the scoping rules of each language #}
             <table
