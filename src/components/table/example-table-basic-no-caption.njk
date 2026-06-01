@@ -1,8 +1,8 @@
 {% from "components/table/_macro.njk" import onsTable %}
 {{
     onsTable({
-        "caption": "A basic table with a footer",
-        "ariaLabel": "Basic table with footer example",
+        "ariaLabel": "Basic table example",
+        "id": "basic-table",
         "ths": [
             {
                 "value": "Column A"
@@ -31,26 +31,15 @@
             {
                 "tds": [
                     {
-                    "value": "Cell A2"
+                        "value": "Cell A2"
                     },
                     {
-                    "value": "Cell B2"
+                        "value": "Cell B2"
                     },
                     {
-                    "value": "Cell C2"
+                        "value": "Cell C2"
                     }
                 ]
-            }
-        ],
-        "tfoot": [
-            {
-                "value": "Column summary"
-            },
-            {
-                "value": "Column summary"
-            },
-            {
-                "value": "Column summary"
             }
         ]
     })

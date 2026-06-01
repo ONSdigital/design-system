@@ -7,6 +7,7 @@ import { mapAll } from '../../tests/helpers/cheerio';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_TABLE_MINIMAL = {
+    ariaLabel: 'Example table',
     ths: [],
     trs: [],
 };
@@ -67,18 +68,18 @@ describe('macro: table', () => {
         expect($('.ons-table-scrollable__content').length).toBe(1);
     });
 
-    it('renders an appropriate `aria-label` attribute on the "content" container element', () => {
+    it('renders the `aria-label` attribute on the "content" container element when no caption is provided', () => {
         const $ = cheerio.load(
             renderComponent('table', {
                 ...EXAMPLE_TABLE,
-                caption: 'Example table caption',
+                ariaLabel: 'Special table',
             }),
         );
 
-        expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Scrollable table');
+        expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Special table');
     });
 
-    it('renders a custom `aria-label` attribute on the "content" container element', () => {
+    it('combines the caption and `ariaLabel` to form the `aria-label` attribute on the "content" container element', () => {
         const $ = cheerio.load(
             renderComponent('table', {
                 ...EXAMPLE_TABLE,
