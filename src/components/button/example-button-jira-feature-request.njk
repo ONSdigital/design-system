@@ -1,0 +1,14 @@
+{% from "components/button/_macro.njk" import onsButton %}
+{{
+    onsButton({
+        "id": 'feature-request-button',
+        "type": 'button',
+        "text": 'Request a feature',
+        "variants": 'secondary',
+        "classes": 'ons-js-jira-collector',
+        "attributes": {
+            "data-collector-id": '5f32b8d6',
+            "data-collector-src": 'https://officefornationalstatistics.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/kq7re0/b/1/c95134bc67d3a521bb3f4331beb9b804/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=5f32b8d6'
+        }
+    })
+}}

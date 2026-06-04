@@ -1,0 +1,9 @@
+{% from "components/button/_macro.njk" import onsButton %}
+{{
+    onsButton({
+        "id": 'bug-report-button',
+        "type": 'button',
+        "text": 'Report a problem',
+        "variants": 'secondary'
+    })
+}}

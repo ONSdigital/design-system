@@ -1,0 +1,37 @@
+{% from "components/button/_macro.njk" import onsButton %}
+
+<div class="row">
+    {{
+        onsButton({
+            "id": 'bug-report-button',
+            "type": 'button',
+            "text": 'Request a feature',
+            "variants": 'primary'
+        })
+    }}
+    <div class="status ons-u-mt-l" id="bug-status">bug collector: waiting for script…</div>
+</div>
+
+{# jQuery — the collector plugin requires it. Load before the collectors. #}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+{# Config first: keys are the collector IDs (Atlassian's multi-collector pattern). #}
+<script type="text/javascript">
+    window.ATL_JQ_PAGE_PROPS = {
+        '5f32b8d6': {
+            triggerFunction: function (showCollectorDialog) {
+                document.getElementById('bug-status').textContent = 'bug collector: loaded + bound \u2713 (click the button)';
+                jQuery('#bug-report-button').click(function (e) {
+                    e.preventDefault();
+                    showCollectorDialog();
+                });
+            },
+        },
+    };
+</script>
+
+{# Bug report collector script (REAL) #}
+<script
+    type="text/javascript"
+    src="https://officefornationalstatistics.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/kq7re0/b/1/c95134bc67d3a521bb3f4331beb9b804/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=5f32b8d6"
+></script>
