@@ -30,7 +30,3 @@ import '../components/modal/modal.dom';
 import '../components/timeout-modal/timeout-modal.dom';
 import '../components/timeout-panel/timeout-panel.dom';
 import '../components/video/video.dom';
-import '../components/chart/chart';
-import '../components/chart/chart.dom';
-import '../components/chart/chart-iframe-resize';
-import '../components/chart/chart-iframe-resize.dom';

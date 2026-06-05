@@ -1,4 +1,6 @@
 {% macro onsSkipToContent(params) %}
-    {% set text = params.text | default('Skip to content') %}
-    <a class="ons-skip-to-content ons-u-fs-r--b" href="{{ params.url }}">{{ text }}</a>
+    <div role="region">
+        {% set text = params.text | default('Skip to content') %}
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="{{ params.url }}">{{ text }}</a>
+    </div>
 {% endmacro %}
