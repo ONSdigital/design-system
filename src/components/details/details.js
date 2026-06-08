@@ -47,6 +47,7 @@ export default class Details {
             this.detailsHeader.setAttribute('aria-expanded', open);
             this.content.setAttribute('aria-hidden', !open);
             this.detailsHeader.setAttribute('data-ga-action', `${action} panel`);
+            this.detailsHeader.setAttribute('data-ga-interaction-value', `${action} panel`);
             if (this.detailsTitle) {
                 this.detailsTitle.textContent = setText;
             }
