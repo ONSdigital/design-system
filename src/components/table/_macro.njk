@@ -4,12 +4,7 @@
     {% set variants = params.variants if params.variants %}
 
     <div class="ons-table-scrollable ons-table-scrollable--on">
-        <div
-            class="ons-table-scrollable__content"
-            tabindex="0"
-            role="region"
-            aria-label="{% if params.caption %}{{ params.caption }}. {% endif %}{{ params.ariaLabel }}"
-        >
+        <div class="ons-table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.ariaLabel }}">
             {# Uses multiple loops to set the rowspan class so that it can work in both nunjucks and jinja2 environments due to the scoping rules of each language #}
             <table
                 {% if params.id %}id="{{ params.id }}"{% endif %}

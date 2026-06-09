@@ -68,7 +68,7 @@ describe('macro: table', () => {
         expect($('.ons-table-scrollable__content').length).toBe(1);
     });
 
-    it('renders the `aria-label` attribute on the "content" container element when no caption is provided', () => {
+    it('renders the `aria-label` attribute on the "content" container element', () => {
         const $ = cheerio.load(
             renderComponent('table', {
                 ...EXAMPLE_TABLE,
@@ -77,18 +77,6 @@ describe('macro: table', () => {
         );
 
         expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Special table');
-    });
-
-    it('combines the caption and `ariaLabel` to form the `aria-label` attribute on the "content" container element', () => {
-        const $ = cheerio.load(
-            renderComponent('table', {
-                ...EXAMPLE_TABLE,
-                caption: 'Example table caption',
-                ariaLabel: 'Special table',
-            }),
-        );
-
-        expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Special table');
     });
 
     describe('Vertical Alignment', () => {
