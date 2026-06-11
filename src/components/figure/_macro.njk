@@ -1,0 +1,70 @@
+{% from "components/list/_macro.njk" import onsList %}
+{% from "components/details/_macro.njk" import onsDetails %}
+
+{% macro onsFigure(params) %}
+    {# The heading levels are configurable so the figure slots into the correct place in the
+       document outline, but the title and subtitle always render at the same visual size
+       via the utility font-size classes below. #}
+    {% set headingLevel = params.headingLevel | default(2) %}
+    {% set openingTitleTag = "<h" ~ headingLevel %}
+    {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
+    {% set openingSubtitleTag = "<h" ~ (headingLevel + 1) %}
+    {% set closingSubtitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
+    {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 2) %}
+    {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
+    {% set audioDescriptionId = "figure-audio-description-" ~ params.id %}
+
+    <div {% if params.classes %} class="{{ params.classes }}"{% endif %}{% if params.id %} id="{{ params.id }}"{% endif %}>
+        <figure {% if params.audioDescription %} aria-describedby="{{ audioDescriptionId }}"{% endif %} class="ons-u-m-no">
+            {% if params.title %}
+                {{ openingTitleTag | safe }} class="ons-u-fs-m">{{ params.title }}{{ closingTitleTag | safe }}
+            {% endif %}
+            {% if params.subtitle %}
+                {{ openingSubtitleTag | safe }} class="ons-u-fs-r">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+            {% endif %}
+
+            {# A visually-hidden description of the nested content for screen reader users. #}
+            {% if params.audioDescription %}
+                <p class="ons-u-vh" id="{{ audioDescriptionId }}">{{ params.audioDescription }}</p>
+            {% endif %}
+
+            <div>
+                {# The nested content appears here #}
+                {{ caller() if caller }}
+            </div>
+
+            {# A figure may only contain a single figcaption, so the caption and source
+               are rendered together within one element. #}
+            {% if params.caption or params.source %}
+                <figcaption>
+                    {% if params.caption %}{{ params.caption }}{% endif %}
+                    {% if params.source %}{{ params.source }}{% endif %}
+                </figcaption>
+            {% endif %}
+        </figure>
+
+        {% if params.download.title and params.download.itemsList | length > 0 %}
+            {{ openingDownloadTitleTag | safe }}
+            class="ons-u-fs-r--b ons-u-pt-l">{{ params.download.title }}{{ closingDownloadTitleTag | safe }}
+            {{
+                onsList({
+                    "element": "ol",
+                    "itemsList": params.download.itemsList
+                })
+            }}
+        {% endif %}
+
+        {% if params.footnotes %}
+            {% set footnotesId = ["figure-footnotes--", params.id] | join %}
+            {{
+                onsDetails({
+                    "id": footnotesId,
+                    "title": params.footnotes.title,
+                    "content": params.footnotes.content,
+                    "headingLevel": headingLevel + 2,
+                    "classes": "ons-u-mt-xl"
+                })
+            }}
+        {% endif %}
+    </div>
+{% endmacro %}

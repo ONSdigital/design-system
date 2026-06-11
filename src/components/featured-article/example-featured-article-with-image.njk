@@ -1,24 +1,33 @@
 {% from "components/featured-article/_macro.njk" import onsFeaturedArticle %}
-{{
-    onsFeaturedArticle({
-        "title": {
-            "text": 'Retail sales, Great Britain: July 2024',
-            "url": '#0'
-        },
-        "metadata": {
-            "text": 'Dataset',
-            "date": {
-                "prefix": 'Released',
-                "showPrefix": true,
-                "iso": '2021-02-18',
-                "short": '18 February 2021'
-            }
-        },
-        "headingLevel": 3,
-        "image": {
-            "src": '/img/small/census-monuments-lights-featured.jpg',
-            "alt": 'census monuments lights featured'
-        },
-        "description": "Retail sales volumes and values saw moderate growth in July 2024, with the annual rate of inflation for the Consumer Prices Index including owner occupiers’ housing costs (CPIH) rising to 2.8%."
-    })
-}}
+{% from "components/figure/_macro.njk" import onsFigure %}
+{% from "components/image/_macro.njk" import onsImage %}
+
+{% call onsFeaturedArticle({
+    "title": {
+        "text": 'Retail sales, Great Britain: July 2024',
+        "url": '#0'
+    },
+    "metadata": {
+        "text": 'Dataset',
+        "date": {
+            "prefix": 'Released',
+            "showPrefix": true,
+            "iso": '2021-02-18',
+            "short": '18 February 2021'
+        }
+    },
+    "headingLevel": 3,
+    "description": "Retail sales volumes and values saw moderate growth in July 2024, with the annual rate of inflation for the Consumer Prices Index including owner occupiers’ housing costs (CPIH) rising to 2.8%."
+}) %}
+    {% call onsFigure({
+        "headingLevel": 4,
+        "title": "Census monuments lit up at night"
+    }) %}
+        {{
+            onsImage({
+                "src": '/img/small/census-monuments-lights-featured.jpg',
+                "alt": 'census monuments lights featured'
+            })
+        }}
+    {% endcall %}
+{% endcall %}

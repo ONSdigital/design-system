@@ -1,6 +1,3 @@
-{% from "components/chart/_macro.njk" import onsChart %}
-{% from "components/image/_macro.njk" import onsImage %}
-
 {% macro onsFeaturedArticle(params) %}
     {% set headingLevel = params.headingLevel | default(2) %}
     {% set openingArticleTitleTag = "<h" ~ headingLevel %}
@@ -32,41 +29,10 @@
             </ul>
         {% endif %}
 
+        {# The media (a nested figure containing a chart or image) is provided via the caller
+           block, so the article does not need to know how the content is rendered. #}
         <div class="ons-featured__media">
-            {% if params.chart %}
-                {{
-                    onsChart({
-                        "chartType": params.chart.chartType,
-                        "description": params.chart.description,
-                        "theme": params.chart.theme,
-                        "title": params.chart.title,
-                        "id": params.chart.id,
-                        "headingLevel": headingLevel + 1,
-                        "legend": params.chart.legend,
-                        "xAxis": params.chart.xAxis,
-                        "yAxis": params.chart.yAxis,
-                        "series": params.chart.series,
-                        "annotations": params.chart.annotations,
-                        "rangeAnnotations": params.chart.rangeAnnotations,
-                        "referenceLineAnnotations": params.chart.referenceLineAnnotations,
-                        "estimateLineLabel": params.chart.estimateLineLabel,
-                        "uncertaintyRangeLabel": params.chart.uncertaintyRangeLabel,
-                        "isChartInverted": params.chart.isChartInverted,
-                        "useStackedLayout": params.chart.useStackedLayout,
-                        "percentageHeightDesktop": params.chart.percentageHeightDesktop,
-                        "percentageHeightMobile": params.chart.percentageHeightMobile
-                    })
-                }}
-            {% elif params.image %}
-                <div class="ons-featured__image">
-                    {{
-                        onsImage({
-                            "src": params.image.src,
-                            "alt": params.image.alt
-                        })
-                    }}
-                </div>
-            {% endif %}
+            {{ caller() if caller }}
         </div>
 
         {% if params.description %}

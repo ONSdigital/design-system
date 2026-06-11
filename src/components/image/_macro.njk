@@ -1,5 +1,5 @@
 {%- macro onsImage(params) -%}
-    <figure class="ons-image">
+    <div class="ons-image">
         {% if params.image %}
             <img
                 class="ons-image__img"
@@ -9,9 +9,5 @@
         {% else %}
             <img class="ons-image__img" src="{{ params.src }}" alt="{{ params.alt }}" />
         {% endif %}
-
-        {% if params.caption %}
-            <figcaption class="ons-image__caption">{{ params.caption }}</figcaption>
-        {% endif %}
-    </figure>
+    </div>
 {%- endmacro -%}

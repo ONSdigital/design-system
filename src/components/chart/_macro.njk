@@ -1,6 +1,3 @@
-{% from "components/list/_macro.njk" import onsList %}
-{% from "components/details/_macro.njk" import onsDetails %}
-
 {% macro onsChart(params) %}
     {% set supportedChartTypes = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
     {% set supportedChartTypesWithLine = ['column'] %}
@@ -8,14 +5,6 @@
     {% set supportedChartTypesWithXAxisMinAndMax = ['scatter'] %}
     {% set supportedChartTypesWithYAxisMinAndMax = ['line', 'bar', 'column', 'scatter', 'area', 'columnrange', 'boxplot'] %}
     {% set supportedAspectRatios = ['16-9', '4-3', '21-9', '1-1', '3-2', '9-16'] %}
-    {% set headingLevel = params.headingLevel | default(2) %}
-    {% set openingTitleTag = "<h" ~ headingLevel %}
-    {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
-    {% set openingSubtitleTag = "<h" ~  (headingLevel + 1) %}
-    {% set closingSubtitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
-    {% set openingDownloadTitleTag = "<h" ~ (headingLevel + 2) %}
-    {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
-    {% set audioDescriptionId = "chart-audio-description-" ~ params.id %}
     {% set instructionsId = "chart-instructions-" ~ params.id %}
     {% set iframeAspectRatio = params.iframeAspectRatio if params.iframeAspectRatio in supportedAspectRatios else '16-9' %}
     {% set instructions = params.instructions | default('Use the Tab key to move focus into the chart. Once inside, use the arrow keys to navigate between data points. As you move, tooltips will be announced to describe each point. Touch device users, explore by touch or with swipe gestures.') %}
@@ -54,15 +43,7 @@
             {% endif %}
         {% endif %}
     >
-        <figure class="ons-chart" aria-describedby="{{ audioDescriptionId }}">
-            {{ openingTitleTag | safe }} class="ons-chart__title">{{ params.title }}{{ closingTitleTag | safe }}
-            {% if params.subtitle %}
-                {{ openingSubtitleTag | safe }}
-                class="ons-chart__subtitle">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
-            {% endif %}
-
-            <p class="ons-u-vh" id="{{ audioDescriptionId }}">{{ params.description }}</p>
-
+        <div class="ons-chart">
             {% if params.iframeUrl %}
                 <div
                     class="ons-chart__iframe-wrapper{{ ' ons-chart__non-js-hide' if params.fallbackImageUrl else '' }}"
@@ -115,7 +96,7 @@
             {% if params.fallbackImageUrl %}
                 {% set fallbackImageId = ["fallback-image--", params.id] | join %}
                 <noscript id="{{ fallbackImageId }}">
-                    {# Note that a more detailed description of the chart is provided in the audio description above #}
+                    {# Note that a more detailed description of the chart is provided in the figure's audio description #}
                     <img
                         src="{{ params.fallbackImageUrl }}"
                         alt="{{ params.fallbackImageAlt or 'Fallback image for the chart as JavaScript is disabled' }}"
@@ -151,35 +132,7 @@
                     {% endfor %}
                 </ul>
             {% endif %}
-            {% if params.caption %}
-                <figcaption class="ons-chart__caption">{{ params.caption }}</figcaption>
-            {% endif %}
-        </figure>
-
-        {% if params.download.title and params.download.itemsList | length > 0 %}
-            {{ openingDownloadTitleTag | safe }}
-            class="ons-chart__download-title">{{ params.download.title }}{{ closingDownloadTitleTag | safe }}
-            {{
-                onsList({
-                    "element": "ol",
-                    "itemsList": params.download.itemsList
-                })
-            }}
-        {% endif %}
-
-        {% if params.footnotes %}
-            {% set footnotesId = ["footnotes--", params.id] | join %}
-
-            {{
-                onsDetails({
-                    "id": footnotesId,
-                    "title": params.footnotes.title,
-                    "content": params.footnotes.content,
-                    "headingLevel": headingLevel + 2,
-                    "classes": "ons-u-mt-xl"
-                })
-            }}
-        {% endif %}
+        </div>
 
         {% if (params.chartType in supportedChartTypes) and not params.iframeUrl %}
             {% set series = [] %}
