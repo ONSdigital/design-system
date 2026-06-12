@@ -13,6 +13,7 @@ export default class TableOfContents {
         });
 
         this.stickyTocContainer = this.component.querySelector('.ons-grid__col--sticky\\@m');
+        this.isOverflowing = this.stickyTocContainer.scrollHeight > this.stickyTocContainer.clientHeight;
 
         this.observer = new IntersectionObserver(this.handleIntersect.bind(this), {
             rootMargin: '0px 0px -100% 0px', // trigger when top of section is at the top of viewport
@@ -23,6 +24,7 @@ export default class TableOfContents {
         this.updateOverflowClass();
 
         const resizeObserver = new ResizeObserver(() => {
+            this.isOverflowing = this.stickyTocContainer.scrollHeight > this.stickyTocContainer.clientHeight;
             this.updateOverflowClass();
         });
         resizeObserver.observe(this.stickyTocContainer);
@@ -37,6 +39,7 @@ export default class TableOfContents {
     }
 
     initKeyboardNavigation() {
+        if (!this.isOverflowing) return;
         const links = this.getLinkList();
 
         links.forEach((link, index) => {
@@ -103,6 +106,7 @@ export default class TableOfContents {
     }
 
     scrollActiveLinkIntoView() {
+        if (!this.isOverflowing) return;
         if (!this.activeSection) return;
 
         const activeLink = this.tocLinks[this.activeSection.id];
@@ -134,8 +138,6 @@ export default class TableOfContents {
     }
 
     updateOverflowClass() {
-        const isOverflowing = this.stickyTocContainer.scrollHeight > this.stickyTocContainer.clientHeight;
-        console.log(isOverflowing);
         this.stickyTocContainer.classList.toggle('has-scrollbar', isOverflowing);
     }
 }
