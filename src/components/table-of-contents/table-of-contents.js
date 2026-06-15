@@ -13,7 +13,8 @@ export default class TableOfContents {
         });
 
         this.stickyTocContainer = this.component.querySelector('.ons-grid__col--sticky\\@m');
-        this.isOverflowing = this.stickyTocContainer.scrollHeight > this.stickyTocContainer.clientHeight;
+        this.isOverflowing =
+            this.stickyTocContainer.scrollHeight > window.innerHeight - this.stickyTocContainer.getBoundingClientRect().top;
 
         this.observer = new IntersectionObserver(this.handleIntersect.bind(this), {
             rootMargin: '0px 0px -100% 0px', // trigger when top of section is at the top of viewport
