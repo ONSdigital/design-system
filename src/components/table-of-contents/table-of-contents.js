@@ -139,6 +139,6 @@ export default class TableOfContents {
     }
 
     updateOverflowClass() {
-        this.stickyTocContainer.classList.toggle('has-scrollbar', isOverflowing);
+        this.stickyTocContainer.classList.toggle('has-scrollbar', this.isOverflowing);
     }
 }
