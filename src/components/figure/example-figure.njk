@@ -1,0 +1,26 @@
+{% from "components/figure/_macro.njk" import onsFigure %}
+
+{%
+    call onsFigure({
+        "headingLevel": 3,
+        "title": "Image 1: Working from home",
+        "subtitle": "A growing proportion of the workforce now works remotely",
+        "id": "figure-with-image",
+        "caption": "Image 1 - Woman in a purple dress shirt using a laptop",
+        "download": {
+            "title": "Download this image",
+            "itemsList": [
+                {
+                    "text": "High resolution image (JPG format, 1.2MB)",
+                    "url": "#"
+                }
+            ]
+        },
+        "footnotes": {
+            "title": "Footnotes",
+            "content": "<ol><li>Image is for illustrative purposes only.</li></ol>"
+        }
+    })
+%}
+    <img class="ons-image__img" src="/img/small/woman-in-purple-dress-shirt.jpg" alt="Woman in a purple dress shirt using a laptop" />
+{% endcall %}
