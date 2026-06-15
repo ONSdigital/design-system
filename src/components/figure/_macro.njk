@@ -14,13 +14,15 @@
     {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
     {% set audioDescriptionId = "figure-audio-description-" ~ params.id %}
 
-    <div {% if params.classes %} class="{{ params.classes }}"{% endif %}{% if params.id %} id="{{ params.id }}"{% endif %}>
-        <figure {% if params.audioDescription %} aria-describedby="{{ audioDescriptionId }}"{% endif %} class="ons-u-m-no">
+    <div {% if params.classes %}class="{{ params.classes }}"{% endif %}{% if params.id %}id="{{ params.id }}"{% endif %}>
+        <figure {% if params.audioDescription %}aria-describedby="{{ audioDescriptionId }}"{% endif %} class="ons-u-m-no">
             {% if params.title %}
-                {{ openingTitleTag | safe }} class="ons-u-fs-m">{{ params.title }}{{ closingTitleTag | safe }}
+                {{ openingTitleTag | safe }}
+                class="ons-u-fs-m">{{ params.title }}{{ closingTitleTag | safe }}
             {% endif %}
             {% if params.subtitle %}
-                {{ openingSubtitleTag | safe }} class="ons-u-fs-r">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+                {{ openingSubtitleTag | safe }}
+                class="ons-u-fs-r">{{ params.subtitle }}{{ closingSubtitleTag | safe }}
             {% endif %}
 
             {# A visually-hidden description of the nested content for screen reader users. #}
@@ -33,13 +35,8 @@
                 {{ caller() if caller }}
             </div>
 
-            {# A figure may only contain a single figcaption, so the caption and source
-               are rendered together within one element. #}
-            {% if params.caption or params.source %}
-                <figcaption>
-                    {% if params.caption %}{{ params.caption }}{% endif %}
-                    {% if params.source %}{{ params.source }}{% endif %}
-                </figcaption>
+            {% if params.caption %}
+                <figcaption>{% if params.caption %}{{ params.caption }}{% endif %}</figcaption>
             {% endif %}
         </figure>
 

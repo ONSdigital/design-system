@@ -1,35 +1,37 @@
 {% from "components/figure/_macro.njk" import onsFigure %}
 {% from "components/chart/_macro.njk" import onsChart %}
 
-{% call onsFigure({
-    "headingLevel": 2,
-    "title": "Figure 6: Net debt as a percentage of GDP remains at levels last seen in the early 1960s",
-    "subtitle": "Public sector net debt excluding public sector banks, percentage of GDP, UK, FYE 1901 to October 2024",
-    "id": "figure-with-chart",
-    "audioDescription": "Public sector net debt excluding public sector banks, percentage of GDP, UK, financial year ending 1901 to October 2024",
-    "source": "Source: Public sector finances from the Office for Budget Responsibility (OBR) and the Office for National Statistics",
-    "download": {
-        "title": "Download Figure 6 data",
-        "itemsList": [
-            {
-                "text": "Excel spreadsheet (XLSX format, 18KB)",
-                "url": "#"
-            },
-            {
-                "text": "Simple text file (CSV format, 25KB)",
-                "url": "#"
-            },
-            {
-                "text": "Image (PNG format, 25KB)",
-                "url": "#"
-            }
-        ]
-    },
-    "footnotes": {
-        "title": "Footnotes",
-        "content": "<ol><li>Public sector net debt excludes public sector banks.</li><li>More data are available in our public sector finances datasets.</li></ol>"
-    }
-}) %}
+{%
+    call onsFigure({
+        "headingLevel": 2,
+        "title": "Figure 6: Net debt as a percentage of GDP remains at levels last seen in the early 1960s",
+        "subtitle": "Public sector net debt excluding public sector banks, percentage of GDP, UK, FYE 1901 to October 2024",
+        "id": "figure-with-chart",
+        "audioDescription": "Public sector net debt excluding public sector banks, percentage of GDP, UK, financial year ending 1901 to October 2024",
+        "caption": "Source: Public sector finances from the Office for Budget Responsibility (OBR) and the Office for National Statistics",
+        "download": {
+            "title": "Download Figure 6 data",
+            "itemsList": [
+                {
+                    "text": "Excel spreadsheet (XLSX format, 18KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Simple text file (CSV format, 25KB)",
+                    "url": "#"
+                },
+                {
+                    "text": "Image (PNG format, 25KB)",
+                    "url": "#"
+                }
+            ]
+        },
+        "footnotes": {
+            "title": "Footnotes",
+            "content": "<ol><li>Public sector net debt excludes public sector banks.</li><li>More data are available in our public sector finances datasets.</li></ol>"
+        }
+    })
+%}
     {{
         onsChart({
             "chartType": "column",
