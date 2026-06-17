@@ -61,13 +61,7 @@ export default class TableOfContents {
 
         if (newActive === this.activeSection) return;
 
-        this.isAtScrollBottom =
-            this.contentContainer.scrollHeight - this.contentContainer.scrollTop - window.scrollY <= 2;
-
-        console.log(this.isAtScrollBottom);
-        console.log(this.contentContainer.scrollHeight);
-        console.log(this.contentContainer.scrollTop);
-        console.log(window.scrollY);
+        this.isAtScrollBottom = this.contentContainer.scrollHeight - this.contentContainer.scrollTop - window.scrollY <= 2;
 
         this.activeSection = newActive;
         if (this.isAtScrollBottom) this.activeSection = visibleSections[visibleSections.length - 1].target;
