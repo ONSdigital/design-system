@@ -30,41 +30,12 @@ export default class TableOfContents {
         });
         resizeObserver.observe(this.stickyTocContainer);
 
-        this.initKeyboardNavigation();
         this.setInitialActiveSection();
     }
 
     getLinkList() {
         // Returns ordered array of links matching section order
         return this.sections.map((section) => this.tocLinks[section.id]).filter(Boolean);
-    }
-
-    initKeyboardNavigation() {
-        if (!this.isOverflowing) return;
-        const links = this.getLinkList();
-
-        links.forEach((link, index) => {
-            // All links removed from natural tab order; active link re-added in updateTocLinks
-            link.setAttribute('tabindex', '-1');
-
-            link.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowDown') {
-                    e.preventDefault();
-                    const next = links[index + 1];
-                    if (next) next.focus();
-                } else if (e.key === 'ArrowUp') {
-                    e.preventDefault();
-                    const prev = links[index - 1];
-                    if (prev) prev.focus();
-                } else if (e.key === 'Home') {
-                    e.preventDefault();
-                    links[0].focus();
-                } else if (e.key === 'End') {
-                    e.preventDefault();
-                    links[links.length - 1].focus();
-                }
-            });
-        });
     }
 
     setInitialActiveSection() {
