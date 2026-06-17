@@ -102,40 +102,6 @@ export default class TableOfContents {
             // Roving tabindex: only the active link is reachable via Tab
             link.setAttribute('tabindex', isActive ? '0' : '-1');
         }
-
-        this.scrollActiveLinkIntoView();
-    }
-
-    scrollActiveLinkIntoView() {
-        if (!this.isOverflowing) return;
-        if (!this.activeSection) return;
-
-        const activeLink = this.tocLinks[this.activeSection.id];
-
-        if (!activeLink || !this.stickyTocContainer) return;
-
-        const containerRect = this.stickyTocContainer.getBoundingClientRect();
-        const linkRect = activeLink.getBoundingClientRect();
-
-        const topBuffer = containerRect.height * 0.25;
-        const bottomBuffer = containerRect.height * 0.75;
-
-        const relativeTop = linkRect.top - containerRect.top;
-
-        if (relativeTop > topBuffer && relativeTop < bottomBuffer) {
-            return;
-        }
-
-        const targetScrollTop =
-            this.stickyTocContainer.scrollTop +
-            (linkRect.top - containerRect.top) -
-            this.stickyTocContainer.clientHeight / 2 +
-            activeLink.offsetHeight / 2;
-
-        this.stickyTocContainer.scrollTo({
-            top: targetScrollTop,
-            behavior: 'smooth',
-        });
     }
 
     updateOverflowClass() {
