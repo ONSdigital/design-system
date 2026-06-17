@@ -16,16 +16,16 @@
 
 ## th
 
-| Name            | Type    | Required | Description                                                                                                                                                                                                                                   |
-| --------------- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| thClasses       | string  | false    | Classes to add to the `th` element                                                                                                                                                                                                            |
-| ariaSort        | string  | false    | Set to “ascending” or “descending” to set the default order of a table column when the page loads when setting `variants` to “sortable”. Defaults to “none”.                                                                                  |
-| value           | string  | true     | The content for the `th` cell                                                                                                                                                                                                                 |
-| numeric         | boolean | false    | Set to “true” if all the cells in the column contain numbers. This aligns the content to the right so numbers can easily be compared.                                                                                                         |
-| widthPercentage | integer | false    | Sets the `width` attribute (as a percentage) on the `th`, which controls the width of the whole column. Set a value on every column so they total 100 for predictable widths; any column left without one sizes automatically to its content. |
-| rowspan         | integer | false    | Set the `rowspan` to merge multiple row `th` elements                                                                                                                                                                                         |
-| colspan         | integer | false    | Set the `colspan` to merge multiple column `th` elements                                                                                                                                                                                      |
-| valign          | string  | false    | Specifies the vertical alignment of the content in the cell. Values to include "top", "middle", and "bottom". Defaults to "top".                                                                                                              |
+| Name            | Type    | Required | Description                                                                                                                                                             |
+| --------------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| thClasses       | string  | false    | Classes to add to the `th` element                                                                                                                                      |
+| ariaSort        | string  | false    | Set to “ascending” or “descending” to set the default order of a table column when the page loads when setting `variants` to “sortable”. Defaults to “none”.            |
+| value           | string  | true     | The content for the `th` cell                                                                                                                                           |
+| numeric         | boolean | false    | Set to “true” if all the cells in the column contain numbers. This aligns the content to the right so numbers can easily be compared.                                   |
+| widthPercentage | integer | false    | Sets the `width` attribute (as a percentage) on the `th`, which controls the width of the whole column. Any column left without one sizes automatically to its content. |
+| rowspan         | integer | false    | Set the `rowspan` to merge multiple row `th` elements                                                                                                                   |
+| colspan         | integer | false    | Set the `colspan` to merge multiple column `th` elements                                                                                                                |
+| valign          | string  | false    | Specifies the vertical alignment of the content in the cell. Values to include "top", "middle", and "bottom". Defaults to "top".                                        |
 
 ## tr
 
