@@ -16,6 +16,9 @@ export default class TableOfContents {
         this.isOverflowing =
             this.stickyTocContainer.scrollHeight > window.innerHeight - this.stickyTocContainer.getBoundingClientRect().top;
 
+        this.contentContainer = this.component.querySelector('#content');
+        console.log(this.contentContainer);
+
         this.observer = new IntersectionObserver(this.handleIntersect.bind(this), {
             rootMargin: '0px 0px -100% 0px', // trigger when top of section is at the top of viewport
         });
@@ -58,7 +61,16 @@ export default class TableOfContents {
 
         if (newActive === this.activeSection) return;
 
+        this.isAtScrollBottom =
+            this.contentContainer.scrollHeight - this.contentContainer.scrollTop - window.scrollY <= 2;
+
+        console.log(this.isAtScrollBottom);
+        console.log(this.contentContainer.scrollHeight);
+        console.log(this.contentContainer.scrollTop);
+        console.log(window.scrollY);
+
         this.activeSection = newActive;
+        if (this.isAtScrollBottom) this.activeSection = visibleSections[visibleSections.length - 1].target;
         this.updateTocLinks();
     }
 
