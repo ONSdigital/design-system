@@ -176,7 +176,7 @@ yarn add @ons/design-system@next
 
 ### Publishing the stable major
 
-1. Merge `next` into `main`.
+1. Merge `next` into `main`. **Do not squash; use a regular merge commit to preserve history.**
 2. Create a normal release tag, for example: `74.0.0`.
 3. Publish the GitHub Release (not marked as a pre-release).
 
