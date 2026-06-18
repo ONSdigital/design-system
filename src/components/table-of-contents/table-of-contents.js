@@ -36,10 +36,6 @@ export default class TableOfContents {
         this.setInitialActiveSection();
     }
 
-    getLinkList() {
-        // Returns ordered array of links matching section order
-        return this.sections.map((section) => this.tocLinks[section.id]).filter(Boolean);
-    }
 
     setInitialActiveSection() {
         const firstSection = this.sections[0];
@@ -75,9 +71,6 @@ export default class TableOfContents {
 
             const isActive = section === this.activeSection;
             link.classList.toggle('ons-table-of-contents__link-active', isActive);
-
-            // Roving tabindex: only the active link is reachable via Tab
-            link.setAttribute('tabindex', isActive ? '0' : '-1');
         }
     }
 
