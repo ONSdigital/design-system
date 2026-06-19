@@ -97,6 +97,8 @@ jobs:
               with:
                   name: lhci-assets
                   path: .
+            - name: Build urls for shard
+              run: node ./lighthouse/lighthouse-get-urls.js
             - name: Print shard info
               run: echo "Running Lighthouse shard ${LHCI_SHARD_INDEX}/${LHCI_SHARD_COUNT}"
             - name: Run Lighthouse CI
