@@ -107,7 +107,7 @@ layout: ~
         }
     }
 %}
-{% block preMain %}
+{% block breadcrumbs %}
     {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
 
     {{
@@ -130,7 +130,7 @@ layout: ~
         })
     }}
 {% endblock %}
-{% block main %}
+{% block mainContent %}
     <h1 class="ons-u-mb-xl">
         <span class="ons-u-fs-m ons-u-db ons-u-mb-2xs ons-u-lighter">اللغة العربية (Arabic)</span>
         <span class="ons-u-vh">: </span>

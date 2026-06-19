@@ -3,7 +3,7 @@ $breadcrumb-chevron-height: 0.65rem;
 .ons-breadcrumbs-wrapper {
     position: relative;
     z-index: 10;
-    margin-bottom: -2rem;
+    margin-bottom: -1rem;
     &--grey {
         background-color: var(--ons-color-banner-bg);
     }
@@ -14,9 +14,9 @@ $breadcrumb-chevron-height: 0.65rem;
 
     &--navy-blue {
         background-color: var(--ons-color-navy-blue-light);
-        margin-bottom: -1.75rem;
+        margin-bottom: -0.75rem;
         @include mq(l) {
-            margin-bottom: -3.25rem;
+            margin-bottom: -2.25rem;
         }
     }
 
@@ -48,15 +48,12 @@ $breadcrumb-chevron-height: 0.65rem;
     &--pale-blue {
         background-color: var(--ons-color-pale-blue);
     }
-    .ons-breadcrumbs {
-        padding: 1rem;
-    }
 }
 
 .ons-breadcrumbs {
     align-items: center;
     display: flex;
-    padding: 1rem 0;
+    padding: 1rem 0 0;
 
     &__items {
         margin: 0;

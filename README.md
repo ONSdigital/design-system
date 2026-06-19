@@ -143,11 +143,21 @@ Checkout the branch locally and run:
 
 `yarn test-visual` - This will run the same tests locally as were run in Github Actions. After they have completed the report will open in your default browser.
 
+### Handling VR test failures
+
+If the VR tests fail locally, you can review the changes in your browser. Note that the error you'll see if the VR tests fail starts with `Error: docker run --rm -i --add-host=host.docker.internal:host-gateway...`
+
+`npx http-server backstop_data/html_report -p 8080` - View the results of the yarn visual tests in your browser. Using http-server rather than simply opening the file ensures the associated JavaScript runs.
+
+### Approving VR test reference image changes
+
 `yarn test-visual:approve` - This will approve the failures/diff caught by the tests.
 
-`git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.
+Commit and approve the file changes in the normal way.
 
-You can then commit and push the updated references and your changes to your branch. The test images that would have been created when you ran `yarn test-visual` are gitignored and the new references images will be pushed to Git LFS.
+`git lfs push --all origin` - This will push the new reference images to Git LFS.
+
+You can then push the updated references and your changes to your branch. The test images that would have been created when you ran `yarn test-visual` are gitignored and the new references images will be pushed to Git LFS.
 
 If your local tests are failing but you have approved them, run `yarn test-visual:reference`. This will update the reference images locally on your machine.
 

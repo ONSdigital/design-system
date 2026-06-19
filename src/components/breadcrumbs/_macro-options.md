@@ -5,6 +5,8 @@
 | id        | string                   | false    | The `id` added to the `nav` element                                                                                                                                                                                                                   |
 | itemsList | `Array<BreadcrumbsItem>` | true     | An array of [breadcrumb items](#breadcrumbsitem)                                                                                                                                                                                                      |
 | variant   | string                   | false    | When using breadcrumbs alongside a hero banner, set variant to "grey", "dark", "pale-blue" or "navy-blue" to match the colour of the hero and make the breadcrumbs visually integrated within the hero. Use this option only alongside a hero banner. |
+| wide      | boolean                  | false    | Set to “true” to increase the maximum width of the layout container to 1280px                                                                                                                                                                         |
+| fullWidth | boolean                  | false    | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                                                                                                                                 |
 
 ## BreadcrumbsItem
 

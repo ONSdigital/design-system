@@ -65,7 +65,9 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                         
                     
                     
-                        
+                        <header>
+                            
+    
     
     
     
@@ -77,8 +79,9 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
     
 
     
-
-    <header class="ons-header ons-header--basic">
+    <!-- prettier-ignore-start -->
+    <div class="ons-header ons-header--basic">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -869,22 +872,32 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
         
         
         
-    </header>
+    <!-- prettier-ignore-start -->
+    </div>
+    <!-- prettier-ignore-end -->
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
+
                             
                                 
                             
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m">
-                                    <main id="main-content" class="ons-page__main">
-                                        
-                                    </main>
+                        </header>
+                    
+                    
+                    
+                    
+                        <main id="main-content">
+                            
+                            
+                            <div class="ons-page__container ons-container">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m">
+                                        <div class="ons-page__main">
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     
                 </div>
                 
@@ -1074,7 +1087,9 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                         
                     
                     
-                        
+                        <header>
+                            
+    
     
     
     
@@ -1086,8 +1101,9 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
     
 
     
-
-    <header class="ons-header">
+    <!-- prettier-ignore-start -->
+    <div class="ons-header">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -1204,22 +1220,32 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             </div>
         
         
-    </header>
+    <!-- prettier-ignore-start -->
+    </div>
+    <!-- prettier-ignore-end -->
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
+
                             
                                 
                             
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m">
-                                    <main id="main-content" class="ons-page__main">
-                                        
-                                    </main>
+                        </header>
+                    
+                    
+                    
+                    
+                        <main id="main-content">
+                            
+                            
+                            <div class="ons-page__container ons-container">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m">
+                                        <div class="ons-page__main">
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     
                 </div>
                 
@@ -1330,7 +1356,9 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                         
                     
                     
-                        
+                        <header>
+                            
+    
     
     
     
@@ -1342,8 +1370,9 @@ exports[`base page template matches the footer block override snapshot 1`] = `
     
 
     
-
-    <header class="ons-header">
+    <!-- prettier-ignore-start -->
+    <div class="ons-header">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -1460,22 +1489,32 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             </div>
         
         
-    </header>
+    <!-- prettier-ignore-start -->
+    </div>
+    <!-- prettier-ignore-end -->
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
+
                             
                                 
                             
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m">
-                                    <main id="main-content" class="ons-page__main">
-                                        
-                                    </main>
+                        </header>
+                    
+                    
+                    
+                    
+                        <main id="main-content">
+                            
+                            
+                            <div class="ons-page__container ons-container">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m">
+                                        <div class="ons-page__main">
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     
                 </div>
                 
@@ -1596,7 +1635,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
             <div class="ons-page">
                 <div class="ons-page__content">
-                    Some preHeader content
+                    <section>Some preHeader content</section>
                     
                         
     <div role="region">
@@ -1631,7 +1670,9 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                         
                     
                     
-                        
+                        <header>
+                            
+    
     
     
     
@@ -1646,8 +1687,9 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
         
     
-
-    <header class="ons-header ons-header--neutral">
+    <!-- prettier-ignore-start -->
+    <div class="ons-header ons-header--neutral">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -2295,45 +2337,52 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
 
         
-    </header>
+    <!-- prettier-ignore-start -->
+    </div>
+    <!-- prettier-ignore-end -->
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
+
                             
                                 
-                                    
-                                    
+                                        
+                                        
     
     
         
-        <nav class="ons-breadcrumbs" aria-label="Breadcrumbs">
-            <ol class="ons-breadcrumbs__items ons-u-fs-s"><li class="ons-breadcrumbs__item" id="breadcrumb-1">
-                        <a class="ons-breadcrumbs__link" href="/">Home</a><svg class="ons-icon" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" aria-hidden="true">
+        <div class="ons-container">
+            <nav class="ons-breadcrumbs" aria-label="Breadcrumbs">
+                <ol class="ons-breadcrumbs__items ons-u-fs-s"><li class="ons-breadcrumbs__item" id="breadcrumb-1">
+                            <a class="ons-breadcrumbs__link" href="/">Home</a><svg class="ons-icon" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" aria-hidden="true">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg></li><li class="ons-breadcrumbs__item" id="breadcrumb-2">
-                        <a class="ons-breadcrumbs__link" href="/components">Components</a><svg class="ons-icon" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" aria-hidden="true">
+                            <a class="ons-breadcrumbs__link" href="/components">Components</a><svg class="ons-icon" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" aria-hidden="true">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg></li></ol>
-        </nav>
+            </nav>
+        </div>
     
     
 
                                 
                             
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m">
-                                    <main id="main-content" class="ons-page__main">
-                                        
-    <h1>Page Title</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                                    </main>
+                        </header>
+                    
+                    
+                    
+                    
+                        <main id="main-content">
+                            
+                            
+                            <div class="ons-page__container ons-container">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m">
+                                        <div class="ons-page__main">
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     
                 </div>
                 Some preFooter content
@@ -2945,7 +2994,9 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                         
                     
                     
-                        
+                        <header>
+                            
+    
     
     
     
@@ -2957,8 +3008,9 @@ exports[`base page template matches the meta block override snapshot 1`] = `
     
 
     
-
-    <header class="ons-header">
+    <!-- prettier-ignore-start -->
+    <div class="ons-header">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -3075,22 +3127,32 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             </div>
         
         
-    </header>
+    <!-- prettier-ignore-start -->
+    </div>
+    <!-- prettier-ignore-end -->
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
+
                             
                                 
                             
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m">
-                                    <main id="main-content" class="ons-page__main">
-                                        
-                                    </main>
+                        </header>
+                    
+                    
+                    
+                    
+                        <main id="main-content">
+                            
+                            
+                            <div class="ons-page__container ons-container">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m">
+                                        <div class="ons-page__main">
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     
                 </div>
                 
@@ -3185,7 +3247,9 @@ exports[`base page template matches the social block override snapshot 1`] = `
                         
                     
                     
-                        
+                        <header>
+                            
+    
     
     
     
@@ -3197,8 +3261,9 @@ exports[`base page template matches the social block override snapshot 1`] = `
     
 
     
-
-    <header class="ons-header">
+    <!-- prettier-ignore-start -->
+    <div class="ons-header">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -3315,22 +3380,32 @@ exports[`base page template matches the social block override snapshot 1`] = `
             </div>
         
         
-    </header>
+    <!-- prettier-ignore-start -->
+    </div>
+    <!-- prettier-ignore-end -->
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
+
                             
                                 
                             
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m">
-                                    <main id="main-content" class="ons-page__main">
-                                        
-                                    </main>
+                        </header>
+                    
+                    
+                    
+                    
+                        <main id="main-content">
+                            
+                            
+                            <div class="ons-page__container ons-container">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m">
+                                        <div class="ons-page__main">
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     
                 </div>
                 

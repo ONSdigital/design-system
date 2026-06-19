@@ -16,7 +16,7 @@ layout: ~
         }
     }
 %}
-{% block preMain %}
+{% block breadcrumbs %}
     {{
         onsBreadcrumbs({
             "ariaLabel": 'Back',
@@ -30,7 +30,7 @@ layout: ~
         })
     }}
 {% endblock %}
-{% block main %}
+{% block mainContent %}
     {%
         call onsQuestion({
             "title": "Is this the correct address?",

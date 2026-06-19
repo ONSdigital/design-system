@@ -6,7 +6,7 @@ describe('script: table-of-contents', () => {
     beforeEach(async () => {
         await setTestPage(
             '/test',
-            /* eslint-disable indent */
+
             `
       <div class="ons-page__container ons-container">
         <div class="ons-grid ons-js-table-of-contents-container">
@@ -47,7 +47,6 @@ describe('script: table-of-contents', () => {
         </div>
       </div>
       `,
-            /* eslint-enable indent */
         );
     });
 
@@ -68,7 +67,7 @@ describe('script: table-of-contents-fixed-position', () => {
     beforeEach(async () => {
         await setTestPage(
             '/test',
-            /* eslint-disable indent */
+
             `
         <div class="ons-page__container ons-container">
           <div class="ons-grid ons-js-table-of-contents-container">
@@ -146,8 +145,8 @@ describe('script: table-of-contents-fixed-position', () => {
           </div>
         </div>
       `,
-            /* eslint-enable indent */
-            'main',
+
+            'mainContent',
         );
     });
 
