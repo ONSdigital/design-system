@@ -143,6 +143,10 @@ Checkout the branch locally and run:
 
 `yarn test-visual` - This will run the same tests locally as were run in Github Actions. After they have completed the report will open in your default browser.
 
+`VR_SHARD_INDEX=0 VR_SHARD_COUNT=4 yarn test-visual` - This runs only one quarter of the visual tests locally. Useful when diagnosing a subset quickly.
+
+`VR_SHARD_INDEX=1 VR_SHARD_COUNT=4 yarn test-visual` - Change the shard index (0-3) to run a different quarter.
+
 `yarn test-visual:approve` - This will approve the failures/diff caught by the tests.
 
 `git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.

@@ -11,6 +11,14 @@ env:
 jobs:
     run-visual-regression-tests:
         runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                shard_index: [0, 1, 2, 3]
+
+        env:
+            VR_SHARD_INDEX: ${{ matrix.shard_index }}
+            VR_SHARD_COUNT: 4
 
         steps:
             - name: Checkout
@@ -21,11 +29,14 @@ jobs:
               uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
               with:
                   node-version-file: '.nvmrc'
+                  cache: 'yarn'
             - name: Print runtime versions
               run: |
                   node --version
                   npm --version
                   yarn --version
+            - name: Print shard info
+              run: echo "Running visual regression shard ${VR_SHARD_INDEX}/${VR_SHARD_COUNT}"
             - name: Install dependencies
               run: yarn install
             - name: Set up Docker
@@ -41,7 +52,7 @@ jobs:
               if: ${{ failure() }}
               uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
               with:
-                  name: backstop-reports
+                  name: backstop-reports-shard-${{ matrix.shard_index }}
                   path: |
                       backstop_data/bitmaps_test
                       backstop_data/html_report
