@@ -32,11 +32,11 @@ jobs:
               run: node ./lighthouse/lighthouse-get-urls.js
             - name: Build sharded urls
               run: |
-                  for shard in 0 1 2 3; do
-                      LHCI_SHARD_INDEX="$shard" LHCI_SHARD_COUNT=4 node ./lighthouse/lighthouse-get-urls.js
-                      cp lighthouse/urls.json "lighthouse/urls.shard-${shard}.json"
-                  done
-                  LHCI_SHARD_INDEX=0 LHCI_SHARD_COUNT=1 node ./lighthouse/lighthouse-get-urls.js
+                  for shard in 0 1 2 3 4 5 6 7; do
+                    LHCI_SHARD_INDEX="$shard" LHCI_SHARD_COUNT=8 node ./lighthouse/lighthouse-get-urls.js
+                        cp lighthouse/urls.json "lighthouse/urls.shard-${shard}.json"
+                    done
+                    LHCI_SHARD_INDEX=0 LHCI_SHARD_COUNT=1 node ./lighthouse/lighthouse-get-urls.js
             - name: Upload Lighthouse assets
               uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
               with:
@@ -85,11 +85,11 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                shard_index: [0, 1, 2, 3]
+                shard_index: [0, 1, 2, 3, 4, 5, 6, 7]
 
         env:
             LHCI_SHARD_INDEX: ${{ matrix.shard_index }}
-            LHCI_SHARD_COUNT: 4
+            LHCI_SHARD_COUNT: 8
 
         steps:
             - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
