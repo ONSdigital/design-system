@@ -30,6 +30,13 @@ jobs:
               run: yarn build
             - name: Build urls
               run: node ./lighthouse/lighthouse-get-urls.js
+            - name: Build sharded urls
+              run: |
+                  for shard in 0 1 2 3; do
+                      LHCI_SHARD_INDEX="$shard" LHCI_SHARD_COUNT=4 node ./lighthouse/lighthouse-get-urls.js
+                      cp lighthouse/urls.json "lighthouse/urls.shard-${shard}.json"
+                  done
+                  LHCI_SHARD_INDEX=0 LHCI_SHARD_COUNT=1 node ./lighthouse/lighthouse-get-urls.js
             - name: Upload Lighthouse assets
               uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
               with:
@@ -37,6 +44,7 @@ jobs:
                   path: |
                       build
                       lighthouse/urls.json
+                      lighthouse/urls.shard-*.json
 
     lhci-known-issues:
         name: Lighthouse CI on urls with known issues
@@ -97,8 +105,8 @@ jobs:
               with:
                   name: lhci-assets
                   path: .
-            - name: Build urls for shard
-              run: node ./lighthouse/lighthouse-get-urls.js
+            - name: Select urls for shard
+              run: cp "lighthouse/urls.shard-${LHCI_SHARD_INDEX}.json" lighthouse/urls.json
             - name: Print shard info
               run: echo "Running Lighthouse shard ${LHCI_SHARD_INDEX}/${LHCI_SHARD_COUNT}"
             - name: Run Lighthouse CI
