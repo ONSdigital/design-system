@@ -275,7 +275,11 @@
             {% endif %}
         </div>
         {% if params.variants == "basic" and params.menuLinks %}
-            <nav class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl" id="{{ params.menuLinks.id }}">
+            <nav
+                class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl"
+                id="{{ params.menuLinks.id }}"
+                aria-label="{{ params.menuLinks.ariaLabel | default("Menu navigation") }}"
+            >
                 {% if params.language %}
                     <div class="ons-container ons-u-d-no@m ons-u-d-no@2xl">
                         <div class="ons-header-nav-menu__language ons-u-fs-s--b">
@@ -352,6 +356,7 @@
             <nav
                 class="ons-js-header-search ons-header-nav-search {{ params.searchLinks.classes if params.searchLinks and params.searchLinks.classes else '' }}{{ params.search.classes if params.search and params.search.classes else '' }}"
                 id="{{ params.search.id if params.search else params.searchLinks.id }}"
+                aria-label="{{ (params.search.navAriaLabel if params.search else params.searchLinks.searchNavigationAriaLabel) | default('Search navigation') }}"
             >
                 <div class="ons-container">
                     <form class="ons-header-nav-search__input" method="get" action="{{ params.search.form.action | default('') }}">
@@ -498,9 +503,9 @@
                                                 "iconType": "search",
                                                 "iconPosition": "only",
                                                 "attributes": {
-                                                    "label":(params.search.navButtonAriaLabel if params.search.navButtonAriaLabel else params.searchLinks.searchNavigationButtonAriaLabel) | default('Toggle search'),
-                                                    "controls": "ons-site-search",
-                                                    "expanded": "false"
+                                                    "aria-label":(params.search.navButtonAriaLabel if params.search.navButtonAriaLabel else params.searchLinks.searchNavigationButtonAriaLabel) | default('Toggle search'),
+                                                    "aria-controls": "ons-site-search",
+                                                    "aria-expanded": "false"
                                                 }
                                             })
                                         }}
@@ -513,9 +518,9 @@
                                             "classes": "ons-u-ml-2xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l",
                                             "variants": ["mobile", "ghost"],
                                             "attributes": {
-                                                "label": params.navigation.toggleNavigationButton.ariaLabel | default("Toggle main menu") ,
-                                                "controls": params.navigation.id,
-                                                "expanded": "false"
+                                                "aria-label": params.navigation.toggleNavigationButton.ariaLabel | default("Toggle main menu") ,
+                                                "aria-controls": params.navigation.id,
+                                                "aria-expanded": "false"
                                             }
                                         })
                                     }}

@@ -4,21 +4,16 @@
     {% set variants = params.variants if params.variants %}
 
     <div class="ons-table-scrollable ons-table-scrollable--on">
-        <div
-            class="ons-table-scrollable__content"
-            tabindex="0"
-            role="region"
-            aria-label="{{ params.caption }}. {{ params.ariaLabel | default('Scrollable table') }}"
-        >
+        <div class="ons-table-scrollable__content" tabindex="0" role="region">
             {# Uses multiple loops to set the rowspan class so that it can work in both nunjucks and jinja2 environments due to the scoping rules of each language #}
             <table
                 {% if params.id %}id="{{ params.id }}"{% endif %}
                 class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{% for row in params.thList %}{% for th in row.ths %}{% if th.rowspan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% endfor %}{% endfor %}{% for row in params.trs %}{% for td in row.tds %}{% if td.rowspan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% endfor %}{% endfor %}{% if variants %}{% if variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}{% endif %}"
                 {% if params.sortBy and 'sortable' in variants %}
-                    data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"
                 {% endif %}
             >
                 {% if params.caption %}
+                    <div style="color: red;">Test</div>
                     <caption class="ons-table__caption{{ ' ons-u-vh' if params.hideCaption }}">
                         {{ params.caption }}
                     </caption>
@@ -38,7 +33,6 @@
                                     class="ons-table__header  ons-table__header--{{ th.valign | default('top') }}{{ ' ' + th.thClasses if th.thClasses else '' }}{{ ' ons-table__header--numeric' if th.numeric }}"
                                     {% if th.colspan %}colspan="{{ th.colspan }}"{% endif %}
                                     {% if th.rowspan %}rowspan="{{ th.rowspan }}"{% endif %}
-                                    {% if 'sortable' in variants %}aria-sort="{{ th.ariaSort | default('none') }}"{% endif %}
                                     {% if th.widthPercentage %}width="{{ th.widthPercentage }}%"{% endif %}
                                 >
                                     <span class="ons-table__header-text">{{ th.value | safe }}</span>
@@ -62,6 +56,7 @@
                             class="ons-table__row{{ ' ons-table__row--highlight' if tr.highlight }}"
                             {% if tr.id %}id="{{ tr.id }}"{% endif %}
                         >
+                            <div style="color: red;">Test</div>
                             {% for td in tr.tds %}
                                 {% if td.heading == true %}
                                     {% set openingTag = '<th' %}
