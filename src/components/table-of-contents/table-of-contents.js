@@ -17,7 +17,6 @@ export default class TableOfContents {
             this.stickyTocContainer.scrollHeight > window.innerHeight - this.stickyTocContainer.getBoundingClientRect().top;
 
         this.contentContainer = this.component.querySelector('#content');
-        console.log(this.contentContainer);
 
         this.observer = new IntersectionObserver(this.handleIntersect.bind(this), {
             rootMargin: '0px 0px -100% 0px', // trigger when top of section is at the top of viewport
