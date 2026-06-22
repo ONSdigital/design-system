@@ -9,23 +9,34 @@ env:
     RUNNING_IN_CI: true
 
 jobs:
-    run-visual-regression-tests:
+    run-visual-regression-tests-sharded:
         runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                shard_index: [0, 1, 2, 3]
+
+        env:
+            VR_SHARD_INDEX: ${{ matrix.shard_index }}
+            VR_SHARD_COUNT: 4
 
         steps:
             - name: Checkout
-              uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+              uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
               with:
                   lfs: true
             - name: Install Node
-              uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+              uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
               with:
                   node-version-file: '.nvmrc'
+                  cache: 'yarn'
             - name: Print runtime versions
               run: |
                   node --version
                   npm --version
                   yarn --version
+            - name: Print shard info
+              run: echo "Running visual regression shard ${VR_SHARD_INDEX}/${VR_SHARD_COUNT}"
             - name: Install dependencies
               run: yarn install
             - name: Set up Docker
@@ -39,9 +50,25 @@ jobs:
             # Archive report artifacts if visual regression tests fail
             - name: Archive BackstopJS reports
               if: ${{ failure() }}
-              uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+              uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
               with:
-                  name: backstop-reports
+                  name: backstop-reports-shard-${{ matrix.shard_index }}
                   path: |
                       backstop_data/bitmaps_test
                       backstop_data/html_report
+
+    run-visual-regression-tests:
+        name: run-visual-regression-tests
+        runs-on: ubuntu-latest
+        needs: run-visual-regression-tests-sharded
+        if: ${{ always() }}
+
+        steps:
+            - name: Verify all visual regression shards passed
+              run: |
+                  if [ "${{ needs.run-visual-regression-tests-sharded.result }}" != "success" ]; then
+                      echo "Visual regression tests failed. See the Actions tab above for logs."
+                      exit 1
+                  fi
+
+                  echo "All visual regression shards passed"
