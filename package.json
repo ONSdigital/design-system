@@ -145,6 +145,7 @@
     },
     "resolutions": {
         "basic-ftp": "5.2.0",
-        "axios": "1.15.2"
+        "axios": "1.15.2",
+        "shell-quote": "1.8.4"
     }
 }
