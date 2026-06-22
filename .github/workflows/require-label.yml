@@ -9,8 +9,7 @@ on:
             - unlabeled
 
 jobs:
-    check-labels:
-        name: Require valid label
+    require-valid-label:
         runs-on: ubuntu-latest
         permissions:
             pull-requests: read

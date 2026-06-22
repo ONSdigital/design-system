@@ -11,8 +11,7 @@ permissions:
     pull-requests: read
 
 jobs:
-    require-checklist:
-        name: Require completed checklist
+    require-completed-checklist:
         runs-on: ubuntu-latest
         if: github.event.pull_request.user.login != 'dependabot[bot]' # ignore pull requests raised by dependabot
         steps:
