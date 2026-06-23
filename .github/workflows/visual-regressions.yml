@@ -58,7 +58,6 @@ jobs:
                       backstop_data/html_report
 
     visual-regressions:
-        name: Visual regressions
         runs-on: ubuntu-latest
         needs: visual-regressions-sharded
         if: ${{ always() }}

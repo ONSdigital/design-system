@@ -121,7 +121,6 @@ jobs:
                   LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
     lighthouse-strict:
-        name: Lighthouse strict
         runs-on: ubuntu-latest
         needs: lighthouse-strict-sharded
         if: ${{ always() }}
