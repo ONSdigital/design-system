@@ -66,11 +66,22 @@
         <title>{{ pageTitle }}</title>
         <link rel="stylesheet" href="{{ assetsUrl }}/css/main.css" />
         <link rel="stylesheet" media="print" href="{{ assetsUrl }}/css/print.css" />
+        {% if og_img and og_img.url %}
+            <meta property="og:image" content="{{ og_img.url }}" />
+            {% if og_img.width %}
+                <meta property="og:image:width" content="{{ og_img.width }}" />
+            {% endif %}
+            {% if og_img.height %}
+                <meta property="og:image:height" content="{{ og_img.height }}" />
+            {% endif %}
+        {% else %}
+            <meta property="og:image" content="{{ assetsUrl }}/favicons/opengraph.png" />
+        {% endif %}
 
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff" as="font" type="font/woff2" crossorigin />
 
         <meta name="theme-color" content="{{ themeColor }}" />
         {% block meta %}
