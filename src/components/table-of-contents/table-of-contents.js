@@ -35,7 +35,6 @@ export default class TableOfContents {
         this.setInitialActiveSection();
     }
 
-
     setInitialActiveSection() {
         const firstSection = this.sections[0];
         if (!firstSection) return;
@@ -56,10 +55,7 @@ export default class TableOfContents {
 
         if (newActive === this.activeSection) return;
 
-        this.isAtScrollBottom = this.contentContainer.scrollHeight - this.contentContainer.scrollTop - window.scrollY <= 2;
-
         this.activeSection = newActive;
-        if (this.isAtScrollBottom) this.activeSection = visibleSections[visibleSections.length - 1].target;
         this.updateTocLinks();
     }
 
