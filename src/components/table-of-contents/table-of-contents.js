@@ -17,7 +17,7 @@ export default class TableOfContents {
         });
 
         this.observer = new IntersectionObserver(this.handleIntersect.bind(this), {
-            rootMargin: '0px 0px -100% 0px',
+            rootMargin: '0px 0px -100% 0px', // trigger when top of section is at the top of viewport
         });
 
         this.sections.forEach((section) => {
@@ -40,6 +40,7 @@ export default class TableOfContents {
     }
 
     handleIntersect(entries) {
+        // Find the topmost visible section
         const visibleSections = entries
             .filter((entry) => entry.isIntersecting)
             .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top);
@@ -89,6 +90,7 @@ export default class TableOfContents {
         for (const section of this.sections) {
             const link = this.tocLinks[section.id];
 
+            // toggle active link class when link id matches current section id
             link?.classList.toggle('ons-table-of-contents__link-active', section === this.activeSection);
         }
     }
