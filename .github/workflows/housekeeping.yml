@@ -1,22 +1,32 @@
-name: Label Checker
+name: Housekeeping
 on:
     pull_request:
         types:
             - opened
+            - edited
             - synchronize
             - reopened
             - labeled
             - unlabeled
 
+permissions:
+    pull-requests: read
+
 jobs:
-    check-labels:
-        name: Check labels
+    validate-label:
         runs-on: ubuntu-latest
-        permissions:
-            pull-requests: read
         steps:
             - uses: docker://onsdigital/github-pr-label-checker:v1.6.65
               with:
                   one_of: Accessibility,Bug,Documentation,Dependencies,Enhancement,Example,Component,Pattern,CI/CD,Tech improvements,Breaking changes
                   none_of: Awaiting resource,Do not merge,Duplicate,Needs validating,Not doing
                   repo_token: ${{ secrets.GITHUB_TOKEN }}
+
+    validate-checklist:
+        runs-on: ubuntu-latest
+        if: github.event.pull_request.user.login != 'dependabot[bot]'
+        steps:
+            - name: Check checklist
+              uses: mheap/require-checklist-action@46d2ca1a0f90144bd081fd13a80b1dc581759365 # v2.5.0
+              with:
+                  requireChecklist: true
