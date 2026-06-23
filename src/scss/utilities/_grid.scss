@@ -217,10 +217,11 @@
 @include bp-suffix(ons-grid__col--sticky) {
     position: sticky;
     top: 2rem;
-    overflow-y: scroll;
-    max-height: calc(100vh - 2rem);
+    
+    &.has-scrollbar {
+        overflow-y: scroll;
+        max-height: calc(100vh - 2rem);
 
-    &.has-scrollbar{
         &::-webkit-scrollbar {
             -webkit-appearance: none;
             width: 5px;
@@ -236,7 +237,6 @@
             background: rgba(0, 0, 0, 0.05);
         }
     }
-    
 }
 
 @each $breakpoint-min, $size in $grid-bp {
