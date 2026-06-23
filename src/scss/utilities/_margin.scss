@@ -1,4 +1,6 @@
-$sizes: (
+@use '../helpers';
+
+$margin-sizes: (
     no: 0,
     4xs: 0.125rem,
     3xs: 0.25rem,
@@ -23,13 +25,13 @@ $margins: (
     m: margin,
 );
 
-@each $key, $value in $sizes {
+@each $key, $value in $margin-sizes {
     @each $abbr, $dec in $margins {
-        @include bp-suffix(ons-u-#{$abbr}-#{$key}, $create-between-breakpoints: true) {
+        @include helpers.bp-suffix(ons-u-#{$abbr}-#{$key}, $create-between-breakpoints: true) {
             #{$dec}: #{$value} !important;
         }
 
-        @include bp-suffix(ons-u-#{$abbr}-#{$key}-not-important, $create-between-breakpoints: true) {
+        @include helpers.bp-suffix(ons-u-#{$abbr}-#{$key}-not-important, $create-between-breakpoints: true) {
             #{$dec}: #{$value};
         }
     }

@@ -1,4 +1,6 @@
-$button-shadow-size: 3px;
+@use '../../scss/helpers';
+@use '../../scss/vars';
+@use '../../scss/utilities';
 
 .ons-btn {
     background: transparent;
@@ -21,7 +23,7 @@ $button-shadow-size: 3px;
     &--search {
         .ons-icon {
             margin: 0.125rem 0.5rem 0.125rem 0;
-            @include mq(xs, s) {
+            @include helpers.mq(xs, s) {
                 margin-right: 0;
             }
         }
@@ -75,8 +77,8 @@ $button-shadow-size: 3px;
 
     &__inner {
         background: var(--ons-color-button);
-        border-radius: $input-radius;
-        box-shadow: 0 rems($button-shadow-size) 0 var(--ons-color-button-shadow);
+        border-radius: vars.$input-radius;
+        box-shadow: 0 helpers.rems(vars.$button-shadow-size) 0 var(--ons-color-button-shadow);
         color: var(--ons-color-text-inverse);
         display: flex;
         align-items: center;
@@ -106,7 +108,7 @@ $button-shadow-size: 3px;
 
     &:focus &__inner {
         background: var(--ons-color-focus);
-        box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-text-link-focus);
+        box-shadow: 0 helpers.ems(vars.$button-shadow-size) 0 var(--ons-color-text-link-focus);
         color: var(--ons-color-text-link-focus);
 
         .ons-icon {
@@ -136,7 +138,7 @@ $button-shadow-size: 3px;
 
     &:active,
     &.active {
-        top: ems($button-shadow-size);
+        top: helpers.ems(vars.$button-shadow-size);
     }
 
     &.disabled {
@@ -175,7 +177,7 @@ $button-shadow-size: 3px;
     // Secondary button style
     &--secondary & {
         &__inner {
-            box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-secondary-shadow);
+            box-shadow: 0 helpers.ems(vars.$button-shadow-size) 0 var(--ons-color-button-secondary-shadow);
         }
     }
 
@@ -187,7 +189,7 @@ $button-shadow-size: 3px;
         &__inner {
             background: var(--ons-color-button-secondary);
             color: var(--ons-color-text);
-            font-weight: $font-weight-regular;
+            font-weight: vars.$font-weight-regular;
 
             .ons-icon {
                 fill: var(--ons-color-text);
@@ -242,7 +244,7 @@ $button-shadow-size: 3px;
             border-radius: 0;
             box-shadow: none;
             color: var(--ons-color-text-link);
-            font-weight: $font-weight-regular;
+            font-weight: vars.$font-weight-regular;
             padding: 0;
             .ons-icon {
                 fill: var(--ons-color-text-link);
@@ -464,7 +466,7 @@ $button-shadow-size: 3px;
     &--loader.ons-is-loading:active &,
     &--loader.ons-is-loading.active & {
         &__inner {
-            box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
+            box-shadow: 0 ems(vars.$button-shadow-size) 0 var(--ons-color-button-shadow);
         }
     }
 
@@ -492,7 +494,7 @@ $button-shadow-size: 3px;
             transform: rotate(90deg);
         }
 
-        @include mq(l) {
+        @include helpers.mq(l) {
             display: none;
         }
     }
@@ -511,7 +513,7 @@ $button-shadow-size: 3px;
     &--disabled:active &,
     &--disabled.active & {
         &__inner {
-            box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
+            box-shadow: 0 ems(vars.$button-shadow-size) 0 var(--ons-color-button-shadow);
         }
     }
 
@@ -533,7 +535,7 @@ $button-shadow-size: 3px;
             box-shadow: none;
             color: var(--ons-color-branded-text);
             display: block;
-            font-weight: $font-weight-regular;
+            font-weight: vars.$font-weight-regular;
             padding: 0.6rem 1rem;
             text-align: left;
 
@@ -606,7 +608,7 @@ $button-shadow-size: 3px;
             border-radius: 0;
             box-shadow: none;
             color: var(--ons-color-black);
-            font-weight: $font-weight-regular;
+            font-weight: vars.$font-weight-regular;
             padding: 2px;
             .ons-icon {
                 fill: var(--ons-color-black);

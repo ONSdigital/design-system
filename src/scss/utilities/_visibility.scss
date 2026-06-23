@@ -1,9 +1,11 @@
+@use '../helpers';
+
 .ons-u-hidden {
     display: none !important;
     visibility: hidden;
 }
 
-@include bp-suffix('ons-u-vh', $create-between-breakpoints: true) {
+@include helpers.bp-suffix('ons-u-vh', $create-between-breakpoints: true) {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;

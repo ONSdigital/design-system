@@ -1,8 +1,10 @@
-@include bp-suffix('ons-u-d-no', $create-between-breakpoints: true) {
+@use '../helpers';
+
+@include helpers.bp-suffix('ons-u-d-no', $create-between-breakpoints: true) {
     display: none !important;
 }
 
-@include bp-suffix('ons-u-d-b', $create-between-breakpoints: true) {
+@include helpers.bp-suffix('ons-u-d-b', $create-between-breakpoints: true) {
     display: block !important;
 }
 

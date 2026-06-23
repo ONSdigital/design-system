@@ -1,18 +1,21 @@
+@use '../../scss/helpers';
+@use '../../scss/vars';
+
 .ons-autosuggest {
     position: relative;
 
     &__combobox {
-        border-radius: $input-radius;
+        border-radius: vars.$input-radius;
         display: inline-block;
 
-        @include mq('2xs', s) {
+        @include helpers.mq('2xs', s) {
             width: 100%;
         }
     }
 
     &__results {
         border: 1px solid var(--ons-color-input-border);
-        border-radius: $input-radius;
+        border-radius: vars.$input-radius;
         display: none;
         margin: 0.5rem 0 0;
         overflow: hidden;
@@ -45,7 +48,7 @@
         cursor: pointer;
         margin: 0;
         outline: none;
-        padding: $input-padding-vertical $input-padding-horizontal;
+        padding: vars.$input-padding-vertical vars.$input-padding-horizontal;
 
         &:not(:last-child) {
             border-bottom: 1px solid var(--ons-color-input-border);
@@ -105,7 +108,7 @@
         }
 
         .ons-panel__body {
-            font-weight: $font-weight-bold;
+            font-weight: vars.$font-weight-bold;
             padding: 0.75rem 0.75rem 0.75rem 2rem;
         }
     }
