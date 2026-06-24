@@ -153,8 +153,6 @@ You can then commit and push the updated references and your changes to your bra
 
 If your local tests are failing but you have approved them, run `yarn test-visual:reference`. This will update the reference images locally on your machine.
 
-To view images in your local, run `yarn serve backstop_data` and then go to `html_report`
-
 ## Build
 
 Generate a build into `./build`.
