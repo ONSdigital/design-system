@@ -1,30 +1,30 @@
 changelog:
     categories:
-        - title: ⚠️ Breaking changes
+        - title: ⚠️ Breaking
           labels:
               - Breaking changes
-        - title: New features
+        - title: New
           labels:
               - Component
               - Pattern
-        - title: Accessibility improvements
-          labels:
-              - Accessibility
         - title: Enhancements
           labels:
               - Enhancement
-              - CI/CD
-              - Tech improvements
         - title: Fixes
           labels:
               - Bug
+        - title: Accessibility
+          labels:
+              - Accessibility
         - title: Documentation
           labels:
               - Documentation
               - Example
-        - title: Dependency updates
+        - title: Build & tooling
           labels:
               - Dependencies
-        - title: Other changes
+              - CI/CD
+              - Tech improvements
+        - title: Other
           labels:
               - '*'
