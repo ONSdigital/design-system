@@ -363,9 +363,7 @@
         // updates styles when js is enabled
         .ons-js-enabled & {
             position: relative;
-            left: 50%;
-            width: 100vw;
-            transform: translateX(-50%);
+            width: 100%;
             border-top: 0;
         }
     }
