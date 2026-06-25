@@ -572,4 +572,44 @@ describe('base page template', () => {
 
         expect($.html()).toMatchSnapshot();
     });
+
+    describe('open graph image', () => {
+        it('uses pageConfig.og_img values and emits a single og:image tag', () => {
+            const customisedOgImageExample = `
+{% set pageConfig = {
+    "title": "Open Graph image customised",
+    "og_img": {
+        "url": "https://cdn.example.com/social/custom-card.png",
+        "width": "1400",
+        "height": "900"
+    }
+} %}
+`;
+            const $ = cheerio.load(renderBaseTemplate(customisedOgImageExample));
+
+            const ogImageValues = $('meta[property="og:image"]')
+                .map((_, el) => $(el).attr('content'))
+                .get();
+
+            expect(ogImageValues).toEqual(['https://cdn.example.com/social/custom-card.png']);
+            expect($('meta[property="og:image:width"]').attr('content')).toBe('1400');
+            expect($('meta[property="og:image:height"]').attr('content')).toBe('900');
+        });
+
+        it('defaults to default image when pageConfig.og_img is not provided', () => {
+            const defaultOgImageExample = `
+{% set pageConfig = {
+    "title": "Open Graph image default",
+    "assetsUrl": "/some-path"
+} %}
+`;
+            const $ = cheerio.load(renderBaseTemplate(defaultOgImageExample));
+
+            const ogImageValues = $('meta[property="og:image"]')
+                .map((_, el) => $(el).attr('content'))
+                .get();
+
+            expect(ogImageValues).toEqual(['/some-path/favicons/opengraph.png']);
+        });
+    });
 });
