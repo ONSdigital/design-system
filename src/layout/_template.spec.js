@@ -561,6 +561,28 @@ const BREADCRUMBS_VARIANT_EXAMPLE = `
 {% block main %}{% endblock %}
 `;
 
+const HEADER_SEARCH_EXAMPLE = `
+{% set pageConfig = {
+    "title": "Social survey",
+    "header": {
+        "variants": "basic",
+        "search": {
+            "id": "search-links",
+            "links": {
+                "heading": "Popular searches",
+                "itemsList": [
+                    {
+                        "url": "#1",
+                        "text": "Cost of living"
+                    }
+                ]
+            }
+        }
+    }
+} %}
+
+{% block main %}{% endblock %}
+`;
 const BREADCRUMBS_NO_VARIANT_EXAMPLE = `
 {% set pageConfig = {
     "header": {
@@ -572,6 +594,7 @@ const BREADCRUMBS_NO_VARIANT_EXAMPLE = `
         ]
     }
 } %}
+
 {% block main %}{% endblock %}
 `;
 
@@ -612,5 +635,13 @@ describe('base page template', () => {
             const $ = cheerio.load(renderBaseTemplate(BREADCRUMBS_NO_VARIANT_EXAMPLE));
             expect($('.ons-breadcrumbs-wrapper').length).toBe(0);
         });
+    });
+
+    it('renders header search correctly from pageConfig.header.search', () => {
+        const $ = cheerio.load(renderBaseTemplate(HEADER_SEARCH_EXAMPLE));
+
+        expect($.html()).toContain('id="search-links"');
+        expect($.html()).toContain('Popular searches');
+        expect($.html()).toContain('Cost of living');
     });
 });
