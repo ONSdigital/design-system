@@ -1,4 +1,4 @@
-name: Lighthouse CI accessibility checks
+name: Lighthouse
 on: [pull_request]
 
 concurrency:
@@ -12,8 +12,7 @@ env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
 jobs:
-    lhci-prepare-assets:
-        name: Lighthouse CI prepare assets
+    lighthouse-prepare:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
@@ -40,16 +39,15 @@ jobs:
             - name: Upload Lighthouse assets
               uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
               with:
-                  name: lhci-assets
+                  name: lighthouse-assets
                   path: |
                       build
                       lighthouse/urls.json
                       lighthouse/urls.shard-*.json
 
-    lhci-known-issues:
-        name: Lighthouse CI on urls with known issues
+    lighthouse-lenient:
         runs-on: ubuntu-latest
-        needs: lhci-prepare-assets
+        needs: lighthouse-prepare
         steps:
             - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
               with:
@@ -62,7 +60,7 @@ jobs:
             - name: Download Lighthouse assets
               uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
               with:
-                  name: lhci-assets
+                  name: lighthouse-assets
                   path: .
             - name: Run Lighthouse CI
               run: |
@@ -78,10 +76,9 @@ jobs:
               env:
                   LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
-    lhci-without-known-issues-sharded:
-        name: Lighthouse CI on urls without known issues (${{ matrix.shard_index }})
+    lighthouse-strict-sharded:
         runs-on: ubuntu-latest
-        needs: lhci-prepare-assets
+        needs: lighthouse-prepare
         strategy:
             fail-fast: false
             matrix:
@@ -103,7 +100,7 @@ jobs:
             - name: Download Lighthouse assets
               uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
               with:
-                  name: lhci-assets
+                  name: lighthouse-assets
                   path: .
             - name: Select urls for shard
               run: cp "lighthouse/urls.shard-${LHCI_SHARD_INDEX}.json" lighthouse/urls.json
@@ -123,16 +120,15 @@ jobs:
               env:
                   LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
-    lhci-without-known-issues:
-        name: Lighthouse CI on urls without known issues
+    lighthouse-strict:
         runs-on: ubuntu-latest
-        needs: lhci-without-known-issues-sharded
+        needs: lighthouse-strict-sharded
         if: ${{ always() }}
 
         steps:
             - name: Verify all Lighthouse shards passed
               run: |
-                  if [ "${{ needs.lhci-without-known-issues-sharded.result }}" != "success" ]; then
+                  if [ "${{ needs.lighthouse-strict-sharded.result }}" != "success" ]; then
                       echo "One or more Lighthouse shards failed"
                       exit 1
                   fi
