@@ -370,7 +370,7 @@
                                 "name": params.search.form.inputName | default('q'),
                                 "width": 'full',
                                 "label": {
-                                    "text": (params.search.form.inputLabel if params.search.form else params.searchLinks.searchNavigationInputLabel) | default('Search the ONS'),
+                                    "text": (params.search.form.inputLabel if params.search.form else params.searchLinks.searchNavigationInputLabel) | default('Chwilio’r SYG' if params.lang == 'cy' else 'Search the ONS'),
                                     "id": "header-search-input-label"
                                 },
                                 "searchButton": {

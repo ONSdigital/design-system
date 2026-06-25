@@ -15,6 +15,8 @@
 
         <nav class="ons-table-of-contents" aria-label="{{ params.ariaLabel | default('Table of contents') }}">
             <h2 class="ons-table-of-contents__title ons-u-fs-r--b ons-u-mb-s">{{ params.title }}</h2>
+            {% set element = 'ol' if params.ordered else 'ul' %}
+            {% set variant = null if params.ordered else 'dashed' %}
             {% if params.lists %}
                 {% for list in params.lists %}
                     {% if list.listHeading %}
@@ -24,9 +26,9 @@
                     {% endif %}
                     {{
                         onsList({
-                            "element": 'ol',
+                            "element": element,
                             "classes": 'ons-u-mb-l',
-                            "variants": 'dashed',
+                            "variants": variant,
                             "itemsList": list.itemsList
                         })
                     }}
@@ -34,9 +36,9 @@
             {% elif params.itemsList %}
                 {{
                     onsList({
-                        "element": 'ol',
+                        "element": element,
                         "classes": 'ons-u-mb-l',
-                        "variants": 'dashed',
+                        "variants": variant,
                         "itemsList": params.itemsList
                     })
                 }}
