@@ -90,7 +90,7 @@ gulp.task('build-styles', () => {
 });
 
 gulp.task('copy-static-files', () => {
-    return gulp.src('./src/static/**/*').pipe(gulp.dest('./build'));
+    return gulp.src('./src/static/**/*', { encoding: false }).pipe(gulp.dest('./build'));
 });
 
 gulp.task('copy-js-files', () => {
