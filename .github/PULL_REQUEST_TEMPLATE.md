@@ -12,6 +12,6 @@ Describe the steps to review and test these changes.
 
 ### Checklist
 
-- [ ] I have linked the Issue
-- [ ] I have selected the Assignee
-- [ ] I have suggested an excellent Title for our release notes
+-   [ ] I have linked the Issue
+-   [ ] I have selected the Assignee
+-   [ ] I have suggested an excellent Title for our release notes

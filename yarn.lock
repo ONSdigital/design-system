@@ -2264,20 +2264,7 @@
   resolved "https://registry.yarnpkg.com/@standard-schema/spec/-/spec-1.1.0.tgz#a79b55dbaf8604812f52d140b2c9ab41bc150bb8"
   integrity sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==
 
-"@stylistic/stylelint-plugin@5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@stylistic/stylelint-plugin/-/stylelint-plugin-5.1.0.tgz#8b01e83de1ec201a2c415301cb719be2e87450d7"
-  integrity sha512-TFvKCbJUEWUYCD+rDv45qhnStO6nRtbBngaCblS2JGh8c95S3jJi3fIotfF6EDo4IVM15UPa65WP+kp6GNvXRA==
-  dependencies:
-    "@csstools/css-parser-algorithms" "^4.0.0"
-    "@csstools/css-tokenizer" "^4.0.0"
-    "@csstools/media-query-list-parser" "^5.0.0"
-    postcss "^8.5.8"
-    postcss-selector-parser "^7.1.1"
-    postcss-value-parser "^4.2.0"
-    style-search "^0.1.0"
-
-"@stylistic/stylelint-plugin@^5.0.1":
+"@stylistic/stylelint-plugin@5.2.0", "@stylistic/stylelint-plugin@^5.0.1":
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/@stylistic/stylelint-plugin/-/stylelint-plugin-5.2.0.tgz#51db1ab0387fdd840067ad8fd64f075e464a4ed2"
   integrity sha512-pfa2PMvlH87qwoOMUH4rqz7x/vuO5Kh+r/R1Pe+/5T8sukDPe/VfF6mbdUGE5gwZPlj5O1X56qw55IZrFFRF0g==
@@ -3390,7 +3377,7 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-brace-expansion@^2.0.2:
+brace-expansion@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-2.1.1.tgz#c68b1c4111c76aae3a6fba55d496cee10c39dad8"
   integrity sha512-WR1cURNjuvBLMZBMbqM0UoE+WAfdUcEV1ccD8PVBVOI+Z3ND4+SZbN8RsfT2bMuG1qwz5RFvPukSZm5fF2D5eA==
@@ -8771,12 +8758,19 @@ minimatch@^3.1.2, minimatch@^3.1.5:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimatch@^9.0.0, minimatch@^9.0.4:
-  version "9.0.9"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-9.0.9.tgz#9b0cb9fcb78087f6fd7eababe2511c4d3d60574e"
-  integrity sha512-OBwBN9AL4dqmETlpS2zasx+vTeWclWzkblfZk7KTA5j3jeOONz/tRCnZomUyvNg83wL5Zv9Ss6HMJXAgL8R2Yg==
+minimatch@^9.0.0:
+  version "9.0.3"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-9.0.3.tgz#a6e00c3de44c3a542bfaae70abfc22420a6da825"
+  integrity sha512-RHiac9mvaRw0x3AYRgDC1CxAP7HTcNrrECeA8YYJeWnpo+2Q5CegtZjaotWTWxDG3UeGA1coE05iH1mPjT/2mg==
   dependencies:
-    brace-expansion "^2.0.2"
+    brace-expansion "^2.0.1"
+
+minimatch@^9.0.4:
+  version "9.0.5"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-9.0.5.tgz#d74f9dd6b57d83d8e98cfb82133b03978bc929e5"
+  integrity sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==
+  dependencies:
+    brace-expansion "^2.0.1"
 
 minimist@^1.0.0, minimist@^1.1.0, minimist@^1.2.6, minimist@^1.2.8:
   version "1.2.8"
