@@ -143,6 +143,8 @@ Checkout the branch locally and run:
 
 `yarn test-visual` - This will run the same tests locally as were run in Github Actions. After they have completed the report will open in your default browser.
 
+`VR_SHARD_INDEX=0 VR_SHARD_COUNT=4 yarn test-visual` - This runs only one shard of the visual tests locally. Useful when one shard fails in CI.
+
 ### Handling VR test failures
 
 If the VR tests fail locally, you can review the changes in your browser. Note that the error you'll see if the VR tests fail starts with `Error: docker run --rm -i --add-host=host.docker.internal:host-gateway...`
