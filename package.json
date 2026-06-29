@@ -18,7 +18,7 @@
         "test-lighthouse": "yarn build && node ./lighthouse/lighthouse-get-urls.js && lhci autorun --config=./lighthouse/lighthouserc.js",
         "build": "yarn && yarn tidy-clean && NODE_ENV=production gulp build",
         "build-serve": "yarn build && gulp start-dev-server",
-        "verify-assets": "node ci/verify-binary-assets.mjs",
+        "verify-assets": "node ci/verify-assets.mjs",
         "npm-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && yarn verify-assets && babel-node ci/generate-npm-package.js",
         "cdn-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && yarn verify-assets && babel-node ci/prepare-templates-for-zip.js",
         "test-visual": "yarn build && gulp run-backstop-tests",
