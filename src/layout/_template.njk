@@ -189,6 +189,9 @@
                                 })
                             }}
 
+                            {% block preBreadcrumbs %}
+                            {% endblock %}
+
                             {% block breadcrumbs %}
                                 {% if pageConfig.breadcrumbs %}
                                         {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
@@ -211,6 +214,8 @@
                     {% block pageContent %}
                         <main id="main-content">
                             {% block hero %}
+                            {% endblock %}
+                            {% block postHero %}
                             {% endblock %}
                             <div class="ons-page__container ons-container{{ containerClasses }}">
                                 <div class="ons-grid">
