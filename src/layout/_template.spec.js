@@ -357,6 +357,32 @@ const NO_FAVICONS_EXAMPLE = `
 {% block favicons %}{% endblock %}
 `;
 
+const ALL_SLOTS_EXAMPLE = `
+{% set pageConfig = {
+    "title": "Social survey"
+} %}
+{% block meta %}<meta data-slot="meta" />{% endblock %}
+{% block social %}<meta data-slot="social" />{% endblock %}
+{% block favicons %}<meta data-slot="favicons" />{% endblock %}
+{% block head %}<meta data-slot="head" />{% endblock %}
+{% block bodyStart %}<div data-slot="bodyStart"></div>{% endblock %}
+{% block preHeader %}<div data-slot="preHeader"></div>{% endblock %}
+{% block skipLink %}<div data-slot="skipLink"></div>{% endblock %}
+{% block announcementBanner %}<div data-slot="announcementBanner"></div>{% endblock %}
+{% block header %}<div data-slot="header"></div>{{ super() }}{% endblock %}
+{% block preBreadcrumbs %}<div data-slot="preBreadcrumbs"></div>{% endblock %}
+{% block breadcrumbs %}<div data-slot="breadcrumbs"></div>{% endblock %}
+{% block preMain %}<div data-slot="preMain"></div>{% endblock %}
+{% block pageContent %}<div data-slot="pageContent"></div>{{ super() }}{% endblock %}
+{% block hero %}<div data-slot="hero"></div>{% endblock %}
+{% block postHero %}<div data-slot="postHero"></div>{% endblock %}
+{% block mainContent %}<div data-slot="mainContent"></div>{% endblock %}
+{% block preFooter %}<div data-slot="preFooter"></div>{% endblock %}
+{% block footer %}<footer data-slot="footer"></footer>{% endblock %}
+{% block bodyEnd %}<div data-slot="bodyEnd"></div>{% endblock %}
+{% block scripts %}<script data-slot="scripts"></script>{% endblock %}
+`;
+
 const HEADER_BASIC_EXAMPLE = `
 {% set pageConfig = {
     "header": {
@@ -642,5 +668,60 @@ describe('base page template', () => {
         expect($.html()).toContain('id="search-links"');
         expect($.html()).toContain('Popular searches');
         expect($.html()).toContain('Cost of living');
+    });
+
+    it('renders markers for every template slot override', () => {
+        const $ = cheerio.load(renderBaseTemplate(ALL_SLOTS_EXAMPLE));
+
+        const slots = [
+            'meta',
+            'social',
+            'favicons',
+            'head',
+            'bodyStart',
+            'preHeader',
+            'skipLink',
+            'announcementBanner',
+            'header',
+            'preBreadcrumbs',
+            'breadcrumbs',
+            'preMain',
+            'pageContent',
+            'hero',
+            'postHero',
+            'mainContent',
+            'preFooter',
+            'footer',
+            'bodyEnd',
+            'scripts',
+        ];
+
+        slots.forEach((slot) => {
+            expect($(`[data-slot="${slot}"]`).length).toBe(1);
+        });
+    });
+
+    it('renders key slot placement around header and main content', () => {
+        const $ = cheerio.load(renderBaseTemplate(ALL_SLOTS_EXAMPLE));
+
+        const headerChildren = $('header').first().children().toArray();
+        const preBreadcrumbsIndex = headerChildren.findIndex((child) => $(child).is('[data-slot="preBreadcrumbs"]'));
+        const breadcrumbsIndex = headerChildren.findIndex((child) => $(child).is('[data-slot="breadcrumbs"]'));
+
+        expect(preBreadcrumbsIndex).toBeGreaterThan(-1);
+        expect(breadcrumbsIndex).toBeGreaterThan(-1);
+        expect(preBreadcrumbsIndex).toBeLessThan(breadcrumbsIndex);
+
+        const mainChildren = $('#main-content').children().toArray();
+        const heroIndex = mainChildren.findIndex((child) => $(child).is('[data-slot="hero"]'));
+        const postHeroIndex = mainChildren.findIndex((child) => $(child).is('[data-slot="postHero"]'));
+        const containerIndex = mainChildren.findIndex((child) => $(child).is('.ons-page__container'));
+
+        expect(heroIndex).toBeGreaterThan(-1);
+        expect(postHeroIndex).toBeGreaterThan(-1);
+        expect(containerIndex).toBeGreaterThan(-1);
+        expect(heroIndex).toBeLessThan(postHeroIndex);
+        expect(postHeroIndex).toBeLessThan(containerIndex);
+        expect($('#main-content .ons-page__main [data-slot="mainContent"]').length).toBe(1);
     });
 });
