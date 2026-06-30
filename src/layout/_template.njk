@@ -132,8 +132,7 @@
             <link rel="manifest" href="{{ assetsUrl }}/favicons/manifest.json" />
         {% endblock %}
 
-        {% block head %}
-        {% endblock %}
+        {% block head %}{% endblock %}
     </head>
     <body {% if pageConfig.bodyClasses %}class="{{ pageConfig.bodyClasses }}"{% endif %}>
         <!-- prettier-ignore-start -->
@@ -196,9 +195,7 @@
                                 })
                             }}
 
-                            {% block preBreadcrumbs %}
-                            {% endblock %}
-
+                            {% block preBreadcrumbs %}{% endblock %}
                             {% block breadcrumbs %}
                                 {% if pageConfig.breadcrumbs %}
                                         {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
@@ -216,14 +213,11 @@
                             {% endblock %}
                         </header>
                     {% endblock %}
-                    {% block preMain %}
-                    {% endblock %}
+                    {% block preMain %}{% endblock %}
                     {% block pageContent %}
                         <main id="main-content">
-                            {% block hero %}
-                            {% endblock %}
-                            {% block postHero %}
-                            {% endblock %}
+                            {% block hero %}{% endblock %}
+                            {% block postHero %}{% endblock %}
                             <div class="ons-page__container ons-container{{ containerClasses }}">
                                 <div class="ons-grid">
                                     <div class="ons-grid__col ons-col-{{ pageColNumber }}@m{{ pageColClasses }}">
