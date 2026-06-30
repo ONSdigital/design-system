@@ -14,4 +14,5 @@ Describe the steps to review and test these changes.
 
 - [ ] I have linked the Issue
 - [ ] I have selected the Assignee
+- [ ] I have selected the most helpful Label
 - [ ] I have suggested an excellent Title for our release notes

@@ -10,9 +10,9 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
         <link rel="stylesheet" media="print" href="/css/print.css">
 
         <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
         <link rel="preload" href="/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
 
         <meta name="theme-color" content="#206095">
         
@@ -959,9 +959,9 @@ exports[`base page template matches the body block override snapshot 1`] = `
         <link rel="stylesheet" media="print" href="/css/print.css">
 
         <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
         <link rel="preload" href="/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
 
         <meta name="theme-color" content="#206095">
         
@@ -1052,9 +1052,9 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
         <link rel="stylesheet" media="print" href="/css/print.css">
 
         <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
         <link rel="preload" href="/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
 
         <meta name="theme-color" content="#206095">
         
@@ -1319,9 +1319,9 @@ exports[`base page template matches the footer block override snapshot 1`] = `
         <link rel="stylesheet" media="print" href="/css/print.css">
 
         <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
         <link rel="preload" href="/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
 
         <meta name="theme-color" content="#206095">
         
@@ -1592,9 +1592,9 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         <link rel="stylesheet" media="print" href="/some-path/css/print.css">
 
         <link rel="preload" href="/some-path/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/some-path/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/some-path/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
         <link rel="preload" href="/some-path/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/some-path/fonts/opensans-bold.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/some-path/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
 
         <meta name="theme-color" content="#206095">
         
@@ -2971,9 +2971,9 @@ exports[`base page template matches the meta block override snapshot 1`] = `
         <link rel="stylesheet" media="print" href="/css/print.css">
 
         <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
         <link rel="preload" href="/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
 
         <meta name="theme-color" content="#206095">
         
@@ -3244,9 +3244,9 @@ exports[`base page template matches the social block override snapshot 1`] = `
         <link rel="stylesheet" media="print" href="/css/print.css">
 
         <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
         <link rel="preload" href="/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
-        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
 
         <meta name="theme-color" content="#206095">
         
