@@ -1,0 +1,197 @@
+---
+'fullWidth': true
+---
+
+{% from "components/header/_macro.njk" import onsHeader %}
+
+{{
+    onsHeader({
+            "variants": 'basic',
+            "mastheadLogoUrl": '#0',
+            "language": {
+                "languages": [
+                    {
+                        "url": '#0',
+                        "isoCode": 'en',
+                        "text": 'English',
+                        "current": false
+                    },
+                    {
+                        "url": '#0',
+                        "isoCode": 'cy',
+                        "text": 'Cymraeg',
+                        "current": true
+                    }
+                ]
+            },
+
+            "menuLinks": {
+                "id": "menu-links",
+                "toggleMenuButton": {
+                    "text": "Dewislen"
+                },
+                "keyLinks": [
+                    {
+                        'heading': 'Cymrud rhan mewn arolwg?',
+                        'description': 'Nid yw erioed wedi bod yn bwysicach'
+                    },
+                    {
+                        'heading': 'Calendr datganiadau',
+                        'description': 'Gweld ein datganiadau diweddaraf a rhai sydd ar ddod'
+                    },
+                    {
+                        'heading': 'Methodoleg',
+                        'url': '#0',
+                        'description': 'Gwybodaeth am ein dulliau'
+                    }
+                ],
+                "columns": [
+                    {
+                        "groups": [
+                            {
+                                "heading": "Pobl, poblogaeth a chymuned",
+                                "groupItems": [
+                                    {
+                                        "text": "Armed forces community"
+                                    },
+                                    {
+                                        "text": "Genedigaethau, marwolaethau a phriodasau"
+                                    },
+                                    {
+                                        "text": "Trosedd a chyfiawnder"
+                                    },
+                                    {
+                                        "text": "Hunaniaeth ddiwylliannol"
+                                    },
+                                    {
+                                        "text": "Addysg a gofal plant"
+                                    },
+                                    {
+                                        "text": "Etholiadau"
+                                    },
+                                    {
+                                        "text": "Iechyd a gofal cymdeithasol"
+                                    },
+                                    {
+                                        "text": "Nodweddion aelwydydd"
+                                    },
+                                    {
+                                        "text": "Tai"
+                                    },
+                                    {
+                                        "text": "Hamdden a thwristiaeth"
+                                    },
+                                    {
+                                        "text": "Cyllid personol ac chyllid aelwydydd"
+                                    },
+                                    {
+                                        "text": "poplogaeth ac ymfudo"
+                                    },
+                                    {
+                                        "text": "Lles"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "groups": [
+                            {
+                                "heading": "Busnes, diwydiant a masnach",
+                                "groupItems": [
+                                    {
+                                        "text": "Busnes"
+                                    },
+                                    {
+                                        "text": "Newidiadau i fusnesau"
+                                    },
+                                    {
+                                        "text": "Diwydiant adeiladu"
+                                    },
+                                    {
+                                        "text": "Masnach rhyngwladol"
+                                    },
+                                    {
+                                        "text": "Y diwydiant TG a'r rhyngrhwydd"
+                                    },
+                                    {
+                                        "text": "Y diwydiant gweithgynhyrchu a chynhyrchu"
+                                    },
+                                    {
+                                        "text": "Y diwydiant manwerthu",
+                                        "url": "#0"
+                                    },
+                                    {
+                                        "text": "Y diwydiant twristiaeth"
+                                    }
+                                ]
+                            },
+                            {
+                                "heading": "Cyflogaeth a marchnad lafur",
+                                "url": "#0",
+                                "groupItems":
+                                [
+                                    {
+                                        "text": "Pobl mewn gwaith"
+                                    },
+                                    {
+                                        "text": "Pobl nad ydynt mewn gwaith
+    "
+                                    }
+                                ]
+
+                            }
+                        ]
+                    },
+                    {
+                        "groups": [
+                            {
+                                "heading": "Yr economi",
+                                "groupItems": [
+                                    {
+                                        "text": "Allgynnyrch economaidd a chynhyrchiant"
+                                    },
+                                    {
+                                        "text": "Llywodraeth, y sector cyhoeddus a threthi"
+                                    },
+                                    {
+                                        "text": "Gwerth Ychwanegol Gros"
+                                    },
+                                    {
+                                        "text": "Buddsoddiadau, pensiynau ac ymddiriedolaethau"
+                                    },
+                                    {
+                                        "text": "Cyfrifon rhanbarthol"
+                                    },
+                                    {
+                                        "text": "Cyfrifon amgylcheddol"
+                                    },
+                                    {
+                                        "text": "Cynnyrch Domestig Gros (CDG)"
+                                    },
+                                    {
+                                        "text": "Mynegeion chwyddiant and phrisiau"
+                                    },
+                                    {
+                                        "text": "Cyfrifon gwladol"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "search": {
+                "id": "search",
+                "navAriaLabel": 'Nav Search',
+                "toggleAriaLabel": 'Toggle search',
+                "form": {
+                    "action":  "https://www.ons.gov.uk/search" ,
+                    "inputName": "q",
+                    "inputLabel": "Chwiliwch y SYG",
+                    "buttonText": "Search",
+                    "buttonAriaLabel": "Submit search"
+                 }
+            }
+        })
+}}
