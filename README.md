@@ -143,6 +143,8 @@ Checkout the branch locally and run:
 
 `yarn test-visual` - This will run the same tests locally as were run in Github Actions. After they have completed the report will open in your default browser.
 
+`VR_SHARD_INDEX=0 VR_SHARD_COUNT=4 yarn test-visual` - This runs only one shard of the visual tests locally. Useful when one shard fails in CI.
+
 `yarn test-visual:approve` - This will approve the failures/diff caught by the tests.
 
 `git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.
@@ -158,6 +160,29 @@ Generate a build into `./build`.
 ```bash
 yarn build
 ```
+
+## Pre-releases
+
+When we want to work with a consumer to validate breaking changes before the next major version, use a long-lived pre-release branch and publish **GitHub pre-releases**. Use a branch called `next` from `main` and merge breaking-change work into `next` (keeping `main` stable).
+
+### Publishing a pre-release
+
+1. Create a tag from the `next` branch using a SemVer pre-release version, for example: `74.0.0-next.1`.
+2. Create a GitHub Release for that tag and ensure **"This is a pre-release"** is checked.
+
+GitHub Actions will publish to npm under the dist-tag `next`. Consumers can install the pre-release with:
+
+```bash
+yarn add @ons/design-system@next
+```
+
+### Publishing the stable major
+
+1. Merge `next` into `main`. **Do not squash; use a regular merge commit to preserve history.**
+2. Create a normal release tag, for example: `74.0.0`.
+3. Publish the GitHub Release (not marked as a pre-release).
+
+This will be published to npm under the default dist-tag `latest`.
 
 ## Manually publish to NPM
 

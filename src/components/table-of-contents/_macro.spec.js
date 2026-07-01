@@ -101,6 +101,23 @@ describe('macro: table-of-contents', () => {
         expect($('.ons-table-of-contents').attr('aria-label')).toBe('Contents');
     });
 
+    it('renders a default aria label for the aside', () => {
+        const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_SINGLE));
+
+        expect($('.ons-table-of-contents-container').attr('aria-label')).toBe('Table of contents');
+    });
+
+    it('renders the provided `ariaLabelForAside`', () => {
+        const $ = cheerio.load(
+            renderComponent('table-of-contents', {
+                ...EXAMPLE_TABLE_OF_CONTENTS_SINGLE,
+                ariaLabelForAside: 'Contents sidebar',
+            }),
+        );
+
+        expect($('.ons-table-of-contents-container').attr('aria-label')).toBe('Contents sidebar');
+    });
+
     it('renders title as heading element', () => {
         const $ = cheerio.load(renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_SINGLE));
 
@@ -143,9 +160,26 @@ describe('macro: table-of-contents', () => {
             faker.renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_SINGLE);
 
             expect(listsSpy.occurrences[0]).toEqual({
-                element: 'ol',
+                element: 'ul',
                 classes: 'ons-u-mb-l',
                 variants: 'dashed',
+                itemsList: EXAMPLE_TABLE_OF_CONTENTS_SINGLE.itemsList,
+            });
+        });
+
+        it('outputs `lists` component as an ordered list when `ordered` is `true`', () => {
+            const faker = templateFaker();
+            const listsSpy = faker.spy('list');
+
+            faker.renderComponent('table-of-contents', {
+                ...EXAMPLE_TABLE_OF_CONTENTS_SINGLE,
+                ordered: true,
+            });
+
+            expect(listsSpy.occurrences[0]).toEqual({
+                element: 'ol',
+                classes: 'ons-u-mb-l',
+                variants: null,
                 itemsList: EXAMPLE_TABLE_OF_CONTENTS_SINGLE.itemsList,
             });
         });
@@ -182,15 +216,38 @@ describe('macro: table-of-contents', () => {
             faker.renderComponent('table-of-contents', EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE);
 
             expect(listsSpy.occurrences[0]).toEqual({
-                element: 'ol',
+                element: 'ul',
                 classes: 'ons-u-mb-l',
                 variants: 'dashed',
                 itemsList: EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE.lists[0].itemsList,
             });
             expect(listsSpy.occurrences[1]).toEqual({
-                element: 'ol',
+                element: 'ul',
                 classes: 'ons-u-mb-l',
                 variants: 'dashed',
+                itemsList: EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE.lists[1].itemsList,
+            });
+        });
+
+        it('outputs `lists` component for each list as ordered lists when `ordered` is `true`', () => {
+            const faker = templateFaker();
+            const listsSpy = faker.spy('list');
+
+            faker.renderComponent('table-of-contents', {
+                ...EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE,
+                ordered: true,
+            });
+
+            expect(listsSpy.occurrences[0]).toEqual({
+                element: 'ol',
+                classes: 'ons-u-mb-l',
+                variants: null,
+                itemsList: EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE.lists[0].itemsList,
+            });
+            expect(listsSpy.occurrences[1]).toEqual({
+                element: 'ol',
+                classes: 'ons-u-mb-l',
+                variants: null,
                 itemsList: EXAMPLE_TABLE_OF_CONTENTS_MULTIPLE.lists[1].itemsList,
             });
         });

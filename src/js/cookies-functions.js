@@ -167,10 +167,27 @@ export function getCookie(name) {
     return null;
 }
 
+function getCookieDomainPolicy() {
+    const banner = document.querySelector('.ons-cookies-banner');
+    const policy = banner ? banner.getAttribute('data-ons-cookie-domain-policy') : null;
+
+    // plan: add 'exact-host' policy in future and retire 'legacy' and 'day1'
+    switch (policy) {
+        case 'legacy':
+        case 'day1':
+            return policy;
+        default:
+            return 'legacy';
+    }
+}
+
 export function getDomain(domain, cookieHandler = document) {
-    if (domain.startsWith('www.')) {
+    const cookieDomainPolicy = getCookieDomainPolicy();
+
+    if (cookieDomainPolicy === 'legacy' && domain.startsWith('www.')) {
         domain = domain.substring(4);
     }
+
     let i = 0,
         domainName = domain,
         p = domainName.split('.'),

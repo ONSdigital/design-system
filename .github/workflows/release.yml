@@ -10,9 +10,11 @@ jobs:
     add-templates-to-release:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+            - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+              with:
+                  ref: ${{ github.event.release.tag_name }}
             - name: Install Node
-              uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+              uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
               with:
                   node-version-file: '.nvmrc'
             - name: Install dependencies
@@ -23,9 +25,7 @@ jobs:
                   RELEASE_VERSION=${{ github.event.release.tag_name }} yarn cdn-bundle
             - name: Zip templates
               run: zip -r templates.zip templates/*
-            - name: Release
-              uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
-              with:
-                  files: templates.zip
+            - name: Upload templates asset to release
+              run: gh release upload "${{ github.event.release.tag_name }}" templates.zip --clobber
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

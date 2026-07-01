@@ -2,7 +2,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 html {
@@ -17,6 +17,14 @@ body {
     height: 100%;
     margin: 0;
     position: relative;
+
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    @media (orientation: landscape) {
+        padding-left: env(safe-area-inset-left, 0px);
+        padding-right: env(safe-area-inset-right, 0px);
+    }
 }
 
 img {

@@ -4,10 +4,16 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
 "<!DOCTYPE html><html lang="en"><head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ONS Design System</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" media="print" href="/css/print.css">
+
+        <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
+
         <meta name="theme-color" content="#206095">
         
             
@@ -55,8 +61,10 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                     
                     
                         
-    
-    <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+    <div role="region">
+        
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+    </div>
 
                     
                     
@@ -898,6 +906,11 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
@@ -927,10 +940,16 @@ exports[`base page template matches the body block override snapshot 1`] = `
 "<!DOCTYPE html><html lang="en"><head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Social survey</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" media="print" href="/css/print.css">
+
+        <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
+
         <meta name="theme-color" content="#206095">
         
             
@@ -980,6 +999,11 @@ exports[`base page template matches the body block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
@@ -1009,10 +1033,16 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
 "<!DOCTYPE html><html lang="en"><head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Social survey</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" media="print" href="/css/print.css">
+
+        <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
+
         <meta name="theme-color" content="#206095">
         
             
@@ -1052,8 +1082,10 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                     
                     
                         
-    
-    <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+    <div role="region">
+        
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+    </div>
 
                     
                     
@@ -1221,6 +1253,11 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
@@ -1250,10 +1287,16 @@ exports[`base page template matches the footer block override snapshot 1`] = `
 "<!DOCTYPE html><html lang="en"><head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Social survey</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" media="print" href="/css/print.css">
+
+        <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
+
         <meta name="theme-color" content="#206095">
         
             
@@ -1301,8 +1344,10 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                     
                     
                         
-    
-    <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+    <div role="region">
+        
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+    </div>
 
                     
                     
@@ -1468,6 +1513,11 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
@@ -1497,10 +1547,16 @@ exports[`base page template matches the full configuration snapshot 1`] = `
 "<!DOCTYPE html><html lang="en"><head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Social survey</title>
         <link rel="stylesheet" href="/some-path/css/main.css">
         <link rel="stylesheet" media="print" href="/some-path/css/print.css">
+
+        <link rel="preload" href="/some-path/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/some-path/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
+        <link rel="preload" href="/some-path/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/some-path/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
+
         <meta name="theme-color" content="#206095">
         
             
@@ -1573,8 +1629,10 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     Some preHeader content
                     
                         
-    
-    <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+    <div role="region">
+        
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+    </div>
 
                     
                     
@@ -2825,6 +2883,11 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             (function() {
                 var s = [ '/some-path/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/some-path/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
@@ -2853,10 +2916,16 @@ exports[`base page template matches the meta block override snapshot 1`] = `
 "<!DOCTYPE html><html lang="en"><head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Social survey</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" media="print" href="/css/print.css">
+
+        <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
+
         <meta name="theme-color" content="#206095">
         
 
@@ -2902,8 +2971,10 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                     
                     
                         
-    
-    <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+    <div role="region">
+        
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+    </div>
 
                     
                     
@@ -3071,6 +3142,11 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {
@@ -3100,10 +3176,16 @@ exports[`base page template matches the social block override snapshot 1`] = `
 "<!DOCTYPE html><html lang="en"><head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Social survey</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" media="print" href="/css/print.css">
+
+        <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin="">
+
         <meta name="theme-color" content="#206095">
         
             
@@ -3135,8 +3217,10 @@ exports[`base page template matches the social block override snapshot 1`] = `
                     
                     
                         
-    
-    <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+    <div role="region">
+        
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+    </div>
 
                     
                     
@@ -3304,6 +3388,11 @@ exports[`base page template matches the social block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {

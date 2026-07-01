@@ -3,6 +3,17 @@ const util = require('util');
 const { glob } = require('glob');
 const readdir = util.promisify(fs.readdir);
 
+function getShardInfo() {
+    const shardCount = Number.parseInt(process.env.LHCI_SHARD_COUNT ?? '1');
+    const shardIndex = Number.parseInt(process.env.LHCI_SHARD_INDEX ?? '0');
+
+    if (shardCount < 1 || shardIndex < 0 || shardIndex >= shardCount) {
+        throw new Error(`Invalid LHCI shard values: LHCI_SHARD_INDEX=${shardIndex}, LHCI_SHARD_COUNT=${shardCount}`);
+    }
+
+    return { shardCount, shardIndex };
+}
+
 async function createUrlsFile() {
     try {
         const urls = await getUrls();
@@ -14,6 +25,7 @@ async function createUrlsFile() {
 }
 
 async function getUrls() {
+    const { shardCount, shardIndex } = getShardInfo();
     let data = {};
     data.urlsWithoutKnownIssues = [];
     data.urlsWithKnownIssues = [];
@@ -69,6 +81,14 @@ async function getUrls() {
             }
         }
     }
+
+    data.urlsWithoutKnownIssues.sort();
+    data.urlsWithKnownIssues.sort();
+
+    if (shardCount > 1) {
+        data.urlsWithoutKnownIssues = data.urlsWithoutKnownIssues.filter((_, index) => index % shardCount === shardIndex);
+    }
+
     return JSON.stringify(data);
 }
 
