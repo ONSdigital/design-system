@@ -1,0 +1,136 @@
+name: Lighthouse
+on: [pull_request]
+
+concurrency:
+    group: lighthouse-ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+
+env:
+    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+jobs:
+    lighthouse-prepare:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+              with:
+                  ref: ${{ github.event.pull_request.head.sha }}
+            - name: Install Node
+              uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+              with:
+                  node-version-file: '.nvmrc'
+                  cache: 'yarn'
+            - name: Install dependencies
+              run: yarn install
+            - name: Build pages
+              run: yarn build
+            - name: Build urls
+              run: node ./lighthouse/lighthouse-get-urls.js
+            - name: Build sharded urls
+              run: |
+                  for shard in 0 1 2 3 4 5 6 7; do
+                    LHCI_SHARD_INDEX="$shard" LHCI_SHARD_COUNT=8 node ./lighthouse/lighthouse-get-urls.js
+                        cp lighthouse/urls.json "lighthouse/urls.shard-${shard}.json"
+                    done
+                    LHCI_SHARD_INDEX=0 LHCI_SHARD_COUNT=1 node ./lighthouse/lighthouse-get-urls.js
+            - name: Upload Lighthouse assets
+              uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+              with:
+                  name: lighthouse-assets
+                  path: |
+                      build
+                      lighthouse/urls.json
+                      lighthouse/urls.shard-*.json
+
+    lighthouse-lenient:
+        runs-on: ubuntu-latest
+        needs: lighthouse-prepare
+        steps:
+            - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+              with:
+                  ref: ${{ github.event.pull_request.head.sha }}
+            - name: Install Node
+              uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+              with:
+                  node-version-file: '.nvmrc'
+                  cache: 'yarn'
+            - name: Download Lighthouse assets
+              uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+              with:
+                  name: lighthouse-assets
+                  path: .
+            - name: Run Lighthouse CI
+              run: |
+                  npm install -g @lhci/cli@0.14.x
+                  lhci collect --config=./lighthouse/lighthouserc.skipAriaAllowed.js
+                  if ! lhci assert --config=./lighthouse/lighthouserc.skipAriaAllowed.js; then
+                  echo "Assertions failed"
+                  lhci upload --config=./lighthouse/lighthouserc.skipAriaAllowed.js
+                  exit 1
+                  else
+                  echo "Assertions passed, skipping upload."
+                  fi
+              env:
+                  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+    lighthouse-strict-sharded:
+        runs-on: ubuntu-latest
+        needs: lighthouse-prepare
+        strategy:
+            fail-fast: false
+            matrix:
+                shard_index: [0, 1, 2, 3, 4, 5, 6, 7]
+
+        env:
+            LHCI_SHARD_INDEX: ${{ matrix.shard_index }}
+            LHCI_SHARD_COUNT: 8
+
+        steps:
+            - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+              with:
+                  ref: ${{ github.event.pull_request.head.sha }}
+            - name: Install Node
+              uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+              with:
+                  node-version-file: '.nvmrc'
+                  cache: 'yarn'
+            - name: Download Lighthouse assets
+              uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+              with:
+                  name: lighthouse-assets
+                  path: .
+            - name: Select urls for shard
+              run: cp "lighthouse/urls.shard-${LHCI_SHARD_INDEX}.json" lighthouse/urls.json
+            - name: Print shard info
+              run: echo "Running Lighthouse shard ${LHCI_SHARD_INDEX}/${LHCI_SHARD_COUNT}"
+            - name: Run Lighthouse CI
+              run: |
+                  npm install -g @lhci/cli@0.14.x
+                  lhci collect --config=./lighthouse/lighthouserc.js
+                  if ! lhci assert --config=./lighthouse/lighthouserc.js; then
+                  echo "Assertions failed"
+                  lhci upload --config=./lighthouse/lighthouserc.js
+                  exit 1
+                  else
+                  echo "Assertions passed, skipping upload."
+                  fi
+              env:
+                  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+    lighthouse-strict:
+        runs-on: ubuntu-latest
+        needs: lighthouse-strict-sharded
+        if: ${{ always() }}
+
+        steps:
+            - name: Verify all Lighthouse shards passed
+              run: |
+                  if [ "${{ needs.lighthouse-strict-sharded.result }}" != "success" ]; then
+                      echo "One or more Lighthouse shards failed"
+                      exit 1
+                  fi
+
+                  echo "All Lighthouse shards passed"

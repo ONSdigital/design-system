@@ -143,6 +143,8 @@ Checkout the branch locally and run:
 
 `yarn test-visual` - This will run the same tests locally as were run in Github Actions. After they have completed the report will open in your default browser.
 
+`VR_SHARD_INDEX=0 VR_SHARD_COUNT=4 yarn test-visual` - This runs only one shard of the visual tests locally. Useful when one shard fails in CI.
+
 `yarn test-visual:approve` - This will approve the failures/diff caught by the tests.
 
 `git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.
