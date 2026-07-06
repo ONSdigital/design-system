@@ -1,0 +1,28 @@
+.ons-figure {
+    margin: 0;
+
+    &__number {
+        color: var(--ons-color-text-light);
+        font-size: 1.125rem;
+        font-weight: $font-weight-bold;
+        line-height: 1.3;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        font-weight: $font-weight-bold;
+    }
+
+    &__subtitle {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        font-weight: $font-weight-regular;
+    }
+
+    &__caption {
+        color: var(--ons-color-text-light);
+        font-size: 0.875rem;
+        line-height: 1.7;
+    }
+}

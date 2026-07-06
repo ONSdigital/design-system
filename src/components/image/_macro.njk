@@ -3,7 +3,13 @@
 
     {%
         call onsFigure({
-            "caption": params.caption if params.caption
+            "id": params.id if params.id,
+            "headingLevel": params.headingLevel if params.headingLevel,
+            "title": params.title if params.title,
+            "subtitle": params.subtitle if params.subtitle,
+            "caption": params.caption if params.caption,
+            "footnotes": params.footnotes if params.footnotes,
+            "download": params.download if params.download
         })
     %}
         <div class="ons-image">
