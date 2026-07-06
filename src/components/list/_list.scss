@@ -109,15 +109,18 @@
 }
 
 @include bp-suffix('ons-list--inline') {
-    &:not(.ons-list--icons) {
+    $sel: &;
+
+    @at-root #{$sel}:not(.ons-list--icons) {
         margin: 0 1rem 0 0;
-        .ons-list__item {
-            display: inline-block;
-            margin: 0 1rem 0 0;
-        }
     }
 
-    &.ons-list--icons {
+    @at-root #{$sel}:not(.ons-list--icons).ons-list__item {
+        display: inline-block;
+        margin: 0 1rem 0 0;
+    }
+
+    @at-root #{$sel}.ons-list--icons {
         align-items: center;
         display: flex;
         flex-wrap: wrap;

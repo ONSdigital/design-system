@@ -1,5 +1,4 @@
 .ons-skip-to-content {
-    clip: rect(0 0 0 0);
     clip-path: inset(50%);
     display: block;
     height: 1px;
@@ -13,7 +12,6 @@
     &:focus {
         background-color: var(--ons-color-focus);
         box-shadow: 0;
-        clip: auto;
         clip-path: none;
         color: var(--ons-color-text-link-focus);
         height: auto;
