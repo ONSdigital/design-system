@@ -15,13 +15,19 @@
     {% set audioDescriptionId = "figure-audio-description-" ~ params.id %}
     {% set rootElement = 'div' if params.useDivForRootElement else 'figure' %}
     {% set openingRootTag = '<' ~ rootElement %}
+    {% if params.audioDescription %}
+        {% set openingRootTag = openingRootTag ~ ' aria-describedby="' ~ audioDescriptionId ~ '"' %}
+    {% endif %}
+    {% set openingRootTag = openingRootTag ~ ' class="ons-figure' ~ (' ' ~ params.classes if params.classes else '') ~ '"' %}
+    {% if params.id %}
+        {% set openingRootTag = openingRootTag ~ ' id="' ~ params.id ~ '"' %}
+    {% endif %}
+    {% set openingRootTag = openingRootTag ~ '>' %}
     {% set closingRootTag = '</' ~ rootElement ~ '>' %}
     {% set contentHasTopMargin = true if params.figureNumber or params.title or params.subtitle else false %}
     {% set contentHasBottomMargin = true if params.caption or params.footnotes or params.download else false %}
 
     {{ openingRootTag | safe }}
-    {% if params.audioDescription %}aria-describedby="{{ audioDescriptionId }}"{% endif %}
-    class="ons-figure" {% if params.classes %}class="{{ params.classes }}"{% endif %}{% if params.id %}id="{{ params.id }}"{% endif %}>
     {% if params.figureNumber %}
         <span class="ons-figure__number">{{ params.figureNumber }}</span>
     {% endif %}
