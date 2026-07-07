@@ -17,44 +17,46 @@
     {% set rootElement = 'div' if params.useDivForRootElement else 'figure' %}
     {% set openingRootTag = '<' ~ rootElement %}
     {% set closingRootTag = '</' ~ rootElement ~ '>' %}
-    {% set figureHasTopMargin = true if params.figure_number or params.title or params.subtitle else false %}
-    {% set figureHasTopMargin = true if params.figure_number or params.title or params.subtitle else false %}
+    {% set figureHasTopMargin = true if params.figureNumber or params.title or params.subtitle else false %}
+    {% set figureHasTopMargin = true if params.figureNumber or params.title or params.subtitle else false %}
     {% set figureHasBottomMargin = true if params.caption or params.footnotes or params.download else false %}
 
-    {{ openingRootTag | safe }} {% if params.audioDescription %}aria-describedby="{{ audioDescriptionId }}"{% endif %} class="ons-figure" {% if params.classes %}class="{{ params.classes }}"{% endif %}{% if params.id %}id="{{ params.id }}"{% endif %}>
-        {% if params.figure_number %}
-            <span class="ons-figure__number">{{ params.figure_number }}</span>
-        {% endif %}
-        {% if params.title %}
-            {{ openingTitleTag | safe }}{{ params.title }}{{ closingTitleTag | safe }}
-        {% endif %}
-        {% if params.subtitle %}
-            {{ openingSubtitleTag | safe }}{{ params.subtitle }}{{ closingSubtitleTag | safe }}
-        {% endif %}
+    {{ openingRootTag | safe }}
+    {% if params.audioDescription %}aria-describedby="{{ audioDescriptionId }}"{% endif %} class="ons-figure"
+    {% if params.classes %}class="{{ params.classes }}"{% endif %}{% if params.id %}id="{{ params.id }}"{% endif %}>
+    {% if params.figureNumber %}
+        <span class="ons-figure__number">{{ params.figureNumber }}</span>
+    {% endif %}
+    {% if params.title %}
+        {{ openingTitleTag | safe }}{{ params.title }}{{ closingTitleTag | safe }}
+    {% endif %}
+    {% if params.subtitle %}
+        {{ openingSubtitleTag | safe }}{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+    {% endif %}
 
-        {# A visually-hidden description of the nested content for screen reader users. #}
-        {% if params.audioDescription %}
-            <p class="ons-u-vh" id="{{ audioDescriptionId }}">{{ params.audioDescription }}</p>
-        {% endif %}
+    {# A visually-hidden description of the nested content for screen reader users. #}
+    {% if params.audioDescription %}
+        <p class="ons-u-vh" id="{{ audioDescriptionId }}">{{ params.audioDescription }}</p>
+    {% endif %}
 
-        <div
-            class="
+    <div
+        class="
                 ons-figure__content
                 {% if figureHasTopMargin %}ons-u-mt-l{% endif %}
                 {% if figureHasBottomMargin %}ons-u-mb-l{% endif %}
             "
-        >
-            {# The nested content appears here #}
-            {{ caller() if caller }}
-        </div>
+    >
+        {# The nested content appears here #}
+        {{ caller() if caller }}
+    </div>
 
-        {% if params.caption %}
-            {% if rootElement == 'figure' %}
-                <figcaption class="ons-figure__caption ons-u-mb-l">{{ params.caption }}</figcaption>
-            {% else %}
-                <span class="ons-figure__caption ons-u-mb-l">{{ params.caption }}</span>
-            {% endif %}
+    {% if params.caption %}
+        {% if rootElement == 'figure' %}
+            <figcaption class="ons-figure__caption ons-u-mb-l">{{ params.caption }}</figcaption>
+        {% else %}
+            <span class="ons-figure__caption ons-u-mb-l">{{ params.caption }}</span>
         {% endif %}
+    {% endif %}
     {{ closingRootTag | safe }}
 
     {% if params.footnotes %}

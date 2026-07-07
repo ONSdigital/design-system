@@ -724,16 +724,16 @@ describe('macro: table', () => {
             expect(figureSpy.occurrences[0].headingLevel).toBe(3);
         });
 
-        it('passes `figure_number` to the figure component', () => {
+        it('passes `figureNumber` to the figure component', () => {
             const faker = templateFaker();
             const figureSpy = faker.spy('figure');
 
             faker.renderComponent('table', {
                 ...EXAMPLE_TABLE,
-                figure_number: 'Table 1',
+                figureNumber: 'Table 1',
             });
 
-            expect(figureSpy.occurrences[0].figure_number).toBe('Table 1');
+            expect(figureSpy.occurrences[0].figureNumber).toBe('Table 1');
         });
 
         it('passes `footnotes` to the figure component', () => {

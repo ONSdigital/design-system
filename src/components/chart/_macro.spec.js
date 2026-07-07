@@ -141,12 +141,12 @@ describe('Macro: Chart', () => {
             });
         });
 
-        describe('GIVEN: Params: figure_number', () => {
-            describe('WHEN: figure_number is provided', () => {
+        describe('GIVEN: Params: figureNumber', () => {
+            describe('WHEN: figureNumber is provided', () => {
                 const $ = cheerio.load(
                     renderComponent('chart', {
                         ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
-                        figure_number: 'Figure 1',
+                        figureNumber: 'Figure 1',
                     }),
                 );
 

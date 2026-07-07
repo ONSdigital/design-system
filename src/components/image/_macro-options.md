@@ -1,16 +1,16 @@
-| Name          | Type                | Required                     | Description                                                                                                                |
-| ------------- | ------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| src           | string              | true (unless `image` is set) | The complete source path of the image including filename and extension                                                     |
-| image         | `Object<Image>`     | true (unless `url` is set)   | Settings for the path and filename attributes for the [image](#image)                                                      |
-| alt           | string              | false                        | The HTML `alt` tag used to explain the appearance and function of the image. Not required if the image is only decorative. |
-| id            | string              | false                        | An `id` applied to the figure. Required if using footnotes or download. See [figure](/components/figure) for details       |
-| headingLevel  | number              | false                        | Number used to determine the heading level of the title. See [figure](/components/figure) for details                      |
-| figure_number | string              | false                        | A figure number displayed above the title, e.g. "Image 1"                                                                  |
-| title         | string              | false                        | The title displayed above the image                                                                                        |
-| subtitle      | string              | false                        | The subtitle displayed below the title                                                                                     |
-| caption       | string              | false                        | A short visible caption describing the contents of the image                                                               |
-| footnotes     | `Object<Footnotes>` | false                        | Footnotes to appear below the image. See [figure](/components/figure) for `Footnotes` options                              |
-| download      | `Object<Download>`  | false                        | Download options displayed below the image. See [figure](/components/figure) for `Download` options                        |
+| Name         | Type                | Required                     | Description                                                                                                                |
+| ------------ | ------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| src          | string              | true (unless `image` is set) | The complete source path of the image including filename and extension                                                     |
+| image        | `Object<Image>`     | true (unless `url` is set)   | Settings for the path and filename attributes for the [image](#image)                                                      |
+| alt          | string              | false                        | The HTML `alt` tag used to explain the appearance and function of the image. Not required if the image is only decorative. |
+| id           | string              | false                        | An `id` applied to the figure. Required if using footnotes or download. See [figure](/components/figure) for details       |
+| headingLevel | number              | false                        | Number used to determine the heading level of the title. See [figure](/components/figure) for details                      |
+| figureNumber | string              | false                        | A figure number displayed above the title, e.g. "Image 1"                                                                  |
+| title        | string              | false                        | The title displayed above the image                                                                                        |
+| subtitle     | string              | false                        | The subtitle displayed below the title                                                                                     |
+| caption      | string              | false                        | A short visible caption describing the contents of the image                                                               |
+| footnotes    | `Object<Footnotes>` | false                        | Footnotes to appear below the image. See [figure](/components/figure) for `Footnotes` options                              |
+| download     | `Object<Download>`  | false                        | Download options displayed below the image. See [figure](/components/figure) for `Download` options                        |
 
 ## Image
 

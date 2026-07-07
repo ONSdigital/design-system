@@ -71,16 +71,16 @@ describe('macro: image', () => {
             expect(figureSpy.occurrences[0].headingLevel).toBe(4);
         });
 
-        it('passes `figure_number` to the figure component', () => {
+        it('passes `figureNumber` to the figure component', () => {
             const faker = templateFaker();
             const figureSpy = faker.spy('figure');
 
             faker.renderComponent('image', {
                 ...EXAMPLE_IMAGE_SRC_URL_MINIMAL,
-                figure_number: 'Image 1',
+                figureNumber: 'Image 1',
             });
 
-            expect(figureSpy.occurrences[0].figure_number).toBe('Image 1');
+            expect(figureSpy.occurrences[0].figureNumber).toBe('Image 1');
         });
 
         it('passes `title` to the figure component', () => {

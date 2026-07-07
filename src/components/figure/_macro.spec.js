@@ -13,7 +13,7 @@ const EXAMPLE_FIGURE_BASIC = {
 const EXAMPLE_FIGURE_FULL = {
     id: 'example-figure',
     headingLevel: 3,
-    figure_number: 'Figure 1',
+    figureNumber: 'Figure 1',
     title: 'Remote working trends, 2019 to 2023',
     subtitle: 'Percentage of workforce working from home at least one day per week',
     caption: 'Source: Office for National Statistics',
@@ -127,7 +127,7 @@ describe('macro: figure', () => {
                     'figure',
                     {
                         ...EXAMPLE_FIGURE_BASIC,
-                        figure_number: 'Figure 1',
+                        figureNumber: 'Figure 1',
                     },
                     CALLER_CONTENT,
                 ),
