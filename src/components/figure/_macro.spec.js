@@ -65,6 +65,61 @@ describe('macro: figure', () => {
         });
     });
 
+    describe('useDivForRootElement', () => {
+        it('defaults to a <figure> element', () => {
+            const $ = cheerio.load(renderComponent('figure', EXAMPLE_FIGURE_BASIC, CALLER_CONTENT));
+
+            expect($('.ons-figure')[0].tagName).toBe('figure');
+        });
+
+        it('renders a <div> when useDivForRootElement is true', () => {
+            const $ = cheerio.load(
+                renderComponent(
+                    'figure',
+                    {
+                        ...EXAMPLE_FIGURE_BASIC,
+                        useDivForRootElement: true,
+                    },
+                    CALLER_CONTENT,
+                ),
+            );
+
+            expect($('.ons-figure')[0].tagName).toBe('div');
+        });
+
+        it('renders caption in a <figcaption> by default', () => {
+            const $ = cheerio.load(
+                renderComponent(
+                    'figure',
+                    {
+                        ...EXAMPLE_FIGURE_BASIC,
+                        caption: 'A caption',
+                    },
+                    CALLER_CONTENT,
+                ),
+            );
+
+            expect($('.ons-figure__caption')[0].tagName).toBe('figcaption');
+        });
+
+        it('renders caption in a <span> when useDivForRootElement is true', () => {
+            const $ = cheerio.load(
+                renderComponent(
+                    'figure',
+                    {
+                        ...EXAMPLE_FIGURE_BASIC,
+                        useDivForRootElement: true,
+                        caption: 'A caption',
+                    },
+                    CALLER_CONTENT,
+                ),
+            );
+
+            expect($('.ons-figure__caption')[0].tagName).toBe('span');
+            expect($('.ons-figure__caption').text().trim()).toBe('A caption');
+        });
+    });
+
     describe('figure number', () => {
         it('renders the figure number when provided', () => {
             const $ = cheerio.load(
