@@ -1,0 +1,85 @@
+{% from "components/table/_macro.njk" import onsTable %}
+{{
+    onsTable({
+        "id": "table-with-figure-fields",
+        "headingLevel": 3,
+        "figure_number": "Table 1",
+        "title": "Population by region, mid-2023",
+        "subtitle": "Estimates for England and Wales",
+        "caption": "Population estimates by region",
+        "ths": [
+            {
+                "value": "Region"
+            },
+            {
+                "value": "Population",
+                "numeric": true
+            },
+            {
+                "value": "Change (%)",
+                "numeric": true
+            }
+        ],
+        "trs": [
+            {
+                "tds": [
+                    {
+                        "value": "North East"
+                    },
+                    {
+                        "value": "2,647,000",
+                        "numeric": true
+                    },
+                    {
+                        "value": "0.3",
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "value": "North West"
+                    },
+                    {
+                        "value": "7,417,000",
+                        "numeric": true
+                    },
+                    {
+                        "value": "0.5",
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "value": "South East"
+                    },
+                    {
+                        "value": "9,294,000",
+                        "numeric": true
+                    },
+                    {
+                        "value": "0.7",
+                        "numeric": true
+                    }
+                ]
+            }
+        ],
+        "footnotes": {
+            "title": "Footnotes",
+            "content": "Figures are rounded to the nearest thousand. Percentage change is compared with mid-2022 estimates."
+        },
+        "download": {
+            "title": "Download this table",
+            "itemsList": [
+                {
+                    "text": "Population by region (CSV format, 1KB)",
+                    "url": "/data/population-by-region.csv",
+                    "download": "file"
+                }
+            ]
+        }
+    })
+}}
