@@ -141,6 +141,21 @@ describe('Macro: Chart', () => {
             });
         });
 
+        describe('GIVEN: Params: figure_number', () => {
+            describe('WHEN: figure_number is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        figure_number: 'Figure 1',
+                    }),
+                );
+
+                test('THEN: it renders the figure number', () => {
+                    expect($('.ons-figure__number').text()).toBe('Figure 1');
+                });
+            });
+        });
+
         describe('GIVEN: Params: tickInterval', () => {
             describe('WHEN: tick interval is provided', () => {
                 const $ = cheerio.load(
