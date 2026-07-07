@@ -29,15 +29,6 @@
         outline-offset: 2px;
     }
 
-    &__download-title {
-        @extend .ons-u-pt-l;
-        @extend .ons-u-fs-r--b;
-    }
-
-    &__caption {
-        color: var(--ons-color-grey-75);
-    }
-
     &__annotations-footnotes-number {
         // !important is necessary for some range annotation labels at mobile, otherwise
         // the inline-styled block display takes precedence. This inline style is only

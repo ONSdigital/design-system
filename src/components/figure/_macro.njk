@@ -17,6 +17,9 @@
     {% set rootElement = 'div' if params.useDivForRootElement else 'figure' %}
     {% set openingRootTag = '<' ~ rootElement %}
     {% set closingRootTag = '</' ~ rootElement ~ '>' %}
+    {% set figureHasTopMargin = true if params.figure_number or params.title or params.subtitle else false %}
+    {% set figureHasTopMargin = true if params.figure_number or params.title or params.subtitle else false %}
+    {% set figureHasBottomMargin = true if params.caption or params.footnotes or params.download else false %}
 
     {{ openingRootTag | safe }} {% if params.audioDescription %}aria-describedby="{{ audioDescriptionId }}"{% endif %} class="ons-figure" {% if params.classes %}class="{{ params.classes }}"{% endif %}{% if params.id %}id="{{ params.id }}"{% endif %}>
         {% if params.figure_number %}
@@ -34,7 +37,13 @@
             <p class="ons-u-vh" id="{{ audioDescriptionId }}">{{ params.audioDescription }}</p>
         {% endif %}
 
-        <div class="ons-figure__content ons-u-mt-l ons-u-mb-l">
+        <div
+            class="
+                ons-figure__content
+                {% if figureHasTopMargin %}ons-u-mt-l{% endif %}
+                {% if figureHasBottomMargin %}ons-u-mb-l{% endif %}
+            "
+        >
             {# The nested content appears here #}
             {{ caller() if caller }}
         </div>
