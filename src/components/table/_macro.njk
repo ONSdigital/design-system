@@ -31,6 +31,7 @@
                         data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"
                     {% endif %}
                 >
+                    {# Note that the caption is rendered inside the table element to be semantically correct, and we deliberately do not render it with the onsFigure caption option. We also have the option to visually hide it for the table. #}
                     {% if params.caption %}
                         <caption class="ons-table__caption{{ ' ons-u-vh' if params.hideCaption }}">
                             {{ params.caption }}
