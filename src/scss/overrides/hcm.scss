@@ -1,3 +1,5 @@
+@use '../helpers';
+
 // High Contrast Mode
 @media screen and (-ms-high-contrast: active), (forced-colors: active) {
     // Brightness makes all images black, except transparent parts, which remain transparent
@@ -129,7 +131,7 @@
         border-top: 1px solid currentcolor;
     }
 
-    @include mq(m) {
+    @include helpers.mq(m) {
         .ons-header__main {
             border-bottom: 1px solid currentcolor;
         }

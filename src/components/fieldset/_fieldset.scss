@@ -1,6 +1,10 @@
+@use '../../scss/vars';
+@use '../../scss/utilities';
+@use '../label/label';
+
 .ons-fieldset {
     &__legend {
-        font-weight: $font-weight-bold;
+        font-weight: vars.$font-weight-bold;
         margin: 0;
         &:not(&--with-description) {
             margin-bottom: 0.5rem;
@@ -23,13 +27,13 @@
     }
 
     &__description--title {
-        font-weight: $font-weight-regular;
+        font-weight: vars.$font-weight-regular;
     }
 
     > * .ons-fieldset {
         .ons-fieldset {
             &__legend {
-                font-weight: $font-weight-regular;
+                font-weight: vars.$font-weight-regular;
             }
         }
     }

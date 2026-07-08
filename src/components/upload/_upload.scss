@@ -1,7 +1,10 @@
+@use '../../scss/helpers';
+@use '../../scss/vars';
+
 .ons-input--upload {
     background: var(--ons-color-white);
     border: 1px solid var(--ons-color-input-border);
-    border-radius: $input-radius;
+    border-radius: vars.$input-radius;
     padding: 0;
     width: 100%;
     // custom line height to center the placeholder text
@@ -25,11 +28,11 @@
         }
     }
 
-    @include mq(m) {
+    @include helpers.mq(m) {
         width: 80%;
     }
 
-    @include mq(l) {
+    @include helpers.mq(l) {
         width: 70%;
     }
 }

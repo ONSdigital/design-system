@@ -1,3 +1,6 @@
+@use '../../scss/vars';
+@use '../../scss/utilities';
+
 .ons-section-nav {
     &:not(&--vertical) {
         border-bottom: 1px solid var(--ons-color-borders);
@@ -50,7 +53,7 @@
     &__sub-items {
         a {
             color: var(--ons-color-text-link);
-            font-weight: $font-weight-regular;
+            font-weight: vars.$font-weight-regular;
         }
     }
 

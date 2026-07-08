@@ -1,3 +1,6 @@
+@use '../../scss/helpers';
+@use '../../scss/utilities';
+
 .ons-page {
     display: flex;
     flex-direction: column;
@@ -17,7 +20,7 @@
 .ons-page__main {
     margin: 2.5rem 0 4rem;
 
-    @include mq('2xs', m) {
+    @include helpers.mq('2xs', m) {
         margin-top: 1.5rem;
     }
 }

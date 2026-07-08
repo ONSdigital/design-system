@@ -1,3 +1,5 @@
+@use '../../scss/helpers';
+
 .ons-checkboxes {
     &__label {
         display: block;
@@ -7,7 +9,7 @@
     &__items {
         display: block;
 
-        @include mq(s) {
+        @include helpers.mq(s) {
             max-width: max-content;
         }
     }
@@ -21,7 +23,7 @@
             margin-bottom: 0;
         }
 
-        @include mq(s) {
+        @include helpers.mq(s) {
             min-width: 20rem;
             :has(select):first-child {
                 min-width: 25rem;
@@ -38,7 +40,7 @@
 
         margin-bottom: 0;
 
-        @include mq(s) {
+        @include helpers.mq(s) {
             max-width: max-content;
         }
     }

@@ -1,3 +1,5 @@
+@use '../../scss/helpers';
+
 .ons-cookies-banner {
     background: var(--ons-color-banner-bg);
     display: none;
@@ -13,7 +15,7 @@
         p {
             margin: 0 0 0.5rem;
 
-            @include mq('2xs', s) {
+            @include helpers.mq('2xs', s) {
                 font-size: 0.875rem;
                 line-height: 1.25rem;
             }

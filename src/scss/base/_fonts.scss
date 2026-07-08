@@ -1,4 +1,31 @@
-@include font-face(OpenSans, '#{$static}/fonts/opensans-regular', $weight: $font-weight-regular, $style: null, $exts: woff2 woff);
-@include font-face(OpenSans, '#{$static}/fonts/opensans-bold', $weight: $font-weight-bold, $style: null, $exts: woff2 woff);
-@include font-face(RobotoMono, '#{$static}/fonts/robotomono-regular', $weight: $font-weight-regular, $style: null, $exts: woff2 woff);
-@include font-face(RobotoMono, '#{$static}/fonts/robotomono-bold', $weight: $font-weight-bold, $style: null, $exts: woff2 woff);
+@use '../helpers';
+@use '../vars';
+
+@include helpers.font-face(
+    OpenSans,
+    '#{vars.$static}/fonts/opensans-regular',
+    $weight: vars.$font-weight-regular,
+    $style: null,
+    $exts: woff2 woff
+);
+@include helpers.font-face(
+    OpenSans,
+    '#{vars.$static}/fonts/opensans-bold',
+    $weight: vars.$font-weight-bold,
+    $style: null,
+    $exts: woff2 woff
+);
+@include helpers.font-face(
+    RobotoMono,
+    '#{vars.$static}/fonts/robotomono-regular',
+    $weight: vars.$font-weight-regular,
+    $style: null,
+    $exts: woff2 woff
+);
+@include helpers.font-face(
+    RobotoMono,
+    '#{vars.$static}/fonts/robotomono-bold',
+    $weight: vars.$font-weight-bold,
+    $style: null,
+    $exts: woff2 woff
+);

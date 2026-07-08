@@ -1,3 +1,5 @@
+@use '../checkboxes/checkboxes';
+
 .ons-radios {
     &__items {
         @extend .ons-checkboxes__items;

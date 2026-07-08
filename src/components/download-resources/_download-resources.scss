@@ -1,3 +1,7 @@
+@use '../../scss/vars';
+@use '../../scss/helpers';
+@use 'sass:math';
+
 .ons-adv-filter {
     &__gallery {
         border-top: 1px solid var(--ons-color-borders-light);
@@ -33,7 +37,7 @@
         margin-top: 0.5rem;
 
         .ons-label {
-            font-weight: $font-weight-regular;
+            font-weight: vars.$font-weight-regular;
             margin: 0 0.5rem 0 0;
         }
 
@@ -79,7 +83,7 @@
         }
     }
 
-    @include mq(s) {
+    @include helpers.mq(s) {
         &__results-options {
             align-items: center;
             display: flex;
@@ -92,7 +96,7 @@
         }
     }
 
-    @include mq(m) {
+    @include helpers.mq(m) {
         &__actions {
             display: none;
         }

@@ -1,3 +1,5 @@
+@use '../../scss/helpers';
+
 .ons-relationships {
     &__playback {
         border-bottom: 1px solid var(--ons-color-input-border);
@@ -5,7 +7,7 @@
         margin: 2rem 0 0;
         padding: 1rem 0;
 
-        @include mq('m') {
+        @include helpers.mq('m') {
             display: inline-block;
             min-width: 20rem;
         }
