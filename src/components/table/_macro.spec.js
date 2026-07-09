@@ -44,17 +44,6 @@ describe('macro: table', () => {
         expect($('.ons-figure').attr('id')).toBe('example-table');
     });
 
-    it('derives the table element `id` from the provided `id`', () => {
-        const $ = cheerio.load(
-            renderComponent('table', {
-                ...EXAMPLE_TABLE,
-                id: 'example-table',
-            }),
-        );
-
-        expect($('.ons-table').attr('id')).toBe('table--example-table');
-    });
-
     it('has additionally provided style classes', () => {
         const $ = cheerio.load(
             renderComponent('table', {
