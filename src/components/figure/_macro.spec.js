@@ -120,6 +120,13 @@ describe('macro: figure', () => {
         });
     });
 
+    // Caption rendering is covered by the useDivForRootElement tests above
+    it('does not render a figcaption when caption is not provided', () => {
+        const $ = cheerio.load(renderComponent('figure', EXAMPLE_FIGURE_BASIC, CALLER_CONTENT));
+
+        expect($('figcaption').length).toBe(0);
+    });
+
     describe('figure number', () => {
         it('renders the figure number when provided', () => {
             const $ = cheerio.load(
@@ -275,29 +282,6 @@ describe('macro: figure', () => {
             );
 
             expect(detailsSpy.occurrences[0].headingLevel).toBe(5);
-        });
-    });
-
-    describe('caption', () => {
-        it('renders the caption in a figcaption element', () => {
-            const $ = cheerio.load(
-                renderComponent(
-                    'figure',
-                    {
-                        ...EXAMPLE_FIGURE_BASIC,
-                        caption: 'A caption describing the content',
-                    },
-                    CALLER_CONTENT,
-                ),
-            );
-
-            expect($('figcaption.ons-figure__caption').text().trim()).toBe('A caption describing the content');
-        });
-
-        it('does not render a figcaption when caption is not provided', () => {
-            const $ = cheerio.load(renderComponent('figure', EXAMPLE_FIGURE_BASIC, CALLER_CONTENT));
-
-            expect($('figcaption').length).toBe(0);
         });
     });
 
