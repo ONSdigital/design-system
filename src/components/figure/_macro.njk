@@ -6,7 +6,7 @@
        document outline, but the title and subtitle always render at the same visual size
        via the utility font-size classes below. #}
     {% set headingLevel = params.headingLevel | default(2) %}
-    {% set openingTitleTag = '<h' ~ headingLevel ~ ' class="ons-figure__title ons-u-mb-2xs">' %}
+    {% set openingTitleTag = '<h' ~ headingLevel ~ ' class="ons-figure__title">' %}
     {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
     {% set openingSubtitleTag = '<h' ~ (headingLevel + 1) ~ ' class="ons-figure__subtitle">' %}
     {% set closingSubtitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
@@ -56,9 +56,9 @@
 
     {% if params.caption %}
         {% if rootElement == 'figure' %}
-            <figcaption class="ons-figure__caption ons-u-mb-l">{{ params.caption }}</figcaption>
+            <figcaption class="ons-figure__caption">{{ params.caption }}</figcaption>
         {% else %}
-            <span class="ons-figure__caption ons-u-mb-l">{{ params.caption }}</span>
+            <span class="ons-figure__caption">{{ params.caption }}</span>
         {% endif %}
     {% endif %}
     {{ closingRootTag | safe }}
