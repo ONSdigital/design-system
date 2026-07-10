@@ -40,11 +40,11 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it renders the title', () => {
-                    expect($('.ons-chart__title').text()).toBe('Example Line Chart');
+                    expect($('.ons-figure__title').text()).toBe('Example Line Chart');
                 });
 
                 test('THEN: it renders the subtitle', () => {
-                    expect($('.ons-chart__subtitle').text()).toBe('A sample subtitle');
+                    expect($('.ons-figure__subtitle').text()).toBe('A sample subtitle');
                 });
 
                 test('THEN: it renders the chart container with the correct data attributes', () => {
@@ -61,7 +61,7 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it does NOT render optional fields', () => {
                     expect($('figcaption').length).toBe(0);
-                    expect($('.ons-chart__download-title').length).toBe(0);
+                    expect($('.ons-details__title').length).toBe(0);
                 });
 
                 test('THEN: it renders the chart container with the correct aria attributes', () => {
@@ -128,15 +128,30 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: renders title with correct tag', () => {
-                    expect($('.ons-chart__title')[0].tagName).toBe('h3');
+                    expect($('.ons-figure__title')[0].tagName).toBe('h3');
                 });
 
                 test('THEN: renders subtitle with correct tag', () => {
-                    expect($('.ons-chart__subtitle')[0].tagName).toBe('h4');
+                    expect($('.ons-figure__subtitle')[0].tagName).toBe('h4');
                 });
 
                 test('THEN: renders download title with correct tag', () => {
-                    expect($('.ons-chart__download-title')[0].tagName).toBe('h5');
+                    expect($('.ons-details__title')[0].tagName).toBe('h5');
+                });
+            });
+        });
+
+        describe('GIVEN: Params: figureNumber', () => {
+            describe('WHEN: figureNumber is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        figureNumber: 'Figure 1',
+                    }),
+                );
+
+                test('THEN: it renders the figure number', () => {
+                    expect($('.ons-figure__number').text()).toBe('Figure 1');
                 });
             });
         });
@@ -455,7 +470,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('#chart-audio-description-chart-123').text()).toBe('An accessible description for screen readers.');
+                    expect($('#figure-audio-description-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -476,9 +491,9 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the download section correctly', () => {
-                    expect($('.ons-chart__download-title').text()).toBe('Download Chart Data');
+                    expect($('.ons-details__title').text()).toBe('Download Chart Data');
 
-                    const downloadLinks = $('.ons-chart__download-title').next().find('li a');
+                    const downloadLinks = $('.ons-details__content li a');
                     expect(downloadLinks.eq(0).text()).toBe('Download as PNG');
                     expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
                     expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
@@ -689,7 +704,7 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it does NOT render optional fields', () => {
                     expect($('figcaption').length).toBe(0);
-                    expect($('.ons-chart__download-title').length).toBe(0);
+                    expect($('.ons-details__title').length).toBe(0);
                 });
 
                 test('THEN: it includes the Highcharts JSON config', () => {
@@ -895,7 +910,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('#chart-audio-description-bar-chart-123').text()).toBe('An accessible description for screen readers.');
+                    expect($('#figure-audio-description-bar-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -916,9 +931,9 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the download section correctly', () => {
-                    expect($('.ons-chart__download-title').text()).toBe('Download Chart Data');
+                    expect($('.ons-details__title').text()).toBe('Download Chart Data');
 
-                    const downloadLinks = $('.ons-chart__download-title').next().find('li a');
+                    const downloadLinks = $('.ons-details__content li a');
                     expect(downloadLinks.eq(0).text()).toBe('Download as PNG');
                     expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
                     expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
@@ -1009,7 +1024,7 @@ describe('Macro: Chart', () => {
 
                 test('THEN: it does NOT render optional fields', () => {
                     expect($('figcaption').length).toBe(0);
-                    expect($('.ons-chart__download-title').length).toBe(0);
+                    expect($('.ons-details__title').length).toBe(0);
                 });
 
                 test('THEN: it includes the Highcharts JSON config', () => {
@@ -1180,7 +1195,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('#chart-audio-description-column-chart-123').text()).toBe('An accessible description for screen readers.');
+                    expect($('#figure-audio-description-column-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -1201,9 +1216,9 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the download section correctly', () => {
-                    expect($('.ons-chart__download-title').text()).toBe('Download Chart Data');
+                    expect($('.ons-details__title').text()).toBe('Download Chart Data');
 
-                    const downloadLinks = $('.ons-chart__download-title').next().find('li a');
+                    const downloadLinks = $('.ons-details__content li a');
                     expect(downloadLinks.eq(0).text()).toBe('Download as PNG');
                     expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
                     expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
@@ -1549,7 +1564,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('#chart-audio-description-area-chart-123').text()).toBe('An accessible description for screen readers.');
+                    expect($('#figure-audio-description-area-chart-123').text()).toBe('An accessible description for screen readers.');
                 });
             });
         });
@@ -1570,9 +1585,9 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the download section correctly', () => {
-                    expect($('.ons-chart__download-title').text()).toBe('Download Chart Data');
+                    expect($('.ons-details__title').text()).toBe('Download Chart Data');
 
-                    const downloadLinks = $('.ons-chart__download-title').next().find('li a');
+                    const downloadLinks = $('.ons-details__content li a');
                     expect(downloadLinks.eq(0).text()).toBe('Download as PNG');
                     expect(downloadLinks.eq(0).attr('href')).toBe('https://example.com/chart.png');
                     expect(downloadLinks.eq(1).text()).toBe('Download as CSV');
@@ -1594,9 +1609,9 @@ describe('Macro: Chart', () => {
                     }),
                 );
                 test('THEN: it renders the footnotes', () => {
-                    expect($('#footnotes--area-chart-123').length).toBe(1);
-                    expect($('#footnotes--area-chart-123').find('ol').length).toBe(1);
-                    expect($('#footnotes--area-chart-123').text()).toContain('Footnotes');
+                    expect($('#figure-footnotes--area-chart-123').length).toBe(1);
+                    expect($('#figure-footnotes--area-chart-123').find('ol').length).toBe(1);
+                    expect($('#figure-footnotes--area-chart-123').text()).toContain('Footnotes');
                 });
             });
         });
@@ -1795,7 +1810,7 @@ describe('Macro: Chart', () => {
                 );
 
                 test('THEN: it renders the description for accessibility', () => {
-                    expect($('#chart-audio-description-boxplot-chart-123').text()).toBe(accessibleDescription);
+                    expect($('#figure-audio-description-boxplot-chart-123').text()).toBe(accessibleDescription);
                 });
             });
         });
@@ -2019,15 +2034,15 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it still renders the title', () => {
-                    expect($('.ons-chart__title').text()).toBe('Example Invalid Chart');
+                    expect($('.ons-figure__title').text()).toBe('Example Invalid Chart');
                 });
 
                 test('THEN: it still renders the subtitle', () => {
-                    expect($('.ons-chart__subtitle').text()).toBe('A sample subtitle');
+                    expect($('.ons-figure__subtitle').text()).toBe('A sample subtitle');
                 });
 
                 test('THEN: it still renders the description', () => {
-                    expect($('#chart-audio-description-invalid-chart-123').text()).toBe('A detailed description');
+                    expect($('#figure-audio-description-invalid-chart-123').text()).toBe('A detailed description');
                 });
 
                 test('THEN: it still renders the caption', () => {
@@ -2035,7 +2050,7 @@ describe('Macro: Chart', () => {
                 });
 
                 test('THEN: it still renders the download', () => {
-                    expect($('.ons-chart__download-title').text()).toBe('Download this chart');
+                    expect($('.ons-details__title').text()).toBe('Download this chart');
                 });
             });
         });

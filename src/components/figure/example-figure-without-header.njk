@@ -1,0 +1,24 @@
+{% from "components/figure/_macro.njk" import onsFigure %}
+
+{%
+    call onsFigure({
+        "id": "figure-without-header",
+        "caption": "Image 1 - Woman in a purple dress shirt using a laptop",
+        "footnotes": {
+            "title": "Footnotes",
+            "content": "Image is for illustrative purposes only."
+        },
+        "download": {
+            "title": "Download this image",
+            "itemsList": [
+                {
+                    "text": "High resolution image (JPG format, 1.2MB)",
+                    "url": "/img/small/woman-in-purple-dress-shirt.jpg",
+                    "download": "file"
+                }
+            ]
+        }
+    })
+%}
+    <img class="ons-image__img" src="/img/small/woman-in-purple-dress-shirt.jpg" alt="Woman in a purple dress shirt using a laptop" />
+{% endcall %}

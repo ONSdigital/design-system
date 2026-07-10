@@ -79,6 +79,7 @@
                         href="{{ item.url }}"
                         class="ons-list__link{{ ' ons-js-inpagelink' if item.variants == 'inPageLink' }}{{ ' ' + item.classes if item.classes else '' }}"
                         {% if item.target %}target="{{ item.target }}"{% endif %}
+                        {% if item.download %}download="{{ item.download}}"{% endif %}
                     >
                         {%- if item.prefix -%}<span class="ons-u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- itemText | safe -}}
                         {%- if item.target == "_blank" -%}
