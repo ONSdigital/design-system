@@ -5,7 +5,7 @@
     {# The heading levels are configurable so the figure slots into the correct place in the
        document outline, but the title and subtitle always render at the same visual size
        via the utility font-size classes below. #}
-    {% set headingLevel = params.headingLevel | default(2) %}
+    {% set headingLevel = params.headingLevel | default(2, true) %}
     {% set openingTitleTag = '<h' ~ headingLevel ~ ' class="ons-figure__title">' %}
     {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
     {% set openingSubtitleTag = '<h' ~ (headingLevel + 1) ~ ' class="ons-figure__subtitle">' %}
@@ -51,7 +51,7 @@
             "
     >
         {# The nested content appears here #}
-        {{ caller() if caller }}
+        {{ caller() if caller else '' }}
     </div>
 
     {% if params.caption %}
