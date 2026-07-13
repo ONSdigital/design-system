@@ -47,14 +47,14 @@
         {%
             call onsFigure({
                 "id": params.id,
-                "headingLevel": params.headingLevel if params.headingLevel,
-                "figureNumber": params.figureNumber if params.figureNumber,
+                "headingLevel": params.headingLevel,
+                "figureNumber": params.figureNumber,
                 "title": params.title,
-                "subtitle": params.subtitle if params.subtitle,
+                "subtitle": params.subtitle,
                 "audioDescription": params.description,
-                "caption": params.caption if params.caption,
-                "footnotes": params.footnotes if params.footnotes,
-                "download": params.download if params.download
+                "caption": params.caption,
+                "footnotes": params.footnotes,
+                "download": params.download
             })
         %}
             <div class="ons-chart">

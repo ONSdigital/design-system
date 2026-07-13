@@ -51,7 +51,7 @@
             "
     >
         {# The nested content appears here #}
-        {{ caller() if caller }}
+        {{ caller() if caller else '' }}
     </div>
 
     {% if params.caption %}
