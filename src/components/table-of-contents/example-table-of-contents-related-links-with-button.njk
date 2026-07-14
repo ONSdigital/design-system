@@ -1,0 +1,59 @@
+{% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
+
+{{-
+    onsTableOfContents({
+        "title": 'Contents',
+        "ariaLabel": 'Pages in this guide',
+        "skipLink": {
+            "url": "#0",
+            "text": 'Skip to guide content'
+        },
+        "lists": [
+            {
+                "itemsList": [
+                    {
+                        "url": '#0',
+                        "text": 'Overview',
+                        "current": true
+                    },
+                    {
+                        "url": '#0',
+                        "text": 'Who should take part and why'
+                    },
+                    {
+                        "url": '#0',
+                        "text": 'How your information is used'
+                    },
+                    {
+                        "url": '#0',
+                        "text": 'The 2019 Census Rehearsal'
+                    },
+                    {
+                        "url": '#0',
+                        "text": 'Online census'
+                    }
+                ]
+            }
+        ],
+        "relatedLinks": {
+            "title": 'Related publications',
+            "itemsList": [
+                {
+                    "url": '#0',
+                    "text": 'Example publication title'
+                },
+                {
+                    "url": '#0',
+                    "text": 'Example publication title 2'
+                },
+                {
+                    "url": '#0',
+                    "text": 'Example publication title 3'
+                }
+            ]
+        },
+        "button": {
+            "text": 'Save or print this page'
+        }
+    })
+-}}

@@ -61,6 +61,10 @@
             {% set iconType = "loader" %}
             {% set iconPosition = "after" %}
             {% set variantClasses = " ons-btn--loader ons-js-loader ons-js-submit-btn" %}
+        {% elif 'search' in params.variants %}
+            {% set iconType = "search" %}
+        {% elif 'close' in params.variants %}
+            {% set iconType = "close" %}
         {% endif %}
     {% endif %}
     {% set tag = "a" if params.url else "button" %}

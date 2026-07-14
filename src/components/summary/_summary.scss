@@ -61,10 +61,9 @@ $hub-row-spacing: 1.3rem;
     &__actions {
         hyphens: manual;
         margin: 0;
-        overflow-wrap: break-word;
         padding: 0 0 $summary-row-spacing;
         vertical-align: top;
-        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     &__item-title {
@@ -182,7 +181,7 @@ $hub-row-spacing: 1.3rem;
         &__actions {
             display: flex;
             justify-content: right;
-            & :not(.ons-summary__item-title--error) {
+            :not(.ons-summary__item-title--error) {
                 padding-right: 0;
             }
         }
@@ -192,8 +191,12 @@ $hub-row-spacing: 1.3rem;
             text-align: right;
         }
 
-        &__values--2 {
+        &__column-size--2 {
             flex: 10.5 1 66%;
+        }
+
+        &__actions ~ &__values.ons-summary__column-size--2 {
+            padding-right: 33%;
         }
 
         &--hub & {

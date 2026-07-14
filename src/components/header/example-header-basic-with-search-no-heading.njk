@@ -1,0 +1,22 @@
+---
+'fullWidth': true
+---
+
+{% from "components/header/_macro.njk" import onsHeader %}
+
+{{
+    onsHeader({
+        "variants": 'basic',
+        "search": {
+            "id": "search",
+            "navAriaLabel": 'Nav Search',
+            "toggleAriaLabel": 'Toggle search',
+            "form": {
+                "action":  "https://www.ons.gov.uk/search" ,
+                "inputName": "q",
+                "inputLabel": "Search the ONS",
+                "buttonText": "Search"
+             }
+        }
+    })
+}}

@@ -1,0 +1,61 @@
+---
+layout: ~
+---
+
+{% extends "layout/_template.njk" %}
+{% from "components/list/_macro.njk" import onsList %}
+{%
+    set pageConfig = {
+        "title": "ONS design",
+        "header": {
+            "mastheadLogoUrl": "#0",
+            "description": "Description",
+            "serviceLinks": {
+                "id": "service-links",
+                "ariaLabel": 'Services menu',
+                "ariaListLabel": 'Menu',
+                "itemsList": [
+                    {
+                        "text": "Sign out",
+                        "url": "#0"
+                    }
+                ]
+            }
+        },
+        "footer": {}
+    }
+%}
+
+{% block main %}
+    <h1>Download component</h1>
+    <p class="ons-u-mb-xl">Download component examples</p>
+    <p class="ons-u-fs-r--b ons-u-mb-2xs">Download Figure 1 data:</p>
+    {{
+        onsList({
+            "element": 'ol',
+            "itemsList": [
+                {
+                    "url": '#0',
+                    "text": 'Excel spreadsheet (XLSX format, 18KB)'
+                }
+            ]
+        })
+    }}
+
+    <p class="ons-u-fs-r--b ons-u-mt-xl ons-u-mb-2xs">Download Figure 2 data:</p>
+    {{
+        onsList({
+            "element": 'ol',
+            "itemsList": [
+                {
+                    "url": '#0',
+                    "text": 'Excel spreadsheet (XLSX format, 18KB)'
+                },
+                {
+                    "url": '#0',
+                    "text": 'Simple text file (CSV format, 25KB)'
+                }
+            ]
+        })
+    }}
+{% endblock %}

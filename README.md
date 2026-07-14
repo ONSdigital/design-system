@@ -1,7 +1,9 @@
 # ONS Design System
 
 [![GitHub release](https://img.shields.io/github/release/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/releases)
-[![Tests](https://github.com/ONSdigital/design-system/actions/workflows/tests.yml/badge.svg)](https://github.com/ONSdigital/design-system/actions/workflows/tests.yml)
+[![Macro and script tests](https://github.com/ONSdigital/design-system/actions/workflows/macro-and-script-tests.yml/badge.svg)](https://github.com/ONSdigital/design-system/actions/workflows/macro-and-script-tests.yml)
+[![Visual regression tests](https://github.com/ONSdigital/design-system/actions/workflows/visual-regression-tests.yml/badge.svg)](https://github.com/ONSdigital/design-system/actions/workflows/visual-regression-tests.yml)
+[![Lighthouse tests](https://github.com/ONSdigital/design-system/actions/workflows/lighthouse-ci.yml/badge.svg)](https://github.com/ONSdigital/design-system/actions/workflows/lighthouse-ci.yml)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/pulls)
 [![Github last commit](https://img.shields.io/github/last-commit/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/commits)
 [![Github contributors](https://img.shields.io/github/contributors/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/graphs/contributors)
@@ -14,26 +16,30 @@ Nunjucks macros for components and templates are available from npm. Built CSS a
 yarn add @ons/design-system
 ```
 
-## Run Locally
+## Running the DS Locally
 
-You'll need [Git](https://help.github.com/articles/set-up-git/), [Node.js](https://nodejs.org/en/), and [Yarn](https://yarnpkg.com/en/docs/getting-started) to run this project locally.
+You'll need to install:
+
+-   [Git](https://help.github.com/articles/set-up-git/)
+-   [Node.js](https://nodejs.org/en/)
+-   [Yarn](https://yarnpkg.com/en/docs/getting-started) (When installing yarn be sure to install yarn through brew using `brew install yarn` not using npm)
 
 The version of node required is outlined in [.nvmrc](./.nvmrc).
 
-### Using nvm (optional)
+### Using NVM
 
 If you work across multiple Node.js projects there's a good chance they require different Node.js and npm versions.
 
 To enable this we use [nvm (Node Version Manager)](https://github.com/creationix/nvm) to switch between versions easily.
 
 1. [install nvm](https://github.com/creationix/nvm#installation)
-2. Run nvm install in the project directory (this will use .nvmrc)
+2. Run `nvm install` in the project directory (this will use .nvmrc)
 
 ### Install dependencies
 
 ```bash
 yarn install
-yarn husky install
+yarn husky
 ```
 
 ### Start a local server
@@ -137,6 +143,8 @@ Checkout the branch locally and run:
 
 `yarn test-visual` - This will run the same tests locally as were run in Github Actions. After they have completed the report will open in your default browser.
 
+`VR_SHARD_INDEX=0 VR_SHARD_COUNT=4 yarn test-visual` - This runs only one shard of the visual tests locally. Useful when one shard fails in CI.
+
 `yarn test-visual:approve` - This will approve the failures/diff caught by the tests.
 
 `git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.
@@ -152,6 +160,29 @@ Generate a build into `./build`.
 ```bash
 yarn build
 ```
+
+## Pre-releases
+
+When we want to work with a consumer to validate breaking changes before the next major version, use a long-lived pre-release branch and publish **GitHub pre-releases**. Use a branch called `next` from `main` and merge breaking-change work into `next` (keeping `main` stable).
+
+### Publishing a pre-release
+
+1. Create a tag from the `next` branch using a SemVer pre-release version, for example: `74.0.0-next.1`.
+2. Create a GitHub Release for that tag and ensure **"This is a pre-release"** is checked.
+
+GitHub Actions will publish to npm under the dist-tag `next`. Consumers can install the pre-release with:
+
+```bash
+yarn add @ons/design-system@next
+```
+
+### Publishing the stable major
+
+1. Merge `next` into `main`. **Do not squash; use a regular merge commit to preserve history.**
+2. Create a normal release tag, for example: `74.0.0`.
+3. Publish the GitHub Release (not marked as a pre-release).
+
+This will be published to npm under the default dist-tag `latest`.
 
 ## Manually publish to NPM
 

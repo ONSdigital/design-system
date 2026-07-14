@@ -4,12 +4,16 @@
     $small-size: map.get($props, small);
     $large-size: map.get($props, large);
 
+    --ons-line-height: #{map.get($props, line-height-mobile)};
+
     font-size: rems($small-size, $base);
     font-weight: map.get($props, weight);
     line-height: map.get($props, line-height-mobile);
 
     @if $small-size != $large-size {
         @include mq(m) {
+            --ons-line-height: #{map.get($props, line-height-desktop)};
+
             font-size: rems($large-size, $base);
             line-height: map.get($props, line-height-desktop);
         }

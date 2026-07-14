@@ -51,12 +51,6 @@
         margin-left: 0.5rem;
     }
 
-    &--icons & {
-        &__item {
-            margin-top: 0;
-        }
-    }
-
     &__prefix,
     &__suffix {
         font-family: $font-mono;
@@ -90,9 +84,6 @@
 
     &--p {
         padding: 0;
-        .ons-list__item {
-            margin: 0;
-        }
     }
 
     &--summary {

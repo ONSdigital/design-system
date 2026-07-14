@@ -21,13 +21,13 @@
             }
         %}
     {% endif %}
-    {% if params.twitter and params.twitter == true %}
+    {% if params.x and params.x == true %}
         {%
-            set twitter =
+            set x =
             {
-                "url": 'https://twitter.com/intent/tweet?original_referer&text=' ~ params.pageTitle|urlencode ~ '&url=' ~ params.pageUrl|urlencode,
-                "text": 'Twitter',
-                "iconType": 'twitter',
+                "url": 'https://x.com/intent/tweet?original_referer&text=' ~ params.pageTitle|urlencode ~ '&url=' ~ params.pageUrl|urlencode,
+                "text": 'X',
+                "iconType": 'x',
                 "rel": 'noreferrer external',
                 "target": '_blank'
             }
@@ -38,7 +38,7 @@
             "variants": 'inline',
             "iconPosition": 'before',
             "iconSize": params.iconSize | default("2xl"),
-            "itemsList": [facebook, twitter]
+            "itemsList": [facebook, x]
         })
     }}
 {% endmacro %}

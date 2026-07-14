@@ -24,6 +24,33 @@ describe('macro: phase-banner', () => {
         expect(htmlContent).toBe('Example content with a <a href="#">link</a>');
     });
 
+    it('renders text content when `text` is provided', () => {
+        const $ = cheerio.load(
+            renderComponent('phase-banner', {
+                text: 'Example text content',
+            }),
+        );
+
+        const textContent = $('.ons-phase-banner__desc').text().trim();
+        expect(textContent).toBe('Example text content');
+    });
+
+    it('renders feedbackLink when provided with text', () => {
+        const $ = cheerio.load(
+            renderComponent('phase-banner', {
+                text: 'Example text content',
+                feedbackLink: '<a href="#">give feedback</a>',
+            }),
+        );
+
+        const textContent = $('.ons-phase-banner__desc').text().replace(/\s+/g, ' ').trim();
+        expect(textContent).toBe('Example text content give feedback');
+
+        const link = $('.ons-phase-banner__desc a');
+        expect(link.length).toBe(1);
+        expect(link.text()).toBe('give feedback');
+    });
+
     it('has the "Beta" badge by default', () => {
         const $ = cheerio.load(renderComponent('phase-banner', EXAMPLE_PHASE_BANNER_MINIMAL));
 

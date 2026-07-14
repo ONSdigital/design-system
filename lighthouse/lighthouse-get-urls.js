@@ -3,6 +3,17 @@ const util = require('util');
 const { glob } = require('glob');
 const readdir = util.promisify(fs.readdir);
 
+function getShardInfo() {
+    const shardCount = Number.parseInt(process.env.LHCI_SHARD_COUNT ?? '1');
+    const shardIndex = Number.parseInt(process.env.LHCI_SHARD_INDEX ?? '0');
+
+    if (shardCount < 1 || shardIndex < 0 || shardIndex >= shardCount) {
+        throw new Error(`Invalid LHCI shard values: LHCI_SHARD_INDEX=${shardIndex}, LHCI_SHARD_COUNT=${shardCount}`);
+    }
+
+    return { shardCount, shardIndex };
+}
+
 async function createUrlsFile() {
     try {
         const urls = await getUrls();
@@ -14,8 +25,10 @@ async function createUrlsFile() {
 }
 
 async function getUrls() {
+    const { shardCount, shardIndex } = getShardInfo();
     let data = {};
-    data.urls = [];
+    data.urlsWithoutKnownIssues = [];
+    data.urlsWithKnownIssues = [];
     const directories = [
         {
             path: './build/components',
@@ -27,16 +40,55 @@ async function getUrls() {
             path: './build/foundations',
         },
     ];
+    // collect all the examples fail at 'aria-allowed-attr' audit check
+    const knownIssueFiles = [
+        'example-radios-with-revealed-text-input.html',
+        'example-radios-with-revealed-text-input-expanded.html',
+        'example-radios-with-revealed-text-area.html',
+        'example-radios-with-revealed-text-area-expanded.html',
+        'example-radios-with-revealed-select.html',
+        'example-radios-with-revealed-select-expanded.html',
+        'example-radios-with-revealed-radios.html',
+        'example-radios-with-revealed-radios-expanded.html',
+        'example-radios-with-revealed-checkboxes.html',
+        'example-radios-with-revealed-checkboxes-expanded.html',
+        'example-radios-with-clear-button.html',
+        'example-radios-with-clear-button-expanded.html',
+        'example-errors-proto.html',
+        'example-errors-proto-errors.html',
+        'example-feedback-form.html',
+        'example-feedback-form-errors.html',
+        'example-confirmation-page.html',
+    ];
     for (const directory of directories) {
         const folders = await readdir(directory.path);
         for (const folder of folders) {
             const files = await glob(`${directory.path}/${folder}/**/*.html`);
-            const filteredFiles = files.filter((path) => !path.includes('index.html') && !path.includes('example-skip-to-content.html'));
-            for (const file of filteredFiles) {
-                data.urls.push(file.replace('build/', 'http://localhost/'));
+            const filesWithoutKnownIssues = files.filter(
+                (path) =>
+                    !path.includes('index.html') &&
+                    !path.includes('example-skip-to-content.html') &&
+                    !knownIssueFiles.some((filename) => path.includes(filename)), // doesn't add index.html, example-skip-to-content and examples mentioned in knownIssueUrls
+            );
+            for (const file of filesWithoutKnownIssues) {
+                data.urlsWithoutKnownIssues.push(file.replace('build/', 'http://localhost/'));
+            }
+
+            const filesWithKnownIssues = files.filter((path) => knownIssueFiles.some((filename) => path.includes(filename)));
+            //add the examples mentioned in knownIssueUrls in a separate array
+            for (const file of filesWithKnownIssues) {
+                data.urlsWithKnownIssues.push(file.replace('build/', 'http://localhost/'));
             }
         }
     }
+
+    data.urlsWithoutKnownIssues.sort();
+    data.urlsWithKnownIssues.sort();
+
+    if (shardCount > 1) {
+        data.urlsWithoutKnownIssues = data.urlsWithoutKnownIssues.filter((_, index) => index % shardCount === shardIndex);
+    }
+
     return JSON.stringify(data);
 }
 

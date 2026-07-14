@@ -1,0 +1,59 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+{{
+    onsChart({
+        "chartType": "column",
+        "description": "Monthly percentage change in retail sales volume by store type, Great Britain, January to June 2025",
+        "theme": "primary",
+        "title": "Food stores showed a strong rise on the month, while non-food stores fell",
+        "subtitle": "Figure 6: Upward contribution to monthly percentage change in total retail sales",
+        "id": "uuid",
+        "useStackedLayout": true,
+        "caption": "Source: Monthly Business Survey, Retail Sales Inquiry from the Office for National Statistics",
+        "download": {
+            "title": "Download Figure 6 data",
+            "itemsList": [
+                { "text": "Excel spreadsheet (XLSX format, 22KB)", "url": "#",
+                "download": "file" },
+                { "text": "Simple text file (CSV format, 28KB)", "url": "#",
+                "download": "file" },
+                { "text": "Image (PNG format, 32KB)", "url": "#",
+                "download": "file" }
+            ]
+        },
+        "legend": true,
+        "series": [
+            {
+                "name": "Food stores",
+                "data": [1.5, 0.8, 1.2, 0.9, 1.1, 1.4]
+            },
+            {
+                "name": "Non-food stores",
+                "data": [0.5, -0.2, 0.6, 0.8, 0.3, 0.4]
+            },
+            {
+                "name": "Non-store retailing",
+                "data": [0.2, 0.1, 0.3, 0.2, 0.4, 0.3]
+            },
+            {
+                "name": "Automotive fuel",
+                "data": [0.3, 0.2, -0.1, 0.4, 0.2, 0.5]
+            }
+        ],
+        "xAxis": {
+            "categories": [
+                "Jan 2025",
+                "Feb 2025",
+                "Mar 2025",
+                "Apr 2025",
+                "May 2025",
+                "Jun 2025"
+            ],
+            "title": "Month"
+        },
+        "yAxis": {
+            "title": "Monthly percentage change (%)"
+        },
+        "percentageHeightDesktop": 40,
+        "percentageHeightMobile": 90
+    })
+}}

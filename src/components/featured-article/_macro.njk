@@ -1,0 +1,42 @@
+{% macro onsFeaturedArticle(params) %}
+    {% set headingLevel = params.headingLevel | default(2) %}
+    {% set openingArticleTitleTag = "<h" ~ headingLevel %}
+    {% set closingArticleTitleTag = "</h" ~ headingLevel ~ ">" %}
+
+    <div class="ons-featured">
+        {{ openingArticleTitleTag | safe }} class="ons-featured__title ons-u-fs-m ons-u-mt-no ons-u-mb-2xs">
+        <a href="{{ params.title.url }}">{{ params.title.text }}</a>
+        {{ closingArticleTitleTag | safe }}
+
+        {%- if params.metadata -%}
+            {% set metadata = params.metadata %}
+            <ul class="ons-featured__item-metadata">
+                {%- if metadata.date -%}
+                    <li class="ons-featured__item-attribute">
+                        {% set prefixClass = "ons-u-fw-b" if metadata.date.showPrefix == true else "ons-u-vh" %}
+                        <span class="{{ prefixClass }}">{{ metadata.date.prefix | default("Published") }}: </span>
+                        {%- if metadata.date.iso -%}
+                            <time datetime="{{ metadata.date.iso }}">{{ metadata.date.short }}</time>
+                        {%- endif -%}
+                    </li>
+                {% endif %}
+
+                {%- if metadata.text -%}
+                    <li class="ons-featured__item-attribute">
+                        <span {% if metadata.text %}class="ons-featured__attribute-text ons-u-fw-b"{% endif %}>{{ metadata.text }}</span>
+                    </li>
+                {% endif %}
+            </ul>
+        {% endif %}
+
+        {# The media (a nested figure containing a chart or image) is provided via the caller
+           block, so the article does not need to know how the content is rendered. #}
+        <div class="ons-featured__media">
+            {{ caller() if caller }}
+        </div>
+
+        {% if params.description %}
+            <div class="ons-featured__description">{{ params.description | safe }}</div>
+        {% endif %}
+    </div>
+{% endmacro %}

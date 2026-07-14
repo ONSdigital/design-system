@@ -55,6 +55,32 @@ describe('macro: hero', () => {
         expect(title).toBe('Hero text');
     });
 
+    it('has expected `richText` when `text` is not provided', () => {
+        const $ = cheerio.load(
+            renderComponent('hero', {
+                ...EXAMPLE_HERO,
+                text: undefined,
+                richText: '<p>Hero <strong>rich</strong> text</p>',
+            }),
+        );
+
+        expect($('.ons-hero__text').length).toBe(0);
+        expect($('.ons-hero__richtext').length).toBe(1);
+        expect($('.ons-hero__richtext').html().trim()).toBe('<p>Hero <strong>rich</strong> text</p>');
+    });
+
+    it('does not render `richText` when `text` is provided', () => {
+        const $ = cheerio.load(
+            renderComponent('hero', {
+                ...EXAMPLE_HERO,
+                richText: '<p>Hero rich text</p>',
+            }),
+        );
+
+        expect($('.ons-hero__text').length).toBe(1);
+        expect($('.ons-hero__richtext').length).toBe(0);
+    });
+
     it('has expected `html`', () => {
         const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, html: '<span class="some-html">some html</span>' }));
 
@@ -109,7 +135,23 @@ describe('macro: hero', () => {
         const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, variants: 'grey', officialStatisticsBadge: true }));
 
         expect($('.ons-hero__badge').length).toBe(1);
-        expect($('.ons-hero__badge svg title').text().trim()).toBe('Offical Statistics Badge');
+        expect($('.ons-hero__badge svg title').text().trim()).toBe('Official Statistics Badge - Accredited');
+    });
+
+    it('outputs the statistics badge as a link when officialStatisticsBadgeUrl is provided', () => {
+        const $ = cheerio.load(
+            renderComponent('hero', {
+                ...EXAMPLE_HERO,
+                variants: 'grey',
+                officialStatisticsBadge: true,
+                officialStatisticsBadgeUrl: 'https://example.com/badge',
+            }),
+        );
+
+        expect($('.ons-hero__badge-link').length).toBe(1);
+        expect($('.ons-hero__badge-link').attr('href')).toBe('https://example.com/badge');
+        expect($('.ons-hero__badge-link').attr('target')).toBe('_blank');
+        expect($('.ons-hero__badge-link').attr('rel')).toBe('noopener noreferrer');
     });
 
     it('outputs the Census 2021 Logo when censusLogo is set to true and variants is set to "grey"', () => {
@@ -136,33 +178,104 @@ describe('macro: hero', () => {
         expect($('.ons-hero--grey').length).toBe(1);
     });
 
-    it('outputs the correct breadcrumbs', () => {
-        const $ = cheerio.load(
-            renderComponent('hero', {
-                ...EXAMPLE_HERO,
-                variants: 'grey',
-                breadcrumbs: {
-                    ariaLabel: 'Breadcrumbs',
-                    itemsList: [
-                        {
-                            url: '/breadcrumb-1',
-                            text: 'Breadcrumbs 1',
+    describe('when `informationPanel` is provided and the variant is set to `grey`', () => {
+        describe('and `panelText` and `panelLink` are provided', () => {
+            it('renders the information panel with correct text and link`', () => {
+                const $ = cheerio.load(
+                    renderComponent('hero', {
+                        ...EXAMPLE_HERO,
+                        variants: 'grey',
+                        informationPanel: {
+                            panelText: 'Some panel text',
+                            panelType: 'ons-green',
+                            panelLink: {
+                                text: 'Some link text',
+                                url: '#0',
+                            },
                         },
-                        {
-                            url: '/breadcrumb-2',
-                            text: 'Breadcrumbs 2',
-                        },
-                    ],
-                },
-            }),
-        );
+                    }),
+                );
 
-        const breadcrumbs = $('.ons-breadcrumbs__link');
-        expect($(breadcrumbs).length).toBe(2);
-        expect($(breadcrumbs[0]).attr('href')).toBe('/breadcrumb-1');
-        expect($(breadcrumbs[0]).text().trim()).toBe('Breadcrumbs 1');
-        expect($(breadcrumbs[1]).attr('href')).toBe('/breadcrumb-2');
-        expect($(breadcrumbs[1]).text().trim()).toBe('Breadcrumbs 2');
+                expect($('.ons-hero__information').length).toBe(1);
+                expect($('.ons-hero__panel').length).toBe(1);
+                expect($('.ons-hero__panel').text().trim()).toBe('Some panel text');
+                expect($('.ons-hero__link > a').text().trim()).toBe('Some link text');
+                expect($('.ons-hero__link > a').attr('href')).toBe('#0');
+            });
+
+            it('renders the `informationPanel` link with a custom aria-label', () => {
+                const $ = cheerio.load(
+                    renderComponent('hero', {
+                        ...EXAMPLE_HERO,
+                        variants: 'grey',
+                        informationPanel: {
+                            panelText: 'Some panel text',
+                            panelType: 'ons-green',
+                            panelLink: {
+                                text: 'Some link text',
+                                url: '#0',
+                                ariaLabel: 'Some link aria label',
+                            },
+                        },
+                    }),
+                );
+                const link = $('.ons-hero__link > a');
+                expect(link.attr('aria-label')).toBe('Some link aria label');
+                expect(link.text().trim()).toBe('Some link text');
+                expect(link.attr('href')).toBe('#0');
+            });
+        });
+
+        describe('and `panelType` is set to `ons-green`', () => {
+            it('renders the green information panel`', () => {
+                const $ = cheerio.load(
+                    renderComponent('hero', {
+                        ...EXAMPLE_HERO,
+                        variants: 'grey',
+                        informationPanel: {
+                            panelText: 'Some panel text',
+                            panelType: 'ons-green',
+                        },
+                    }),
+                );
+
+                expect($('.ons-hero__panel').hasClass('ons-hero__panel--ons-green')).toBe(true);
+            });
+        });
+
+        describe('and `panelType` is set to `ons-red`', () => {
+            it('renders the red information panel`', () => {
+                const $ = cheerio.load(
+                    renderComponent('hero', {
+                        ...EXAMPLE_HERO,
+                        variants: 'grey',
+                        informationPanel: {
+                            panelText: 'Some panel text',
+                            panelType: 'ons-red',
+                        },
+                    }),
+                );
+
+                expect($('.ons-hero__panel').hasClass('ons-hero__panel--ons-red')).toBe(true);
+            });
+        });
+
+        describe('and `panelType` is set to `ons-orange`', () => {
+            it('renders the orange information panel`', () => {
+                const $ = cheerio.load(
+                    renderComponent('hero', {
+                        ...EXAMPLE_HERO,
+                        variants: 'grey',
+                        informationPanel: {
+                            panelText: 'Some panel text',
+                            panelType: 'ons-orange',
+                        },
+                    }),
+                );
+
+                expect($('.ons-hero__panel').hasClass('ons-hero__panel--ons-orange')).toBe(true);
+            });
+        });
     });
 
     it('outputs the correct description list value', () => {

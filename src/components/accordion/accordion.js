@@ -1,3 +1,4 @@
+import DOMPurify from 'dompurify';
 export default class Accordion {
     constructor(button, detailsEls) {
         this.openDetailsEls = 0;
@@ -52,13 +53,16 @@ export default class Accordion {
 
     setButton() {
         if (this.canClose()) {
-            this.buttonInner.innerHTML = this.closeButton;
+            this.buttonInner.innerHTML = DOMPurify.sanitize(this.closeButton);
             this.button.setAttribute('data-ga-label', this.buttonOpen);
+            this.button.setAttribute('aria-label', this.button.getAttribute('data-close-aria-label'));
             this.button.setAttribute('aria-expanded', 'true');
         } else {
-            this.buttonInner.innerHTML = this.buttonOpen;
+            this.buttonInner.innerHTML = DOMPurify.sanitize(this.buttonOpen);
+            this.button.setAttribute('aria-label', this.button.getAttribute('data-open-aria-label'));
             this.button.setAttribute('data-ga-label', this.closeButton);
             this.button.setAttribute('aria-expanded', 'false');
+            this.button.setAttribute('data-ga-interaction-value', 'close');
         }
     }
 }

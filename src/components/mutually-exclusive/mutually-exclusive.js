@@ -1,3 +1,5 @@
+import DOMPurify from 'dompurify';
+
 const exclusiveGroupItemClass = 'ons-js-exclusive-group-item';
 const optionClass = 'ons-js-exclusive-option';
 const voiceOverAlertClass = 'ons-js-exclusive-alert';
@@ -133,7 +135,7 @@ export default class MutuallyExclusive {
 
         // Only update aria-live if value changes to prevent typing from clearing the message before it's read
         if (deselectionMessage) {
-            this.voiceOverAlertElement.innerHTML = deselectionMessage;
+            this.voiceOverAlertElement.innerHTML = DOMPurify.sanitize(deselectionMessage);
         }
     }
 

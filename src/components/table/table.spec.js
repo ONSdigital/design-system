@@ -5,6 +5,7 @@ describe('script: table', () => {
         // Construct a table with 15 columns and 15 rows with long labels.
         const params = {
             variants: ['scrollable'],
+            ariaLabel: 'Example table',
             ths: Array.from({ length: 15 }, (_, i) => ({ value: `Column ${i + 1}` })),
             trs: [
                 {
@@ -44,6 +45,7 @@ describe('script: table', () => {
     describe('variant: sortable', () => {
         const params = {
             variants: ['sortable'],
+            ariaLabel: 'Example table',
             sortBy: 'Sort by',
             ariaAsc: 'ascending',
             ariaDesc: 'descending',

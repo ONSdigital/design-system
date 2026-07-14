@@ -46,11 +46,11 @@
 {# Page columns #}
 {% set pageColNumber = pageConfig.pageColNumber | default("12") %}
 {%
-    set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else
+    set pageColClasses = ' ' + pageConfig.pageColClasses if pageConfig.pageColClasses else
     ''
 %}
 {%
-    set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else
+    set mainColClasses = ' ' + pageConfig.mainColClasses if pageConfig.mainColClasses else
     ''
 %}
 {%
@@ -66,6 +66,12 @@
         <title>{{ pageTitle }}</title>
         <link rel="stylesheet" href="{{ assetsUrl }}/css/main.css" />
         <link rel="stylesheet" media="print" href="{{ assetsUrl }}/css/print.css" />
+
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin>
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin>
+
         <meta name="theme-color" content="{{ themeColor }}" />
         {% block meta %}
             {% if pageConfig.meta %}
@@ -103,16 +109,16 @@
 
             {% if pageConfig.social %}
                 {%
-                    set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else
-                    assetsUrl + '/favicons/twitter.png'
+                    set xImagePath = pageConfig.social.xImage if pageConfig.social.xImage else
+                    assetsUrl + '/favicons/x.png'
                 %}
-                <!-- Twitter -->
+                <!-- X -->
                 <meta name="twitter:card" content="summary" />
-                <meta name="twitter:site" content="{{ pageConfig.social.twitterSite }}" />
+                <meta name="twitter:site" content="{{ pageConfig.social.xSite }}" />
                 <meta name="twitter:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}" />
                 <meta name="twitter:title" content="{{ pageConfig.social.title | default(pageConfig.title) }}" />
                 <meta name="twitter:description" content="{{ pageConfig.social.description | default(pageConfig.description) }}" />
-                <meta name="twitter:image" content="{{ twitterImagePath }}" />
+                <meta name="twitter:image" content="{{ xImagePath }}" />
             {% endif %}
         {% endblock %}
 
@@ -146,6 +152,19 @@
                             })
                         }}
                     {% endblock %}
+                    {% block announcementBanner %}
+                        {% if pageConfig.announcementBanner %}
+                            {% from "components/announcement-banner/_macro.njk" import onsAnnouncementBanner %}
+                            {{
+                                onsAnnouncementBanner({
+                                    "variants": pageConfig.announcementBanner.variants,
+                                    "title": pageConfig.announcementBanner.title,
+                                    "description": pageConfig.announcementBanner.description,
+                                    "link": pageConfig.announcementBanner.link
+                                })
+                            }}
+                        {% endif %}
+                    {% endblock %}
                     {% block header %}
                         {{
                             onsHeader({
@@ -167,7 +186,11 @@
                                 "title": pageConfig.header.title | default(pageConfig.title),
                                 "description": pageConfig.header.description,
                                 "titleAsH1": pageConfig.header.titleAsH1,
-                                "titleLogo": pageConfig.header.titleLogo
+                                "titleLogo": pageConfig.header.titleLogo,
+                                "mastheadLogoAltText": pageConfig.header.mastheadLogoAltText,
+                                "menuLinks": pageConfig.header.menuLinks,
+                                "searchLinks": pageConfig.header.searchLinks,
+                                "search": pageConfig.header.search
                             })
                         }}
                     {% endblock %}
@@ -186,8 +209,8 @@
                                 {% endif %}
                             {% endblock %}
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m {{ pageColClasses }}">
-                                    <main id="main-content" class="ons-page__main {{ mainColClasses }}">
+                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m{{ pageColClasses }}">
+                                    <main id="main-content" class="ons-page__main{{ mainColClasses }}">
                                         {% block main %}{% endblock %}
                                     </main>
                                 </div>
@@ -227,6 +250,11 @@
             (function() {
                 var s = [ '{{ assetsUrl }}/scripts/main.js' ],
                 c = document.createElement('script');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+
+                if (hasCharts) {
+                    s.push('{{ assetsUrl }}/scripts/chart.js');
+                }
 
                 if (!('noModule' in c)) {
                     for (var i = 0; i < s.length; i++) {

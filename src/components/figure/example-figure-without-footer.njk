@@ -1,0 +1,12 @@
+{% from "components/figure/_macro.njk" import onsFigure %}
+
+{%
+    call onsFigure({
+        "headingLevel": 3,
+        "figureNumber": "Figure 1",
+        "title": "Image 1: Working from home",
+        "subtitle": "A growing proportion of the workforce now works remotely"
+    })
+%}
+    <img class="ons-image__img" src="/img/small/woman-in-purple-dress-shirt.jpg" alt="Woman in a purple dress shirt using a laptop" />
+{% endcall %}

@@ -2,6 +2,12 @@
     margin: 0 0 2rem;
     width: 100%;
 
+    &--feature {
+        background-color: var(--ons-color-banner-bg);
+        padding: 2rem;
+        outline: 1px solid transparent;
+    }
+
     &__link {
         display: flex;
         flex-direction: column;
