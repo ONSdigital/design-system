@@ -12,6 +12,15 @@
 
 // Overrides
 
+// Masthead logo
+.ons-header__org-logo {
+    &-link:focus {
+        .ons-icon--logo {
+            fill: var(--ons-color-black);
+        }
+    }
+}
+
 // Header logo
 .ons-header__title-logo {
     .ons-svg-logo {
