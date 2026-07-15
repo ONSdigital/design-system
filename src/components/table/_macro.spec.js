@@ -765,6 +765,18 @@ describe('macro: table', () => {
             expect(figureSpy.occurrences[0].download).toEqual(download);
         });
 
+        it('passes `figureCaption` to the figure component', () => {
+            const faker = templateFaker();
+            const figureSpy = faker.spy('figure');
+
+            faker.renderComponent('table', {
+                ...EXAMPLE_TABLE,
+                figureCaption: 'Source: Office for National Statistics',
+            });
+
+            expect(figureSpy.occurrences[0].caption).toBe('Source: Office for National Statistics');
+        });
+
         it('sets `useDivForRootElement` on the figure component', () => {
             const faker = templateFaker();
             const figureSpy = faker.spy('figure');
