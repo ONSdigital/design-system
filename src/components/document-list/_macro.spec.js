@@ -277,6 +277,61 @@ describe('FOR: Macro: Document list', () => {
                 expect(fileInfo).toBe('PDF, 499KB, 1 page');
             });
         });
+
+        describe('WHEN: file configuration is missing optional fileSize and filePages', () => {
+            const $ = cheerio.load(
+                renderComponent('document-list', {
+                    documents: [
+                        {
+                            ...EXAMPLE_DOCUMENT_LIST_BASIC,
+                            metadata: {
+                                file: {
+                                    fileType: 'PDF',
+                                },
+                            },
+                        },
+                    ],
+                }),
+            );
+
+            test('THEN: has visually hidden file information without stray separators', () => {
+                const hiddenText = $('.ons-document-list__item-title a .ons-u-vh').text().trim();
+                expect(hiddenText).toBe(', PDF document download');
+            });
+
+            test('THEN: has file information without stray separators', () => {
+                const fileInfo = $('.ons-document-list__item-attribute').text().trim();
+                expect(fileInfo).toBe('PDF');
+            });
+        });
+
+        describe('WHEN: file configuration is missing optional filePages', () => {
+            const $ = cheerio.load(
+                renderComponent('document-list', {
+                    documents: [
+                        {
+                            ...EXAMPLE_DOCUMENT_LIST_BASIC,
+                            metadata: {
+                                file: {
+                                    fileType: 'PDF',
+                                    fileSize: '499KB',
+                                },
+                            },
+                        },
+                    ],
+                }),
+            );
+
+            test('THEN: has visually hidden file information without stray separators', () => {
+                const hiddenText = $('.ons-document-list__item-title a .ons-u-vh').text().trim();
+                expect(hiddenText).toBe(', PDF document download, 499KB');
+            });
+
+            test('THEN: has file information without stray separators', () => {
+                const fileInfo = $('.ons-document-list__item-attribute').text().trim();
+                expect(fileInfo).toBe('PDF, 499KB');
+            });
+        });
     });
 
     describe('GIVEN: Params: object', () => {
