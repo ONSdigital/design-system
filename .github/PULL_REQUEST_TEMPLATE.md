@@ -1,18 +1,18 @@
 <!-- ignore-task-list-start -->
 
-### What is the context of this PR?
+See [Link to Jira issue]
 
-Describe what you have changed and why, link to other PRs or Issues as appropriate.
+Briefly describe what you have changed and why.
 
-### How to review this PR
+### How to review
 
-Describe the steps required to test the changes (include screenshots if appropriate).
-
-### Checklist
-
-This needs to be completed by the person raising the PR.
+Describe the steps to review and test these changes.
 
 <!-- ignore-task-list-end -->
 
--   [ ] I have selected the correct Assignee
--   [ ] I have linked the correct Issue
+### Checklist
+
+- [ ] I have linked the Issue
+- [ ] I have selected the Assignee
+- [ ] I have selected the most helpful Label
+- [ ] I have suggested an excellent Title for our release notes

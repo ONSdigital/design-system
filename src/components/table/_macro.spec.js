@@ -7,6 +7,7 @@ import { mapAll } from '../../tests/helpers/cheerio';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_TABLE_MINIMAL = {
+    ariaLabel: 'Example table',
     ths: [],
     trs: [],
 };
@@ -32,7 +33,7 @@ describe('macro: table', () => {
         expect(results).toHaveNoViolations();
     });
 
-    it('has the provided `id` attribute', () => {
+    it('has the provided `id` on the wrapping element', () => {
         const $ = cheerio.load(
             renderComponent('table', {
                 ...EXAMPLE_TABLE,
@@ -40,7 +41,7 @@ describe('macro: table', () => {
             }),
         );
 
-        expect($('.ons-table').attr('id')).toBe('example-table');
+        expect($('.ons-figure').attr('id')).toBe('example-table');
     });
 
     it('has additionally provided style classes', () => {
@@ -67,27 +68,15 @@ describe('macro: table', () => {
         expect($('.ons-table-scrollable__content').length).toBe(1);
     });
 
-    it('renders an appropriate `aria-label` attribute on the "content" container element', () => {
+    it('renders the `aria-label` attribute on the "content" container element', () => {
         const $ = cheerio.load(
             renderComponent('table', {
                 ...EXAMPLE_TABLE,
-                caption: 'Example table caption',
-            }),
-        );
-
-        expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Scrollable table');
-    });
-
-    it('renders a custom `aria-label` attribute on the "content" container element', () => {
-        const $ = cheerio.load(
-            renderComponent('table', {
-                ...EXAMPLE_TABLE,
-                caption: 'Example table caption',
                 ariaLabel: 'Special table',
             }),
         );
 
-        expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Example table caption. Special table');
+        expect($('.ons-table-scrollable__content').attr('aria-label')).toBe('Special table');
     });
 
     describe('Vertical Alignment', () => {
@@ -678,6 +667,111 @@ describe('macro: table', () => {
             );
 
             expect($('.ons-table__caption').hasClass('ons-u-vh')).toBe(true);
+        });
+    });
+
+    describe('figure wrapper', () => {
+        it('renders with a <div> root element instead of <figure>', () => {
+            const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
+
+            expect($('.ons-figure')[0].tagName).toBe('div');
+        });
+
+        it('passes `title` to the figure component', () => {
+            const faker = templateFaker();
+            const figureSpy = faker.spy('figure');
+
+            faker.renderComponent('table', {
+                ...EXAMPLE_TABLE,
+                title: 'Population by region',
+            });
+
+            expect(figureSpy.occurrences[0].title).toBe('Population by region');
+        });
+
+        it('passes `subtitle` to the figure component', () => {
+            const faker = templateFaker();
+            const figureSpy = faker.spy('figure');
+
+            faker.renderComponent('table', {
+                ...EXAMPLE_TABLE,
+                subtitle: 'Mid-year estimates, 2023',
+            });
+
+            expect(figureSpy.occurrences[0].subtitle).toBe('Mid-year estimates, 2023');
+        });
+
+        it('passes `headingLevel` to the figure component', () => {
+            const faker = templateFaker();
+            const figureSpy = faker.spy('figure');
+
+            faker.renderComponent('table', {
+                ...EXAMPLE_TABLE,
+                headingLevel: 3,
+            });
+
+            expect(figureSpy.occurrences[0].headingLevel).toBe(3);
+        });
+
+        it('passes `figureNumber` to the figure component', () => {
+            const faker = templateFaker();
+            const figureSpy = faker.spy('figure');
+
+            faker.renderComponent('table', {
+                ...EXAMPLE_TABLE,
+                figureNumber: 'Table 1',
+            });
+
+            expect(figureSpy.occurrences[0].figureNumber).toBe('Table 1');
+        });
+
+        it('passes `footnotes` to the figure component', () => {
+            const faker = templateFaker();
+            const figureSpy = faker.spy('figure');
+
+            const footnotes = {
+                title: 'Footnotes',
+                content: 'Data is seasonally adjusted.',
+            };
+
+            faker.renderComponent('table', {
+                ...EXAMPLE_TABLE,
+                footnotes,
+            });
+
+            expect(figureSpy.occurrences[0].footnotes).toEqual(footnotes);
+        });
+
+        it('passes `download` to the figure component', () => {
+            const faker = templateFaker();
+            const figureSpy = faker.spy('figure');
+
+            const download = {
+                title: 'Download this table',
+                itemsList: [
+                    {
+                        text: 'Table data (CSV, 2KB)',
+                        url: '/data/table.csv',
+                        download: 'file',
+                    },
+                ],
+            };
+
+            faker.renderComponent('table', {
+                ...EXAMPLE_TABLE,
+                download,
+            });
+
+            expect(figureSpy.occurrences[0].download).toEqual(download);
+        });
+
+        it('sets `useDivForRootElement` on the figure component', () => {
+            const faker = templateFaker();
+            const figureSpy = faker.spy('figure');
+
+            faker.renderComponent('table', EXAMPLE_TABLE);
+
+            expect(figureSpy.occurrences[0].useDivForRootElement).toBe(true);
         });
     });
 });

@@ -546,6 +546,29 @@ const HEADER_BASIC_EXAMPLE = `
 {% block main %}{% endblock %}
 `;
 
+const HEADER_SEARCH_EXAMPLE = `
+{% set pageConfig = {
+    "title": "Social survey",
+    "header": {
+        "variants": "basic",
+        "search": {
+            "id": "search-links",
+            "links": {
+                "heading": "Popular searches",
+                "itemsList": [
+                    {
+                        "url": "#1",
+                        "text": "Cost of living"
+                    }
+                ]
+            }
+        }
+    }
+} %}
+
+{% block main %}{% endblock %}
+`;
+
 describe('base page template', () => {
     it('passes jest-axe checks', async () => {
         const $ = cheerio.load(renderBaseTemplate(FULL_EXAMPLE));
@@ -571,5 +594,13 @@ describe('base page template', () => {
         const $ = cheerio.load(renderBaseTemplate(params));
 
         expect($.html()).toMatchSnapshot();
+    });
+
+    it('renders header search correctly from pageConfig.header.search', () => {
+        const $ = cheerio.load(renderBaseTemplate(HEADER_SEARCH_EXAMPLE));
+
+        expect($.html()).toContain('id="search-links"');
+        expect($.html()).toContain('Popular searches');
+        expect($.html()).toContain('Cost of living');
     });
 });
