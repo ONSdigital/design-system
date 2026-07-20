@@ -173,7 +173,7 @@ describe('macro: figure', () => {
     });
 
     describe('subtitle', () => {
-        it('renders the subtitle', () => {
+        it('renders the subtitle when title is also provided', () => {
             const $ = cheerio.load(
                 renderComponent(
                     'figure',
@@ -190,6 +190,21 @@ describe('macro: figure', () => {
 
         it('does not render the subtitle when not provided', () => {
             const $ = cheerio.load(renderComponent('figure', EXAMPLE_FIGURE_BASIC, CALLER_CONTENT));
+
+            expect($('.ons-figure__subtitle').length).toBe(0);
+        });
+
+        it('does not render the subtitle when title is not provided', () => {
+            const $ = cheerio.load(
+                renderComponent(
+                    'figure',
+                    {
+                        id: 'example-figure',
+                        subtitle: 'A subtitle',
+                    },
+                    CALLER_CONTENT,
+                ),
+            );
 
             expect($('.ons-figure__subtitle').length).toBe(0);
         });
@@ -244,7 +259,28 @@ describe('macro: figure', () => {
             expect($('.ons-figure__subtitle')[0].tagName).toBe('h5');
         });
 
-        it('renders footnotes heading two levels below the title', () => {
+        it('renders footnotes heading two levels below when title and subtitle are provided', () => {
+            const faker = templateFaker();
+            const detailsSpy = faker.spy('details');
+
+            faker.renderComponent(
+                'figure',
+                {
+                    ...EXAMPLE_FIGURE_BASIC,
+                    headingLevel: 3,
+                    subtitle: 'A subtitle',
+                    footnotes: {
+                        title: 'Footnotes',
+                        content: 'Some notes.',
+                    },
+                },
+                CALLER_CONTENT,
+            );
+
+            expect(detailsSpy.occurrences[0].headingLevel).toBe(5);
+        });
+
+        it('renders footnotes heading one level below when only title is provided', () => {
             const faker = templateFaker();
             const detailsSpy = faker.spy('details');
 
@@ -261,10 +297,51 @@ describe('macro: figure', () => {
                 CALLER_CONTENT,
             );
 
+            expect(detailsSpy.occurrences[0].headingLevel).toBe(4);
+        });
+
+        it('renders footnotes at the base heading level when no title or subtitle is provided', () => {
+            const faker = templateFaker();
+            const detailsSpy = faker.spy('details');
+
+            faker.renderComponent(
+                'figure',
+                {
+                    id: 'example-figure',
+                    headingLevel: 3,
+                    footnotes: {
+                        title: 'Footnotes',
+                        content: 'Some notes.',
+                    },
+                },
+                CALLER_CONTENT,
+            );
+
+            expect(detailsSpy.occurrences[0].headingLevel).toBe(3);
+        });
+
+        it('renders download heading two levels below when title and subtitle are provided', () => {
+            const faker = templateFaker();
+            const detailsSpy = faker.spy('details');
+
+            faker.renderComponent(
+                'figure',
+                {
+                    ...EXAMPLE_FIGURE_BASIC,
+                    headingLevel: 3,
+                    subtitle: 'A subtitle',
+                    download: {
+                        title: 'Downloads',
+                        itemsList: [{ text: 'A file', url: '/file.csv', download: 'file' }],
+                    },
+                },
+                CALLER_CONTENT,
+            );
+
             expect(detailsSpy.occurrences[0].headingLevel).toBe(5);
         });
 
-        it('renders download heading two levels below the title', () => {
+        it('renders download heading one level below when only title is provided', () => {
             const faker = templateFaker();
             const detailsSpy = faker.spy('details');
 
@@ -281,7 +358,27 @@ describe('macro: figure', () => {
                 CALLER_CONTENT,
             );
 
-            expect(detailsSpy.occurrences[0].headingLevel).toBe(5);
+            expect(detailsSpy.occurrences[0].headingLevel).toBe(4);
+        });
+
+        it('renders download at the base heading level when no title or subtitle is provided', () => {
+            const faker = templateFaker();
+            const detailsSpy = faker.spy('details');
+
+            faker.renderComponent(
+                'figure',
+                {
+                    id: 'example-figure',
+                    headingLevel: 3,
+                    download: {
+                        title: 'Downloads',
+                        itemsList: [{ text: 'A file', url: '/file.csv', download: 'file' }],
+                    },
+                },
+                CALLER_CONTENT,
+            );
+
+            expect(detailsSpy.occurrences[0].headingLevel).toBe(3);
         });
     });
 

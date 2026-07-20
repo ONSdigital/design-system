@@ -10,8 +10,13 @@
     {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
     {% set openingSubtitleTag = '<h' ~ (headingLevel + 1) ~ ' class="ons-figure__subtitle">' %}
     {% set closingSubtitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
-    {% set openingDownloadTitleTag = '<h' ~ (headingLevel + 2) ~ '>' %}
-    {% set closingDownloadTitleTag = "</h" ~ (headingLevel + 2) ~ ">" %}
+    {% if params.title and params.subtitle %}
+        {% set childHeadingLevel = headingLevel + 2 %}
+    {% elif params.title %}
+        {% set childHeadingLevel = headingLevel + 1 %}
+    {% else %}
+        {% set childHeadingLevel = headingLevel %}
+    {% endif %}
     {% set audioDescriptionId = "figure-audio-description-" ~ params.id %}
     {% set rootElement = 'div' if params.useDivForRootElement else 'figure' %}
     {% set openingRootTag = '<' ~ rootElement %}
@@ -34,7 +39,7 @@
     {% if params.title %}
         {{ openingTitleTag | safe }}{{ params.title }}{{ closingTitleTag | safe }}
     {% endif %}
-    {% if params.subtitle %}
+    {% if params.subtitle and params.title %}
         {{ openingSubtitleTag | safe }}{{ params.subtitle }}{{ closingSubtitleTag | safe }}
     {% endif %}
 
@@ -70,7 +75,7 @@
                 "id": footnotesId,
                 "title": params.footnotes.title,
                 "content": params.footnotes.content,
-                "headingLevel": headingLevel + 2,
+                "headingLevel": childHeadingLevel,
                 "classes": "ons-u-mb-l"
             })
         }}
@@ -86,7 +91,7 @@
                     "itemsList": params.download.itemsList,
                     "variants": "bare"
                 }),
-                "headingLevel": headingLevel + 2
+                "headingLevel": childHeadingLevel
             })
         }}
     {% endif %}
