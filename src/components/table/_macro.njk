@@ -17,6 +17,18 @@
             "caption": params.sourceNote
         })
     %}
+        {% set tableClasses = "ons-table" %}
+
+        {# If there is no source note, footnotes or downloads after the table, add a bottom margin to the table to match the previous spacing #}
+        {# If there source note, footnotes or downloads after the table, the figure component handles the extra spacing #}
+        {% if not params.sourceNote and not params.footnotes and not params.download %}
+            {% set tableClasses = tableClasses + " ons-table--bottom-space" %}
+        {% endif %}
+
+        {% if params.tableClasses %}
+            {% set tableClasses = tableClasses + " " + params.tableClasses %}
+        {% endif %}
+
         <div class="ons-table-scrollable ons-table-scrollable--on">
             <div
                 class="ons-table-scrollable__content"
@@ -26,7 +38,7 @@
             >
                 {# Uses multiple loops to set the rowspan class so that it can work in both nunjucks and jinja2 environments due to the scoping rules of each language #}
                 <table
-                    class="ons-table{{ ' ' + params.tableClasses if params.tableClasses else '' }}{% for row in params.thList %}{% for th in row.ths %}{% if th.rowspan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% endfor %}{% endfor %}{% for row in params.trs %}{% for td in row.tds %}{% if td.rowspan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% endfor %}{% endfor %}{% if variants %}{% if variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}{% endif %}"
+                    class="{{ tableClasses }}{% for row in params.thList %}{% for th in row.ths %}{% if th.rowspan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% endfor %}{% endfor %}{% for row in params.trs %}{% for td in row.tds %}{% if td.rowspan %}{{ ' ' }}ons-table--has-rowspan{% endif %}{% endfor %}{% endfor %}{% if variants %}{% if variants is not string %}{% for variant in variants %}{{ ' ' }}ons-table--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-table--{{ variants }}{% endif %}{% endif %}"
                     {% if params.sortBy and 'sortable' in variants %}
                         data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"
                     {% endif %}
