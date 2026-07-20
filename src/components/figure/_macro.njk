@@ -1,0 +1,98 @@
+{% from "components/list/_macro.njk" import onsList %}
+{% from "components/details/_macro.njk" import onsDetails %}
+
+{% macro onsFigure(params) %}
+    {# The heading levels are configurable so the figure slots into the correct place in the
+       document outline, but the title and subtitle always render at the same visual size
+       via the utility font-size classes below. #}
+    {% set headingLevel = params.headingLevel | default(2, true) %}
+    {% set openingTitleTag = '<h' ~ headingLevel ~ ' class="ons-figure__title">' %}
+    {% set closingTitleTag = "</h" ~ headingLevel ~ ">" %}
+    {% set openingSubtitleTag = '<h' ~ (headingLevel + 1) ~ ' class="ons-figure__subtitle">' %}
+    {% set closingSubtitleTag = "</h" ~ (headingLevel + 1) ~ ">" %}
+    {% if params.title and params.subtitle %}
+        {% set childHeadingLevel = headingLevel + 2 %}
+    {% elif params.title %}
+        {% set childHeadingLevel = headingLevel + 1 %}
+    {% else %}
+        {% set childHeadingLevel = headingLevel %}
+    {% endif %}
+    {% set audioDescriptionId = "figure-audio-description-" ~ params.id %}
+    {% set rootElement = 'div' if params.useDivForRootElement else 'figure' %}
+    {% set openingRootTag = '<' ~ rootElement %}
+    {% if params.audioDescription %}
+        {% set openingRootTag = openingRootTag ~ ' aria-describedby="' ~ audioDescriptionId ~ '"' %}
+    {% endif %}
+    {% set openingRootTag = openingRootTag ~ ' class="ons-figure' ~ (' ' ~ params.classes if params.classes else '') ~ '"' %}
+    {% if params.id %}
+        {% set openingRootTag = openingRootTag ~ ' id="' ~ params.id ~ '"' %}
+    {% endif %}
+    {% set openingRootTag = openingRootTag ~ '>' %}
+    {% set closingRootTag = '</' ~ rootElement ~ '>' %}
+    {% set contentHasTopMargin = true if params.figureNumber or params.title or params.subtitle else false %}
+    {% set contentHasBottomMargin = true if params.caption or params.footnotes or params.download else false %}
+
+    {{ openingRootTag | safe }}
+    {% if params.figureNumber %}
+        <span class="ons-figure__number">{{ params.figureNumber }}</span>
+    {% endif %}
+    {% if params.title %}
+        {{ openingTitleTag | safe }}{{ params.title }}{{ closingTitleTag | safe }}
+    {% endif %}
+    {% if params.subtitle and params.title %}
+        {{ openingSubtitleTag | safe }}{{ params.subtitle }}{{ closingSubtitleTag | safe }}
+    {% endif %}
+
+    {# A visually-hidden description of the nested content for screen reader users. #}
+    {% if params.audioDescription %}
+        <p class="ons-u-vh" id="{{ audioDescriptionId }}">{{ params.audioDescription }}</p>
+    {% endif %}
+
+    <div
+        class="
+                ons-figure__content
+                {% if contentHasTopMargin %}ons-u-mt-l{% endif %}
+                {% if contentHasBottomMargin %}ons-u-mb-l{% endif %}
+            "
+    >
+        {# The nested content appears here #}
+        {{ caller() if caller else '' }}
+    </div>
+
+    {% if params.caption %}
+        {% if rootElement == 'figure' %}
+            <figcaption class="ons-figure__caption">{{ params.caption }}</figcaption>
+        {% else %}
+            <span class="ons-figure__caption">{{ params.caption }}</span>
+        {% endif %}
+    {% endif %}
+    {{ closingRootTag | safe }}
+
+    {% if params.footnotes %}
+        {% set footnotesId = ["figure-footnotes--", params.id] | join %}
+        {{
+            onsDetails({
+                "id": footnotesId,
+                "title": params.footnotes.title,
+                "content": params.footnotes.content,
+                "headingLevel": childHeadingLevel,
+                "classes": "ons-u-mb-l"
+            })
+        }}
+    {% endif %}
+
+    {% if params.download.title and params.download.itemsList | length > 0 %}
+        {% set downloadsId = ["figure-downloads--", params.id] | join %}
+        {{
+            onsDetails({
+                "id": downloadsId,
+                "title": params.download.title,
+                "content": onsList({
+                    "itemsList": params.download.itemsList,
+                    "variants": "bare"
+                }),
+                "headingLevel": childHeadingLevel
+            })
+        }}
+    {% endif %}
+{% endmacro %}
