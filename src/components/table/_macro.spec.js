@@ -670,6 +670,59 @@ describe('macro: table', () => {
         });
     });
 
+    describe('bottom spacing', () => {
+        it('adds "ons-table--bottom-space" class when there are no footnotes, download or sourceNote', () => {
+            const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
+
+            expect($('.ons-table').hasClass('ons-table--bottom-space')).toBe(true);
+        });
+
+        it('does not add "ons-table--bottom-space" class when `sourceNote` is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    sourceNote: 'Source: Office for National Statistics',
+                }),
+            );
+
+            expect($('.ons-table').hasClass('ons-table--bottom-space')).toBe(false);
+        });
+
+        it('does not add "ons-table--bottom-space" class when `footnotes` is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    footnotes: {
+                        title: 'Footnotes',
+                        content: 'Data is seasonally adjusted.',
+                    },
+                }),
+            );
+
+            expect($('.ons-table').hasClass('ons-table--bottom-space')).toBe(false);
+        });
+
+        it('does not add "ons-table--bottom-space" class when `download` is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('table', {
+                    ...EXAMPLE_TABLE,
+                    download: {
+                        title: 'Download this table',
+                        itemsList: [
+                            {
+                                text: 'Table data (CSV, 2KB)',
+                                url: '/data/table.csv',
+                                download: 'file',
+                            },
+                        ],
+                    },
+                }),
+            );
+
+            expect($('.ons-table').hasClass('ons-table--bottom-space')).toBe(false);
+        });
+    });
+
     describe('figure wrapper', () => {
         it('renders with a <div> root element instead of <figure>', () => {
             const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
