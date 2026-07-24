@@ -42,7 +42,7 @@
                                         document.metadata.file.fileSize if document.metadata.file.fileSize,
                                         document.metadata.file.filePages if document.metadata.file.filePages ]
                                     %}
-                                    , {{ fileMetadataItems | join(', ') }}
+                                    , {{ fileMetadataItems | select | join(', ') }}
                                 </span>
                             {% endif %}
                         </a>
@@ -89,7 +89,7 @@
                                             document.metadata.file.fileSize if document.metadata.file.fileSize,
                                             document.metadata.file.filePages if document.metadata.file.filePages ]
                                         %}
-                                        {{ fileMetadataItems | join(', ') }}
+                                        {{ fileMetadataItems | select | join(', ') }}
                                     </li>
                                 {%- endif -%}
                             </ul>

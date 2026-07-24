@@ -44,7 +44,7 @@
         ],
         "*.scss": [
             "prettier --write",
-            "yarn run stylelint-fix"
+            "stylelint --fix"
         ],
         "*.{yml,yaml,njk,html}": [
             "prettier --write"

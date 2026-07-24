@@ -1,6 +1,8 @@
 {% from "components/featured-article/_macro.njk" import onsFeaturedArticle %}
-{{
-    onsFeaturedArticle({
+{% from "components/image/_macro.njk" import onsImage %}
+
+{%
+    call onsFeaturedArticle({
         "title": {
             "text": 'Retail sales, Great Britain: July 2024',
             "url": '#0'
@@ -15,10 +17,13 @@
             }
         },
         "headingLevel": 3,
-        "image": {
-            "src": '/img/small/census-monuments-lights-featured.jpg',
-            "alt": 'census monuments lights featured'
-        },
         "description": "Retail sales volumes and values saw moderate growth in July 2024, with the annual rate of inflation for the Consumer Prices Index including owner occupiers’ housing costs (CPIH) rising to 2.8%."
     })
-}}
+%}
+    {{
+        onsImage({
+            "src": '/img/small/census-monuments-lights-featured.jpg',
+            "alt": 'census monuments lights featured'
+        })
+    }}
+{% endcall %}

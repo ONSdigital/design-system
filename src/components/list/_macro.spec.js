@@ -376,6 +376,22 @@ describe('macro: list', () => {
                 expect($('.ons-list__link').hasClass('another-extra-class')).toBe(true);
             });
 
+            it('has the provided `download` attribute', () => {
+                const $ = cheerio.load(
+                    renderComponent('list', {
+                        itemsList: [
+                            {
+                                ...item,
+                                url: '/example.csv',
+                                download: 'file',
+                            },
+                        ],
+                    }),
+                );
+
+                expect($('.ons-list__link').attr('download')).toBe('file');
+            });
+
             it('has the provided `target` attribute', () => {
                 const $ = cheerio.load(
                     renderComponent('list', {
