@@ -898,6 +898,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                     <div class="ons-grid__col ons-col-12@m">
                                         <div class="ons-page__main">
                                             
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -1256,6 +1257,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                                     <div class="ons-grid__col ons-col-12@m">
                                         <div class="ons-page__main">
                                             
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -1529,6 +1531,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                                 <div class="ons-grid">
                                     <div class="ons-grid__col ons-col-12@m">
                                         <div class="ons-page__main">
+                                            
                                             
                                         </div>
                                     </div>
@@ -2404,6 +2407,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                     <div class="ons-grid__col ons-col-12@m">
                                         <div class="ons-page__main">
                                             
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -3179,6 +3183,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                                     <div class="ons-grid__col ons-col-12@m">
                                         <div class="ons-page__main">
                                             
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -3436,6 +3441,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
                                 <div class="ons-grid">
                                     <div class="ons-grid__col ons-col-12@m">
                                         <div class="ons-page__main">
+                                            
                                             
                                         </div>
                                     </div>

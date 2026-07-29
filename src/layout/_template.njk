@@ -67,10 +67,10 @@
         <link rel="stylesheet" href="{{ assetsUrl }}/css/main.css" />
         <link rel="stylesheet" media="print" href="{{ assetsUrl }}/css/print.css" />
 
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin>
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin>
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin />
 
         <meta name="theme-color" content="{{ themeColor }}" />
         {% block meta %}
@@ -132,7 +132,8 @@
             <link rel="manifest" href="{{ assetsUrl }}/favicons/manifest.json" />
         {% endblock %}
 
-        {% block head %}{% endblock %}
+        {% block head %}
+        {% endblock %}
     </head>
     <body {% if pageConfig.bodyClasses %}class="{{ pageConfig.bodyClasses }}"{% endif %}>
         <!-- prettier-ignore-start -->
@@ -223,6 +224,7 @@
                                     <div class="ons-grid__col ons-col-{{ pageColNumber }}@m{{ pageColClasses }}">
                                         <div class="ons-page__main{{ mainColClasses }}">
                                             {% block mainContent %}{% endblock %}
+                                            {% block postMainContent %}{% endblock %}
                                         </div>
                                     </div>
                                 </div>
