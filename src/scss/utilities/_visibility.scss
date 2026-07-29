@@ -5,7 +5,7 @@
 
 @include bp-suffix('ons-u-vh', $create-between-breakpoints: true) {
     border: 0;
-    clip-path: inset(50%);
+    clip: rect(0 0 0 0);
     height: 1px;
     margin: -1px;
     overflow: hidden;
@@ -19,7 +19,7 @@
 .ons-u-vh.ons-u-focusable:active,
 .ons-u-visuallyhidden.ons-u-focusable:focus,
 .ons-u-vh.ons-u-focusable:focus {
-    clip-path: none;
+    clip: auto;
     height: auto;
     margin: 0;
     overflow: visible;
