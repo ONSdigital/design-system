@@ -1,0 +1,43 @@
+{% macro onsFileDownload(params) %}
+    {% set headingLevel = params.headingLevel | default(2) | string %}
+    {% set openingHeadingTag = "<h" + headingLevel %}
+    {% set closingHeadingTag = "</h" + headingLevel + ">" %}
+    {% set fileFormat = params.fileFormat | upper if params.fileFormat else '' %}
+    <div
+        class="ons-file-download{{ ' ' + params.classes if params.classes else '' }}"
+        {% if params.id %}id="{{ params.id }}"{% endif %}
+        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+    >
+        <div class="ons-file-download__icon" aria-hidden="true">
+            {# Icon will be inserted here #}
+        </div>
+
+        <div class="ons-file-download__content">
+            <div class="ons-file-download__text">
+                {{ openingHeadingTag | safe }} class="ons-file-download__title ons-u-fs-r--b ons-u-mt-no ons-u-mb-no">
+                    {{ params.fileName }}
+                {{ closingHeadingTag | safe }}
+
+                {% if params.supportingInformation %}
+                    <p class="ons-file-download__description ons-u-fs-r ons-u-mb-no">{{ params.supportingInformation }}</p>
+                {% endif %}
+
+                {% if fileFormat %}
+                    <p class="ons-file-download__meta ons-u-mb-no ons-u-fs-s" aria-hidden="true">
+                        {{ fileFormat }}
+                    </p>
+                {% endif %}
+            </div>
+
+            <a
+                href="{{ params.url }}"
+                class="ons-file-download__link"
+                {% if params.newWindow %}target="_blank" rel="noopener"{% endif %}
+            >
+                <span class="ons-file-download__link-text">{{ params.linkText | default('Download') }}</span><span class="ons-u-vh"> {{ params.fileName }}
+                    {%- if fileFormat %} {{ fileFormat }} file{% endif %}
+                </span>
+            </a>
+        </div>
+    </div>
+{% endmacro %}
