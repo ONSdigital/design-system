@@ -201,7 +201,6 @@ export default class AutosuggestUI {
     }
 
     handleFocus() {
-        clearTimeout(this.blurTimeout);
         this.blurring = false;
 
         if (this.allowMultiple === 'true' && this.allSelections.length && this.input.value.slice(-1) !== ' ' && this.input.value !== '') {
