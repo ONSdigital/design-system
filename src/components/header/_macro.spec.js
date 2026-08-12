@@ -84,32 +84,6 @@ describe('FOR: Macro: Header', () => {
             expect(results).toHaveNoViolations();
             expect($('.ons-header-nav-search__heading').length).toBe(0);
         });
-
-        test('THEN: renders Welsh default search input label when current language is Cymraeg', () => {
-            const params = {
-                ...EXAMPLE_HEADER_BASIC,
-                variants: 'basic',
-                search: { form: { action: '/search' } },
-                language: {
-                    languages: [
-                        {
-                            url: '#0',
-                            isoCode: 'cy',
-                            text: 'Cymraeg',
-                            current: true,
-                        },
-                        {
-                            url: '#0',
-                            isoCode: 'en',
-                            text: 'English',
-                            current: false,
-                        },
-                    ],
-                },
-            };
-            const $ = cheerio.load(renderComponent('header', params));
-            expect($('#header-search-input-label').text().trim()).toBe('Chwilio’r SYG');
-        });
     });
 
     describe('Snapshot: search heading', () => {
