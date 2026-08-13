@@ -1,3 +1,4 @@
+{% from "components/icon/_macro.njk" import onsIcon %}
 {% macro onsFileDownload(params) %}
     {% set headingLevel = params.headingLevel | default(2) | string %}
     {% set openingHeadingTag = "<h" + headingLevel %}
@@ -9,7 +10,7 @@
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
     >
         <div class="ons-file-download__icon" aria-hidden="true">
-            {# Icon will be inserted here #}
+            {{- onsIcon({ iconType: "file", fileLabel: params.fileFormat, classes: "ons-file-download__icon-svg" }) -}}
         </div>
 
         <div class="ons-file-download__content">
