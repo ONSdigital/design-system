@@ -231,5 +231,3 @@ npm publish --access public
 -   [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 -   [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
 -   [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-
-<!-- / SDM Test -->
