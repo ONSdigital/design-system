@@ -34,3 +34,10 @@
 @include bp-suffix(ons-u-wa--) {
     width: auto !important;
 }
+
+// Utility class to restrict reading width
+.ons-u-reading-width {
+    // equivalent of grid-cols-6 (500px)
+    // must use rems rather than a % as may be inside e.g. a grid-col-8 column
+    max-width: 32.5rem;
+}

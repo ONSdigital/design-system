@@ -1,4 +1,6 @@
 .ons-label {
+    @extend .ons-u-reading-width;
+
     color: inherit;
     display: block;
     font-weight: $font-weight-bold;
@@ -6,6 +8,7 @@
 
     &__description {
         @extend .ons-u-fs-s;
+        @extend .ons-u-reading-width;
 
         display: block;
     }
