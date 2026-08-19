@@ -28,7 +28,7 @@
         "check-unused": "npx npm-check-unused",
         "dedupe-deps": "npx yarn-deduplicate yarn.lock",
         "lint": "prettier --check . && eslint '**/*.{js,mjs}' && stylelint '**/*.scss' && remark . --ext md --ignore-path .remarkignore --frail",
-        "lint:fix": "prettier --write . && eslint --fix '**/*.{js,mjs}' && stylelint '**/*.scss' --fix",
+        "lint:fix": "prettier --write . && eslint --fix '**/*.{js,mjs}' && stylelint '**/*.scss' --fix && remark . --ext md --ignore-path .remarkignore --output",
         "prepack": "pinst --disable",
         "postpack": "pinst --enable"
     },
