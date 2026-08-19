@@ -3,7 +3,9 @@ build/
 *.log
 .DS_store
 coverage/
-.vscode/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 .idea/
 package-lock.json
 .husky/pre-push
