@@ -27,7 +27,7 @@
         "tidy-clean": "rm -rf build css favicons fonts img components layout scripts coverage scss js",
         "check-unused": "npx npm-check-unused",
         "dedupe-deps": "npx yarn-deduplicate yarn.lock",
-        "lint": "prettier --check . && eslint '**/*.{js,mjs}' && stylelint '**/*.scss' && remark . --ext md --ignore-path .remarkignore",
+        "lint": "prettier --check . && eslint '**/*.{js,mjs}' && stylelint '**/*.scss' && remark . --ext md --ignore-path .remarkignore --frail",
         "lint:fix": "prettier --write . && eslint --fix '**/*.{js,mjs}' && stylelint '**/*.scss' --fix",
         "prepack": "pinst --disable",
         "postpack": "pinst --enable"
@@ -39,7 +39,7 @@
         ],
         "*.md": [
             "prettier --check",
-            "remark --ext md --ignore-path .remarkignore"
+            "remark --ext md --ignore-path .remarkignore --frail"
         ],
         "*.scss": [
             "prettier --check",
