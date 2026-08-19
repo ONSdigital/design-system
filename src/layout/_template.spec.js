@@ -377,6 +377,7 @@ const ALL_SLOTS_EXAMPLE = `
 {% block hero %}<div data-slot="hero"></div>{% endblock %}
 {% block postHero %}<div data-slot="postHero"></div>{% endblock %}
 {% block mainContent %}<div data-slot="mainContent"></div>{% endblock %}
+{% block postMainContent %}<div data-slot="postMainContent"></div>{% endblock %}
 {% block preFooter %}<div data-slot="preFooter"></div>{% endblock %}
 {% block footer %}<footer data-slot="footer"></footer>{% endblock %}
 {% block bodyEnd %}<div data-slot="bodyEnd"></div>{% endblock %}
@@ -690,6 +691,7 @@ describe('base page template', () => {
             'hero',
             'postHero',
             'mainContent',
+            'postMainContent',
             'preFooter',
             'footer',
             'bodyEnd',
@@ -723,5 +725,12 @@ describe('base page template', () => {
         expect(heroIndex).toBeLessThan(postHeroIndex);
         expect(postHeroIndex).toBeLessThan(containerIndex);
         expect($('#main-content .ons-page__main [data-slot="mainContent"]').length).toBe(1);
+
+        const mainColChildren = $('#main-content .ons-page__main').children().toArray();
+        const mainContentIndex = mainColChildren.findIndex((child) => $(child).is('[data-slot="mainContent"]'));
+        const postMainContentIndex = mainColChildren.findIndex((child) => $(child).is('[data-slot="postMainContent"]'));
+
+        expect(postMainContentIndex).toBeGreaterThan(-1);
+        expect(mainContentIndex).toBeLessThan(postMainContentIndex);
     });
 });
