@@ -112,6 +112,13 @@
                 margin: 0;
             }
         }
+
+        p,
+        ul,
+        ol,
+        legend {
+            @extend .ons-u-reading-width;
+        }
     }
 
     &__error {

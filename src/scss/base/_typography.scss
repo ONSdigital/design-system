@@ -12,6 +12,7 @@ body {
 
 p {
     margin: 0 0 1rem;
+    @extend .ons-u-reading-width;
 }
 
 h1,
@@ -20,6 +21,8 @@ h3,
 h4,
 h5,
 h6 {
+    @extend .ons-u-reading-width;
+
     margin: 0 0 1rem;
     strong {
         @extend .ons-highlight;
