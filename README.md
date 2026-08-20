@@ -147,9 +147,9 @@ Checkout the branch locally and run:
 
 ### Handling VR test failures
 
-If the VR tests fail locally, you can review the changes in your browser. Note that the error you'll see if the VR tests fail starts with `Error: docker run --rm -i --add-host=host.docker.internal:host-gateway...`
+If the VR tests fail locally, you'll see an error starting with `Error: docker run --rm -i --add-host=host.docker.internal:host-gateway...`
 
-`npx http-server backstop_data/html_report -p 8080` - View the results of the yarn visual tests in your browser. Using http-server rather than simply opening the file ensures the associated JavaScript runs.
+`npx http-server backstop_data -p 8008 -o /html_report/` - View the report in your browser.
 
 ### Approving VR test reference image changes
 
