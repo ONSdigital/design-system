@@ -5,7 +5,6 @@ build/
 coverage/
 .vscode/*
 !.vscode/extensions.json
-!.vscode/settings.json
 .idea/
 package-lock.json
 .husky/pre-push
