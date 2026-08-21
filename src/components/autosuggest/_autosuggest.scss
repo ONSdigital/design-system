@@ -26,6 +26,8 @@
     }
 
     &__results-title {
+        @extend .ons-u-reading-width;
+
         background: var(--ons-color-grey-15);
         border-bottom: 1px solid var(--ons-color-input-border);
         padding: 0.25rem 0.5rem;
@@ -39,6 +41,12 @@
         &:focus {
             outline: none;
         }
+    }
+
+    &__option-text {
+        @extend .ons-u-reading-width;
+
+        display: block;
     }
 
     &__option {
