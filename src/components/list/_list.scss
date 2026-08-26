@@ -3,6 +3,8 @@
     padding: 0 0 0 1.5rem;
 
     &__item {
+        @extend .ons-u-reading-width;
+
         &:first-child {
             margin-top: 0.5rem;
         }
@@ -109,14 +111,17 @@
 }
 
 @include bp-suffix('ons-list--inline') {
+    /* stylelint-disable-next-line nesting-selector-no-missing-scoping-root */
     &:not(.ons-list--icons) {
         margin: 0 1rem 0 0;
         .ons-list__item {
+            max-width: none;
             display: inline-block;
             margin: 0 1rem 0 0;
         }
     }
 
+    /* stylelint-disable-next-line nesting-selector-no-missing-scoping-root */
     &.ons-list--icons {
         align-items: center;
         display: flex;
