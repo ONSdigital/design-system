@@ -16,6 +16,8 @@
     }
 
     &__metadata {
+        @extend .ons-u-reading-width;
+
         margin: 0 0 1rem;
 
         &-term,
