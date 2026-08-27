@@ -57,6 +57,7 @@
     set themeColor = pageConfig.themeColor if pageConfig.themeColor else
     "#206095"
 %}
+{% set og_img = pageConfig.og_img if pageConfig.og_img else null %}
 <!doctype html>
 <html lang="{{ currentLanguageIsoCode }}">
     <head>
@@ -66,17 +67,6 @@
         <title>{{ pageTitle }}</title>
         <link rel="stylesheet" href="{{ assetsUrl }}/css/main.css" />
         <link rel="stylesheet" media="print" href="{{ assetsUrl }}/css/print.css" />
-        {% if og_img and og_img.url %}
-            <meta property="og:image" content="{{ og_img.url }}" />
-            {% if og_img.width %}
-                <meta property="og:image:width" content="{{ og_img.width }}" />
-            {% endif %}
-            {% if og_img.height %}
-                <meta property="og:image:height" content="{{ og_img.height }}" />
-            {% endif %}
-        {% else %}
-            <meta property="og:image" content="{{ assetsUrl }}/favicons/opengraph.png" />
-        {% endif %}
 
         <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin />
         <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin />
@@ -106,10 +96,21 @@
             <meta property="og:type" content="website" />
             <meta property="og:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}" />
             <meta property="og:title" content="{{ pageConfig.title }}" />
-            <meta property="og:image" content="{{ assetsUrl }}/favicons/opengraph.png" />
-            <meta property="og:image:type" content="image/png" />
-            <meta property="og:image:width" content="1200" />
-            <meta property="og:image:height" content="630" />
+            {% if og_img and og_img.url %}
+                <meta property="og:image" content="{{ og_img.url }}" />
+                {% if og_img.width %}
+                    <meta property="og:image:type" content="image/png" />
+                    <meta property="og:image:width" content="{{ og_img.width }}" />
+                {% endif %}
+                {% if og_img.height %}
+                    <meta property="og:image:height" content="{{ og_img.height }}" />
+                {% endif %}
+            {% else %}
+                <meta property="og:image" content="{{ assetsUrl }}/favicons/opengraph.png" />
+                <meta property="og:image:type" content="image/png" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+            {% endif %}
             <meta property="og:description" content="{{ pageConfig.meta.description | default(pageConfig.description) }}" />
             <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}" />
             <meta property="og:locale" content="{{ currentLanguageIsoCode }}" />

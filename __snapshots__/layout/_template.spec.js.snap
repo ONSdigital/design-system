@@ -8,9 +8,6 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
         <title>ONS Design System</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" media="print" href="/css/print.css">
-        
-            <meta property="og:image" content="/favicons/opengraph.png">
-        
 
         <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
         <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
@@ -27,10 +24,12 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="">
-            <meta property="og:image" content="/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
+            
+                <meta property="og:image" content="/favicons/opengraph.png">
+                <meta property="og:image:type" content="image/png">
+                <meta property="og:image:width" content="1200">
+                <meta property="og:image:height" content="630">
+            
             <meta property="og:description" content="">
             <meta property="og:site_name" content="">
             <meta property="og:locale" content="en">
@@ -947,9 +946,6 @@ exports[`base page template matches the body block override snapshot 1`] = `
         <title>Social survey</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" media="print" href="/css/print.css">
-        
-            <meta property="og:image" content="/favicons/opengraph.png">
-        
 
         <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
         <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
@@ -966,10 +962,12 @@ exports[`base page template matches the body block override snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
+            
+                <meta property="og:image" content="/favicons/opengraph.png">
+                <meta property="og:image:type" content="image/png">
+                <meta property="og:image:width" content="1200">
+                <meta property="og:image:height" content="630">
+            
             <meta property="og:description" content="">
             <meta property="og:site_name" content="Social survey">
             <meta property="og:locale" content="en">
@@ -1043,9 +1041,6 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
         <title>Social survey</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" media="print" href="/css/print.css">
-        
-            <meta property="og:image" content="/favicons/opengraph.png">
-        
 
         <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
         <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
@@ -1062,10 +1057,12 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
+            
+                <meta property="og:image" content="/favicons/opengraph.png">
+                <meta property="og:image:type" content="image/png">
+                <meta property="og:image:width" content="1200">
+                <meta property="og:image:height" content="630">
+            
             <meta property="og:description" content="">
             <meta property="og:site_name" content="Social survey">
             <meta property="og:locale" content="en">
@@ -1300,9 +1297,6 @@ exports[`base page template matches the footer block override snapshot 1`] = `
         <title>Social survey</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" media="print" href="/css/print.css">
-        
-            <meta property="og:image" content="/favicons/opengraph.png">
-        
 
         <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
         <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
@@ -1319,10 +1313,12 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
+            
+                <meta property="og:image" content="/favicons/opengraph.png">
+                <meta property="og:image:type" content="image/png">
+                <meta property="og:image:width" content="1200">
+                <meta property="og:image:height" content="630">
+            
             <meta property="og:description" content="">
             <meta property="og:site_name" content="Social survey">
             <meta property="og:locale" content="en">
@@ -1563,9 +1559,6 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         <title>Social survey</title>
         <link rel="stylesheet" href="/some-path/css/main.css">
         <link rel="stylesheet" media="print" href="/some-path/css/print.css">
-        
-            <meta property="og:image" content="/some-path/favicons/opengraph.png">
-        
 
         <link rel="preload" href="/some-path/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
         <link rel="preload" href="/some-path/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
@@ -1595,10 +1588,12 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="/some-url">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/some-path/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
+            
+                <meta property="og:image" content="/some-path/favicons/opengraph.png">
+                <meta property="og:image:type" content="image/png">
+                <meta property="og:image:width" content="1200">
+                <meta property="og:image:height" content="630">
+            
             <meta property="og:description" content="Meta description">
             <meta property="og:site_name" content="ONS Service">
             <meta property="og:locale" content="en">
@@ -2935,9 +2930,6 @@ exports[`base page template matches the meta block override snapshot 1`] = `
         <title>Social survey</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" media="print" href="/css/print.css">
-        
-            <meta property="og:image" content="/favicons/opengraph.png">
-        
 
         <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
         <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
@@ -2952,10 +2944,12 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
+            
+                <meta property="og:image" content="/favicons/opengraph.png">
+                <meta property="og:image:type" content="image/png">
+                <meta property="og:image:width" content="1200">
+                <meta property="og:image:height" content="630">
+            
             <meta property="og:description" content="">
             <meta property="og:site_name" content="Social survey">
             <meta property="og:locale" content="en">
@@ -3198,9 +3192,6 @@ exports[`base page template matches the social block override snapshot 1`] = `
         <title>Social survey</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" media="print" href="/css/print.css">
-        
-            <meta property="og:image" content="/favicons/opengraph.png">
-        
 
         <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin="">
         <link rel="preload" href="/fonts/opensans-regular.woff" as="font" type="font/woff2" crossorigin="">
