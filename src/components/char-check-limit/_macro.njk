@@ -1,5 +1,5 @@
 {% macro onsCharLimit(params) %}
-    <p class="ons-u-mb-no">
+    <div class="ons-u-reading-width">
         {% if params.variant == "check" %}
             {% set content = caller() %}
             <span class="ons-js-char-check-input">{{ content | safe }}</span>
@@ -14,5 +14,5 @@
             data-message-over-limit-plural="{% if params.variant == 'word' %}{{ params.wordCountOverLimitPlural | default("You have exceeded the word limit by {x} words") }}{% else %}{{ params.charCountOverLimitPlural | default("You have exceeded the character limit by {x} characters") }}{% endif %}"
         >
         </span>
-    </p>
+    </div>
 {% endmacro %}

@@ -110,7 +110,7 @@ describe('FOR: Macro: Feedback', () => {
         describe('WHEN: content is provided', () => {
             const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK));
             test('THEN: renders paragraph with the provided content', () => {
-                expect($('p').text().trim()).toBe('Feedback content...');
+                expect($('p').first().text().trim()).toBe('Feedback content...');
             });
         });
     });
