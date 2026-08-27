@@ -113,9 +113,10 @@
             }
         }
 
-        p,
+        // Restrict the width of textual content within the details content (paragraphs are already globally restricted)
         ul,
         ol,
+        label,
         legend {
             @extend .ons-u-reading-width;
         }

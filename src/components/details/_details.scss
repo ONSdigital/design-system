@@ -77,6 +77,15 @@ $details-caret-width: 1.75rem;
             display: block;
             margin: 1rem 0 0 0.5rem;
             padding: 0 0 0 1.5rem;
+
+            // Restrict the width of textual content within the details content (paragraphs are already globally restricted)
+
+            ul,
+            ol,
+            label,
+            legend {
+                @extend .ons-u-reading-width;
+            }
         }
     }
 
