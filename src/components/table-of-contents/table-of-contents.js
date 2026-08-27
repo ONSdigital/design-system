@@ -12,11 +12,25 @@ export default class TableOfContents {
             }
         });
 
+        this.stickyTocContainer = this.component.querySelector('.ons-grid__col--sticky\\@m');
+        this.isOverflowing =
+            this.stickyTocContainer.scrollHeight > window.innerHeight - this.stickyTocContainer.getBoundingClientRect().top;
+
+        this.contentContainer = this.component.querySelector('#content');
+
         this.observer = new IntersectionObserver(this.handleIntersect.bind(this), {
             rootMargin: '0px 0px -100% 0px', // trigger when top of section is at the top of viewport
         });
 
         this.sections.forEach((section) => this.observer.observe(section));
+
+        this.updateOverflowClass();
+
+        const resizeObserver = new ResizeObserver(() => {
+            this.isOverflowing = this.stickyTocContainer.scrollHeight > this.stickyTocContainer.clientHeight;
+            this.updateOverflowClass();
+        });
+        resizeObserver.observe(this.stickyTocContainer);
 
         this.setInitialActiveSection();
     }
@@ -48,9 +62,14 @@ export default class TableOfContents {
     updateTocLinks() {
         for (const section of this.sections) {
             const link = this.tocLinks[section.id];
+            if (!link) continue;
 
-            // toggle active link class when link id matches current section id
-            link?.classList.toggle('ons-table-of-contents__link-active', section === this.activeSection);
+            const isActive = section === this.activeSection;
+            link.classList.toggle('ons-table-of-contents__link-active', isActive);
         }
+    }
+
+    updateOverflowClass() {
+        this.stickyTocContainer.classList.toggle('has-scrollbar', this.isOverflowing);
     }
 }
