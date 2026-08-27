@@ -13,6 +13,12 @@
         background-color: var(--ons-color-gov-red);
     }
 
+    &__title,
+    &__description {
+        // Override universal text width restrition for headings and paragraph text
+        max-width: none;
+    }
+
     &__link {
         color: var(--ons-color-text-inverse);
 

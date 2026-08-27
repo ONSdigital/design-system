@@ -466,6 +466,12 @@
         display: flex;
         flex-direction: column-reverse;
     }
+
+    &__title,
+    &__text {
+        // Override universal text width restrition for headings and paragraph text
+        max-width: none;
+    }
 }
 
 @include panel-variant(ons-red, var(--ons-color-errors), var(--ons-color-errors-tint));
