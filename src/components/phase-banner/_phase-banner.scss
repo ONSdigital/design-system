@@ -15,5 +15,7 @@
 
     &__desc {
         margin-top: 0.25rem;
+        // Override universal text width restrition for headings and paragraph text
+        max-width: none;
     }
 }
