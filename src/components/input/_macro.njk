@@ -60,6 +60,7 @@
             <!-- prettier-ignore-end -->
         {% endif %}
         {% if params.postTextboxLinkText %}
+            {# p tag ensures reading width is applied #}
             <p class="ons-u-mb-no">
                 <a class="ons-u-fs-s ons-input__post-link" href="{{ params.postTextboxLinkUrl }}">{{ params.postTextboxLinkText }}</a>
             </p>

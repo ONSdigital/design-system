@@ -7,6 +7,7 @@
         {{ params.heading }}
         {{ closingHeadingTag | safe }}
         <p class="ons-feedback__content">{{- params.content | safe -}}</p>
+        {# p tag ensures reading width is applied #}
         <p class="ons-u-mb-no">
             <a href="{{ params.linkUrl }}" class="ons-feedback__link">{{- params.linkText -}}</a>
         </p>
