@@ -3,7 +3,10 @@
     {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
     {% from "components/button/_macro.njk" import onsButton %}
 
-    <aside class="ons-table-of-contents-container" aria-label="{{ params.ariaLabelForAside | default('Table of contents') }}">
+    <aside class="ons-table-of-contents-container" 
+        aria-label="{{ params.ariaLabelForAside | default('Table of contents') }}"
+        {% if params.scrollEndThreshold is defined %}data-scroll-end-threshold="{{ params.scrollEndThreshold }}"{% endif %}
+    >
         {% if params.skipLink %}
             {{
                 onsSkipToContent({

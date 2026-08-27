@@ -9,6 +9,7 @@
 | ordered           | boolean                                                  | false                         | Whether the list should display numbers and use an `<ol>` element. Uses `<ul>` if unset.                                                                                                                           |
 | relatedLinks      | object`<relatedLinks>`                                   | false                         | Optional settings for related links                                                                                                                                                                                |
 | button            | `Button` [_(ref)_](/components/button)                   | false                         | Optional settings for the button component                                                                                                                                                                         |
+| scrollEndThreshold            | string                   | false                         | Controls the scroll bottom value that enables final section highlighting. Default value of 50px                                                                                                                                           |
 
 ## List
 
