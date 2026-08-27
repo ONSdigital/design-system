@@ -30,3 +30,4 @@ import '../components/modal/modal.dom';
 import '../components/timeout-modal/timeout-modal.dom';
 import '../components/timeout-panel/timeout-panel.dom';
 import '../components/video/video.dom';
+import '../components/button/jira-collector.dom';
