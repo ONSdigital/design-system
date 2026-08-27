@@ -648,6 +648,41 @@ describe('script: autosuggest', () => {
                 expect(statusMessage.trim()).toBe('Sorry, there is a problem. Contact us for more help');
             });
         });
+
+        describe('when errorMessageApiLinkText is set but errorMessageApiLinkUrl is omitted', () => {
+            beforeEach(async () => {
+                apiFaker.setTemporaryOverride('/countries', {
+                    status: 401,
+                    data: {},
+                });
+
+                await setTestPage(
+                    '/test',
+                    renderComponent('autosuggest', {
+                        ...EXAMPLE_AUTOSUGGEST,
+                        errorTitle: 'There is a problem with your answer',
+                        errorMessage: 'Enter an address ',
+                        errorMessageApi: 'Sorry, there is a problem.',
+                        errorMessageApiLinkText: 'Contact us for more help',
+                    }),
+                );
+
+                await page.type('.ons-js-autosuggest-input', 'tes', { delay: 20 });
+            });
+
+            it('shows the API error message with a link to the current page', async () => {
+                const warningText = await page.$eval('.ons-autosuggest__warning', (node) => node.textContent);
+                expect(warningText.trim()).toContain('!Sorry, there is a problem. Contact us for more help.');
+
+                const apiErrorLinkHref = await page.$eval('.ons-autosuggest__warning a', (node) => node.getAttribute('href'));
+                expect(apiErrorLinkHref).toBe('/test');
+            });
+
+            it('the aria status should contain the error message with the link text', async () => {
+                const statusMessage = await page.$eval('.ons-js-autosuggest-aria-status', (node) => node.textContent);
+                expect(statusMessage.trim()).toBe('Sorry, there is a problem. Contact us for more help');
+            });
+        });
     });
 
     describe('when the component initialises with the allowMultiple parameter', () => {

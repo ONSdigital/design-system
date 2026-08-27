@@ -445,8 +445,8 @@ export default class AutosuggestUI {
                 `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
             );
         } else if (status > 400 || status === '') {
-            const hasErrorLink = this.errorAPILinkText && this.errorAPILinkUrl;
-            const sanitizedHref = hasErrorLink ? DOMPurify.sanitize(this.errorAPILinkUrl) : '';
+            const hasErrorLink = this.errorAPILinkText;
+            const sanitizedHref = hasErrorLink ? DOMPurify.sanitize(this.errorAPILinkUrl || window.location.href) : '';
             message = this.errorAPI + (hasErrorLink ? ' <a href="' + sanitizedHref + '">' + this.errorAPILinkText + '</a>.' : '');
             let ariaMessage = this.errorAPI + (hasErrorLink ? ' ' + this.errorAPILinkText : '');
 
