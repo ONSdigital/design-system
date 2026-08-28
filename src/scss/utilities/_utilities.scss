@@ -37,7 +37,10 @@
 
 // Utility class to restrict reading width
 .ons-u-reading-width {
-    // equivalent of 6 columns in a 12 column grid at wide mode (1304px)
-    // must use rems rather than a % as may be inside e.g. a grid-col-8 column
-    max-width: 40.125rem; // 642px;
+    .ons-container--wide &,
+    .ons-container--full-width & {
+        // equivalent of 6 columns in a 12 column grid at wide mode (1304px)
+        // must use rems rather than a % as may be inside e.g. a grid-col-8 column
+        max-width: 39.5rem; // 632px;
+    }
 }
