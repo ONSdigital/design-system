@@ -107,3 +107,10 @@
         max-width: 39.5rem; // 632px
     }
 }
+
+@mixin no-reading-width {
+    .ons-container--wide &,
+    .ons-container--full-width & {
+        max-width: none;
+    }
+}

@@ -15,11 +15,7 @@
 
     &__title,
     &__description {
-        // Override universal reading width restrition for headings and paragraph text
-        .ons-container--wide &,
-        .ons-container--full-width & {
-            max-width: none;
-        }
+        @include no-reading-width;
     }
 
     &__link {
