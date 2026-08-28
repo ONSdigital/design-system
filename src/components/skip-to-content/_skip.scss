@@ -1,4 +1,5 @@
 .ons-skip-to-content {
+    /* stylelint-disable-next-line property-no-deprecated */
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     display: block;
@@ -13,6 +14,7 @@
     &:focus {
         background-color: var(--ons-color-focus);
         box-shadow: 0;
+        /* stylelint-disable-next-line property-no-deprecated */
         clip: auto;
         clip-path: none;
         color: var(--ons-color-text-link-focus);
@@ -27,5 +29,11 @@
         text-decoration: underline solid var(--ons-color-text-link-focus) 4px;
         white-space: inherit;
         width: auto;
+    }
+
+    &__text {
+        // Reading width max-width is hard-coded as skip to content sits outside the `ons-container` class
+        max-width: 39.5rem;
+        display: block;
     }
 }
