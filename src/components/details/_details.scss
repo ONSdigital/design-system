@@ -84,7 +84,7 @@ $details-caret-width: 1.75rem;
             ol,
             label,
             legend {
-                @extend .ons-u-reading-width;
+                @include reading-width;
             }
         }
     }

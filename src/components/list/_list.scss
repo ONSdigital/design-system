@@ -3,7 +3,7 @@
     padding: 0 0 0 1.5rem;
 
     &__item {
-        @extend .ons-u-reading-width;
+        @include reading-width;
 
         &:first-child {
             margin-top: 0.5rem;

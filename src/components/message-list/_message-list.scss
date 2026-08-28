@@ -16,7 +16,7 @@
     }
 
     &__metadata {
-        @extend .ons-u-reading-width;
+        @include reading-width;
 
         margin: 0 0 1rem;
 

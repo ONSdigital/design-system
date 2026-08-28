@@ -1,5 +1,5 @@
 .ons-label {
-    @extend .ons-u-reading-width;
+    @include reading-width;
 
     color: inherit;
     display: block;
@@ -8,7 +8,7 @@
 
     &__description {
         @extend .ons-u-fs-s;
-        @extend .ons-u-reading-width;
+        @include reading-width;
 
         display: block;
     }

@@ -45,7 +45,7 @@
         appearance: none;
 
         &:not(.ons-input--header-search) {
-            @extend .ons-u-reading-width;
+            @include reading-width;
         }
     }
 

@@ -118,7 +118,7 @@
         ol,
         label,
         legend {
-            @extend .ons-u-reading-width;
+            @include reading-width;
         }
     }
 

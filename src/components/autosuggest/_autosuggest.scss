@@ -26,7 +26,7 @@
     }
 
     &__results-title {
-        @extend .ons-u-reading-width;
+        @include reading-width;
 
         background: var(--ons-color-grey-15);
         border-bottom: 1px solid var(--ons-color-input-border);
@@ -44,7 +44,7 @@
     }
 
     &__option-text {
-        @extend .ons-u-reading-width;
+        @include reading-width;
 
         display: block;
     }

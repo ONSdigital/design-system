@@ -5,7 +5,7 @@
 
     // This element also gets a margin-left value set in the JS to match the content left spacing
     &__content {
-        @extend .ons-u-reading-width;
+        @include reading-width;
 
         display: inline-block;
     }
