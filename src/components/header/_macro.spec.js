@@ -1131,6 +1131,27 @@ describe('FOR: Macro: Header', () => {
                 expect($('#header-search-input-label').text().trim()).toBe('Search the ONS');
             });
         });
+        describe('WHEN: inputLabel is not provided and Welsh is the current language', () => {
+            const $ = cheerio.load(
+                renderComponent('header', {
+                    ...EXAMPLE_HEADER_SEARCH,
+                    variants: 'basic',
+                    language: {
+                        languages: [
+                            { url: '#0', isoCode: 'en', text: 'English', current: false },
+                            { url: '#0', isoCode: 'cy', text: 'Cymraeg', current: true },
+                        ],
+                    },
+                    search: {
+                        ...EXAMPLE_HEADER_SEARCH.search,
+                        form: { ...EXAMPLE_HEADER_SEARCH.search.form, inputLabel: undefined },
+                    },
+                }),
+            );
+            test('THEN: renders search input with Welsh default label', () => {
+                expect($('#header-search-input-label').text().trim()).toBe('Chwilio’r SYG');
+            });
+        });
         describe('WHEN: buttonText is provided', () => {
             const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_SEARCH, variants: 'basic' }));
 

@@ -201,6 +201,8 @@ export default class AutosuggestUI {
     }
 
     handleFocus() {
+        this.blurring = false;
+
         if (this.allowMultiple === 'true' && this.allSelections.length && this.input.value.slice(-1) !== ' ' && this.input.value !== '') {
             this.input.value = `${this.input.value}, `;
         }
@@ -513,6 +515,7 @@ export default class AutosuggestUI {
 
     selectResult(index) {
         if (this.results.length) {
+            clearTimeout(this.blurTimeout);
             this.settingResult = true;
             const result = this.results[index || this.highlightedResultIndex || 0];
             const resultItem = result.item ?? result;
