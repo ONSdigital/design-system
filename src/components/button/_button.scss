@@ -827,6 +827,12 @@ $button-shadow-size: 3px;
             }
         }
     }
+
+    &[type='submit'] {
+        .ons-pl-question-anatomy__component & {
+            white-space: nowrap; // targeting buttons of type submit within the question anatomy component to prevent wrapping of the button text
+        }
+    }
 }
 
 .ons-search__btn {
