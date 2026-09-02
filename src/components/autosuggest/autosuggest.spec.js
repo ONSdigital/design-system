@@ -649,6 +649,33 @@ describe('script: autosuggest', () => {
             });
         });
 
+        describe('when errorMessageApiLinkUrl uses an unsafe scheme', () => {
+            beforeEach(async () => {
+                apiFaker.setTemporaryOverride('/countries', {
+                    status: 401,
+                    data: {},
+                });
+
+                await setTestPage(
+                    '/test',
+                    renderComponent('autosuggest', {
+                        ...EXAMPLE_AUTOSUGGEST,
+                        errorMessageApi: 'Sorry, there is a problem.',
+                        errorMessageApiLinkText: 'Contact us for more help',
+                        errorMessageApiLinkUrl: 'javascript:alert(1)',
+                    }),
+                );
+
+                await page.type('.ons-js-autosuggest-input', 'tes', { delay: 20 });
+            });
+
+            it('removes the unsafe URL from the error message link', async () => {
+                const apiErrorLinkHref = await page.$eval('.ons-autosuggest__warning a', (node) => node.getAttribute('href'));
+
+                expect(apiErrorLinkHref).toBeNull();
+            });
+        });
+
         describe('when errorMessageApiLinkText is set but errorMessageApiLinkUrl is omitted', () => {
             beforeEach(async () => {
                 apiFaker.setTemporaryOverride('/countries', {
@@ -675,7 +702,7 @@ describe('script: autosuggest', () => {
                 expect(warningText.trim()).toContain('!Sorry, there is a problem. Contact us for more help.');
 
                 const apiErrorLinkHref = await page.$eval('.ons-autosuggest__warning a', (node) => node.getAttribute('href'));
-                expect(apiErrorLinkHref).toBe('/test');
+                expect(apiErrorLinkHref).toBe(await page.url());
             });
 
             it('the aria status should contain the error message with the link text', async () => {
