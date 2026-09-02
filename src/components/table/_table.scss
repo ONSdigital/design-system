@@ -1,7 +1,6 @@
 .ons-table {
     border-collapse: collapse;
     border-spacing: 0;
-    margin-bottom: 1rem;
     width: 100%;
 
     &__head {
@@ -240,5 +239,11 @@
                 }
             }
         }
+    }
+
+    // Used when there is no source note, footnotes or downloads after the table, to match the previous bottom spacing
+    // If there source note, footnotes or downloads after the table, the figure component handles the extra spacing
+    &--bottom-space {
+        margin-bottom: 1rem;
     }
 }

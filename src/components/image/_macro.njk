@@ -1,17 +1,28 @@
 {%- macro onsImage(params) -%}
-    <figure class="ons-image">
-        {% if params.image %}
-            <img
-                class="ons-image__img"
-                {% if params.image.largeSrc %}srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x"{% endif %}src="{{ params.image.smallSrc }}"
-                alt="{{ params.alt if params.alt }}"
-            />
-        {% else %}
-            <img class="ons-image__img" src="{{ params.src }}" alt="{{ params.alt }}" />
-        {% endif %}
+    {% from "components/figure/_macro.njk" import onsFigure %}
 
-        {% if params.caption %}
-            <figcaption class="ons-image__caption">{{ params.caption }}</figcaption>
-        {% endif %}
-    </figure>
+    {%
+        call onsFigure({
+            "id": params.id,
+            "headingLevel": params.headingLevel,
+            "figureNumber": params.figureNumber,
+            "title": params.title,
+            "subtitle": params.subtitle,
+            "caption": params.caption,
+            "footnotes": params.footnotes,
+            "download": params.download
+        })
+    %}
+        <div class="ons-image">
+            {% if params.image %}
+                <img
+                    class="ons-image__img"
+                    {% if params.image.largeSrc %}srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x"{% endif %}src="{{ params.image.smallSrc }}"
+                    alt="{{ params.alt if params.alt }}"
+                />
+            {% else %}
+                <img class="ons-image__img" src="{{ params.src }}" alt="{{ params.alt }}" />
+            {% endif %}
+        </div>
+    {% endcall %}
 {%- endmacro -%}

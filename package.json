@@ -18,35 +18,35 @@
         "test-lighthouse": "yarn build && node ./lighthouse/lighthouse-get-urls.js && lhci autorun --config=./lighthouse/lighthouserc.js",
         "build": "yarn && yarn tidy-clean && NODE_ENV=production gulp build",
         "build-serve": "yarn build && gulp start-dev-server",
-        "npm-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/generate-npm-package.js",
-        "cdn-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/prepare-templates-for-zip.js",
+        "verify-assets": "node ci/verify-assets.mjs",
+        "npm-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && yarn verify-assets && babel-node ci/generate-npm-package.js",
+        "cdn-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && yarn verify-assets && babel-node ci/prepare-templates-for-zip.js",
         "test-visual": "yarn build && gulp run-backstop-tests",
         "test-visual:reference": "yarn build && gulp run-backstop-reference",
         "test-visual:approve": "gulp run-backstop-approve",
         "tidy-clean": "rm -rf build css favicons fonts img components layout scripts coverage scss js",
         "check-unused": "npx npm-check-unused",
         "dedupe-deps": "npx yarn-deduplicate yarn.lock",
-        "lint-staged": "lint-staged",
-        "stylelint": "stylelint '**/*.scss'",
-        "stylelint-fix": "stylelint '**/*.scss' --fix",
+        "lint": "prettier --check . && eslint '**/*.{js,mjs}' && stylelint '**/*.scss' && remark . --ext md --ignore-path .remarkignore --frail",
+        "lint:fix": "prettier --write . && eslint --fix '**/*.{js,mjs}' && stylelint '**/*.scss' --fix && remark . --ext md --ignore-path .remarkignore --output",
         "prepack": "pinst --disable",
         "postpack": "pinst --enable"
     },
     "lint-staged": {
         "*.{js,mjs}": [
-            "prettier --write",
-            "eslint --fix"
+            "prettier --check",
+            "eslint"
         ],
         "*.md": [
-            "prettier --write",
-            "remark"
+            "prettier --check",
+            "remark --ext md --ignore-path .remarkignore --frail"
         ],
         "*.scss": [
-            "prettier --write",
-            "yarn run stylelint-fix"
+            "prettier --check",
+            "stylelint"
         ],
         "*.{yml,yaml,njk,html}": [
-            "prettier --write"
+            "prettier --check"
         ]
     },
     "browserslist": [
@@ -80,7 +80,7 @@
         "cors": "2.8.5",
         "dialog-polyfill": "0.5.6",
         "dompurify": "3.4.11",
-        "eslint": "10.4.1",
+        "eslint": "9.39.0",
         "eslint-cli": "1.1.1",
         "eslint-config-prettier": "9.0.0",
         "eslint-plugin-prettier": "5.0.1",

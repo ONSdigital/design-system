@@ -25,9 +25,7 @@ jobs:
                   RELEASE_VERSION=${{ github.event.release.tag_name }} yarn cdn-bundle
             - name: Zip templates
               run: zip -r templates.zip templates/*
-            - name: Release
-              uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
-              with:
-                  files: templates.zip
+            - name: Upload templates asset to release
+              run: gh release upload "${{ github.event.release.tag_name }}" templates.zip --clobber
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
