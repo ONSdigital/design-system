@@ -89,6 +89,10 @@ $button-shadow-size: 3px;
             height: 18px;
             width: 18px;
             flex: 0 0 auto; // prevent the icon from shrinking when text wraps
+
+            ~ .ons-btn__text {
+                text-align: left;
+            }
         }
     }
 
