@@ -98,3 +98,19 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
+
+@mixin reading-width {
+    .ons-container--wide &,
+    .ons-container--full-width & {
+        // equivalent of 6 columns in a 12 column grid at wide mode (1304px)
+        // must use rems rather than a % as may be inside e.g. a grid-col-8 column
+        max-width: 39.5rem; // 632px
+    }
+}
+
+@mixin no-reading-width {
+    .ons-container--wide &,
+    .ons-container--full-width & {
+        max-width: none;
+    }
+}

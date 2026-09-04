@@ -60,7 +60,8 @@
                             "classes": "ons-panel--warn--footer"
                         })
                     %}
-                        {{ params.footerWarning | safe }}
+                        {# p tag ensures reading width is applied #}
+                        <p>{{ params.footerWarning | safe }}</p>
                     {% endcall %}
                 </div>
             </div>

@@ -62,7 +62,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                         
     <div role="region">
         
-        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content"><span class="ons-u-reading-width">Skip to main content</span></a>
     </div>
 
                     
@@ -1095,7 +1095,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                         
     <div role="region">
         
-        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content"><span class="ons-u-reading-width">Skip to main content</span></a>
     </div>
 
                     
@@ -1370,7 +1370,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                         
     <div role="region">
         
-        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content"><span class="ons-u-reading-width">Skip to main content</span></a>
     </div>
 
                     
@@ -1669,7 +1669,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                         
     <div role="region">
         
-        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content"><span class="ons-u-reading-width">Skip to main content</span></a>
     </div>
 
                     
@@ -3021,7 +3021,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                         
     <div role="region">
         
-        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content"><span class="ons-u-reading-width">Skip to main content</span></a>
     </div>
 
                     
@@ -3280,7 +3280,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
                         
     <div role="region">
         
-        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content"><span class="ons-u-reading-width">Skip to main content</span></a>
     </div>
 
                     

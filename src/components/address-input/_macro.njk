@@ -165,9 +165,12 @@
                         })
                     }}
                     {% if params.manualLinkText %}
-                        <a href="{{ params.manualLinkUrl }}" class="ons-js-address-manual-btn ons-u-mt-s ons-u-dib"
-                            >{{ params.manualLinkText }}</a
-                        >
+                        {# p tag ensures reading width is applied #}
+                        <p class="ons-u-mb-no">
+                            <a href="{{ params.manualLinkUrl }}" class="ons-js-address-manual-btn ons-u-mt-s ons-u-dib"
+                                >{{ params.manualLinkText }}</a
+                            >
+                        </p>
                     {% endif %}
                 </div>
             {% endif %}

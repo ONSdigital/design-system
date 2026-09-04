@@ -31,12 +31,12 @@
 
         {# The media (a nested figure containing a chart or image) is provided via the caller
            block, so the article does not need to know how the content is rendered. #}
-        <div class="ons-featured__media">
-            {{ caller() if caller }}
-        </div>
+        <div class="ons-featured__media">{{ caller() if caller }}</div>
 
         {% if params.description %}
-            <div class="ons-featured__description">{{ params.description | safe }}</div>
+            <div class="ons-featured__description">
+                <div class="ons-u-reading-width">{{ params.description | safe }}</div>
+            </div>
         {% endif %}
     </div>
 {% endmacro %}

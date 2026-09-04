@@ -15,5 +15,6 @@
 
     &__desc {
         margin-top: 0.25rem;
+        @include no-reading-width;
     }
 }
