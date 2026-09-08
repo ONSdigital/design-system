@@ -13,7 +13,8 @@
 
     &__link-active {
         color: var(--ons-color-text-link-hover);
-        text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
+        background-color: var(--ons-color-night-blue-10);
+        text-decoration: underline solid var(--ons-color-text-link-hover) 3px;
     }
 
     &__related-links,
