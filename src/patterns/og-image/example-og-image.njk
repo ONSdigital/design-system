@@ -1,0 +1,49 @@
+---
+title: 'Example: Og Image Metadata'
+layout: ~
+---
+
+{% extends "layout/_template.njk" %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{%
+    set pageConfig = {
+        "title": "Example: Open Graph Metadata",
+        "header": {
+            "mastheadLogoUrl": "#0",
+            "description": "Example demonstrating Open Graph metadata",
+            "serviceLinks": {
+                "id": "service-links",
+                "ariaLabel": "Services menu",
+                "ariaListLabel": "Menu",
+                "itemsList": [
+                    {
+                        "text": "Sign out",
+                        "url": "#0"
+                    }
+                ]
+            }
+        },
+        "footer": {},
+        "og_img": {
+            "url": "/favicons/opengraph.png",
+            "width": "1200",
+            "height": "630"
+        }
+    }
+%}
+{% block main %}
+    {%
+        call onsPanel({
+            "variant": "info",
+            "id": "og-image-example",
+            "iconType": "info",
+            "iconSize": "xl"
+        })
+    %}
+        <h1>Open Graph Metadata Example</h1>
+        <p>
+            This example demonstrates how to provide Open Graph metadata dynamically using the <code>og_img</code> object in
+            <code>pageConfig</code>.
+        </p>
+    {% endcall %}
+{% endblock %}
