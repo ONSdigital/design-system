@@ -411,6 +411,29 @@ describe('script: address-input', () => {
                     });
                 });
             });
+
+            describe('when a grouped suggestion is selected with the mouse', () => {
+                beforeEach(async () => {
+                    const options = await page.$$('.ons-autosuggest__option');
+                    await options[0].click();
+                    await setTimeout(400);
+                });
+
+                it('makes expected bucket request', async () => {
+                    expect(
+                        await apiFaker.getRequestCount(
+                            '/addresses/eq/bucket?postcode=CF14%202AA&streetname=Penlline%20Road&townname=Whitchurch&groupfullpostcodes=combo',
+                        ),
+                    ).toBe(1);
+                });
+
+                it('keeps nested suggestion entries after blur timeout', async () => {
+                    const suggestions = await page.$$eval('.ons-autosuggest__option', (nodes) =>
+                        nodes.map((node) => node.textContent.trim()),
+                    );
+                    expect(suggestions).toEqual(['197 College Road, Whitchurch, Cardiff, CF14 2AB']);
+                });
+            });
         });
 
         describe('when there is an error retrieving the address', () => {
