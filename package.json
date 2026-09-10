@@ -7,6 +7,10 @@
     "author": {
         "name": "ONS Digital"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ONSdigital/design-system"
+    },
     "scripts": {
         "start": "gulp start",
         "watch": "gulp watch",
