@@ -33,7 +33,7 @@
 
     &__text {
         // Reading width max-width is hard-coded as skip to content sits outside the `ons-container` class
-        max-width: 39.5rem;
+        max-width: $reading-width;
         display: block;
     }
 }
