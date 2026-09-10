@@ -123,8 +123,8 @@ describe('Macro: Featured Article', () => {
                         EXAMPLE_CHART_CALLER_CONTENT,
                     ),
                 );
-                const title = $('.ons-featured__description').html().trim();
-                expect(title).toBe('Some description');
+                const description = $('.ons-featured__description .ons-u-reading-width').html().trim();
+                expect(description).toBe('Some description');
             });
         });
     });

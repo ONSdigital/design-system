@@ -53,14 +53,17 @@
         {% if params.footerWarning %}
             {% from "components/panel/_macro.njk" import onsPanel %}
             <div class="ons-footer__warning">
-                <div class="ons-container">
+                <div
+                    class="ons-container{{ ' ons-container--full-width' if params.fullWidth else "" }}{{ ' ons-container--wide' if params.wide else "" }}"
+                >
                     {%
                         call onsPanel({
                             "variant": "warn",
                             "classes": "ons-panel--warn--footer"
                         })
                     %}
-                        {{ params.footerWarning | safe }}
+                        {# p tag ensures reading width is applied #}
+                        <div class="ons-u-reading-width">{{ params.footerWarning | safe }}</div>
                     {% endcall %}
                 </div>
             </div>

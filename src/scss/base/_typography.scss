@@ -12,6 +12,7 @@ body {
 
 p {
     margin: 0 0 1rem;
+    @include reading-width;
 }
 
 h1,
@@ -24,6 +25,14 @@ h6 {
     strong {
         @extend .ons-highlight;
     }
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include reading-width;
 }
 
 mark {

@@ -112,6 +112,14 @@
                 margin: 0;
             }
         }
+
+        // Restrict the width of textual content within the panel body (paragraphs are already globally restricted)
+        ul,
+        ol,
+        label,
+        legend {
+            @include reading-width;
+        }
     }
 
     &__error {
