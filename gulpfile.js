@@ -3,7 +3,7 @@ const browserify = require('browserify');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
 const gulpPostCss = require('gulp-postcss');
-const gulpDartSass = require('gulp-dart-sass');
+const gulpSass = require('gulp-sass')(require('sass'));
 const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpTerser = require('gulp-terser');
 const buffer = require('vinyl-buffer');
@@ -28,7 +28,7 @@ const terserOptions = {
 };
 
 const sassOptions = {
-    includePaths: ['./node_modules/normalize.css'],
+    loadPaths: ['./node_modules/normalize.css'],
     outputStyle: 'compressed',
 };
 
@@ -82,7 +82,7 @@ gulp.task('build-styles', () => {
     return gulp
         .src(`./src/scss/*.scss`)
         .pipe(gulpIf(isDevelopment, gulpSourcemaps.init()))
-        .pipe(gulpDartSass(sassOptions).on('error', gulpDartSass.logError))
+        .pipe(gulpSass(sassOptions).on('error', gulpSass.logError))
         .pipe(gulpPostCss(postCssPlugins()))
         .pipe(gulpIf(isDevelopment, gulpSourcemaps.write('./')))
         .pipe(gulp.dest('./build/css'))
