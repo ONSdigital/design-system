@@ -62,8 +62,21 @@
     );
 
     @each $ext in $exts {
-        $extmod: if(map.has-key($extmods, $ext), $ext + map.get($extmods, $ext), $ext);
-        $format: if(map.has-key($formats, $ext), map.get($formats, $ext), $ext);
+        $extmod: null;
+        $format: null;
+
+        @if map.has-key($extmods, $ext) {
+            $extmod: $ext + map.get($extmods, $ext);
+        } @else {
+            $extmod: $ext;
+        }
+
+        @if map.has-key($formats, $ext) {
+            $format: map.get($formats, $ext);
+        } @else {
+            $format: $ext;
+        }
+
         $src: list.append($src, url('#{$path}.#{$extmod}') format(string.quote($format)), comma);
     }
 
