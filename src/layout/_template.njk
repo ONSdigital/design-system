@@ -58,8 +58,8 @@
     "#206095"
 %}
 {%
-    set headerButton = pageConfig.header.button if pageConfig.header.button else
-    pageConfig.header.signoutButton
+    set signoutButton = pageConfig.header.signoutButton if pageConfig.header.signoutButton else
+    pageConfig.header.button
 %}
 <!doctype html>
 <html lang="{{ currentLanguageIsoCode }}">
@@ -175,7 +175,7 @@
                                 "wide": pageConfig.wide,
                                 "fullWidth": pageConfig.fullWidth,
                                 "language": pageConfig.header.language,
-                                "button": headerButton,
+                                "signoutButton": signoutButton,
                                 "toggleNavigationButton": pageConfig.header.toggleNavigationButton,
                                 "navigation": pageConfig.header.navigation,
                                 "siteSearchAutosuggest": pageConfig.header.siteSearchAutosuggest,
@@ -236,7 +236,7 @@
                                 "footerLogo": pageConfig.footer.footerLogo,
                                 "crest": pageConfig.footer.crest,
                                 "oglLink": pageConfig.footer.oglLink,
-                                "button": headerButton,
+                                "signoutButton": signoutButton,
                                 "footerWarning": pageConfig.footer.footerWarning,
                                 "copyrightDeclaration": pageConfig.footer.copyrightDeclaration,
                                 "newTabWarning": pageConfig.footer.newTabWarning,
