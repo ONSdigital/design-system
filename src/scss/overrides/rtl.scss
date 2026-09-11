@@ -1,3 +1,6 @@
+@use 'helpers/mq';
+@use 'vars/grid';
+
 @use 'sass:math';
 
 .ons-rtl .ons-page__container > .ons-grid {
@@ -97,11 +100,11 @@
     }
 
     // Flip push and pull
-    @each $breakpoint-min, $size in $grid-bp {
-        @for $column from 1 through $grid-cols {
-            $width: math.percentage(math.div($column, $grid-cols));
+    @each $breakpoint-min, $size in grid.$grid-bp {
+        @for $column from 1 through grid.$grid-cols {
+            $width: math.percentage(math.div($column, grid.$grid-cols));
 
-            @include mq($breakpoint-min) {
+            @include mq.mq($breakpoint-min) {
                 .ons-push-#{$column}\@#{$breakpoint-min} {
                     left: -$width;
                 }
@@ -112,11 +115,11 @@
             }
         }
 
-        @each $breakpoint-max, $size in $grid-bp {
-            @for $column from 1 through $grid-cols {
-                $width: math.percentage(math.div($column, $grid-cols));
+        @each $breakpoint-max, $size in grid.$grid-bp {
+            @for $column from 1 through grid.$grid-cols {
+                $width: math.percentage(math.div($column, grid.$grid-cols));
 
-                @include mq($breakpoint-min, $breakpoint-max) {
+                @include mq.mq($breakpoint-min, $breakpoint-max) {
                     .ons-push-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
                         left: -$width;
                     }

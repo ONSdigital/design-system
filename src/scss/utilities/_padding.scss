@@ -1,3 +1,6 @@
+@use 'helpers/mq';
+@use 'margin';
+
 $sizes: (
     no: 0,
     4xs: 0.125rem,
@@ -23,13 +26,13 @@ $padding: (
     p: padding,
 );
 
-@each $key, $value in $sizes {
+@each $key, $value in margin.$sizes {
     @each $abbr, $dec in $padding {
-        @include bp-suffix(ons-u-#{$abbr}-#{$key}, $create-between-breakpoints: true) {
+        @include mq.bp-suffix(ons-u-#{$abbr}-#{$key}, $create-between-breakpoints: true) {
             #{$dec}: #{$value} !important;
         }
 
-        @include bp-suffix(ons-u-#{$abbr}-#{$key}-not-important, $create-between-breakpoints: true) {
+        @include mq.bp-suffix(ons-u-#{$abbr}-#{$key}-not-important, $create-between-breakpoints: true) {
             #{$dec}: #{$value};
         }
     }

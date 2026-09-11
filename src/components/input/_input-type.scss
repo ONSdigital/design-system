@@ -1,3 +1,7 @@
+@use 'vars/forms';
+@use 'vars/typography';
+@use './input';
+
 .ons-input-type {
     display: block;
 
@@ -21,7 +25,7 @@
 
         // Override default input error style so it can wrap prefix/suffix too
         &.ons-input--error:not(:focus) {
-            border-right: $input-border-width solid var(--ons-color-input-border);
+            border-right: forms.$input-border-width solid var(--ons-color-input-border);
             box-shadow: none;
             outline: none;
         }
@@ -31,8 +35,8 @@
         background-color: var(--ons-color-button-secondary);
         display: block;
         flex: 0 0 auto;
-        font-weight: $font-weight-bold;
-        padding: $input-padding-vertical $input-padding-horizontal * 2;
+        font-weight: typography.$font-weight-bold;
+        padding: forms.$input-padding-vertical forms.$input-padding-horizontal * 2;
         text-align: center;
         white-space: nowrap;
 
@@ -51,7 +55,7 @@
         // Style input + prefix/suffix on focus
         @extend %ons-input-focus;
 
-        border-radius: $input-radius;
+        border-radius: forms.$input-radius;
         inset: 0;
         content: '';
         display: block;
@@ -61,23 +65,23 @@
     &:not(&--prefix) & {
         &__type {
             border-left: 0;
-            border-radius: 0 $input-radius $input-radius 0;
+            border-radius: 0 forms.$input-radius forms.$input-radius 0;
         }
 
         &__input {
-            border-radius: $input-radius 0 0 $input-radius;
+            border-radius: forms.$input-radius 0 0 forms.$input-radius;
         }
     }
 
     &--prefix & {
         &__type[title] {
-            border-radius: $input-radius 0 0 $input-radius;
+            border-radius: forms.$input-radius 0 0 forms.$input-radius;
             border-right: 0;
             order: 0;
         }
 
         &__input {
-            border-radius: 0 $input-radius $input-radius 0;
+            border-radius: 0 forms.$input-radius forms.$input-radius 0;
             order: 1;
         }
     }
@@ -91,7 +95,7 @@
     }
 
     + .ons-input-type__type::after {
-        border-radius: $input-radius;
+        border-radius: forms.$input-radius;
         inset: 0;
 
         // Style input + prefix/suffix for errors

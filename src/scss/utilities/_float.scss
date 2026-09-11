@@ -1,3 +1,5 @@
+@use 'helpers/mq';
+
 /**
  * For modern browsers
  * 1. The space content is one way to avoid an Opera bug when the
@@ -29,6 +31,6 @@
     float: none;
 }
 
-@include bp-suffix(ons-u-fr) {
+@include mq.bp-suffix(ons-u-fr) {
     float: right;
 }

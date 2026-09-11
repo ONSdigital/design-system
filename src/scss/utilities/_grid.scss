@@ -1,9 +1,12 @@
+@use 'helpers/mq';
+@use 'vars/grid';
+
 @use 'sass:math';
 
 .ons-grid {
     box-sizing: border-box;
     font-size: 0;
-    margin-left: -$grid-gutters;
+    margin-left: -(grid.$grid-gutters);
 
     &--float {
         letter-spacing: 0;
@@ -31,12 +34,12 @@
 
     &--spaced {
         .ons-grid__col {
-            margin-bottom: $grid-gutters;
+            margin-bottom: grid.$grid-gutters;
         }
 
         &.ons-grid--tight {
             .ons-grid__col {
-                margin-bottom: math.div($grid-gutters, 2);
+                margin-bottom: math.div(grid.$grid-gutters, 2);
             }
         }
     }
@@ -58,15 +61,15 @@
     }
 
     &--tight {
-        margin-left: math.div(-$grid-gutters, 2);
+        margin-left: math.div(-(grid.$grid-gutters), 2);
 
         .ons-grid__col {
-            padding-left: math.div($grid-gutters, 2);
+            padding-left: math.div(grid.$grid-gutters, 2);
         }
     }
 
     &--loose {
-        margin-left: -$grid-gutters * 2;
+        margin-left: -(grid.$grid-gutters) * 2;
     }
 
     &--gutterless {
@@ -112,7 +115,7 @@
         margin-left: 0;
         flex-flow: column nowrap;
 
-        @include mq('m') {
+        @include mq.mq('m') {
             flex-direction: row;
         }
 
@@ -139,7 +142,7 @@
         display: inline-block;
         // Fixes text overflow issues
         min-width: 0;
-        padding-left: $grid-gutters;
+        padding-left: grid.$grid-gutters;
         vertical-align: top;
         width: 100%;
 
@@ -163,7 +166,7 @@
         }
 
         &--loose {
-            padding-left: $grid-gutters * 2;
+            padding-left: grid.$grid-gutters * 2;
         }
 
         &--flex {
@@ -190,15 +193,15 @@
     }
 }
 
-@include bp-suffix(ons-grid-flex--no-wrap) {
+@include mq.bp-suffix(ons-grid-flex--no-wrap) {
     flex-wrap: nowrap;
 }
 
-@include bp-suffix(ons-grid-flex--column, $create-between-breakpoints: true) {
+@include mq.bp-suffix(ons-grid-flex--column, $create-between-breakpoints: true) {
     flex-direction: column;
 }
 
-@include bp-suffix(ons-grid--bordered, false) {
+@include mq.bp-suffix(ons-grid--bordered, false) {
     margin-left: 0;
 
     .ons-grid__col {
@@ -214,16 +217,16 @@
     }
 }
 
-@include bp-suffix(ons-grid__col--sticky) {
+@include mq.bp-suffix(ons-grid__col--sticky) {
     position: sticky;
     top: 2rem;
 }
 
-@each $breakpoint-min, $size in $grid-bp {
-    @for $column from 1 through $grid-cols {
-        $width: math.percentage(math.div($column, $grid-cols));
+@each $breakpoint-min, $size in grid.$grid-bp {
+    @for $column from 1 through grid.$grid-cols {
+        $width: math.percentage(math.div($column, grid.$grid-cols));
 
-        @include mq($breakpoint-min) {
+        @include mq.mq($breakpoint-min) {
             .ons-col-#{$column}\@#{$breakpoint-min} {
                 max-width: $width;
                 width: $width;
@@ -241,11 +244,11 @@
         }
     }
 
-    @each $breakpoint-max, $size in $grid-bp {
-        @for $column from 1 through $grid-cols {
-            $width: math.percentage(math.div($column, $grid-cols));
+    @each $breakpoint-max, $size in grid.$grid-bp {
+        @for $column from 1 through grid.$grid-cols {
+            $width: math.percentage(math.div($column, grid.$grid-cols));
 
-            @include mq($breakpoint-min, $breakpoint-max) {
+            @include mq.mq($breakpoint-min, $breakpoint-max) {
                 .ons-col-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
                     max-width: $width;
                     width: $width;
@@ -265,7 +268,7 @@
     }
 }
 
-@include bp-suffix(ons-col-auto) {
+@include mq.bp-suffix(ons-col-auto) {
     width: auto;
 
     .ons-grid-flex & {
@@ -274,34 +277,34 @@
     }
 }
 
-@include bp-suffix(ons-u-flex-shrink) {
+@include mq.bp-suffix(ons-u-flex-shrink) {
     flex-shrink: 1;
 }
 
-@include bp-suffix(ons-u-flex-no-shrink) {
+@include mq.bp-suffix(ons-u-flex-no-shrink) {
     flex-shrink: 0;
 }
 
-@include bp-suffix(ons-u-flex-grow) {
+@include mq.bp-suffix(ons-u-flex-grow) {
     flex-grow: 1;
 }
 
-@include bp-suffix(ons-u-flex-no-grow) {
+@include mq.bp-suffix(ons-u-flex-no-grow) {
     flex-grow: 0;
 }
 
-@include bp-suffix(ons-u-flex-no-basis) {
+@include mq.bp-suffix(ons-u-flex-no-basis) {
     flex-basis: 0;
 }
 
-@include bp-suffix(ons-u-flex-align-bottom) {
+@include mq.bp-suffix(ons-u-flex-align-bottom) {
     align-self: flex-end;
 }
 
-@include bp-suffix('ons-nopull-', false) {
+@include mq.bp-suffix('ons-nopull-', false) {
     left: 0;
 }
 
-@include bp-suffix('ons-nopush-', false) {
+@include mq.bp-suffix('ons-nopush-', false) {
     left: 0;
 }

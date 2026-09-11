@@ -1,7 +1,10 @@
+@use 'vars/forms';
+@use 'vars/grid';
+
 .ons-chart {
     margin: 0;
     container-type: inline-size;
-    max-width: $grid-max-width;
+    max-width: grid.$grid-max-width;
 
     &__chart {
         overflow: visible !important;
@@ -130,7 +133,7 @@
     }
 }
 
-@include iframe-aspect-ratio('ons-chart__iframe--{x}');
+@include forms.iframe-aspect-ratio('ons-chart__iframe--{x}');
 
 // This is a workaround to position the axis title to the left
 .highcharts-axis-title {

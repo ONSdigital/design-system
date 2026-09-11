@@ -1,7 +1,10 @@
+@use 'helpers/mq';
+@use 'vars/typography';
+
 .ons-access-code {
     &__input {
-        font-family: $font-mono !important;
-        font-weight: $font-weight-bold;
+        font-family: typography.$font-mono !important;
+        font-weight: typography.$font-weight-bold;
         letter-spacing: 0.14em;
         text-transform: uppercase;
         width: 15.1em;
@@ -20,7 +23,7 @@
             max-width: 100%;
         }
 
-        @include mq('s') {
+        @include mq.mq('s') {
             font-size: 24px !important;
             max-width: 14.9em;
             width: 14.9em !important;
