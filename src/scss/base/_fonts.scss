@@ -1,4 +1,32 @@
-@include font-face(OpenSans, '#{$static}/fonts/opensans-regular', $weight: $font-weight-regular, $style: null, $exts: woff2 woff);
-@include font-face(OpenSans, '#{$static}/fonts/opensans-bold', $weight: $font-weight-bold, $style: null, $exts: woff2 woff);
-@include font-face(RobotoMono, '#{$static}/fonts/robotomono-regular', $weight: $font-weight-regular, $style: null, $exts: woff2 woff);
-@include font-face(RobotoMono, '#{$static}/fonts/robotomono-bold', $weight: $font-weight-bold, $style: null, $exts: woff2 woff);
+@use 'helpers/mixins';
+@use 'vars/typography';
+@use 'vars/vars';
+
+@include mixins.font-face(
+    OpenSans,
+    '#{vars.$static}/fonts/opensans-regular',
+    $weight: typography.$font-weight-regular,
+    $style: null,
+    $exts: woff2 woff
+);
+@include mixins.font-face(
+    OpenSans,
+    '#{vars.$static}/fonts/opensans-bold',
+    $weight: typography.$font-weight-bold,
+    $style: null,
+    $exts: woff2 woff
+);
+@include mixins.font-face(
+    RobotoMono,
+    '#{vars.$static}/fonts/robotomono-regular',
+    $weight: typography.$font-weight-regular,
+    $style: null,
+    $exts: woff2 woff
+);
+@include mixins.font-face(
+    RobotoMono,
+    '#{vars.$static}/fonts/robotomono-bold',
+    $weight: typography.$font-weight-bold,
+    $style: null,
+    $exts: woff2 woff
+);

@@ -1,14 +1,17 @@
+@use 'helpers/mq';
+@use 'vars/grid';
+
 @use 'sass:math';
 
 .ons-message {
-    border-radius: math.div($grid-gutters, 2);
+    border-radius: math.div(grid.$grid-gutters, 2);
     margin-bottom: 2rem;
     outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
 
     &--sent {
         background: var(--ons-color-info-tint);
 
-        @include mq(m) {
+        @include mq.mq(m) {
             margin-left: 4rem;
         }
     }
@@ -16,21 +19,21 @@
     &--received {
         background: var(--ons-color-success-tint);
 
-        @include mq(m) {
+        @include mq.mq(m) {
             margin-right: 4rem;
         }
     }
 
     &__head {
         border-bottom: 1px solid var(--ons-color-borders);
-        padding: $grid-gutters;
+        padding: grid.$grid-gutters;
         position: relative;
     }
 
     &__metadata {
         margin: 0;
 
-        @include mq(m) {
+        @include mq.mq(m) {
             width: 65%;
         }
     }
@@ -42,7 +45,7 @@
     }
 
     &__unread-link {
-        @include mq(m) {
+        @include mq.mq(m) {
             position: absolute;
             right: 1rem;
             top: 1rem;
@@ -50,6 +53,6 @@
     }
 
     &__body {
-        padding: $grid-gutters;
+        padding: grid.$grid-gutters;
     }
 }

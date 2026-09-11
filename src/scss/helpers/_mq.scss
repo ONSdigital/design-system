@@ -1,3 +1,5 @@
+@use 'vars/grid';
+
 @use 'sass:math';
 @use 'sass:meta';
 @use 'sass:map';
@@ -12,9 +14,9 @@
         $to: get-bp-width($to);
     }
 
-    @if ($from == none or $from <= list.nth(list.nth($grid-bp, 1), 2)) and $to == none {
+    @if ($from == none or $from <= list.nth(list.nth(grid.$grid-bp, 1), 2)) and $to == none {
         @content;
-    } @else if $from == none or $from <= list.nth(list.nth($grid-bp, 1), 2) {
+    } @else if $from == none or $from <= list.nth(list.nth(grid.$grid-bp, 1), 2) {
         @if $to-operator != none and $to-operator == '<' {
             $to: $to - 1;
         }
@@ -45,7 +47,7 @@
     }
 }
 
-@function get-bp-width($name, $breakpoints: $grid-bp) {
+@function get-bp-width($name, $breakpoints: grid.$grid-bp) {
     @if map.has-key($breakpoints, $name) {
         @return map.get($breakpoints, $name);
     } @else {
@@ -63,7 +65,7 @@
     @return $number;
 }
 
-@mixin bp-suffix($class, $original: true, $breakpoints: $grid-bp, $create-between-breakpoints: false) {
+@mixin bp-suffix($class, $original: true, $breakpoints: grid.$grid-bp, $create-between-breakpoints: false) {
     @if $original {
         .#{$class} {
             @content;
@@ -78,7 +80,7 @@
         }
 
         @if $create-between-breakpoints {
-            @each $breakpoint-max, $size in $grid-bp {
+            @each $breakpoint-max, $size in grid.$grid-bp {
                 @include mq($breakpoint-min, $breakpoint-max, $to-operator: '<') {
                     .#{$class}\@#{$breakpoint-min}\@#{$breakpoint-max} {
                         @content;

@@ -1,7 +1,10 @@
+@use 'helpers/mq';
+@use 'vars/forms';
+
 .ons-input--upload {
     background: var(--ons-color-white);
     border: 1px solid var(--ons-color-input-border);
-    border-radius: $input-radius;
+    border-radius: forms.$input-radius;
     padding: 0;
     width: 100%;
     // custom line height to center the placeholder text
@@ -25,11 +28,11 @@
         }
     }
 
-    @include mq(m) {
+    @include mq.mq(m) {
         width: 80%;
     }
 
-    @include mq(l) {
+    @include mq.mq(l) {
         width: 70%;
     }
 }

@@ -1,7 +1,10 @@
+@use '../../scss/utilities/index';
+@use 'vars/typography';
+
 .ons-label {
     color: inherit;
     display: block;
-    font-weight: $font-weight-bold;
+    font-weight: typography.$font-weight-bold;
     margin: 0 0 0.5rem;
 
     &__description {
@@ -16,7 +19,7 @@
     }
 
     &--placeholder {
-        font-weight: $font-weight-regular;
+        font-weight: typography.$font-weight-regular;
         color: var(--ons-color-placeholder);
         left: 10px;
         position: absolute;

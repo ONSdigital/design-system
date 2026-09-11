@@ -1,6 +1,8 @@
 @use 'sass:math';
 @use 'sass:string';
 @use 'sass:map';
+@use '../vars/vars' as *;
+@use '../vars/typography' as *;
 
 @function ems($pxval, $base: $base) {
     $em-size: math.div($pxval, $base);

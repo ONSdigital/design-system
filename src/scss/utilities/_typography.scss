@@ -1,3 +1,8 @@
+@use 'helpers/functions';
+@use 'helpers/mq';
+@use 'vars/grid';
+@use 'vars/typography';
+
 @use 'sass:map';
 
 @mixin font-size($props, $base) {
@@ -6,31 +11,31 @@
 
     --ons-line-height: #{map.get($props, line-height-mobile)};
 
-    font-size: rems($small-size, $base);
+    font-size: functions.rems($small-size, $base);
     font-weight: map.get($props, weight);
     line-height: map.get($props, line-height-mobile);
 
     @if $small-size != $large-size {
-        @include mq(m) {
+        @include mq.mq(m) {
             --ons-line-height: #{map.get($props, line-height-desktop)};
 
-            font-size: rems($large-size, $base);
+            font-size: functions.rems($large-size, $base);
             line-height: map.get($props, line-height-desktop);
         }
     }
 }
 
-@each $name, $props in $type-matrix {
+@each $name, $props in typography.$type-matrix {
     .#{$name} {
-        @include font-size($props, $base);
+        @include font-size($props, typography.$base);
     }
 }
 
-@each $breakpoint, $size in $grid-bp {
-    @each $name, $props in $type-matrix {
-        @include mq($breakpoint) {
+@each $breakpoint, $size in grid.$grid-bp {
+    @each $name, $props in typography.$type-matrix {
+        @include mq.mq($breakpoint) {
             .#{$name}\@#{$breakpoint} {
-                @include font-size($props, $base);
+                @include font-size($props, typography.$base);
             }
         }
     }
@@ -53,11 +58,11 @@ h4 {
 }
 
 .ons-u-fw-b {
-    font-weight: $font-weight-bold;
+    font-weight: typography.$font-weight-bold;
 }
 
 .ons-u-fw-n {
-    font-weight: $font-weight-regular;
+    font-weight: typography.$font-weight-regular;
 }
 
 .ons-u-fs-i {
@@ -78,7 +83,7 @@ h4 {
 }
 
 .ons-u-f-mono {
-    font-family: $font-mono;
+    font-family: typography.$font-mono;
     letter-spacing: 0.1em;
 }
 

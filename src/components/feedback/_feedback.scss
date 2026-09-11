@@ -1,10 +1,12 @@
+@use 'vars/typography';
+
 .ons-feedback {
     border: 3px solid var(--ons-color-branded);
     margin-bottom: 2rem;
     padding: 1rem;
     position: relative;
     &__link {
-        font-weight: $font-weight-bold;
+        font-weight: typography.$font-weight-bold;
     }
     &::before {
         border-bottom: 15px solid transparent;
