@@ -545,7 +545,7 @@ describe('macro: footer', () => {
 
     describe('save and sign out button', () => {
         const params = {
-            button: {
+            signoutButton: {
                 id: 'save-and-sign-out',
                 classes: 'extra-class',
                 text: 'Save changes and sign out',
@@ -570,8 +570,55 @@ describe('macro: footer', () => {
 
             expect(buttonSpy.occurrences).toContainEqual(
                 expect.objectContaining({
-                    ...params.button,
+                    ...params.signoutButton,
                     variants: 'ghost',
+                }),
+            );
+        });
+
+        it('renders using the legacy button alias', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button');
+            const legacyParams = {
+                button: {
+                    id: 'save-and-sign-out',
+                    classes: 'extra-class',
+                    text: 'Save changes and sign out',
+                    name: 'button-name',
+                    attributes: { a: 42 },
+                    url: 'https://example.com/',
+                },
+            };
+
+            faker.renderComponent('footer', legacyParams);
+
+            expect(buttonSpy.occurrences).toContainEqual(
+                expect.objectContaining({
+                    ...legacyParams.button,
+                    variants: 'ghost',
+                }),
+            );
+        });
+
+        it('prefers signoutButton over the legacy button alias', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button');
+
+            faker.renderComponent('footer', {
+                signoutButton: {
+                    text: 'Preferred sign out',
+                    url: 'https://example.com/preferred',
+                },
+                button: {
+                    text: 'Legacy sign out',
+                    url: 'https://example.com/legacy',
+                },
+            });
+
+            expect(buttonSpy.occurrences).toContainEqual(
+                expect.objectContaining({
+                    text: 'Preferred sign out',
+                    url: 'https://example.com/preferred',
                 }),
             );
         });
