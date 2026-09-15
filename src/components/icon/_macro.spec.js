@@ -102,6 +102,7 @@ describe('macro: icon', () => {
         ['ons-logo-stacked-en', 'Office for National Statistics homepage'],
         ['ons-logo-stacked-cy', 'Hafan Swyddfa Ystadegau Gwladol'],
         ['crest', 'Royal coat of arms of the United Kingdom'],
+        ['official-statistics', 'Official Statistics Badge - Accredited'],
         ['ogl', 'Open Government License logo'],
     ])('icon type: %s', (iconType, expectedAltText) => {
         it(`has default alt text '${expectedAltText}'`, () => {
