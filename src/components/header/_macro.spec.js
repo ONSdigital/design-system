@@ -424,8 +424,8 @@ describe('FOR: Macro: Header', () => {
             });
         });
     });
-    describe('GIVEN: Params: button: SignOutButton', () => {
-        describe('WHEN: no button parameters are provided', () => {
+    describe('GIVEN: Params: signoutButton: SignOutButton', () => {
+        describe('WHEN: no signoutButton parameters are provided', () => {
             const $ = cheerio.load(
                 renderComponent('header', {
                     ...EXAMPLE_HEADER_BASIC,
@@ -436,8 +436,8 @@ describe('FOR: Macro: Header', () => {
                 expect($(titleGridDiv).hasClass('ons-grid--gutterless')).toBe(true);
             });
         });
-        describe('WHEN: signOutButton parameters are provided', () => {
-            const button = {
+        describe('WHEN: signoutButton parameters are provided', () => {
+            const signoutButton = {
                 text: 'Save and sign out',
                 name: 'button-name',
                 attributes: {
@@ -449,7 +449,7 @@ describe('FOR: Macro: Header', () => {
             const $ = cheerio.load(
                 renderComponent('header', {
                     ...EXAMPLE_HEADER_BASIC,
-                    button,
+                    signoutButton,
                 }),
             );
 
@@ -457,7 +457,7 @@ describe('FOR: Macro: Header', () => {
             const buttonSpy = faker.spy('button', { suppressOutput: true });
             faker.renderComponent('header', {
                 ...EXAMPLE_HEADER_BASIC,
-                button,
+                signoutButton,
             });
             test('THEN: renders button with provided parameters', () => {
                 expect(buttonSpy.occurrences).toContainEqual({
@@ -476,6 +476,60 @@ describe('FOR: Macro: Header', () => {
             test('THEN: renders title grid without gutterless class', () => {
                 const titleGridDiv = $('.ons-header__main .ons-container .ons-grid');
                 expect($(titleGridDiv).hasClass('ons-grid--gutterless')).toBe(false);
+            });
+        });
+        describe('WHEN: legacy button parameters are provided', () => {
+            const button = {
+                text: 'Save and sign out',
+                name: 'button-name',
+                attributes: {
+                    a: 'b',
+                },
+                url: '#0',
+            };
+
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_BASIC,
+                button,
+            });
+            test('THEN: renders button using the legacy button alias', () => {
+                expect(buttonSpy.occurrences).toContainEqual({
+                    text: 'Save and sign out',
+                    classes: 'ons-u-d-no@2xs@m',
+                    variants: 'ghost',
+                    name: 'button-name',
+                    attributes: {
+                        a: 'b',
+                    },
+                    url: '#0',
+                    iconType: 'exit',
+                    iconPosition: 'after',
+                });
+            });
+        });
+        describe('WHEN: both signoutButton and legacy button are provided', () => {
+            const faker = templateFaker();
+            const buttonSpy = faker.spy('button', { suppressOutput: true });
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_BASIC,
+                signoutButton: {
+                    text: 'Preferred sign out',
+                    url: '#preferred',
+                },
+                button: {
+                    text: 'Legacy sign out',
+                    url: '#legacy',
+                },
+            });
+            test('THEN: prefers signoutButton over the legacy button alias', () => {
+                expect(buttonSpy.occurrences).toContainEqual(
+                    expect.objectContaining({
+                        text: 'Preferred sign out',
+                        url: '#preferred',
+                    }),
+                );
             });
         });
     });
