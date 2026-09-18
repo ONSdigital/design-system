@@ -1,8 +1,5 @@
-import { KnownDevices } from 'puppeteer';
-import { setViewport } from '../../tests/helpers/puppeteer';
+import { iPhoneX, setViewport } from '../../tests/helpers/puppeteer';
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
-
-const iPhoneX = KnownDevices['iPhone X'];
 
 const EXAMPLE_TABS = {
     title: 'Example tabs',
