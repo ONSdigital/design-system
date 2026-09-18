@@ -271,6 +271,40 @@ describe('FOR: Macro: Header', () => {
                 expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics logo');
             });
         });
+        describe('WHEN: mastheadLogoAltText is not provided and Welsh is the current language', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_BASIC,
+                mastheadLogoAltText: undefined,
+                language: {
+                    languages: [
+                        { url: '#0', isoCode: 'en', text: 'English', current: false },
+                        { url: '#0', isoCode: 'cy', text: 'Cymraeg', current: true },
+                    ],
+                },
+            });
+            test('THEN: renders logo with Welsh default alt text', () => {
+                expect(iconsSpy.occurrences[0].altText).toBe('Logo Swyddfa Ystadegau Gwladol');
+            });
+        });
+        describe('WHEN: mastheadLogoAltText is provided and Welsh is the current language', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_BASIC,
+                mastheadLogoAltText: 'Custom alt text for logo',
+                language: {
+                    languages: [
+                        { url: '#0', isoCode: 'en', text: 'English', current: false },
+                        { url: '#0', isoCode: 'cy', text: 'Cymraeg', current: true },
+                    ],
+                },
+            });
+            test('THEN: renders logo with provided alt text', () => {
+                expect(iconsSpy.occurrences[0].altText).toBe('Custom alt text for logo');
+            });
+        });
     });
     describe('GIVEN: Params: multipleLogos', () => {
         describe('WHEN: image parameter is set to "ONS Logo"', () => {

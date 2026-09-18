@@ -630,5 +630,27 @@ describe('macro: footer', () => {
 
             expect($('.ons-footer__crest').length).toBe(1);
         });
+
+        it('renders crest icon with English alt text by default', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+
+            faker.renderComponent('footer', params);
+
+            expect(iconsSpy.occurrences).toContainEqual(
+                expect.objectContaining({ iconType: 'crest', altText: 'Royal coat of arms of the United Kingdom' }),
+            );
+        });
+
+        it('renders crest icon with Welsh alt text when `lang` is "cy"', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+
+            faker.renderComponent('footer', { ...params, lang: 'cy' });
+
+            expect(iconsSpy.occurrences).toContainEqual(
+                expect.objectContaining({ iconType: 'crest', altText: 'Arfbais Frenhinol y Deyrnas Unedig' }),
+            );
+        });
     });
 });
