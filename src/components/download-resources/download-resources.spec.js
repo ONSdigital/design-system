@@ -1,8 +1,5 @@
-import { KnownDevices } from 'puppeteer';
-import { setViewport } from '../../tests/helpers/puppeteer';
+import { iPhoneX, setViewport } from '../../tests/helpers/puppeteer';
 import { renderComponent, renderTemplate, setTestPage } from '../../tests/helpers/rendering';
-
-const iPhoneX = KnownDevices['iPhone X'];
 
 /* eslint-disable indent */
 const EXAMPLE_PAGE = `

@@ -117,3 +117,49 @@ describe('script: back-to-top', () => {
         expect(previousWidth).not.toEqual(newWidth);
     });
 });
+
+describe('script: back-to-top without an adjacent previous sibling', () => {
+    it('does not throw errors when the component is nested several levels deep with no immediate previous sibling', async () => {
+        const pageErrors = [];
+        const handler = (err) => pageErrors.push(err.message);
+        page.on('pageerror', handler);
+
+        await setTestPage(
+            '/test',
+            `
+                <div>
+                    <p>Content above</p>
+                </div>
+                <div>
+                    <div>
+                        <div>
+                            ${renderComponent('back-to-top', {})}
+                        </div>
+                    </div>
+                </div>
+            `,
+        );
+
+        await page.evaluate(() => {
+            window.scrollTo(0, window.innerHeight * 2 + 10);
+        });
+
+        page.off('pageerror', handler);
+        expect(pageErrors).toHaveLength(0);
+    });
+
+    it('does not throw errors when there is no content preceding the back-to-top component', async () => {
+        const pageErrors = [];
+        const handler = (err) => pageErrors.push(err.message);
+        page.on('pageerror', handler);
+
+        await setTestPage('/test', `${renderComponent('back-to-top', {})}`);
+
+        await page.evaluate(() => {
+            window.scrollTo(0, window.innerHeight * 2 + 10);
+        });
+
+        page.off('pageerror', handler);
+        expect(pageErrors).toHaveLength(0);
+    });
+});
