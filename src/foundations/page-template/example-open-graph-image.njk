@@ -1,0 +1,35 @@
+---
+title: 'Example: Open Graph image'
+layout: ~
+---
+
+{% extends "layout/_template.njk" %}
+{%
+    set pageConfig = {
+        "title": "Example: Open Graph image",
+        "header": {
+            "title": "Service name"
+        },
+        "footer": {
+            "oglLink": {
+                "pre": 'All content is available under the',
+                "link": 'Open Government Licence v3.0',
+                "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+                "post": ', except where otherwise stated'
+            }
+        },
+        "ogImg": {
+            "url": "https://example.com/images/custom-share-image.jpg",
+            "width": "800",
+            "height": "418",
+            "type": "image/jpeg"
+        }
+    }
+%}
+{% block main %}
+    <h1>Open Graph image</h1>
+    <p>
+        This example sets a custom Open Graph image with <code>pageConfig.ogImg</code>, using a non-default absolute URL, dimensions, and
+        MIME type.
+    </p>
+{% endblock %}
