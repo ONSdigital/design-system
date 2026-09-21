@@ -24,7 +24,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="">
-            <meta property="og:image" content="/favicons/opengraph.png">
+            <meta property="og:image" content="/social/opengraph.png">
             <meta property="og:image:type" content="image/png">
             <meta property="og:image:width" content="1200">
             <meta property="og:image:height" content="630">
@@ -960,7 +960,7 @@ exports[`base page template matches the body block override snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/favicons/opengraph.png">
+            <meta property="og:image" content="/social/opengraph.png">
             <meta property="og:image:type" content="image/png">
             <meta property="og:image:width" content="1200">
             <meta property="og:image:height" content="630">
@@ -1053,7 +1053,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/favicons/opengraph.png">
+            <meta property="og:image" content="/social/opengraph.png">
             <meta property="og:image:type" content="image/png">
             <meta property="og:image:width" content="1200">
             <meta property="og:image:height" content="630">
@@ -1307,7 +1307,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/favicons/opengraph.png">
+            <meta property="og:image" content="/social/opengraph.png">
             <meta property="og:image:type" content="image/png">
             <meta property="og:image:width" content="1200">
             <meta property="og:image:height" content="630">
@@ -1580,7 +1580,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="/some-url">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/some-path/favicons/opengraph.png">
+            <meta property="og:image" content="/some-path/social/opengraph.png">
             <meta property="og:image:type" content="image/png">
             <meta property="og:image:width" content="1200">
             <meta property="og:image:height" content="630">
@@ -2934,7 +2934,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/favicons/opengraph.png">
+            <meta property="og:image" content="/social/opengraph.png">
             <meta property="og:image:type" content="image/png">
             <meta property="og:image:width" content="1200">
             <meta property="og:image:height" content="630">

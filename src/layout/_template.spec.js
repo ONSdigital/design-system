@@ -645,7 +645,7 @@ describe('base page template', () => {
             const $ = cheerio.load(renderBaseTemplate(defaultOgImageExample));
             const ogImage = getOgImageMeta($);
 
-            expect(ogImage.urls).toEqual(['/some-path/favicons/opengraph.png']);
+            expect(ogImage.urls).toEqual(['/some-path/social/opengraph.png']);
             expect(ogImage.type).toBe('image/png');
             expect(ogImage.width).toBe('1200');
             expect(ogImage.height).toBe('630');
@@ -680,7 +680,7 @@ describe('base page template', () => {
             const $ = cheerio.load(renderBaseTemplate(example));
             const ogImage = getOgImageMeta($);
 
-            expect(ogImage.urls).toEqual(['/some-path/favicons/opengraph.png']);
+            expect(ogImage.urls).toEqual(['/some-path/social/opengraph.png']);
             expect(ogImage.type).toBe('image/png');
             expect(ogImage.width).toBe('1200');
             expect(ogImage.height).toBe('630');

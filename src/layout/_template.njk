@@ -58,7 +58,7 @@
     "#206095"
 %}
 {% set ogImg = pageConfig.ogImg if pageConfig.ogImg else null %}
-{% set ogImageUrl = ogImg.url if ogImg and ogImg.url else assetsUrl + '/favicons/opengraph.png' %}
+{% set ogImageUrl = ogImg.url if ogImg and ogImg.url else assetsUrl + '/social/opengraph.png' %}
 {% set ogImageType = ogImg.type if ogImg and ogImg.url and ogImg.type else 'image/png' %}
 {% set ogImageWidth = ogImg.width if ogImg and ogImg.url and ogImg.width else '1200' %}
 {% set ogImageHeight = ogImg.height if ogImg and ogImg.url and ogImg.height else '630' %}
@@ -115,7 +115,7 @@
             {% if pageConfig.social %}
                 {%
                     set xImagePath = pageConfig.social.xImage if pageConfig.social.xImage else
-                    assetsUrl + '/favicons/x.png'
+                    assetsUrl + '/social/x.png'
                 %}
                 <!-- X -->
                 <meta name="twitter:card" content="summary" />
@@ -144,7 +144,8 @@
         <!-- prettier-ignore-start -->
         <script {% if pageConfig.cspNonce %}nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %}nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         <!-- prettier-ignore-end -->
-        {% block bodyStart %}{% endblock %}
+        {% block bodyStart %}
+        {% endblock %}
         {% block body %}
             <div class="ons-page">
                 <div class="ons-page__content">
@@ -215,9 +216,7 @@
                             {% endblock %}
                             <div class="ons-grid">
                                 <div class="ons-grid__col ons-col-{{ pageColNumber }}@m{{ pageColClasses }}">
-                                    <main id="main-content" class="ons-page__main{{ mainColClasses }}">
-                                        {% block main %}{% endblock %}
-                                    </main>
+                                    <main id="main-content" class="ons-page__main{{ mainColClasses }}">{% block main %}{% endblock %}</main>
                                 </div>
                             </div>
                         </div>
@@ -248,8 +247,8 @@
                 {% endblock %}
             </div>
         {% endblock %}
-        {% block bodyEnd %}{% endblock %}
-
+        {% block bodyEnd %}
+        {% endblock %}
         <!-- prettier-ignore-start -->
         <script {% if pageConfig.cspNonce %}nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %}nonce="{{ csp_nonce() }}"{% endif %}>
             (function() {
