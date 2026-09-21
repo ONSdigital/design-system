@@ -724,6 +724,7 @@ describe('script: autosuggest', () => {
                 );
 
                 await page.type('.ons-js-autosuggest-input', 'England', { delay: 20 });
+                await page.waitForSelector('.ons-autosuggest__option');
                 await page.keyboard.press('ArrowUp');
                 await page.keyboard.press('Enter');
                 // Unfocus the autosuggest input
