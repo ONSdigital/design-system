@@ -605,6 +605,15 @@ describe('base page template', () => {
     });
 
     describe('open graph image', () => {
+        const getOgImageMeta = ($) => ({
+            urls: $('meta[property="og:image"]')
+                .map((_, el) => $(el).attr('content'))
+                .get(),
+            type: $('meta[property="og:image:type"]').attr('content'),
+            width: $('meta[property="og:image:width"]').attr('content'),
+            height: $('meta[property="og:image:height"]').attr('content'),
+        });
+
         it('uses pageConfig.ogImg values and emits a single og:image tag', () => {
             const customisedOgImageExample = `
 {% set pageConfig = {
@@ -618,15 +627,12 @@ describe('base page template', () => {
 } %}
 `;
             const $ = cheerio.load(renderBaseTemplate(customisedOgImageExample));
+            const ogImage = getOgImageMeta($);
 
-            const ogImageValues = $('meta[property="og:image"]')
-                .map((_, el) => $(el).attr('content'))
-                .get();
-
-            expect(ogImageValues).toEqual(['https://cdn.example.com/social/custom-card.png']);
-            expect($('meta[property="og:image:type"]').attr('content')).toBe('image/jpeg');
-            expect($('meta[property="og:image:width"]').attr('content')).toBe('1400');
-            expect($('meta[property="og:image:height"]').attr('content')).toBe('900');
+            expect(ogImage.urls).toEqual(['https://cdn.example.com/social/custom-card.png']);
+            expect(ogImage.type).toBe('image/jpeg');
+            expect(ogImage.width).toBe('1400');
+            expect(ogImage.height).toBe('900');
         });
 
         it('defaults to default image when pageConfig.ogImg is not provided', () => {
@@ -637,15 +643,47 @@ describe('base page template', () => {
 } %}
 `;
             const $ = cheerio.load(renderBaseTemplate(defaultOgImageExample));
+            const ogImage = getOgImageMeta($);
 
-            const ogImageValues = $('meta[property="og:image"]')
-                .map((_, el) => $(el).attr('content'))
-                .get();
+            expect(ogImage.urls).toEqual(['/some-path/favicons/opengraph.png']);
+            expect(ogImage.type).toBe('image/png');
+            expect(ogImage.width).toBe('1200');
+            expect(ogImage.height).toBe('630');
+        });
 
-            expect(ogImageValues).toEqual(['/some-path/favicons/opengraph.png']);
-            expect($('meta[property="og:image:type"]').attr('content')).toBe('image/png');
-            expect($('meta[property="og:image:width"]').attr('content')).toBe('1200');
-            expect($('meta[property="og:image:height"]').attr('content')).toBe('630');
+        it('uses custom url with default type, width and height when only url is provided', () => {
+            const urlOnlyOgImageExample = `
+{% set pageConfig = {
+    "title": "Open Graph image url only",
+    "assetsUrl": "/some-path",
+    "ogImg": {
+        "url": "https://cdn.example.com/social/custom-card.png"
+    }
+} %}
+`;
+            const $ = cheerio.load(renderBaseTemplate(urlOnlyOgImageExample));
+            const ogImage = getOgImageMeta($);
+
+            expect(ogImage.urls).toEqual(['https://cdn.example.com/social/custom-card.png']);
+            expect(ogImage.type).toBe('image/png');
+            expect(ogImage.width).toBe('1200');
+            expect(ogImage.height).toBe('630');
+        });
+
+        it.each([
+            ['omitted', `{ "title": "Open Graph image without url", "assetsUrl": "/some-path", "ogImg": {} }`],
+            ['empty', `{ "title": "Open Graph image empty url", "assetsUrl": "/some-path", "ogImg": { "url": "" } }`],
+        ])('falls back to defaults when ogImg url is %s', (_, pageConfig) => {
+            const example = `
+{% set pageConfig = ${pageConfig} %}
+`;
+            const $ = cheerio.load(renderBaseTemplate(example));
+            const ogImage = getOgImageMeta($);
+
+            expect(ogImage.urls).toEqual(['/some-path/favicons/opengraph.png']);
+            expect(ogImage.type).toBe('image/png');
+            expect(ogImage.width).toBe('1200');
+            expect(ogImage.height).toBe('630');
         });
     });
 });
