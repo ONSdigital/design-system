@@ -57,10 +57,11 @@
     set themeColor = pageConfig.themeColor if pageConfig.themeColor else
     "#206095"
 %}
-{% set og_img = pageConfig.og_img if pageConfig.og_img else null %}
-{% set ogImageUrl = og_img.url if og_img and og_img.url else assetsUrl + '/favicons/opengraph.png' %}
-{% set ogImageWidth = og_img.width if og_img and og_img.url and og_img.width else '1200' %}
-{% set ogImageHeight = og_img.height if og_img and og_img.url and og_img.height else '630' %}
+{% set ogImg = pageConfig.ogImg if pageConfig.ogImg else null %}
+{% set ogImageUrl = ogImg.url if ogImg and ogImg.url else assetsUrl + '/favicons/opengraph.png' %}
+{% set ogImageType = ogImg.type if ogImg and ogImg.url and ogImg.type else 'image/png' %}
+{% set ogImageWidth = ogImg.width if ogImg and ogImg.url and ogImg.width else '1200' %}
+{% set ogImageHeight = ogImg.height if ogImg and ogImg.url and ogImg.height else '630' %}
 <!doctype html>
 <html lang="{{ currentLanguageIsoCode }}">
     <head>
@@ -71,10 +72,10 @@
         <link rel="stylesheet" href="{{ assetsUrl }}/css/main.css" />
         <link rel="stylesheet" media="print" href="{{ assetsUrl }}/css/print.css" />
 
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin>
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin>
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin />
 
         <meta name="theme-color" content="{{ themeColor }}" />
         {% block meta %}
@@ -100,7 +101,7 @@
             <meta property="og:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}" />
             <meta property="og:title" content="{{ pageConfig.title }}" />
             <meta property="og:image" content="{{ ogImageUrl }}" />
-            <meta property="og:image:type" content="image/png" />
+            <meta property="og:image:type" content="{{ ogImageType }}" />
             <meta property="og:image:width" content="{{ ogImageWidth }}" />
             <meta property="og:image:height" content="{{ ogImageHeight }}" />
             <meta property="og:description" content="{{ pageConfig.meta.description | default(pageConfig.description) }}" />

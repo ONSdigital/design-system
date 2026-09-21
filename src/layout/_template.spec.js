@@ -605,14 +605,15 @@ describe('base page template', () => {
     });
 
     describe('open graph image', () => {
-        it('uses pageConfig.og_img values and emits a single og:image tag', () => {
+        it('uses pageConfig.ogImg values and emits a single og:image tag', () => {
             const customisedOgImageExample = `
 {% set pageConfig = {
     "title": "Open Graph image customised",
-    "og_img": {
+    "ogImg": {
         "url": "https://cdn.example.com/social/custom-card.png",
         "width": "1400",
-        "height": "900"
+        "height": "900",
+        "type": "image/jpeg"
     }
 } %}
 `;
@@ -623,11 +624,12 @@ describe('base page template', () => {
                 .get();
 
             expect(ogImageValues).toEqual(['https://cdn.example.com/social/custom-card.png']);
+            expect($('meta[property="og:image:type"]').attr('content')).toBe('image/jpeg');
             expect($('meta[property="og:image:width"]').attr('content')).toBe('1400');
             expect($('meta[property="og:image:height"]').attr('content')).toBe('900');
         });
 
-        it('defaults to default image when pageConfig.og_img is not provided', () => {
+        it('defaults to default image when pageConfig.ogImg is not provided', () => {
             const defaultOgImageExample = `
 {% set pageConfig = {
     "title": "Open Graph image default",
@@ -641,6 +643,9 @@ describe('base page template', () => {
                 .get();
 
             expect(ogImageValues).toEqual(['/some-path/favicons/opengraph.png']);
+            expect($('meta[property="og:image:type"]').attr('content')).toBe('image/png');
+            expect($('meta[property="og:image:width"]').attr('content')).toBe('1200');
+            expect($('meta[property="og:image:height"]').attr('content')).toBe('630');
         });
     });
 });
