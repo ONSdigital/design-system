@@ -207,7 +207,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                             
 
                             
-                                <div class="ons-header__links ons-grid__col ons-header__menu-links">
+                                <div class="ons-header__links ons-grid__col ons-header__search-links">
                                     
 
     
@@ -253,7 +253,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
             
         </div>
         
-            <nav class="ons-js-nav-menu ons-header-nav-menu ons-u-pt-2xl" id="menu-links" aria-label="Menu navigation">
+            <nav class="ons-js-nav-menu ons-header-nav-menu" id="menu-links" aria-label="Menu navigation">
                 
                 
                     <div class="ons-container">
@@ -261,39 +261,39 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                             
                                 
                                     <li class="ons-grid__col ons-col-4@m ons-header-nav-menu__col">
-                                        <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
+                                        <h2 class="ons-u-fs-r--b ons-u-mb-no ons-header-nav-menu__heading">
                                             
                                                 Taking part in a survey?
                                             
                                         </h2>
                                         
-                                            <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">It’s never been more important.</p>
+                                            <p class="ons-u-fs-r ons-u-mb-no ons-header-nav-menu__description">It’s never been more important.</p>
                                         
                                     </li>
                                 
                             
                                 
                                     <li class="ons-grid__col ons-col-4@m ons-header-nav-menu__col">
-                                        <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
+                                        <h2 class="ons-u-fs-r--b ons-u-mb-no ons-header-nav-menu__heading">
                                             
                                                 Release calendar
                                             
                                         </h2>
                                         
-                                            <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">View our latest and upcoming releases.</p>
+                                            <p class="ons-u-fs-r ons-u-mb-no ons-header-nav-menu__description">View our latest and upcoming releases.</p>
                                         
                                     </li>
                                 
                             
                                 
                                     <li class="ons-grid__col ons-col-4@m ons-header-nav-menu__col">
-                                        <h2 class="ons-u-fs-s--b ons-u-mb-no ons-header-nav-menu__heading">
+                                        <h2 class="ons-u-fs-r--b ons-u-mb-no ons-header-nav-menu__heading">
                                             
                                                 <a href="#0" class="ons-header-nav-menu__link">Explore local statistics</a>
                                             
                                         </h2>
                                         
-                                            <p class="ons-u-fs-s ons-u-mb-no ons-header-nav-menu__description">Explore statistics across the UK.</p>
+                                            <p class="ons-u-fs-r ons-u-mb-no ons-header-nav-menu__description">Explore statistics across the UK.</p>
                                         
                                     </li>
                                 
@@ -308,7 +308,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                 <li class="ons-grid__col ons-col-4@m ons-u-mb-no ons-header-nav-menu__col">
                                     
                                         
-                                            <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
+                                            <h2 class="ons-u-fs-r--b ons-header-nav-menu__heading">
                                                 
                                                     People, population and community
                                                 
@@ -318,8 +318,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                             <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Armed forces community
                                                                 
@@ -328,8 +328,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Births, deaths and marriages
                                                                 
@@ -338,8 +338,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Crime and justice
                                                                 
@@ -348,8 +348,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Cultural identity
                                                                 
@@ -358,8 +358,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Education and childcare
                                                                 
@@ -368,8 +368,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Elections
                                                                 
@@ -378,8 +378,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Health and social care
                                                                 
@@ -388,8 +388,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Household characteristics
                                                                 
@@ -398,8 +398,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Housing
                                                                 
@@ -408,8 +408,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Leisure and tourism
                                                                 
@@ -418,8 +418,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Personal and household finances
                                                                 
@@ -428,8 +428,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Population and migration
                                                                 
@@ -438,8 +438,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Well-being
                                                                 
@@ -455,7 +455,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                 <li class="ons-grid__col ons-col-4@m ons-u-mb-no ons-header-nav-menu__col">
                                     
                                         
-                                            <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
+                                            <h2 class="ons-u-fs-r--b ons-header-nav-menu__heading">
                                                 
                                                     Business, industry and trade
                                                 
@@ -465,8 +465,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                             <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Business
                                                                 
@@ -475,8 +475,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Changes to business
                                                                 
@@ -485,8 +485,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Construction industry
                                                                 
@@ -495,8 +495,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     International trade
                                                                 
@@ -505,8 +505,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     IT and internet industry
                                                                 
@@ -515,8 +515,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Manufacturing and production industry
                                                                 
@@ -525,8 +525,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     <a href="#0" class="ons-header-nav-menu__link">
                                                                         Retail industry
@@ -537,8 +537,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Tourism industry
                                                                 
@@ -550,7 +550,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                         
                                     
                                         
-                                            <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
+                                            <h2 class="ons-u-fs-r--b ons-header-nav-menu__heading">
                                                 
                                                     <a href="#0" class="ons-header-nav-menu__link">Employment and labour market</a>
                                                 
@@ -560,8 +560,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                             <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     People in work
                                                                 
@@ -570,8 +570,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     People not in work
                                                                 
@@ -587,7 +587,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                 <li class="ons-grid__col ons-col-4@m ons-u-mb-no ons-header-nav-menu__col">
                                     
                                         
-                                            <h2 class="ons-u-fs-s--b ons-header-nav-menu__heading">
+                                            <h2 class="ons-u-fs-r--b ons-header-nav-menu__heading">
                                                 
                                                     Economy
                                                 
@@ -597,8 +597,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                             <ul class="ons-list ons-list--bare ons-header-nav-menu__groupItem-list">
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Economic output and productivity
                                                                 
@@ -607,8 +607,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Government, public sector and taxes
                                                                 
@@ -617,8 +617,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Gross Value Added (GVA)
                                                                 
@@ -627,8 +627,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Investments, pensions and trusts
                                                                 
@@ -637,8 +637,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Regional accounts
                                                                 
@@ -647,8 +647,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Environmental accounts
                                                                 
@@ -657,8 +657,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Gross Domestic Product (GDP)
                                                                 
@@ -667,8 +667,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     Inflation and price indices
                                                                 
@@ -677,8 +677,8 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                                     
                                                 
                                                     
-                                                        <li class="ons-u-mb-no">
-                                                            <p class="ons-u-fs-s ons-header-nav-menu_text">
+                                                        <li class="ons-u-mb-no ons-header-nav-menu__item">
+                                                            <p class="ons-u-fs-r ons-u-mb-2xs ons-header-nav-menu__text">
                                                                 
                                                                     National accounts
                                                                 
