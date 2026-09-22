@@ -651,7 +651,7 @@ describe('base page template', () => {
             expect(ogImage.height).toBe('630');
         });
 
-        it('uses custom url with default type, width and height when only url is provided', () => {
+        it('emits custom url without dimension or type tags when only url is provided', () => {
             const urlOnlyOgImageExample = `
 {% set pageConfig = {
     "title": "Open Graph image url only",
@@ -665,9 +665,9 @@ describe('base page template', () => {
             const ogImage = getOgImageMeta($);
 
             expect(ogImage.urls).toEqual(['https://cdn.example.com/social/custom-card.png']);
-            expect(ogImage.type).toBe('image/png');
-            expect(ogImage.width).toBe('1200');
-            expect(ogImage.height).toBe('630');
+            expect(ogImage.type).toBeUndefined();
+            expect(ogImage.width).toBeUndefined();
+            expect(ogImage.height).toBeUndefined();
         });
 
         it.each([
