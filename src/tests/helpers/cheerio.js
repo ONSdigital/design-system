@@ -1,6 +1,3 @@
-import $ from 'cheerio';
-
 export function mapAll(cheerioNodes, selector) {
-    const $nodes = cheerioNodes.map((_, node) => $(node)).toArray();
-    return $nodes.map(selector);
+    return cheerioNodes.toArray().map((_, index) => selector(cheerioNodes.eq(index)));
 }
