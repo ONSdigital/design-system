@@ -16,7 +16,7 @@ $button-shadow-size: 3px;
     text-decoration: none;
     text-rendering: optimizelegibility;
     vertical-align: top;
-    white-space: nowrap;
+    white-space: normal;
 
     &--search {
         .ons-icon {
@@ -88,6 +88,7 @@ $button-shadow-size: 3px;
             fill: var(--ons-color-text-inverse);
             height: 18px;
             width: 18px;
+            flex: 0 0 auto; // prevent the icon from shrinking when text wraps
         }
     }
 
