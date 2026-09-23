@@ -40,9 +40,9 @@ describe('macro: cookies-banner', () => {
         });
 
         it('sets cookie domain policy data attribute when `cookieDomainPolicy` is provided', () => {
-            const $ = cheerio.load(renderComponent('cookies-banner', { ...EXAMPLE_COOKIES_BANNER_PARAMS, cookieDomainPolicy: 'day1' }));
+            const $ = cheerio.load(renderComponent('cookies-banner', { ...EXAMPLE_COOKIES_BANNER_PARAMS, cookieDomainPolicy: 'domain' }));
 
-            expect($('.ons-cookies-banner').attr('data-ons-cookie-domain-policy')).toBe('day1');
+            expect($('.ons-cookies-banner').attr('data-ons-cookie-domain-policy')).toBe('domain');
         });
 
         describe('initial banner', () => {
