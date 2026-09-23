@@ -39,10 +39,10 @@ describe('macro: cookies-banner', () => {
             expect($('.ons-cookies-banner').attr('aria-label')).toBe('Cookies banner override');
         });
 
-        it('sets cookie domain policy data attribute when `cookieDomainPolicy` is provided', () => {
-            const $ = cheerio.load(renderComponent('cookies-banner', { ...EXAMPLE_COOKIES_BANNER_PARAMS, cookieDomainPolicy: 'domain' }));
+        it('sets cookie domain data attribute when `domain` is provided', () => {
+            const $ = cheerio.load(renderComponent('cookies-banner', { ...EXAMPLE_COOKIES_BANNER_PARAMS, domain: 'census.gov.uk' }));
 
-            expect($('.ons-cookies-banner').attr('data-ons-cookie-domain-policy')).toBe('domain');
+            expect($('.ons-cookies-banner').attr('data-ons-cookie-domain')).toBe('census.gov.uk');
         });
 
         describe('initial banner', () => {

@@ -5,10 +5,10 @@ import { setConsentCookie, setCookie } from './cookies-functions';
 let cookieAssignments = [];
 let mockCookieStore = {};
 
-function setCookieDomainPolicy(policy) {
+function setCookieDomain(domain) {
     const banner = document.createElement('div');
     banner.className = 'ons-cookies-banner';
-    banner.setAttribute('data-ons-cookie-domain-policy', policy);
+    banner.setAttribute('data-ons-cookie-domain', domain);
     document.body.appendChild(banner);
 }
 
@@ -87,41 +87,25 @@ describe('script: cookies-functions', () => {
         expect(getLastCookieAssignment()).not.toMatch(/; domain=/i);
     });
 
-    test('sets host-only cookies when cookieDomainPolicy is `exact-host`', () => {
-        setCookieDomainPolicy('exact-host');
+    test('sets domain cookies when `domain` is provided', () => {
+        setMockDomain('eq.census.gov.uk');
+        setCookieDomain('census.gov.uk');
 
         setCookie('ons_cookie_policy', 'test-value', { days: 365 });
 
-        expect(getLastCookieAssignment()).toContain('ons_cookie_policy=test-value; path=/');
-        expect(getLastCookieAssignment()).not.toMatch(/; domain=/i);
+        expect(getLastCookieAssignment()).toContain('ons_cookie_policy=test-value; domain=census.gov.uk; path=/');
+        expect(getLastCookieAssignment()).not.toContain('domain=eq.census.gov.uk');
     });
 
-    test('sets host-only cookies when cookieDomainPolicy is unknown', () => {
-        setCookieDomainPolicy('legacy');
+    test('expires configured and legacy domain-scoped preference cookies before setting the configured domain cookie', () => {
+        setMockDomain('eq.census.gov.uk');
+        setCookieDomain('census.gov.uk');
 
         setCookie('ons_cookie_policy', 'test-value', { days: 365 });
 
-        expect(getLastCookieAssignment()).toContain('ons_cookie_policy=test-value; path=/');
-        expect(getLastCookieAssignment()).not.toMatch(/; domain=/i);
-    });
-
-    test('sets domain cookies when cookieDomainPolicy is `domain`', () => {
-        setCookieDomainPolicy('domain');
-
-        setCookie('ons_cookie_policy', 'test-value', { days: 365 });
-
-        expect(getLastCookieAssignment()).toContain('ons_cookie_policy=test-value; domain=www.ons.gov.uk; path=/');
-        expect(getLastCookieAssignment()).not.toContain('domain=ons.gov.uk');
-    });
-
-    test('does not set domain cookies on localhost', () => {
-        setMockDomain('localhost');
-        setCookieDomainPolicy('domain');
-
-        setCookie('ons_cookie_policy', 'test-value', { days: 365 });
-
-        expect(getLastCookieAssignment()).toContain('ons_cookie_policy=test-value; path=/');
-        expect(getLastCookieAssignment()).not.toMatch(/; domain=/i);
+        expect(cookieAssignments[0]).toBe('ons_cookie_policy=; domain=census.gov.uk; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT');
+        expect(cookieAssignments[1]).toBe('ons_cookie_policy=; domain=eq.census.gov.uk; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT');
+        expect(cookieAssignments[2]).toContain('ons_cookie_policy=test-value; domain=census.gov.uk; path=/');
     });
 
     test('deletes host-only and previous domain-scoped cookies', () => {
@@ -151,6 +135,19 @@ describe('script: cookies-functions', () => {
         setCookie('_ga', null, { days: -1 });
 
         expect(cookieAssignments).toEqual(['_ga=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT']);
+    });
+
+    test('deletes host-only, configured domain, and previous domain-scoped cookies', () => {
+        setMockDomain('eq.census.gov.uk');
+        setCookieDomain('census.gov.uk');
+
+        setCookie('_ga', null, { days: -1 });
+
+        expect(cookieAssignments).toEqual([
+            '_ga=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT',
+            '_ga=; domain=census.gov.uk; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT',
+            '_ga=; domain=eq.census.gov.uk; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT',
+        ]);
     });
 
     test('deletes category cookies when consent is rejected', () => {

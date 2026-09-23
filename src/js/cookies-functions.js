@@ -166,23 +166,15 @@ export function getCookie(name) {
     return null;
 }
 
-function getCookieDomainPolicy() {
+function getCookieDomain() {
     const banner = document.querySelector('.ons-cookies-banner');
-    const policy = banner ? banner.getAttribute('data-ons-cookie-domain-policy') : null;
-
-    switch (policy) {
-        case 'domain':
-        case 'exact-host':
-            return policy;
-        default:
-            return 'exact-host';
-    }
+    return banner ? banner.getAttribute('data-ons-cookie-domain') : null;
 }
 
 function getCookieDomainAttribute() {
-    const domain = getCurrentDomain();
+    const domain = getCookieDomain();
 
-    if (getCookieDomainPolicy() !== 'domain' || !canSetCookieDomain(domain)) {
+    if (!domain) {
         return '';
     }
 
@@ -199,7 +191,7 @@ function deleteCookie(name) {
 }
 
 function expireLegacyCookieDomains(name, secure, expires = new Date(0).toGMTString()) {
-    getLegacyCookieDomainsToExpire().forEach((domain) => {
+    getCookieDomainsToExpire().forEach((domain) => {
         document.cookie = name + '=; domain=' + domain + '; path=/; expires=' + expires + secure;
     });
 }
@@ -208,9 +200,9 @@ function getSecureAttribute() {
     return document.location.protocol === 'https:' ? '; Secure' : '';
 }
 
-function getLegacyCookieDomainsToExpire() {
+function getCookieDomainsToExpire() {
     const domain = getCurrentDomain();
-    const domains = [];
+    const domains = [getCookieDomain()];
 
     if (canSetCookieDomain(domain)) {
         domains.push(domain);
@@ -220,7 +212,7 @@ function getLegacyCookieDomainsToExpire() {
         domains.push(domain.substring(4));
     }
 
-    return [...new Set(domains)];
+    return [...new Set(domains.filter(Boolean))];
 }
 
 function getCurrentDomain() {
