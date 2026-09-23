@@ -1,0 +1,17 @@
+---
+layout: layouts/example
+---
+
+{% from "foundations/grid/grid.njk" import dsExampleGrid %}
+
+{{
+    dsExampleGrid({
+        "container": true,
+        "itemsList": [
+            {
+                'repeat': 12,
+                'col': 1
+            }
+        ]
+    })
+}}
