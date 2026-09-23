@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 .ons-message {
-    border-radius: math.div($grid-gutters, 2);
+    border-radius: math.div($grid-gutter-standard, 2);
     margin-bottom: 2rem;
     outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
 
@@ -23,7 +23,7 @@
 
     &__head {
         border-bottom: 1px solid var(--ons-color-borders);
-        padding: $grid-gutters;
+        padding: $grid-gutter-standard;
         position: relative;
     }
 
@@ -50,6 +50,6 @@
     }
 
     &__body {
-        padding: $grid-gutters;
+        padding: $grid-gutter-standard;
     }
 }
