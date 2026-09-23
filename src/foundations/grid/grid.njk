@@ -13,7 +13,7 @@
     {% endset %}
 
     {%- if params.container -%}
-        <div class="ons-container">{{ grid | safe }}</div>
+        <div class="ons-container {% if params.wide %}ons-container--wide{% endif %}">{{ grid | safe }}</div>
     {% else %}
         {{ grid | safe }}
     {%- endif -%}
