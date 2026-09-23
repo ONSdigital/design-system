@@ -1,17 +1,29 @@
 .ons-container {
+    --ons-grid-gutter: #{$grid-gutter-mobile};
+    --ons-grid-container-padding: #{$grid-container-padding-mobile};
+
     box-sizing: border-box;
     margin: 0 auto;
     max-width: $grid-max-width;
-    padding: 0 $grid-gutters;
+    padding: 0 var(--ons-grid-container-padding);
     position: relative;
     width: 100%;
 
     @include mq(s) {
-        padding: 0 $grid-gutters;
+        --ons-grid-gutter: #{$grid-gutter-standard};
+        --ons-grid-container-padding: #{$grid-container-padding-standard};
+    }
+
+    &--wide,
+    &--full-width {
+        @include mq(s) {
+            --ons-grid-gutter: #{$grid-gutter-wide};
+            --ons-grid-container-padding: #{$grid-container-padding-wide};
+        }
     }
 
     &--wide {
-        max-width: $grid-max-1280;
+        max-width: $grid-max-1304;
     }
 
     &--full-width {
