@@ -26,6 +26,8 @@ export const COOKIE_CATEGORIES = {
     csfcfc: 'essential',
 };
 
+const COOKIE_SCOPE_MIGRATION_NAMES = ['ons_cookie_policy', 'ons_cookie_message_displayed'];
+
 export function cookie(name, value, options) {
     if (typeof value !== 'undefined') {
         if (value === false || value === null) {
@@ -132,15 +134,19 @@ export function setCookie(name, value, options) {
     }
 
     if (checkConsentCookie(name, value)) {
+        const secure = getSecureAttribute();
+
+        if (COOKIE_SCOPE_MIGRATION_NAMES.includes(name)) {
+            expireLegacyCookieDomains(name, secure);
+        }
+
         let cookieString = name + '=' + value + getCookieDomainAttribute() + '; path=/';
         if (options.days) {
             const date = new Date();
             date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
             cookieString = cookieString + '; expires=' + date.toGMTString();
         }
-        if (document.location.protocol === 'https:') {
-            cookieString = cookieString + '; Secure';
-        }
+        cookieString = cookieString + secure;
         document.cookie = cookieString;
     }
 }
@@ -185,13 +191,21 @@ function getCookieDomainAttribute() {
 
 function deleteCookie(name) {
     const expires = new Date(0).toGMTString();
-    const secure = document.location.protocol === 'https:' ? '; Secure' : '';
+    const secure = getSecureAttribute();
 
     document.cookie = name + '=; path=/; expires=' + expires + secure;
 
+    expireLegacyCookieDomains(name, secure, expires);
+}
+
+function expireLegacyCookieDomains(name, secure, expires = new Date(0).toGMTString()) {
     getLegacyCookieDomainsToExpire().forEach((domain) => {
         document.cookie = name + '=; domain=' + domain + '; path=/; expires=' + expires + secure;
     });
+}
+
+function getSecureAttribute() {
+    return document.location.protocol === 'https:' ? '; Secure' : '';
 }
 
 function getLegacyCookieDomainsToExpire() {
