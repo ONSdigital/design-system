@@ -11,7 +11,7 @@ $grid-bp: (
 ) !default;
 
 $grid-max-width: 69rem !default; // 1104px = 1024 content frame + 2×40 padding
-$grid-max-1304: 87.5rem !default; // 1400px = 1304 content frame + 2×48 padding
+$grid-max-width-wide: 87.5rem !default; // 1400px = 1304 content frame + 2×48 padding
 $grid-cols: 12 !default;
 $grid-cols-mobile: 4 !default;
 
@@ -24,9 +24,6 @@ $grid-gutter-wide: 2.5rem !default; // 40px
 $grid-container-padding-mobile: 1rem !default; // 16px
 $grid-container-padding-standard: 2.5rem !default; // 40px
 $grid-container-padding-wide: 3rem !default; // 48px
-
-// Legacy alias
-$grid-gutters: $grid-gutter-standard !default;
 
 $grid-bp-fixed: map.get($grid-bp, m) !default;
 $grid-baseline: 16px;
