@@ -885,6 +885,55 @@ describe('Macro: Chart', () => {
             });
         });
 
+        describe('GIVEN: Params: dataLabelDecimalPoints', () => {
+            describe('WHEN: dataLabelDecimalPoints is provided', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BAR_CHART_PARAMS,
+                        dataLabelDecimalPoints: 2,
+                    }),
+                );
+
+                test('THEN: it includes the data label decimal points data attribute', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-data-label-decimal-points')).toBe('2');
+                });
+            });
+
+            describe('WHEN: dataLabelDecimalPoints is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_BAR_CHART_PARAMS));
+
+                test('THEN: it does not include the data label decimal points data attribute', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-data-label-decimal-points')).toBe(undefined);
+                });
+            });
+
+            describe('WHEN: dataLabelDecimalPoints is greater than 2', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BAR_CHART_PARAMS,
+                        dataLabelDecimalPoints: 3,
+                    }),
+                );
+
+                test('THEN: it does not include the data label decimal points data attribute', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-data-label-decimal-points')).toBe(undefined);
+                });
+            });
+
+            describe('WHEN: dataLabelDecimalPoints is less than 1', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_BAR_CHART_PARAMS,
+                        dataLabelDecimalPoints: 0,
+                    }),
+                );
+
+                test('THEN: it does not include the data label decimal points data attribute', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-data-label-decimal-points')).toBe(undefined);
+                });
+            });
+        });
+
         describe('GIVEN: Params: caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(

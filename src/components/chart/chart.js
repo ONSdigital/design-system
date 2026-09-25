@@ -73,6 +73,9 @@ class HighchartsBaseChart {
         this.customReferenceLineValue = this.node.dataset.highchartsCustomReferenceLineValue
             ? parseFloat(this.node.dataset.highchartsCustomReferenceLineValue)
             : undefined;
+        this.dataLabelDecimalPoints = this.node.dataset.highchartsDataLabelDecimalPoints
+            ? parseInt(this.node.dataset.highchartsDataLabelDecimalPoints, 10)
+            : undefined;
         this.specificChartOptions = new SpecificChartOptions(
             this.theme,
             this.chartType,
@@ -153,7 +156,7 @@ class HighchartsBaseChart {
     setSpecificChartOptions = () => {
         const specificChartOptions = this.specificChartOptions.getOptions();
         const lineChartOptions = this.lineChart.getLineChartOptions();
-        const barChartOptions = this.barChart.getBarChartOptions(this.useStackedLayout);
+        const barChartOptions = this.barChart.getBarChartOptions(this.useStackedLayout, this.dataLabelDecimalPoints);
         const columnRangeChartOptions = this.columnRangeChart.getColumnRangeChartOptions();
         const columnChartOptions = this.columnChart.getColumnChartOptions(this.config, this.useStackedLayout, this.extraLines);
         const areaChartOptions = this.areaChart.getAreaChartOptions();

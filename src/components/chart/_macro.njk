@@ -42,6 +42,9 @@
             {% if params.yAxis.customReferenceLineValue %}
                 data-highcharts-custom-reference-line-value="{{ params.yAxis.customReferenceLineValue }}"
             {% endif %}
+            {% if params.dataLabelDecimalPoints >= 1 and params.dataLabelDecimalPoints <= 2 %}
+                data-highcharts-data-label-decimal-points="{{ params.dataLabelDecimalPoints }}"
+            {% endif %}
         {% endif %}
     >
         {%
