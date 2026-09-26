@@ -603,4 +603,87 @@ describe('base page template', () => {
         expect($.html()).toContain('Popular searches');
         expect($.html()).toContain('Cost of living');
     });
+
+    describe('open graph image', () => {
+        const getOgImageMeta = ($) => ({
+            urls: $('meta[property="og:image"]')
+                .map((_, el) => $(el).attr('content'))
+                .get(),
+            type: $('meta[property="og:image:type"]').attr('content'),
+            width: $('meta[property="og:image:width"]').attr('content'),
+            height: $('meta[property="og:image:height"]').attr('content'),
+        });
+
+        it('uses pageConfig.ogImg values and emits a single og:image tag', () => {
+            const customisedOgImageExample = `
+{% set pageConfig = {
+    "title": "Open Graph image customised",
+    "ogImg": {
+        "url": "https://cdn.example.com/social/custom-card.png",
+        "width": "1400",
+        "height": "900",
+        "type": "image/jpeg"
+    }
+} %}
+`;
+            const $ = cheerio.load(renderBaseTemplate(customisedOgImageExample));
+            const ogImage = getOgImageMeta($);
+
+            expect(ogImage.urls).toEqual(['https://cdn.example.com/social/custom-card.png']);
+            expect(ogImage.type).toBe('image/jpeg');
+            expect(ogImage.width).toBe('1400');
+            expect(ogImage.height).toBe('900');
+        });
+
+        it('defaults to default image when pageConfig.ogImg is not provided', () => {
+            const defaultOgImageExample = `
+{% set pageConfig = {
+    "title": "Open Graph image default",
+    "assetsUrl": "/some-path"
+} %}
+`;
+            const $ = cheerio.load(renderBaseTemplate(defaultOgImageExample));
+            const ogImage = getOgImageMeta($);
+
+            expect(ogImage.urls).toEqual(['/some-path/social/opengraph.png']);
+            expect(ogImage.type).toBe('image/png');
+            expect(ogImage.width).toBe('1200');
+            expect(ogImage.height).toBe('630');
+        });
+
+        it('emits custom url without dimension or type tags when only url is provided', () => {
+            const urlOnlyOgImageExample = `
+{% set pageConfig = {
+    "title": "Open Graph image url only",
+    "assetsUrl": "/some-path",
+    "ogImg": {
+        "url": "https://cdn.example.com/social/custom-card.png"
+    }
+} %}
+`;
+            const $ = cheerio.load(renderBaseTemplate(urlOnlyOgImageExample));
+            const ogImage = getOgImageMeta($);
+
+            expect(ogImage.urls).toEqual(['https://cdn.example.com/social/custom-card.png']);
+            expect(ogImage.type).toBeUndefined();
+            expect(ogImage.width).toBeUndefined();
+            expect(ogImage.height).toBeUndefined();
+        });
+
+        it.each([
+            ['omitted', `{ "title": "Open Graph image without url", "assetsUrl": "/some-path", "ogImg": {} }`],
+            ['empty', `{ "title": "Open Graph image empty url", "assetsUrl": "/some-path", "ogImg": { "url": "" } }`],
+        ])('falls back to defaults when ogImg url is %s', (_, pageConfig) => {
+            const example = `
+{% set pageConfig = ${pageConfig} %}
+`;
+            const $ = cheerio.load(renderBaseTemplate(example));
+            const ogImage = getOgImageMeta($);
+
+            expect(ogImage.urls).toEqual(['/some-path/social/opengraph.png']);
+            expect(ogImage.type).toBe('image/png');
+            expect(ogImage.width).toBe('1200');
+            expect(ogImage.height).toBe('630');
+        });
+    });
 });
