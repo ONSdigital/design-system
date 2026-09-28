@@ -1,6 +1,7 @@
 | Name                 | Type                           | Required | Description                                                                                                                                          |
 | -------------------- | ------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | classes              | string                         | false    | Classes to add to the footer                                                                                                                         |
+| signoutButton        | object`<SignOutButton>`        | false    | Settings for the [sign out button](#signoutbutton) shown on small viewports to exit a transactional service. The legacy `button` alias is still supported. |
 | footerWarning        | string                         | false    | The HTML content for the footer warning panel                                                                                                        |
 | cols                 | array`<FooterCol>`             | false    | An array of objects for each of the 3 allowed [footer columns](#footercol)                                                                           |
 | rows                 | array`<FooterRow>`             | false    | An array for the first [footer row](#footerrow)                                                                                                      |
@@ -14,6 +15,17 @@
 | wide                 | boolean                        | false    | Set to “true” to increase the maximum width of the layout container to 1280px                                                                        |
 | fullWidth            | boolean                        | false    | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                                |
 | attributes           | object                         | false    | HTML attributes (for example, data attributes) to add to the footer                                                                                  |
+
+## SignOutButton
+
+| Name       | Type   | Required | Description                                                                      |
+| ---------- | ------ | -------- | -------------------------------------------------------------------------------- |
+| text       | string | true     | Text for the button                                                              |
+| id         | string | false    | The HTML `id` attribute for the button                                           |
+| classes    | string | false    | Classes to add to the button                                                     |
+| name       | string | false    | Sets the HTML `name` attribute for the `<button>`. Not valid if `url` is set.    |
+| url        | string | false    | If set, will create an HTML anchor link with the required classes and attributes |
+| attributes | object | false    | HTML attributes (for example, data attributes) to add to the button              |
 
 ## oglLink
 

@@ -7,6 +7,7 @@
     {% else %}
         {% set lang = 'en' %}
     {% endif %}
+    {% set signoutButton = params.signoutButton if params.signoutButton else params.button %}
     {% set extraLogo = params.footerLogo.logos.logo2 %}
     {% set onsLogo %}
         <div class="ons-footer__logo-large">
@@ -66,18 +67,18 @@
             </div>
         {% endif %}
 
-        {% if params.button %}
+        {% if signoutButton %}
             {% from "components/button/_macro.njk" import onsButton %}
             <div class="ons-footer__button-container ons-u-d-no@m">
                 {{
                     onsButton({
-                        "id": params.button.id,
-                        "classes": params.button.classes if params.button.classes,
+                        "id": signoutButton.id,
+                        "classes": signoutButton.classes if signoutButton.classes,
                         "variants": "ghost",
-                        "text": params.button.text,
-                        "name": params.button.name,
-                        "attributes": params.button.attributes,
-                        "url": params.button.url,
+                        "text": signoutButton.text,
+                        "name": signoutButton.name,
+                        "attributes": signoutButton.attributes,
+                        "url": signoutButton.url,
                         "iconType": "exit",
                         "iconPosition": "after"
                     })
