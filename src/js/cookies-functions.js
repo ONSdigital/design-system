@@ -26,6 +26,8 @@ export const COOKIE_CATEGORIES = {
     csfcfc: 'essential',
 };
 
+const COOKIE_SCOPE_MIGRATION_NAMES = ['ons_cookie_policy', 'ons_cookie_message_displayed'];
+
 export function cookie(name, value, options) {
     if (typeof value !== 'undefined') {
         if (value === false || value === null) {
@@ -74,7 +76,6 @@ export function getConsentCookie() {
 }
 
 export function setConsentCookie(options) {
-    const domain = getDomain(document.domain);
     let cookieConsent = getConsentCookie();
     if (!cookieConsent) {
         cookieConsent = JSON.parse(JSON.stringify(DEFAULT_COOKIE_CONSENT).replace(/'/g, '"'));
@@ -85,10 +86,6 @@ export function setConsentCookie(options) {
             for (let cookies in COOKIE_CATEGORIES) {
                 if (COOKIE_CATEGORIES[cookies] === cookieType) {
                     cookie(cookies, null);
-                    if (cookie(cookies)) {
-                        const cookieString = cookies + '=; expires=' + new Date() + '; domain=' + domain + '; path=/';
-                        document.cookie = cookieString;
-                    }
                 }
             }
         }
@@ -127,27 +124,29 @@ export function checkConsentCookie(cookieName, cookieValue) {
 }
 
 export function setCookie(name, value, options) {
-    const domain = getDomain(document.domain);
-    let setDomain = '';
+    if (typeof options === 'undefined') {
+        options = {};
+    }
 
-    if (domain.indexOf('localhost') === -1) {
-        setDomain = '; domain=' + domain;
+    if (options.days && options.days < 0) {
+        deleteCookie(name);
+        return;
     }
 
     if (checkConsentCookie(name, value)) {
-        if (typeof options === 'undefined') {
-            options = {};
+        const secure = getSecureAttribute();
+
+        if (COOKIE_SCOPE_MIGRATION_NAMES.includes(name)) {
+            expireLegacyCookieDomains(name, secure);
         }
 
-        let cookieString = name + '=' + value + setDomain + '; path=/';
+        let cookieString = name + '=' + value + getCookieDomainAttribute() + '; path=/';
         if (options.days) {
             const date = new Date();
             date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
             cookieString = cookieString + '; expires=' + date.toGMTString();
         }
-        if (document.location.protocol === 'https:') {
-            cookieString = cookieString + '; Secure';
-        }
+        cookieString = cookieString + secure;
         document.cookie = cookieString;
     }
 }
@@ -167,38 +166,59 @@ export function getCookie(name) {
     return null;
 }
 
-function getCookieDomainPolicy() {
+function getCookieDomain() {
     const banner = document.querySelector('.ons-cookies-banner');
-    const policy = banner ? banner.getAttribute('data-ons-cookie-domain-policy') : null;
-
-    // plan: add 'exact-host' policy in future and retire 'legacy' and 'day1'
-    switch (policy) {
-        case 'legacy':
-        case 'day1':
-            return policy;
-        default:
-            return 'legacy';
-    }
+    return banner ? banner.getAttribute('data-ons-cookie-domain') : null;
 }
 
-export function getDomain(domain, cookieHandler = document) {
-    const cookieDomainPolicy = getCookieDomainPolicy();
+function getCookieDomainAttribute() {
+    const domain = getCookieDomain();
 
-    if (cookieDomainPolicy === 'legacy' && domain.startsWith('www.')) {
-        domain = domain.substring(4);
+    if (!domain) {
+        return '';
     }
 
-    let i = 0,
-        domainName = domain,
-        p = domainName.split('.'),
-        s = '_gd' + new Date().getTime();
-    while (i < p.length - 1 && cookieHandler.cookie.indexOf(s + '=' + s) == -1) {
-        // Loop until we find a valid cookie set at the domain or until we've checked all possible domains
-        domainName = p.slice(i, p.length).join('.');
-        cookieHandler.cookie = s + '=' + s + ';domain=' + domainName + ';';
+    return '; domain=' + domain;
+}
 
-        i++;
+function deleteCookie(name) {
+    const expires = new Date(0).toGMTString();
+    const secure = getSecureAttribute();
+
+    document.cookie = name + '=; path=/; expires=' + expires + secure;
+
+    expireLegacyCookieDomains(name, secure, expires);
+}
+
+function expireLegacyCookieDomains(name, secure, expires = new Date(0).toGMTString()) {
+    getCookieDomainsToExpire().forEach((domain) => {
+        document.cookie = name + '=; domain=' + domain + '; path=/; expires=' + expires + secure;
+    });
+}
+
+function getSecureAttribute() {
+    return document.location.protocol === 'https:' ? '; Secure' : '';
+}
+
+function getCookieDomainsToExpire() {
+    const domain = getCurrentDomain();
+    const domains = [getCookieDomain()];
+
+    if (canSetCookieDomain(domain)) {
+        domains.push(domain);
     }
-    cookieHandler.cookie = s + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + domainName + ';';
-    return domainName;
+
+    if (domain && domain.startsWith('www.')) {
+        domains.push(domain.substring(4));
+    }
+
+    return [...new Set(domains.filter(Boolean))];
+}
+
+function getCurrentDomain() {
+    return document.domain || document.location.hostname;
+}
+
+function canSetCookieDomain(domain) {
+    return domain && domain.indexOf('localhost') === -1;
 }
