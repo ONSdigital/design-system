@@ -10,10 +10,27 @@ $grid-bp: (
     '2xl': 1600px,
 ) !default;
 
-$grid-max-width: 64.6256rem !default;
-$grid-max-1280: 79.9999rem !default;
+$grid-max-width: 69rem !default; // 1104px = 1024 content frame + 2×40 padding
+$grid-max-width-wide: 87.5rem !default; // 1400px = 1304 content frame + 2×48 padding
 $grid-cols: 12 !default;
 $grid-cols-mobile: 4 !default;
-$grid-gutters: 1rem !default;
+
+// Inter-column gutter, per container mode
+$grid-gutter-mobile: 0 !default;
+$grid-gutter-standard: 2rem !default; // 32px
+$grid-gutter-wide: 2.5rem !default; // 40px
+
+// Container horizontal padding (space between container edge and its content)
+$grid-container-padding-mobile: 1rem !default; // 16px
+$grid-container-padding-standard: 2.5rem !default; // 40px
+$grid-container-padding-wide: 3rem !default; // 48px
+
 $grid-bp-fixed: map.get($grid-bp, m) !default;
 $grid-baseline: 16px;
+
+// Default custom properties for standalone .ons-grid usage (outside any .ons-container).
+// .ons-container overrides these via inheritance.
+:root {
+    --ons-grid-gutter: #{$grid-gutter-standard};
+    --ons-grid-container-padding: #{$grid-container-padding-standard};
+}
