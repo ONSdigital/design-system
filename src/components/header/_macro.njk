@@ -175,6 +175,10 @@
                                 {% elif params.serviceLinks.itemsList | length > 1 %}
                                     {% set breakpoint = 'm' %}
                                     {% set controlVisibility = true %}
+                                        {% if params.mastheadLogo.multipleLogos | length > 2 %}
+                                            {# Increase breakpoint if there are 3 logos to avoid stacking#}
+                                            {% set breakpoint = 'l' %}
+                                        {% endif %}
                                 {% else %}
                                     {% set controlVisibility = false %}
                                 {% endif %}
