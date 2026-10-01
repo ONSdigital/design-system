@@ -11,6 +11,10 @@
 
     @include mq(s) {
         --ons-grid-gutter: #{$grid-gutter-standard};
+        --ons-grid-container-padding: #{$grid-container-padding-tablet};
+    }
+
+    @include mq(m) {
         --ons-grid-container-padding: #{$grid-container-padding-standard};
     }
 
@@ -18,6 +22,10 @@
     &--full-width {
         @include mq(s) {
             --ons-grid-gutter: #{$grid-gutter-wide};
+            --ons-grid-container-padding: #{$grid-container-padding-tablet};
+        }
+
+        @include mq(m) {
             --ons-grid-container-padding: #{$grid-container-padding-wide};
         }
     }
