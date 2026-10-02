@@ -149,7 +149,7 @@ Checkout the branch locally and run:
 
 If the VR tests fail locally, you'll see an error starting with `Error: docker run --rm -i --add-host=host.docker.internal:host-gateway...`
 
-`npx http-server backstop_data -p 8008 -o /html_report/` - View the report in your browser.
+`npx http-server backstop_data -p 8008 -c-1 -o /html_report/` - View the report in your browser.
 
 ### Approving VR test reference image changes
 
