@@ -9,24 +9,21 @@
     position: relative;
     width: 100%;
 
-    @include mq(s) {
-        --ons-grid-gutter: #{$grid-gutter-standard};
+    @include mq(m) {
+        --ons-grid-gutter: #{$grid-gutter-tablet};
         --ons-grid-container-padding: #{$grid-container-padding-tablet};
     }
 
-    @include mq(m) {
-        --ons-grid-container-padding: #{$grid-container-padding-standard};
+    @include mq(l) {
+        --ons-grid-gutter: #{$grid-gutter-standard};
+        --ons-grid-container-padding: #{$grid-container-padding-desktop-standard-mode};
     }
 
     &--wide,
     &--full-width {
-        @include mq(s) {
+        @include mq(l) {
             --ons-grid-gutter: #{$grid-gutter-wide};
-            --ons-grid-container-padding: #{$grid-container-padding-tablet};
-        }
-
-        @include mq(m) {
-            --ons-grid-container-padding: #{$grid-container-padding-wide};
+            --ons-grid-container-padding: #{$grid-container-padding-desktop-wide-mode};
         }
     }
 
