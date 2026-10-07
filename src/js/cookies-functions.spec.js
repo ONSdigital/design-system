@@ -52,9 +52,9 @@ describe('script: cookies-functions', () => {
         expect(extractDomainFromUrl('service.co.uk')).toBe('service.co.uk');
     });
 
-    test('does not set a domain for local or unrecognised hosts', () => {
-        expect(extractDomainFromUrl('localhost')).toBe('');
-        expect(extractDomainFromUrl('127.0.0.1')).toBe('');
+    test('uses the Go port domain rule for local and unrecognised hosts', () => {
+        expect(extractDomainFromUrl('localhost')).toBe('localhost');
+        expect(extractDomainFromUrl('127.0.0.1')).toBe('localhost');
         expect(extractDomainFromUrl('service.example.com')).toBe('');
     });
 
