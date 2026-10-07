@@ -598,6 +598,8 @@ describe('script: autosuggest', () => {
                         errorTitle: 'There is a problem with your answer',
                         errorMessage: 'Enter an address ',
                         errorMessageApi: 'Sorry, there is a problem.',
+                        errorMessageApiLinkText: 'Contact us for more help',
+                        errorMessageApiLinkUrl: '/contact-us',
                     }),
                 );
 
@@ -608,9 +610,12 @@ describe('script: autosuggest', () => {
                 const resultsItemCount = await page.$$eval('.ons-js-autosuggest-results > *', (nodes) => nodes.length);
                 expect(resultsItemCount).toBe(1);
                 const warningText = await page.$eval('.ons-autosuggest__warning', (node) => node.textContent);
-                expect(warningText.trim()).toBe('!Sorry, there is a problem.');
+                expect(warningText.trim()).toContain('!Sorry, there is a problem. Contact us for more help.');
                 const warningContainer = await page.$eval('.ons-autosuggest__warning', (node) => node.id);
                 expect(warningContainer).toBe('country-of-birth-listbox');
+
+                const apiErrorLinkHref = await page.$eval('.ons-autosuggest__warning a', (node) => node.getAttribute('href'));
+                expect(apiErrorLinkHref).toBe('/contact-us');
             });
 
             it('the list and results element should be removed from the page', async () => {
@@ -640,7 +645,69 @@ describe('script: autosuggest', () => {
 
             it('the aria status should be set', async () => {
                 const statusMessage = await page.$eval('.ons-js-autosuggest-aria-status', (node) => node.textContent);
-                expect(statusMessage.trim()).toBe('Sorry, there is a problem.');
+                expect(statusMessage.trim()).toBe('Sorry, there is a problem. Contact us for more help');
+            });
+        });
+
+        describe('when errorMessageApiLinkUrl uses an unsafe scheme', () => {
+            beforeEach(async () => {
+                apiFaker.setTemporaryOverride('/countries', {
+                    status: 401,
+                    data: {},
+                });
+
+                await setTestPage(
+                    '/test',
+                    renderComponent('autosuggest', {
+                        ...EXAMPLE_AUTOSUGGEST,
+                        errorMessageApi: 'Sorry, there is a problem.',
+                        errorMessageApiLinkText: 'Contact us for more help',
+                        errorMessageApiLinkUrl: 'javascript:alert(1)',
+                    }),
+                );
+
+                await page.type('.ons-js-autosuggest-input', 'tes', { delay: 20 });
+            });
+
+            it('removes the unsafe URL from the error message link', async () => {
+                const apiErrorLinkHref = await page.$eval('.ons-autosuggest__warning a', (node) => node.getAttribute('href'));
+
+                expect(apiErrorLinkHref).toBeNull();
+            });
+        });
+
+        describe('when errorMessageApiLinkText is set but errorMessageApiLinkUrl is omitted', () => {
+            beforeEach(async () => {
+                apiFaker.setTemporaryOverride('/countries', {
+                    status: 401,
+                    data: {},
+                });
+
+                await setTestPage(
+                    '/test',
+                    renderComponent('autosuggest', {
+                        ...EXAMPLE_AUTOSUGGEST,
+                        errorTitle: 'There is a problem with your answer',
+                        errorMessage: 'Enter an address ',
+                        errorMessageApi: 'Sorry, there is a problem.',
+                        errorMessageApiLinkText: 'Contact us for more help',
+                    }),
+                );
+
+                await page.type('.ons-js-autosuggest-input', 'tes', { delay: 20 });
+            });
+
+            it('shows the API error message with a link to the current page', async () => {
+                const warningText = await page.$eval('.ons-autosuggest__warning', (node) => node.textContent);
+                expect(warningText.trim()).toContain('!Sorry, there is a problem. Contact us for more help.');
+
+                const apiErrorLinkHref = await page.$eval('.ons-autosuggest__warning a', (node) => node.getAttribute('href'));
+                expect(apiErrorLinkHref).toBe(await page.url());
+            });
+
+            it('the aria status should contain the error message with the link text', async () => {
+                const statusMessage = await page.$eval('.ons-js-autosuggest-aria-status', (node) => node.textContent);
+                expect(statusMessage.trim()).toBe('Sorry, there is a problem. Contact us for more help');
             });
         });
     });
