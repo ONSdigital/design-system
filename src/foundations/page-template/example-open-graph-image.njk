@@ -1,0 +1,37 @@
+---
+title: 'Example: Open Graph image'
+layout: ~
+---
+
+{% extends "layout/_template.njk" %}
+{%
+    set pageConfig = {
+        "title": "Example: Open Graph image",
+        "header": {
+            "title": "Service name"
+        },
+        "footer": {
+            "oglLink": {
+                "pre": 'All content is available under the',
+                "link": 'Open Government Licence v3.0',
+                "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+                "post": ', except where otherwise stated'
+            }
+        },
+        "ogImg": {
+            "url": "https://example.com/images/custom-share-image.jpg",
+            "width": "800",
+            "height": "418",
+            "type": "image/jpeg"
+        }
+    }
+%}
+{% block main %}
+    <h1>Open Graph image</h1>
+    <p>
+        This example sets a custom Open Graph image with <code>pageConfig.ogImg</code>, using a non-default absolute URL, dimensions, and
+        MIME type. The image is emitted as <code>og:image</code> meta tags in the document <code>head</code> — it is not shown as on-page
+        UI. To verify, use View Source or DevTools Elements, or paste a public page URL into a platform sharing debugger (for example
+        LinkedIn or Facebook). The <code>example.com</code> URL here is illustrative only; use a real absolute image URL in a live service.
+    </p>
+{% endblock %}

@@ -99,7 +99,7 @@ async function verifyCssAsset(cssFilePath) {
     }
 
     const content = buffer.toString('utf8');
-    
+
     // Verify CSS content is valid (not binary data)
     // Check for common binary file signatures (null bytes)
     if (buffer.includes(0)) {

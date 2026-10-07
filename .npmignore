@@ -8,5 +8,6 @@
 !/scripts/**/*
 !/js/**/*
 !/scss/**/*
+!/social/**/*
 !/LICENSE
 !/package.json
