@@ -8984,11 +8984,6 @@ pure-rand@^7.0.0:
   resolved "https://registry.yarnpkg.com/pure-rand/-/pure-rand-7.0.1.tgz#6f53a5a9e3e4a47445822af96821ca509ed37566"
   integrity sha512-oTUZM/NAZS8p7ANR3SHh30kXB+zK2r2BPcEn/awJIbOvq82WoMN4p62AWWp3Hhw50G0xMsw1mhIBLqHw64EcNQ==
 
-pym.js@1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/pym.js/-/pym.js-1.3.2.tgz#0ebd083c5a7ef7650214db872b4b29a10743305d"
-  integrity sha512-/fFzHFB4BTsJQP5id0wzUdYsDT4VPkfAxk+uENBE9/aP6YbvhAEpcuJHdjxqisqfXOCrcz7duTK1fbtF2rz8RQ==
-
 qified@^0.10.1:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/qified/-/qified-0.10.1.tgz#0640bf21bbe6ca540db290ad8f5fde4d870b8bda"
