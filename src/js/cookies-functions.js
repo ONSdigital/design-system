@@ -74,7 +74,6 @@ export function getConsentCookie() {
 }
 
 export function setConsentCookie(options) {
-    const domain = getDomain(document.domain);
     let cookieConsent = getConsentCookie();
     if (!cookieConsent) {
         cookieConsent = JSON.parse(JSON.stringify(DEFAULT_COOKIE_CONSENT).replace(/'/g, '"'));
@@ -85,10 +84,6 @@ export function setConsentCookie(options) {
             for (let cookies in COOKIE_CATEGORIES) {
                 if (COOKIE_CATEGORIES[cookies] === cookieType) {
                     cookie(cookies, null);
-                    if (cookie(cookies)) {
-                        const cookieString = cookies + '=; expires=' + new Date() + '; domain=' + domain + '; path=/';
-                        document.cookie = cookieString;
-                    }
                 }
             }
         }
@@ -127,27 +122,25 @@ export function checkConsentCookie(cookieName, cookieValue) {
 }
 
 export function setCookie(name, value, options) {
-    const domain = getDomain(document.domain);
-    let setDomain = '';
+    if (typeof options === 'undefined') {
+        options = {};
+    }
 
-    if (domain.indexOf('localhost') === -1) {
-        setDomain = '; domain=' + domain;
+    if (options.days && options.days < 0) {
+        deleteCookie(name);
+        return;
     }
 
     if (checkConsentCookie(name, value)) {
-        if (typeof options === 'undefined') {
-            options = {};
-        }
+        const secure = getSecureAttribute();
 
-        let cookieString = name + '=' + value + setDomain + '; path=/';
+        let cookieString = name + '=' + value + getCookieDomainAttribute() + '; path=/';
         if (options.days) {
             const date = new Date();
             date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
             cookieString = cookieString + '; expires=' + date.toGMTString();
         }
-        if (document.location.protocol === 'https:') {
-            cookieString = cookieString + '; Secure';
-        }
+        cookieString = cookieString + secure;
         document.cookie = cookieString;
     }
 }
@@ -167,38 +160,51 @@ export function getCookie(name) {
     return null;
 }
 
-function getCookieDomainPolicy() {
+function getCookieDomain() {
     const banner = document.querySelector('.ons-cookies-banner');
-    const policy = banner ? banner.getAttribute('data-ons-cookie-domain-policy') : null;
+    const configuredDomain = banner ? banner.getAttribute('data-ons-cookie-domain') : null;
 
-    // plan: add 'exact-host' policy in future and retire 'legacy' and 'day1'
-    switch (policy) {
-        case 'legacy':
-        case 'day1':
-            return policy;
-        default:
-            return 'legacy';
+    if (configuredDomain !== null) {
+        return configuredDomain;
+    } else {
+        return extractDomainFromUrl(document.location.hostname);
     }
 }
 
-export function getDomain(domain, cookieHandler = document) {
-    const cookieDomainPolicy = getCookieDomainPolicy();
-
-    if (cookieDomainPolicy === 'legacy' && domain.startsWith('www.')) {
-        domain = domain.substring(4);
+export function extractDomainFromUrl(url) {
+    if (url.indexOf('localhost') >= 0 || url.indexOf('127.0.0.1') >= 0) {
+        return 'localhost';
     }
 
-    let i = 0,
-        domainName = domain,
-        p = domainName.split('.'),
-        s = '_gd' + new Date().getTime();
-    while (i < p.length - 1 && cookieHandler.cookie.indexOf(s + '=' + s) == -1) {
-        // Loop until we find a valid cookie set at the domain or until we've checked all possible domains
-        domainName = p.slice(i, p.length).join('.');
-        cookieHandler.cookie = s + '=' + s + ';domain=' + domainName + ';';
+    const pattern = '(\\.co\\.uk|\\.onsdigital\\.uk|\\.gov\\.uk)';
+    const tlds = new RegExp(pattern);
 
-        i++;
+    const isKnownDomain = tlds.test(url);
+
+    if (isKnownDomain) {
+        return url;
     }
-    cookieHandler.cookie = s + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + domainName + ';';
-    return domainName;
+
+    return '';
+}
+
+function getCookieDomainAttribute() {
+    const domain = getCookieDomain();
+
+    if (!domain) {
+        return '';
+    }
+
+    return '; domain=' + domain;
+}
+
+function deleteCookie(name) {
+    const expires = new Date(0).toGMTString();
+    const secure = getSecureAttribute();
+
+    document.cookie = name + '=' + getCookieDomainAttribute() + '; path=/; expires=' + expires + secure;
+}
+
+function getSecureAttribute() {
+    return document.location.protocol === 'https:' ? '; Secure' : '';
 }
