@@ -3,7 +3,7 @@
  * @jest-environment-options {"url":"https://www.ons.gov.uk/"}
  */
 
-import { extractDomainFromUrl, setConsentCookie, setCookie } from './cookies-functions';
+import { setConsentCookie, setCookie } from './cookies-functions';
 
 let cookieAssignments = [];
 let mockCookieStore = {};
@@ -45,20 +45,7 @@ describe('script: cookies-functions', () => {
         });
     });
 
-    test('uses the Go port domain rule for known hosts', () => {
-        expect(extractDomainFromUrl('www.ons.gov.uk')).toBe('www.ons.gov.uk');
-        expect(extractDomainFromUrl('eq.census.gov.uk')).toBe('eq.census.gov.uk');
-        expect(extractDomainFromUrl('service.onsdigital.uk')).toBe('service.onsdigital.uk');
-        expect(extractDomainFromUrl('service.co.uk')).toBe('service.co.uk');
-    });
-
-    test('uses the Go port domain rule for local and unrecognised hosts', () => {
-        expect(extractDomainFromUrl('localhost')).toBe('localhost');
-        expect(extractDomainFromUrl('127.0.0.1')).toBe('localhost');
-        expect(extractDomainFromUrl('service.example.com')).toBe('');
-    });
-
-    test('sets a domain cookie by default on a known hostname', () => {
+    test('sets a domain cookie using the current hostname by default', () => {
         setCookie('ons_cookie_policy', 'test-value', { days: 365 });
 
         expect(cookieAssignments).toHaveLength(1);
