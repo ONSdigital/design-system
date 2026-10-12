@@ -167,25 +167,8 @@ function getCookieDomain() {
     if (configuredDomain !== null) {
         return configuredDomain;
     } else {
-        return extractDomainFromUrl(document.location.hostname);
+        return document.location.hostname;
     }
-}
-
-export function extractDomainFromUrl(url) {
-    if (url.indexOf('localhost') >= 0 || url.indexOf('127.0.0.1') >= 0) {
-        return 'localhost';
-    }
-
-    const pattern = '(\\.co\\.uk|\\.onsdigital\\.uk|\\.gov\\.uk)';
-    const tlds = new RegExp(pattern);
-
-    const isKnownDomain = tlds.test(url);
-
-    if (isKnownDomain) {
-        return url;
-    }
-
-    return '';
 }
 
 function getCookieDomainAttribute() {
