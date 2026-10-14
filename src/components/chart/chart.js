@@ -377,8 +377,12 @@ class HighchartsBaseChart {
                 // Get the current rendered chart instance
                 const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
                 // Update the data labels when the window is resized
-                if (this.chartType === 'bar' && !this.hideDataLabels) {
-                    this.barChart.postLoadDataLabels(currentChart);
+                if (this.chartType === 'bar') {
+                    // Recalculate height so wrapped category labels still fit at the new width
+                    this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
+                    if (!this.hideDataLabels) {
+                        this.barChart.postLoadDataLabels(currentChart);
+                    }
                     // Force a single redraw after all updates
                     currentChart.redraw(false);
                 }

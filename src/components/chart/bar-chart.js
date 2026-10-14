@@ -49,7 +49,12 @@ class BarChart {
                 // Update the category label colours for bar charts
                 labels: {
                     style: {
-                        textOverflow: 'ellipsis',
+                        // Allow long category labels to wrap across multiple lines
+                        // rather than being truncated with an ellipsis. The row
+                        // spacing is grown in updateBarChartHeight to accommodate
+                        // the resulting label height.
+                        textOverflow: 'none',
+                        whiteSpace: 'normal',
                         color: this.constants.categoryLabelColor,
                     },
                     useHTML: false,
@@ -171,13 +176,18 @@ class BarChart {
     // This updates the height of the vertical axis and overall chart to fit the number of categories
     // Note that the vertical axis on a bar chart is the x axis
     updateBarChartHeight = (config, currentChart, useStackedLayout) => {
+        // Ensure the chart has resized to its current container before we read
+        // chartWidth or measure label heights, otherwise a resize race can leave
+        // us calculating spacing against a stale width.
+        currentChart.reflow();
         const numberOfCategories = config.xAxis.categories.length;
         const numberOfSeries = currentChart.series.length; // Get number of bar series
         let barHeight = 30; // Height of each individual bar - set in bar-chart-plot-options
         let groupSpacing = 0; // Space we want between category groups, or between series groups for cluster charts
         let categoriesTotalHeight = 0;
         let totalSpaceHeight = 0;
-        if (useStackedLayout == false && numberOfSeries > 1) {
+        const isCluster = useStackedLayout == false && numberOfSeries > 1;
+        if (isCluster) {
             // slightly lower bar height for cluster charts
             barHeight = 28;
             // for cluster charts there is no space between the bars within a series, and 14px between each series
@@ -186,8 +196,61 @@ class BarChart {
             if (numberOfSeries >= 3) {
                 barHeight = 20;
             }
-            categoriesTotalHeight = numberOfCategories * barHeight * numberOfSeries;
+        } else {
+            groupSpacing = 10;
+        }
 
+        // Give category labels an explicit width so Highcharts wraps them onto
+        // multiple lines (whiteSpace: 'normal' only wraps when a width is set)
+        // A ratio is used to calculate the label width but with a minimum of 60px and a maximum of 200px.
+        const chartWidth = currentChart.chartWidth || 0;
+        // Narrower charts give labels a smaller share of the width so the plot
+        // area stays usable; the row spacing growth below absorbs the extra
+        // wrapping that results.
+        const labelRatio = chartWidth < 500 ? 0.22 : 0.32;
+        const labelMaxWidth = Math.max(60, Math.min(200, Math.round(chartWidth * labelRatio)));
+        const xAxis = currentChart.xAxis[0];
+        if (xAxis) {
+            xAxis.update(
+                {
+                    labels: {
+                        style: {
+                            width: labelMaxWidth + 'px',
+                        },
+                    },
+                },
+                false,
+            );
+            // Force a redraw so labels re-render at the new width before we
+            // measure their heights.
+            currentChart.redraw(false);
+        }
+
+        // If any wrapped category label is taller than the row it sits in, the
+        // groupSpacing needs to increase so the tallest label fits.
+        // This preserves the fixed bar height and keeps every gap consistent.
+        const rowBarsHeight = isCluster ? barHeight * numberOfSeries : barHeight;
+        const labelPadding = 8; // small breathing room above and below wrapped text
+        const xAxisTicks = xAxis && xAxis.ticks;
+        let maxLabelHeight = 0;
+        if (xAxisTicks) {
+            Object.values(xAxisTicks).forEach((tick) => {
+                if (tick.label && typeof tick.label.getBBox === 'function') {
+                    const h = tick.label.getBBox().height;
+                    if (h > maxLabelHeight) maxLabelHeight = h;
+                }
+            });
+        }
+        // Calculate the height needed for the bars plus spacing in order
+        // to fit the tallest label, and increase the groupSpacing if necessary.
+        const requiredRowPitch = maxLabelHeight + labelPadding;
+        const currentRowPitch = rowBarsHeight + groupSpacing;
+        if (requiredRowPitch > currentRowPitch) {
+            groupSpacing = requiredRowPitch - rowBarsHeight;
+        }
+
+        if (isCluster) {
+            categoriesTotalHeight = numberOfCategories * barHeight * numberOfSeries;
             totalSpaceHeight = numberOfCategories * groupSpacing;
             // work out the group padding for cluster charts which is measured in xAxis units.
             const plotHeight = categoriesTotalHeight + totalSpaceHeight;
@@ -200,7 +263,6 @@ class BarChart {
                 });
             });
         } else {
-            groupSpacing = 10;
             categoriesTotalHeight = numberOfCategories * barHeight;
             totalSpaceHeight = (numberOfCategories - 1) * groupSpacing;
         }
