@@ -30,7 +30,7 @@ describe('script: table-of-contents', () => {
                 ],
             })}
           </div>
-          <div class="ons-grid__col ons-col-7@m ons-push-1@m">
+          <div class="ons-grid__col ons-col-8@m">
             <section id="section1">
               <h2>First section</h2>
               <p>${'<br/>'.repeat(20)}</p>
@@ -99,7 +99,7 @@ describe('script: table-of-contents-fixed-position', () => {
                   ],
               })}
             </div>
-            <div class="ons-grid__col ons-col-7@m ons-push-1@m">
+            <div class="ons-grid__col ons-col-8@m">
                 <section id="section1">
                     <h2>What is the census?</h2>
                     <p>The census is a survey that happens every 10 years and gives us a picture of all the people and households in England and Wales.</p>
