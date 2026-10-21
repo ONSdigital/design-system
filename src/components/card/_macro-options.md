@@ -5,6 +5,8 @@
 | body    | `Object<Body>`            | true     | An object containing body attributes for [the card’s body](#body).                                                                                    |
 | variant | string                    | false    | A single value to adjust the component using available variants: “feature”                                                                            |
 
+For feature cards with a headline figure, the macro groups the title and subtitle automatically so the example card set can align figures with CSS grid. Content providers do not need to add this wrapper. The sparkline example uses illustrative markup only; it does not add a sparkline macro option.
+
 ## Image
 
 | Name           | Type   | Required | Description                                                                                                          |

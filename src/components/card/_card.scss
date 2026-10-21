@@ -34,7 +34,11 @@
 .ons-grid-flex-gap.ons-card-set--headline-figures {
     display: grid;
     gap: 0 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    grid-template-columns: 1fr;
+
+    @include mq(l) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
     > .ons-grid__col {
         display: contents;
@@ -45,7 +49,11 @@
         grid-row: span 3;
         grid-template-rows: subgrid;
         margin: 0 0 1rem;
-        padding-right: 2rem;
+        padding: 1rem;
+
+        @include mq(l) {
+            padding: 1.5rem;
+        }
     }
 
     .ons-card__title,
@@ -57,5 +65,25 @@
     .ons-card__figure {
         align-self: end;
         margin-top: 2rem;
+
+        @include mq(l, xl, $to-operator: '<') {
+            font-size: 2rem;
+            line-height: 2.75rem;
+        }
+    }
+
+    .ons-card__body {
+        margin-top: 1rem;
+    }
+
+    &.ons-card-set--with-sparkline .ons-card--feature {
+        grid-row: span 4;
+    }
+
+    .ons-card__sparkline {
+        align-self: end;
+        margin-top: 1rem;
+        max-width: 100%;
+        width: 15rem;
     }
 }
