@@ -1,3 +1,5 @@
+import Highcharts from 'highcharts';
+
 import ChartConstants from './chart-constants';
 
 class BarChart {
@@ -19,7 +21,10 @@ class BarChart {
         };
         if (dataLabelDecimalPoints !== undefined) {
             dataLabels.formatter = function () {
-                return Number(this.y).toFixed(dataLabelDecimalPoints);
+                if (this.y === null || this.y === undefined) {
+                    return '';
+                }
+                return Highcharts.numberFormat(this.y, dataLabelDecimalPoints);
             };
         }
         return {
