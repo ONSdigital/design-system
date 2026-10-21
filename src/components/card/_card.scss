@@ -30,3 +30,32 @@
         }
     }
 }
+
+.ons-grid-flex-gap.ons-card-set--headline-figures {
+    display: grid;
+    gap: 0 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+
+    > .ons-grid__col {
+        display: contents;
+    }
+
+    .ons-card--feature {
+        display: grid;
+        grid-row: span 3;
+        grid-template-rows: subgrid;
+        margin: 0 0 1rem;
+        padding-right: 2rem;
+    }
+
+    .ons-card__title,
+    .ons-card__subtitle,
+    .ons-card__link {
+        margin-bottom: 0;
+    }
+
+    .ons-card__figure {
+        align-self: end;
+        margin-top: 2rem;
+    }
+}

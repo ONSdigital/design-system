@@ -31,24 +31,34 @@
             {%- endif -%}
         {% endset %}
 
+
         {% set titleBlock %}
             {{ openingHeadingTag | safe }}
             class="ons-card__title {{ params.title.classes | default('ons-u-fs-m') }}" id="{{ params.title.id }}"> {{ params.title.text }}
             {{ closingHeadingTag | safe }}
         {% endset %}
 
-        {% if params.title.url %}
-            <a href="{{ params.title.url }}" class="ons-card__link{% if params.title.subtitle %}{{ ' ' }}ons-u-mb-xs{% endif %}">
+
+        {% set headingBlock %}
+            {% if params.title.url %}
+                <a href="{{ params.title.url }}" class="ons-card__link{% if params.title.subtitle %}{{ ' ' }}ons-u-mb-xs{% endif %}">
+                    {{ imageBlock | safe }}
+                    {{ titleBlock | safe }}
+                </a>
+            {% else %}
                 {{ imageBlock | safe }}
                 {{ titleBlock | safe }}
-            </a>
-        {% else %}
-            {{ imageBlock | safe }}
-            {{ titleBlock | safe }}
-        {% endif %}
+            {% endif %}
 
-        {% if params.title.subtitle %}
-            <p class="ons-card__subtitle ons-u-fs-s">{{ params.title.subtitle }}</p>
+            {% if params.title.subtitle %}
+                <p class="ons-card__subtitle ons-u-fs-s">{{ params.title.subtitle }}</p>
+            {% endif %}
+        {% endset %}
+
+        {% if params.variant == 'feature' and params.body.figure %}
+            <div class="ons-card__heading">{{ headingBlock | safe }}</div>
+        {% else %}
+            {{ headingBlock | safe }}
         {% endif %}
 
         {% if params.body.figure %}

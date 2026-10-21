@@ -180,6 +180,16 @@ describe('FOR: Macro: Card', () => {
             test('THEN: it renders the card with the feature modifier class', () => {
                 expect($('.ons-card').hasClass('ons-card--feature')).toBe(true);
             });
+
+            test('THEN: it groups the title and subtitle before the headline figure', () => {
+                expect(
+                    $('.ons-card__heading')
+                        .children()
+                        .map((_, element) => element.attribs.class)
+                        .get(),
+                ).toEqual(['ons-card__link ons-u-mb-xs', 'ons-card__subtitle ons-u-fs-s']);
+                expect($('.ons-card__heading').next().hasClass('ons-card__figure')).toBe(true);
+            });
         });
     });
 });
