@@ -190,6 +190,51 @@ describe('FOR: Macro: Card', () => {
                 ).toEqual(['ons-card__link ons-u-mb-xs', 'ons-card__subtitle ons-u-fs-s']);
                 expect($('.ons-card__heading').next().hasClass('ons-card__figure')).toBe(true);
             });
+
+            test('THEN: top alignment groups the figure and its supporting text', () => {
+                const $topAligned = cheerio.load(renderComponent('card', { ...EXAMPLE_CARD_FEATURE_VARIANT, figureAlignment: 'top' }));
+
+                expect($topAligned('.ons-card').hasClass('ons-card--figure-top')).toBe(true);
+                expect(
+                    $topAligned('.ons-card__content')
+                        .children()
+                        .map((_, element) => element.attribs.class)
+                        .get(),
+                ).toEqual(['ons-card__figure ons-u-fs-3xl ons-u-fw-b ons-u-mb-no', 'ons-card__body']);
+                expect($topAligned('.ons-card__heading').next().hasClass('ons-card__content')).toBe(true);
+            });
+
+            test('THEN: the illustrative sparkline is opt-in and appears before the figure', () => {
+                expect($('.ons-card__sparkline').length).toBe(0);
+
+                const $disabled = cheerio.load(
+                    renderComponent('card', { ...EXAMPLE_CARD_FEATURE_VARIANT, figureAlignment: 'top', sparkline: false }),
+                );
+                expect($disabled('.ons-card__sparkline').length).toBe(0);
+
+                const $sparkline = cheerio.load(
+                    renderComponent('card', { ...EXAMPLE_CARD_FEATURE_VARIANT, figureAlignment: 'top', sparkline: true }),
+                );
+
+                expect($sparkline('.ons-card').hasClass('ons-card--with-sparkline')).toBe(true);
+                expect(
+                    $sparkline('.ons-card__content')
+                        .children()
+                        .map((_, element) => element.tagName)
+                        .get(),
+                ).toEqual(['svg', 'p', 'p']);
+                expect($sparkline('.ons-card__sparkline').attr('aria-hidden')).toBe('true');
+                expect($sparkline('.ons-card__sparkline rect').length).toBe(0);
+            });
+
+            test('THEN: cards without a figure keep the original body markup', () => {
+                const $noFigure = cheerio.load(renderComponent('card', { ...EXAMPLE_CARD, variant: 'feature', figureAlignment: 'top' }));
+
+                expect($noFigure('.ons-card').hasClass('ons-card--figure-top')).toBe(false);
+                expect($noFigure('.ons-card__content').length).toBe(0);
+                const $noFigureSparkline = cheerio.load(renderComponent('card', { ...EXAMPLE_CARD, variant: 'feature', sparkline: true }));
+                expect($noFigureSparkline('.ons-card__sparkline').length).toBe(0);
+            });
         });
     });
 });

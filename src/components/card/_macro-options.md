@@ -1,11 +1,17 @@
-| Name    | Type                      | Required | Description                                                                                                                                           |
-| ------- | ------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title   | `Object<Title>`           | true     | An object containing title attributes for [the card’s title](#title).                                                                                 |
-| image   | `Object<Image>` or `true` | false    | An object containing path attributes for [the card’s image](#image). If value is `true` will show placeholder with root as `placeholderURL` base path |
-| body    | `Object<Body>`            | true     | An object containing body attributes for [the card’s body](#body).                                                                                    |
-| variant | string                    | false    | A single value to adjust the component using available variants: “feature”                                                                            |
+| Name            | Type                      | Required | Description                                                                                                                                                             |
+| --------------- | ------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title           | `Object<Title>`           | true     | An object containing title attributes for [the card’s title](#title).                                                                                                   |
+| image           | `Object<Image>` or `true` | false    | An object containing path attributes for [the card’s image](#image). If value is `true` will show placeholder with root as `placeholderURL` base path                   |
+| body            | `Object<Body>`            | true     | An object containing body attributes for [the card’s body](#body).                                                                                                      |
+| variant         | string                    | false    | A single value to adjust the component using available variants: “feature”                                                                                              |
+| figureAlignment | string                    | false    | Set to `"top"` on feature cards with a headline figure to align the tops of the figures and keep body text immediately below each figure. Defaults to bottom alignment. |
+| sparkline       | boolean                   | false    | Set to `true` to show an illustrative sparkline above a feature card’s headline figure. Defaults to `false`. Not a data visualisation API.                              |
 
-For feature cards with a headline figure, the macro groups the title and subtitle automatically so the example card set can align figures with CSS grid. Content providers do not need to add this wrapper. The sparkline example uses illustrative markup only; it does not add a sparkline macro option.
+For feature cards with a headline figure, the macro groups the title and subtitle automatically so the example card set can align figures with CSS grid. Content providers do not need to add this wrapper. The sparkline option is an illustrative preview of a future feature, not a data-driven chart; it is off by default.
+
+The headline figure card set fills the available row with one, two or three cards. Set `figureAlignment` to `"top"` on every card in a set to align the tops of figures instead of their bottoms; see the top-aligned figures example for a wrapping figure.
+
+The sparkline example sets both `sparkline: true` and `figureAlignment: "top"` on every card, so the sparklines and figures share the same rows. Leave `sparkline` unset or set it to `false` to hide the illustration.
 
 ## Image
 

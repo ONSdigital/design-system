@@ -37,7 +37,7 @@
     grid-template-columns: 1fr;
 
     @include mq(l) {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     }
 
     > .ons-grid__col {
@@ -72,18 +72,35 @@
         }
     }
 
+    .ons-card--figure-top {
+        grid-row: span 2;
+
+        .ons-card__figure {
+            align-self: start;
+        }
+    }
+
     .ons-card__body {
         margin-top: 1rem;
     }
 
-    &.ons-card-set--with-sparkline .ons-card--feature {
-        grid-row: span 4;
+    .ons-card--with-sparkline {
+        grid-row: span 2;
+
+        .ons-card__figure {
+            margin-top: 1rem;
+        }
     }
 
     .ons-card__sparkline {
-        align-self: end;
-        margin-top: 1rem;
-        max-width: 100%;
-        width: 15rem;
+        display: block;
+        height: auto;
+        margin-top: 0.75rem;
+        max-width: 20rem;
+        width: 100%;
+
+        @include mq(l) {
+            max-width: none;
+        }
     }
 }
