@@ -61,12 +61,13 @@ $breadcrumb-chevron-height: 0.65rem;
     &__items {
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     &__item {
         display: inline-block;
         margin: 0;
-        white-space: nowrap; // Stop items from wrapping, break on chevron only
 
         &:not(:nth-last-child(1)) {
             // Small screen not last child
@@ -82,10 +83,17 @@ $breadcrumb-chevron-height: 0.65rem;
 
         &:nth-last-child(1) {
             // Small screen last child
-            direction: rtl;
+            display: inline-flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            position: relative;
+
             .ons-icon {
                 margin-left: -0.13rem;
                 transform: rotate(180deg);
+                align-self: start;
+                position: relative;
+                top: 7px;
             }
         }
 
@@ -104,9 +112,7 @@ $breadcrumb-chevron-height: 0.65rem;
                 }
             }
 
-            &:first-child:nth-last-child(1) {
-                // First and last child
-                direction: rtl;
+            &:first-child {
                 .ons-icon {
                     display: inline-block;
                     vertical-align: middle;
