@@ -61,6 +61,8 @@ $breadcrumb-chevron-height: 0.65rem;
     &__items {
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     &__item {
