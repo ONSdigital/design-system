@@ -39,6 +39,7 @@ class RangeAnnotationsOptions {
                     style: {
                         color: this.constants.labelColor,
                         fontSize: this.constants.defaultFontSize,
+                        textOverflow: 'clip',
                         // This property is not set as an inline style if rangeAnnotation.labelInside is undefined
                         width: rangeAnnotationLabelWidth,
                     },

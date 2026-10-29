@@ -27,9 +27,11 @@ class ReferenceLineAnnotationsOptions {
                 label: {
                     text: referenceLineAnnotation.text,
                     useHTML: true,
+                    allowOverlap: true,
                     style: {
                         color: this.constants.labelColor,
                         fontSize: this.constants.defaultFontSize,
+                        textOverflow: 'clip',
                         width: referenceLineAnnotation.labelWidth ? referenceLineAnnotation.labelWidth : 150,
                     },
                     x: referenceLineAnnotation.labelOffsetX ? referenceLineAnnotation.labelOffsetX : 10,
