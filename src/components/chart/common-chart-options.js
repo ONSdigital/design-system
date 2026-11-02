@@ -56,6 +56,11 @@ class CommonChartOptions {
                 enabled: false,
             },
             lang: {
+                // Pin the thousands separator and disable Highcharts' default SI
+                // suffixes (k, M, G) on axis labels. The axis formatters below
+                // then produce plain comma-separated numbers by default.
+                thousandsSep: ',',
+                numericSymbols: undefined,
                 accessibility: {
                     // We use only the title so screen readers don't hear Highcharts interactive chart text.
                     chartContainerLabel: '{title}',

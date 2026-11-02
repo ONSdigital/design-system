@@ -45,6 +45,12 @@
             {% if params.dataLabelDecimalPoints and params.dataLabelDecimalPoints >= 1 and params.dataLabelDecimalPoints <= 2 %}
                 data-highcharts-data-label-decimal-points="{{ params.dataLabelDecimalPoints }}"
             {% endif %}
+            {% if params.yAxis.useSIUnits %}
+                data-highcharts-y-axis-use-si-units
+            {% endif %}
+            {% if params.xAxis.useSIUnits %}
+                data-highcharts-x-axis-use-si-units
+            {% endif %}
         {% endif %}
     >
         {%

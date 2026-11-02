@@ -45,6 +45,7 @@
 | max                      | number       | false    | Sets the maximum value for the Y-axis. This value may be rounded up based on the tick interval. Relevant for Line, bar, area, column chart, column-range, boxplot and scatter charts.                                                                    |
 | startOnTick              | boolean      | false    | Align the axis to start on a tick. Relevant for Line, bar, area, column chart, column-range, boxplot and scatter charts.                                                                                                                                 |
 | endOnTick                | boolean      | false    | Align the axis to end on a tick. Relevant for Line, bar, area, column chart, column-range, boxplot and scatter charts.                                                                                                                                   |
+| useSIUnits               | boolean      | false    | When true, large y-axis values are abbreviated with SI suffixes (`1k`, `1M`, `1B`, `1T`). Defaults to false, which produces comma-separated numbers (e.g. `1,000,000`). Useful for large-magnitude charts where horizontal label space is tight.         |
 
 ## X_Axis
 
@@ -60,6 +61,7 @@
 | max                 | number  | false    | Sets the maximum value for the X-axis. This value may be rounded up based on the tick interval. Relevant only for scatter charts.                         |
 | startOnTick         | boolean | false    | Align the axis to start on a tick. Relevant only for scatter charts.                                                                                      |
 | endOnTick           | boolean | false    | Align the axis to end on a tick. Relevant only for scatter charts.                                                                                        |
+| useSIUnits          | boolean | false    | When true, large x-axis values are abbreviated with SI suffixes (`1k`, `1M`, `1B`, `1T`). Defaults to false, which produces comma-separated numbers. Only relevant for numeric x-axes (scatter and columnrange charts). |
 
 ## Series
 
