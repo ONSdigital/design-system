@@ -13,7 +13,7 @@ import Boxplot from './boxplot';
 import AnnotationsOptions from './annotations-options';
 import RangeAnnotationsOptions from './range-annotations-options';
 import ReferenceLineAnnotationsOptions from './reference-line-annotations-options';
-import { preparePlotLinesAndBands, mergeConfigs } from './utilities';
+import { preparePlotLinesAndBands, mergeConfigs, getValueAxisLabelFormatter } from './utilities';
 import AreaChart from './area-chart';
 import ColumnRangeChart from './columnrange-chart';
 
@@ -76,6 +76,8 @@ class HighchartsBaseChart {
         this.dataLabelDecimalPoints = this.node.dataset.highchartsDataLabelDecimalPoints
             ? parseInt(this.node.dataset.highchartsDataLabelDecimalPoints, 10)
             : undefined;
+        this.yAxisUseSIUnits = this.node.hasAttribute('data-highcharts-y-axis-use-si-units');
+        this.xAxisUseSIUnits = this.node.hasAttribute('data-highcharts-x-axis-use-si-units');
         this.specificChartOptions = new SpecificChartOptions(
             this.theme,
             this.chartType,
@@ -100,6 +102,7 @@ class HighchartsBaseChart {
         }
         this.hideDataLabels = this.checkHideDataLabels();
         this.setSpecificChartOptions();
+        this.applySIUnitsFormatter();
         this.setAnnotationsAccessibilityDescription();
         this.setResponsiveOptions();
         this.setLoadEvent();
@@ -215,6 +218,22 @@ class HighchartsBaseChart {
 
         // Disable the legend for single series charts
         this.specificChartOptions.disableLegendForSingleSeries(this.config);
+    };
+
+    // Apply the SI-unit label formatter to the value axes when the opt-in is set.
+    // Formatter functions can't be JSON-serialised, so this runs after the config
+    // has been parsed from the macro-rendered JSON.
+    applySIUnitsFormatter = () => {
+        if (this.yAxisUseSIUnits) {
+            this.config = mergeConfigs(this.config, {
+                yAxis: { labels: { formatter: getValueAxisLabelFormatter(true) } },
+            });
+        }
+        if (this.xAxisUseSIUnits) {
+            this.config = mergeConfigs(this.config, {
+                xAxis: { labels: { formatter: getValueAxisLabelFormatter(true) } },
+            });
+        }
     };
 
     // Check if the data labels should be hidden
