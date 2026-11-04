@@ -58,9 +58,10 @@ export default class AutosuggestAddress {
 
         // Set up AIMS api variables and auth
         this.apiDomain = this.container.getAttribute('data-api-domain');
-        this.lookupUrl = `${this.apiDomain}/addresses/eq?input=`;
-        this.lookupGroupUrl = `${this.apiDomain}/addresses/eq/bucket?`;
-        this.retrieveUrl = `${this.apiDomain}/addresses/eq/uprn/`;
+        this.apiPath = this.container.getAttribute('data-api-path') || '/addresses/eq';
+        this.lookupUrl = `${this.apiDomain}${this.apiPath}?input=`;
+        this.lookupGroupUrl = `${this.apiDomain}/bucket?`;
+        this.retrieveUrl = `${this.apiDomain}${this.apiPath}/uprn/`;
 
         // Query string options
         this.manualQueryParams = this.container.getAttribute('data-query-params');
