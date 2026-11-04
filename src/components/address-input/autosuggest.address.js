@@ -60,7 +60,7 @@ export default class AutosuggestAddress {
         this.apiDomain = this.container.getAttribute('data-api-domain');
         this.apiPath = this.container.getAttribute('data-api-path') || '/addresses/eq';
         this.lookupUrl = `${this.apiDomain}${this.apiPath}?input=`;
-        this.lookupGroupUrl = `${this.apiDomain}/bucket?`;
+        this.lookupGroupUrl = `${this.apiDomain}${this.apiPath}/bucket?`;
         this.retrieveUrl = `${this.apiDomain}${this.apiPath}/uprn/`;
 
         // Query string options
