@@ -31,6 +31,7 @@ class ReferenceLineAnnotationsOptions {
                     style: {
                         color: this.constants.labelColor,
                         fontSize: this.constants.defaultFontSize,
+                        // Override Highcharts' default ellipsis so label text can wrap onto multiple lines.
                         textOverflow: 'clip',
                         width: referenceLineAnnotation.labelWidth ? referenceLineAnnotation.labelWidth : 150,
                     },
