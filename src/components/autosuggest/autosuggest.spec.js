@@ -643,6 +643,64 @@ describe('script: autosuggest', () => {
                 expect(statusMessage.trim()).toBe('Sorry, there is a problem.');
             });
         });
+
+        const renderApiErrorLink = async (errorMessageApiLinkUrl) => {
+            apiFaker.setTemporaryOverride('/countries', {
+                status: 401,
+                data: {},
+            });
+
+            await setTestPage(
+                '/test',
+                renderComponent('autosuggest', {
+                    ...EXAMPLE_AUTOSUGGEST,
+                    ...(errorMessageApiLinkUrl === undefined ? {} : { errorMessageApiLinkUrl }),
+                    errorMessageApi: 'Sorry, there is a problem.',
+                    errorMessageApiLinkText: 'Try again',
+                }),
+            );
+
+            await page.type('.ons-js-autosuggest-input', 'tes', { delay: 20 });
+        };
+
+        describe('when an API error link URL is configured', () => {
+            beforeEach(async () => {
+                await renderApiErrorLink('https://www.ons.gov.uk/help');
+            });
+
+            it('renders the configured URL', async () => {
+                const link = await page.$eval('.ons-autosuggest__warning a', (node) => ({
+                    href: node.getAttribute('href'),
+                    text: node.textContent,
+                }));
+
+                expect(link).toEqual({ href: 'https://www.ons.gov.uk/help', text: 'Try again' });
+            });
+        });
+
+        describe('when no API error link URL is configured', () => {
+            beforeEach(async () => {
+                await renderApiErrorLink();
+            });
+
+            it('defaults to the current page URL', async () => {
+                const linkHref = await page.$eval('.ons-autosuggest__warning a', (node) => node.getAttribute('href'));
+
+                expect(linkHref).toBe(await page.url());
+            });
+        });
+
+        describe('when an API error link URL is unsafe', () => {
+            beforeEach(async () => {
+                await renderApiErrorLink('javascript:alert(1)');
+            });
+
+            it('removes the URL from the link', async () => {
+                const linkHref = await page.$eval('.ons-autosuggest__warning a', (node) => node.getAttribute('href'));
+
+                expect(linkHref).toBeNull();
+            });
+        });
     });
 
     describe('when the component initialises with the allowMultiple parameter', () => {

@@ -157,6 +157,20 @@ describe('FOR: Macro: Address-input', () => {
                 });
             });
         });
+
+        describe('WHEN: errorMessageApiLinkUrl is provided', () => {
+            const faker = templateFaker();
+            const autosuggestSpy = faker.spy('autosuggest', { suppressOutput: true });
+
+            faker.renderComponent('address-input', {
+                ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
+                errorMessageApiLinkUrl: 'https://www.ons.gov.uk/help',
+            });
+
+            test('THEN: it passes the API error link URL to the autosuggest component', () => {
+                expect(autosuggestSpy.occurrences[0].errorMessageApiLinkUrl).toBe('https://www.ons.gov.uk/help');
+            });
+        });
     });
 
     describe('GIVEN: Params: AddressField object', () => {
