@@ -8,6 +8,7 @@
     {% set closingTag = "</" + titleTag + ">" %}
     {% set currentLanguageIsoCode = "en" %}
     {% set logoAltText = params.mastheadLogoAltText or params.mastheadLogo.altText %}
+    {% set signoutButton = params.signoutButton if params.signoutButton else params.button %}
 
     {% if params.language and params.language.languages %}
         {% set currentLanguage = params.language.languages | selectattr("current") | first %}
@@ -433,7 +434,7 @@
             <div class="ons-header__main">
                 <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                     <div
-                        class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap{{ ' ons-grid--gutterless' if not params.button }}"
+                        class="ons-grid ons-grid-flex ons-grid-flex--between ons-grid-flex--vertical-center ons-grid-flex--no-wrap{{ ' ons-grid--gutterless' if not signoutButton }}"
                     >
                         <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                             {% if params.titleLogo.large %}
@@ -476,16 +477,16 @@
                             {% endif %}
                         </div>
 
-                        {% if params.button %}
+                        {% if signoutButton %}
                             <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
                                 {{
                                     onsButton({
-                                        "text": params.button.text,
+                                        "text": signoutButton.text,
                                         "classes": "ons-u-d-no@2xs@l" if params.navigation else "ons-u-d-no@2xs@m",
                                         "variants": "ghost",
-                                        "name": params.button.name,
-                                        "attributes": params.button.attributes,
-                                        "url": params.button.url,
+                                        "name": signoutButton.name,
+                                        "attributes": signoutButton.attributes,
+                                        "url": signoutButton.url,
                                         "iconType": "exit",
                                         "iconPosition": "after"
                                     })
