@@ -41,7 +41,7 @@
     }
 
     &--inline {
-        @include mq(600px, l, $to-operator: '<') {
+        @include mq(xs, l, $to-operator: '<') {
             .ons-description-list__item {
                 align-items: baseline;
                 column-gap: 0.25rem;
