@@ -169,6 +169,7 @@ class BarChart {
     });
 
     // This updates the height of the vertical axis and overall chart to fit the number of categories
+    // and the height of the category labels.
     // Note that the vertical axis on a bar chart is the x axis
     updateBarChartHeight = (config, currentChart, useStackedLayout) => {
         // Ensure the chart has resized to its current container before we read
@@ -236,6 +237,7 @@ class BarChart {
                 }
             });
         }
+
         // Calculate the height needed for the bars plus spacing in order
         // to fit the tallest label, and increase the groupSpacing if necessary.
         const requiredRowPitch = maxLabelHeight + labelPadding;
@@ -252,10 +254,13 @@ class BarChart {
             const xUnitHeight = plotHeight / numberOfCategories;
             const groupPadding = groupSpacing / 2 / xUnitHeight;
             currentChart.series.forEach((series) => {
-                series.update({
-                    groupPadding: groupPadding,
-                    pointWidth: barHeight,
-                });
+                series.update(
+                    {
+                        groupPadding: groupPadding,
+                        pointWidth: barHeight,
+                    },
+                    false,
+                );
             });
         } else {
             categoriesTotalHeight = numberOfCategories * barHeight;
@@ -267,8 +272,6 @@ class BarChart {
         if (totalHeight !== currentChart.chartHeight) {
             currentChart.setSize(null, totalHeight, false);
         }
-
-        currentChart.redraw();
     };
 }
 
