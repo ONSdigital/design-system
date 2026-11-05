@@ -37,6 +37,7 @@ export default class AutosuggestUI {
         tooManyResults,
         errorAPI,
         errorAPILinkText,
+        errorAPILinkUrl,
         typeMore,
         customResultsThreshold,
     }) {
@@ -66,6 +67,7 @@ export default class AutosuggestUI {
         this.tooManyResults = tooManyResults || context.getAttribute('data-too-many-results');
         this.errorAPI = errorAPI || context.getAttribute('data-error-api');
         this.errorAPILinkText = errorAPILinkText || context.getAttribute('data-error-api-link-text');
+        this.errorAPILinkUrl = errorAPILinkUrl || context.getAttribute('data-error-api-link-url') || window.location.href;
         this.typeMore = typeMore || context.getAttribute('data-type-more');
         this.customResultsThreshold = customResultsThreshold || context.getAttribute('data-result-threshold');
         this.language = context.getAttribute('data-lang');
@@ -443,7 +445,7 @@ export default class AutosuggestUI {
                 `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
             );
         } else if (status > 400 || status === '') {
-            const sanitizedHref = DOMPurify.sanitize(window.location.href);
+            const sanitizedHref = DOMPurify.sanitize(this.errorAPILinkUrl);
             message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + sanitizedHref + '">' + this.errorAPILinkText + '</a>.' : '');
             let ariaMessage = this.errorAPI + (this.errorAPILinkText ? ' ' + this.errorAPILinkText : '');
 

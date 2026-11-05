@@ -99,6 +99,7 @@ describe('FOR: Macro: Address-input', () => {
                 errorMessageSelect: '[params.errorMessageSelect]',
                 errorMessageApi: '[params.errorMessageApi]',
                 errorMessageApiLinkText: '[params.errorMessageApiLinkText]',
+                errorMessageApiLinkUrl: '[params.errorMessageApiLinkUrl]',
                 options: '[params.options]',
                 manualLinkUrl: '[params.manualLinkUrl]',
                 manualLinkText: '[params.manualLinkText]',
@@ -149,10 +150,25 @@ describe('FOR: Macro: Address-input', () => {
                     errorMessageSelect: '[params.errorMessageSelect]',
                     errorMessageApi: '[params.errorMessageApi]',
                     errorMessageApiLinkText: '[params.errorMessageApiLinkText]',
+                    errorMessageApiLinkUrl: '[params.errorMessageApiLinkUrl]',
                     options: '[params.options]',
                     manualLinkUrl: '[params.manualLinkUrl]',
                     manualLinkText: '[params.manualLinkText]',
                 });
+            });
+        });
+
+        describe('WHEN: errorMessageApiLinkUrl is provided', () => {
+            const faker = templateFaker();
+            const autosuggestSpy = faker.spy('autosuggest', { suppressOutput: true });
+
+            faker.renderComponent('address-input', {
+                ...EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL,
+                errorMessageApiLinkUrl: 'https://www.ons.gov.uk/help',
+            });
+
+            test('THEN: it passes the API error link URL to the autosuggest component', () => {
+                expect(autosuggestSpy.occurrences[0].errorMessageApiLinkUrl).toBe('https://www.ons.gov.uk/help');
             });
         });
     });
