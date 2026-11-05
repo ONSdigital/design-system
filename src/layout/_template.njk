@@ -57,6 +57,9 @@
     set themeColor = pageConfig.themeColor if pageConfig.themeColor else
     "#206095"
 %}
+{% set ogImg = pageConfig.ogImg if pageConfig.ogImg else null %}
+{% set ogImageIsCustom = ogImg and ogImg.url %}
+{% set ogImageUrl = ogImg.url if ogImageIsCustom else assetsUrl + '/social/opengraph.png' %}
 <!doctype html>
 <html lang="{{ currentLanguageIsoCode }}">
     <head>
@@ -67,10 +70,10 @@
         <link rel="stylesheet" href="{{ assetsUrl }}/css/main.css" />
         <link rel="stylesheet" media="print" href="{{ assetsUrl }}/css/print.css" />
 
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin>
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin>
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin />
 
         <meta name="theme-color" content="{{ themeColor }}" />
         {% block meta %}
@@ -95,10 +98,16 @@
             <meta property="og:type" content="website" />
             <meta property="og:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}" />
             <meta property="og:title" content="{{ pageConfig.title }}" />
-            <meta property="og:image" content="{{ assetsUrl }}/favicons/opengraph.png" />
-            <meta property="og:image:type" content="image/png" />
-            <meta property="og:image:width" content="1200" />
-            <meta property="og:image:height" content="630" />
+            <meta property="og:image" content="{{ ogImageUrl }}" />
+            {% if ogImageIsCustom %}
+                {% if ogImg.type %}<meta property="og:image:type" content="{{ ogImg.type }}" />{% endif %}
+                {% if ogImg.width %}<meta property="og:image:width" content="{{ ogImg.width }}" />{% endif %}
+                {% if ogImg.height %}<meta property="og:image:height" content="{{ ogImg.height }}" />{% endif %}
+            {% else %}
+                <meta property="og:image:type" content="image/png" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+            {% endif %}
             <meta property="og:description" content="{{ pageConfig.meta.description | default(pageConfig.description) }}" />
             <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}" />
             <meta property="og:locale" content="{{ currentLanguageIsoCode }}" />
@@ -110,7 +119,7 @@
             {% if pageConfig.social %}
                 {%
                     set xImagePath = pageConfig.social.xImage if pageConfig.social.xImage else
-                    assetsUrl + '/favicons/x.png'
+                    assetsUrl + '/social/x.png'
                 %}
                 <!-- X -->
                 <meta name="twitter:card" content="summary" />
@@ -139,7 +148,8 @@
         <!-- prettier-ignore-start -->
         <script {% if pageConfig.cspNonce %}nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %}nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         <!-- prettier-ignore-end -->
-        {% block bodyStart %}{% endblock %}
+        {% block bodyStart %}
+        {% endblock %}
         {% block body %}
             <div class="ons-page">
                 <div class="ons-page__content">
@@ -210,9 +220,7 @@
                             {% endblock %}
                             <div class="ons-grid">
                                 <div class="ons-grid__col ons-col-{{ pageColNumber }}@m{{ pageColClasses }}">
-                                    <main id="main-content" class="ons-page__main{{ mainColClasses }}">
-                                        {% block main %}{% endblock %}
-                                    </main>
+                                    <main id="main-content" class="ons-page__main{{ mainColClasses }}">{% block main %}{% endblock %}</main>
                                 </div>
                             </div>
                         </div>
@@ -243,8 +251,8 @@
                 {% endblock %}
             </div>
         {% endblock %}
-        {% block bodyEnd %}{% endblock %}
-
+        {% block bodyEnd %}
+        {% endblock %}
         <!-- prettier-ignore-start -->
         <script {% if pageConfig.cspNonce %}nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %}nonce="{{ csp_nonce() }}"{% endif %}>
             (function() {
