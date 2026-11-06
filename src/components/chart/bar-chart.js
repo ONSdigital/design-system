@@ -203,7 +203,7 @@ class BarChart {
         // Narrower charts give labels a smaller share of the width so the plot
         // area stays usable; the row spacing growth below absorbs the extra
         // wrapping that results.
-        const labelRatio = chartWidth < 500 ? 0.22 : 0.32;
+        const labelRatio = chartWidth < 500 ? 0.22 : 0.28;
         const labelMaxWidth = Math.max(120, Math.min(260, Math.round(chartWidth * labelRatio)));
         const xAxis = currentChart.xAxis[0];
         if (xAxis) {
