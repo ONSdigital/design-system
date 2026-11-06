@@ -198,13 +198,13 @@ class BarChart {
 
         // Give category labels an explicit width so Highcharts wraps them onto
         // multiple lines (whiteSpace: 'normal' only wraps when a width is set)
-        // A ratio is used to calculate the label width but with a minimum of 60px and a maximum of 200px.
+        // A ratio is used to calculate the label width but with a minimum of 120px and a maximum of 260px.
         const chartWidth = currentChart.chartWidth || 0;
         // Narrower charts give labels a smaller share of the width so the plot
         // area stays usable; the row spacing growth below absorbs the extra
         // wrapping that results.
         const labelRatio = chartWidth < 500 ? 0.22 : 0.32;
-        const labelMaxWidth = Math.max(60, Math.min(200, Math.round(chartWidth * labelRatio)));
+        const labelMaxWidth = Math.max(120, Math.min(260, Math.round(chartWidth * labelRatio)));
         const xAxis = currentChart.xAxis[0];
         if (xAxis) {
             xAxis.update(
