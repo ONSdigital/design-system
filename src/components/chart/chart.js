@@ -210,6 +210,10 @@ class HighchartsBaseChart {
             }
         }
 
+        if (this.useStackedLayout === true && (this.chartType === 'bar' || this.chartType === 'column')) {
+            this.config = mergeConfigs(this.config, this.specificChartOptions.getStackedTooltipOptions());
+        }
+
         // Limit the number of series to the theme length
         this.specificChartOptions.limitSeriesToThemeLength();
 
@@ -311,9 +315,11 @@ class HighchartsBaseChart {
                 } else {
                     this.specificChartOptions.hideDataLabels(currentChart.series);
                 }
+                this.specificChartOptions.hideZeroValuePoints(currentChart);
             }
             if (this.chartType === 'column') {
                 this.specificChartOptions.hideDataLabels(currentChart.series);
+                this.specificChartOptions.hideZeroValuePoints(currentChart);
             }
             if (this.chartType === 'scatter') {
                 this.scatterChart.updateMarkers(currentChart);

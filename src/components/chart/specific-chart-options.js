@@ -89,6 +89,54 @@ class SpecificChartOptions {
         });
     };
 
+    // For stacked bar and column charts, use a shared tooltip so hovering
+    // anywhere in the column (including over zero-value segments) triggers
+    // a tooltip covering every series in the stack. The pointFormatter
+    // mirrors Highcharts' default row markup and bolds the series name of
+    // the point currently under the cursor so users can tell which stack
+    // segment they're on. stickyTracking: false combined with the mouseOut
+    // handler ensures the tooltip only appears when the cursor is over a bar.
+    getStackedTooltipOptions = () => {
+        return {
+            tooltip: {
+                shared: true,
+                pointFormatter() {
+                    const isHovered = this === this.series.chart.hoverPoint;
+                    const name = isHovered ? `<b>${this.series.name}</b>` : this.series.name;
+                    return `<span style="color:${this.color}">●</span> ${name}: <b>${this.y}</b><br/>`;
+                },
+            },
+            plotOptions: {
+                series: {
+                    stickyTracking: false,
+                    point: {
+                        events: {
+                            mouseOut() {
+                                this.series.chart.tooltip.hide();
+                            },
+                        },
+                    },
+                },
+            },
+        };
+    };
+
+    // For bar and column charts, zero-value points still render a thin sliver
+    // (via `minPointLength`) so the tooltip has a hover target. Hide that sliver
+    // visually by making the point transparent — the hover zone is preserved.
+    hideZeroValuePoints = (currentChart) => {
+        currentChart.series.forEach((series) => {
+            if (series.type !== 'bar' && series.type !== 'column') {
+                return;
+            }
+            series.points.forEach((point) => {
+                if (point.y === 0) {
+                    point.update({ color: 'transparent' }, false);
+                }
+            });
+        });
+    };
+
     disableLegendForSingleSeries = (config) => {
         if (config.chart.type != 'boxplot' && config.series.length === 1) {
             config.legend = {
