@@ -386,7 +386,7 @@ export default class AutosuggestUI {
                             innerHTML +
                             `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${resultItem.category}</span>`;
                     }
-                    listElement.innerHTML = innerHTML;
+                    listElement.innerHTML = `<span class="ons-autosuggest__option-text">${innerHTML}</span>`;
                     listElement.addEventListener('click', () => {
                         this.selectResult(index);
                     });
@@ -403,7 +403,7 @@ export default class AutosuggestUI {
                 const listElement = document.createElement('li');
                 listElement.className = `${classAutosuggestOption} ${classAutosuggestOptionMoreResults}`;
                 listElement.setAttribute('aria-hidden', 'true');
-                listElement.innerHTML = DOMPurify.sanitize(this.moreResults);
+                listElement.innerHTML = `<span class="ons-autosuggest__option-text">${DOMPurify.sanitize(this.moreResults)}</span>`;
                 this.listbox.appendChild(listElement);
             }
 
@@ -442,12 +442,12 @@ export default class AutosuggestUI {
             message = this.typeMore;
             this.setAriaStatus(message);
             this.listbox.innerHTML = DOMPurify.sanitize(
-                `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
+                `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}"><span class="ons-autosuggest__option-text">${message}</span></li>`,
             );
         } else if (status > 400 || status === '') {
             const hasErrorLink = this.errorAPILinkText;
             const href = hasErrorLink ? this.errorAPILinkUrl || window.location.href : '';
-            message = this.errorAPI + (hasErrorLink ? ' <a href="' + href + '">' + this.errorAPILinkText + '</a>.' : '');
+            message = '<p>' + this.errorAPI + (hasErrorLink ? ' <a href="' + href + '">' + this.errorAPILinkText + '</a>.' : '') + '</p>';
             let ariaMessage = this.errorAPI + (hasErrorLink ? ' ' + this.errorAPILinkText : '');
 
             this.input.setAttribute('disabled', true);
@@ -462,7 +462,7 @@ export default class AutosuggestUI {
         } else {
             message = this.noResults;
             this.listbox.innerHTML = DOMPurify.sanitize(
-                `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
+                `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}"><span class="ons-autosuggest__option-text">${message}</span></li>`,
             );
         }
     }

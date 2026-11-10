@@ -18,7 +18,7 @@ layout: ~
     }
 %}
 
-{% block preMain %}
+{% block breadcrumbs %}
     {{
         onsBreadcrumbs({
             "ariaLabel": 'Breadcrumbs',
@@ -46,7 +46,7 @@ layout: ~
     <!-- prettier-ignore-end -->
 {% endblock %}
 
-{% block main %}
+{% block mainContent %}
     {%
         call onsQuestion({
             "title": "Input errors examples",

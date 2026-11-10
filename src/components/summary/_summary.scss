@@ -217,9 +217,14 @@ $hub-row-spacing: 1.3rem;
                     border-bottom: 1px solid var(--ons-color-borders-light);
                 }
             }
-            .ons-summary__group-title {
+            .ons-summary__group-title-wrapper {
                 background-color: var(--ons-color-grey-5);
                 padding: 1rem 1.25rem;
+                margin-bottom: 1rem;
+
+                .ons-summary__group-title {
+                    margin: 0;
+                }
             }
             .ons-summary__link {
                 padding: 0 1.25rem;
