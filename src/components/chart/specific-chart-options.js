@@ -145,7 +145,6 @@ class SpecificChartOptions {
                 const y1 = y - 4;
                 const d = `M ${x} ${y1} L ${x1} ${y1} L ${x1} ${y} L ${x} ${y} Z`;
                 point.graphic.element.setAttribute('d', d);
-                s;
 
                 // Needed to ensure the zero-point value remains invisible on hover
                 // Avoid point.update() because it marks the point dirty, which causes
