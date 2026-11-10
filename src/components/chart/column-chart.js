@@ -9,9 +9,6 @@ class ColumnChart {
                     ...this.getPointPadding(config, useStackedLayout, extraLines, false),
                     borderRadius: 0,
                     borderWidth: 0,
-                    // Ensure zero-value columns still render a thin sliver on the axis
-                    // so there's a hover target to trigger the tooltip.
-                    minPointLength: 4,
                 },
                 series: {
                     stacking: useStackedLayout ? 'normal' : null,

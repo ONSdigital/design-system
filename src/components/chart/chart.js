@@ -315,11 +315,9 @@ class HighchartsBaseChart {
                 } else {
                     this.specificChartOptions.hideDataLabels(currentChart.series);
                 }
-                this.specificChartOptions.hideZeroValuePoints(currentChart);
             }
             if (this.chartType === 'column') {
                 this.specificChartOptions.hideDataLabels(currentChart.series);
-                this.specificChartOptions.hideZeroValuePoints(currentChart);
             }
             if (this.chartType === 'scatter') {
                 this.scatterChart.updateMarkers(currentChart);
@@ -368,6 +366,11 @@ class HighchartsBaseChart {
             }
             if (this.chartType != 'bar' && this.chartType != 'columnrange') {
                 this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+            }
+            // Re-apply the zero-value hover sliver after redraws (e.g. resize)
+            // since Highcharts regenerates the point paths from shapeArgs.
+            if (this.chartType === 'bar' || this.chartType === 'column') {
+                this.specificChartOptions.hideZeroValuePoints(currentChart);
             }
             // Update the legend symbols on render to maintain them during resize
             this.specificChartOptions.updateLegendSymbols(currentChart);

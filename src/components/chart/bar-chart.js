@@ -37,9 +37,6 @@ class BarChart {
                     groupPadding: 0,
                     borderWidth: 0,
                     borderRadius: 0,
-                    // Ensure zero-value bars still render a thin sliver on the axis
-                    // so there's a hover target to trigger the tooltip.
-                    minPointLength: 4,
                     // Set the data labels to be enabled and positioned outside the bars
                     // We can add custom formatting on each chart to move the labels inside the bars if the bar is wide enough
                     dataLabels,
