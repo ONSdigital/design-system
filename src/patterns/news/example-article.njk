@@ -30,7 +30,7 @@ layout: ~
     }
 %}
 
-{% block main %}
+{% block mainContent %}
     <h1 class="ons-u-fs-2xl">
         <span class="ons-u-fs-m ons-u-db ons-u-mb-2xs ons-u-lighter">Press releases</span>
         <span class="ons-u-vh">: </span>
@@ -38,7 +38,7 @@ layout: ~
     </h1>
 
     <div class="ons-grid">
-        <div class="ons-grid__col ons-col-7@m">
+        <div class="ons-grid__col ons-col-8@m">
             <div class="ons-page__body ons-u-mt-l">
                 {{
                     onsImage({
@@ -132,7 +132,7 @@ layout: ~
             </div>
         </div>
 
-        <div class="ons-grid__col ons-col-4@m ons-push-1@m">
+        <div class="ons-grid__col ons-col-4@m">
             {%
                 call onsRelatedContent({
                     "ariaLabel": 'Related content',

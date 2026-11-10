@@ -34,6 +34,42 @@ describe('macro: hero', () => {
         expect($('.ons-hero--variant-b').length).toBe(1);
     });
 
+    it('has the `ons-container--wide` class on the container when `wide` is true', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, wide: true }));
+
+        expect($('.ons-hero__container').hasClass('ons-container--wide')).toBe(true);
+    });
+
+    it('does not have the `ons-container--wide` class on the container when `wide` is false', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, wide: false }));
+
+        expect($('.ons-hero__container').hasClass('ons-container--wide')).toBe(false);
+    });
+
+    it('does not have the `ons-container--wide` class on the container when `wide` is not set', () => {
+        const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO));
+
+        expect($('.ons-hero__container').hasClass('ons-container--wide')).toBe(false);
+    });
+
+    it('has the `ons-container--full-width` class on the container when `fullWidth` is true', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, fullWidth: true }));
+
+        expect($('.ons-hero__container').hasClass('ons-container--full-width')).toBe(true);
+    });
+
+    it('does not have the `ons-container--full-width` class on the container when `fullWidth` is false', () => {
+        const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, fullWidth: false }));
+
+        expect($('.ons-hero__container').hasClass('ons-container--full-width')).toBe(false);
+    });
+
+    it('does not have the `ons-container--full-width` class on the container when `fullWidth` is not set', () => {
+        const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO));
+
+        expect($('.ons-hero__container').hasClass('ons-container--full-width')).toBe(false);
+    });
+
     it('has expected `title`', () => {
         const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO));
 

@@ -19,7 +19,6 @@
                                     "text": params.organisation.label
                                 },
                                 "classes": "ons-js-address-organisation",
-                                "width": "20@m",
                                 "name": params.id + "-organisation",
                                 "error": params.organisation.error
                             })
@@ -34,7 +33,6 @@
                                     "text": params.line1.label
                                 },
                                 "classes": "ons-js-address-line1",
-                                "width": "20@m",
                                 "name": params.id + "-line1",
                                 "error": params.line1.error
                             })
@@ -49,7 +47,6 @@
                                     "text": params.line2.label
                                 },
                                 "classes": "ons-js-address-line2",
-                                "width": "20@m",
                                 "name": params.id + "-line2",
                                 "error": params.line2.error
                             })
@@ -165,9 +162,12 @@
                         })
                     }}
                     {% if params.manualLinkText %}
-                        <a href="{{ params.manualLinkUrl }}" class="ons-js-address-manual-btn ons-u-mt-s ons-u-dib"
-                            >{{ params.manualLinkText }}</a
-                        >
+                        {# p tag ensures reading width is applied #}
+                        <p class="ons-u-mb-no">
+                            <a href="{{ params.manualLinkUrl }}" class="ons-js-address-manual-btn ons-u-mt-s ons-u-dib"
+                                >{{ params.manualLinkText }}</a
+                            >
+                        </p>
                     {% endif %}
                 </div>
             {% endif %}
