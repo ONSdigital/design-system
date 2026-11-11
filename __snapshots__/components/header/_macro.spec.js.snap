@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`FOR: Macro: Header Snapshot: search heading matches snapshot when no search heading is present 1`] = `
-"<html><head></head><body><header class="ons-header ons-header--basic">
+"<!-- prettier-ignore-start --><html><head></head><body><header class="ons-header ons-header--basic">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -249,12 +250,15 @@ exports[`FOR: Macro: Header Snapshot: search heading matches snapshot when no se
         
         
         
+    <!-- prettier-ignore-start -->
     </header>
+    <!-- prettier-ignore-end -->
 </body></html>"
 `;
 
 exports[`FOR: Macro: Header Snapshot: search heading matches snapshot when search heading is present (params.search.links.heading) 1`] = `
-"<html><head></head><body><header class="ons-header ons-header--basic">
+"<!-- prettier-ignore-start --><html><head></head><body><header class="ons-header ons-header--basic">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -516,12 +520,15 @@ exports[`FOR: Macro: Header Snapshot: search heading matches snapshot when searc
         
         
         
+    <!-- prettier-ignore-start -->
     </header>
+    <!-- prettier-ignore-end -->
 </body></html>"
 `;
 
 exports[`FOR: Macro: Header Snapshot: search heading matches snapshot when search heading is present (params.searchLinks.heading) 1`] = `
-"<html><head></head><body><header class="ons-header ons-header--basic">
+"<!-- prettier-ignore-start --><html><head></head><body><header class="ons-header ons-header--basic">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -783,6 +790,8 @@ exports[`FOR: Macro: Header Snapshot: search heading matches snapshot when searc
         
         
         
+    <!-- prettier-ignore-start -->
     </header>
+    <!-- prettier-ignore-end -->
 </body></html>"
 `;

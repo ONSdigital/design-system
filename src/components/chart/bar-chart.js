@@ -1,3 +1,5 @@
+import Highcharts from 'highcharts';
+
 import ChartConstants from './chart-constants';
 
 class BarChart {
@@ -5,7 +7,26 @@ class BarChart {
         this.constants = ChartConstants.constants();
     }
 
-    getBarChartOptions = (useStackedLayout) => {
+    getBarChartOptions = (useStackedLayout, dataLabelDecimalPoints) => {
+        const dataLabels = {
+            enabled: true,
+            inside: false,
+            style: {
+                textOutline: 'none',
+                // The design system does not include a semibold font weight, so we use 700 (bold) as an alternative.
+                fontWeight: '700',
+                color: this.constants.labelColor,
+                fontSize: this.constants.defaultFontSize,
+            },
+        };
+        if (dataLabelDecimalPoints !== undefined) {
+            dataLabels.formatter = function () {
+                if (this.y === null || this.y === undefined) {
+                    return '';
+                }
+                return Highcharts.numberFormat(this.y, dataLabelDecimalPoints);
+            };
+        }
         return {
             plotOptions: {
                 bar: {
@@ -18,17 +39,7 @@ class BarChart {
                     borderRadius: 0,
                     // Set the data labels to be enabled and positioned outside the bars
                     // We can add custom formatting on each chart to move the labels inside the bars if the bar is wide enough
-                    dataLabels: {
-                        enabled: true,
-                        inside: false,
-                        style: {
-                            textOutline: 'none',
-                            // The design system does not include a semibold font weight, so we use 700 (bold) as an alternative.
-                            fontWeight: '700',
-                            color: this.constants.labelColor,
-                            fontSize: this.constants.defaultFontSize,
-                        },
-                    },
+                    dataLabels,
                 },
                 series: {
                     stacking: useStackedLayout ? 'normal' : null,

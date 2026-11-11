@@ -1,7 +1,11 @@
 export default class BackToTop {
     constructor(component) {
         this.component = component;
-        this.content = this.component.previousElementSibling;
+        let el = this.component;
+        while (el && !el.previousElementSibling) {
+            el = el.parentElement;
+        }
+        this.content = el ? el.previousElementSibling : null;
         this.target = document.getElementById(this.component.firstElementChild.href.split('#')[1]);
         this.contentleft;
         this.updateContentDetails();
@@ -27,6 +31,10 @@ export default class BackToTop {
             scrollPosition = -this.target.getBoundingClientRect().top + window.innerHeight;
         }
 
+        // In the extremely unlikely situation where there is no content at all above the back to top component, exit early
+        if (!this.content) {
+            return;
+        }
         const contentRect = this.content.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         const contentBottom = contentRect.bottom;
