@@ -58,7 +58,7 @@ const EXAMPLE_ADDRESS_INPUT = {
 const EXAMPLE_ADDRESS_INPUT_WITH_API = {
     ...EXAMPLE_ADDRESS_INPUT,
     apiDomain: '/fake/api',
-    apiPath: '/addresses/eq',
+    apiPath: '/example-endpoint',
     apiDomainBearerToken: 'someToken',
     externalInitialiser: true,
 };
@@ -198,6 +198,23 @@ describe('script: address-input', () => {
             await setTimeout(50);
 
             expect(await apiFaker.getRequestCount(`${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf142&limit=10`)).toBe(1);
+        });
+
+        it('defaults to /addresses/eq when apiPath is omitted', async () => {
+            const params = { ...EXAMPLE_ADDRESS_INPUT_WITH_API };
+            delete params.apiPath;
+
+            apiFaker.setTemporaryOverride('/addresses/eq?input=cf142&limit=10', {
+                data: {
+                    status: { code: 200 },
+                    response: { addresses: [] },
+                },
+            });
+
+            await setTestPage('/test', renderComponent('address-input', params));
+            await setTimeout(50);
+
+            expect(await apiFaker.getRequestCount('/addresses/eq?input=cf142&limit=10')).toBe(1);
         });
 
         describe('when api status is okay', () => {
