@@ -1,0 +1,52 @@
+---
+title: 'Example: Breadcrumbs override wide'
+layout: ~
+---
+
+{% from "components/hero/_macro.njk" import onsHero %}
+{% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+{% extends "layout/_template.njk" %}
+{%
+    set pageConfig = {
+        "header": {
+            "title": 'Service title',
+            "mastheadLogoUrl": '#0',
+            "titleUrl": '#0',
+            "serviceLinks": {
+                "id": "service-links-internal",
+                "ariaLabel": 'Services menu',
+                "ariaListLabel": 'Menu',
+                "toggleServicesButton": {
+                    "text": 'Account',
+                    "ariaLabel": 'Toggle services menu'
+                },
+                "itemsList": [
+                    {
+                        "text": "Jacky Turner",
+                        "iconType": 'person'
+                    },
+                    {
+                        "text": "Sign out",
+                        "url": "#0"
+                    }
+                ]
+            }
+        },
+        "wide": true
+    }
+%}
+
+{% block breadcrumbs %}
+    {{
+        onsBreadcrumbs({
+            "wide": true,
+            "ariaLabel": 'Breadcrumbs',
+            "itemsList": [
+                {
+                    "url": '/',
+                    "text": 'Home'
+                }
+            ]
+        })
+    }}
+{% endblock %}
