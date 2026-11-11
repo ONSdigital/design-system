@@ -133,6 +133,45 @@ describe('FOR: Macro: Breadcrumbs', () => {
         });
     });
 
+    describe('GIVEN: Params: fullWidth', () => {
+        describe('WHEN: fullWidth is not provided', () => {
+            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_REQUIRED_PARAMS));
+            test('THEN: renders container without full-width class', () => {
+                expect($('.ons-container').hasClass('ons-container--full-width')).toBe(false);
+            });
+        });
+        describe('WHEN: fullWidth is set to true', () => {
+            const $ = cheerio.load(
+                renderComponent('breadcrumbs', {
+                    ...EXAMPLE_BREADCRUMBS_REQUIRED_PARAMS,
+                    fullWidth: true,
+                }),
+            );
+            test('THEN: renders container with full-width class', () => {
+                expect($('.ons-container').hasClass('ons-container--full-width')).toBe(true);
+            });
+        });
+    });
+    describe('GIVEN: Params: wide', () => {
+        describe('WHEN: wide is not provided', () => {
+            const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS_REQUIRED_PARAMS));
+            test('THEN: renders container without wide class', () => {
+                expect($('.ons-container').hasClass('ons-container--wide')).toBe(false);
+            });
+        });
+        describe('WHEN: wide is set to true', () => {
+            const $ = cheerio.load(
+                renderComponent('breadcrumbs', {
+                    ...EXAMPLE_BREADCRUMBS_REQUIRED_PARAMS,
+                    wide: true,
+                }),
+            );
+            test('THEN: renders container with wide class', () => {
+                expect($('.ons-container').hasClass('ons-container--wide')).toBe(true);
+            });
+        });
+    });
+
     describe('GIVEN: Params: variant', () => {
         describe('WHEN: variant is provided', () => {
             const $ = cheerio.load(
