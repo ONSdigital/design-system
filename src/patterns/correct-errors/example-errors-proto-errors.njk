@@ -20,7 +20,7 @@ layout: ~
     }
 %}
 
-{% block preMain %}
+{% block breadcrumbs %}
     {{
         onsBreadcrumbs({
             "ariaLabel": 'Breadcrumbs',
@@ -42,7 +42,7 @@ layout: ~
     }}
 {% endblock %}
 
-{% block main %}
+{% block mainContent %}
     {%
         call onsPanel({
             "title": "There are 9 problems with this page",

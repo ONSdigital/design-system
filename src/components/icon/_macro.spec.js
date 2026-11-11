@@ -102,6 +102,7 @@ describe('macro: icon', () => {
         ['ons-logo-stacked-en', 'Office for National Statistics homepage'],
         ['ons-logo-stacked-cy', 'Hafan Swyddfa Ystadegau Gwladol'],
         ['crest', 'Royal coat of arms of the United Kingdom'],
+        ['official-statistics', 'Official Statistics Badge - Accredited'],
         ['ogl', 'Open Government License logo'],
     ])('icon type: %s', (iconType, expectedAltText) => {
         it(`has default alt text '${expectedAltText}'`, () => {
@@ -119,6 +120,38 @@ describe('macro: icon', () => {
             );
 
             expect($('title').text().trim()).toBe('Example alt text');
+        });
+
+        it('has alt text without surrounding whitespace', () => {
+            const $ = cheerio.load(renderComponent('icon', { iconType }));
+
+            expect($('title').text()).toBe(expectedAltText);
+        });
+    });
+
+    describe.each([
+        ['ons-logo-en', 'ons-logo-en-alt'],
+        ['ons-logo-cy', 'ons-logo-cy-alt'],
+        ['ons-logo-stacked-en', 'ons-logo-stacked-en-alt'],
+        ['ons-logo-stacked-cy', 'ons-logo-stacked-cy-alt'],
+    ])('icon type: %s', (iconType, expectedAltTextId) => {
+        it(`has default alt text id '${expectedAltTextId}' referenced by aria-labelledby`, () => {
+            const $ = cheerio.load(renderComponent('icon', { iconType }));
+
+            expect($('svg').attr('aria-labelledby')).toBe(expectedAltTextId);
+            expect($('title').attr('id')).toBe(expectedAltTextId);
+        });
+
+        it('has provided alt text id referenced by aria-labelledby', () => {
+            const $ = cheerio.load(
+                renderComponent('icon', {
+                    iconType,
+                    altTextId: 'example-alt-text-id',
+                }),
+            );
+
+            expect($('svg').attr('aria-labelledby')).toBe('example-alt-text-id');
+            expect($('title').attr('id')).toBe('example-alt-text-id');
         });
     });
 });

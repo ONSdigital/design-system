@@ -1,0 +1,58 @@
+---
+title: 'Example: Wide page template with sidebar'
+layout: ~
+---
+
+{% extends "layout/_template.njk" %}
+{% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
+{%
+    set pageConfig = {
+        "wide": true,
+        "header": {
+            "title": "Service name"
+        },
+        "footer": {
+            "oglLink": {
+                "pre": 'All content is available under the',
+                "link": 'Open Government Licence v3.0',
+                "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+                "post": ', except where otherwise stated'
+            }
+        }
+    }
+%}
+{% block mainContent %}
+    <div class="ons-grid ons-js-table-of-contents-container">
+        <div class="ons-grid__col ons-grid__col--sticky@m ons-col-4@m">
+            {{
+                onsTableOfContents({
+                    "ariaLabelForAside": 'Page contents',
+                    "title": 'Contents',
+                    "itemsList": [
+                        {
+                            "url": '#1',
+                            "text": 'Section 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+                        },
+                        {
+                            "url": '#2',
+                            "text": 'Section 2'
+                        },
+                        {
+                            "url": '#3',
+                            "text": 'Section 3'
+                        }
+                    ]
+                })
+            }}
+        </div>
+        <div class="ons-grid__col ons-col-8@m">
+            <h1>Page Title</h1>
+            <p id="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p id="2">
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+            <p id="3">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+{% endblock %}

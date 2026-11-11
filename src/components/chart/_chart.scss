@@ -113,24 +113,12 @@
         }
     }
 
-    &__iframe {
-        width: 100%;
-        aspect-ratio: 16 / 9; // Default aspect ratio
-
-        @media (scripting: none) {
-            // Approximately matches the aspect ratio of the fallback image inside the iframe
-            aspect-ratio: 16 / 9;
-        }
-    }
-
     &__non-js-hide {
         @media (scripting: none) {
             display: none;
         }
     }
 }
-
-@include iframe-aspect-ratio('ons-chart__iframe--{x}');
 
 // This is a workaround to position the axis title to the left
 .highcharts-axis-title {

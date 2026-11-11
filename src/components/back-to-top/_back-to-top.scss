@@ -3,6 +3,13 @@
         margin-left: 0.25rem;
     }
 
+    // This element also gets a margin-left value set in the JS to match the content left spacing
+    &__content {
+        @include reading-width;
+
+        display: inline-block;
+    }
+
     &__enabled {
         background: none;
         width: fit-content;
