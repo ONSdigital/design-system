@@ -345,7 +345,7 @@
             role="img"
         >
             <title id="{{ params.altTextId | default ('ons-logo-en-alt') }}">
-                {{ params.altText | default ('Office for National Statistics homepage') }}
+                {{- params.altText | default ('Office for National Statistics homepage') -}}
             </title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path
@@ -442,7 +442,7 @@
             role="img"
         >
             <title id="{{ params.altTextId | default ('ons-logo-cy-alt') }}">
-                {{ params.altText | default ('Hafan Swyddfa Ystadegau Gwladol') }}
+                {{- params.altText | default ('Hafan Swyddfa Ystadegau Gwladol') -}}
             </title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path
@@ -531,7 +531,7 @@
             role="img"
         >
             <title id="{{ params.altTextId | default ('ons-logo-stacked-en-alt') }}">
-                {{ params.altText | default ('Office for National Statistics homepage') }}
+                {{- params.altText | default ('Office for National Statistics homepage') -}}
             </title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path
@@ -559,8 +559,8 @@
             aria-labelledby="{{ params.altTextId | default ('ons-logo-stacked-cy-alt') }}"
             role="img"
         >
-            <title id="{{ params.altTextId | default ('ons-logo-stacked-en-alt') }}">
-                {{ params.altText | default ('Hafan Swyddfa Ystadegau Gwladol') }}
+            <title id="{{ params.altTextId | default ('ons-logo-stacked-cy-alt') }}">
+                {{- params.altText | default ('Hafan Swyddfa Ystadegau Gwladol') -}}
             </title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path
@@ -652,7 +652,7 @@
             aria-hidden="true"
         >
             <title id="{{ params.altTextId | default ('crest-alt') }}">
-                {{ params.altText | default ('Royal coat of arms of the United Kingdom') }}
+                {{- params.altText | default ('Royal coat of arms of the United Kingdom') -}}
             </title>
             <g  fill="#222222">
                 <g>
@@ -856,7 +856,7 @@
             class="ons-icon--logo{{ iconClasses }}"
         >
             <title id="{{ params.altTextId | default ('official-statistics-alt') }}">
-                {{ params.altText | default ('Official Statistics Badge - Accredited') }}
+                {{- params.altText | default ('Official Statistics Badge - Accredited') -}}
             </title>
             <path
                 d="M12.4999 92.59C7.18988 92.59 2.87988 88.27 2.87988 82.97C2.87988 77.67 7.19988 73.35 12.4999 73.35H64.4999C69.8099 73.35 74.1199 77.67 74.1199 82.97C74.1199 88.27 69.7999 92.59 64.4999 92.59H12.4999Z"
