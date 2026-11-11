@@ -70,10 +70,10 @@
         <link rel="stylesheet" href="{{ assetsUrl }}/css/main.css" />
         <link rel="stylesheet" media="print" href="{{ assetsUrl }}/css/print.css" />
 
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin />
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin />
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-regular.woff" as="font" type="font/woff" crossorigin>
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{{ assetsUrl }}/fonts/opensans-bold.woff" as="font" type="font/woff" crossorigin>
 
         <meta name="theme-color" content="{{ themeColor }}" />
         {% block meta %}
@@ -148,8 +148,7 @@
         <!-- prettier-ignore-start -->
         <script {% if pageConfig.cspNonce %}nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %}nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         <!-- prettier-ignore-end -->
-        {% block bodyStart %}
-        {% endblock %}
+        {% block bodyStart %}{% endblock %}
         {% block body %}
             <div class="ons-page">
                 <div class="ons-page__content">
@@ -220,7 +219,9 @@
                             {% endblock %}
                             <div class="ons-grid">
                                 <div class="ons-grid__col ons-col-{{ pageColNumber }}@m{{ pageColClasses }}">
-                                    <main id="main-content" class="ons-page__main{{ mainColClasses }}">{% block main %}{% endblock %}</main>
+                                    <main id="main-content" class="ons-page__main{{ mainColClasses }}">
+                                        {% block main %}{% endblock %}
+                                    </main>
                                 </div>
                             </div>
                         </div>
@@ -251,8 +252,8 @@
                 {% endblock %}
             </div>
         {% endblock %}
-        {% block bodyEnd %}
-        {% endblock %}
+        {% block bodyEnd %}{% endblock %}
+
         <!-- prettier-ignore-start -->
         <script {% if pageConfig.cspNonce %}nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %}nonce="{{ csp_nonce() }}"{% endif %}>
             (function() {
