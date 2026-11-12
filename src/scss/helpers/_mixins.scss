@@ -98,3 +98,11 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
+
+@mixin reading-width {
+    max-width: $reading-width;
+}
+
+@mixin no-reading-width {
+    max-width: none;
+}
