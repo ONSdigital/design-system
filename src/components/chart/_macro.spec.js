@@ -933,6 +933,52 @@ describe('Macro: Chart', () => {
             });
         });
 
+        describe('GIVEN: Params: yAxis.useSIUnits', () => {
+            describe('WHEN: yAxis.useSIUnits is true', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        yAxis: { ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS.yAxis, useSIUnits: true },
+                    }),
+                );
+
+                test('THEN: it includes the y-axis SI units data attribute', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-y-axis-use-si-units')).toBe('');
+                });
+            });
+
+            describe('WHEN: yAxis.useSIUnits is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_REQUIRED_PARAMS));
+
+                test('THEN: it does not include the y-axis SI units data attribute', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-y-axis-use-si-units')).toBe(undefined);
+                });
+            });
+        });
+
+        describe('GIVEN: Params: xAxis.useSIUnits', () => {
+            describe('WHEN: xAxis.useSIUnits is true', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        xAxis: { ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS.xAxis, useSIUnits: true },
+                    }),
+                );
+
+                test('THEN: it includes the x-axis SI units data attribute', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-x-axis-use-si-units')).toBe('');
+                });
+            });
+
+            describe('WHEN: xAxis.useSIUnits is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_REQUIRED_PARAMS));
+
+                test('THEN: it does not include the x-axis SI units data attribute', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-x-axis-use-si-units')).toBe(undefined);
+                });
+            });
+        });
+
         describe('GIVEN: Params: caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(

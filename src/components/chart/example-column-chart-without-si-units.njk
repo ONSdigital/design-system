@@ -1,0 +1,38 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+
+{{
+    onsChart({
+        "chartType": "column",
+        "description": "Column chart demonstrating the SI unit opt-in for large-magnitude value axes.",
+        "theme": "primary",
+        "title": "Net migration by region (illustrative figures)",
+        "subtitle": "Figure 1: With yAxis.useSIUnits set to true, large y-axis values are shown as 1M, 10M rather than 1,000,000 and 10,000,000",
+        "id": "si-units-example",
+        "headingLevel": 4,
+        "caption": "Illustrative data for documentation purposes",
+        "legend": false,
+        "xAxis": {
+            "title": "Region",
+            "categories": [
+                "North East",
+                "North West",
+                "Yorkshire",
+                "East Midlands",
+                "West Midlands",
+                "East",
+                "London",
+                "South East",
+                "South West"
+            ]
+        },
+        "yAxis": {
+            "title": "Net migration"
+        },
+        "series": [
+            {
+                "name": "Net migration",
+                "data": [2680000, -7420000, 5540000, -4880000, 5960000, 6350000, -8980000, 9290000, 5700000]
+            }
+        ]
+    })
+}}
