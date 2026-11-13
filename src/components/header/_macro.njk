@@ -14,6 +14,7 @@
         {% set currentLanguage = params.language.languages | selectattr("current") | first %}
         {% set currentLanguageIsoCode = currentLanguage.isoCode %}
     {% endif %}
+    {% set defaultLogoAltText = 'Logo Swyddfa Ystadegau Gwladol' if currentLanguageIsoCode == 'cy' else 'Office for National Statistics logo' %}
     <!-- prettier-ignore-start -->
     <{{ rootElementTag | safe }}
         class="ons-header{{ ' '+ params.classes if params.classes }}{% if params.variants is not string %}{% for variant in params.variants %}{{ ' ' }}ons-header--{{ variant }}{% endfor %}{% else %}{{ ' ' }}ons-header--{{ params.variants }}{% endif %}"
@@ -53,7 +54,7 @@
                                         {{-
                                             onsIcon({
                                                 "iconType": 'ons-logo-' + currentLanguageIsoCode,
-                                                "altText": logoAltText | default('Office for National Statistics logo')
+                                                "altText": logoAltText | default(defaultLogoAltText)
                                             })
                                         -}}
                                     {% endif %}
@@ -67,7 +68,7 @@
                                         {{-
                                             onsIcon({
                                                 "iconType": 'ons-logo-stacked-' + currentLanguageIsoCode,
-                                                "altText": logoAltText | default('Office for National Statistics logo')
+                                                "altText": logoAltText | default(defaultLogoAltText)
                                             })
                                         -}}
                                     {% endif %}
@@ -90,7 +91,7 @@
                                             {{-
                                                 onsIcon({
                                                     "iconType": 'ons-logo-stacked-' + currentLanguageIsoCode,
-                                                    "altText": logoAltText | default('Office for National Statistics logo')
+                                                    "altText": logoAltText | default(defaultLogoAltText)
                                                 })
                                             -}}
                                         {% endif %}
