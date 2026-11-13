@@ -70,9 +70,11 @@ describe('script: address-input', () => {
 
     apiFaker.setOverrides(
         [
-            `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=196%20colle&limit=10`,
+            `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=196%20colle&limit=10&classificationfilter=residential`,
+            `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=196%20colle&limit=10&classificationfilter=residential&favourwelsh=true`,
             `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf142&limit=10`,
-            `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf14%202nt&limit=100&groupfullpostcodes=combo`,
+            `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf142&limit=10&classificationfilter=residential`,
+            `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf14%202nt&limit=100&groupfullpostcodes=combo&classificationfilter=residential`,
         ],
         {
             data: {
@@ -95,7 +97,7 @@ describe('script: address-input', () => {
         },
     );
 
-    apiFaker.setOverrides([`${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf14%202&limit=10`], {
+    apiFaker.setOverrides([`${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf14%202&limit=10&classificationfilter=residential`], {
         data: {
             status: { code: 200 },
             response: {
@@ -166,7 +168,7 @@ describe('script: address-input', () => {
 
     apiFaker.setOverrides(
         [
-            `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}/bucket?postcode=CF14%202AA&streetname=Penlline%20Road&townname=Whitchurch&groupfullpostcodes=combo`,
+            `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}/bucket?postcode=CF14%202AA&streetname=Penlline%20Road&townname=Whitchurch&groupfullpostcodes=combo&classificationfilter=residential`,
         ],
         {
             data: {
@@ -284,7 +286,11 @@ describe('script: address-input', () => {
             await page.type('.ons-js-autosuggest-input', 'e');
             await setTimeout(50);
 
-            expect(await apiFaker.getRequestCount(`${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=196%20colle&limit=10`)).toBe(1);
+            expect(
+                await apiFaker.getRequestCount(
+                    `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=196%20colle&limit=10&classificationfilter=residential`,
+                ),
+            ).toBe(1);
         });
 
         describe('when the value is a full postcode', () => {
@@ -300,7 +306,7 @@ describe('script: address-input', () => {
             it('provides expected parameters to the address API where `limit` is 100', async () => {
                 expect(
                     await apiFaker.getRequestCount(
-                        `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf14%202nt&limit=100&groupfullpostcodes=combo`,
+                        `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf14%202nt&limit=100&groupfullpostcodes=combo&classificationfilter=residential`,
                     ),
                 ).toBe(1);
             });
@@ -314,7 +320,7 @@ describe('script: address-input', () => {
         describe('when the query not a partial postcode', () => {
             beforeEach(async () => {
                 apiFaker.setTemporaryOverride(
-                    `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=penlline%20road%20whitchurch%20cardiff%20cf14%202nz&limit=100&groupfullpostcodes=combo`,
+                    `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=penlline%20road%20whitchurch%20cardiff%20cf14%202nz&limit=100&groupfullpostcodes=combo&classificationfilter=residential`,
                     {
                         data: {
                             status: { code: 200 },
@@ -346,7 +352,7 @@ describe('script: address-input', () => {
             it('provides expected parameters to the address API', async () => {
                 expect(
                     await apiFaker.getRequestCount(
-                        `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=penlline%20road%20whitchurch%20cardiff%20cf14%202nz&limit=100&groupfullpostcodes=combo`,
+                        `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=penlline%20road%20whitchurch%20cardiff%20cf14%202nz&limit=100&groupfullpostcodes=combo&classificationfilter=residential`,
                     ),
                 ).toBe(1);
             });
@@ -393,7 +399,11 @@ describe('script: address-input', () => {
             });
 
             it('provides expected parameters to the address API', async () => {
-                expect(await apiFaker.getRequestCount(`${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf14%202&limit=10`)).toBe(1);
+                expect(
+                    await apiFaker.getRequestCount(
+                        `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf14%202&limit=10&classificationfilter=residential`,
+                    ),
+                ).toBe(1);
             });
 
             it('has expected suggestion entries', async () => {
@@ -414,7 +424,7 @@ describe('script: address-input', () => {
                 it('makes expected request', async () => {
                     expect(
                         await apiFaker.getRequestCount(
-                            `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}/bucket?postcode=CF14%202AA&streetname=Penlline%20Road&townname=Whitchurch&groupfullpostcodes=combo`,
+                            `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}/bucket?postcode=CF14%202AA&streetname=Penlline%20Road&townname=Whitchurch&groupfullpostcodes=combo&classificationfilter=residential`,
                         ),
                     ).toBe(1);
                 });
@@ -454,7 +464,7 @@ describe('script: address-input', () => {
                 it('makes expected bucket request', async () => {
                     expect(
                         await apiFaker.getRequestCount(
-                            `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}/bucket?postcode=CF14%202AA&streetname=Penlline%20Road&townname=Whitchurch&groupfullpostcodes=combo`,
+                            `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}/bucket?postcode=CF14%202AA&streetname=Penlline%20Road&townname=Whitchurch&groupfullpostcodes=combo&classificationfilter=residential`,
                         ),
                     ).toBe(1);
                 });
@@ -470,20 +480,23 @@ describe('script: address-input', () => {
 
         describe('when there is an error retrieving the address', () => {
             it('switches to manual mode and hides search button', async () => {
-                apiFaker.setTemporaryOverride(`${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf142&limit=10`, {
-                    data: {
-                        status: { code: 200 },
-                        response: {
-                            addresses: [
-                                {
-                                    uprn: 'bad',
-                                    formattedAddress: '196 College Road, Birmingham, B44 8HF',
-                                    addressType: 'PAF',
-                                },
-                            ],
+                apiFaker.setTemporaryOverride(
+                    `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=cf142&limit=10&classificationfilter=residential`,
+                    {
+                        data: {
+                            status: { code: 200 },
+                            response: {
+                                addresses: [
+                                    {
+                                        uprn: 'bad',
+                                        formattedAddress: '196 College Road, Birmingham, B44 8HF',
+                                        addressType: 'PAF',
+                                    },
+                                ],
+                            },
                         },
                     },
-                });
+                );
 
                 apiFaker.setTemporaryOverride(`${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}/uprn/bad?addresstype=paf`, {
                     data: {
@@ -670,7 +683,9 @@ describe('script: address-input', () => {
             await setTimeout(50);
 
             expect(
-                await apiFaker.getRequestCount(`${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=196%20colle&limit=10&favourwelsh=true`),
+                await apiFaker.getRequestCount(
+                    `${EXAMPLE_ADDRESS_INPUT_WITH_API.apiPath}?input=196%20colle&limit=10&classificationfilter=residential&favourwelsh=true`,
+                ),
             ).toBe(1);
         });
     });
