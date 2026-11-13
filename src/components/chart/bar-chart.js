@@ -28,6 +28,10 @@ class BarChart {
             };
         }
         return {
+            legend: {
+                // Our default margin below the legend is 50px, which allows room for the axis label. However we never show a category axis label on bar charts, so we can reduce the margin here.
+                margin: 20,
+            },
             plotOptions: {
                 bar: {
                     // Set the width of the bars to be 30px
