@@ -146,6 +146,7 @@ class CommonChartOptions {
             },
             tooltip: {
                 animation: false,
+                snap: 2,
             },
         };
     }

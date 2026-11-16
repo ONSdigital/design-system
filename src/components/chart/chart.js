@@ -73,6 +73,9 @@ class HighchartsBaseChart {
         this.customReferenceLineValue = this.node.dataset.highchartsCustomReferenceLineValue
             ? parseFloat(this.node.dataset.highchartsCustomReferenceLineValue)
             : undefined;
+        this.dataLabelDecimalPoints = this.node.dataset.highchartsDataLabelDecimalPoints
+            ? parseInt(this.node.dataset.highchartsDataLabelDecimalPoints, 10)
+            : undefined;
         this.specificChartOptions = new SpecificChartOptions(
             this.theme,
             this.chartType,
@@ -153,7 +156,7 @@ class HighchartsBaseChart {
     setSpecificChartOptions = () => {
         const specificChartOptions = this.specificChartOptions.getOptions();
         const lineChartOptions = this.lineChart.getLineChartOptions();
-        const barChartOptions = this.barChart.getBarChartOptions(this.useStackedLayout);
+        const barChartOptions = this.barChart.getBarChartOptions(this.useStackedLayout, this.dataLabelDecimalPoints);
         const columnRangeChartOptions = this.columnRangeChart.getColumnRangeChartOptions();
         const columnChartOptions = this.columnChart.getColumnChartOptions(this.config, this.useStackedLayout, this.extraLines);
         const areaChartOptions = this.areaChart.getAreaChartOptions();
@@ -308,6 +311,9 @@ class HighchartsBaseChart {
                 } else {
                     this.specificChartOptions.hideDataLabels(currentChart.series);
                 }
+                // Single redraw for the deferred updates inside updateBarChartHeight
+                // (setSize, series.update) and postLoadDataLabels (point.update).
+                currentChart.redraw(false);
             }
             if (this.chartType === 'column') {
                 this.specificChartOptions.hideDataLabels(currentChart.series);
@@ -373,10 +379,15 @@ class HighchartsBaseChart {
             this.resizeTimeout = setTimeout(() => {
                 // Get the current rendered chart instance
                 const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
-                // Update the data labels when the window is resized
-                if (this.chartType === 'bar' && !this.hideDataLabels) {
-                    this.barChart.postLoadDataLabels(currentChart);
-                    // Force a single redraw after all updates
+                // Update the data labels and bar chart height when the window is resized
+                if (this.chartType === 'bar') {
+                    // Recalculate height so wrapped category labels still fit at the new width
+                    this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
+                    if (!this.hideDataLabels) {
+                        this.barChart.postLoadDataLabels(currentChart);
+                    }
+                    // Single redraw for the deferred updates inside updateBarChartHeight
+                    // (setSize, series.update) and postLoadDataLabels (point.update).
                     currentChart.redraw(false);
                 }
             }, 50);

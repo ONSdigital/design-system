@@ -466,6 +466,10 @@
         display: flex;
         flex-direction: column-reverse;
     }
+
+    &__text {
+        @include no-reading-width;
+    }
 }
 
 @include panel-variant(ons-red, var(--ons-color-errors), var(--ons-color-errors-tint));

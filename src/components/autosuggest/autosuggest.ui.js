@@ -37,6 +37,7 @@ export default class AutosuggestUI {
         tooManyResults,
         errorAPI,
         errorAPILinkText,
+        errorAPILinkUrl,
         typeMore,
         customResultsThreshold,
     }) {
@@ -66,6 +67,7 @@ export default class AutosuggestUI {
         this.tooManyResults = tooManyResults || context.getAttribute('data-too-many-results');
         this.errorAPI = errorAPI || context.getAttribute('data-error-api');
         this.errorAPILinkText = errorAPILinkText || context.getAttribute('data-error-api-link-text');
+        this.errorAPILinkUrl = errorAPILinkUrl || context.getAttribute('data-error-api-link-url');
         this.typeMore = typeMore || context.getAttribute('data-type-more');
         this.customResultsThreshold = customResultsThreshold || context.getAttribute('data-result-threshold');
         this.language = context.getAttribute('data-lang');
@@ -384,7 +386,7 @@ export default class AutosuggestUI {
                             innerHTML +
                             `<span class="ons-autosuggest__category ons-u-lighter ons-u-fs-s ons-u-db">${resultItem.category}</span>`;
                     }
-                    listElement.innerHTML = innerHTML;
+                    listElement.innerHTML = `<span class="ons-autosuggest__option-text">${innerHTML}</span>`;
                     listElement.addEventListener('click', () => {
                         this.selectResult(index);
                     });
@@ -401,7 +403,7 @@ export default class AutosuggestUI {
                 const listElement = document.createElement('li');
                 listElement.className = `${classAutosuggestOption} ${classAutosuggestOptionMoreResults}`;
                 listElement.setAttribute('aria-hidden', 'true');
-                listElement.innerHTML = DOMPurify.sanitize(this.moreResults);
+                listElement.innerHTML = `<span class="ons-autosuggest__option-text">${DOMPurify.sanitize(this.moreResults)}</span>`;
                 this.listbox.appendChild(listElement);
             }
 
@@ -440,12 +442,13 @@ export default class AutosuggestUI {
             message = this.typeMore;
             this.setAriaStatus(message);
             this.listbox.innerHTML = DOMPurify.sanitize(
-                `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
+                `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}"><span class="ons-autosuggest__option-text">${message}</span></li>`,
             );
         } else if (status > 400 || status === '') {
-            const sanitizedHref = DOMPurify.sanitize(window.location.href);
-            message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + sanitizedHref + '">' + this.errorAPILinkText + '</a>.' : '');
-            let ariaMessage = this.errorAPI + (this.errorAPILinkText ? ' ' + this.errorAPILinkText : '');
+            const hasErrorLink = this.errorAPILinkText;
+            const href = hasErrorLink ? this.errorAPILinkUrl || window.location.href : '';
+            message = '<p>' + this.errorAPI + (hasErrorLink ? ' <a href="' + href + '">' + this.errorAPILinkText + '</a>.' : '') + '</p>';
+            let ariaMessage = this.errorAPI + (hasErrorLink ? ' ' + this.errorAPILinkText : '');
 
             this.input.setAttribute('disabled', true);
             this.input.value = '';
@@ -459,7 +462,7 @@ export default class AutosuggestUI {
         } else {
             message = this.noResults;
             this.listbox.innerHTML = DOMPurify.sanitize(
-                `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`,
+                `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}"><span class="ons-autosuggest__option-text">${message}</span></li>`,
             );
         }
     }

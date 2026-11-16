@@ -43,6 +43,10 @@
     &--textarea {
         // Prevent inner shadow on iOS
         appearance: none;
+
+        &:not(.ons-input--header-search, [class*='--w-']) {
+            @include reading-width;
+        }
     }
 
     &:focus {

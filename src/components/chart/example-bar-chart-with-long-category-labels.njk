@@ -1,0 +1,37 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+
+{{
+    onsChart({
+        "chartType": "bar",
+        "description": "Bar chart with very long category labels to test wrapping",
+        "theme": "primary",
+        "title": "Bar chart with long category labels",
+        "subtitle": "Long labels should wrap onto multiple lines rather than being truncated with ellipses",
+        "id": "long-labels",
+        "caption": "Source: Test data",
+        "xAxis": {
+            "categories": [
+                "All retailing including automotive fuel and non-store retailers combined",
+                "All retailing excluding Automotive fuel and adjusted for seasonal variation",
+                "Food stores including supermarkets, greengrocers, butchers and specialist food retailers",
+                "Department stores which sell a wide variety of goods across multiple categories",
+                "Other non-food stores such as sports equipment, toys, books and stationery",
+                "Textile, clothing and footwear stores including online and physical retailers",
+                "Household goods stores including furniture, hardware and electrical goods",
+                "Non-store retailing which mostly consists of online retailers but also stalls and markets",
+                "Automotive fuel including petrol and diesel sold at filling stations"
+            ],
+            "type": "linear"
+        },
+        "yAxis": {
+            "title": "Percent (%)"
+        },
+        "series": [
+            {
+                "data": [1.7, 2.1, 5.6, 0, -0.6, -2.7, -1.7, 2.4, -1.2],
+                "dataLabels": true,
+                "name": "Jan-25"
+            }
+        ]
+    })
+}}

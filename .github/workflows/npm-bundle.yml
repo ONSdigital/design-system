@@ -4,6 +4,7 @@ on:
         types: [published]
 
 permissions:
+    id-token: write
     contents: read
 
 env:
@@ -31,10 +32,7 @@ jobs:
               uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
               with:
                   node-version-file: '.nvmrc'
-                  registry-url: https://registry.npmjs.org/
             - run: yarn install
             - run: npm version "$RELEASE_VERSION" --no-git-tag-version
             - run: yarn npm-bundle
             - run: npm publish --access public --tag "$NPM_DIST_TAG"
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
