@@ -34,3 +34,13 @@
 @include bp-suffix(ons-u-wa--) {
     width: auto !important;
 }
+
+// Utility class to restrict reading width (mixin defined in helpers/_mixins.scss)
+.ons-u-reading-width {
+    @include reading-width;
+}
+
+// Utility class to override reading width restriction (mixin defined in helpers/_mixins.scss)
+.ons-u-no-reading-width {
+    @include no-reading-width;
+}
