@@ -123,42 +123,17 @@
 
                 {# meta information#}
                 {% if params.descriptionList %}
-                    <dl class="ons-hero__meta-data ons-u-mb-no ons-u-mt-s ons-u-mt-l@l">
+                    <dl class="ons-hero__metadata ons-u-mb-no ons-u-mt-s ons-u-mt-l@l">
                         {% for item in params.descriptionList.itemsList %}
-                            <div class="ons-hero__meta-data-item">
-                                {# from dl macro #}
-                                {# {% if item.term | length %}
-                                    <dt
-                                        class="ons-description-list__term ons-grid__col ons-col-{{ params.termCol }}@{{ 'xs@l' if params.variant == 'inline' else 'm' }}"
-                                    >
-                                        {{- item.term -}}
-                                    </dt>
-                                {% endif %}
-                                {% for descriptionItem in item.descriptions %}
-                                    {% if descriptionItem.description | length %}
-                                        <dd
-                                            {% if descriptionItem.id %}id="{{ descriptionItem.id }}"{% endif %}
-                                            class="ons-description-list__value ons-grid__col ons-col-{{ params.descriptionCol }}@{{ 'xs@l' if params.variant == 'inline' else 'm' }}"
-                                        >
-                                            {%- if descriptionItem.url -%}
-                                                <a class="ons-description-list__link" href="{{ descriptionItem.url }}">
-                                                    {{- descriptionItem.description -}}
-                                                </a>
-                                            {%- else -%}
-                                                {{- descriptionItem.description -}}
-                                            {%- endif -%}
-                                        </dd>
-                                    {% endif %}
-                                {% endfor %} #}
-                                {# end of that #}
+                            <div class="ons-hero__metadata-item">
                                 {% if item.term | length %}
-                                    <dt class="ons-hero__meta-data-label">
+                                    <dt class="ons-hero__metadata-label">
                                         {{ item.term }}
                                     </dt>
                                 {% endif %}
                                 {% for descriptionItem in item.descriptions %}
                                     {% if descriptionItem.description | length %}
-                                        <dd {% if descriptionItem.id %}id="{{ descriptionItem.id }}"{% endif %} class="ons-hero__meta-data-description">
+                                        <dd {% if descriptionItem.id %}id="{{ descriptionItem.id }}"{% endif %} class="ons-hero__metadata-description">
                                             {% if descriptionItem.url %}
                                                     <a href="{{ descriptionItem.url }}">
                                                         {{ descriptionItem.description }}

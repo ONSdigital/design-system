@@ -471,7 +471,7 @@
         @include no-reading-width;
     }
 
-    &__meta-data {
+    &__metadata {
         display: grid;
         grid-template-columns: 1fr;
         gap: 0.5rem 2.5rem;
@@ -486,16 +486,16 @@
         }
     }
 
-    &__meta-data-item {
+    &__metadata-item {
         display: flex;
         flex-direction: column;
     }
 
-    &__meta-data-label {
+    &__metadata-label {
         font-weight: bold;
     }
 
-    &__meta-data-description {
+    &__metadata-description {
         margin: 0;
     }
 }
