@@ -121,18 +121,59 @@
                     <div class="ons-hero__additional-content">{{- caller() -}}</div>
                 {% endif %}
 
+                {# meta information#}
                 {% if params.descriptionList %}
-                    {% from "components/description-list/_macro.njk" import onsDescriptionList %}
-                    {{
-                        onsDescriptionList({
-                            "classes": "ons-u-mb-no ons-u-mt-s ons-u-mt-l@l",
-                            "variant": 'inline',
-                            "termCol": params.descriptionList.termCol,
-                            "descriptionCol": params.descriptionList.descriptionCol,
-                            "itemsList": params.descriptionList.itemsList
-                        })
-                    }}
+                    <dl class="ons-hero__meta-data ons-u-mb-no ons-u-mt-s ons-u-mt-l@l">
+                        {% for item in params.descriptionList.itemsList %}
+                            <div class="ons-hero__meta-data-item">
+                                {# from dl macro #}
+                                {# {% if item.term | length %}
+                                    <dt
+                                        class="ons-description-list__term ons-grid__col ons-col-{{ params.termCol }}@{{ 'xs@l' if params.variant == 'inline' else 'm' }}"
+                                    >
+                                        {{- item.term -}}
+                                    </dt>
+                                {% endif %}
+                                {% for descriptionItem in item.descriptions %}
+                                    {% if descriptionItem.description | length %}
+                                        <dd
+                                            {% if descriptionItem.id %}id="{{ descriptionItem.id }}"{% endif %}
+                                            class="ons-description-list__value ons-grid__col ons-col-{{ params.descriptionCol }}@{{ 'xs@l' if params.variant == 'inline' else 'm' }}"
+                                        >
+                                            {%- if descriptionItem.url -%}
+                                                <a class="ons-description-list__link" href="{{ descriptionItem.url }}">
+                                                    {{- descriptionItem.description -}}
+                                                </a>
+                                            {%- else -%}
+                                                {{- descriptionItem.description -}}
+                                            {%- endif -%}
+                                        </dd>
+                                    {% endif %}
+                                {% endfor %} #}
+                                {# end of that #}
+                                {% if item.term | length %}
+                                    <dt class="ons-hero__meta-data-label">
+                                        {{ item.term }}
+                                    </dt>
+                                {% endif %}
+                                {% for descriptionItem in item.descriptions %}
+                                    {% if descriptionItem.description | length %}
+                                        <dd {% if descriptionItem.id %}id="{{ descriptionItem.id }}"{% endif %} class="ons-hero__meta-data-description">
+                                            {% if descriptionItem.url %}
+                                                    <a href="{{ descriptionItem.url }}">
+                                                        {{ descriptionItem.description }}
+                                                    </a>
+                                                {% else %}
+                                                {{ descriptionItem.description }}
+                                            {% endif %}
+                                        </dd>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </dl>
                 {% endif %}
+
             </div>
 
             {% if params.html %}
