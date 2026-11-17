@@ -2,18 +2,18 @@ import Highcharts from 'highcharts';
 
 // Returns a label formatter for a value axis.
 // Default output is comma-separated numbers (e.g. 1,000,000).
-// When useSIUnits is true, large magnitudes are abbreviated with SI suffixes
+// When abbreviateNumbers is true, large magnitudes are abbreviated with SI suffixes
 // (k, M, B, T) following the Highcharts default style.
 // Non-numeric values (e.g. category or datetime axis labels) pass through
 // untouched. Decimal precision is left to Highcharts.numberFormat with -1,
 // which preserves the number's natural precision.
-export const getValueAxisLabelFormatter = (useSIUnits) => {
+export const getValueAxisLabelFormatter = (abbreviateNumbers) => {
     return function () {
         const value = this.value;
         if (typeof value !== 'number' || !isFinite(value)) {
             return value;
         }
-        if (useSIUnits) {
+        if (abbreviateNumbers) {
             const abs = Math.abs(value);
             const thresholds = [
                 { limit: 1e12, suffix: 'T' },

@@ -3,11 +3,11 @@
 {{
     onsChart({
         "chartType": "column",
-        "description": "Column chart demonstrating the SI unit opt-in for large-magnitude value axes.",
+        "description": "Column chart showing the default comma-separated value-axis formatting.",
         "theme": "primary",
         "title": "Net migration by region (illustrative figures)",
-        "subtitle": "Figure 1: With yAxis.useSIUnits set to true, large y-axis values are shown as 1M, 10M rather than 1,000,000 and 10,000,000",
-        "id": "si-units-example",
+        "subtitle": "Figure 1: Without yAxis.abbreviateNumbers set, large y-axis values are shown as comma-separated numbers such as 1,000,000",
+        "id": "comma-separated-example",
         "headingLevel": 4,
         "caption": "Illustrative data for documentation purposes",
         "legend": false,
@@ -26,8 +26,7 @@
             ]
         },
         "yAxis": {
-            "title": "Net migration",
-            "useSIUnits": true
+            "title": "Net migration"
         },
         "series": [
             {

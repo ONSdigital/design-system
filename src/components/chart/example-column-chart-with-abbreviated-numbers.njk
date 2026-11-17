@@ -3,11 +3,11 @@
 {{
     onsChart({
         "chartType": "column",
-        "description": "Column chart demonstrating the SI unit opt-in for large-magnitude value axes.",
+        "description": "Column chart demonstrating the abbreviateNumbers opt-in for large-magnitude value axes.",
         "theme": "primary",
         "title": "Net migration by region (illustrative figures)",
-        "subtitle": "Figure 1: With yAxis.useSIUnits set to true, large y-axis values are shown as 1M, 10M rather than 1,000,000 and 10,000,000",
-        "id": "si-units-example",
+        "subtitle": "Figure 1: With yAxis.abbreviateNumbers set to true, large y-axis values are shown as 1M, 10M rather than 1,000,000 and 10,000,000",
+        "id": "abbreviated-numbers-example",
         "headingLevel": 4,
         "caption": "Illustrative data for documentation purposes",
         "legend": false,
@@ -26,7 +26,8 @@
             ]
         },
         "yAxis": {
-            "title": "Net migration"
+            "title": "Net migration",
+            "abbreviateNumbers": true
         },
         "series": [
             {

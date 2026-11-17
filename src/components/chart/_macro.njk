@@ -43,11 +43,11 @@
         {% if params.dataLabelDecimalPoints and params.dataLabelDecimalPoints >= 1 and params.dataLabelDecimalPoints <= 2 %}
             data-highcharts-data-label-decimal-points="{{ params.dataLabelDecimalPoints }}"
         {% endif %}
-        {% if params.yAxis.useSIUnits %}
-            data-highcharts-y-axis-use-si-units
+        {% if params.yAxis.abbreviateNumbers %}
+            data-highcharts-y-axis-abbreviate-numbers
         {% endif %}
-        {% if params.xAxis.useSIUnits %}
-            data-highcharts-x-axis-use-si-units
+        {% if params.xAxis.abbreviateNumbers %}
+            data-highcharts-x-axis-abbreviate-numbers
         {% endif %}
     >
         {%

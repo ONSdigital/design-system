@@ -28,7 +28,7 @@ describe('chart utilities', () => {
             });
         });
 
-        describe('SI units', () => {
+        describe('abbreviated numbers', () => {
             const format = getValueAxisLabelFormatter(true);
 
             test.each([
