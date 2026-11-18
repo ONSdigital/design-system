@@ -1,32 +1,47 @@
 import Highcharts from 'highcharts';
 
 // Returns a label formatter for a value axis.
-// Default output is comma-separated numbers (e.g. 1,000,000).
 // When abbreviateNumbers is true, large magnitudes are abbreviated with SI suffixes
 // (k, M, B, T) following the Highcharts default style.
-// Non-numeric values (e.g. category or datetime axis labels) pass through
-// untouched. Decimal precision is left to Highcharts.numberFormat with -1,
-// which preserves the number's natural precision.
+// Otherwise values are rendered as comma-separated numbers (e.g. 1,000,000),
+// including small values below 10,000 where Highcharts' default formatter would
+// omit thousands separators.
+//
+// Datetime axes and non-numeric values (category labels) use the default label formatter. A user-supplied labels.format template also
+// takes precedence over the comma branch so existing labelFormat usage keeps
+// working; the abbreviateNumbers branch takes precedence over labels.format.
+const SI_THRESHOLDS = [
+    { limit: 1e12, suffix: 'T' },
+    { limit: 1e9, suffix: 'B' },
+    { limit: 1e6, suffix: 'M' },
+    { limit: 1e3, suffix: 'k' },
+];
+
 export const getValueAxisLabelFormatter = (abbreviateNumbers) => {
     return function () {
         const value = this.value;
-        if (typeof value !== 'number' || !isFinite(value)) {
-            return value;
+        const axisOptions = this.axis?.options;
+
+        if (typeof value !== 'number' || !isFinite(value) || axisOptions?.type === 'datetime') {
+            return this.axis.defaultLabelFormatter.call(this);
         }
+
         if (abbreviateNumbers) {
             const abs = Math.abs(value);
-            const thresholds = [
-                { limit: 1e12, suffix: 'T' },
-                { limit: 1e9, suffix: 'B' },
-                { limit: 1e6, suffix: 'M' },
-                { limit: 1e3, suffix: 'k' },
-            ];
-            for (const { limit, suffix } of thresholds) {
+            for (const { limit, suffix } of SI_THRESHOLDS) {
                 if (abs >= limit) {
                     return Highcharts.numberFormat(value / limit, -1) + suffix;
                 }
             }
+            return Highcharts.numberFormat(value, -1);
         }
+
+        // Ignored if abbreviateNumbers is true
+        const labelFormat = axisOptions?.labels?.format;
+        if (labelFormat) {
+            return Highcharts.format(labelFormat, this);
+        }
+
         return Highcharts.numberFormat(value, -1);
     };
 };

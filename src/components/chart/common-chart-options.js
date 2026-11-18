@@ -1,4 +1,5 @@
 import ChartConstants from './chart-constants';
+import { getValueAxisLabelFormatter } from './utilities';
 
 // Options that are common to all chart types - these are set once in the Highcharts.setOptions() method
 class CommonChartOptions {
@@ -84,6 +85,7 @@ class CommonChartOptions {
             },
             yAxis: {
                 labels: {
+                    formatter: getValueAxisLabelFormatter(false),
                     style: {
                         color: this.constants.axisLabelColor,
                         fontSize: this.constants.defaultFontSize,
@@ -112,6 +114,7 @@ class CommonChartOptions {
             },
             xAxis: {
                 labels: {
+                    formatter: getValueAxisLabelFormatter(false),
                     useHTML: true,
                     rotation: 0,
                     style: {

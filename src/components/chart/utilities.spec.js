@@ -1,9 +1,24 @@
 import { getValueAxisLabelFormatter } from './utilities';
 
+// Mirror enough of the Highcharts formatter `this` context for the tests to run
+// in isolation. `defaultLabelFormatter` is what the formatter delegates to for
+// non-numeric and datetime axes; here it just stringifies the value.
+const invoke = (formatter, value, axisOptions = {}) => {
+    const context = {
+        value,
+        axis: {
+            options: axisOptions,
+            // this is a mock for the default label formatter from Highcharts
+            defaultLabelFormatter() {
+                return String(this.value);
+            },
+        },
+    };
+    return formatter.call(context);
+};
+
 describe('chart utilities', () => {
     describe('getValueAxisLabelFormatter', () => {
-        const invoke = (formatter, value) => formatter.call({ value });
-
         describe('default (comma-separated)', () => {
             const format = getValueAxisLabelFormatter(false);
 
@@ -11,7 +26,8 @@ describe('chart utilities', () => {
                 [0, '0'],
                 [100, '100'],
                 [1000, '1,000'],
-                [1500, '1,500'],
+                [5000, '5,000'],
+                [-5000, '-5,000'],
                 [1000000, '1,000,000'],
                 [-1234567, '-1,234,567'],
                 [1.5, '1.5'],
@@ -19,12 +35,22 @@ describe('chart utilities', () => {
                 expect(invoke(format, input)).toBe(expected);
             });
 
-            test('passes non-numeric values through unchanged', () => {
+            test('delegates non-numeric values to the axis default formatter', () => {
                 expect(invoke(format, 'Jan 2024')).toBe('Jan 2024');
             });
 
-            test('passes NaN through unchanged', () => {
-                expect(Number.isNaN(invoke(format, NaN))).toBe(true);
+            test('delegates NaN to the axis default formatter', () => {
+                expect(invoke(format, NaN)).toBe('NaN');
+            });
+
+            test('delegates datetime axes to the axis default formatter', () => {
+                // A timestamp value with no format applied would wrongly render as
+                // a comma-separated number; delegating preserves date rendering.
+                expect(invoke(format, 1700000000000, { type: 'datetime' })).toBe('1700000000000');
+            });
+
+            test('honours a user-supplied labels.format template', () => {
+                expect(invoke(format, 1234.567, { labels: { format: '{value:.2f}' } })).toBe('1234.57');
             });
         });
 
@@ -45,8 +71,8 @@ describe('chart utilities', () => {
                 expect(invoke(format, input)).toBe(expected);
             });
 
-            test('passes non-numeric values through unchanged', () => {
-                expect(invoke(format, '2024')).toBe('2024');
+            test('ignores labels.format in favour of the abbreviated output', () => {
+                expect(invoke(format, 1500000, { labels: { format: '{value:.2f}' } })).toBe('1.5M');
             });
         });
     });
