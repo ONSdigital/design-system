@@ -11,6 +11,8 @@ For feature cards with a headline figure, the macro groups the title and subtitl
 
 The headline figure card set fills the available row with one, two or three cards. Set `figureAlignment` to `"top"` on every card in a set to align the tops of figures instead of their bottoms; see the top-aligned figures example for a wrapping figure.
 
+Headline figure card sets use the container's responsive grid gutters for horizontal spacing, including the wider gutters in wide containers.
+
 The sparkline example sets both `sparkline: true` and `figureAlignment: "top"` on every card, so the sparklines and figures share the same rows. Leave `sparkline` unset or set it to `false` to hide the illustration.
 
 ## Image

@@ -33,7 +33,7 @@
 
 .ons-grid-flex-gap.ons-card-set--headline-figures {
     display: grid;
-    gap: 0 1rem;
+    row-gap: 0;
     grid-template-columns: 1fr;
 
     @include mq(l) {
