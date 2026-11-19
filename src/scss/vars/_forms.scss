@@ -17,7 +17,7 @@ $nbsp-width: 0.288rem;
     @each $width in $input-widths {
         .#{str-replace($class-name, '{x}', $width)} {
             // Cap at reading-width so very wide classes don't exceed it
-            max-width: min(#{input-width-calc($width, $char-width)}, $reading-width);
+            max-width: min(#{input-width-calc($width, $char-width)}, var(--ons-reading-width));
             width: 100%;
 
             .ons-field__group & {
