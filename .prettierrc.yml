@@ -3,5 +3,6 @@
     'singleQuote': true,
     'printWidth': 140,
     'trailingComma': all,
-    'overrides': [{ 'files': ['*.html', '*.njk'], 'options': { 'parser': 'jinja-template' } }],
+    'overrides':
+        [{ 'files': ['*.html', '*.njk'], 'options': { 'parser': 'jinja-template' } }, { 'files': '*.md', 'options': { 'tabWidth': 2 } }],
 }
