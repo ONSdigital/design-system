@@ -241,3 +241,18 @@ npm publish --access public
 -   [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 -   [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
 -   [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+
+## House Style
+
+### Pull request titles
+
+Use a concise, action-led title that describes the user-facing change. Where relevant, follow the pattern: action verb + user-facing change + capitalised component name.
+
+Examples:
+
+- Allow custom field labels in Date Input
+- Add configurable API path URL for Address Input
+- Allow configuration of og:image in Layout
+- Fix minor logo bugs in Header, Footer & Icon
+
+Describe what the change enables or fixes rather than the implementation detail. For a fictional example, use "Allow custom field labels in Date Input" instead of "Remove hard-coded date field label strings".
