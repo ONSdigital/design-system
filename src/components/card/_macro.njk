@@ -4,16 +4,12 @@
     {% set closingHeadingTag = "</h" + headingLevel + ">" %}
     {% set placeholderSrcset = (params.image.placeholderUrl if params.image.placeholderUrl else "") + "/img/small/placeholder-card.png 1x, " + (params.image.placeholderUrl if params.image.placeholderUrl else "") + "/img/large/placeholder-card.png 2x" %}
     {% set topAlignedFigure = params.variant == 'feature' and params.figureAlignment == 'top' and params.body.figure %}
-    {% set showSparkline = params.variant == 'feature' and params.body.figure and params.sparkline %}
     {% set cardClasses = 'ons-card' %}
     {% if params.variant == 'feature' %}
         {% set cardClasses = cardClasses + ' ons-card--feature ons-u-flex-grow' %}
     {% endif %}
     {% if topAlignedFigure %}
         {% set cardClasses = cardClasses + ' ons-card--figure-top' %}
-    {% endif %}
-    {% if showSparkline %}
-        {% set cardClasses = cardClasses + ' ons-card--with-sparkline' %}
     {% endif %}
 
     <div class="{{ cardClasses }}">
@@ -75,20 +71,6 @@
 
 
         {% set bodyBlock %}
-            {% if showSparkline %}
-                <svg class="ons-card__sparkline" viewBox="0 26 308 120" aria-hidden="true" focusable="false">
-                    <path d="M3 97 V121 L60 39 L114 109 L170 132 L220 97 H280 L305 69 V97 Z" fill="var(--ons-color-soft-blue-grey)" />
-                    <path d="M3 97 H305" stroke="var(--ons-color-grey-35)" stroke-width="2" />
-                    <path
-                        d="M3 121 L60 39 L114 109 L170 132 L220 97 H280 L305 69"
-                        fill="none"
-                        stroke="var(--ons-color-ocean-blue)"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="5"
-                    />
-                </svg>
-            {% endif %}
             {% if params.body.figure %}
                 <p class="ons-card__figure ons-u-fs-3xl ons-u-fw-b ons-u-mb-no">{{ params.body.figure }}</p>
             {% endif %}
@@ -106,7 +88,7 @@
             {% endif %}
         {% endset %}
 
-        {% if topAlignedFigure or showSparkline %}
+        {% if topAlignedFigure %}
             <div class="ons-card__content">{{ bodyBlock | safe }}</div>
         {% else %}
             {{ bodyBlock | safe }}

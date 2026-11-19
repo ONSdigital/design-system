@@ -83,24 +83,4 @@
     .ons-card__body {
         margin-top: 1rem;
     }
-
-    .ons-card--with-sparkline {
-        grid-row: span 2;
-
-        .ons-card__figure {
-            margin-top: 1rem;
-        }
-    }
-
-    .ons-card__sparkline {
-        display: block;
-        height: auto;
-        margin-top: 0.75rem;
-        max-width: 20rem;
-        width: 100%;
-
-        @include mq(l) {
-            max-width: none;
-        }
-    }
 }
