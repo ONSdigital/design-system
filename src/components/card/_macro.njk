@@ -7,6 +7,9 @@
     {% set cardClasses = 'ons-card' %}
     {% if params.variant == 'feature' %}
         {% set cardClasses = cardClasses + ' ons-card--feature ons-u-flex-grow' %}
+        {% if params.title.url %}
+            {% set cardClasses = cardClasses + ' ons-card--linked' %}
+        {% endif %}
     {% endif %}
     {% if topAlignedFigure %}
         {% set cardClasses = cardClasses + ' ons-card--figure-top' %}
@@ -49,7 +52,10 @@
 
         {% set headingBlock %}
             {% if params.title.url %}
-                <a href="{{ params.title.url }}" class="ons-card__link{% if params.title.subtitle %}{{ ' ' }}ons-u-mb-xs{% endif %}">
+                <a
+                    href="{{ params.title.url }}"
+                    class="ons-card__link{% if params.title.subtitle and not (params.variant == 'feature' and params.body.figure) %}{{ ' ' }}ons-u-mb-xs{% endif %}"
+                >
                     {{ imageBlock | safe }}
                     {{ titleBlock | safe }}
                 </a>
@@ -59,7 +65,11 @@
             {% endif %}
 
             {% if params.title.subtitle %}
-                <p class="ons-card__subtitle ons-u-fs-s">{{ params.title.subtitle }}</p>
+                <p
+                    class="ons-card__subtitle ons-u-fs-s{% if params.variant == 'feature' and params.body.figure and params.title.url %}{{ ' ' }}ons-u-mt-2xs{% endif %}"
+                >
+                    {{ params.title.subtitle }}
+                </p>
             {% endif %}
         {% endset %}
 

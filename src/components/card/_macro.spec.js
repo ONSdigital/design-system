@@ -89,6 +89,10 @@ describe('FOR: Macro: Card', () => {
             test('THEN: renders the title with the provided url', () => {
                 expect($('.ons-card__link').attr('href')).toBe('http://example.com');
             });
+
+            test('THEN: standard cards keep title-only links', () => {
+                expect($('.ons-card').hasClass('ons-card--linked')).toBe(false);
+            });
         });
         describe('WHEN: subtitle is provided', () => {
             test('THEN: it renders the subtitle with the provided text', () => {
@@ -181,13 +185,27 @@ describe('FOR: Macro: Card', () => {
                 expect($('.ons-card').hasClass('ons-card--feature')).toBe(true);
             });
 
+            test('THEN: linked feature cards have one native title link and a tile interaction modifier', async () => {
+                expect($('.ons-card').hasClass('ons-card--linked')).toBe(true);
+                expect($('.ons-card a').length).toBe(1);
+                expect($('.ons-card__link').text().trim()).toBe('Feature card title');
+                expect(await axe($.html())).toHaveNoViolations();
+            });
+
+            test('THEN: feature cards without a title URL stay non-interactive', () => {
+                const $unlinked = cheerio.load(renderComponent('card', { ...EXAMPLE_CARD, variant: 'feature' }));
+
+                expect($unlinked('.ons-card').hasClass('ons-card--linked')).toBe(false);
+                expect($unlinked('a').length).toBe(0);
+            });
+
             test('THEN: it groups the title and subtitle before the headline figure', () => {
                 expect(
                     $('.ons-card__heading')
                         .children()
                         .map((_, element) => element.attribs.class)
                         .get(),
-                ).toEqual(['ons-card__link ons-u-mb-xs', 'ons-card__subtitle ons-u-fs-s']);
+                ).toEqual(['ons-card__link', 'ons-card__subtitle ons-u-fs-s ons-u-mt-2xs']);
                 expect($('.ons-card__heading').next().hasClass('ons-card__figure')).toBe(true);
             });
 

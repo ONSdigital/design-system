@@ -10,7 +10,9 @@ For feature cards with a headline figure, the macro groups the title and subtitl
 
 The headline figure card set fills the available row with one, two or three cards. Set `figureAlignment` to `"top"` on every card in a set to align the tops of figures instead of their bottoms; see the top-aligned figures example for a wrapping figure.
 
-Headline figure card sets use the container's responsive grid gutters for horizontal spacing, including the wider gutters in wide containers.
+Headline figure card sets use the container's responsive grid gutters for both horizontal and vertical spacing, including between wrapped rows and the wider gutters in wide containers. On mobile, where the horizontal gutter is zero, stacked cards retain a `1rem` vertical gap.
+
+On feature cards, providing `title.url` makes the whole tile clickable using the title link. The headline is blue and underlined; hovering anywhere over the tile adds a pale-blue background. Focus and active states use a yellow background and dark outline, keeping the headline underlined. Cards without a title URL remain non-interactive, and standard cards retain their title-only links. Any additional links within a feature card remain independently clickable.
 
 ## Image
 
