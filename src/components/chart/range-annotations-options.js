@@ -39,6 +39,8 @@ class RangeAnnotationsOptions {
                     style: {
                         color: this.constants.labelColor,
                         fontSize: this.constants.defaultFontSize,
+                        // Override Highcharts' default ellipsis so label text can wrap onto multiple lines.
+                        textOverflow: 'clip',
                         // This property is not set as an inline style if rangeAnnotation.labelInside is undefined
                         width: rangeAnnotationLabelWidth,
                     },
