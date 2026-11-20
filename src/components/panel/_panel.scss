@@ -207,6 +207,13 @@
         }
     }
 
+    &--warn &,
+    &--warn-branded & {
+        &__icon {
+            margin-top: 0.2rem;
+        }
+    }
+
     &--announcement & {
         &__body div > *:last-child {
             margin-bottom: 0;
