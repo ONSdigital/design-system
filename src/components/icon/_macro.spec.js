@@ -103,7 +103,7 @@ describe('macro: icon', () => {
         ['ons-logo-stacked-cy', 'Hafan Swyddfa Ystadegau Gwladol'],
         ['crest', 'Royal coat of arms of the United Kingdom'],
         ['official-statistics', 'Official Statistics Badge - Accredited'],
-        ['ogl', 'Open Government License logo'],
+        ['ogl', 'Open Government Licence logo'],
     ])('icon type: %s', (iconType, expectedAltText) => {
         it(`has default alt text '${expectedAltText}'`, () => {
             const $ = cheerio.load(renderComponent('icon', { iconType }));
