@@ -209,14 +209,13 @@ describe('script: timeout modal', () => {
 
         describe('when the `esc` key is pressed', () => {
             beforeEach(async () => {
-                await page.waitForSelector('.ons-modal');
+                await page.waitForSelector('.ons-modal[open].ons-u-db');
                 await page.keyboard.press('Escape');
+                await page.waitForSelector('.ons-modal:not([open]):not(.ons-u-db)');
             });
 
             it('closes the modal', async () => {
                 const modalIsVisible = await page.$eval('.ons-modal', (node) => node.classList.contains('ons-u-db'));
-
-                await setTimeout(100);
 
                 expect(modalIsVisible).toBe(false);
             });
