@@ -1,0 +1,239 @@
+---
+title: 'Example: Table of contents on full page'
+layout: ~
+---
+
+{% from "components/hero/_macro.njk" import onsHero %}
+{% extends "layout/_template.njk" %}
+{%
+    set pageConfig = {
+        "header": {
+            "variants": 'basic',
+            "menuLinks": {
+                "id": "menu-links",
+                "keyLinks": [
+                    {
+                        'heading': 'Taking part in a survey?',
+                        'description': 'It’s never been more important.'
+                    },
+                    {
+                        'heading': 'Release calendar',
+                        'description': 'View our latest and upcoming releases.'
+                    },
+                    {
+                        'heading': 'Explore local statistics',
+                        'url': '#0',
+                        'description': 'Explore statistics across the UK.'
+                    }
+                ],
+                "columns": [
+                    {
+                        "groups": [
+                            {
+                                "heading": "People, population and community",
+                                "groupItems": [
+                                    {
+                                        "text": "Armed forces community"
+                                    },
+                                    {
+                                        "text": "Births, deaths and marriages"
+                                    },
+                                    {
+                                        "text": "Crime and justice"
+                                    },
+                                    {
+                                        "text": "Cultural identity"
+                                    },
+                                    {
+                                        "text": "Education and childcare"
+                                    },
+                                    {
+                                        "text": "Elections"
+                                    },
+                                    {
+                                        "text": "Health and social care"
+                                    },
+                                    {
+                                        "text": "Household characteristics"
+                                    },
+                                    {
+                                        "text": "Housing"
+                                    },
+                                    {
+                                        "text": "Leisure and tourism"
+                                    },
+                                    {
+                                        "text": "Personal and household finances"
+                                    },
+                                    {
+                                        "text": "Population and migration"
+                                    },
+                                    {
+                                        "text": "Well-being"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "groups": [
+                            {
+                                "heading": "Business, industry and trade",
+                                "groupItems": [
+                                    {
+                                        "text": "Business"
+                                    },
+                                    {
+                                        "text": "Changes to business"
+                                    },
+                                    {
+                                        "text": "Construction industry"
+                                    },
+                                    {
+                                        "text": "International trade"
+                                    },
+                                    {
+                                        "text": "IT and internet industry"
+                                    },
+                                    {
+                                        "text": "Manufacturing and production industry"
+                                    },
+                                    {
+                                        "text": "Retail industry",
+                                        "url": "#0"
+                                    },
+                                    {
+                                        "text": "Tourism industry"
+                                    }
+                                ]
+                            },
+                            {
+                                "heading": "Employment and labour market",
+                                "url": "#0",
+                                "groupItems":
+                                [
+                                    {
+                                        "text": "People in work"
+                                    },
+                                    {
+                                        "text": "People not in work"
+                                    }
+                                ]
+
+                            }
+                        ]
+                    },
+                    {
+                        "groups": [
+                            {
+                                "heading": "Economy",
+                                "groupItems": [
+                                    {
+                                        "text": "Economic output and productivity"
+                                    },
+                                    {
+                                        "text": "Government, public sector and taxes"
+                                    },
+                                    {
+                                        "text": "Gross Value Added (GVA)"
+                                    },
+                                    {
+                                        "text": "Investments, pensions and trusts"
+                                    },
+                                    {
+                                        "text": "Regional accounts"
+                                    },
+                                    {
+                                        "text": "Environmental accounts"
+                                    },
+                                    {
+                                        "text": "Gross Domestic Product (GDP)"
+                                    },
+                                    {
+                                        "text": "Inflation and price indices"
+                                    },
+                                    {
+                                        "text": "National accounts"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        breadcrumbs: {
+            "ariaLabel": 'Breadcrumbs',
+            "variant": "grey",
+            "itemsList": [
+                {
+                    "url": '/',
+                    "text": 'Home'
+                },
+                {
+                    "url": '/',
+                    "text": 'Business, industry and trade'
+                },
+                {
+                    "url": '/',
+                    "text": 'Retail industry'
+                }
+            ]
+        }
+    }
+%}
+
+{% block hero %}
+    {{
+        onsHero({
+            "variants": "grey",
+            "detailsColumns": '12',
+            "officialStatisticsBadge": true,
+            "officialStatisticsBadgeUrl": 'https://uksa.statisticsauthority.gov.uk/about-the-authority/uk-statistical-system/types-of-official-statistics/',
+            "informationPanel":{
+                "panelText": 'Latest release',
+                "panelType": 'ons-green',
+                "panelLink": {
+                    "text": 'View previous releases',
+                    "url": '#0',
+                    "ariaLabel": 'View previous release of Retail sales rise amid summer discounts and sporting events'
+                }
+            },
+            "topic": 'Statistical article',
+            "title": 'Retail sales rise amid summer discounts and sporting events, according to a first estimate',
+            "text": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id mattis ligula, nec sollicitudin arcu. Donec non tristique tellus. Donec eget malesuada lorem.',
+            "censusLogo": true,
+            "descriptionList": {
+                "termCol": "5",
+                "descriptionCol": "7",
+                "itemsList": [
+                    {
+                        "term": "Dyddiad rhyddhau dros dro",
+                        "descriptions": [
+                            {
+                                "description": "11 Tachwedd 2026 9:30am"
+                            }
+                        ]
+                    },
+                    {
+                        "term": "Dyddiad rhyddhau nisaf",
+                        "descriptions": [
+                            {
+                                "description": "11 Tachwedd 2026 9:30am"
+                            }
+                        ]
+                    },
+                    {
+                        "term": "Cyswllt",
+                        "descriptions": [
+                            {
+                                "description": "Tîm gwerthu manwerthu",
+                                "url": "#0"
+                            }
+                        ]
+                    }
+                ]
+            }
+        })
+    }}
+{% endblock %}

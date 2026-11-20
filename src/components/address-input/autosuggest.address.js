@@ -336,7 +336,7 @@ export default class AutosuggestAddress {
         }
 
         if (!uprn) {
-            if (this.classificationFilter && this.classificationFilter !== 'residential') {
+            if (this.classificationFilter) {
                 fullUrl = fullUrl + classificationFilterParam + this.classificationFilter;
             }
 
