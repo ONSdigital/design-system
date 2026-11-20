@@ -210,6 +210,10 @@ class HighchartsBaseChart {
             }
         }
 
+        if (this.useStackedLayout === true && (this.chartType === 'bar' || this.chartType === 'column')) {
+            this.config = mergeConfigs(this.config, this.specificChartOptions.getStackedTooltipOptions());
+        }
+
         // Limit the number of series to the theme length
         this.specificChartOptions.limitSeriesToThemeLength();
 
@@ -365,6 +369,11 @@ class HighchartsBaseChart {
             }
             if (this.chartType != 'bar' && this.chartType != 'columnrange') {
                 this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
+            }
+            // Re-apply the zero-value hover sliver after redraws (e.g. resize)
+            // since Highcharts regenerates the point paths from shapeArgs.
+            if (this.chartType === 'bar' || this.chartType === 'column') {
+                this.specificChartOptions.hideZeroValuePoints(currentChart);
             }
             // Update the legend symbols on render to maintain them during resize
             this.specificChartOptions.updateLegendSymbols(currentChart);
