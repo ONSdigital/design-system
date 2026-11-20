@@ -1,0 +1,63 @@
+{% from "components/card/_macro.njk" import onsCard %}
+
+<div class="ons-container ons-container--wide">
+    <div class="ons-grid ons-grid-flex-gap ons-card-set--headline-figures">
+        <div class="ons-grid__col ons-grid__col--flex-col">
+            {{
+                onsCard({
+                    "variant": 'feature',
+                    "figureAlignment": 'top',
+                    "title": {
+                        "id": 'top-aligned-card-1',
+                        "text": 'Deaths registered annually',
+                        "url": '#deaths-registered',
+                        "subtitle": 'England and Wales'
+                    },
+                    "body": {
+                        "id": 'top-aligned-text-1',
+                        "figure": '581,363',
+                        "text": 'In 2023, up 0.7% from 2022'
+                    }
+                })
+            }}
+        </div>
+
+        <div class="ons-grid__col ons-grid__col--flex-col">
+            {{
+                onsCard({
+                    "variant": 'feature',
+                    "figureAlignment": 'top',
+                    "title": {
+                        "id": 'top-aligned-card-2',
+                        "text": 'Illustrative headline',
+                        "subtitle": 'England and Wales'
+                    },
+                    "body": {
+                        "id": 'top-aligned-text-2',
+                        "figure": '6.15 Million households in England',
+                        "text": 'An illustrative figure with a longer value to show how the top edges align'
+                    }
+                })
+            }}
+        </div>
+
+        <div class="ons-grid__col ons-grid__col--flex-col">
+            {{
+                onsCard({
+                    "variant": 'feature',
+                    "figureAlignment": 'top',
+                    "title": {
+                        "id": 'top-aligned-card-3',
+                        "text": 'Alcohol-specific deaths',
+                        "subtitle": 'UK'
+                    },
+                    "body": {
+                        "id": 'top-aligned-text-3',
+                        "figure": '10,473',
+                        "text": 'In 2023, the highest number on record, with supporting text that wraps across several lines'
+                    }
+                })
+            }}
+        </div>
+    </div>
+</div>

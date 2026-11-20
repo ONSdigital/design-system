@@ -23,10 +23,104 @@
         text-decoration-thickness: 3px;
     }
 
+    &--linked {
+        position: relative;
+
+        .ons-card__link::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+        }
+
+        a:not(.ons-card__link) {
+            position: relative;
+            z-index: 1;
+        }
+
+        &:hover {
+            background-color: var(--ons-color-branded-tint);
+        }
+
+        &:has(.ons-card__link:focus),
+        &:has(.ons-card__link:active) {
+            background-color: var(--ons-color-focus);
+            outline: 2px solid var(--ons-color-text-link-focus);
+
+            .ons-card__link {
+                color: var(--ons-color-text-link-focus);
+                text-decoration-color: currentcolor;
+            }
+        }
+
+        .ons-card__link:focus {
+            background-color: transparent;
+            box-shadow: none;
+            text-decoration-line: underline;
+        }
+    }
+
     @include mq(m) {
         margin: 0;
         .ons-grid__col & {
             padding-right: 1rem;
         }
+    }
+}
+
+.ons-grid-flex-gap.ons-card-set--headline-figures {
+    display: grid;
+    row-gap: 0;
+    grid-template-columns: 1fr;
+
+    @include mq(l) {
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    }
+
+    > .ons-grid__col {
+        display: contents;
+    }
+
+    .ons-card--feature {
+        display: grid;
+        grid-row: span 3;
+        grid-template-rows: subgrid;
+        margin: 0 0 1rem;
+        padding: 1rem;
+
+        @include mq(m) {
+            margin-bottom: var(--ons-grid-gutter);
+        }
+
+        @include mq(l) {
+            padding: 1.5rem;
+        }
+    }
+
+    .ons-card__title,
+    .ons-card__subtitle,
+    .ons-card__link {
+        margin-bottom: 0;
+    }
+
+    .ons-card__figure {
+        align-self: end;
+        margin-top: 2rem;
+
+        @include mq(l, xl, $to-operator: '<') {
+            font-size: 2rem;
+            line-height: 2.75rem;
+        }
+    }
+
+    .ons-card--figure-top {
+        grid-row: span 2;
+
+        .ons-card__figure {
+            align-self: start;
+        }
+    }
+
+    .ons-card__body {
+        margin-top: 1rem;
     }
 }

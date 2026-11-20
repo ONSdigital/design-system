@@ -1,7 +1,7 @@
 {% from "components/card/_macro.njk" import onsCard %}
 
-<div class="ons-container">
-    <div class="ons-grid ons-grid-flex-gap">
+<div class="ons-container ons-container--wide">
+    <div class="ons-grid ons-grid-flex-gap ons-card-set--headline-figures">
         <div class="ons-grid__col ons-grid__col--flex-col">
             {{
                 onsCard({
@@ -9,6 +9,7 @@
                     "title": {
                         "id": 'card-set-1',
                         "text": 'Deaths registered annually',
+                        "url": '#deaths-registered',
                         "subtitle": 'England and Wales'
                     },
                     "body":{
