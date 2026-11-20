@@ -470,6 +470,34 @@
     &__text {
         @include no-reading-width;
     }
+
+    &__metadata {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem 2.5rem;
+        margin: 0;
+
+        @include mq(m) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include mq(l) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    &__metadata-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__metadata-label {
+        font-weight: bold;
+    }
+
+    &__metadata-description {
+        margin: 0;
+    }
 }
 
 @include panel-variant(ons-red, var(--ons-color-errors), var(--ons-color-errors-tint));

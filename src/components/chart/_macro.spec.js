@@ -933,6 +933,52 @@ describe('Macro: Chart', () => {
             });
         });
 
+        describe('GIVEN: Params: yAxis.abbreviateNumbers', () => {
+            describe('WHEN: yAxis.abbreviateNumbers is true', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        yAxis: { ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS.yAxis, abbreviateNumbers: true },
+                    }),
+                );
+
+                test('THEN: it includes the y-axis abbreviate numbers data attribute', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-y-axis-abbreviate-numbers')).toBe('');
+                });
+            });
+
+            describe('WHEN: yAxis.abbreviateNumbers is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_REQUIRED_PARAMS));
+
+                test('THEN: it does not include the y-axis abbreviate numbers data attribute', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-y-axis-abbreviate-numbers')).toBe(undefined);
+                });
+            });
+        });
+
+        describe('GIVEN: Params: xAxis.abbreviateNumbers', () => {
+            describe('WHEN: xAxis.abbreviateNumbers is true', () => {
+                const $ = cheerio.load(
+                    renderComponent('chart', {
+                        ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS,
+                        xAxis: { ...EXAMPLE_LINE_CHART_REQUIRED_PARAMS.xAxis, abbreviateNumbers: true },
+                    }),
+                );
+
+                test('THEN: it includes the x-axis abbreviate numbers data attribute', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-x-axis-abbreviate-numbers')).toBe('');
+                });
+            });
+
+            describe('WHEN: xAxis.abbreviateNumbers is not provided', () => {
+                const $ = cheerio.load(renderComponent('chart', EXAMPLE_LINE_CHART_REQUIRED_PARAMS));
+
+                test('THEN: it does not include the x-axis abbreviate numbers data attribute', () => {
+                    expect($('[data-highcharts-base-chart]').attr('data-highcharts-x-axis-abbreviate-numbers')).toBe(undefined);
+                });
+            });
+        });
+
         describe('GIVEN: Params: caption', () => {
             describe('WHEN: caption is provided', () => {
                 const $ = cheerio.load(
