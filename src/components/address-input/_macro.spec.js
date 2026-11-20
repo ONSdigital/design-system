@@ -99,6 +99,7 @@ describe('FOR: Macro: Address-input', () => {
                 errorMessageSelect: '[params.errorMessageSelect]',
                 errorMessageApi: '[params.errorMessageApi]',
                 errorMessageApiLinkText: '[params.errorMessageApiLinkText]',
+                errorMessageApiLinkUrl: '[params.errorMessageApiLinkUrl]',
                 options: '[params.options]',
                 manualLinkUrl: '[params.manualLinkUrl]',
                 manualLinkText: '[params.manualLinkText]',
@@ -149,6 +150,7 @@ describe('FOR: Macro: Address-input', () => {
                     errorMessageSelect: '[params.errorMessageSelect]',
                     errorMessageApi: '[params.errorMessageApi]',
                     errorMessageApiLinkText: '[params.errorMessageApiLinkText]',
+                    errorMessageApiLinkUrl: '[params.errorMessageApiLinkUrl]',
                     options: '[params.options]',
                     manualLinkUrl: '[params.manualLinkUrl]',
                     manualLinkText: '[params.manualLinkText]',
@@ -176,7 +178,6 @@ describe('FOR: Macro: Address-input', () => {
                         text: 'Organisation name',
                     },
                     value: 'Example Organisation',
-                    width: '20@m',
                     error: { text: 'Server error: organisation name' },
                 });
             });
@@ -191,7 +192,6 @@ describe('FOR: Macro: Address-input', () => {
                         text: 'Address line 1',
                     },
                     value: 'Flat 12345',
-                    width: '20@m',
                     error: { text: 'Server error: address line 1' },
                 });
             });
@@ -207,7 +207,6 @@ describe('FOR: Macro: Address-input', () => {
                         text: 'Address line 2',
                     },
                     value: '12345 The Road',
-                    width: '20@m',
                     error: { text: 'Server error: address line 2' },
                 });
             });

@@ -13,7 +13,7 @@ import Boxplot from './boxplot';
 import AnnotationsOptions from './annotations-options';
 import RangeAnnotationsOptions from './range-annotations-options';
 import ReferenceLineAnnotationsOptions from './reference-line-annotations-options';
-import { preparePlotLinesAndBands, mergeConfigs } from './utilities';
+import { preparePlotLinesAndBands, mergeConfigs, getValueAxisLabelFormatter } from './utilities';
 import AreaChart from './area-chart';
 import ColumnRangeChart from './columnrange-chart';
 
@@ -76,6 +76,8 @@ class HighchartsBaseChart {
         this.dataLabelDecimalPoints = this.node.dataset.highchartsDataLabelDecimalPoints
             ? parseInt(this.node.dataset.highchartsDataLabelDecimalPoints, 10)
             : undefined;
+        this.yAxisAbbreviateNumbers = this.node.hasAttribute('data-highcharts-y-axis-abbreviate-numbers');
+        this.xAxisAbbreviateNumbers = this.node.hasAttribute('data-highcharts-x-axis-abbreviate-numbers');
         this.specificChartOptions = new SpecificChartOptions(
             this.theme,
             this.chartType,
@@ -100,6 +102,7 @@ class HighchartsBaseChart {
         }
         this.hideDataLabels = this.checkHideDataLabels();
         this.setSpecificChartOptions();
+        this.applyAbbreviateNumbersFormatter();
         this.setAnnotationsAccessibilityDescription();
         this.setResponsiveOptions();
         this.setLoadEvent();
@@ -210,11 +213,31 @@ class HighchartsBaseChart {
             }
         }
 
+        if (this.useStackedLayout === true && (this.chartType === 'bar' || this.chartType === 'column')) {
+            this.config = mergeConfigs(this.config, this.specificChartOptions.getStackedTooltipOptions());
+        }
+
         // Limit the number of series to the theme length
         this.specificChartOptions.limitSeriesToThemeLength();
 
         // Disable the legend for single series charts
         this.specificChartOptions.disableLegendForSingleSeries(this.config);
+    };
+
+    // Apply the abbreviated-number label formatter to the value axes when the opt-in is set.
+    // Formatter functions can't be JSON-serialised, so this runs after the config
+    // has been parsed from the macro-rendered JSON.
+    applyAbbreviateNumbersFormatter = () => {
+        if (this.yAxisAbbreviateNumbers) {
+            this.config = mergeConfigs(this.config, {
+                yAxis: { labels: { formatter: getValueAxisLabelFormatter(true) } },
+            });
+        }
+        if (this.xAxisAbbreviateNumbers) {
+            this.config = mergeConfigs(this.config, {
+                xAxis: { labels: { formatter: getValueAxisLabelFormatter(true) } },
+            });
+        }
     };
 
     // Check if the data labels should be hidden
@@ -311,6 +334,9 @@ class HighchartsBaseChart {
                 } else {
                     this.specificChartOptions.hideDataLabels(currentChart.series);
                 }
+                // Single redraw for the deferred updates inside updateBarChartHeight
+                // (setSize, series.update) and postLoadDataLabels (point.update).
+                currentChart.redraw(false);
             }
             if (this.chartType === 'column') {
                 this.specificChartOptions.hideDataLabels(currentChart.series);
@@ -363,6 +389,11 @@ class HighchartsBaseChart {
             if (this.chartType != 'bar' && this.chartType != 'columnrange') {
                 this.specificChartOptions.adjustChartHeight(currentChart, this.percentageHeightDesktop, this.percentageHeightMobile);
             }
+            // Re-apply the zero-value hover sliver after redraws (e.g. resize)
+            // since Highcharts regenerates the point paths from shapeArgs.
+            if (this.chartType === 'bar' || this.chartType === 'column') {
+                this.specificChartOptions.hideZeroValuePoints(currentChart);
+            }
             // Update the legend symbols on render to maintain them during resize
             this.specificChartOptions.updateLegendSymbols(currentChart);
         };
@@ -376,10 +407,15 @@ class HighchartsBaseChart {
             this.resizeTimeout = setTimeout(() => {
                 // Get the current rendered chart instance
                 const currentChart = Highcharts.charts.find((chart) => chart && chart.container === this.chart.container);
-                // Update the data labels when the window is resized
-                if (this.chartType === 'bar' && !this.hideDataLabels) {
-                    this.barChart.postLoadDataLabels(currentChart);
-                    // Force a single redraw after all updates
+                // Update the data labels and bar chart height when the window is resized
+                if (this.chartType === 'bar') {
+                    // Recalculate height so wrapped category labels still fit at the new width
+                    this.barChart.updateBarChartHeight(this.config, currentChart, this.useStackedLayout);
+                    if (!this.hideDataLabels) {
+                        this.barChart.postLoadDataLabels(currentChart);
+                    }
+                    // Single redraw for the deferred updates inside updateBarChartHeight
+                    // (setSize, series.update) and postLoadDataLabels (point.update).
                     currentChart.redraw(false);
                 }
             }, 50);

@@ -27,9 +27,12 @@ class ReferenceLineAnnotationsOptions {
                 label: {
                     text: referenceLineAnnotation.text,
                     useHTML: true,
+                    allowOverlap: true,
                     style: {
                         color: this.constants.labelColor,
                         fontSize: this.constants.defaultFontSize,
+                        // Override Highcharts' default ellipsis so label text can wrap onto multiple lines.
+                        textOverflow: 'clip',
                         width: referenceLineAnnotation.labelWidth ? referenceLineAnnotation.labelWidth : 150,
                     },
                     x: referenceLineAnnotation.labelOffsetX ? referenceLineAnnotation.labelOffsetX : 10,
