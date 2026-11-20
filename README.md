@@ -145,11 +145,21 @@ Checkout the branch locally and run:
 
 `VR_SHARD_INDEX=0 VR_SHARD_COUNT=4 yarn test-visual` - This runs only one shard of the visual tests locally. Useful when one shard fails in CI.
 
+### Handling VR test failures
+
+If the VR tests fail locally, you'll see an error starting with `Error: docker run --rm -i --add-host=host.docker.internal:host-gateway...`
+
+`npx http-server backstop_data -p 8008 -c-1 -o /html_report/` - View the report in your browser.
+
+### Approving VR test reference image changes
+
 `yarn test-visual:approve` - This will approve the failures/diff caught by the tests.
 
-`git lfs push --all origin` - First commit the files in the normal way then run the command. This will push the new reference images to Git LFS.
+Commit and approve the file changes in the normal way.
 
-You can then commit and push the updated references and your changes to your branch. The test images that would have been created when you ran `yarn test-visual` are gitignored and the new references images will be pushed to Git LFS.
+`git lfs push --all origin` - This will push the new reference images to Git LFS.
+
+You can then push the updated references and your changes to your branch. The test images that would have been created when you ran `yarn test-visual` are gitignored and the new references images will be pushed to Git LFS.
 
 If your local tests are failing but you have approved them, run `yarn test-visual:reference`. This will update the reference images locally on your machine.
 
@@ -231,3 +241,18 @@ npm publish --access public
 -   [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 -   [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
 -   [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+
+## House Style
+
+### Pull request titles
+
+Use a concise, action-led title that describes the user-facing change. Where relevant, follow the pattern: action verb + user-facing change + capitalised component name.
+
+Examples:
+
+- Allow custom field labels in Date Input
+- Add configurable API path URL for Address Input
+- Allow configuration of og:image in Layout
+- Fix minor logo bugs in Header, Footer & Icon
+
+Describe what the change enables or fixes rather than the implementation detail. For a fictional example, use "Allow custom field labels in Date Input" instead of "Remove hard-coded date field label strings".

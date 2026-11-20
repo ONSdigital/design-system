@@ -317,7 +317,7 @@ const FULL_EXAMPLE = `
 {% endblock %}
 
 {% block head %}Some head content{% endblock %}
-{% block preHeader %}Some preHeader content{% endblock %}
+{% block preHeader %}<section>Some preHeader content</section>{% endblock %}
 {% block preFooter %}Some preFooter content{% endblock %}
 {% block scripts %}<script src="random-script.js"></script>{% endblock %}
 `;
@@ -355,6 +355,32 @@ const NO_FAVICONS_EXAMPLE = `
     "title": "Social survey"
 } %}
 {% block favicons %}{% endblock %}
+`;
+
+const ALL_SLOTS_EXAMPLE = `
+{% set pageConfig = {
+} %}
+{% block meta %}<meta data-slot="meta" />{% endblock %}
+{% block social %}<meta data-slot="social" />{% endblock %}
+{% block favicons %}<meta data-slot="favicons" />{% endblock %}
+{% block head %}<meta data-slot="head" />{% endblock %}
+{% block bodyStart %}<div data-slot="bodyStart"></div>{% endblock %}
+{% block preHeader %}<div data-slot="preHeader"></div>{% endblock %}
+{% block skipLink %}<div data-slot="skipLink"></div>{% endblock %}
+{% block announcementBanner %}<div data-slot="announcementBanner"></div>{% endblock %}
+{% block header %}<div data-slot="header"></div>{{ super() }}{% endblock %}
+{% block preBreadcrumbs %}<div data-slot="preBreadcrumbs"></div>{% endblock %}
+{% block breadcrumbs %}<div data-slot="breadcrumbs"></div>{% endblock %}
+{% block preMain %}<div data-slot="preMain"></div>{% endblock %}
+{% block pageContent %}<div data-slot="pageContent"></div>{{ super() }}{% endblock %}
+{% block hero %}<div data-slot="hero"></div>{% endblock %}
+{% block postHero %}<div data-slot="postHero"></div>{% endblock %}
+{% block mainContent %}<div data-slot="mainContent"></div>{% endblock %}
+{% block postMainContent %}<div data-slot="postMainContent"></div>{% endblock %}
+{% block preFooter %}<div data-slot="preFooter"></div>{% endblock %}
+{% block footer %}<footer data-slot="footer"></footer>{% endblock %}
+{% block bodyEnd %}<div data-slot="bodyEnd"></div>{% endblock %}
+{% block scripts %}<script data-slot="scripts"></script>{% endblock %}
 `;
 
 const HEADER_BASIC_EXAMPLE = `
@@ -546,6 +572,35 @@ const HEADER_BASIC_EXAMPLE = `
 {% block main %}{% endblock %}
 `;
 
+const BREADCRUMBS_VARIANT_EXAMPLE = `
+{% set pageConfig = {
+    "header": {
+        "title": "Test service"
+    },
+    "breadcrumbs": {
+        "itemsList": [
+            { "url": "/", "text": "Home" }
+        ],
+        "variant": "grey"
+    }
+} %}
+{% block main %}{% endblock %}
+`;
+
+const BREADCRUMBS_NO_VARIANT_EXAMPLE = `
+{% set pageConfig = {
+    "header": {
+        "title": "Test service"
+    },
+    "breadcrumbs": {
+        "itemsList": [
+            { "url": "/", "text": "Home" }
+        ]
+    }
+} %}
+{% block main %}{% endblock %}
+`;
+
 const HEADER_SEARCH_EXAMPLE = `
 {% set pageConfig = {
     "title": "Social survey",
@@ -565,7 +620,6 @@ const HEADER_SEARCH_EXAMPLE = `
         }
     }
 } %}
-
 {% block main %}{% endblock %}
 `;
 
@@ -596,11 +650,169 @@ describe('base page template', () => {
         expect($.html()).toMatchSnapshot();
     });
 
+    describe('pageConfig.breadcrumbs.variant', () => {
+        it('renders breadcrumbs in a wrapper with the variant modifier class when variant is provided', () => {
+            const $ = cheerio.load(renderBaseTemplate(BREADCRUMBS_VARIANT_EXAMPLE));
+            expect($('.ons-breadcrumbs-wrapper').hasClass('ons-breadcrumbs-wrapper--grey')).toBe(true);
+        });
+
+        it('does not render a breadcrumbs wrapper when variant is not provided', () => {
+            const $ = cheerio.load(renderBaseTemplate(BREADCRUMBS_NO_VARIANT_EXAMPLE));
+            expect($('.ons-breadcrumbs-wrapper').length).toBe(0);
+        });
+    });
+
     it('renders header search correctly from pageConfig.header.search', () => {
         const $ = cheerio.load(renderBaseTemplate(HEADER_SEARCH_EXAMPLE));
 
         expect($.html()).toContain('id="search-links"');
         expect($.html()).toContain('Popular searches');
         expect($.html()).toContain('Cost of living');
+    });
+
+    describe('open graph image', () => {
+        const getOgImageMeta = ($) => ({
+            urls: $('meta[property="og:image"]')
+                .map((_, el) => $(el).attr('content'))
+                .get(),
+            type: $('meta[property="og:image:type"]').attr('content'),
+            width: $('meta[property="og:image:width"]').attr('content'),
+            height: $('meta[property="og:image:height"]').attr('content'),
+        });
+
+        it('uses pageConfig.ogImg values and emits a single og:image tag', () => {
+            const customisedOgImageExample = `
+{% set pageConfig = {
+    "title": "Open Graph image customised",
+    "ogImg": {
+        "url": "https://cdn.example.com/social/custom-card.png",
+        "width": "1400",
+        "height": "900",
+        "type": "image/jpeg"
+    }
+} %}
+`;
+            const $ = cheerio.load(renderBaseTemplate(customisedOgImageExample));
+            const ogImage = getOgImageMeta($);
+
+            expect(ogImage.urls).toEqual(['https://cdn.example.com/social/custom-card.png']);
+            expect(ogImage.type).toBe('image/jpeg');
+            expect(ogImage.width).toBe('1400');
+            expect(ogImage.height).toBe('900');
+        });
+
+        it('defaults to default image when pageConfig.ogImg is not provided', () => {
+            const defaultOgImageExample = `
+{% set pageConfig = {
+    "title": "Open Graph image default",
+    "assetsUrl": "/some-path"
+} %}
+`;
+            const $ = cheerio.load(renderBaseTemplate(defaultOgImageExample));
+            const ogImage = getOgImageMeta($);
+
+            expect(ogImage.urls).toEqual(['/some-path/social/opengraph.png']);
+            expect(ogImage.type).toBe('image/png');
+            expect(ogImage.width).toBe('1200');
+            expect(ogImage.height).toBe('630');
+        });
+
+        it('emits custom url without dimension or type tags when only url is provided', () => {
+            const urlOnlyOgImageExample = `
+{% set pageConfig = {
+    "title": "Open Graph image url only",
+    "assetsUrl": "/some-path",
+    "ogImg": {
+        "url": "https://cdn.example.com/social/custom-card.png"
+    }
+} %}
+`;
+            const $ = cheerio.load(renderBaseTemplate(urlOnlyOgImageExample));
+            const ogImage = getOgImageMeta($);
+
+            expect(ogImage.urls).toEqual(['https://cdn.example.com/social/custom-card.png']);
+            expect(ogImage.type).toBeUndefined();
+            expect(ogImage.width).toBeUndefined();
+            expect(ogImage.height).toBeUndefined();
+        });
+
+        it.each([
+            ['omitted', `{ "title": "Open Graph image without url", "assetsUrl": "/some-path", "ogImg": {} }`],
+            ['empty', `{ "title": "Open Graph image empty url", "assetsUrl": "/some-path", "ogImg": { "url": "" } }`],
+        ])('falls back to defaults when ogImg url is %s', (_, pageConfig) => {
+            const example = `
+{% set pageConfig = ${pageConfig} %}
+`;
+            const $ = cheerio.load(renderBaseTemplate(example));
+            const ogImage = getOgImageMeta($);
+
+            expect(ogImage.urls).toEqual(['/some-path/social/opengraph.png']);
+            expect(ogImage.type).toBe('image/png');
+            expect(ogImage.width).toBe('1200');
+            expect(ogImage.height).toBe('630');
+        });
+    });
+
+    it('renders markers for every template slot override', () => {
+        const $ = cheerio.load(renderBaseTemplate(ALL_SLOTS_EXAMPLE));
+
+        const slots = [
+            'meta',
+            'social',
+            'favicons',
+            'head',
+            'bodyStart',
+            'preHeader',
+            'skipLink',
+            'announcementBanner',
+            'header',
+            'preBreadcrumbs',
+            'breadcrumbs',
+            'preMain',
+            'pageContent',
+            'hero',
+            'postHero',
+            'mainContent',
+            'postMainContent',
+            'preFooter',
+            'footer',
+            'bodyEnd',
+            'scripts',
+        ];
+
+        slots.forEach((slot) => {
+            expect($(`[data-slot="${slot}"]`).length).toBe(1);
+        });
+    });
+
+    it('renders key slot placement around header and main content', () => {
+        const $ = cheerio.load(renderBaseTemplate(ALL_SLOTS_EXAMPLE));
+
+        const headerChildren = $('header').first().children().toArray();
+        const preBreadcrumbsIndex = headerChildren.findIndex((child) => $(child).is('[data-slot="preBreadcrumbs"]'));
+        const breadcrumbsIndex = headerChildren.findIndex((child) => $(child).is('[data-slot="breadcrumbs"]'));
+
+        expect(preBreadcrumbsIndex).toBeGreaterThan(-1);
+        expect(breadcrumbsIndex).toBeGreaterThan(-1);
+        expect(preBreadcrumbsIndex).toBeLessThan(breadcrumbsIndex);
+
+        const mainChildren = $('#main-content').children().toArray();
+        const heroIndex = mainChildren.findIndex((child) => $(child).is('[data-slot="hero"]'));
+        const postHeroIndex = mainChildren.findIndex((child) => $(child).is('[data-slot="postHero"]'));
+        const containerIndex = mainChildren.findIndex((child) => $(child).is('.ons-page__container'));
+
+        expect(heroIndex).toBeGreaterThan(-1);
+        expect(postHeroIndex).toBeGreaterThan(-1);
+        expect(containerIndex).toBeGreaterThan(-1);
+        expect(heroIndex).toBeLessThan(postHeroIndex);
+        expect(postHeroIndex).toBeLessThan(containerIndex);
+        expect($('#main-content .ons-page__main [data-slot="mainContent"]').length).toBe(1);
+
+        const mainColChildren = $('#main-content .ons-page__main').children().toArray();
+        const mainContentIndex = mainColChildren.findIndex((child) => $(child).is('[data-slot="mainContent"]'));
+        const postMainContentIndex = mainColChildren.findIndex((child) => $(child).is('[data-slot="postMainContent"]'));
+
+        expect(postMainContentIndex).toBeGreaterThan(-1);
+        expect(mainContentIndex).toBeLessThan(postMainContentIndex);
     });
 });

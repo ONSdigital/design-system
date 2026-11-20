@@ -17,6 +17,7 @@
         data-type-more="{{ params.typeMore }}"
         {% if params.resultsThreshold %}data-result-threshold="{{ params.resultsThreshold }}"{% endif %}
         {% if params.apiDomain %}data-api-domain="{{ params.apiDomain }}"{% endif %}
+        {% if params.apiPath %}data-api-path="{{ params.apiPath }}"{% endif %}
         {% if params.apiDomainBearerToken %}data-authorization-token="{{ params.apiDomainBearerToken }}"{% endif %}
         {% if params.apiManualQueryParams == true %}data-query-params=""{% endif %}
         {% if params.allowMultiple == true %}data-allow-multiple="true"{% endif %}
@@ -29,6 +30,7 @@
         {% if params.tooManyResults %}data-too-many-results="{{ params.tooManyResults }}"{% endif %}
         {% if params.errorMessageApi %}data-error-api="{{ params.errorMessageApi }}"{% endif %}
         {% if params.errorMessageApiLinkText %}data-error-api-link-text="{{ params.errorMessageApiLinkText }}"{% endif %}
+        {% if params.errorMessageApiLinkUrl %}data-error-api-link-url="{{ params.errorMessageApiLinkUrl }}"{% endif %}
         {% if params.language %}data-lang="{{ params.language }}"{% endif %}
         {% if params.options %}
             {% if params.options.oneYearAgo %}data-options-one-year-ago="true"{% endif %}

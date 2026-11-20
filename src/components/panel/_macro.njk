@@ -62,7 +62,7 @@
                 {% set closingTag = "</" ~ titleTag ~ ">" %}
                 <div class="ons-panel__header">
                     {{ openingTag | safe }} id="alert"{% if params.variant %}data-qa="{{ params.variant }}-header"{% endif %}
-                    class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}{{ closingTag | safe }}
+                    class="ons-panel__title ons-u-fs-r--b ons-u-reading-width">{{ params.title | safe }}{{ closingTag | safe }}
                 </div>
             {% else %}
                 {% if not params.variant or params.variant == "branded" or params.variant == "info" or params.variant == "bare" %}

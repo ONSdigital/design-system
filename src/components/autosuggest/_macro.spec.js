@@ -122,6 +122,21 @@ describe('FOR: Macro: Autosuggest', () => {
         });
     });
 
+    describe('GIVEN: Params: errorMessageApiLinkUrl', () => {
+        describe('WHEN: an error API link URL is provided', () => {
+            const $ = cheerio.load(
+                renderComponent('autosuggest', {
+                    ...EXAMPLE_AUTOSUGGEST,
+                    errorMessageApiLinkUrl: '/contact-us',
+                }),
+            );
+
+            test('THEN: it provides the URL to the autosuggest script', () => {
+                expect($('.ons-autosuggest').attr('data-error-api-link-url')).toBe('/contact-us');
+            });
+        });
+    });
+
     describe('GIVEN: Params: allowMultiple', () => {
         describe('WHEN: allowMultiple is true', () => {
             const $ = cheerio.load(

@@ -89,6 +89,73 @@ class SpecificChartOptions {
         });
     };
 
+    // For stacked bar and column charts, use a shared tooltip so hovering
+    // anywhere in the column (including over zero-value segments) triggers
+    // a tooltip covering every series in the stack. The pointFormatter
+    // mirrors Highcharts' default row markup and bolds the series name of
+    // the point currently under the cursor so users can tell which stack
+    // segment they're on. stickyTracking: false combined with the mouseOut
+    // handler ensures the tooltip only appears when the cursor is over a bar.
+    getStackedTooltipOptions = () => {
+        return {
+            tooltip: {
+                shared: true,
+                pointFormatter() {
+                    const isHovered = this === this.series.chart.hoverPoint;
+                    const name = isHovered ? `<b>${this.series.name}</b>` : this.series.name;
+                    return `<span style="color:${this.color}">●</span> ${name}: <b>${this.y}</b><br/>`;
+                },
+            },
+            plotOptions: {
+                series: {
+                    stickyTracking: false,
+                    point: {
+                        events: {
+                            mouseOut() {
+                                this.series.chart.tooltip.hide();
+                            },
+                        },
+                    },
+                },
+            },
+        };
+    };
+
+    // For bar and column charts, zero-value points render with zero width/height,
+    // leaving no hover target for the tooltip. Resize their graphic to a 4px
+    // sliver on the axis and make it transparent so the hover zone is preserved
+    // without the sliver being visible. Applied per-point so small non-zero
+    // values keep their correct size (unlike a plot-wide `minPointLength`).
+    hideZeroValuePoints = (currentChart) => {
+        currentChart.series.forEach((series) => {
+            if (series.type !== 'bar' && series.type !== 'column') {
+                return;
+            }
+            series.points.forEach((point) => {
+                if (point.y !== 0 || !point.graphic || !point.shapeArgs) {
+                    return;
+                }
+                // Highcharts renders column/bar points as SVG <path> elements.
+                // Its SVGElement.attr() wrapper ignores `d` so we write the path directly to the
+                // DOM. Extends the zero-value shape by 4px along the y-axis.
+                // Bar charts invert the y axis, so the same adjustment produces a 4px
+                // sliver on the axis for both column and bar series.
+                const { x, y, width } = point.shapeArgs;
+                const x1 = x + width;
+                const y1 = y - 4;
+                const d = `M ${x} ${y1} L ${x1} ${y1} L ${x1} ${y} L ${x} ${y} Z`;
+                point.graphic.element.setAttribute('d', d);
+
+                // Needed to ensure the zero-point value remains invisible on hover
+                // Avoid point.update() because it marks the point dirty, which causes
+                // the next redraw to regenerate `d` from shapeArgs (wiping out the sliver).
+                point.color = 'transparent';
+                // Update the DOM now for the non-hover render
+                point.graphic.element.setAttribute('fill', 'transparent');
+            });
+        });
+    };
+
     disableLegendForSingleSeries = (config) => {
         if (config.chart.type != 'boxplot' && config.series.length === 1) {
             config.legend = {
