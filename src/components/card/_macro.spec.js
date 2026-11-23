@@ -92,6 +92,8 @@ describe('FOR: Macro: Card', () => {
 
             test('THEN: standard cards keep title-only links', () => {
                 expect($('.ons-card').hasClass('ons-card--linked')).toBe(false);
+                expect($('.ons-card__heading, .ons-card__content')).toHaveLength(0);
+                expect($('.ons-card__figure').next().hasClass('ons-card__body')).toBe(true);
             });
         });
         describe('WHEN: subtitle is provided', () => {
@@ -207,6 +209,8 @@ describe('FOR: Macro: Card', () => {
                         .get(),
                 ).toEqual(['ons-card__link', 'ons-card__subtitle ons-u-fs-s ons-u-mt-2xs']);
                 expect($('.ons-card__heading').next().hasClass('ons-card__figure')).toBe(true);
+                expect($('.ons-card__figure').next().hasClass('ons-card__content')).toBe(true);
+                expect($('.ons-card__content').children().get()).toEqual($('.ons-card__body').get());
             });
 
             test('THEN: top alignment groups the figure and its supporting text', () => {
@@ -227,6 +231,25 @@ describe('FOR: Macro: Card', () => {
 
                 expect($noFigure('.ons-card').hasClass('ons-card--figure-top')).toBe(false);
                 expect($noFigure('.ons-card__content').length).toBe(0);
+                expect($noFigure('.ons-card__heading').length).toBe(0);
+                expect($noFigure('.ons-card__body').parent().hasClass('ons-card')).toBe(true);
+            });
+
+            it.each([undefined, 'top'])('THEN: alignment %s keeps the optional list with its supporting text', (figureAlignment) => {
+                const $withList = cheerio.load(
+                    renderComponent('card', {
+                        ...EXAMPLE_CARD_FEATURE_VARIANT,
+                        figureAlignment,
+                        body: {
+                            ...EXAMPLE_CARD_FEATURE_VARIANT.body,
+                            itemsList: EXAMPLE_CARD_WITH_LIST.body.itemsList,
+                        },
+                    }),
+                );
+
+                expect($withList('.ons-card__content > .ons-card__body').next('ul')).toHaveLength(1);
+                expect($withList('.ons-card__content > ul li')).toHaveLength(2);
+                expect($withList('.ons-card__content > .ons-card__figure')).toHaveLength(figureAlignment === 'top' ? 1 : 0);
             });
         });
     });

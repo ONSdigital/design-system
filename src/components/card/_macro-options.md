@@ -6,13 +6,20 @@
 | variant         | string                    | false    | A single value to adjust the component using available variants: “feature”                                                                                              |
 | figureAlignment | string                    | false    | Set to `"top"` on feature cards with a headline figure to align the tops of the figures and keep body text immediately below each figure. Defaults to bottom alignment. |
 
-For feature cards with a headline figure, the macro groups the title and subtitle automatically so the example card set can align figures with CSS grid. Content providers do not need to add this wrapper.
+For feature cards with a headline figure, the macro adds the following wrappers automatically. Content providers do not need to add them:
 
-The headline figure card set fills the available row with one, two or three cards. Set `figureAlignment` to `"top"` on every card in a set to align the tops of figures instead of their bottoms; see the top-aligned figures example for a wrapping figure.
+- `ons-card__heading` groups the image and title (inside the title link when provided) and optional subtitle.
+- `ons-card__content` groups the supporting text and optional list. With default bottom alignment, the figure stays outside this wrapper so headings, figures and supporting content occupy three shared grid rows. With top alignment, the wrapper also includes the figure so each card's supporting text follows its figure, using two shared grid rows.
+
+These wrappers are not added to standard cards or feature cards without a headline figure.
+
+Add `ons-card-set--headline-figures` alongside the container's grid classes to enable headline figure alignment. The macro adds `ons-card--figure-top` to feature cards with a figure when `figureAlignment` is `"top"`; this selects the two-row layout within the headline figure card set.
+
+The headline figure card set fills the available row with one, two or three cards. Set `figureAlignment` to `"top"` on every card in a set to align the tops of figures instead of their bottoms; see [the top-aligned headline figures example](example-card-set-with-headline-figures-top-aligned.html) for a wrapping figure.
 
 Headline figure card sets use the container's responsive grid gutters for both horizontal and vertical spacing, including between wrapped rows and the wider gutters in wide containers. On mobile, where the horizontal gutter is zero, stacked cards retain a `1rem` vertical gap.
 
-On feature cards, providing `title.url` makes the whole tile clickable using the title link. The headline is blue and underlined; hovering anywhere over the tile adds a pale-blue background. Focus and active states use a yellow background and dark outline, keeping the headline underlined. Cards without a title URL remain non-interactive, and standard cards retain their title-only links. Any additional links within a feature card remain independently clickable.
+On feature cards, providing `title.url` adds `ons-card--linked`, making the whole tile clickable using the title link. The headline is blue and underlined; hovering anywhere over the tile adds a pale-blue background. Focus and active states use a yellow background and dark outline, keeping the headline underlined. Cards without a title URL remain non-interactive, and standard cards retain their title-only links. Any additional links within a feature card remain independently clickable.
 
 ## Image
 

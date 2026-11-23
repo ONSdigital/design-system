@@ -13,8 +13,9 @@ function renderCardSet(wide, figureAlignment) {
                 ...(index === 0 ? { url: '#headline-1' } : {}),
             },
             body: {
-                figure: index === 1 && figureAlignment === 'top' ? '6.15 Million households in England' : '581,363',
+                figure: index === 1 ? '6.15 Million households in England' : '581,363',
                 text: index === 1 ? 'Supporting text that also wraps across several lines in narrower cards' : 'In 2023, up 0.7% from 2022',
+                ...(index === 1 ? { itemsList: [{ text: 'Additional supporting information' }] } : {}),
             },
         }),
     );
@@ -67,6 +68,7 @@ describe('Headline figure cards', () => {
                 const body = card.querySelector('.ons-card__body').getBoundingClientRect();
                 const title = card.querySelector('.ons-card__title').getBoundingClientRect();
                 const subtitle = card.querySelector('.ons-card__subtitle').getBoundingClientRect();
+                const list = card.querySelector('.ons-card__content > ul')?.getBoundingClientRect();
                 return {
                     left: rect.left,
                     right: rect.right,
@@ -75,6 +77,9 @@ describe('Headline figure cards', () => {
                     figureTop: figure.top,
                     figureBottom: figure.bottom,
                     bodyTop: body.top,
+                    bodyBottom: body.bottom,
+                    listTop: list?.top,
+                    listBottom: list?.bottom,
                     subtitleGap: subtitle.top - title.bottom,
                     linked: card.classList.contains('ons-card--linked'),
                     gutter: parseFloat(getComputedStyle(card.closest('.ons-card-set--headline-figures')).columnGap),
@@ -87,6 +92,10 @@ describe('Headline figure cards', () => {
 
         for (const card of layout) {
             expect(Math.abs(card.subtitleGap - (card.linked ? 8 : 0))).toBeLessThan(1);
+            if (card.listTop !== undefined) {
+                expect(card.listTop).toBeGreaterThanOrEqual(card.bodyBottom);
+                expect(card.listBottom).toBeLessThanOrEqual(card.bottom);
+            }
         }
 
         if (width >= 980) {
@@ -100,10 +109,13 @@ describe('Headline figure cards', () => {
         }
 
         for (const card of firstRow) {
+            expect(Math.abs(card.bottom - firstRow[0].bottom)).toBeLessThan(1);
             const edge = alignment === 'top' ? 'figureTop' : 'figureBottom';
             expect(Math.abs(card[edge] - firstRow[0][edge])).toBeLessThan(1);
             if (alignment === 'top') {
                 expect(Math.abs(card.bodyTop - card.figureBottom - 16)).toBeLessThan(1);
+            } else {
+                expect(Math.abs(card.bodyTop - firstRow[0].bodyTop)).toBeLessThan(1);
             }
         }
     });
