@@ -99,6 +99,15 @@ $breadcrumb-chevron-height: 0.65rem;
             &:not(:nth-last-child(1)) {
                 // not last child
                 display: inline-block;
+
+                // Reserve space on the final text fragment and pull the chevron into it.
+                .ons-breadcrumbs__link {
+                    padding-right: $breadcrumb-chevron-height + 0.5rem;
+                }
+
+                .ons-icon {
+                    margin-left: -($breadcrumb-chevron-height + 0.25rem);
+                }
             }
 
             &:nth-last-child(1) {
