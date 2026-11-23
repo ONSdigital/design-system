@@ -344,7 +344,7 @@ describe('macro: hero', () => {
             }),
         );
 
-        const descriptionText = $('.ons-description-list__value');
+        const descriptionText = $('.ons-hero__metadata-description');
         expect($(descriptionText[0]).text().trim()).toBe('description1');
         expect($(descriptionText[1]).text().trim()).toBe('description2');
     });

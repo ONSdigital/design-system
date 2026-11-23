@@ -1,0 +1,38 @@
+{% from "components/chart/_macro.njk" import onsChart %}
+
+{{
+    onsChart({
+        "chartType": "column",
+        "description": "Column chart showing the default comma-separated value-axis formatting.",
+        "theme": "primary",
+        "title": "Net migration by region (illustrative figures)",
+        "subtitle": "Figure 1: Without yAxis.abbreviateNumbers set, large y-axis values are shown as comma-separated numbers such as 1,000,000",
+        "id": "comma-separated-example",
+        "headingLevel": 4,
+        "caption": "Illustrative data for documentation purposes",
+        "legend": false,
+        "xAxis": {
+            "title": "Region",
+            "categories": [
+                "North East",
+                "North West",
+                "Yorkshire",
+                "East Midlands",
+                "West Midlands",
+                "East",
+                "London",
+                "South East",
+                "South West"
+            ]
+        },
+        "yAxis": {
+            "title": "Net migration"
+        },
+        "series": [
+            {
+                "name": "Net migration",
+                "data": [2680000, -7420000, 5540000, -4880000, 5960000, 6350000, -8980000, 9290000, 5700000]
+            }
+        ]
+    })
+}}
