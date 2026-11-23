@@ -173,6 +173,7 @@ describe('Headline figure cards', () => {
             });
             expect(await page.$$eval('.ons-card a', (links) => links.length)).toBe(1);
             await page.keyboard.press('Enter');
+            await page.waitForFunction(() => window.location.hash === '#headline-1');
             expect(new URL(page.url()).hash).toBe('#headline-1');
         });
 
@@ -222,6 +223,7 @@ describe('Headline figure cards', () => {
             }),
         );
         await page.click('a[href="#secondary"]');
+        await page.waitForFunction(() => window.location.hash === '#secondary');
         expect(new URL(page.url()).hash).toBe('#secondary');
     });
 
