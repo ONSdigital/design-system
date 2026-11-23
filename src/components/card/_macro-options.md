@@ -17,6 +17,8 @@ Add `ons-card-set--headline-figures` alongside the container's grid classes to e
 
 The headline figure card set fills the available row with one, two or three cards. Set `figureAlignment` to `"top"` on every card in a set to align the tops of figures instead of their bottoms; see [the top-aligned headline figures example](example-card-set-with-headline-figures-top-aligned.html) for a wrapping figure.
 
+The top-aligned example uses [Census 2021 household figures](https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/bulletins/householdandresidentcharacteristicsenglandandwales/census2021) to demonstrate how supporting text stays immediately below each figure when values wrap.
+
 Headline figure card sets use the container's responsive grid gutters for both horizontal and vertical spacing, including between wrapped rows and the wider gutters in wide containers. On mobile, where the horizontal gutter is zero, stacked cards retain a `1rem` vertical gap.
 
 On feature cards, providing `title.url` adds `ons-card--linked`, making the whole tile clickable using the title link. The headline is blue and underlined; hovering anywhere over the tile adds a pale-blue background. Focus and active states use a yellow background and dark outline, keeping the headline underlined. Cards without a title URL remain non-interactive, and standard cards retain their title-only links. Any additional links within a feature card remain independently clickable.
