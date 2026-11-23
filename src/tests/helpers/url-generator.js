@@ -1,6 +1,7 @@
 const fs = require('fs');
 const util = require('util');
 const { glob } = require('glob');
+const { viewports } = require('../../../backstop.config');
 const readdir = util.promisify(fs.readdir);
 
 const testUrl = `http://host.docker.internal:3010`;
@@ -36,12 +37,17 @@ export default async () => {
             const files = await glob(`${directory.path}/${folder}/**/example-*.njk`);
             for (const file of files) {
                 const urlPath = file.replace(/^/, './').replace(/^\.\/src\/(.*\/example-.*?)\.njk$/, '/$1');
-                urls.push({
+                const scenario = {
                     url: `${testUrl}${urlPath}`,
                     label: urlPath,
                     delay: 2000,
                     misMatchThreshold: 0.05,
-                });
+                };
+                if (urlPath === '/components/breadcrumbs/example-breadcrumbs-long-labels') {
+                    // This label fits on one line at the standard tablet viewport.
+                    scenario.viewports = [...viewports, { name: 'wrapping', width: 620, height: 344 }];
+                }
+                urls.push(scenario);
             }
         }
     }
