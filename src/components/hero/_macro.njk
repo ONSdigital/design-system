@@ -21,7 +21,9 @@
                 {% endfor %}
             </div>
         {% endif %}
-        <div class="ons-hero__container ons-container{{ ' ons-container--wide' if params.wide }}">
+        <div
+            class="ons-hero__container ons-container{{ ' ons-container--wide' if params.wide }}{{ ' ons-container--full-width' if params.fullWidth }}"
+        >
             <div class="ons-hero__details ons-grid__col ons-col-{{ detailsColumns }}@m col-10@s@m">
                 <div class="ons-hero__content">
                     <div class="ons-hero__title-container">
@@ -44,7 +46,6 @@
                         {% elif params.richText %}
                             <div class="ons-hero__richtext">{{ params.richText | safe }}</div>
                         {% endif %}
-
                     </div>
 
                     {% if params.variants == "grey" and params.officialStatisticsBadge == true %}
@@ -120,18 +121,34 @@
                     <div class="ons-hero__additional-content">{{- caller() -}}</div>
                 {% endif %}
 
+                {# meta information#}
                 {% if params.descriptionList %}
-                    {% from "components/description-list/_macro.njk" import onsDescriptionList %}
-                    {{
-                        onsDescriptionList({
-                            "classes": "ons-u-mb-no ons-u-mt-s ons-u-mt-l@l",
-                            "variant": 'inline',
-                            "termCol": params.descriptionList.termCol,
-                            "descriptionCol": params.descriptionList.descriptionCol,
-                            "itemsList": params.descriptionList.itemsList
-                        })
-                    }}
+                    <dl class="ons-hero__metadata ons-u-mb-no ons-u-mt-s ons-u-mt-l@l">
+                        {% for item in params.descriptionList.itemsList %}
+                            <div class="ons-hero__metadata-item">
+                                {% if item.term | length %}
+                                    <dt class="ons-hero__metadata-label">
+                                        {{ item.term }}
+                                    </dt>
+                                {% endif %}
+                                {% for descriptionItem in item.descriptions %}
+                                    {% if descriptionItem.description | length %}
+                                        <dd {% if descriptionItem.id %}id="{{ descriptionItem.id }}"{% endif %} class="ons-hero__metadata-description">
+                                            {% if descriptionItem.url %}
+                                                    <a href="{{ descriptionItem.url }}">
+                                                        {{ descriptionItem.description }}
+                                                    </a>
+                                                {% else %}
+                                                {{ descriptionItem.description }}
+                                            {% endif %}
+                                        </dd>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </dl>
                 {% endif %}
+
             </div>
 
             {% if params.html %}

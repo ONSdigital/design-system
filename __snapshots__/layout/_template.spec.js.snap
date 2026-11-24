@@ -24,10 +24,12 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="">
-            <meta property="og:image" content="/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
+            <meta property="og:image" content="/social/opengraph.png">
+            
+                <meta property="og:image:type" content="image/png">
+                <meta property="og:image:width" content="1200">
+                <meta property="og:image:height" content="630">
+            
             <meta property="og:description" content="">
             <meta property="og:site_name" content="">
             <meta property="og:locale" content="en">
@@ -48,7 +50,6 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
         
 
         
-        
     </head>
     <body>
         <!-- prettier-ignore-start -->
@@ -63,7 +64,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                         
     <div role="region">
         
-        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content"><span class="ons-skip-to-content__text">Skip to main content</span></a>
     </div>
 
                     
@@ -71,7 +72,9 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                         
                     
                     
-                        
+                        <header>
+                            
+    
     
     
     
@@ -84,8 +87,10 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
     
 
     
-
-    <header class="ons-header ons-header--basic">
+    
+    <!-- prettier-ignore-start -->
+    <div class="ons-header ons-header--basic">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -109,9 +114,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="250" height="24" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
-            <title id="ons-logo-en-alt">
-                Custom alt text for logo
-            </title>
+            <title id="ons-logo-en-alt">Custom alt text for logo</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,34.6c.8-1.69,1.39-3,2.32-4.6A38.28,38.28,0,0,1,0,23.4V34.6M5,3S0,3,0,9.25v1A62.12,62.12,0,0,0,4.2,27a43.77,43.77,0,0,1,9.42-10.79C21.69,9.21,31.16,5.13,45.9,3Z"></path>
             </g>
@@ -151,9 +154,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
                                 </div>
                                 <div class="ons-header__org-logo ons-header__org-logo--small">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="120" height="27" viewBox="0 5 595 116" aria-labelledby="ons-logo-stacked-en-alt" role="img">
-            <title id="ons-logo-stacked-en-alt">
-                Custom alt text for logo
-            </title>
+            <title id="ons-logo-stacked-en-alt">Custom alt text for logo</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,70.5c1.8-3.7,3.6-7.2,5.6-10.7A127.94,127.94,0,0,1,0,42.6V70.5M10.9,0S0,0,0,13.5v7.2A128.06,128.06,0,0,0,7.9,56.2a114.75,114.75,0,0,1,22.3-26C47.8,15.1,71.5,4.7,103.7.1Z"></path>
             </g>
@@ -876,22 +877,33 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
         
         
         
-    </header>
+    <!-- prettier-ignore-start -->
+    </div>
+    <!-- prettier-ignore-end -->
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
+
+                            
                             
                                 
                             
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m">
-                                    <main id="main-content" class="ons-page__main">
-                                        
-                                    </main>
+                        </header>
+                    
+                    
+                    
+                        <main id="main-content">
+                            
+                            
+                            <div class="ons-page__container ons-container">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m">
+                                        <div class="ons-page__main">
+                                            
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     
                 </div>
                 
@@ -907,7 +919,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
-                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart]');
 
                 if (hasCharts) {
                     s.push('/scripts/chart.js');
@@ -961,10 +973,12 @@ exports[`base page template matches the body block override snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
+            <meta property="og:image" content="/social/opengraph.png">
+            
+                <meta property="og:image:type" content="image/png">
+                <meta property="og:image:width" content="1200">
+                <meta property="og:image:height" content="630">
+            
             <meta property="og:description" content="">
             <meta property="og:site_name" content="Social survey">
             <meta property="og:locale" content="en">
@@ -985,7 +999,6 @@ exports[`base page template matches the body block override snapshot 1`] = `
         
 
         
-        
     </head>
     <body>
         <!-- prettier-ignore-start -->
@@ -1000,7 +1013,7 @@ exports[`base page template matches the body block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
-                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart]');
 
                 if (hasCharts) {
                     s.push('/scripts/chart.js');
@@ -1054,10 +1067,12 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
+            <meta property="og:image" content="/social/opengraph.png">
+            
+                <meta property="og:image:type" content="image/png">
+                <meta property="og:image:width" content="1200">
+                <meta property="og:image:height" content="630">
+            
             <meta property="og:description" content="">
             <meta property="og:site_name" content="Social survey">
             <meta property="og:locale" content="en">
@@ -1069,7 +1084,6 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
 
         
 
-        
         
     </head>
     <body>
@@ -1085,7 +1099,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                         
     <div role="region">
         
-        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content"><span class="ons-skip-to-content__text">Skip to main content</span></a>
     </div>
 
                     
@@ -1093,7 +1107,9 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                         
                     
                     
-                        
+                        <header>
+                            
+    
     
     
     
@@ -1106,8 +1122,10 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
     
 
     
-
-    <header class="ons-header">
+    
+    <!-- prettier-ignore-start -->
+    <div class="ons-header">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -1131,9 +1149,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="250" height="24" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
-            <title id="ons-logo-en-alt">
-                Office for National Statistics logo
-            </title>
+            <title id="ons-logo-en-alt">Office for National Statistics logo</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,34.6c.8-1.69,1.39-3,2.32-4.6A38.28,38.28,0,0,1,0,23.4V34.6M5,3S0,3,0,9.25v1A62.12,62.12,0,0,0,4.2,27a43.77,43.77,0,0,1,9.42-10.79C21.69,9.21,31.16,5.13,45.9,3Z"></path>
             </g>
@@ -1173,9 +1189,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
                                 </div>
                                 <div class="ons-header__org-logo ons-header__org-logo--small">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="120" height="27" viewBox="0 5 595 116" aria-labelledby="ons-logo-stacked-en-alt" role="img">
-            <title id="ons-logo-stacked-en-alt">
-                Office for National Statistics logo
-            </title>
+            <title id="ons-logo-stacked-en-alt">Office for National Statistics logo</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,70.5c1.8-3.7,3.6-7.2,5.6-10.7A127.94,127.94,0,0,1,0,42.6V70.5M10.9,0S0,0,0,13.5v7.2A128.06,128.06,0,0,0,7.9,56.2a114.75,114.75,0,0,1,22.3-26C47.8,15.1,71.5,4.7,103.7.1Z"></path>
             </g>
@@ -1224,22 +1238,33 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             </div>
         
         
-    </header>
+    <!-- prettier-ignore-start -->
+    </div>
+    <!-- prettier-ignore-end -->
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
+
+                            
                             
                                 
                             
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m">
-                                    <main id="main-content" class="ons-page__main">
-                                        
-                                    </main>
+                        </header>
+                    
+                    
+                    
+                        <main id="main-content">
+                            
+                            
+                            <div class="ons-page__container ons-container">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m">
+                                        <div class="ons-page__main">
+                                            
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     
                 </div>
                 
@@ -1255,7 +1280,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
-                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart]');
 
                 if (hasCharts) {
                     s.push('/scripts/chart.js');
@@ -1309,10 +1334,12 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
+            <meta property="og:image" content="/social/opengraph.png">
+            
+                <meta property="og:image:type" content="image/png">
+                <meta property="og:image:width" content="1200">
+                <meta property="og:image:height" content="630">
+            
             <meta property="og:description" content="">
             <meta property="og:site_name" content="Social survey">
             <meta property="og:locale" content="en">
@@ -1333,7 +1360,6 @@ exports[`base page template matches the footer block override snapshot 1`] = `
         
 
         
-        
     </head>
     <body>
         <!-- prettier-ignore-start -->
@@ -1348,7 +1374,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                         
     <div role="region">
         
-        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content"><span class="ons-skip-to-content__text">Skip to main content</span></a>
     </div>
 
                     
@@ -1356,7 +1382,9 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                         
                     
                     
-                        
+                        <header>
+                            
+    
     
     
     
@@ -1369,8 +1397,10 @@ exports[`base page template matches the footer block override snapshot 1`] = `
     
 
     
-
-    <header class="ons-header">
+    
+    <!-- prettier-ignore-start -->
+    <div class="ons-header">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -1394,9 +1424,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="250" height="24" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
-            <title id="ons-logo-en-alt">
-                Office for National Statistics logo
-            </title>
+            <title id="ons-logo-en-alt">Office for National Statistics logo</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,34.6c.8-1.69,1.39-3,2.32-4.6A38.28,38.28,0,0,1,0,23.4V34.6M5,3S0,3,0,9.25v1A62.12,62.12,0,0,0,4.2,27a43.77,43.77,0,0,1,9.42-10.79C21.69,9.21,31.16,5.13,45.9,3Z"></path>
             </g>
@@ -1436,9 +1464,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                                 </div>
                                 <div class="ons-header__org-logo ons-header__org-logo--small">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="120" height="27" viewBox="0 5 595 116" aria-labelledby="ons-logo-stacked-en-alt" role="img">
-            <title id="ons-logo-stacked-en-alt">
-                Office for National Statistics logo
-            </title>
+            <title id="ons-logo-stacked-en-alt">Office for National Statistics logo</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,70.5c1.8-3.7,3.6-7.2,5.6-10.7A127.94,127.94,0,0,1,0,42.6V70.5M10.9,0S0,0,0,13.5v7.2A128.06,128.06,0,0,0,7.9,56.2a114.75,114.75,0,0,1,22.3-26C47.8,15.1,71.5,4.7,103.7.1Z"></path>
             </g>
@@ -1487,22 +1513,33 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             </div>
         
         
-    </header>
+    <!-- prettier-ignore-start -->
+    </div>
+    <!-- prettier-ignore-end -->
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
+
+                            
                             
                                 
                             
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m">
-                                    <main id="main-content" class="ons-page__main">
-                                        
-                                    </main>
+                        </header>
+                    
+                    
+                    
+                        <main id="main-content">
+                            
+                            
+                            <div class="ons-page__container ons-container">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m">
+                                        <div class="ons-page__main">
+                                            
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     
                 </div>
                 
@@ -1516,7 +1553,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
-                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart]');
 
                 if (hasCharts) {
                     s.push('/scripts/chart.js');
@@ -1583,10 +1620,12 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="/some-url">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/some-path/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
+            <meta property="og:image" content="/some-path/social/opengraph.png">
+            
+                <meta property="og:image:type" content="image/png">
+                <meta property="og:image:width" content="1200">
+                <meta property="og:image:height" content="630">
+            
             <meta property="og:description" content="Meta description">
             <meta property="og:site_name" content="ONS Service">
             <meta property="og:locale" content="en">
@@ -1629,12 +1668,12 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
             <div class="ons-page">
                 <div class="ons-page__content">
-                    Some preHeader content
+                    <section>Some preHeader content</section>
                     
                         
     <div role="region">
         
-        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content"><span class="ons-skip-to-content__text">Skip to main content</span></a>
     </div>
 
                     
@@ -1664,7 +1703,9 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                         
                     
                     
-                        
+                        <header>
+                            
+    
     
     
     
@@ -1680,8 +1721,10 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         
         
     
-
-    <header class="ons-header ons-header--neutral">
+    
+    <!-- prettier-ignore-start -->
+    <div class="ons-header ons-header--neutral">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -1726,9 +1769,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     <div class="ons-grid__col ons-col-auto"><a class="ons-header__org-logo-link" href="#0">
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="250" height="24" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
-            <title id="ons-logo-en-alt">
-                Office for National Statistics logo
-            </title>
+            <title id="ons-logo-en-alt">Office for National Statistics logo</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,34.6c.8-1.69,1.39-3,2.32-4.6A38.28,38.28,0,0,1,0,23.4V34.6M5,3S0,3,0,9.25v1A62.12,62.12,0,0,0,4.2,27a43.77,43.77,0,0,1,9.42-10.79C21.69,9.21,31.16,5.13,45.9,3Z"></path>
             </g>
@@ -1768,9 +1809,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                 </div>
                                 <div class="ons-header__org-logo ons-header__org-logo--small">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="120" height="27" viewBox="0 5 595 116" aria-labelledby="ons-logo-stacked-en-alt" role="img">
-            <title id="ons-logo-stacked-en-alt">
-                Office for National Statistics logo
-            </title>
+            <title id="ons-logo-stacked-en-alt">Office for National Statistics logo</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,70.5c1.8-3.7,3.6-7.2,5.6-10.7A127.94,127.94,0,0,1,0,42.6V70.5M10.9,0S0,0,0,13.5v7.2A128.06,128.06,0,0,0,7.9,56.2a114.75,114.75,0,0,1,22.3-26C47.8,15.1,71.5,4.7,103.7.1Z"></path>
             </g>
@@ -1816,6 +1855,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                                 
                                     
                                     
+                                        
                                 
                                 <div class="ons-grid__col ons-col-auto ons-u-d-no@2xs@m">
                                     <nav class="ons-header-service-nav ons-header-service-nav--main" aria-label="Services menu">
@@ -2329,45 +2369,53 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
 
         
-    </header>
+    <!-- prettier-ignore-start -->
+    </div>
+    <!-- prettier-ignore-end -->
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
+
+                            
                             
                                 
-                                    
-                                    
+                                        
+                                        
     
     
         
-        <nav class="ons-breadcrumbs" aria-label="Breadcrumbs">
-            <ol class="ons-breadcrumbs__items ons-u-fs-s"><li class="ons-breadcrumbs__item" id="breadcrumb-1">
-                        <a class="ons-breadcrumbs__link" href="/">Home</a><svg class="ons-icon" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" aria-hidden="true">
+        <div class="ons-container">
+            <nav class="ons-breadcrumbs" aria-label="Breadcrumbs">
+                <ol class="ons-breadcrumbs__items ons-u-fs-s"><li class="ons-breadcrumbs__item" id="breadcrumb-1">
+                            <a class="ons-breadcrumbs__link" href="/">Home</a><svg class="ons-icon" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" aria-hidden="true">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg></li><li class="ons-breadcrumbs__item" id="breadcrumb-2">
-                        <a class="ons-breadcrumbs__link" href="/components">Components</a><svg class="ons-icon" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" aria-hidden="true">
+                            <a class="ons-breadcrumbs__link" href="/components">Components</a><svg class="ons-icon" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor" role="img" aria-hidden="true">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"></path>
         </svg></li></ol>
-        </nav>
+            </nav>
+        </div>
     
     
 
                                 
                             
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m">
-                                    <main id="main-content" class="ons-page__main">
-                                        
-    <h1>Page Title</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                                    </main>
+                        </header>
+                    
+                    
+                    
+                        <main id="main-content">
+                            
+                            
+                            <div class="ons-page__container ons-container">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m">
+                                        <div class="ons-page__main">
+                                            
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     
                 </div>
                 Some preFooter content
@@ -2778,7 +2826,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                         
                             <!-- OGL -->
                             <div class="ons-footer__license ons-u-mb-l"><svg class="ons-footer__ogl-img" xmlns="http://www.w3.org/2000/svg" width="50px" height="20px" viewBox="0 0 60 24" focusable="false" aria-hidden="true" role="img">
-            <title>Open Government License logo</title>
+            <title>Open Government Licence logo</title>
             <path d="M51.7,17.5V0l-6.2,4v19.8h13.8v-6.2H51.7z M36.7,16.3c-1,0.9-2.4,1.4-3.8,1.4c-3.2,0-5.8-2.6-5.8-5.8s2.6-5.8,5.8-5.8c2,0,3.9,1.1,4.9,2.7L43,5.6C40.9,2.2,37.1,0,32.9,0c-4.5,0-8.4,2.5-10.4,6.1C20.4,2.5,16.5,0,12,0C5.4,0,0,5.4,0,12s5.4,12,12,12c4.5,0,8.4-2.5,10.4-6.1c2.1,3.6,6,6.1,10.4,6.1c3,0,5.8-1.1,7.9-3l2.4,2.7h0.4V13h-9.8L36.7,16.3zM12,17.8c-3.2,0-5.8-2.6-5.8-5.8S8.8,6.2,12,6.2s5.8,2.6,5.8,5.8S15.2,17.8,12,17.8" fill="#595959"></path>
         </svg>
         
@@ -2806,9 +2854,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                             <a class="ons-footer__logo-link" href="https://www.ons.gov.uk/">
         <div class="ons-footer__logo-large">
             <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="250" height="24" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-footer-alt" role="img">
-            <title id="ons-logo-en-footer-alt">
-                Office for National Statistics
-            </title>
+            <title id="ons-logo-en-footer-alt">Office for National Statistics</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,34.6c.8-1.69,1.39-3,2.32-4.6A38.28,38.28,0,0,1,0,23.4V34.6M5,3S0,3,0,9.25v1A62.12,62.12,0,0,0,4.2,27a43.77,43.77,0,0,1,9.42-10.79C21.69,9.21,31.16,5.13,45.9,3Z"></path>
             </g>
@@ -2848,9 +2894,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
         </div>
         <div class="ons-footer__logo-small">
             <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="120" height="27" viewBox="0 5 595 116" aria-labelledby="ons-logo-stacked-en-footer-alt" role="img">
-            <title id="ons-logo-stacked-en-footer-alt">
-                Office for National Statistics
-            </title>
+            <title id="ons-logo-stacked-en-footer-alt">Office for National Statistics</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,70.5c1.8-3.7,3.6-7.2,5.6-10.7A127.94,127.94,0,0,1,0,42.6V70.5M10.9,0S0,0,0,13.5v7.2A128.06,128.06,0,0,0,7.9,56.2a114.75,114.75,0,0,1,22.3-26C47.8,15.1,71.5,4.7,103.7.1Z"></path>
             </g>
@@ -2888,7 +2932,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             (function() {
                 var s = [ '/some-path/scripts/main.js' ],
                 c = document.createElement('script');
-                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart]');
 
                 if (hasCharts) {
                     s.push('/some-path/scripts/chart.js');
@@ -2939,10 +2983,12 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             <meta property="og:type" content="website">
             <meta property="og:url" content="">
             <meta property="og:title" content="Social survey">
-            <meta property="og:image" content="/favicons/opengraph.png">
-            <meta property="og:image:type" content="image/png">
-            <meta property="og:image:width" content="1200">
-            <meta property="og:image:height" content="630">
+            <meta property="og:image" content="/social/opengraph.png">
+            
+                <meta property="og:image:type" content="image/png">
+                <meta property="og:image:width" content="1200">
+                <meta property="og:image:height" content="630">
+            
             <meta property="og:description" content="">
             <meta property="og:site_name" content="Social survey">
             <meta property="og:locale" content="en">
@@ -2963,7 +3009,6 @@ exports[`base page template matches the meta block override snapshot 1`] = `
         
 
         
-        
     </head>
     <body>
         <!-- prettier-ignore-start -->
@@ -2978,7 +3023,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                         
     <div role="region">
         
-        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content"><span class="ons-skip-to-content__text">Skip to main content</span></a>
     </div>
 
                     
@@ -2986,7 +3031,9 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                         
                     
                     
-                        
+                        <header>
+                            
+    
     
     
     
@@ -2999,8 +3046,10 @@ exports[`base page template matches the meta block override snapshot 1`] = `
     
 
     
-
-    <header class="ons-header">
+    
+    <!-- prettier-ignore-start -->
+    <div class="ons-header">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -3024,9 +3073,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="250" height="24" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
-            <title id="ons-logo-en-alt">
-                Office for National Statistics logo
-            </title>
+            <title id="ons-logo-en-alt">Office for National Statistics logo</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,34.6c.8-1.69,1.39-3,2.32-4.6A38.28,38.28,0,0,1,0,23.4V34.6M5,3S0,3,0,9.25v1A62.12,62.12,0,0,0,4.2,27a43.77,43.77,0,0,1,9.42-10.79C21.69,9.21,31.16,5.13,45.9,3Z"></path>
             </g>
@@ -3066,9 +3113,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
                                 </div>
                                 <div class="ons-header__org-logo ons-header__org-logo--small">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="120" height="27" viewBox="0 5 595 116" aria-labelledby="ons-logo-stacked-en-alt" role="img">
-            <title id="ons-logo-stacked-en-alt">
-                Office for National Statistics logo
-            </title>
+            <title id="ons-logo-stacked-en-alt">Office for National Statistics logo</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,70.5c1.8-3.7,3.6-7.2,5.6-10.7A127.94,127.94,0,0,1,0,42.6V70.5M10.9,0S0,0,0,13.5v7.2A128.06,128.06,0,0,0,7.9,56.2a114.75,114.75,0,0,1,22.3-26C47.8,15.1,71.5,4.7,103.7.1Z"></path>
             </g>
@@ -3117,22 +3162,33 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             </div>
         
         
-    </header>
+    <!-- prettier-ignore-start -->
+    </div>
+    <!-- prettier-ignore-end -->
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
+
+                            
                             
                                 
                             
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m">
-                                    <main id="main-content" class="ons-page__main">
-                                        
-                                    </main>
+                        </header>
+                    
+                    
+                    
+                        <main id="main-content">
+                            
+                            
+                            <div class="ons-page__container ons-container">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m">
+                                        <div class="ons-page__main">
+                                            
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     
                 </div>
                 
@@ -3148,7 +3204,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
-                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart]');
 
                 if (hasCharts) {
                     s.push('/scripts/chart.js');
@@ -3210,7 +3266,6 @@ exports[`base page template matches the social block override snapshot 1`] = `
         
 
         
-        
     </head>
     <body>
         <!-- prettier-ignore-start -->
@@ -3225,7 +3280,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
                         
     <div role="region">
         
-        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content">Skip to main content</a>
+        <a class="ons-skip-to-content ons-u-fs-r--b" href="#main-content"><span class="ons-skip-to-content__text">Skip to main content</span></a>
     </div>
 
                     
@@ -3233,7 +3288,9 @@ exports[`base page template matches the social block override snapshot 1`] = `
                         
                     
                     
-                        
+                        <header>
+                            
+    
     
     
     
@@ -3246,8 +3303,10 @@ exports[`base page template matches the social block override snapshot 1`] = `
     
 
     
-
-    <header class="ons-header">
+    
+    <!-- prettier-ignore-start -->
+    <div class="ons-header">
+    <!-- prettier-ignore-end -->
         
     
         
@@ -3271,9 +3330,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
                                 
                                 <div class="ons-header__org-logo ons-header__org-logo--large">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="250" height="24" viewBox="33 2 552 60" aria-labelledby="ons-logo-en-alt" role="img">
-            <title id="ons-logo-en-alt">
-                Office for National Statistics logo
-            </title>
+            <title id="ons-logo-en-alt">Office for National Statistics logo</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,34.6c.8-1.69,1.39-3,2.32-4.6A38.28,38.28,0,0,1,0,23.4V34.6M5,3S0,3,0,9.25v1A62.12,62.12,0,0,0,4.2,27a43.77,43.77,0,0,1,9.42-10.79C21.69,9.21,31.16,5.13,45.9,3Z"></path>
             </g>
@@ -3313,9 +3370,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
                                 </div>
                                 <div class="ons-header__org-logo ons-header__org-logo--small">
                                     <svg class="ons-icon--logo" xmlns="http://www.w3.org/2000/svg" width="120" height="27" viewBox="0 5 595 116" aria-labelledby="ons-logo-stacked-en-alt" role="img">
-            <title id="ons-logo-stacked-en-alt">
-                Office for National Statistics logo
-            </title>
+            <title id="ons-logo-stacked-en-alt">Office for National Statistics logo</title>
             <g class="ons-icon--logo__group ons-icon--logo__group--secondary" fill="#a8bd3a">
                 <path d="M0,70.5c1.8-3.7,3.6-7.2,5.6-10.7A127.94,127.94,0,0,1,0,42.6V70.5M10.9,0S0,0,0,13.5v7.2A128.06,128.06,0,0,0,7.9,56.2a114.75,114.75,0,0,1,22.3-26C47.8,15.1,71.5,4.7,103.7.1Z"></path>
             </g>
@@ -3364,22 +3419,33 @@ exports[`base page template matches the social block override snapshot 1`] = `
             </div>
         
         
-    </header>
+    <!-- prettier-ignore-start -->
+    </div>
+    <!-- prettier-ignore-end -->
 
-                    
-                    
-                        <div class="ons-page__container ons-container">
+
+                            
                             
                                 
                             
-                            <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-12@m">
-                                    <main id="main-content" class="ons-page__main">
-                                        
-                                    </main>
+                        </header>
+                    
+                    
+                    
+                        <main id="main-content">
+                            
+                            
+                            <div class="ons-page__container ons-container">
+                                <div class="ons-grid">
+                                    <div class="ons-grid__col ons-col-12@m">
+                                        <div class="ons-page__main">
+                                            
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </main>
                     
                 </div>
                 
@@ -3395,7 +3461,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
             (function() {
                 var s = [ '/scripts/main.js' ],
                 c = document.createElement('script');
-                var hasCharts = !!document.querySelector('[data-highcharts-base-chart], .ons-chart__iframe-wrapper iframe');
+                var hasCharts = !!document.querySelector('[data-highcharts-base-chart]');
 
                 if (hasCharts) {
                     s.push('/scripts/chart.js');

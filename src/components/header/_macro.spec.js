@@ -36,6 +36,33 @@ describe('FOR: Macro: Header', () => {
         });
     });
 
+    describe('GIVEN: Params: useDivForRootElement', () => {
+        describe('WHEN: useDivForRootElement is not set', () => {
+            const $ = cheerio.load(
+                renderComponent('header', {
+                    ...EXAMPLE_HEADER_BASIC,
+                }),
+            );
+            test('THEN: renders the root element as a header tag', () => {
+                expect($('header.ons-header').length).toBe(1);
+            });
+        });
+        describe('WHEN: useDivForRootElement is set to true', () => {
+            const $ = cheerio.load(
+                renderComponent('header', {
+                    ...EXAMPLE_HEADER_BASIC,
+                    useDivForRootElement: true,
+                }),
+            );
+            test('THEN: renders the root element as a div tag', () => {
+                expect($('div.ons-header').length).toBe(1);
+            });
+            test('THEN: does not render a header tag as the root element', () => {
+                expect($('header.ons-header').length).toBe(0);
+            });
+        });
+    });
+
     describe('Accessibility: search heading', () => {
         test('THEN: axe passes when search heading is present (params.search.links.heading)', async () => {
             const params = {
@@ -269,6 +296,40 @@ describe('FOR: Macro: Header', () => {
             });
             test('THEN: renders logo with default alt text', () => {
                 expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics logo');
+            });
+        });
+        describe('WHEN: mastheadLogoAltText is not provided and Welsh is the current language', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_BASIC,
+                mastheadLogoAltText: undefined,
+                language: {
+                    languages: [
+                        { url: '#0', isoCode: 'en', text: 'English', current: false },
+                        { url: '#0', isoCode: 'cy', text: 'Cymraeg', current: true },
+                    ],
+                },
+            });
+            test('THEN: renders logo with Welsh default alt text', () => {
+                expect(iconsSpy.occurrences[0].altText).toBe('Logo Swyddfa Ystadegau Gwladol');
+            });
+        });
+        describe('WHEN: mastheadLogoAltText is provided and Welsh is the current language', () => {
+            const faker = templateFaker();
+            const iconsSpy = faker.spy('icon');
+            faker.renderComponent('header', {
+                ...EXAMPLE_HEADER_BASIC,
+                mastheadLogoAltText: 'Custom alt text for logo',
+                language: {
+                    languages: [
+                        { url: '#0', isoCode: 'en', text: 'English', current: false },
+                        { url: '#0', isoCode: 'cy', text: 'Cymraeg', current: true },
+                    ],
+                },
+            });
+            test('THEN: renders logo with provided alt text', () => {
+                expect(iconsSpy.occurrences[0].altText).toBe('Custom alt text for logo');
             });
         });
     });

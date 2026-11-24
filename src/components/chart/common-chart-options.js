@@ -1,4 +1,5 @@
 import ChartConstants from './chart-constants';
+import { getValueAxisLabelFormatter } from './utilities';
 
 // Options that are common to all chart types - these are set once in the Highcharts.setOptions() method
 class CommonChartOptions {
@@ -56,6 +57,11 @@ class CommonChartOptions {
                 enabled: false,
             },
             lang: {
+                // Pin the thousands separator and disable Highcharts' default SI
+                // suffixes (k, M, G) on axis labels. The axis formatters below
+                // then produce plain comma-separated numbers by default.
+                thousandsSep: ',',
+                numericSymbols: undefined,
                 accessibility: {
                     // We use only the title so screen readers don't hear Highcharts interactive chart text.
                     chartContainerLabel: '{title}',
@@ -79,6 +85,7 @@ class CommonChartOptions {
             },
             yAxis: {
                 labels: {
+                    formatter: getValueAxisLabelFormatter(false),
                     style: {
                         color: this.constants.axisLabelColor,
                         fontSize: this.constants.defaultFontSize,
@@ -107,6 +114,7 @@ class CommonChartOptions {
             },
             xAxis: {
                 labels: {
+                    formatter: getValueAxisLabelFormatter(false),
                     useHTML: true,
                     rotation: 0,
                     style: {
@@ -146,6 +154,7 @@ class CommonChartOptions {
             },
             tooltip: {
                 animation: false,
+                snap: 2,
             },
         };
     }
