@@ -100,7 +100,7 @@
 }
 
 @mixin reading-width {
-    max-width: $reading-width;
+    max-width: var(--ons-reading-width);
 }
 
 @mixin no-reading-width {
