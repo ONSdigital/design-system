@@ -82,7 +82,7 @@
 
     .ons-card--feature {
         display: grid;
-        grid-row: span 3;
+        grid-row: span 2;
         grid-template-rows: subgrid;
         margin: 0 0 1rem;
         padding: 1rem;
@@ -102,8 +102,13 @@
         margin-bottom: 0;
     }
 
-    .ons-card__figure {
+    .ons-card__content {
+        display: grid;
+        gap: 0.5rem;
         align-self: end;
+    }
+
+    .ons-card__figure {
         margin-top: 2rem;
 
         @include mq(l, xl, $to-operator: '<') {
@@ -113,14 +118,12 @@
     }
 
     .ons-card--figure-top {
-        grid-row: span 2;
-
-        .ons-card__figure {
+        .ons-card__content {
             align-self: start;
         }
     }
 
     .ons-card__body {
-        margin-top: 1rem;
+        margin: 0;
     }
 }

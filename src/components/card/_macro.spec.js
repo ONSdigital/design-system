@@ -208,9 +208,8 @@ describe('FOR: Macro: Card', () => {
                         .map((_, element) => element.attribs.class)
                         .get(),
                 ).toEqual(['ons-card__link', 'ons-card__subtitle ons-u-fs-s ons-u-mt-2xs']);
-                expect($('.ons-card__heading').next().hasClass('ons-card__figure')).toBe(true);
-                expect($('.ons-card__figure').next().hasClass('ons-card__content')).toBe(true);
-                expect($('.ons-card__content').children().get()).toEqual($('.ons-card__body').get());
+                expect($('.ons-card__heading').next().hasClass('ons-card__content')).toBe(true);
+                expect($('.ons-card__content').children().get()).toEqual($('.ons-card__figure, .ons-card__body').get());
             });
 
             test('THEN: top alignment groups the figure and its supporting text', () => {
@@ -249,7 +248,7 @@ describe('FOR: Macro: Card', () => {
 
                 expect($withList('.ons-card__content > .ons-card__body').next('ul')).toHaveLength(1);
                 expect($withList('.ons-card__content > ul li')).toHaveLength(2);
-                expect($withList('.ons-card__content > .ons-card__figure')).toHaveLength(figureAlignment === 'top' ? 1 : 0);
+                expect($withList('.ons-card__content > .ons-card__figure')).toHaveLength(1);
             });
         });
     });

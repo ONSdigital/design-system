@@ -80,20 +80,9 @@
         {% endif %}
 
 
-        {% set figureBlock %}
+        {% set bodyBlock %}
             {% if params.body.figure %}
                 <p class="ons-card__figure ons-u-fs-3xl ons-u-fw-b ons-u-mb-no">{{ params.body.figure }}</p>
-            {% endif %}
-        {% endset %}
-
-        {% if not topAlignedFigure %}
-            {{ figureBlock | safe }}
-        {% endif %}
-
-
-        {% set bodyBlock %}
-            {% if topAlignedFigure %}
-                {{ figureBlock | safe }}
             {% endif %}
 
             <p id="{{ params.body.id }}" class="ons-card__body">{{ params.body.text }}</p>

@@ -2,7 +2,7 @@ import { setViewport } from '../../tests/helpers/puppeteer';
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 import { EXAMPLE_CARD_FEATURE_VARIANT, EXAMPLE_CARD_FULL_EXAMPLE } from './_test_examples';
 
-function renderCardSet(wide, figureAlignment) {
+function renderCardSet(wide, figureAlignment, withList = true) {
     const cards = Array.from({ length: 5 }, (_, index) =>
         renderComponent('card', {
             ...EXAMPLE_CARD_FEATURE_VARIANT,
@@ -15,7 +15,7 @@ function renderCardSet(wide, figureAlignment) {
             body: {
                 figure: index === 1 ? '6.15 Million households in England' : '581,363',
                 text: index === 1 ? 'Supporting text that also wraps across several lines in narrower cards' : 'In 2023, up 0.7% from 2022',
-                ...(index === 1 ? { itemsList: [{ text: 'Additional supporting information' }] } : {}),
+                ...(index === 1 && withList ? { itemsList: [{ text: 'Additional supporting information' }] } : {}),
             },
         }),
     );
@@ -69,6 +69,7 @@ describe('Headline figure cards', () => {
                 const title = card.querySelector('.ons-card__title').getBoundingClientRect();
                 const subtitle = card.querySelector('.ons-card__subtitle').getBoundingClientRect();
                 const list = card.querySelector('.ons-card__content > ul')?.getBoundingClientRect();
+                const content = card.querySelector('.ons-card__content').getBoundingClientRect();
                 return {
                     left: rect.left,
                     right: rect.right,
@@ -78,6 +79,7 @@ describe('Headline figure cards', () => {
                     figureBottom: figure.bottom,
                     bodyTop: body.top,
                     bodyBottom: body.bottom,
+                    contentBottom: content.bottom,
                     listTop: list?.top,
                     listBottom: list?.bottom,
                     subtitleGap: subtitle.top - title.bottom,
@@ -91,9 +93,10 @@ describe('Headline figure cards', () => {
         const verticalGap = secondRow.top - layout[0].bottom;
 
         for (const card of layout) {
+            expect(Math.abs(card.bodyTop - card.figureBottom - 8)).toBeLessThan(1);
             expect(Math.abs(card.subtitleGap - (card.linked ? 8 : 0))).toBeLessThan(1);
             if (card.listTop !== undefined) {
-                expect(card.listTop).toBeGreaterThanOrEqual(card.bodyBottom);
+                expect(Math.abs(card.listTop - card.bodyBottom - 8)).toBeLessThan(1);
                 expect(card.listBottom).toBeLessThanOrEqual(card.bottom);
             }
         }
@@ -110,14 +113,28 @@ describe('Headline figure cards', () => {
 
         for (const card of firstRow) {
             expect(Math.abs(card.bottom - firstRow[0].bottom)).toBeLessThan(1);
-            const edge = alignment === 'top' ? 'figureTop' : 'figureBottom';
+            const edge = alignment === 'top' ? 'figureTop' : 'contentBottom';
             expect(Math.abs(card[edge] - firstRow[0][edge])).toBeLessThan(1);
-            if (alignment === 'top') {
-                expect(Math.abs(card.bodyTop - card.figureBottom - 16)).toBeLessThan(1);
-            } else {
-                expect(Math.abs(card.bodyTop - firstRow[0].bodyTop)).toBeLessThan(1);
-            }
         }
+    });
+
+    it('bottom-aligns supporting text rather than figure bottoms when text wraps', async () => {
+        await setViewport(page, { width: 1200, height: 1100 });
+        await setTestPage('/test', renderCardSet(false, undefined, false));
+
+        const layout = await page.$$eval('.ons-card', (cards) =>
+            cards.slice(0, 3).map((card) => {
+                const figure = card.querySelector('.ons-card__figure').getBoundingClientRect();
+                const body = card.querySelector('.ons-card__body').getBoundingClientRect();
+                return { figureBottom: figure.bottom, bodyBottom: body.bottom, bodyHeight: body.height };
+            }),
+        );
+
+        expect(layout[1].bodyHeight).toBeGreaterThan(layout[0].bodyHeight);
+        for (const card of layout) {
+            expect(Math.abs(card.bodyBottom - layout[0].bodyBottom)).toBeLessThan(1);
+        }
+        expect(layout[0].figureBottom - layout[1].figureBottom).toBeGreaterThan(1);
     });
 
     describe('linked feature cards', () => {

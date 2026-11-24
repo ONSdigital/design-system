@@ -1,23 +1,25 @@
-| Name            | Type                      | Required | Description                                                                                                                                                             |
-| --------------- | ------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title           | `Object<Title>`           | true     | An object containing title attributes for [the card’s title](#title).                                                                                                   |
-| image           | `Object<Image>` or `true` | false    | An object containing path attributes for [the card’s image](#image). If value is `true` will show placeholder with root as `placeholderURL` base path                   |
-| body            | `Object<Body>`            | true     | An object containing body attributes for [the card’s body](#body).                                                                                                      |
-| variant         | string                    | false    | A single value to adjust the component using available variants: “feature”                                                                                              |
-| figureAlignment | string                    | false    | Set to `"top"` on feature cards with a headline figure to align the tops of the figures and keep body text immediately below each figure. Defaults to bottom alignment. |
+| Name            | Type                      | Required | Description                                                                                                                                                           |
+| --------------- | ------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title           | `Object<Title>`           | true     | An object containing title attributes for [the card’s title](#title).                                                                                                 |
+| image           | `Object<Image>` or `true` | false    | An object containing path attributes for [the card’s image](#image). If value is `true` will show placeholder with root as `placeholderURL` base path                 |
+| body            | `Object<Body>`            | true     | An object containing body attributes for [the card’s body](#body).                                                                                                    |
+| variant         | string                    | false    | A single value to adjust the component using available variants: “feature”                                                                                            |
+| figureAlignment | string                    | false    | Set to `"top"` on feature cards with a headline figure to align figure tops. By default, the figure and supporting content align together at the bottom of each card. |
 
 For feature cards with a headline figure, the macro adds the following wrappers automatically. Content providers do not need to add them:
 
 - `ons-card__heading` groups the image and title (inside the title link when provided) and optional subtitle.
-- `ons-card__content` groups the supporting text and optional list. With default bottom alignment, the figure stays outside this wrapper so headings, figures and supporting content occupy three shared grid rows. With top alignment, the wrapper also includes the figure so each card's supporting text follows its figure, using two shared grid rows.
+- `ons-card__content` groups the figure, supporting text and optional list. Both alignments use two shared grid rows: heading and content. By default, the content group aligns to the bottom of each card, keeping supporting text bottom-aligned across a row even when it wraps. Figure bottoms can differ, with supporting text always immediately below its figure. With top alignment, the content group aligns to the top of its row so figure tops stay aligned instead.
 
 These wrappers are not added to standard cards or feature cards without a headline figure.
 
-Add `ons-card-set--headline-figures` alongside the container's grid classes to enable headline figure alignment. The macro adds `ons-card--figure-top` to feature cards with a figure when `figureAlignment` is `"top"`; this selects the two-row layout within the headline figure card set.
+The content group uses a grid gap of `0.5rem` (8px at the default font size) between its figure, supporting text and optional list in both alignments. The body paragraph has no margins.
 
-The headline figure card set fills the available row with one, two or three cards. Set `figureAlignment` to `"top"` on every card in a set to align the tops of figures instead of their bottoms; see [the top-aligned headline figures example](example-card-set-with-headline-figures-top-aligned.html) for a wrapping figure.
+Add `ons-card-set--headline-figures` alongside the container's grid classes to enable headline figure alignment. The macro adds `ons-card--figure-top` to feature cards with a figure when `figureAlignment` is `"top"`; this selects top alignment for the content group within the headline figure card set.
 
-The top-aligned example uses [Census 2021 household figures](https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/bulletins/householdandresidentcharacteristicsenglandandwales/census2021) to demonstrate how supporting text stays immediately below each figure when values wrap.
+The headline figure card set fills the available row with one, two or three cards. Set `figureAlignment` to `"top"` on every card in a set to align figure tops instead of bottom-aligning the content groups; see [the top-aligned headline figures example](example-card-set-with-headline-figures-top-aligned.html) for a wrapping figure. If an optional list is present, it stays with the supporting text and forms the bottom of the content group.
+
+Both examples use the same content, including [Census 2021 household figures](https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/bulletins/householdandresidentcharacteristicsenglandandwales/census2021) and [alcohol-specific deaths registered in 2023](https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/bulletins/alcoholrelateddeathsintheunitedkingdom/registeredin2023). The longer household figure and third card's supporting text demonstrate wrapping so the two alignment options can be compared directly.
 
 Headline figure card sets use the container's responsive grid gutters for both horizontal and vertical spacing, including between wrapped rows and the wider gutters in wide containers. On mobile, where the horizontal gutter is zero, stacked cards retain a `1rem` vertical gap.
 
