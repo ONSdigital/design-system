@@ -57,6 +57,10 @@
     set themeColor = pageConfig.themeColor if pageConfig.themeColor else
     "#206095"
 %}
+{%
+    set signoutButton = pageConfig.header.signoutButton if pageConfig.header.signoutButton else
+    pageConfig.header.button
+%}
 {% set ogImg = pageConfig.ogImg if pageConfig.ogImg else null %}
 {% set ogImageIsCustom = ogImg and ogImg.url %}
 {% set ogImageUrl = ogImg.url if ogImageIsCustom else assetsUrl + '/social/opengraph.png' %}
@@ -180,7 +184,7 @@
                                     "wide": pageConfig.wide,
                                     "fullWidth": pageConfig.fullWidth,
                                     "language": pageConfig.header.language,
-                                    "button": pageConfig.header.signoutButton,
+                                    "signoutButton": signoutButton,
                                     "toggleNavigationButton": pageConfig.header.toggleNavigationButton,
                                     "navigation": pageConfig.header.navigation,
                                     "siteSearchAutosuggest": pageConfig.header.siteSearchAutosuggest,
@@ -254,7 +258,7 @@
                                 "footerLogo": pageConfig.footer.footerLogo,
                                 "crest": pageConfig.footer.crest,
                                 "oglLink": pageConfig.footer.oglLink,
-                                "button": pageConfig.header.signoutButton,
+                                "signoutButton": signoutButton,
                                 "footerWarning": pageConfig.footer.footerWarning,
                                 "copyrightDeclaration": pageConfig.footer.copyrightDeclaration,
                                 "newTabWarning": pageConfig.footer.newTabWarning,
