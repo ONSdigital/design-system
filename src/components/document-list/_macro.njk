@@ -105,8 +105,8 @@
                 class="ons-document-list__item{{ ' ons-document-list__item--featured' if document.featured }}{{ ' ons-document-list__item--full-width' if document.featured and document.fullWidth == true }}{{ ' ' + document.classes if document.classes else '' }}"
                 {% if document.attributes %}{% for attribute, value in (document.attributes.items() if document.attributes is mapping and document.attributes.items else document.attributes) %}{{ ' ' }}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
             >
-                {% if document.featured %}
-                    <div class="ons-container{{ ' ons-container--full-width' if document.fullWidth == true }}{{ ' ons-container--wide' if document.wide == true }}">{{ documentItem | safe }}</div>
+                {% if document.featured and document.fullWidth == true %}
+                    <div class="ons-container{{ ' ons-container--wide' if document.wide == true }}">{{ documentItem | safe }}</div>
                 {% else %}
                     {{ documentItem | safe }}
                 {% endif %}
