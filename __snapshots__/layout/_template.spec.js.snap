@@ -84,6 +84,7 @@ exports[`base page template matches the basic variant header snapshot 1`] = `
     
     
     
+    
 
     
     
@@ -1118,6 +1119,7 @@ exports[`base page template matches the favicons block override snapshot 1`] = `
     
     
     
+    
 
     
     
@@ -1382,6 +1384,7 @@ exports[`base page template matches the footer block override snapshot 1`] = `
                     
                         <header>
                             
+    
     
     
     
@@ -1702,6 +1705,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
                     
                         <header>
                             
+    
     
     
     
@@ -2426,6 +2430,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
     
     
     
+    
 
     <footer class="ons-footer">
         
@@ -3038,6 +3043,7 @@ exports[`base page template matches the meta block override snapshot 1`] = `
     
     
     
+    
 
     
     
@@ -3284,6 +3290,7 @@ exports[`base page template matches the social block override snapshot 1`] = `
                     
                         <header>
                             
+    
     
     
     
