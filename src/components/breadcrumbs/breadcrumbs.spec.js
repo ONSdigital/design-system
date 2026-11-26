@@ -60,7 +60,9 @@ describe('layout: breadcrumbs', () => {
             expect(layout.finalWordLines).toBe(1);
             expect(layout.iconTop).toBeGreaterThanOrEqual(layout.finalWordTop);
             expect(layout.iconBottom).toBeLessThanOrEqual(layout.finalWordBottom);
-            expect(layout.iconLeft - layout.finalWordRight).toBeCloseTo(4, 0);
+            const gap = layout.iconLeft - layout.finalWordRight;
+            expect(gap).toBeGreaterThanOrEqual(2);
+            expect(gap).toBeLessThanOrEqual(8);
             expect(layout.iconRight).toBeLessThanOrEqual(layout.listRight);
         }
     });

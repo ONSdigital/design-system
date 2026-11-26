@@ -58,6 +58,7 @@ $breadcrumb-chevron-height: 0.65rem;
     &__items {
         margin: 0;
         padding: 0;
+        // Flex + wrap keeps crumbs on one flow and avoids a visual regression when labels wrap.
         display: flex;
         flex-wrap: wrap;
     }
@@ -90,7 +91,7 @@ $breadcrumb-chevron-height: 0.65rem;
                 transform: rotate(180deg);
                 align-self: start;
                 position: relative;
-                top: 7px;
+                top: 0.35em;
             }
         }
 
