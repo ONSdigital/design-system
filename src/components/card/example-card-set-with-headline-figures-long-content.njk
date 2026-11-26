@@ -1,0 +1,60 @@
+{% from "components/card/_macro.njk" import onsCard %}
+
+<div class="ons-container ons-container--wide">
+    <div class="ons-grid ons-grid-flex-gap ons-card-set--headline-figures">
+        <div class="ons-grid__col ons-grid__col--flex-col">
+            {{
+                onsCard({
+                    "variant": 'feature',
+                    "title": {
+                        "id": 'long-content-card-1',
+                        "text": 'Deaths registered annually in England and Wales',
+                        "url": '#deaths-registered',
+                        "subtitle": 'England and Wales'
+                    },
+                    "body": {
+                        "id": 'long-content-text-1',
+                        "figure": '581,363',
+                        "text": 'In 2023, up 0.7% from 2022'
+                    }
+                })
+            }}
+        </div>
+
+        <div class="ons-grid__col ons-grid__col--flex-col">
+            {{
+                onsCard({
+                    "variant": 'feature',
+                    "title": {
+                        "id": 'long-content-card-2',
+                        "text": 'Number of households',
+                        "subtitle": 'England and Wales'
+                    },
+                    "body": {
+                        "id": 'long-content-text-2',
+                        "figure": '24.8 million households',
+                        "text": 'In 2021, up 6.1% from 23.4 million in 2011'
+                    }
+                })
+            }}
+        </div>
+
+        <div class="ons-grid__col ons-grid__col--flex-col">
+            {{
+                onsCard({
+                    "variant": 'feature',
+                    "title": {
+                        "id": 'long-content-card-3',
+                        "text": 'Alcohol-specific deaths registered in the UK reached a record high in 2023',
+                        "subtitle": 'UK'
+                    },
+                    "body": {
+                        "id": 'long-content-text-3',
+                        "figure": '10,473',
+                        "text": 'In 2023, the highest annual number of deaths on record'
+                    }
+                })
+            }}
+        </div>
+    </div>
+</div>

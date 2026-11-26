@@ -1,17 +1,18 @@
 {% from "components/card/_macro.njk" import onsCard %}
 
-<div class="ons-container">
-    <div class="ons-grid ons-grid-flex-gap">
+<div class="ons-container ons-container--wide">
+    <div class="ons-grid ons-grid-flex-gap ons-card-set--headline-figures">
         <div class="ons-grid__col ons-grid__col--flex-col">
             {{
                 onsCard({
                     "variant": 'feature',
                     "title": {
                         "id": 'card-set-1',
-                        "text": 'Deaths registered annually',
+                        "text": 'Deaths registered',
+                        "url": '#deaths-registered',
                         "subtitle": 'England and Wales'
                     },
-                    "body":{
+                    "body": {
                         "id": 'text1',
                         "figure": '581,363',
                         "text": 'In 2023, up 0.7% from 2022'
@@ -26,13 +27,13 @@
                     "variant": 'feature',
                     "title": {
                         "id": 'card-set-2',
-                        "text": 'Alcohol-specific deaths',
-                        "subtitle": 'UK'
+                        "text": 'Number of households',
+                        "subtitle": 'England and Wales'
                     },
-                    "body":{
+                    "body": {
                         "id": 'text2',
-                        "figure": '10,473',
-                        "text": 'In 2023, the highest number on record'
+                        "figure": '24.8m',
+                        "text": 'In 2021, up 6.1% from 2011'
                     }
                 })
             }}
@@ -44,13 +45,13 @@
                     "variant": 'feature',
                     "title": {
                         "id": 'card-set-3',
-                        "text": 'Suicides registered',
-                        "subtitle": 'England and Wales'
+                        "text": 'Alcohol-specific deaths',
+                        "subtitle": 'UK'
                     },
-                    "body":{
+                    "body": {
                         "id": 'text3',
-                        "figure": '6069',
-                        "text": 'In 2023, up 7.6% from 2022'
+                        "figure": '10,473',
+                        "text": 'Registered in 2023'
                     }
                 })
             }}
