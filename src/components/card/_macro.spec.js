@@ -212,10 +212,10 @@ describe('FOR: Macro: Card', () => {
                 expect($('.ons-card__content').children().get()).toEqual($('.ons-card__figure, .ons-card__body').get());
             });
 
-            test('THEN: top alignment groups the figure and its supporting text', () => {
-                const $topAligned = cheerio.load(renderComponent('card', { ...EXAMPLE_CARD_FEATURE_VARIANT, figureAlignment: 'top' }));
+            test('THEN: default alignment groups the figure and its supporting text without a bottom modifier', () => {
+                const $topAligned = cheerio.load(renderComponent('card', EXAMPLE_CARD_FEATURE_VARIANT));
 
-                expect($topAligned('.ons-card').hasClass('ons-card--figure-top')).toBe(true);
+                expect($topAligned('.ons-card').hasClass('ons-card--figure-bottom')).toBe(false);
                 expect(
                     $topAligned('.ons-card__content')
                         .children()
@@ -225,16 +225,27 @@ describe('FOR: Macro: Card', () => {
                 expect($topAligned('.ons-card__heading').next().hasClass('ons-card__content')).toBe(true);
             });
 
-            test('THEN: cards without a figure keep the original body markup', () => {
-                const $noFigure = cheerio.load(renderComponent('card', { ...EXAMPLE_CARD, variant: 'feature', figureAlignment: 'top' }));
+            test('THEN: bottom alignment adds the bottom modifier to headline feature cards only', () => {
+                const $bottomAligned = cheerio.load(
+                    renderComponent('card', { ...EXAMPLE_CARD_FEATURE_VARIANT, figureAlignment: 'bottom' }),
+                );
+                const $standard = cheerio.load(renderComponent('card', { ...EXAMPLE_CARD_FULL_EXAMPLE, figureAlignment: 'bottom' }));
 
-                expect($noFigure('.ons-card').hasClass('ons-card--figure-top')).toBe(false);
+                expect($bottomAligned('.ons-card').hasClass('ons-card--figure-bottom')).toBe(true);
+                expect($bottomAligned('.ons-card__content > .ons-card__figure')).toHaveLength(1);
+                expect($standard('.ons-card').hasClass('ons-card--figure-bottom')).toBe(false);
+            });
+
+            test('THEN: cards without a figure keep the original body markup', () => {
+                const $noFigure = cheerio.load(renderComponent('card', { ...EXAMPLE_CARD, variant: 'feature', figureAlignment: 'bottom' }));
+
+                expect($noFigure('.ons-card').hasClass('ons-card--figure-bottom')).toBe(false);
                 expect($noFigure('.ons-card__content').length).toBe(0);
                 expect($noFigure('.ons-card__heading').length).toBe(0);
                 expect($noFigure('.ons-card__body').parent().hasClass('ons-card')).toBe(true);
             });
 
-            it.each([undefined, 'top'])('THEN: alignment %s keeps the optional list with its supporting text', (figureAlignment) => {
+            it.each([undefined, 'bottom'])('THEN: alignment %s keeps the optional list with its supporting text', (figureAlignment) => {
                 const $withList = cheerio.load(
                     renderComponent('card', {
                         ...EXAMPLE_CARD_FEATURE_VARIANT,
