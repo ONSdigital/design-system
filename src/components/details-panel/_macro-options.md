@@ -6,6 +6,8 @@
 | openText     | string               | false    | Optional alternative for the 'Show detail' toggle text                                                                                          |
 | closeText    | string               | false    | Optional alternative for the 'Hide detail' toggle text                                                                                          |
 | open         | boolean              | false    | Forces the details panel to be open when the page loads                                                                                         |
+| wide         | boolean              | false    | Set to “true” to increase the maximum width of the layout container to 1280px                                                                   |
+| fullWidth    | boolean              | false    | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                           |
 
 ## DetailsItem
 

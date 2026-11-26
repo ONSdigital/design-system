@@ -4,7 +4,7 @@
 
     <details class="ons-details-panel" {% if params.open %}{{ ' ' }}data-open{% endif %}>
         <summary class="ons-details-panel__banner ons-u-pt-s ons-u-pb-s">
-            <span class="ons-container ons-details-panel__banner-contents">
+            <span class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }} ons-details-panel__banner-contents">
                 <span class="ons-details-panel__info-icon ons-u-mr-2xs" aria-hidden="true">i</span>
                 <span class="ons-details-panel__banner-body">
                     {% set titleTag = params.headingLevel | default(2) %}
@@ -29,7 +29,7 @@
                 </span>
             </span>
         </summary>
-        <dl class="ons-container ons-details-panel__content ons-u-p-l">
+        <dl class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }} ons-details-panel__content ons-u-pt-l  ons-u-pb-l">
             {% for item in params.detailsItems %}
                 <div class="ons-details-panel__item ons-u-pb-xl ons-u-mb-l ons-u-ml-2xs">
                     <dt class="ons-details-panel__content-meta ons-u-mb-l@2xs@m">

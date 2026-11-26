@@ -104,7 +104,7 @@
 
     {% if params.variant == "warn-branded" or params.variant == "announcement" %}
         <div class="{{ containerClass }}">
-            <div class="ons-container">{{ panel | safe }}</div>
+            <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">{{ panel | safe }}</div>
         </div>
     {% else %}
         {{ panel | safe }}
