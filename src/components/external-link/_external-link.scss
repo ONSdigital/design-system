@@ -13,7 +13,7 @@
             fill: var(--ons-color-black);
         }
     }
-    &:hover {
+    &:hover:not(:focus) {
         .ons-icon {
             fill: var(--ons-color-text-link-hover);
             .ons-footer & {
