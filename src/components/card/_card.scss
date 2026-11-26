@@ -73,7 +73,7 @@
     grid-template-columns: 1fr;
 
     @include mq(l) {
-        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
     }
 
     > .ons-grid__col {
