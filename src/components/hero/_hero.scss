@@ -467,8 +467,9 @@
         flex-direction: column-reverse;
     }
 
-    &__text {
-        @include no-reading-width;
+    &__text,
+    &__richtext {
+        max-width: 42rem; // equivalent of 8 columns at wide mode
     }
 
     &__metadata {
