@@ -469,7 +469,6 @@
 
     &__text,
     &__richtext {
-        //@include no-reading-width;
         max-width: 42rem; // equivalent of 8 columns at wide mode
     }
 
