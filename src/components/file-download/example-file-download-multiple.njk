@@ -1,0 +1,28 @@
+{% from "components/file-download/_macro.njk" import onsFileDownload %}
+
+{{
+    onsFileDownload({
+        "fileFormat": "PDF",
+        "fileName": "Annual population survey 2023",
+        "supportingInformation": "Estimates of the UK population broken down by age, sex and geography, covering the period January to December 2023.",
+        "url": "#0"
+    })
+}}
+
+{{
+    onsFileDownload({
+        "fileFormat": "CSV",
+        "fileName": "Population estimates dataset",
+        "supportingInformation": "Raw population estimates data in CSV format, suitable for analysis and import into statistical software.",
+        "url": "#0"
+    })
+}}
+
+{{
+    onsFileDownload({
+        "fileFormat": "XLS",
+        "fileName": "Household expenditure summary tables",
+        "supportingInformation": "Detailed expenditure tables broken down by region and household type.",
+        "url": "#0"
+    })
+}}
