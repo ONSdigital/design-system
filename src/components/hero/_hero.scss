@@ -467,6 +467,12 @@
         flex-direction: column-reverse;
     }
 
+    &__text,
+    &__richtext {
+        //@include no-reading-width;
+        max-width: 42rem; // equivalent of 8 columns at wide mode
+    }
+
     &__metadata {
         display: grid;
         grid-template-columns: 1fr;
